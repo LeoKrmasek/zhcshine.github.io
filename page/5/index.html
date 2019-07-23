@@ -1,0 +1,1746 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>zhuohc.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="技术博客、日记记录">
+<meta property="og:type" content="website">
+<meta property="og:title" content="zhuohc.com">
+<meta property="og:url" content="http://www.zhuohc.com/page/5/index.html">
+<meta property="og:site_name" content="zhuohc.com">
+<meta property="og:description" content="技术博客、日记记录">
+<meta property="og:locale" content="default">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="zhuohc.com">
+<meta name="twitter:description" content="技术博客、日记记录">
+  
+    <link rel="alternate" href="/atom.xml" title="zhuohc.com" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">zhuohc.com</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">我的个人网站</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://www.zhuohc.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-apache-e5-9f-ba-e7-a1-80-e5-85-a5-e9-97-a8" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/09/apache-e5-9f-ba-e7-a1-80-e5-85-a5-e9-97-a8/" class="article-date">
+  <time datetime="2016-11-09T06:46:39.000Z" itemprop="datePublished">2016-11-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/运维/">运维</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/09/apache-e5-9f-ba-e7-a1-80-e5-85-a5-e9-97-a8/">Apache基础入门</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="查看apache加载的模块"><a href="#查看apache加载的模块" class="headerlink" title="查看apache加载的模块"></a>查看apache加载的模块</h3><pre><code>apachectl -t -D DUMP_MODULES  </code></pre><h3 id="禁用和启用模块"><a href="#禁用和启用模块" class="headerlink" title="禁用和启用模块"></a>禁用和启用模块</h3><pre><code>sudo a2dismod python
+sudo a2enmod python</code></pre><h3 id="查看版本号"><a href="#查看版本号" class="headerlink" title="查看版本号"></a>查看版本号</h3><pre><code>apachectl -v</code></pre><h3 id="赋予权限"><a href="#赋予权限" class="headerlink" title="赋予权限"></a>赋予权限</h3><p>2.2.x以下版本</p>
+<pre><code>Order deny,allow
+Allow from all</code></pre><p>2.4.x以上版本</p>
+<pre><code>Require all granted</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.zhuohc.com/2016/11/09/apache-e5-9f-ba-e7-a1-80-e5-85-a5-e9-97-a8/" data-id="cjyfelqv60000cta4ip2nijwz" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-django-e5-9f-ba-e7-a1-80-e5-85-a5-e9-97-a8" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/09/django-e5-9f-ba-e7-a1-80-e5-85-a5-e9-97-a8/" class="article-date">
+  <time datetime="2016-11-09T06:41:04.000Z" itemprop="datePublished">2016-11-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/后端/">后端</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/09/django-e5-9f-ba-e7-a1-80-e5-85-a5-e9-97-a8/">Django基础入门</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="2017-11-10号重新更新基本安装和线上部署"><a href="#2017-11-10号重新更新基本安装和线上部署" class="headerlink" title="2017.11.10号重新更新基本安装和线上部署"></a>2017.11.10号重新更新基本安装和线上部署</h3><p>环境：python3.5 django1.11</p>
+<pre><code># 安装环境
+$ sudo apt-get update
+$ sudo apt-get install python3-pip apache2 libapache2-mod-wsgi-py3
+$ sudo pip3 install virtualenv
+
+
+# 安装项目目录
+$ cd ~/www/html/
+$ virtualenv --no-site-packages -p /usr/bin/python3.5 CCO
+$ cd CCO
+$ source ./bin/activate
+(CCO) $ pip3 install ipython
+(CCO) $ pip3 install Django==1.11.7
+# 查看django是否安装成功
+(CCO) $  ipython
+ &gt; import django
+ &gt; django.VERSION # 打印出django版本表示成功
+# 开始创建项目
+(CCO) $ django-admin.py startproject CCO_WEB
+# 创建应用
+(CCO) $ cd CCO_WEB
+(CCO) $ django-admin.py startapp polls
+
+
+# 修改文件内容
+(CCO) $ vim CCO_WEB/CCO_WEB/setting.py
+ALLOWED_HOSTS = [&apos;127.0.0.1&apos;, &apos;localhost&apos;]  # 修改
+STATIC_URL = &apos;/static/&apos; # 原始
+STATIC_ROOT = os.path.join(BASE_DIR, &apos;static/&apos;) # 添加
+
+
+# 创建数据库和超级管理员
+(CCO) $ ./manage.py makemigrations
+(CCO) $ ./manage.py migrate
+(CCO) $ ./manage.py createsuperuser # 创建超级管理员
+(CCO) $ ./manage.py collectstatic # 收集静态文件
+
+
+### 用django自带服务器运行
+(CCO) $ sudo ufw allow 8000 # 关闭防火墙
+(CCO) $ ./manage.py runserver 0.0.0.0:8000 # 成功表示django开发环境配置完成
+
+
+### 线上部署
+apache虚拟主机配置
+$ sudo vim /etc/apache2/sites-available/www.cco.com.conf
+&lt;VirtualHost *:80&gt;
+        ServerName www.example.com
+        ServerAdmin webmaster@localhost
+         # 这里指明静态文件存放的地方
+    Alias /static  /home/hanchang/www/html/CCO/CCO_WEB/static
+    # 给文件夹分配权限
+    &lt;Directory /home/hanchang/www/html/CCO/CCO_WEB/static&gt;
+            Require all granted
+    &lt;/Directory&gt;
+    #接下来，我们将授予访问存储Django代码的二级项目目录中的wsgi.py文件的权限。
+    &lt;Directory /home/hanchang/www/html/CCO/CCO_WEB/CCO_WEB&gt;
+    &lt;Files wsgi.py&gt;
+            Require all granted
+    &lt;/Files&gt;
+    &lt;/Directory&gt;
+        WSGIDaemonProcess CCO_WEB python-home=/home/hanchang/www/html/CCO/CCO_WEB/CCO_WEB python-path=/home/hanchang/www/html/CCO
+    WSGIProcessGroup CCO_WEB
+    WSGIScriptAlias / /home/hanchang/www/html/CCO/CCO_WEB/CCO_WEB/wsgi.py
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+&lt;/VirtualHost&gt;
+
+
+### 线上
+sudo a2ensite www.cco.com
+sudo service apache2 restart
+http://127.0.0.1 查看
+原文查看　https://www.digitalocean.com/community/tutorials/how-to-serve-django-applications-with-apache-and-mod_wsgi-on-ubuntu-16-04</code></pre><h3 id="数据库安装"><a href="#数据库安装" class="headerlink" title="数据库安装"></a>数据库安装</h3><pre><code>$ sudo apt-get install python-setuptools
+$ sudo apt-get install libmysqld-dev
+$ sudo apt-get install libmysqlclient-dev
+$ sudo apt-get install python-dev
+$ sudo easy_install mysql-python
+$ pip3 install mysqlclient</code></pre><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><pre><code># 需要先安装虚拟环境
+(Novel) pip isntall django==1.8.2 # 不能加sudo</code></pre><h3 id="查看是否安装成功及版本号"><a href="#查看是否安装成功及版本号" class="headerlink" title="查看是否安装成功及版本号"></a>查看是否安装成功及版本号</h3><pre><code>python
+import django
+django.VERSION</code></pre><h3 id="安装MysqlDb"><a href="#安装MysqlDb" class="headerlink" title="安装MysqlDb"></a>安装MysqlDb</h3><p>ubuntu</p>
+<pre><code># ubuntu安装步骤：
+sudo apt-get install python-setuptools
+sudo apt-get install libmysqld-dev
+sudo apt-get install libmysqlclient-dev
+sudo apt-get install python-dev
+sudo easy_install mysql-python</code></pre><p>windows下<a href="https://pypi.python.org/pypi/MySQL-python/1.2.5" target="_blank" rel="noopener">https://pypi.python.org/pypi/MySQL-python/1.2.5</a> 下载.exe一键安装</p>
+<h3 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h3><pre><code>django-admin.py startproject Novel</code></pre><h3 id="创建APP"><a href="#创建APP" class="headerlink" title="创建APP"></a>创建APP</h3><pre><code>python manage.py startapp Heros</code></pre><p>/Novel/settings.py</p>
+<pre><code>INSTALLED_APPS = (
+    ...
+    &apos;Heroes&apos;,  #这里填写的是app的名称
+)</code></pre><h3 id="命令行调试模式"><a href="#命令行调试模式" class="headerlink" title="命令行调试模式"></a>命令行调试模式</h3><pre><code>python manage.py shell</code></pre><h3 id="运行开发服务器"><a href="#运行开发服务器" class="headerlink" title="运行开发服务器"></a>运行开发服务器</h3><pre><code>cd mysite
+python manage.py runserver 或者
+python manage.py runserver 0.0.0.0:8000</code></pre><h3 id="运行shell脚本方式"><a href="#运行shell脚本方式" class="headerlink" title="运行shell脚本方式"></a>运行shell脚本方式</h3><pre><code>python manager.py shell # 启动脚本环境
+from testapp.models import *  # 导入数据库</code></pre><h3 id="部署线上环境"><a href="#部署线上环境" class="headerlink" title="部署线上环境"></a>部署线上环境</h3><p>安装apache模块</p>
+<pre><code># Python 2
+sudo apt-get install libapache2-mod-wsgi
+
+# Python 3
+sudo apt-get install libapache2-mod-wsgi-py3</code></pre><p>Novel/Novel/wsgi.py</p>
+<pre><code>import os
+import sys
+sys.path.append(&apos;/var/www/html/Novel/&apos;)
+sys.path.append(&apos;/var/www/html/Novel/Novel/&apos;)
+sys.path.append(&apos;/var/www/html/Novel/lib/python2.7/site-packages&apos;) # 虚拟环境需要添加
+from django.core.wsgi import get_wsgi_application
+
+
+os.environ.setdefault(&quot;DJANGO_SETTINGS_MODULE&quot;, &quot;Novel.settings&quot;)
+application = get_wsgi_application()</code></pre><p>/etc/apache2/sites-enable/novel.conf</p>
+<pre><code>&lt;VirtualHost *:1200&gt;
+    ServerAdmin webmaster@localhost
+    DocumentRoot /var/www/html/Novel/Novel/Novel
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+    # 静态文件设置
+    Alias /static/ /var/www/html/Novel/Novel/Novel/static/
+    &lt;Directory /var/www/html/Novel/Novel/Novel/static/&gt;
+        Require all granted
+    &lt;/Directory&gt;
+
+    WSGIScriptAlias / /var/www/html/Novel/Novel/Novel/wsgi.py
+    &lt;Directory /var/www/html/Novel/Novel/Novel/&gt;
+        Require all granted
+        &lt;Files wsgi.py&gt;
+            Require all granted
+        &lt;/Files&gt;
+    &lt;/Directory&gt;
+
+&lt;/VirtualHost&gt;</code></pre><h3 id="视图与路由绑定"><a href="#视图与路由绑定" class="headerlink" title="视图与路由绑定"></a>视图与路由绑定</h3><p>/Heroes/views.py</p>
+<pre><code>from django.http import HttpResponse, Http404
+# Create your views here.
+
+
+def hello(request):
+    return HttpResponse(&quot;Hello World&quot;)</code></pre><p>/Novel/urls.py</p>
+<pre><code>from django.conf.urls import include, url
+from Heroes.views import *
+
+urlpatterns = [
+    url(r&apos;^hello/$&apos;, hello),
+    url(r&apos;^time/plus/(\d{1,2})/$&apos;, hours_ahead)
+]</code></pre><h3 id="视图与模板"><a href="#视图与模板" class="headerlink" title="视图与模板"></a>视图与模板</h3><p>/Novel/settings.py设置模板路径</p>
+<pre><code>TEMPLATES = [
+    {
+        # .....
+        &apos;DIRS&apos;: [
+            os.path.join(os.path.dirname(__file__), &apos;templates&apos;).replace(&apos;\\&apos;,&apos;/&apos;),
+        ],
+        # ....
+    },
+]</code></pre><p>/Novel/Heroes/views.py修改视图</p>
+<pre><code>from django.shortcuts import render_to_response
+from django.http import HttpResponse, Http404
+import datetime
+# Create your views here.
+
+
+
+def current_datetime(request):
+    now = datetime.datetime.now()
+    # html = &apos;&lt;html&gt;&lt;body&gt;It is %s.&lt;/body&gt;&lt;/html&gt;&apos; % now
+    return render_to_response(&apos;Heroes/current_datetime.html&apos;, {&apos;current_time&apos;: now})</code></pre><p>/Novel目录下创建templates/Heroes/current_datetime.html</p>
+<pre><code>&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;{ { current_time }}&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h3 id="数据库配置"><a href="#数据库配置" class="headerlink" title="数据库配置"></a>数据库配置</h3><p>/Novel/settings.py</p>
+<pre><code>DATABASES = {
+    &apos;default&apos;: {
+        &apos;ENGINE&apos;: &apos;django.db.backends.mysql&apos;,
+        &apos;NAME&apos;: &apos;Novel&apos;,
+        &apos;USER&apos;: &apos;root&apos;,
+        &apos;PASSWORD&apos;: &apos;password&apos;,
+        &apos;HOST&apos;: &apos;127.0.0.1&apos;,
+        &apos;PORT&apos;: &apos;3306&apos;
+    }
+}</code></pre><p>测试是否成功</p>
+<pre><code>python manage.py shell
+&gt;&gt;&gt; from django.db import connection
+&gt;&gt;&gt; cursor = connection.cursor()</code></pre><h3 id="视图返回json数据格式"><a href="#视图返回json数据格式" class="headerlink" title="视图返回json数据格式"></a>视图返回json数据格式</h3><p>views.py</p>
+<pre><code>from django.http import HttpResponse, Http404
+from json import dumps
+
+def login_handle(request):
+    if request.method != &apos;POST&apos;:
+        raise Http404()
+    inputs = request.POST
+    json_str = dumps(inputs)
+    return HttpResponse(json_str, content_type=&apos;application/json&apos;)</code></pre><p>### 静态文件 settings.py <figure class="highlight plain"><figcaption><span>线上模式静态地址 STATIC_URL </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">开发模式静态地址</span><br><span class="line">========</span><br><span class="line"></span><br><span class="line">STATICFILES_DIRS = (os.path.join(os.path.dirname(**file**), &apos;static&apos;).replace(&apos;\\&apos;,&apos;/&apos;),)</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.zhuohc.com/2016/11/09/django-e5-9f-ba-e7-a1-80-e5-85-a5-e9-97-a8/" data-id="cjyfelqvr000pcta4wavt9uii" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/django/">django</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-mysql-e4-b8-bb-e4-bb-8e-e5-a4-8d-e5-88-b6" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/09/mysql-e4-b8-bb-e4-bb-8e-e5-a4-8d-e5-88-b6/" class="article-date">
+  <time datetime="2016-11-09T06:34:49.000Z" itemprop="datePublished">2016-11-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/运维/">运维</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/09/mysql-e4-b8-bb-e4-bb-8e-e5-a4-8d-e5-88-b6/">MYSQL主从复制</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="测试环境"><a href="#测试环境" class="headerlink" title="测试环境"></a>测试环境</h3><p>主服务器<br>192.168.0.160 mysql 5.6.17 win2008R2<br>从服务器<br>192.168.0.206 mysql 5.6.12 win2003</p>
+<h3 id="主服务器创建数据库test1-test2"><a href="#主服务器创建数据库test1-test2" class="headerlink" title="主服务器创建数据库test1, test2"></a>主服务器创建数据库test1, test2</h3><pre><code>mysql&gt;CREATE DATABASE `test1` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;     
+mysql&gt;USE test1
+mysql&gt;CREATE TABLE `test1`.`user` ( `id` INT(10) NOT NULL AUTO_INCREMENT , `name` VARCHAR(100) NOT NULL , PRIMARY KEY (`id`)) ENGINE = MyISAM;  
+mysql&gt;INSERT INTO `user` (`id`, `name`) VALUES (NULL, &apos;user1&apos;), (NULL, &apos;user2&apos;)
+
+
+mysql&gt;CREATE DATABASE `test2` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;    
+mysql&gt;USE test2
+mysql&gt;CREATE TABLE `test2`.`user` ( `id` INT(10) NOT NULL AUTO_INCREMENT , `name` VARCHAR(100) NOT NULL , PRIMARY KEY (`id`)) ENGINE = MyISAM;  
+mysql&gt;INSERT INTO `user` (`id`, `name`) VALUES (NULL, &apos;user1&apos;), (NULL, &apos;user2&apos;)</code></pre><h3 id="将test1-test2-复制到从服务器上"><a href="#将test1-test2-复制到从服务器上" class="headerlink" title="将test1,test2 复制到从服务器上"></a>将test1,test2 复制到从服务器上</h3><pre><code>mysql&gt;CREATE DATABASE `test1` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;     
+mysql&gt;USE test1  
+mysql&gt;set names utf8;  
+mysql&gt;source c:/test1.sql;
+mysql&gt;CREATE DATABASE `test2` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;     
+mysql&gt;USE test2  
+mysql&gt;set names utf8;  
+mysql&gt;source c:/test2.sql;</code></pre><h3 id="主服务器配置"><a href="#主服务器配置" class="headerlink" title="主服务器配置"></a>主服务器配置</h3><p>编辑配置文件my.ini</p>
+<pre><code>[mysqld] 
+server-id=1     # 配一个唯一的ID编号，1至32  
+log-bin=mysql-bin  # 二进制文件存放路径  
+binlog-do-db=test1  # 需要同步的数据库名  
+binlog-ignore-db=test2  # 不需要同步的数据库名</code></pre><p>重启mysql并重新登陆，创建授权用户</p>
+<pre><code>mysql&gt;grant REPLICATION SLAVE,RELOAD,SUPER on *.* to slave@192.168.0.206 identified by &apos;123456&apos; ;  
+mysql&gt;grant REPLICATION SLAVE,RELOAD,SUPER on *.* to slave1@192.168.0.118 identified by &apos;123456&apos; ; # 如果是多从
+mysql&gt;flush privileges;     
+mysql&gt;show master status;  # 找到File 和 Position 的值记录下来    </code></pre><p><img src="http://7xq3ry.com1.z0.glb.clouddn.com/20160401152254.png" alt></p>
+<h3 id="从服务器配置192-168-0-206"><a href="#从服务器配置192-168-0-206" class="headerlink" title="从服务器配置192.168.0.206"></a>从服务器配置192.168.0.206</h3><p>编辑配置文件my.ini添加</p>
+<pre><code>[mysqld]
+server-id=2     #唯一
+replicate-do-db=test1
+replicate-ignore-db=test2</code></pre><p>重启数据库并重新登陆</p>
+<pre><code>mysql&gt;mysql -uroot -p  
+mysql&gt;change master to master_host=&apos;192.168.0.160&apos;,master_user=&apos;slave&apos;,master_password=&apos;123456&apos;, master_log_file=&apos;mysql-bin.000001&apos;,master_log_pos=199;  
+mysql&gt;start slave;
+mysql&gt;show slave status\G</code></pre><p>结果出现一下内容表示成功</p>
+<pre><code>Slave_IO_Running: Yes
+Slave_SQL_Running: Yes</code></pre><p><img src="http://7xq3ry.com1.z0.glb.clouddn.com/20160401152538.png" alt> 多从，另一个从服务器配置192.168.0.118<br>编辑配置文件my.ini添加</p>
+<pre><code>[mysqld]
+server-id=3     #唯一，注意和其他的从服务器不一致
+replicate-do-db=test1
+replicate-ignore-db=test2</code></pre><p>重启mysql并重新登陆，创建授权用户</p>
+<pre><code>mysql&gt;change master to master_host=&apos;192.168.0.160&apos;,master_user=&apos;slave1&apos;,master_password=&apos;123456&apos;, master_log_file=&apos;mysql-bin.000001&apos;,master_log_pos=199;  
+mysql&gt;start slave;
+mysql&gt;show slave status\G    </code></pre><h3 id="最后测试"><a href="#最后测试" class="headerlink" title="最后测试"></a>最后测试</h3><p>在主服务器添加表和数据，可以看到从服务器数据库已经修改。<br>重启主从数据库，依然可以正常同步。</p>
+<h3 id="错误处理办法"><a href="#错误处理办法" class="headerlink" title="错误处理办法"></a>错误处理办法</h3><p>连接不上master：<br>1，密码是否正确，是否给予权限<br>2，防火墙是否开启3306端口 配置的时候注意锁表</p>
+<pre><code>LOCK TABLES
+
+
+UNLOCK TABLES;</code></pre><p>错误提示 Got fatal error 1236 from master when reading data from binary log: ‘Slave can not handle replication events with the checksum that master is configured to log; the first event ‘mysql-bin.000002’ at 120, the last event read from ‘./mysql-bin.000002’ at 120, the last byte read from ‘./mysql-bin.000002’ at 120 由于主库是5.6, 从库是5.5.<br>5.6的版本中加入了replication event checksum，主从复制时间校验功能，所以需要把这个关掉才能正常同步到5.5的slave 修改主库</p>
+<pre><code>sudo vim /etc/my.cnf
+binlog_checksum=none</code></pre><p>重新配置主从即可</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.zhuohc.com/2016/11/09/mysql-e4-b8-bb-e4-bb-8e-e5-a4-8d-e5-88-b6/" data-id="cjyfelqw3001jcta4rxza0qar" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-mysql-e5-9f-ba-e7-a1-80-e5-91-bd-e4-bb-a4" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/09/mysql-e5-9f-ba-e7-a1-80-e5-91-bd-e4-bb-a4/" class="article-date">
+  <time datetime="2016-11-09T06:32:49.000Z" itemprop="datePublished">2016-11-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/运维/">运维</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/09/mysql-e5-9f-ba-e7-a1-80-e5-91-bd-e4-bb-a4/">MYSQL基础教程</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="安装mysql"><a href="#安装mysql" class="headerlink" title="安装mysql"></a>安装mysql</h4><p>ubuntu16.04</p>
+<pre><code>sudo apt-get install mysql-server
+sudo apt install mysql-client  # 服务器端不需要
+mysql_secure_installation</code></pre><h4 id="查看mysql版本信息"><a href="#查看mysql版本信息" class="headerlink" title="查看mysql版本信息"></a>查看mysql版本信息</h4><pre><code>mysql --version  
+mysql&gt; show variables like &apos;%version_%&apos;;</code></pre><p><img src="http://7xq3ry.com1.z0.glb.clouddn.com/20160121142352.png" alt></p>
+<h4 id="数据库创建备份导入命令"><a href="#数据库创建备份导入命令" class="headerlink" title="数据库创建备份导入命令"></a>数据库创建备份导入命令</h4><pre><code>// 创建数据库  
+CREATE DATABASE `test` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;  
+
+// 删除数据库  
+ DROP DATABASE IF EXISTS `test`; 
+
+// 创建表  
+CREATE TABLE test(name varchar(32) not null,password varchar(64) not null)DEFAULT charset=utf8;  
+
+### 重置自增字段
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br></pre></td><td class="code"><pre><span class="line">    <span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="string">`tableName`</span> AUTO_INCREMENT = <span class="number">1</span>; </span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">或者</span><br><span class="line"></span><br><span class="line">    <span class="keyword">truncate</span> tableName; </span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    // 删除表</span><br><span class="line">    <span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">test</span>;</span><br><span class="line">    </span><br><span class="line">    // 删除表内容，保留表结构  </span><br><span class="line">    mysql&gt; TRUNCATE TABLE `tabel_name`;</span><br><span class="line">    Query OK, 0 rows affected (0.29 sec)</span><br><span class="line">    </span><br><span class="line">    // 删除表并重置主键，不会留下日志，相当于删除表并重建    </span><br><span class="line">    <span class="keyword">TRUNCATE</span> <span class="keyword">TABLE</span> <span class="string">`animal_cell_attribute`</span> </span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    // 导出一个数据库    </span><br><span class="line">    mysqldump -u 用户名 -p 数据库名 &gt; 导出的文件名.sql   </span><br><span class="line">    mysqldump -u root -p uscnerp &gt; uscnerp.sql    </span><br><span class="line">    Enter <span class="keyword">password</span>:  </span><br><span class="line">    </span><br><span class="line">    // 导出一张表</span><br><span class="line">    mysqldump -u 用户名 -p 数据库名 表名 &gt; 导出的文件名.sql  </span><br><span class="line">    mysqldump -u root -p animal animal_service &gt; animal_service.sql</span><br><span class="line">    Enter <span class="keyword">password</span>: **********  </span><br><span class="line">    </span><br><span class="line">    // 导出多个数据库</span><br><span class="line">    mysqldump  -uroot -p <span class="comment">--databases test mysql #空格分隔</span></span><br><span class="line">    </span><br><span class="line">    // 导出到excel表格</span><br><span class="line">    mysql   -uroot   -p   -e   <span class="string">"select   *   from   test.table2 "</span>   &gt;   d:a.xsl</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    // 导入数据库  </span><br><span class="line">    mysql -u root -p   </span><br><span class="line">    mysql&gt;<span class="keyword">use</span> 数据库  </span><br><span class="line">    mysql&gt;<span class="keyword">set</span> <span class="keyword">names</span> utf8; （先确认编码，如果不设置可能会出现乱码，注意不是UTF-8）   </span><br><span class="line">    mysql&gt;source d:\wcnc_db.sql</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line"><span class="comment">### 查看表</span></span><br><span class="line"></span><br><span class="line">查看表结构</span><br><span class="line"></span><br><span class="line">    <span class="keyword">show</span> <span class="keyword">create</span> <span class="keyword">table</span> 表名;</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line"><span class="comment">### 配置用户权限</span></span><br><span class="line"></span><br><span class="line">重置root密码并查看所有用户权限</span><br><span class="line"></span><br><span class="line">    mysql&gt; use mysql;</span><br><span class="line">    Database changed</span><br><span class="line">    mysql&gt; UPDATE user SET Password = PASSWORD('newpassword') WHERE user = 'root';</span><br><span class="line">    Query OK, 3 rows affected (0.02 sec)</span><br><span class="line">    Rows matched: 3  Changed: 3  Warnings: 0</span><br><span class="line">    </span><br><span class="line">    mysql&gt; SELECT Host,User,Password FROM mysql.user;</span><br><span class="line">    +<span class="comment">-----------+--------+-------------------------------------------+</span></span><br><span class="line">    | Host      | User   | Password                                  |</span><br><span class="line">    +<span class="comment">-----------+--------+-------------------------------------------+</span></span><br><span class="line">    | localhost | root   | *2ED3112AFECE04CEE0AA42619AB00D4498BA3342 |</span><br><span class="line">    | 127.0.0.1 | root   | *2ED3112AFECE04CEE0AA42619AB00D4498BA3342 |</span><br><span class="line">    | ::1       | root   | *2ED3112AFECE04CEE0AA42619AB00D4498BA3342 |</span><br><span class="line">    | localhost |        |                                           |</span><br><span class="line">    | localhost | animal | *CC87B1E39E699B64E0B80741B5D1991BC5BE57AC |</span><br><span class="line">    +<span class="comment">-----------+--------+-------------------------------------------+</span></span><br><span class="line">    5 rows in <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">查看全部用户</span><br><span class="line"></span><br><span class="line">    <span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> <span class="keyword">CONCAT</span>(<span class="string">'User: '''</span>,<span class="keyword">user</span>,<span class="string">'''@'''</span>,host,<span class="string">''';'</span>) <span class="keyword">AS</span> <span class="keyword">query</span> <span class="keyword">FROM</span> mysql.user;</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">创建用户</span><br><span class="line"></span><br><span class="line">    mysql&gt; CREATE USER username@localhost IDENTIFIED BY 'password';</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">&gt; username:用户名  </span><br><span class="line">&gt; @localhost：表示用户只能在本地访问  </span><br><span class="line">&gt; password:密码</span><br><span class="line"></span><br><span class="line">配置权限</span><br><span class="line"></span><br><span class="line">    <span class="keyword">GRANT</span> <span class="keyword">SELECT</span>,<span class="keyword">INSERT</span>,<span class="keyword">UPDATE</span> <span class="keyword">ON</span> database.* <span class="keyword">TO</span> username@localhost <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'password'</span>;  </span><br><span class="line">    <span class="keyword">GRANT</span> <span class="keyword">ALL</span> <span class="keyword">PRIVILEGES</span> <span class="keyword">ON</span> *.* <span class="keyword">TO</span> <span class="keyword">user</span>;@localhost </span><br><span class="line">    // <span class="keyword">GRANT</span> 权限名称 <span class="keyword">ON</span> 数据库.数据表 <span class="keyword">TO</span> 用户名@访问地址 <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'密码'</span>;</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">刷新权限列表</span><br><span class="line"></span><br><span class="line">    <span class="keyword">flush</span> <span class="keyword">privileges</span>;</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">配置备份用户权限</span><br><span class="line"></span><br><span class="line">    <span class="keyword">CREATE</span> <span class="keyword">USER</span> <span class="string">'backuper'</span>@<span class="string">'localhost'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'PASSWORD'</span>;</span><br><span class="line">    <span class="keyword">GRANT</span> <span class="keyword">SELECT</span>, RELOAD, PROCESS, <span class="keyword">SHOW</span> <span class="keyword">DATABASES</span>, SUPER, <span class="keyword">LOCK</span> <span class="keyword">TABLES</span>, <span class="keyword">REPLICATION</span> <span class="keyword">CLIENT</span>, <span class="keyword">SHOW</span> <span class="keyword">VIEW</span>, <span class="keyword">EVENT</span> <span class="keyword">ON</span> *.* <span class="keyword">TO</span> <span class="string">'backuper'</span>@<span class="string">'localhost'</span>;</span><br><span class="line">    <span class="keyword">FLUSH</span> <span class="keyword">PRIVILEGES</span>;</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line"><span class="comment">### window服务器下自动备份</span></span><br><span class="line"></span><br><span class="line">**编写脚本**</span><br><span class="line"></span><br><span class="line">    rem *******************************Code Start*****************************</span><br><span class="line">    @echo off</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">set</span> <span class="string">"Ymd=%date:~,4%%date:~5,2%%date:~8,2%"</span></span><br><span class="line">    mysqldump <span class="comment">--opt -u root --password=abcdefg database &gt; F:\FTP\BackupMysql\database_%Ymd%.sql</span></span><br><span class="line">    @echo <span class="keyword">on</span></span><br><span class="line">    <span class="keyword">rem</span> *******************************Code <span class="keyword">End</span>*****************************</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">**定时任务**  </span><br><span class="line">注意在操作中填写脚本并在起始于写入脚本所在盘符E:\</span><br><span class="line"></span><br><span class="line"><span class="comment">### 删除mysql</span></span><br><span class="line"></span><br><span class="line">&gt; 在服务里找到mysql服务，停止使用  </span><br><span class="line">&gt; 控制面板中卸载mysql 注册表文件删除： HKEY\_LOCAL\_MACHINE/<span class="keyword">SYSTEM</span>/ControlSet001/Services/Eventlog/Application/MySQL 目录删除; HKEY\_LOCAL\_MACHINE/SYSTEM/ControlSet002/Services/Eventlog/Application/MySQL 目录删除; HKEY\_LOCAL\_MACHINE/SYSTEM/CurrentControlSet/Services/Eventlog/Application/MySQL 目录删除; 在硬盘和注册表中搜索mysql并删除掉</span><br><span class="line"></span><br><span class="line"><span class="comment">### 开启慢查询日志</span></span><br></pre></td></tr></table></figure>
+
+sudo vim /etc/my.cnf
+# slow_query_log
+slow_query_log=on
+slow-query-log-file=/var/log/mysql/slow.log # 保证此文件属于mysql用户，mysql组，并可写权限
+long_query_time=1 # 超过1秒写入慢查询日志
+log-queries-not-using-indexes</code></pre><blockquote>
+<p>重启mysql</p>
+</blockquote>
+<pre><code>### 查看是否开启mysql慢查询日志
+&gt;mysql show variables like &quot;slow_query_log&quot;;</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.zhuohc.com/2016/11/09/mysql-e5-9f-ba-e7-a1-80-e5-91-bd-e4-bb-a4/" data-id="cjyfelqw5001tcta4zgj27fzy" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-rsync-e5-90-8c-e6-ad-a5web-e6-9c-8d-e5-8a-a1-e5-99-a8" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/09/rsync-e5-90-8c-e6-ad-a5web-e6-9c-8d-e5-8a-a1-e5-99-a8/" class="article-date">
+  <time datetime="2016-11-09T03:05:34.000Z" itemprop="datePublished">2016-11-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/运维/">运维</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/09/rsync-e5-90-8c-e6-ad-a5web-e6-9c-8d-e5-8a-a1-e5-99-a8/">Rsync同步web服务器</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="测试环境"><a href="#测试环境" class="headerlink" title="测试环境"></a>测试环境</h3><p>服务端安装 WIN2008R2 ip:192.168.0.160<br>客户端安装 WIN2003 ip:192.168.0.206</p>
+<h3 id="程序下载"><a href="#程序下载" class="headerlink" title="程序下载"></a>程序下载</h3><p>新版已经开始收费，这里使用旧版4.0.5,百度网盘下载<a href="http://pan.baidu.com/s/1kTNyk1h" target="_blank" rel="noopener">http://pan.baidu.com/s/1kTNyk1h</a></p>
+<h3 id="服务端安装"><a href="#服务端安装" class="headerlink" title="服务端安装"></a>服务端安装</h3><p><img src="http://7xq3ry.com1.z0.glb.clouddn.com/cwrsync.png" alt> 一路直接下一步，这里会创建一个用户，创建的默认密码可以不需要修改，直接下一步。 <img src="http://7xq3ry.com1.z0.glb.clouddn.com/cwrsync1.png" alt> 创建的用户 <img src="http://7xq3ry.com1.z0.glb.clouddn.com/cwrsync2.png" alt> 创建的服务改为自动启动</p>
+<h3 id="客户端安装"><a href="#客户端安装" class="headerlink" title="客户端安装"></a>客户端安装</h3><p>一路下一步直到完成。</p>
+<h3 id="配置服务端"><a href="#配置服务端" class="headerlink" title="配置服务端"></a>配置服务端</h3><pre><code>use chroot = false
+# 不验证用户密码
+strict modes = false
+lock file = rsyncd.lock 
+hosts allow = 192.168.0.206
+max connections = 5
+# 默认端口
+port = 873
+
+# 指定匿名访问
+uid = 0
+gid = 0
+
+
+log file = rsyncd.log
+
+# Module definitions
+# Remember cygwin naming conventions : c:\work becomes /cygdrive/c/work
+
+[web]
+path = /cygdrive/C/WEB
+# 下面两行是配置用户名密码的
+# auth users = dbbackuper
+# secrets file = /cygdrive/e/Setting/Rsync/rsync_db.ps
+# 只允许客户端下载，不允许客户端上传
+read only = true
+transfer logging = yes</code></pre><p>防火墙设置允许配置的端口通过<br>查看端口配置是否错误</p>
+<pre><code>telnet 192.168.0.160 873  
+@RSYNCD: 30.0</code></pre><p>服务器端配置测试文件目录 <img src="http://7xq3ry.com1.z0.glb.clouddn.com/cwrsync3.png" alt> 其中targetDir为联接文件</p>
+<pre><code>C:\&gt;mklink /J WEB\targetDir\ source\
+为 WEB\targetDir\ &lt;&lt;===&gt;&gt; source\ 创建的联接</code></pre><h3 id="配置客户端"><a href="#配置客户端" class="headerlink" title="配置客户端"></a>配置客户端</h3><p>在安装目录下使用如下命令</p>
+<pre><code>C:\Program Files\cwRsync\bin&gt;rsync --port=873 -vzrtopg --progress --delete 192.168.0.160::web /cygdrive/C/WEB
+receiving incremental file list
+skipping non-regular file &quot;targetDir&quot;
+./
+TEST4/
+test3/
+
+sent 39 bytes  received 163 bytes  134.67 bytes/sec
+total size is 19  speedup is 0.09</code></pre><p>查看客户端文件目录</p>
+<pre><code>test3
+TEST4</code></pre><p>提示skipping non-regular file ‘targetDir’忽略软链接解决办法<br>参数-L:–copy-links 像对待常规文件一样处理软链结</p>
+<pre><code>C:\Program Files\cwRsync\bin&gt;rsync --port=873 -vzrtopgL --progress --delete 192.
+168.0.160::web /cygdrive/C/WEB
+receiving incremental file list
+deleting test5/adda.txt
+deleting test5/
+./
+TEST4/
+targetDir/
+targetDir/HAFA/
+targetDir/pdf/
+targetDir/pdf/TARGE.txt
+           0 100%    0.00kB/s    0:00:00 (xfer#1, to-check=1/8)
+test3/
+
+sent 70 bytes  received 272 bytes  97.71 bytes/sec
+total size is 0  speedup is 0.00</code></pre><h3 id="实现客户端定时任务"><a href="#实现客户端定时任务" class="headerlink" title="实现客户端定时任务"></a>实现客户端定时任务</h3><p>1，要添加环境变量到系统中<br>2，上传脚本文件到客户端sync_client.bat</p>
+<pre><code>rsync --port=873 -vzrtopgL --progress --delete 192.168.0.160::web /cygdrive/C/WEB</code></pre><p>3,在系统中添加定时任务，并指定更新时间</p>
+<h3 id="具体参数详解"><a href="#具体参数详解" class="headerlink" title="具体参数详解"></a>具体参数详解</h3><p>rsync参数的具体解释如下： -v, –verbose 详细模式输出<br>-q, –quiet 精简输出模式<br>-c, –checksum 打开校验开关，强制对文件传输进行校验<br>-a, –archive 归档模式，表示以递归方式传输文件，并保持所有文件属性，等于-rlptgoD<br>-r, –recursive 对子目录以递归模式处理<br>-R, –relative 使用相对路径信息<br>-b, –backup 创建备份，也就是对于目的已经存在有同样的文件名时，将老的文件重新命名为<del>filename。可以使用–suffix选项来指定不同的备份文件前缀。<br>–backup-dir 将备份文件(如</del>filename)存放在在目录下。<br>-suffix=SUFFIX 定义备份文件前缀<br>-u, –update 仅仅进行更新，也就是跳过所有已经存在于DST，并且文件时间晚于要备份的文件。(不覆盖更新的文件)<br>-l, –links 保留软链结<br>-L, –copy-links 想对待常规文件一样处理软链结<br>–copy-unsafe-links 仅仅拷贝指向SRC路径目录树以外的链结<br>–safe-links 忽略指向SRC路径目录树以外的链结<br>-H, –hard-links 保留硬链结<br>-p, –perms 保持文件权限<br>-o, –owner 保持文件属主信息<br>-g, –group 保持文件属组信息<br>-D, –devices 保持设备文件信息<br>-t, –times 保持文件时间信息<br>-S, –sparse 对稀疏文件进行特殊处理以节省DST的空间<br>-n, –dry-run现实哪些文件将被传输<br>-W, –whole-file 拷贝文件，不进行增量检测<br>-x, –one-file-system 不要跨越文件系统边界<br>-B, –block-size=SIZE 检验算法使用的块尺寸，默认是700字节<br>-e, –rsh=COMMAND 指定使用rsh、ssh方式进行数据同步<br>–rsync-path=PATH 指定远程服务器上的rsync命令所在路径信息<br>-C, –cvs-exclude 使用和CVS一样的方法自动忽略文件，用来排除那些不希望传输的文件<br>–existing 仅仅更新那些已经存在于DST的文件，而不备份那些新创建的文件<br>–delete 删除那些DST中SRC没有的文件<br>–delete-excluded 同样删除接收端那些被该选项指定排除的文件<br>–delete-after 传输结束以后再删除<br>–ignore-errors 及时出现IO错误也进行删除<br>–max-delete=NUM 最多删除NUM个文件<br>–partial 保留那些因故没有完全传输的文件，以是加快随后的再次传输<br>–force 强制删除目录，即使不为空<br>–numeric-ids 不将数字的用户和组ID匹配为用户名和组名<br>–timeout=TIME IP超时时间，单位为秒<br>-I, –ignore-times 不跳过那些有同样的时间和长度的文件<br>–size-only 当决定是否要备份文件时，仅仅察看文件大小而不考虑文件时间<br>–modify-window=NUM 决定文件是否时间相同时使用的时间戳窗口，默认为0<br>-T –temp-dir=DIR 在DIR中创建临时文件<br>–compare-dest=DIR 同样比较DIR中的文件来决定是否需要备份<br>-P 等同于 –partial<br>–progress 显示备份过程<br>-z, –compress 对备份的文件在传输时进行压缩处理<br>–exclude=PATTERN 指定排除不需要传输的文件模式<br>–include=PATTERN 指定不排除而需要传输的文件模式<br>–exclude-from=FILE 排除FILE中指定模式的文件<br>–include-from=FILE 不排除FILE指定模式匹配的文件<br>–version 打印版本信息<br>–address 绑定到特定的地址<br>–config=FILE 指定其他的配置文件，不使用默认的rsyncd.conf文件<br>–port=PORT 指定其他的rsync服务端口<br>–blocking-io 对远程shell使用阻塞IO<br>-stats 给出某些文件的传输状态<br>–progress 在传输时现实传输过程<br>–log-format=formAT 指定日志文件格式<br>–password-file=FILE 从FILE中得到密码<br>–bwlimit=KBPS 限制I/O带宽，KBytes per second<br>-h, –help 显示帮助信息</p>
+<h3 id="部分错误的解决办法"><a href="#部分错误的解决办法" class="headerlink" title="部分错误的解决办法"></a>部分错误的解决办法</h3><p>1.’rsync’ 不是内部或外部命令，也不是可运行的程序或批处理文件。<br>加环境变量 path = C:\Program Files (x86)\cwRsync\bin 2.rsync: failed to connect to 192.168.1.82: Connection timed out (116) rsync error: error in socket IO (code 10) at clientserver.c(122) [Receiver=3.0.7]<br>网络通畅，服务器端允许访问端口 873 3.@ERROR: invalid uid nobody<br>rsync error: error starting client-server protocol (code 5) at main.c(1506) [Receiver=3.0.7]<br>指定uid gid<br>uid = 0<br>gid = 0 4.@ERROR: chdir failed<br>rsync error: error starting client-server protocol (code 5) at main.c(1506) [Receiver=3.0.7]<br>path目录配置的正确，得存在<br>解决：服务器端同步目录没有权限，cwrsync默认用户是Svcwrsync。为同步目录添加用户Svcwrsync权限。<br>也可以通过 菜单–cwRsyncServer–02. Prep a Dir for Upload 配置目录权限 除完全控制和特殊权限外的所有权限 5.@ERROR: auth failed on module test<br>rsync error: error starting client-server protocol (code 5) at main.c(1506) [Receiver=3.0.7]<br>客户端设置<br>a.在命令上要指定好用户名<br>b.密码文件只写密码<br>rsyncd.secrets文件<br>rsyncpass<br>c.用户名密码都要正确 6.Unexpected local arg: /cygdrive/d/rsyncBackup<br>If arg is a remote file/dir, prefix it with a colon (:).<br>rsync error: syntax or usage error (code 1) at main.c(1218) [Receiver=3.0.7]<br>不一定是这个路径有问题，可能是–password-file路径中有空格，服务器端没问题，客户端好像不行 7.password file must be owned by root when running as root<br>continuing without password file<br>Password:<br>设置密码访问权限chown.exe可从服务器端拷贝过来<br>chmod -c 600 /cygdrive/c/etc/rsyncd.secrets<br>chown administrator /cygdrive/c/etc/rsyncd.secrets<br>服务器端不设也可以 8.当出现rsync: chown “” failed: Invalid argument (22)错误时，是因为参数中有o，即保留文件的owner信息，而window服务端无法完成chown操作，解决办法是去掉参数o。另外有些可能还会出现rsync: chgrp “” failed: Invalid argument (22)，原因类似，只要去掉参数中的g即可。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.zhuohc.com/2016/11/09/rsync-e5-90-8c-e6-ad-a5web-e6-9c-8d-e5-8a-a1-e5-99-a8/" data-id="cjyfelqx6004kcta44ishem8w" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/">windows</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-linux-e5-bc-80-e5-8f-91-e7-8e-af-e5-a2-83-e5-b8-b8-e7-94-a8-e8-bd-af-e4-bb-b6" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/09/linux-e5-bc-80-e5-8f-91-e7-8e-af-e5-a2-83-e5-b8-b8-e7-94-a8-e8-bd-af-e4-bb-b6/" class="article-date">
+  <time datetime="2016-11-09T02:58:19.000Z" itemprop="datePublished">2016-11-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/办公/">办公</a>►<a class="article-category-link" href="/categories/办公/运维/">运维</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/09/linux-e5-bc-80-e5-8f-91-e7-8e-af-e5-a2-83-e5-b8-b8-e7-94-a8-e8-bd-af-e4-bb-b6/">Linux开发环境常用软件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="显示电脑硬件信息"><a href="#显示电脑硬件信息" class="headerlink" title="显示电脑硬件信息"></a>显示电脑硬件信息</h4><pre><code>$ sudo add-apt-repository ppa:dawidd0811/neofetch
+$ sudo apt-get update
+$ sudo apt-get install neofetch
+neofetch</code></pre><h4 id="安装独立显卡驱动"><a href="#安装独立显卡驱动" class="headerlink" title="安装独立显卡驱动"></a>安装独立显卡驱动</h4><p><a href="https://blog.csdn.net/ghw15221836342/article/details/79571559" target="_blank" rel="noopener">https://blog.csdn.net/ghw15221836342/article/details/79571559</a></p>
+<pre><code># 驱动版本查询   https://www.nvidia.com/Download/index.aspx?lang=en-us
+# 安装
+sudo add-apt-repository ppa:graphics-drivers/ppa  
+sudo apt-get update  
+sudo apt-get install nvidia-390 #此处要根据上面查询到的版本适当更改
+sudo apt-get install mesa-common-dev  
+sudo apt-get install freeglut3-de
+# 测试
+nvidia-smi  #若出现电脑GPU列表，即安装成功
+或者
+nvidia-settings #显示你的显卡信息
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">    </span><br><span class="line">    </span><br><span class="line">    #### Chrome浏览器</span><br><span class="line">    下载地址 [百度云盘](http://pan.baidu.com/s/1hq0Nom4)</span><br><span class="line">    </span><br><span class="line">    #### 配置SS</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">安装</span><br><span class="line">==</span><br><span class="line"></span><br><span class="line">apt-get install python-pip pip install s\_h\_a\_d\_o\_w\_s\_o\_c\_k\_s</span><br><span class="line"></span><br><span class="line">启动</span><br><span class="line">==</span><br><span class="line"></span><br><span class="line">sslocal -s server\_ip -p server\_port -l 1080 -k password -t 600 -m aes-256-cfb</span><br><span class="line"></span><br><span class="line">简写</span><br><span class="line">==</span><br><span class="line"></span><br><span class="line">sslocal -s ip -p port -k &quot;password&quot;</span><br><span class="line"></span><br><span class="line">    开机启动配置  </span><br><span class="line">    在/home下新建文件ss.sh脚本</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">#!/bin/bash #文件名:ss.sh sslocal -s ip -p port -k &quot;password&quot;</span><br><span class="line"></span><br><span class="line">    编辑开机启动文件</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">sudo vim /etc/rc.local</span><br></pre></td></tr></table></figure>
+
+# 最后加入以下内容
+nohup bash /home/ss.sh&gt;/home/ss.txt &amp;</code></pre><p>代理设置</p>
+<pre><code>service： 127.0.0.1
+port ： 1080
+type： socks5</code></pre><h4 id="配置proxychains"><a href="#配置proxychains" class="headerlink" title="配置proxychains"></a>配置proxychains</h4><pre><code># 安装
+sudo apt install proxychains
+sudo vim /etc/proxychains.conf
+~ socks5 127.0.0.1 1080  # 最后一行加入socks代理
+# 测试
+proxychains wget https://www.google.com</code></pre><h4 id="wine-qq（现在推荐docker安装qq）"><a href="#wine-qq（现在推荐docker安装qq）" class="headerlink" title="wine qq（现在推荐docker安装qq）"></a>wine qq（现在推荐docker安装qq）</h4><p>安装wine1.7以上版本<br>安装WineQQ7.8-20151109-Longene.deb版本<br>下载<a href="https://pan.baidu.com/s/1bpLn0vl" target="_blank" rel="noopener">网盘</a></p>
+<h4 id="elinks-纯文本浏览器"><a href="#elinks-纯文本浏览器" class="headerlink" title="elinks 纯文本浏览器"></a>elinks 纯文本浏览器</h4><pre><code>sudo apt-get install elinks   # 安装
+
+
+elinks www.zhuohc.com  # 使用</code></pre><h4 id="unzip-zip"><a href="#unzip-zip" class="headerlink" title="unzip / zip"></a>unzip / zip</h4><p>解决中文乱码</p>
+<pre><code>unzip -O CP936 xxx.zip</code></pre><p>解压到指定目录</p>
+<pre><code>unzip -O xxx.zip -d xxx/</code></pre><p>压缩文件</p>
+<pre><code>zip -r yasuo.zip abc.txt dir1</code></pre><h4 id="wps-office办公"><a href="#wps-office办公" class="headerlink" title="wps office办公"></a>wps office办公</h4><p>显示字体确实错误 <a href="https://pan.baidu.com/s/1bpLn0vl" target="_blank" rel="noopener">下载字体</a><br>将字体复制到linux字体中</p>
+<pre><code>sudo cp * /usr/share/fonts</code></pre><p>生成字体索引信息</p>
+<pre><code>sudo mkfontscale
+
+sudo mkfontdir</code></pre><p>更新字体缓存</p>
+<pre><code>sudo fc-cache</code></pre><p>中文无法输入</p>
+<pre><code>$ vi /usr/bin/wps  # word文档
+
+
+#!/bin/bash
+export XMODIFIERS=&quot;@im=fcitx&quot;  # 添加的内容  
+export QT_IM_MODULE=&quot;fcitx&quot;     # 添加的内容    
+gOpt=
+#gOptExt=-multiply
+gTemplateExt=(&quot;wpt&quot; &quot;dot&quot; &quot;dotx&quot;)
+
+
+$ vi /usr/bin/et   # excel表格
+
+
+#!/bin/bash
+export XMODIFIERS=&quot;@im=fcitx&quot;  # 添加的内容  
+export QT_IM_MODULE=&quot;fcitx&quot;  # 添加的内容  
+gOpt=
+#gOptExt=-multiply</code></pre><h4 id="输入法"><a href="#输入法" class="headerlink" title="输入法"></a>输入法</h4><p>系统自带或者sougou输入法 ， 倬彼昊天系列皮肤</p>
+<h4 id="截屏"><a href="#截屏" class="headerlink" title="截屏"></a>截屏</h4><p>系统设置&gt;键盘&gt;自定义快捷键&gt;+&gt;<br>名称填screenshot<br>命令</p>
+<pre><code>gnome-screenshot -a</code></pre><p>在disabled修改快捷键</p>
+<h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><p>安装uget</p>
+<pre><code>sudo add-apt-repository ppa:plushuang-tw/uget-stable 
+sudo apt-get update 
+sudo apt-get install uget</code></pre><p>安装aria2</p>
+<pre><code>sudo add-apt-repository ppa:t-tujikawa/ppa 
+sudo apt-get update 
+sudo apt-get install aria2</code></pre><p>在uget gui里编辑插件，选择aria2</p>
+<h4 id="美化监视工具"><a href="#美化监视工具" class="headerlink" title="美化监视工具"></a>美化监视工具</h4><pre><code> sudo apt-get install conky  
+ sudo add-apt-repository ppa:teejee2008/ppa
+ sudo apt-get update
+ sudo apt-get install conky-manager
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">显示桌面会自动隐藏conky的bug解决办法:  </span><br><span class="line">编辑配置文件</span><br></pre></td></tr></table></figure>
+
+ # own_window_type normal
+own_window_type desktop</code></pre><p>#### 快速搜索文件</p>
+<pre><code>sudo add-apt-repository ppa:synapse-core/testing
+sudo apt-get update
+sudo apt-get install synapse  </code></pre><h4 id="卸载synapse"><a href="#卸载synapse" class="headerlink" title="卸载synapse"></a>卸载synapse</h4><pre><code>sudo apt-get remove synapse</code></pre><h4 id="移除PPA"><a href="#移除PPA" class="headerlink" title="移除PPA"></a>移除PPA</h4><pre><code>sudo apt-get install ppa-purge
+sudo ppa-purge ppa:synapse-core/testing</code></pre><h4 id="安装oh-my-zsh"><a href="#安装oh-my-zsh" class="headerlink" title="安装oh-my-zsh"></a>安装oh-my-zsh</h4><pre><code># https://github.com/robbyrussell/oh-my-zsh
+$ sudo apt-get install git
+$ sudo apt-get install zsh
+$ sh -c &quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;
+$ chsh -s /bin/zsh # 更改默认bash
+//或:
+$ chsh -s `which zsh`
+$ sudo reboot</code></pre><h4 id="terminator-终端管理软件"><a href="#terminator-终端管理软件" class="headerlink" title="terminator 终端管理软件"></a>terminator 终端管理软件</h4><p>安装</p>
+<pre><code>sudo add-apt-repository ppa:gnome-terminator
+sudo apt-get update
+sudo apt-get install terminator</code></pre><p>基本设置方法</p>
+<blockquote>
+<p>右键点击终端任意区域，选择首选项</p>
+</blockquote>
+<p>设置<a href="https://github.com/ghuntley/terminator-solarized" target="_blank" rel="noopener">solarized</a>配色（<a href="http://blog.codinglabs.org/articles/getting-started-with-ubuntu.html" target="_blank" rel="noopener">参考</a>）</p>
+<pre><code>cd ~/.config/terminator  
+vim config</code></pre><p>覆盖以下内容</p>
+<pre><code>[global_config]
+    title_transmit_bg_color = &quot;#d30102&quot;
+    focus = system
+    suppress_multiple_term_dialog = True
+[keybindings]
+[profiles]
+    [[default]]
+        palette = &quot;#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3&quot;
+        copy_on_selection = True
+        background_image = None
+        background_darkness = 0.95
+        background_type = transparent
+        use_system_font = False
+        cursor_color = &quot;#eee8d5&quot;
+        foreground_color = &quot;#839496&quot;
+        show_titlebar = False
+        font = Monospace 11
+        background_color = &quot;#002b36&quot;
+    [[solarized-dark]]
+        palette = &quot;#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3&quot;
+        background_color = &quot;#002b36&quot;
+        background_image = None
+        cursor_color = &quot;#eee8d5&quot;
+        foreground_color = &quot;#839496&quot;
+    [[solarized-light]]
+        palette = &quot;#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3&quot;
+        background_color = &quot;#fdf6e3&quot;
+        background_image = None
+        cursor_color = &quot;#002b36&quot;
+        foreground_color = &quot;#657b83&quot;
+[layouts]
+    [[default]]
+        [[[child1]]]
+            type = Terminal
+            parent = window0
+            profile = default
+        [[[window0]]]
+            type = Window
+            parent = &quot;&quot;
+[plugins]</code></pre><p>以上配置后会修改配色方案，但是没有bright色<br><a href="https://github.com/seebi/dircolors-solarized" target="_blank" rel="noopener">dircolors-solarized</a>项目提供了适合于solarized的dircolors配色方案，只要选择合适的方案使用就可以了。</p>
+<pre><code>curl https://raw.github.com/seebi/dircolors-solarized/master/dircolors.ansi-dark &gt; ~/.dircolors</code></pre><p>然后在~/.bashrc中加入如下配置：</p>
+<pre><code># enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors &amp;&amp; eval &quot;$(dircolors -b ~/.dircolors)&quot; || eval &quot;$(dircolors -b)&quot;
+    alias ls=&apos;ls --color=auto&apos;
+    #alias dir=&apos;dir --color=auto&apos;
+    #alias vdir=&apos;vdir --color=auto&apos;
+
+    alias grep=&apos;grep --color=auto&apos;
+    alias fgrep=&apos;fgrep --color=auto&apos;
+    alias egrep=&apos;egrep --color=auto&apos;
+fi
+
+# some more ls aliases
+alias ll=&apos;ls -alF&apos;
+alias la=&apos;ls -A&apos;
+alias l=&apos;ls -CF&apos;</code></pre><p>执行</p>
+<pre><code>source ~/.bashrc</code></pre><h4 id="tmux配合terminator使用"><a href="#tmux配合terminator使用" class="headerlink" title="tmux配合terminator使用"></a>tmux配合terminator使用</h4><p>安装</p>
+<pre><code>sudo apt-get install tmux</code></pre><p>配置</p>
+<pre><code>touch .tmux.conf</code></pre><p>配置内容和使用方法</p>
+<pre><code># 设置前缀为Ctrl + x
+set -g prefix C-x
+# 解除Ctrl+b 与前缀的对应关系
+unbind C-b
+# 将r 设置为加载配置文件，并显示&quot;reloaded!&quot;信息
+bind r source-file ~/.tmux.conf \; display &quot;Reloaded!&quot;
+
+
+
+# copy-mode 将快捷键设置为vi 模式
+setw -g mode-keys vi
+
+# tmux-powerline设置
+set-option -g status on
+set-option -g status-interval 2
+set-option -g status-utf8 on
+set-option -g status-justify &quot;centre&quot;
+set-option -g status-left-length 60
+set-option -g status-right-length 90
+set-option -g status-left &quot;#(~/.tmux/tmux-powerline/powerline.sh left)&quot;
+set-option -g status-right &quot;#(~/.tmux/tmux-powerline/powerline.sh right)&quot;
+# 将窗口列表换成 powerline的风格
+set-window-option -g window-status-current-format &quot;#[fg=colour235, bg=colour27]⮀#[fg=colour255, bg=colour27] #I ⮁ #W #[fg=colour27, bg=colour235]⮀&quot;
+# 设置默认bash
+set-option -g default-shell /bin/zsh
+
+
+########## 复制模式  ##########
+
+# copy mode 复制模式
+# &apos;prefix +  [ &apos;进入复制模式
+# 按space 开始复制
+# Enter退出复制模式</code></pre><p>需要安装powerline插件</p>
+<pre><code>https://github.com/erikw/tmux-powerline</code></pre><p>显示日期的星期</p>
+<pre><code>vim data_day.sh
+ # date +&quot;%a&quot;改成大写
+ date +&quot;%A&quot;</code></pre><p>powerline字体安装查看 <a href="http://powerline.readthedocs.io/en/latest/installation/linux.html" target="_blank" rel="noopener">http://powerline.readthedocs.io/en/latest/installation/linux.html</a> 在terminator配置自动启动turm</p>
+<pre><code>首选项-&gt;配置&gt;命令&gt;自定义命令  
+ ([[ -f &quot;$TMUX&quot; ]] &amp;&amp; tmux -2 -S $TMUX) || (TMUX=&quot;&quot; tmux -2)</code></pre><p>自动部署多窗口任务</p>
+<pre><code>touch ~/development.start
+chmod +x development.start
+
+
+tmux has-session -t development
+if [ $? != 0 ]
+then
+    tmux new-session -s development -n editor -d
+    tmux send-keys -t development &apos;vim&apos; C-m
+    tmux split-window -v -t development
+    tmux select-layout -t development main-horizontal
+    tmux new-window -n bash -t development
+    tmux new-window -n ssh -t development
+    tmux new-window -n mysql -t development
+    tmux new-window -n front-end -t development
+    tmux select-window -t development:1
+fi
+tmux attach -t development</code></pre><p>执行文件</p>
+<pre><code>~/development.start</code></pre><h4 id="Visual-Studio-Code"><a href="#Visual-Studio-Code" class="headerlink" title="Visual Studio Code"></a>Visual Studio Code</h4><p>通过官方PPA来安装Ubuntu Make</p>
+<pre><code>sudo add-apt-repository ppa:ubuntu-desktop/ubuntu-make
+sudo apt-get update
+sudo apt-get install ubuntu-make</code></pre><p>安装Ubuntu Make完后，接着使用下列命令安装Visual Studio Code</p>
+<pre><code>umake web visual-studio-code</code></pre><p>卸载命令</p>
+<pre><code>umake web visual-studio-code --remove</code></pre><h4 id="wine"><a href="#wine" class="headerlink" title="wine"></a>wine</h4><p>卸载wineqq</p>
+<pre><code>sudo dpkg -l | grep qq  # 找到安装包名称   
+sudo dpkg -r wine-qq7.8-longeneteam # 卸载</code></pre><h4 id="curl-http请求"><a href="#curl-http请求" class="headerlink" title="curl http请求"></a>curl http请求</h4><pre><code>curl &quot;http://www.baidu.com&quot; # 如果这里的URL指向的是一个文件或者一幅图都可以直接下载到本地  
+curl -i &quot;http://www.baidu.com&quot; # 显示全部信息  
+curl -l &quot;http://www.baidu.com&quot; # 只显示头部信息  
+curl -v &quot;http://www.baidu.com&quot; # 显示get请求全过程解析    
+curl -d &quot;param1=value1¶m2=value2&quot; &quot;http://www.baidu.com&quot; # post请求  </code></pre><h4 id="安卓虚拟机genymotion"><a href="#安卓虚拟机genymotion" class="headerlink" title="安卓虚拟机genymotion"></a>安卓虚拟机genymotion</h4><p>前提必须安装virtualBox<br>下载地址: <a href="https://www.genymotion.com/download/" target="_blank" rel="noopener">https://www.genymotion.com/download/</a><br>需要先注册,下载后执行</p>
+<pre><code>chmod +x genymotion-2.2.2_x64.bin
+./genymotion-2.2.2_x64.bin -d /home/user</code></pre><p>执行home/user/genymotion/genymotion</p>
+<h4 id="安装为知笔记"><a href="#安装为知笔记" class="headerlink" title="安装为知笔记"></a>安装为知笔记</h4><p>简易版本</p>
+<pre><code>http://ppa.launchpad.net/wiznote-team/ppa/ubuntu/pool/main/w/wiznote/</code></pre><p>编译安装</p>
+<pre><code>http://www.wiz.cn/compile-client.html</code></pre><p>chrome安装扩展</p>
+<pre><code>https://chrome.google.com/webstore/detail/wiznote-web-clipper/jfanfpmalehkemdiiebjljddhgojhfab/related?hl=zh-CN</code></pre><h4 id="安装系统状态指示器"><a href="#安装系统状态指示器" class="headerlink" title="安装系统状态指示器"></a>安装系统状态指示器</h4><pre><code>sudo add-apt-repository ppa:indicator-multiload/stable-daily
+
+sudo apt-get update
+
+sudo apt-get install indicator-multiload</code></pre><h4 id="安装albert搜索框"><a href="#安装albert搜索框" class="headerlink" title="安装albert搜索框"></a>安装albert搜索框</h4><pre><code>sudo add-apt-repository ppa:noobslab/macbuntu
+sudo apt-get update
+sudo apt-get install albert
+设置快捷键Ctrl+/ 样式NUMIX</code></pre><h4 id="下载特殊文件"><a href="#下载特殊文件" class="headerlink" title="下载特殊文件"></a>下载特殊文件</h4><pre><code>sudo apt-get install ktorrent
+sudo apt-get install amule</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.zhuohc.com/2016/11/09/linux-e5-bc-80-e5-8f-91-e7-8e-af-e5-a2-83-e5-b8-b8-e7-94-a8-e8-bd-af-e4-bb-b6/" data-id="cjyfelqx00047cta4af5mjab8" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/">ubuntu</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-python-e5-9f-ba-e7-a1-80-e5-8f-8a-e5-86-85-e5-bb-ba-e5-87-bd-e6-95-b0-e5-ad-a6-e4-b9-a0" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/09/python-e5-9f-ba-e7-a1-80-e5-8f-8a-e5-86-85-e5-bb-ba-e5-87-bd-e6-95-b0-e5-ad-a6-e4-b9-a0/" class="article-date">
+  <time datetime="2016-11-09T02:46:24.000Z" itemprop="datePublished">2016-11-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/后端/">后端</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/09/python-e5-9f-ba-e7-a1-80-e5-8f-8a-e5-86-85-e5-bb-ba-e5-87-bd-e6-95-b0-e5-ad-a6-e4-b9-a0/">Python基础及内建函数学习</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="源码安装python2-7-9"><a href="#源码安装python2-7-9" class="headerlink" title="源码安装python2.7.9"></a>源码安装python2.7.9</h3><pre><code>$ sudo apt-get install -y openssl
+$ sudo apt-get install -y libssl-dev # 即 openssl-devel
+$ sudo apt-get install -y libffi-dev # 即 libffi-devel
+$ sudo apt-get install -y python-openssl
+$ sudo apt-get install libbz2-dev
+$ sudo apt-get install libxml2-dev
+$ sudo apt-get install libxslt1-dev
+$ sudo apt-get install sqlite3 libsqlite3-dev
+$ sudo apt-get install libmysqlclient-dev
+
+
+wget -c https://www.python.org/ftp/python/2.7.9/Python-2.7.9.tgz  
+tar -xzvf Python-2.7.9.tgz  
+cd Python-2.7.9/ </code></pre><p>修改源码，支持ssl</p>
+<pre><code>vim Modules/Setup.dist
+
+
+# Socket module helper for SSL support; you must comment out the other
+# socket line above, and possibly edit the SSL variable:
+#SSL=/usr/local/ssl
+#_ssl _ssl.c \
+#        -DUSE_SSL -I$(SSL)/include -I$(SSL)/include/openssl \
+#        -L$(SSL)/lib -lssl -lcrypto</code></pre><p>改成</p>
+<pre><code># Socket module helper for SSL support; you must comment out the other
+# socket line above, and possibly edit the SSL variable:
+SSL=/usr/local/ssl
+_ssl _ssl.c \
+        -DUSE_SSL -I$(SSL)/include -I$(SSL)/include/openssl \
+
+        -L$(SSL)/lib -lssl -lcrypto
+
+
+LDFLAGS=&quot;-L/usr/lib/x86_64-linux-gnu&quot; ./configure  
+make  
+sudo make install</code></pre><h3 id="虚拟环境搭建"><a href="#虚拟环境搭建" class="headerlink" title="虚拟环境搭建"></a>虚拟环境搭建</h3><p>安装</p>
+<pre><code>sudo apt-get install python-virtualenv</code></pre><p>创建虚拟环境</p>
+<pre><code>cd ~/var/www
+virtualenv --no-site-packages -p /usr/local/bin/python Novel # 参数表示不安装系统已经安装的第三方包, -p表示用哪个版本的python</code></pre><p>启用虚拟环境</p>
+<pre><code>cd /var/www/Novel
+source ./bin/activate</code></pre><p>虚拟环境安装包</p>
+<pre><code>(Novel) pip isntall django==1.8.2 # 不能加sudo</code></pre><p>退出虚拟环境，进入正常环境</p>
+<pre><code>deactivate</code></pre><p>虚拟环境复制</p>
+<pre><code>pip freeze &gt; requirements.txt
+pip install -r requirements.txt</code></pre><h3 id="pip安装超时"><a href="#pip安装超时" class="headerlink" title="pip安装超时"></a>pip安装超时</h3><pre><code>pip --default-timeout=100 install -U pip</code></pre><h3 id="安装python-mysql"><a href="#安装python-mysql" class="headerlink" title="安装python-mysql"></a>安装python-mysql</h3><pre><code>sudo apt-get install python-setuptools
+
+sudo apt-get install libmysqld-dev
+
+sudo apt-get install libmysqlclient-dev
+
+sudo apt-get install python-dev
+
+sudo easy_install mysql-python</code></pre><p>在终端输入以下内容,不报错则表示成功</p>
+<pre><code>import MySQLdb</code></pre><h3 id="获取文件修改时间"><a href="#获取文件修改时间" class="headerlink" title="获取文件修改时间"></a>获取文件修改时间</h3><pre><code>import time
+filemt= time.localtime(os.stat(filename).st_mtime)  #文件修改时间
+filect = time.localtime(os.stat(filename).st_ctime)  #文件创建
+print time.strftime(&quot;%Y-%m-%d&quot;,filemt)  
+print time.strftime(&quot;%Y-%m-%d&quot;,filect)</code></pre><h3 id="获取多少天以前的时间"><a href="#获取多少天以前的时间" class="headerlink" title="获取多少天以前的时间"></a>获取多少天以前的时间</h3><pre><code>import datetime
+# 30天以前的日期
+date_time = (datetime.datetime.now() - datetime.timedelta(days=30)).strftime(&quot;%Y-%m-%d&quot;)
+print date_time</code></pre><h3 id="去除列表重复项内容"><a href="#去除列表重复项内容" class="headerlink" title="去除列表重复项内容"></a>去除列表重复项内容</h3><pre><code># 如果列表里面内容为字典
+f = lambda x,y:x if y in x else x + [y]
+products = reduce(f, [[], ] + products_query)
+print products
+
+# 如果列表里面内容为字符串
+l1 = [&apos;b&apos;,&apos;c&apos;,&apos;d&apos;,&apos;b&apos;,&apos;c&apos;,&apos;a&apos;,&apos;a&apos;]
+l2 = list(set(l1))
+print l2
+# 保持原来的顺序
+l1 = [&apos;b&apos;,&apos;c&apos;,&apos;d&apos;,&apos;b&apos;,&apos;c&apos;,&apos;a&apos;,&apos;a&apos;]
+l2 = sorted(set(l1),key=l1.index)
+print l2</code></pre><h3 id="md5，hash加密"><a href="#md5，hash加密" class="headerlink" title="md5，hash加密"></a>md5，hash加密</h3><pre><code>import hashlib
+data =  &apos;This a md5 test!&apos;
+hash_md5 = hashlib.md5(data)  # md5
+hash_md5.hexdigest()
+
+hashlib.sha1(&apos;This is a sha1 test!&apos;).hexdigest() # sha1</code></pre><h3 id="打印输出对象"><a href="#打印输出对象" class="headerlink" title="打印输出对象"></a>打印输出对象</h3><pre><code>from pprint import pprint
+pprint(vars(object))</code></pre><h1 id="windows安装python相关环境"><a href="#windows安装python相关环境" class="headerlink" title="windows安装python相关环境"></a>windows安装python相关环境</h1><h3 id="安装虚拟环境"><a href="#安装虚拟环境" class="headerlink" title="安装虚拟环境"></a>安装虚拟环境</h3><pre><code># 安装包
+pip install virtualenv
+# 创建虚拟环境env
+virtualenv.exe  env
+# 开启虚拟环境
+./scripts/active
+# 退出虚拟环境
+deactivate</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.zhuohc.com/2016/11/09/python-e5-9f-ba-e7-a1-80-e5-8f-8a-e5-86-85-e5-bb-ba-e5-87-bd-e6-95-b0-e5-ad-a6-e4-b9-a0/" data-id="cjyfelqw90023cta4xy8do7ds" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-centos-e5-ae-89-e8-a3-85s-h-a-d-o-w-s-o-c-k-s-e6-9c-8d-e5-8a-a1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/09/centos-e5-ae-89-e8-a3-85s-h-a-d-o-w-s-o-c-k-s-e6-9c-8d-e5-8a-a1/" class="article-date">
+  <time datetime="2016-11-09T02:22:52.000Z" itemprop="datePublished">2016-11-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/运维/">运维</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/09/centos-e5-ae-89-e8-a3-85s-h-a-d-o-w-s-o-c-k-s-e6-9c-8d-e5-8a-a1/">Centos安装s_h_a_d_o_w_s_o_c_k_s服务</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Python版本"><a href="#Python版本" class="headerlink" title="Python版本"></a>Python版本</h3><pre><code>python –version</code></pre><p>CentOS6.5默认安装的Python版本是2.6.6，返回值为：Python 2.6.6</p>
+<h3 id="安装setuptools"><a href="#安装setuptools" class="headerlink" title="安装setuptools"></a>安装setuptools</h3><pre><code>yum install -y python-setuptools</code></pre><p>安装完毕后，easy_install命令就可以使用了。</p>
+<h3 id="安装pip"><a href="#安装pip" class="headerlink" title="安装pip"></a>安装pip</h3><p>easy_install pip 通过easy_install安装pip是最为简单的方法。pip默认安装到/usr/bin目录下。</p>
+<h3 id="安装s-h-a-d-o-w-s-o-c-k-s"><a href="#安装s-h-a-d-o-w-s-o-c-k-s" class="headerlink" title="安装s_h_a_d_o_w_s_o_c_k_s"></a>安装s_h_a_d_o_w_s_o_c_k_s</h3><pre><code>pip install shadowsocks</code></pre><h3 id="s-h-a-d-o-w-s-o-c-k-s的配置和使用"><a href="#s-h-a-d-o-w-s-o-c-k-s的配置和使用" class="headerlink" title="s_h_a_d_o_w_s_o_c_k_s的配置和使用"></a>s_h_a_d_o_w_s_o_c_k_s的配置和使用</h3><p>至于s_h_a_d_o_w_s_o_c_k_s可以拿来做什么，这里就毋须赘述了。直接开始吧。</p>
+<h3 id="创建s-h-a-d-o-w-s-o-c-k-ss的配置文件："><a href="#创建s-h-a-d-o-w-s-o-c-k-ss的配置文件：" class="headerlink" title="创建s_h_a_d_o_w_s_o_c_k_ss的配置文件："></a>创建s_h_a_d_o_w_s_o_c_k_ss的配置文件：</h3><p>CentOS下通过vim创建该配置，运行命令： vi /etc/shadowsocks.json</p>
+<pre><code>{
+&quot;server&quot;:&quot;your_server_ip&quot;,
+&quot;server_port&quot;:8989,
+&quot;local_address&quot;: &quot;127.0.0.1&quot;,
+&quot;local_port&quot;:1080,
+&quot;password&quot;:&quot;yourpassword&quot;,
+&quot;timeout&quot;:600,
+&quot;method&quot;:&quot;aes-256-cfb&quot;,
+&quot;fast_open&quot;: false,
+&quot;workers&quot;: 1
+}</code></pre><p>各字段的含义： server：服务器 IP (IPv4/IPv6)，注意这也将是服务端监听的 IP 地址<br>server_port：监听的服务器端口<br>local_address：本地监听的 IP 地址<br>local_port：本地端端口<br>password：用来加密的密码<br>timeout：超时时间（秒）<br>method：加密方法，可选择 “bf-cfb”, “aes-256-cfb”, “des-cfb”, “rc4″, 等等。默认是一种不安全的加密，推荐用 “aes-256-cfb” fast_open：true 或 false。如果你的服务器 Linux 内核在3.7+，可以开启 fast_open 以降低延迟。开启方法： echo 3 &gt; /proc/sys/net/ipv4/tcp_fastopen<br>开启之后，将 fast_open 的配置设置为 true 即可。<br>works：works数量，默认为 1</p>
+<h3 id="安装M2Crypto"><a href="#安装M2Crypto" class="headerlink" title="安装M2Crypto"></a>安装M2Crypto</h3><p>默认加密方法 table 速度很快，但很不安全。推荐使用 “aes-256-cfb” 或者 “bf-cfb”。请不要使用 “rc4″，它不安全。如果选择 “table” 之外的加密，需要安装 M2Crypto。 先安装依赖包：</p>
+<pre><code>yum install -y openssl-devel gcc swig python-devel autoconf libtool</code></pre><h3 id="安装setuptools-1"><a href="#安装setuptools-1" class="headerlink" title="安装setuptools"></a>安装setuptools</h3><pre><code>wget --no-check-certificate https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py
+python ez_setup.py install</code></pre><p>再通过pip安装M2Crypto：</p>
+<pre><code>pip install M2Crypto</code></pre><h3 id="安装-gevent"><a href="#安装-gevent" class="headerlink" title="安装 gevent"></a>安装 gevent</h3><p>安装 gevent可以提高 Shadowsocks 的性能。CentOS下安装gevent依赖libevent和greenlet。</p>
+<h3 id="安装libevent"><a href="#安装libevent" class="headerlink" title="安装libevent"></a>安装libevent</h3><pre><code>yum install -y libevent</code></pre><h3 id="greenlet："><a href="#greenlet：" class="headerlink" title="greenlet："></a>greenlet：</h3><pre><code>pip install greenlet</code></pre><p>###安装gevent：</p>
+<pre><code>pip install gevent</code></pre><h3 id="命令行参数（服务器端启动命令）"><a href="#命令行参数（服务器端启动命令）" class="headerlink" title="命令行参数（服务器端启动命令）"></a>命令行参数（服务器端启动命令）</h3><pre><code>ssserver -c /etc/shadowsocks.json</code></pre><p>如果想在后台一直运行Shadowsocks，启动命令如下：</p>
+<pre><code>nohup ssserver -c /etc/shadowsocks.json &gt; /dev/null 2&gt;&amp;1 &amp;</code></pre><p>备注：关于nohup，是可以让程序在后台运行的命令。 同时可以用命令行参数覆盖 /etc/shadowsocks.json 里的设置：</p>
+<pre><code>sslocal -s 服务器地址 -p 服务器端口 -l 本地端端口 -k 密码 -m 加密方法
+ssserver -p 服务器端口 -k 密码 -m 加密方法</code></pre><p>备注：sslocal是客户端程序；ssserver是服务端程序。</p>
+<h3 id="防火墙设置（如有）"><a href="#防火墙设置（如有）" class="headerlink" title="防火墙设置（如有）"></a>防火墙设置（如有）</h3><p>编辑防火墙配置文件/etc/sysconfig/iptables，将服务器端口（server_port）放行。<br>新增一条防火墙规则：</p>
+<pre><code>iptables -A INPUT -m state --state NEW -m tcp -p tcp --dport 8989 -j ACCEPT</code></pre><p>先要保存下:</p>
+<pre><code>service iptables save</code></pre><p>重启防火墙iptables：</p>
+<pre><code>service iptables restart</code></pre><p>至此，服务器端的 Shadowsocks 安装和配置完毕。 配置多个用户</p>
+<pre><code>{
+&quot;timeout&quot;: 600,
+&quot;method&quot;: &quot;aes-256-cfb&quot;,
+&quot;port_password&quot;:
+{
+&quot;40001&quot;: &quot;password1&quot;,
+&quot;40002&quot;: &quot;password2&quot;,
+&quot;40003&quot;: &quot;password3&quot;
+},
+&quot;_comment&quot;:
+{
+&quot;40001&quot;: &quot;xiaoming&quot;,
+&quot;40002&quot;: &quot;lilei&quot;,
+&quot;40003&quot;: &quot;mike&quot;
+}
+}</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.zhuohc.com/2016/11/09/centos-e5-ae-89-e8-a3-85s-h-a-d-o-w-s-o-c-k-s-e6-9c-8d-e5-8a-a1/" data-id="cjyfelqve0005cta45sflw8fq" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-python-e5-b0-86office-word-e8-bd-ac-e4-b8-bahtml-e5-b9-b6-e6-8f-90-e5-8f-96-e7-9b-b8-e5-85-b3-e5-9b-be-e7-89-87-e4-bf-a1-e6-81-af" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/09/python-e5-b0-86office-word-e8-bd-ac-e4-b8-bahtml-e5-b9-b6-e6-8f-90-e5-8f-96-e7-9b-b8-e5-85-b3-e5-9b-be-e7-89-87-e4-bf-a1-e6-81-af/" class="article-date">
+  <time datetime="2016-11-09T02:10:01.000Z" itemprop="datePublished">2016-11-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/办公/">办公</a>►<a class="article-category-link" href="/categories/办公/运维/">运维</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/09/python-e5-b0-86office-word-e8-bd-ac-e4-b8-bahtml-e5-b9-b6-e6-8f-90-e5-8f-96-e7-9b-b8-e5-85-b3-e5-9b-be-e7-89-87-e4-bf-a1-e6-81-af/">Python将office word 转为html 并提取相关图片信息</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h3><p>工作需要将2000多格word文档中的图片提取出来，并改名为word文档名</p>
+<h3 id="思路1"><a href="#思路1" class="headerlink" title="思路1"></a>思路1</h3><blockquote>
+<p>More exactly, a .docx document is a Zip archive in OpenXML format: you have first to uncompress it. I downloaded a sample (Google: some search term filetype:docx) and after unzipping I found some folders. The word folder contains the document itself, in file document.xml.</p>
+</blockquote>
+<p>于是使用unzip模块</p>
+<pre><code>import zipfile</code></pre><p>但是报错</p>
+<pre><code>BadZipfile: File is not a zip file</code></pre><p>检查发现同事提供的office word文件结尾为.doc,<br>于是使用7-zip进行提取发现确实报错</p>
+<blockquote>
+<p>文件末端错误</p>
+</blockquote>
+<p>尝试用本机office2013打开并另存为word文档.docx<br>再次使用7-zip进行提取，成功，会生成以下一个文件夹</p>
+<blockquote>
+<p>_rels文件夹<br>docProps文件夹<br>word文件夹<br>[Content_Types].xml文件</p>
+</blockquote>
+<p>其中\word\media文件夹下就有我需要的图片信息<br>既然需要更改文件后缀，那么就有另一个思路。</p>
+<h3 id="思路2"><a href="#思路2" class="headerlink" title="思路2"></a>思路2</h3><blockquote>
+<p>通过win32com.clientm将文件改为html文件，会生成类似的文件夹</p>
+</blockquote>
+<p>核心代码</p>
+<pre><code># -*- encoding: utf8 -*-
+
+import win32com
+from win32com.client import constants
+
+# 打开初始化word文档
+w = win32com.client.Dispatch(&apos;Word.Application&apos;)
+w.Visible = 0
+w.DisplayAlerts = 0
+doc = w.Documents.Open(source_file)  # 打开文件
+doc.SaveAs(target_fold + &apos;/&apos; + file_number + &apos;.htm&apos;, 8)  # 更名为htm文件
+doc.Close()
+w.Quit()</code></pre><p>另存为其他规格只需要将参数8修改即可</p>
+<blockquote>
+<p>wdFormatDocument = 0<br>wdFormatDocument97 = 0<br>wdFormatDocumentDefault = 16<br>wdFormatDOSText = 4<br>wdFormatDOSTextLineBreaks = 5<br>wdFormatEncodedText = 7<br>wdFormatFilteredHTML = 10<br>wdFormatFlatXML = 19<br>wdFormatFlatXMLMacroEnabled = 20<br>wdFormatFlatXMLTemplate = 21<br>wdFormatFlatXMLTemplateMacroEnabled = 22<br>wdFormatHTML = 8<br>wdFormatPDF = 17<br>wdFormatRTF = 6<br>wdFormatTemplate = 1<br>wdFormatTemplate97 = 1<br>wdFormatText = 2<br>wdFormatTextLineBreaks = 3<br>wdFormatUnicodeText = 7<br>wdFormatWebArchive = 9<br>wdFormatXML = 11<br>wdFormatXMLDocument = 12<br>wdFormatXMLDocumentMacroEnabled = 13<br>wdFormatXMLTemplate = 14<br>wdFormatXMLTemplateMacroEnabled = 15<br>wdFormatXPS = 18</p>
+</blockquote>
+<p>最后脚本</p>
+<pre><code># -*- encoding: utf8 -*-
+
+import win32com
+import os
+import xlrd
+import shutil
+from win32com.client import constants
+
+# 从excel表格中导入数据并组成字典
+XlsFile = &apos;default.xlsx&apos;                  # 需要的数据
+data = xlrd.open_workbook(XlsFile)
+table = data.sheets()[0]
+nrows = table.nrows
+
+# 获取文件名列表
+number_list = []
+for i in range(1, nrows):
+    number_list.append(table.row_values(i)[0])
+
+# 打开初始化word文档
+w = win32com.client.Dispatch(&apos;Word.Application&apos;)
+w.Visible = 0
+w.DisplayAlerts = 0
+
+
+# 遍历文件夹并将文件剪贴到新的文件夹中
+source_fold = os.path.split(os.path.realpath(__file__))[0] + &apos;/&apos; + &apos;WordFile&apos;
+target_fold = os.path.split(os.path.realpath(__file__))[0] + &apos;/&apos; + &apos;NewFile&apos;
+img_fold = os.path.split(os.path.realpath(__file__))[0] + &apos;/&apos; + &apos;Img&apos;
+word_list = os.listdir(source_fold)
+for file_name in word_list:
+    # 根据货号在列表中查找
+    try:
+        file_number = file_name[0:10]
+        if file_number in number_list:
+            print(file_name + &apos;是需要的文件.&apos;)
+            source_file = source_fold + &apos;/&apos; + file_name
+            doc = w.Documents.Open(source_file)  # 打开文件
+            doc.SaveAs(target_fold + &apos;/&apos; + file_number + &apos;.htm&apos;, 8)  # 更名为htm文件
+            doc.Close()
+            od_img = target_fold + &apos;/&apos; + file_number + &apos;.files&apos; + &apos;/&apos; + &apos;image003.jpg&apos;
+            shutil.copyfile(od_img, img_fold + &apos;/&apos; + file_number + &apos;.jpg&apos;)  # 复制新的文件
+            number_list.remove(file_number)  # 从excel列表中删除此元素防止重复选取
+    except Exception, e:
+        print(file_name)
+        print e
+w.Quit()
+
+try:
+    f = open(&quot;php.json&quot;, &quot;w&quot;)
+    print &gt;&gt;f, number_list  # 最后将剩下的元素打印到文件中
+except Exception, e:
+    print &apos;写入php.json失败&apos;</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.zhuohc.com/2016/11/09/python-e5-b0-86office-word-e8-bd-ac-e4-b8-bahtml-e5-b9-b6-e6-8f-90-e5-8f-96-e7-9b-b8-e5-85-b3-e5-9b-be-e7-89-87-e4-bf-a1-e6-81-af/" data-id="cjyfelqwc002dcta4rk9w056j" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-e5-88-a9-e7-94-a8python-e4-bb-8eexcel-e5-af-bc-e5-87-ba-e6-95-b0-e6-8d-ae-e5-b9-b6-e6-89-b9-e9-87-8f-e6-9b-bf-e6-8d-a2word-e6-96-87-e6-a1-a3-e5-86-85-e5-ae-b9" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/09/e5-88-a9-e7-94-a8python-e4-bb-8eexcel-e5-af-bc-e5-87-ba-e6-95-b0-e6-8d-ae-e5-b9-b6-e6-89-b9-e9-87-8f-e6-9b-bf-e6-8d-a2word-e6-96-87-e6-a1-a3-e5-86-85-e5-ae-b9/" class="article-date">
+  <time datetime="2016-11-09T02:07:56.000Z" itemprop="datePublished">2016-11-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/办公/">办公</a>►<a class="article-category-link" href="/categories/办公/运维/">运维</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/09/e5-88-a9-e7-94-a8python-e4-bb-8eexcel-e5-af-bc-e5-87-ba-e6-95-b0-e6-8d-ae-e5-b9-b6-e6-89-b9-e9-87-8f-e6-9b-bf-e6-8d-a2word-e6-96-87-e6-a1-a3-e5-86-85-e5-ae-b9/">利用Python从EXCEL导出数据并批量替换WORD文档内容</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="老外的代码"><a href="#老外的代码" class="headerlink" title="老外的代码"></a>老外的代码</h3><p>第一个是操作word，第二个是操作excel</p>
+<pre><code>from win32com.client import constants, Dispatch
+import pythoncom
+wdStory = 6
+class WordDocument(object):
+  &quot;&quot;&quot;
+  Some convenience methods for Word documents accessed
+  through COM.
+  &quot;&quot;&quot;
+
+  def __init__(self, visible=False):
+    self.app = Dispatch(&quot;Word.Application&quot;)
+    self.app.Visible = visible
+
+  def new(self, filename=None):
+    &quot;&quot;&quot;
+    Create a new Word document. If &apos;filename&apos; specified,
+    use the file as a template.
+    &quot;&quot;&quot;
+    self.app.Documents.Add(filename)
+
+  def open(self, filename):
+    &quot;&quot;&quot;
+    Open an existing Word document for editing.
+    &quot;&quot;&quot;
+    self.app.Documents.Open(filename)
+
+  def save(self, filename=None):
+    &quot;&quot;&quot;
+    Save the active document. If &apos;filename&apos; is given,
+    do a Save As.
+    &quot;&quot;&quot;
+    if filename:
+      self.app.ActiveDocument.SaveAs(filename)
+    else:
+      self.app.ActiveDocument.Save()
+
+  def save_as(self, filename):
+    return self.save(filename)
+
+  def print_out(self):
+    &quot;&quot;&quot;
+    Print the active document.
+    &quot;&quot;&quot;
+    self.app.Application.PrintOut()
+
+  def close(self):
+    &quot;&quot;&quot;
+    Close the active document.
+    &quot;&quot;&quot;
+    self.app.ActiveDocument.Close()
+
+  def quit(self):
+    &quot;&quot;&quot;
+    Quit Word.
+    &quot;&quot;&quot;
+    return self.app.Quit()
+
+  def find_and_replace(self, find_str, replace_str):
+    &quot;&quot;&quot;
+    Find all occurances of &apos;find_str&apos; and replace with &apos;replace_str&apos;
+    in the active document.
+    &quot;&quot;&quot;
+    self.app.Selection.HomeKey(Unit=wdStory)
+    find = self.app.Selection.Find
+    find.Text = find_str
+    while self.app.Selection.Find.Execute():
+      self.app.Selection.TypeText(Text=replace_str)
+
+
+from win32com.client import constants, Dispatch
+import pythoncom
+import os
+borderTop = 3
+borderBottom = 4
+borderLeft = 1
+borderRight = 2
+borderSolid = 1
+borderDashed = 2
+borderDotted = 3
+colorBlack = 1
+directionUp = -4162
+directionDown = -4121
+directionLeft = -4131
+directionRight = -4152
+class ExcelDocument(object):
+  &quot;&quot;&quot;
+  Some convenience methods for Excel documents accessed
+  through COM.
+  &quot;&quot;&quot;
+  def __init__(self, visible=False):
+    self.app = Dispatch(&quot;Excel.Application&quot;)
+    self.app.Visible = visible
+    self.sheet = 1
+  def new(self, filename=None):
+    &quot;&quot;&quot;
+    Create a new Excel workbook. If &apos;filename&apos; specified,
+    use the file as a template.
+    &quot;&quot;&quot;
+    self.app.Workbooks.Add(filename)
+  def open(self, filename):
+    &quot;&quot;&quot;
+    Open an existing Excel workbook for editing.
+    &quot;&quot;&quot;
+    self.app.Workbooks.Open(filename)
+  def set_sheet(self, sheet):
+    &quot;&quot;&quot;
+    Set the active worksheet.
+    &quot;&quot;&quot;
+    self.sheet = sheet
+  def get_range(self, range):
+    &quot;&quot;&quot;
+    Get a range object for the specified range or single cell.
+    &quot;&quot;&quot;
+    return self.app.ActiveWorkbook.Sheets(self.sheet).Range(range)
+  def set_value(self, cell, value=&apos;&apos;):
+    &quot;&quot;&quot;
+    Set the value of &apos;cell&apos; to &apos;value&apos;.
+    &quot;&quot;&quot;
+    self.get_range(cell).Value = value
+  def get_value(self, cell):
+    &quot;&quot;&quot;
+    Get the value of &apos;cell&apos;.
+    &quot;&quot;&quot;
+    value = self.get_range(cell).Value
+    if isinstance(value, tuple):
+      value = [v[0] for v in value]
+    return value
+  def set_border(self, range, side, line_style=borderSolid, color=colorBlack):
+    &quot;&quot;&quot;
+    Set a border on the specified range of cells or single cell.
+    &apos;range&apos; = range of cells or single cell
+    &apos;side&apos; = one of borderTop, borderBottom, borderLeft, borderRight
+    &apos;line_style&apos; = one of borderSolid, borderDashed, borderDotted, others?
+    &apos;color&apos; = one of colorBlack, others?
+    &quot;&quot;&quot;
+    range = self.get_range(range).Borders(side)
+    range.LineStyle = line_style
+    range.Color = color
+  def sort(self, range, key_cell):
+    &quot;&quot;&quot;
+    Sort the specified &apos;range&apos; of the activeworksheet by the
+    specified &apos;key_cell&apos;.
+    &quot;&quot;&quot;
+    range.Sort(Key1=self.get_range(key_cell), Order1=1, Header=0, OrderCustom=1, MatchCase=False, Orientation=1)
+  def hide_row(self, row, hide=True):
+    &quot;&quot;&quot;
+    Hide the specified &apos;row&apos;.
+    Specify hide=False to show the row.
+    &quot;&quot;&quot;
+    self.get_range(&apos;a%s&apos; % row).EntireRow.Hidden = hide
+  def hide_column(self, column, hide=True):
+    &quot;&quot;&quot;
+    Hide the specified &apos;column&apos;.
+    Specify hide=False to show the column.
+    &quot;&quot;&quot;
+    self.get_range(&apos;%s1&apos; % column).EntireColumn.Hidden = hide
+  def delete_row(self, row, shift=directionUp):
+    &quot;&quot;&quot;
+    Delete the entire &apos;row&apos;.
+    &quot;&quot;&quot;
+    self.get_range(&apos;a%s&apos; % row).EntireRow.Delete(Shift=shift)
+  def delete_column(self, column, shift=directionLeft):
+    &quot;&quot;&quot;
+    Delete the entire &apos;column&apos;.
+    &quot;&quot;&quot;
+    self.get_range(&apos;%s1&apos; % column).EntireColumn.Delete(Shift=shift)
+  def fit_column(self, column):
+    &quot;&quot;&quot;
+    Resize the specified &apos;column&apos; to fit all its contents.
+    &quot;&quot;&quot;
+    self.get_range(&apos;%s1&apos; % column).EntireColumn.AutoFit()
+  def save(self):
+    &quot;&quot;&quot;
+    Save the active workbook.
+    &quot;&quot;&quot;
+    self.app.ActiveWorkbook.Save()
+  def save_as(self, filename, delete_existing=False):
+    &quot;&quot;&quot;
+    Save the active workbook as a different filename.
+    If &apos;delete_existing&apos; is specified and the file already
+    exists, it will be deleted before saving.
+    &quot;&quot;&quot;
+    if delete_existing and os.path.exists(filename):
+      os.remove(filename)
+    self.app.ActiveWorkbook.SaveAs(filename)
+  def print_out(self):
+    &quot;&quot;&quot;
+    Print the active workbook.
+    &quot;&quot;&quot;
+    self.app.Application.PrintOut()
+  def close(self):
+    &quot;&quot;&quot;
+    Close the active workbook.
+    &quot;&quot;&quot;
+    self.app.ActiveWorkbook.Close()
+  def quit(self):
+    &quot;&quot;&quot;
+    Quit Excel.
+    &quot;&quot;&quot;
+    return self.app.Quit()</code></pre><h3 id="基本使用方法"><a href="#基本使用方法" class="headerlink" title="基本使用方法"></a>基本使用方法</h3><pre><code># -*- encoding: utf8 -*-
+
+# 配置项
+import os
+import shutil
+import re
+import time
+import win32com
+from win32com.client import constants
+import xlrd
+XlsFile = &apos;default.xls&apos;                  # 需要的数据
+OldStrs = [&apos;#CatalogNumber#&apos;,
+           &apos;#ProductName#&apos;,
+           &apos;#OSpecies#&apos;,
+           &apos;#Short#&apos;,
+           &apos;#Organism#&apos;,
+           &apos;#Fragment#&apos;,
+           &apos;#PROTEIN#&apos;,
+           &apos;#Tag#&apos;
+           ]
+
+# 确认模板类型
+DefaultFile = raw_input(&apos;Want to use ihc.jpg,input \&apos;Y\&apos;,or input \&apos;N\&apos;:\n&apos;)
+if DefaultFile == &apos;N&apos;:
+    DocFile = os.path.abspath(&apos;default_noihc.doc&apos;)
+    print DocFile
+elif DefaultFile == &apos;Y&apos;:
+    DocFile = os.path.abspath(&apos;default.doc&apos;)
+    print DocFile
+else:
+    raise
+filepath = &apos;D:/Py/CreateAntibodyWord/NewFile&apos;    # 生成文件目录
+
+
+# 获取括号内容的正则表达式
+patt = re.compile(r&quot;\((.*?)\)&quot;, re.I | re.X)
+
+# 打开初始化word文档
+w = win32com.client.Dispatch(&apos;Word.Application&apos;)
+w.Visible = 0
+w.DisplayAlerts = 0
+
+# 从excel表格中导入数据
+
+data = xlrd.open_workbook(XlsFile) 
+table = data.sheets()[0]
+nrows = table.nrows
+
+# 循环表格中的内容
+for i in range(1, nrows):
+    try:
+        # 获取新的数据
+        CatalogNumber = table.row_values(i)[0]
+        ProductName = table.row_values(i)[1]
+        OrganismSpecies = table.row_values(i)[2]
+        Tag = table.row_values(i)[3]
+        Fragment = table.row_values(i)[4]
+        Short = patt.findall(ProductName)[0]
+        # 获取对应蛋白的货号
+        ProteinNumber = re.sub(r&apos;^PA&apos;, r&apos;RP&apos;, CatalogNumber)
+        # Ge多物种没有缩写，用General替代
+        Organism = patt.findall(OrganismSpecies)
+        if len(Organism) &gt; 0:
+            Organism = Organism[0]
+        else:
+            Organism = &apos;General&apos;
+        # 没有氨基酸片段信息的用原始值替代
+        Fragment = patt.findall(Fragment)
+        if len(Fragment) &gt; 0:
+            Fragment = Fragment[0]
+        else:
+            Fragment = &apos;#Fragment#&apos;
+        NewStrs = [CatalogNumber,
+                   ProductName,
+                   OrganismSpecies,
+                   Short,
+                   Organism,
+                   Fragment,
+                   ProteinNumber,
+                   Tag
+                   ]
+
+        # 打开复制的文件
+        NewFileName = CatalogNumber + &apos;-e.doc&apos;                                        # 命名新的文件
+        shutil.copyfile(DocFile, filepath + &apos;/&apos; + NewFileName)                        # 复制新的文件
+        CopyFile = os.path.abspath(filepath + &apos;/&apos; + NewFileName)                      # 新的文件目录
+        doc = w.Documents.Open(FileName=CopyFile)                                     # 打开文件
+
+        # 文本框处理
+        canvas = doc.Shapes[2]
+        canvas.TextFrame.TextRange.Find.Execute(OldStrs[3], False, False, False, False, False, True, 1, True, NewStrs[3], 2)
+        canvas.TextFrame.TextRange.Find.Execute(OldStrs[4], False, False, False, False, False, True, 1, True, NewStrs[4], 2)
+
+        # 正文文字处理
+        w.Selection.Find.ClearFormatting()
+        w.Selection.Find.Replacement.ClearFormatting()
+        for j in range(len(NewStrs)):
+            w.Selection.Find.Execute(OldStrs[j], False, False, False, False, False, True, 1, True, NewStrs[j], 2)
+
+        # 获取属性信息并修改,参考https://msdn.microsoft.com/en-us/library/microsoft.office.tools.excel.workbook.builtindocumentproperties(v=vs.120).aspx?cs-save-lang=1&amp;cs-lang=vb#code-snippet-1
+        doc.BuiltInDocumentProperties(&apos;Title&apos;).Value = ProductName
+        doc.BuiltInDocumentProperties(&apos;Subject&apos;).Value = &apos;Instruction manual (Catalog No.&apos; + CatalogNumber + &apos;)&apos;
+        doc.BuiltInDocumentProperties(&apos;Keywords&apos;).Value = ProductName
+        doc.BuiltInDocumentProperties(&apos;Category&apos;).Value = OrganismSpecies
+
+        # 保存文件并关闭
+        doc.Save()
+        doc.Close()
+        print CatalogNumber + &apos; create word success!&apos;
+
+    # 捕获异常并写入log文件中
+    except Exception, e:
+        print CatalogNumber + &apos; create word error!&apos;
+        print e
+        errorfile = open(filepath + &apos;/errorlog.txt&apos;, &apos;a&apos;)
+        try:
+            errorfile.write(CatalogNumber + &apos; create word error! &apos; + time.strftime(&apos;%Y-%m-%d %H:%M:%S&apos;) + &apos;\n&apos;)
+        except Exception, e:
+            doc.Close()
+            w.Quit()
+            raise e
+        finally:
+            errorfile.close()
+w.Quit()        </code></pre><h3 id="替换Word文档属性里的详细信息"><a href="#替换Word文档属性里的详细信息" class="headerlink" title="替换Word文档属性里的详细信息"></a>替换Word文档属性里的详细信息</h3><pre><code>doc.BuiltInDocumentProperties(&apos;Title&apos;).Value = ProductName
+doc.BuiltInDocumentProperties(&apos;Subject&apos;).Value = &apos;Instruction manual (Catalog No.&apos; + CatalogNumber + &apos;)&apos;
+doc.BuiltInDocumentProperties(&apos;Keywords&apos;).Value = ProductName
+doc.BuiltInDocumentProperties(&apos;Category&apos;).Value = Ospecies</code></pre><p>参考<a href="http://stackoverflow.com/questions/3022898/python-win32com-automating-word-how-to-replace-text-in-a-text-box" target="_blank" rel="noopener">微软官方说明</a></p>
+<h3 id="替换Word长文本"><a href="#替换Word长文本" class="headerlink" title="替换Word长文本"></a>替换Word长文本</h3><p>使用以下语句替换长文本会报错”字符串过长”</p>
+<pre><code>w.Selection.Find.Execute(OldStrs[j], False, False, False, False, False, True, 1, True, NewStrs[j], 2)</code></pre><p>使用以下语句</p>
+<pre><code>find = w.Selection.Find
+find.Text = &apos;#SEQUENCE#&apos;
+while w.Selection.Find.Execute():
+    w.Selection.TypeText(Text=SEQUENCE)</code></pre><h3 id="替换Word文本框内容"><a href="#替换Word文本框内容" class="headerlink" title="替换Word文本框内容"></a>替换Word文本框内容</h3><p>参考以下代码 <a href="http://stackoverflow.com/questions/3022898/python-win32com-automating-word-how-to-replace-text-in-a-text-box" target="_blank" rel="noopener">http://stackoverflow.com/</a></p>
+<pre><code>import win32com.client
+
+word = win32com.client.Dispatch(&quot;Word.Application&quot;)
+canvas = word.ActiveDocument.Shapes[0]
+for item in canvas.CanvasItems:
+    print item.TextFrame.TextRange.Text</code></pre><p>或者</p>
+<pre><code>find = shp.TextFrame.TextRange.Find
+find.Text = source
+find.Replacement.Text = target
+find.Execute(Replace=1, Forward=True)</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.zhuohc.com/2016/11/09/e5-88-a9-e7-94-a8python-e4-bb-8eexcel-e5-af-bc-e5-87-ba-e6-95-b0-e6-8d-ae-e5-b9-b6-e6-89-b9-e9-87-8f-e6-9b-bf-e6-8d-a2word-e6-96-87-e6-a1-a3-e5-86-85-e5-ae-b9/" data-id="cjyfelqx00046cta46rje35l6" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/办公/">办公</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/办公/后端/">后端</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/办公/后端/运维/">运维</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/办公/运维/">运维</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/后端/">后端</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/后端/运维/">运维</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/运维/">运维</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDE/">IDE</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bash/">bash</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/">django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/">redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/">windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微信/">微信</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/IDE/" style="font-size: 12.5px;">IDE</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/django/" style="font-size: 10px;">django</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/linux/" style="font-size: 15px;">linux</a> <a href="/tags/mysql/" style="font-size: 12.5px;">mysql</a> <a href="/tags/php/" style="font-size: 15px;">php</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/ubuntu/" style="font-size: 12.5px;">ubuntu</a> <a href="/tags/windows/" style="font-size: 17.5px;">windows</a> <a href="/tags/微信/" style="font-size: 10px;">微信</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/07/23/测试blog/">测试blog</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/23/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/17/e5-9c-a8bash-e6-98-be-e7-a4-bagit-e5-88-86-e6-94-af-e4-bf-a1-e6-81-af/">在bash显示git分支信息</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/16/zabbix-e5-ae-89-e8-a3-85-e5-8f-8a-e4-bd-bf-e7-94-a8/">zabbix安装及使用</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/14/centos7-2-e5-ae-89-e8-a3-85-e4-bd-bf-e7-94-a8openresty/">centos7.2安装使用openResty</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 www.zhuohc.om<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

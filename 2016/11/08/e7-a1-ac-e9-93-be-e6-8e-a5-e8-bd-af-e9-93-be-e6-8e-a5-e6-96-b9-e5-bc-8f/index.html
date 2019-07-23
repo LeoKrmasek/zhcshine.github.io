@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>硬链接软链接方式 | zhuohc.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="硬链结和符号链接的区别硬连接记录的是目标的 inode,符号连接记录的是目标的 path。软连接就像是快捷方式,而硬连接就像是备份!符号连接可以做跨分区的 link；而 硬连接由于 inode 的缘故，只能在本分区中做 link.所以,符号连接的使用频率要高的多。 软链接文件软链接又叫符号链接，这个文件包含了另一个文件的路径名。可以是任意文件或目录，可以链接不同文件系统的文件。和win下的快捷方式">
+<meta name="keywords" content="windows">
+<meta property="og:type" content="article">
+<meta property="og:title" content="硬链接软链接方式">
+<meta property="og:url" content="http://www.zhuohc.com/2016/11/08/e7-a1-ac-e9-93-be-e6-8e-a5-e8-bd-af-e9-93-be-e6-8e-a5-e6-96-b9-e5-bc-8f/index.html">
+<meta property="og:site_name" content="zhuohc.com">
+<meta property="og:description" content="硬链结和符号链接的区别硬连接记录的是目标的 inode,符号连接记录的是目标的 path。软连接就像是快捷方式,而硬连接就像是备份!符号连接可以做跨分区的 link；而 硬连接由于 inode 的缘故，只能在本分区中做 link.所以,符号连接的使用频率要高的多。 软链接文件软链接又叫符号链接，这个文件包含了另一个文件的路径名。可以是任意文件或目录，可以链接不同文件系统的文件。和win下的快捷方式">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://7xq3ry.com1.z0.glb.clouddn.com/20160127111417.png">
+<meta property="og:image" content="http://7xq3ry.com1.z0.glb.clouddn.com/20160127111459.png">
+<meta property="og:image" content="http://7xq3ry.com1.z0.glb.clouddn.com/20160127112544.png">
+<meta property="og:image" content="http://7xq3ry.com1.z0.glb.clouddn.com/20160127132448.png">
+<meta property="og:updated_time" content="2019-07-23T05:51:43.847Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="硬链接软链接方式">
+<meta name="twitter:description" content="硬链结和符号链接的区别硬连接记录的是目标的 inode,符号连接记录的是目标的 path。软连接就像是快捷方式,而硬连接就像是备份!符号连接可以做跨分区的 link；而 硬连接由于 inode 的缘故，只能在本分区中做 link.所以,符号连接的使用频率要高的多。 软链接文件软链接又叫符号链接，这个文件包含了另一个文件的路径名。可以是任意文件或目录，可以链接不同文件系统的文件。和win下的快捷方式">
+<meta name="twitter:image" content="http://7xq3ry.com1.z0.glb.clouddn.com/20160127111417.png">
+  
+    <link rel="alternate" href="/atom.xml" title="zhuohc.com" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">zhuohc.com</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">我的个人网站</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://www.zhuohc.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-e7-a1-ac-e9-93-be-e6-8e-a5-e8-bd-af-e9-93-be-e6-8e-a5-e6-96-b9-e5-bc-8f" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/08/e7-a1-ac-e9-93-be-e6-8e-a5-e8-bd-af-e9-93-be-e6-8e-a5-e6-96-b9-e5-bc-8f/" class="article-date">
+  <time datetime="2016-11-08T08:44:53.000Z" itemprop="datePublished">2016-11-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/运维/">运维</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      硬链接软链接方式
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="硬链结和符号链接的区别"><a href="#硬链结和符号链接的区别" class="headerlink" title="硬链结和符号链接的区别"></a>硬链结和符号链接的区别</h3><p>硬连接记录的是目标的 inode,符号连接记录的是目标的 path。<br>软连接就像是快捷方式,而硬连接就像是备份!符号连接可以做跨分区的 link；而 硬连接由于 inode 的缘故，只能在本分区中做 link.所以,符号连接的使用频率要高的多。</p>
+<h3 id="软链接文件"><a href="#软链接文件" class="headerlink" title="软链接文件"></a>软链接文件</h3><p>软链接又叫符号链接，这个文件包含了另一个文件的路径名。可以是任意文件或目录，可以链接不同文件系统的文件。和win下的快捷方式差不多。链接文件甚至可以链接不存在的文件，这就产生一般称之为”断链”的问题(或曰“现象”)，链接文件甚至可以循环链接自己。类似于编程语言中的递归。 命令格式：</p>
+<pre><code>ln [-s] source_path target_path </code></pre><h3 id="硬链接文件"><a href="#硬链接文件" class="headerlink" title="硬链接文件"></a>硬链接文件</h3><p>info ln 命令告诉您，硬链接是已存在文件的另一个名字，硬连接的命令是</p>
+<pre><code>ln -d existfile newfile </code></pre><p>硬链接文件有两个限制 1、不允许给目录创建硬链接；<br>2、只有在同一文件系统中的文件之间才能创建链接。<br>对硬链接文件进行读写和删除操作时候，结果和软链接相同。但如果我们删除硬链接文件的源文件，硬链接文件仍然存在，而且保留了愿有的内容。这时，系统就“忘记”了它曾经是硬链接文件。而把他当成一个普通文件。修改其中一个，与其连接的文件同时被修改</p>
+<h3 id="Windows-下创建硬链接，只能适用于-NTFS-文件系统"><a href="#Windows-下创建硬链接，只能适用于-NTFS-文件系统" class="headerlink" title="Windows 下创建硬链接，只能适用于 NTFS 文件系统"></a>Windows 下创建硬链接，只能适用于 NTFS 文件系统</h3><pre><code>fsutil hardlink create NewFileName ExistingFileName</code></pre><h3 id="Windows-下创建软链接"><a href="#Windows-下创建软链接" class="headerlink" title="Windows 下创建软链接"></a>Windows 下创建软链接</h3><p>NTFS只支持对目录的软链接，微软把它称作 junction。但是对于文件的软链接，微软也有提供解决方案，那就是快捷方式(Shortcut，.lnk 文件)。不过软链接和快捷方式不是一个层次上的东西，前者是底层文件系统的功能，后者是应用层的功能。Windows 下目录的快捷方式用 dir 看起来是个文件。<br>命令方式</p>
+<pre><code>junction  LinkDirectory ExistingDirectory</code></pre><p>例如</p>
+<pre><code>junction d:\link c:\winnt</code></pre><p>将为c:\winnt 建立一个链接目录 d:\link，C和D分区都要是 NTFS 格式，在资源管理器和 dir 列示中 d:\link 都以目录的面目存在的。d:\link 就像是 c:\winnt 的一个引用一般，删除 d:\link 目录中的内容也就是删除了 c:\winnt 中的内容，但删除 d:\link 本身是不会影响到 c:\winnt 的。</p>
+<h3 id="win7可以使用mklink命令"><a href="#win7可以使用mklink命令" class="headerlink" title="win7可以使用mklink命令"></a>win7可以使用mklink命令</h3><pre><code>λ mklink /?
+创建符号链接。
+
+MKLINK [[/D] | [/H] | [/J]] Link Target
+
+        /D      创建目录符号链接。默认为文件
+                符号链接。
+        /H      创建硬链接而非符号链接。
+        /J      创建目录联接。
+        Link    指定新的符号链接名称。
+        Target  指定新链接引用的路径
+                (相对或绝对)。</code></pre><p>其中\D \J区别如下</p>
+<pre><code>E:\
+λ mkdir SourceDir
+E:\
+λ mklink /D DTargetDir\ SourceDir\
+为 DTargetDir\ &lt;&lt;===&gt;&gt; SourceDir\ 创建的符号链接
+E:\
+λ mklink /J JTargetDir\ SourceDir\
+为 JTargetDir\ &lt;&lt;===&gt;&gt; SourceDir\ 创建的联接</code></pre><p><img src="http://7xq3ry.com1.z0.glb.clouddn.com/20160127111417.png" alt> <img src="http://7xq3ry.com1.z0.glb.clouddn.com/20160127111459.png" alt> SourceDir,JTargetDir,DTargetDir 3个文件夹内部修改/增加/删除都会互相影响。<br>复制JTargetDir, 不会出现新的目录，文件夹文件内部复制 <img src="http://7xq3ry.com1.z0.glb.clouddn.com/20160127112544.png" alt> 这样复制会影响DTargetDir和SourceDir，慎用！ 复制DTargetDir文件夹会生成一个全新的文件夹，不会被其他文件夹影响，也不能影响其他文件夹。 复制JTargetDir的父级目录不会影响该目录，复制生成的目录下JTargetDir目录会变成独立的文件夹且文件夹内为空 <img src="http://7xq3ry.com1.z0.glb.clouddn.com/20160127132448.png" alt> ![][0.048387699760496616] [0.048387699760496616]: <a href="http://7xq3ry.com1.z0.glb.clouddn.com/20160127132633.png" target="_blank" rel="noopener">http://7xq3ry.com1.z0.glb.clouddn.com/20160127132633.png</a> 删除JTargetDir,DTargetDir均不影响SourceDir<br>删除SorceDir,会使得JTargetDir和DTargetDir失效 使用mklink /D时需要保证源目录和目标目录在同一个目录下，否则创建成功但不能正常访问</p>
+<h3 id="linux服务器的软硬件链接"><a href="#linux服务器的软硬件链接" class="headerlink" title="linux服务器的软硬件链接"></a>linux服务器的软硬件链接</h3><p>软链接可以跨文件系统，硬链接不可以</p>
+<pre><code>ln source target # 硬链接
+ln -s source target # 软链接</code></pre><p>软链接如果跨文件夹，必须使用绝对路径,否则会出现软链接无法访问的情况</p>
+<pre><code>ln -s /var/www/html/Upload/product/manual/en/ /var/www/html/manual</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.zhuohc.com/2016/11/08/e7-a1-ac-e9-93-be-e6-8e-a5-e8-bd-af-e9-93-be-e6-8e-a5-e6-96-b9-e5-bc-8f/" data-id="cjyfelqvz0016cta4xgibvksj" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/">windows</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/11/08/window-e5-b8-b8-e7-94-a8-e8-bd-af-e4-bb-b6-e5-8f-8a-e5-85-b6-e4-bd-bf-e7-94-a8-e6-96-b9-e6-b3-95/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Window常用软件及其使用方法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/11/08/php-e5-b0-86pdf-e8-bd-ac-e4-b8-bajpg-ef-bc-8cpng-e5-9b-be-e7-89-87/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">PHP将PDF转为jpg，png图片</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/办公/">办公</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/办公/后端/">后端</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/办公/后端/运维/">运维</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/办公/运维/">运维</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/后端/">后端</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/后端/运维/">运维</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/运维/">运维</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDE/">IDE</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bash/">bash</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/">django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/">redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/">windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微信/">微信</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/IDE/" style="font-size: 12.5px;">IDE</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/django/" style="font-size: 10px;">django</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/linux/" style="font-size: 15px;">linux</a> <a href="/tags/mysql/" style="font-size: 12.5px;">mysql</a> <a href="/tags/php/" style="font-size: 15px;">php</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/ubuntu/" style="font-size: 12.5px;">ubuntu</a> <a href="/tags/windows/" style="font-size: 17.5px;">windows</a> <a href="/tags/微信/" style="font-size: 10px;">微信</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/07/23/测试blog/">测试blog</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/23/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/17/e5-9c-a8bash-e6-98-be-e7-a4-bagit-e5-88-86-e6-94-af-e4-bf-a1-e6-81-af/">在bash显示git分支信息</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/16/zabbix-e5-ae-89-e8-a3-85-e5-8f-8a-e4-bd-bf-e7-94-a8/">zabbix安装及使用</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/14/centos7-2-e5-ae-89-e8-a3-85-e4-bd-bf-e7-94-a8openresty/">centos7.2安装使用openResty</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 www.zhuohc.om<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

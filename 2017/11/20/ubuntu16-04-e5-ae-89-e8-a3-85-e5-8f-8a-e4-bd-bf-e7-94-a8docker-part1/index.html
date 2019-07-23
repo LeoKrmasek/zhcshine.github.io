@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>ubuntu16.04安装及使用docker(一) | zhuohc.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="删除旧版本sudo apt-get remove docker docker-engine docker.io安装$ sudo apt-get update # 安装依赖 $ sudo apt-get install  apt-transport-https ca-certificates curl software-properties-common # 添加官方key $ curl -fsSL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ubuntu16.04安装及使用docker(一)">
+<meta property="og:url" content="http://www.zhuohc.com/2017/11/20/ubuntu16-04-e5-ae-89-e8-a3-85-e5-8f-8a-e4-bd-bf-e7-94-a8docker-part1/index.html">
+<meta property="og:site_name" content="zhuohc.com">
+<meta property="og:description" content="删除旧版本sudo apt-get remove docker docker-engine docker.io安装$ sudo apt-get update # 安装依赖 $ sudo apt-get install  apt-transport-https ca-certificates curl software-properties-common # 添加官方key $ curl -fsSL">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-07-23T05:51:43.847Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ubuntu16.04安装及使用docker(一)">
+<meta name="twitter:description" content="删除旧版本sudo apt-get remove docker docker-engine docker.io安装$ sudo apt-get update # 安装依赖 $ sudo apt-get install  apt-transport-https ca-certificates curl software-properties-common # 添加官方key $ curl -fsSL">
+  
+    <link rel="alternate" href="/atom.xml" title="zhuohc.com" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">zhuohc.com</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">我的个人网站</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://www.zhuohc.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-ubuntu16-04-e5-ae-89-e8-a3-85-e5-8f-8a-e4-bd-bf-e7-94-a8docker-part1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/20/ubuntu16-04-e5-ae-89-e8-a3-85-e5-8f-8a-e4-bd-bf-e7-94-a8docker-part1/" class="article-date">
+  <time datetime="2017-11-20T03:45:42.000Z" itemprop="datePublished">2017-11-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/后端/">后端</a>►<a class="article-category-link" href="/categories/后端/运维/">运维</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ubuntu16.04安装及使用docker(一)
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="删除旧版本"><a href="#删除旧版本" class="headerlink" title="删除旧版本"></a>删除旧版本</h3><pre><code>sudo apt-get remove docker docker-engine docker.io</code></pre><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><pre><code>$ sudo apt-get update
+# 安装依赖
+$ sudo apt-get install  apt-transport-https ca-certificates curl software-properties-common
+# 添加官方key
+$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+# 查找key
+$ sudo apt-key fingerprint 0EBFCD88
+pub   4096R/0EBFCD88 2017-02-22
+      Key fingerprint = 9DC8 5822 9FC7 DD38 854A  E2D8 8D81 803C 0EBF CD88
+uid                  Docker Release (CE deb) &lt;docker@docker.com&gt;
+sub   4096R/F273FCD8 2017-02-22
+# 获取资源
+sudo add-apt-repository &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&quot;
+# 查找合适的版本
+$ apt-cache madison docker-ce
+docker-ce | 17.09.0~ce-0~ubuntu | https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages
+# 安装
+$ sudo apt-get install docker-ce=&lt;VERSION&gt;
+# 打印安装结果
+$ sudo docker version
+Client:
+ Version:      17.09.0-ce
+ API version:  1.32
+ Go version:   go1.8.3
+ Git commit:   afdb6d4
+ Built:        Tue Sep 26 22:42:18 2017
+ OS/Arch:      linux/amd64
+
+Server:
+ Version:      17.09.0-ce
+ API version:  1.32 (minimum version 1.12)
+ Go version:   go1.8.3
+ Git commit:   afdb6d4
+ Built:        Tue Sep 26 22:40:56 2017
+ OS/Arch:      linux/amd64
+ Experimental: false</code></pre><h3 id="将用户加入docker用户组，这样不需要输入sudo"><a href="#将用户加入docker用户组，这样不需要输入sudo" class="headerlink" title="将用户加入docker用户组，这样不需要输入sudo"></a>将用户加入docker用户组，这样不需要输入sudo</h3><pre><code>1. sudo cat /etc/group | grep docker 
+2. 如果不存在docker组，可以添加sudo groupadd docker 
+3. 添加当前用户到docker组，sudo usermod -aG  docker $USER 
+4. 重启docker服务,sudo systemctl restart docker 
+5. 如果权限不够，sudo chmod a+rw /var/run/docker.sock　
+6. sudo chown -R $USER ~/.docker</code></pre><h3 id="启动测试"><a href="#启动测试" class="headerlink" title="启动测试"></a>启动测试</h3><pre><code>$ sudo  docker run hello-world
+Unable to find image &apos;hello-world:latest&apos; locally
+
+latest: Pulling from library/hello-world
+9a0669468bf7: Pull complete
+Digest: sha256:0e06ef5e1945a718b02a8c319e15bae44f47039005530bc617a5d071190ed3fc
+Status: Downloaded newer image for hello-world:latest
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the &quot;hello-world&quot; image from the Docker Hub.
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://cloud.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/engine/userguide/</code></pre><h3 id="更换镜像源"><a href="#更换镜像源" class="headerlink" title="更换镜像源"></a>更换镜像源</h3><pre><code># 可以修改 /etc/docker/daemon.json 文件并添加上 registry-mirrors 键值,没有就创建一个
+
+{
+  &quot;registry-mirrors&quot;: [&quot;https://registry.docker-cn.com&quot;]
+}</code></pre><h3 id="安装ctop查看容器状态"><a href="#安装ctop查看容器状态" class="headerlink" title="安装ctop查看容器状态"></a>安装ctop查看容器状态</h3><pre><code># https://github.com/bcicen/ctop
+$ sudo wget https://github.com/bcicen/ctop/releases/download/v0.6.1/ctop-0.6.1-linux-amd64 -O /usr/local/bin/ctop
+$ sudo chmod +x /usr/local/bin/ctop</code></pre><h3 id="第一个实例"><a href="#第一个实例" class="headerlink" title="第一个实例"></a>第一个实例</h3><pre><code># 第一次使用会下载debian的镜像文件
+$ sudo docker run debian echo &apos;hello world&apos;
+&gt; Unable to find image &apos;debian&apos; locally
+&gt; ......
+
+
+# -i -t 表示进行交互会话
+$ sudo docker run -i -t debian /user/bash
+root@622ac5689680:/#  echo &apos;hello world&apos;
+&gt; hello world
+root@622ac5689680:/# exit
+&gt; exit
+
+
+# 基本命令
+$ sudo docker run -h container -i -t debian /bin/bash #-h表示主机名称
+$ sudo docker ps  # 查看当前运行的主机
+$ sudo docker ps -a # 查看全部的主机
+$sudo docker events  # 查看守护进程
+$ sudo docker inspect HOST_NAME 　# 查看HOST_NAME的信息
+$ sudo docker port HOST_NAME # 查看端口映射信息
+$ sudo docker diff HOST_NAME　# 查看更改的信息
+$ sudo docker logs HOST_NAME   # 打印log信息
+$ sudo docker rm HOST_NAME  # 删除
+$ sudo docker pull redis  # 拉取镜像
+$ sudo docker create redis # 创建容器
+$ sudo docker start zen_brown # 开启容器（kitematic是绿色波浪线）
+$ sudo docker stop zen_brown # 停止容器（kitematic是灰色直线）
+$ sudo docker pause zen_brown  # 暂停容器kitematic是灰色波浪线）
+$ sudo docker commit zen_brown # 将容器变成镜像
+$ sudo docker run redis /bin/bash
+$ sudo docker attach zen_brown # 查看容器内进程
+$ sudo docker cp # 在容器和主机之间复制内容
+$ sudo docker exec # 在容器中运行命令
+$ sudo docker kill # 容器立即退出</code></pre><h3 id="创建dockerfile镜像"><a href="#创建dockerfile镜像" class="headerlink" title="创建dockerfile镜像"></a>创建dockerfile镜像</h3><pre><code># 创建项目
+$ mkdir cowsay
+$ cd cowsay
+$ vim Dockerfile
+~ FROM debian:wheezy
+~ RUN apt-get update &amp;&amp; apt-get install -y cowsay fortune
+~ :wq
+# 创建
+$ sudo docker build -t test/cowsay-dockerfile . 
+&gt; Sending build content to Docker .....
+&gt; ....
+# 运行
+$ sudo docker run test/cowsay-dockerfile /usr/games/cowsay &apos;Moo&apos;
+
+
+# 使用entrypoint指令
+$ vim Dockerfile
+~ FROM debian:wheezy
+~ RUN apt-get update &amp;&amp; apt-get install -y cowsay fortune
+~ ENTRYPOINTER [&quot;/usr/games/cowsay&quot;]
+~ :wq 
+# 创建
+$ sudo docker build -t test/cowsay-dockerfile . 
+&gt; Sending build content to Docker .....
+&gt; ....
+# 运行
+$ sudo docker run test/cowsay-dockerfile  &apos;Moo&apos;
+
+
+# 使用脚本解决entrypoint
+$ vim entrypoint.sh
+~ #! /bin/bash
+~ if [ $# -eq 0 ]; then
+~      /usr/games/fortune | /usr/games/cowsay
+~  else
+~     /usr/games/cowsay &quot;$@&quot;
+~   fi
+~ :wq
+$ chmod +x entrypoint.sh
+$ vim Dockerfile
+~ FROM debian:wheezy
+~ RUN apt-get update &amp;&amp; apt-get install -y cowsay fortune
+~ COPY entrypoint.sh /
+~ ENTRYPOINTER [&quot;/entrypoint.sh&quot;]
+~ :wq 
+# 创建
+$ sudo docker build -t test/cowsay-dockerfile . 
+&gt; Sending build content to Docker .....
+&gt; ....
+# 运行
+$ sudo docker run test/cowsay-dockerfile &apos;Moo&apos;</code></pre><h3 id="使用在线仓库"><a href="#使用在线仓库" class="headerlink" title="使用在线仓库"></a>使用在线仓库</h3><p>在线注册地址：　<a href="https://cloud.docker.com" target="_blank" rel="noopener">https://cloud.docker.com</a></p>
+<pre><code># 登陆
+$ sudo docker login
+$ username:
+$ password:
+# 填写作者信息
+$ vim Dockerfile
+~ FROM debian:wheezy
+~ MAINTAINER username &lt;username@mail.com&gt;
+~ RUN apt-get update &amp;&amp; apt-get install -y cowsay fortune
+~ COPY entrypoint.sh /
+~ ENTRYPOINTER [&quot;/entrypoint.sh&quot;]
+~ :wq 
+# 创建
+$ sudo docker build -t username/cowsay-dockerfile . 
+&gt; Sending build content to Docker .....
+&gt; ....
+# 运行
+$ sudo docker run username/cowsay-dockerfile  &apos;Moo&apos;
+# 上传
+$ sudo docker push </code></pre><h3 id="容器连接"><a href="#容器连接" class="headerlink" title="容器连接"></a>容器连接</h3><pre><code>$ sudo docker run --name myredis -d redis # -d表示后台运行
+~ a1696406326aaaa6c28931e886b8dd664d191b083de4aed464d584b4720d57b1
+$ docker run --rm -it --link myredis:redis redis /bin/bash
+&gt; root@9c914447f5e1:/data# redis-cli -h redis -p 6379
+&gt; redis:6379&gt; ping
+&gt; PONG
+&gt; redis:6379&gt; set &quot;abc&quot; 123
+&gt; OK
+&gt; redis:6379&gt; get &quot;abc&quot;
+&gt; &quot;123&quot;
+&gt; redis:6379&gt; exit
+&gt; root@9c914447f5e1:/data# exit
+&gt; exit</code></pre><h3 id="容器的备份"><a href="#容器的备份" class="headerlink" title="容器的备份"></a>容器的备份</h3><pre><code># 查看所有的容器
+$ docker ps -a
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS               NAMES
+a1696406326a        redis               &quot;docker-entrypoint...&quot;   13 minutes ago      Up 13 minutes       6379/tcp            myredis
+# 备份指定的id
+$ docker commit -p a1696406326a redis-backup
+# 查看镜像
+$ docker images
+REPOSITORY                   TAG                 IMAGE ID            CREATED             SIZE
+redis-backup                 latest              fb9d896b3a39        11 seconds ago      107MB
+# 上传镜像(docker login &amp;&amp; docker push)
+# 或者打包
+$ docker save -o ./redis-backup.tar redis-backup
+# 恢复容器
+$ docker pull ****
+# 或者使用包
+$ docker load -i ./redis-backup.tar</code></pre><h3 id="让docker容器连接互联网"><a href="#让docker容器连接互联网" class="headerlink" title="让docker容器连接互联网"></a>让docker容器连接互联网</h3><pre><code># -p 8000:80 表示将主机的8000端口转发至容器的80端口
+$ docker run -d -p 8000:80 nginx 
+
+# 容器互联
+$ docker run -d --name myredis redis
+$ docker run --link myredis:redis debian env  # --link 目标容器:目标容器在主容器内的简称
+~ PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+~ HOSTNAME=69df45e6f92d
+~ REDIS_PORT=tcp://172.17.0.2:6379
+~ REDIS_PORT_6379_TCP=tcp://172.17.0.2:6379
+~ REDIS_PORT_6379_TCP_ADDR=172.17.0.2
+~ REDIS_PORT_6379_TCP_PORT=6379
+~ REDIS_PORT_6379_TCP_PROTO=tcp
+~ REDIS_NAME=/stupefied_chandrasekhar/redis
+~ REDIS_ENV_GOSU_VERSION=1.10
+~ REDIS_ENV_REDIS_VERSION=4.0.2
+~ REDIS_ENV_REDIS_DOWNLOAD_URL=http://download.redis.io/releases/redis-4.0.2.tar.gz
+~ REDIS_ENV_REDIS_DOWNLOAD_SHA=b1a0915dbc91b979d06df1977fe594c3fa9b189f1f3d38743a2948c9f7634813
+~ HOME=/root</code></pre><h3 id="数据卷"><a href="#数据卷" class="headerlink" title="数据卷"></a>数据卷</h3><pre><code>#  -v指定数据卷
+$ docker run -it --name container-test -h container -v /ddata debian /bin/bash
+# 查看数据卷在本机的位置
+$ docker inspect -f { {.Mounts}} container-test  
+[{volume 4687a1d9a80dff56d951f14704a8125f1b642b50c78dac63d3a02a42ff05ffb9 /var/lib/docker/volumes/4687a1d9a80dff56d951f14704a8125f1b642b50c78dac63d3a02a42ff05ffb9/_data /ddata local  true }]
+# 可以在本机中添加文件并在容器中查看修改结果
+
+
+### 在dockerfile中设置数据卷
+FROM debian:wheezy
+RUN useradd foo
+# VOLUME /ddata # 此处添加无效果，因为touch chown是在一个临时容器内的数据卷中执行的
+RUN touch /data/x
+RUN CHOWN -R foo:foo /data
+# VOLUME /ddata # 此处添加可以
+
+
+# docker run -v 指定到特定数据卷
+$ docker run -v /home/adrian/data:./data debian ls /data
+
+
+# 数据容器
+$ docker run --name dbdata postgres echo &apos;data-only container for postage&apos; # 创建一个postgreSQL的容器
+# 使用--volumes-from参数，使其他容器也可以使用这个数据卷
+$ docker run -d --volumes-from dbdata --name db1 postgres</code></pre><h3 id="如何在开发中使用docker-以python-flask为例"><a href="#如何在开发中使用docker-以python-flask为例" class="headerlink" title="如何在开发中使用docker,以python flask为例"></a>如何在开发中使用docker,以python flask为例</h3><pre><code># 创建项目
+$ tree identidock
+.
+├── app
+│   └── identidock.py
+└── Dockerfile
+
+
+# 编辑flask文件
+$ vim app/identidock.py
+from flask import Flask
+app = Flask(__name__)
+
+@app.route(&apos;/&apos;)
+def hello_world():
+    return &apos;hello world&apos;
+
+if __name__ == &apos;__main__&apos;:
+    app.run(debug=True, host=&apos;0.0.0.0&apos;)
+
+
+# 编辑dockerfile文件
+$ vim Dockerfile
+FROM python:3.4
+
+RUN pip install Flask==0.10.1
+WORKDIR /app
+COPY app /app
+CMD [&quot;python&quot;, &quot;identidock.py&quot;]
+
+
+# 创建镜像并使用容器
+$ docker build -t identidock .
+...
+$ docker run -d -p 5000:5000 identidock # 后台运行并将主机的5000端口转发到docker
+$ curl localhost:5000
+~ hello world
+
+# 将开发的代码目录挂载到docker上，这样就不必每次更改代码都需要重新bulid一次．
+$ docker run -d -p 5000:5000 -v &quot;$PWD&quot;/app:/app identidock  # -v &quot;$PWD&quot;/app:/app把位于主机的./app目录挂载到容器内，覆盖容器/app目录下的内容
+# 可以修改app目录下的文件查看改动情况
+
+# 以wsgi服务器运行flask并且修改设置用户
+$ vim Dockerfile
+FROM python:3.4
+
+RUN groupadd -r uwsgi &amp;&amp; useradd -r -g uwsgi uwsgi # 创建用户组和用户
+RUN pip install Flask==0.10.1 uWSGI==2.0.8
+WORKDIR /app
+COPY app /app
+
+EXPOSE 9090 9191  # 声明主机和其他容器可以访问的端口号
+USER uwsgi #使用用户运行以下代码，默认docker是以root用户运行的，不安全
+CMD [&quot;uwsgi&quot;, &quot;--http&quot;, &quot;0.0.0.0:9090&quot;, &quot;--wsgi-file&quot;, &quot;/app/identidock.py&quot;, &quot;--callable&quot;, &quot;app&quot;, &quot;--stats&quot;, &quot;0.0.0.0:9191&quot;]</code></pre><h3 id="使用配置文件配置开发环境和生产环境"><a href="#使用配置文件配置开发环境和生产环境" class="headerlink" title="使用配置文件配置开发环境和生产环境"></a>使用配置文件配置开发环境和生产环境</h3><pre><code># 创建脚本文件cmd.sh
+$ tree
+.
+├── app
+│   └── identidock.py
+├── cmd.sh
+└── Dockerfile
+
+$ vim cmd.sh
+#! /bin/bash
+set -e
+
+if [ &quot;$ENV&quot; = &apos;DEV&apos; ]; then
+  echo &quot;Running Development Server&quot;
+  exec python &quot;identidock.py&quot;
+else
+  echo &quot;Running Production Server&quot;
+  exec uwsgi --http 0.0.0.0:9090 --wsgi-file /app/identidock.py --callable app --stats 0.0.0.0:9191
+fi
+
+$ chmod +x cmd.sh
+$ vim Dockerfile
+FROM python:3.4
+
+RUN groupadd -r uwsgi &amp;&amp; useradd -r -g uwsgi uwsgi
+RUN pip install Flask==0.10.1 uWSGI==2.0.8
+WORKDIR /app
+COPY app /app
+COPY cmd.sh /
+
+EXPOSE 9090 9191
+USER uwsgi
+CMD [&quot;/cmd.sh&quot;]
+
+$ docker build -t identidock .
+$ docker run -e &quot;ENV=DEV&quot; -p 5000:5000 identidock # 开发环境
+$ docker run -d -P identidock</code></pre><h3 id="使用compose自动化安装创建运行docker环境"><a href="#使用compose自动化安装创建运行docker环境" class="headerlink" title="使用compose自动化安装创建运行docker环境"></a>使用compose自动化安装创建运行docker环境</h3><pre><code># 安装环境
+# https://docs.docker.com/compose/install/
+$ sudo curl -L https://github.com/docker/compose/releases/download/1.17.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+$ sudo chmod +x /usr/local/bin/docker-compose
+$ docker-compose --version
+
+
+# 配置文件
+tree
+.
+├── app
+│   └── identidock.py
+├── cmd.sh
+├── docker-compose.yml
+└── Dockerfile
+# 编辑docker-compose文件
+$ vim docker-compose.yml
+identidock:
+  build: .
+  ports:
+    - &quot;5000:5000&quot;
+  environment:
+    ENV: DEV
+  volumes:
+    - ./app:/app
+~                    
+
+
+# 使用方法
+$ docker-compose up # 如果有镜像则直接运行，如果没有镜像则先build
+$ docker-compose build # 重新构建镜像
+$ docker-compose ps 获取由compose管理的容器状态
+$ docker-compose logs 输出日志
+$ docker-stop 停止容器，但不会删除他们</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.zhuohc.com/2017/11/20/ubuntu16-04-e5-ae-89-e8-a3-85-e5-8f-8a-e4-bd-bf-e7-94-a8docker-part1/" data-id="cjyfelqx4004ecta453sw6lkv" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/11/22/e6-9c-80-e6-96-b0-e5-9c-a8linux-ubuntu-e4-b8-ad-e5-ae-89-e8-a3-85qq-e7-9a-84-e5-8a-9e-e6-b3-95/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          最新在linux/ubuntu中安装qq的办法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/11/08/linux-e5-91-bd-e4-bb-a4-e8-ae-b0-e5-bd-95/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">linux命令记录</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/办公/">办公</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/办公/后端/">后端</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/办公/后端/运维/">运维</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/办公/运维/">运维</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/后端/">后端</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/后端/运维/">运维</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/运维/">运维</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDE/">IDE</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bash/">bash</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/">django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/">redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/">windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微信/">微信</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/IDE/" style="font-size: 12.5px;">IDE</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/django/" style="font-size: 10px;">django</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/linux/" style="font-size: 15px;">linux</a> <a href="/tags/mysql/" style="font-size: 12.5px;">mysql</a> <a href="/tags/php/" style="font-size: 15px;">php</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/ubuntu/" style="font-size: 12.5px;">ubuntu</a> <a href="/tags/windows/" style="font-size: 17.5px;">windows</a> <a href="/tags/微信/" style="font-size: 10px;">微信</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/07/23/测试blog/">测试blog</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/23/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/17/e5-9c-a8bash-e6-98-be-e7-a4-bagit-e5-88-86-e6-94-af-e4-bf-a1-e6-81-af/">在bash显示git分支信息</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/16/zabbix-e5-ae-89-e8-a3-85-e5-8f-8a-e4-bd-bf-e7-94-a8/">zabbix安装及使用</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/14/centos7-2-e5-ae-89-e8-a3-85-e4-bd-bf-e7-94-a8openresty/">centos7.2安装使用openResty</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 www.zhuohc.om<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

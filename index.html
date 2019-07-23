@@ -5,17 +5,20 @@
   
 
   
-  <title>Hexo</title>
+  <title>zhuohc.com</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="Hexo">
+  <meta name="description" content="技术博客、日记记录">
+<meta property="og:type" content="website">
+<meta property="og:title" content="zhuohc.com">
+<meta property="og:url" content="http://www.zhuohc.com/index.html">
+<meta property="og:site_name" content="zhuohc.com">
+<meta property="og:description" content="技术博客、日记记录">
 <meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="zhuohc.com">
+<meta name="twitter:description" content="技术博客、日记记录">
   
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="zhuohc.com" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -34,8 +37,12 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
+        <a href="/" id="logo">zhuohc.com</a>
       </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">我的个人网站</a>
+        </h2>
       
     </div>
     <div id="header-inner" class="inner">
@@ -54,7 +61,7 @@
         <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://www.zhuohc.com"></form>
       </div>
     </div>
   </div>
@@ -88,7 +95,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/23/测试blog/" data-id="cjyfdu7iw0001sra4fdr1dbya" class="article-share-link">Share</a>
+      <a data-url="http://www.zhuohc.com/2019/07/23/测试blog/" data-id="cjyfelqws003kcta4ex9iho8e" class="article-share-link">Share</a>
       
       
     </footer>
@@ -137,7 +144,461 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/23/hello-world/" data-id="cjyfdu7is0000sra4rih23f2r" class="article-share-link">Share</a>
+      <a data-url="http://www.zhuohc.com/2019/07/23/hello-world/" data-id="cjyfelqw0001ccta43lyp972x" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-e5-9c-a8bash-e6-98-be-e7-a4-bagit-e5-88-86-e6-94-af-e4-bf-a1-e6-81-af" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/11/17/e5-9c-a8bash-e6-98-be-e7-a4-bagit-e5-88-86-e6-94-af-e4-bf-a1-e6-81-af/" class="article-date">
+  <time datetime="2018-11-17T08:43:54.000Z" itemprop="datePublished">2018-11-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/前端/">前端</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/17/e5-9c-a8bash-e6-98-be-e7-a4-bagit-e5-88-86-e6-94-af-e4-bf-a1-e6-81-af/">在bash显示git分支信息</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="不推荐使用-请直接使用zsh"><a href="#不推荐使用-请直接使用zsh" class="headerlink" title="不推荐使用,请直接使用zsh"></a><strong>不推荐使用,请直接使用zsh</strong></h1><p><strong>linux</strong></p>
+<pre><code>vim ~/.bashrc
+
+
+function git_branch {
+  branch=&quot;`git branch 2&gt;/dev/null | grep &quot;^\*&quot; | sed -e &quot;s/^\*\ //&quot;`&quot;
+  if [ &quot;${branch}&quot; != &quot;&quot; ];then
+      if [ &quot;${branch}&quot; = &quot;(no branch)&quot; ];then
+          branch=&quot;(`git rev-parse --short HEAD`...)&quot;
+      fi
+      echo &quot; ($branch)&quot;
+  fi
+}
+export PS1=&apos;\u@\h \[\033[01;36m\]\W\[\033[01;32m\]$(git_branch)\[\033[00m\] \$ &apos;
+
+
+source ~/.bashrc</code></pre><p><strong>mac</strong> 1. 同上 2. mac启动后加载的是.bash_profile</p>
+<pre><code>echo &quot;[ -r ~/.bashrc ] &amp;&amp; source ~/.bashrc&quot; &gt;&gt; .bash_profile</code></pre><p><a href="https://ohmyz.sh/" target="_blank" rel="noopener">或者直接使用zsh</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.zhuohc.com/2018/11/17/e5-9c-a8bash-e6-98-be-e7-a4-bagit-e5-88-86-e6-94-af-e4-bf-a1-e6-81-af/" data-id="cjyfelqvs000rcta4kufbpnfr" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bash/">bash</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-zabbix-e5-ae-89-e8-a3-85-e5-8f-8a-e4-bd-bf-e7-94-a8" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/11/16/zabbix-e5-ae-89-e8-a3-85-e5-8f-8a-e4-bd-bf-e7-94-a8/" class="article-date">
+  <time datetime="2018-11-16T09:40:04.000Z" itemprop="datePublished">2018-11-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/后端/">后端</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/16/zabbix-e5-ae-89-e8-a3-85-e5-8f-8a-e4-bd-bf-e7-94-a8/">zabbix安装及使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="安装服务器端"><a href="#安装服务器端" class="headerlink" title="安装服务器端"></a>安装服务器端</h4><p><a href="https://www.zabbix.com/download" target="_blank" rel="noopener">官方</a> 1. 根据实际情况选择数据库 2. 根据实际情况选择操作系统</p>
+<h4 id="汉化"><a href="#汉化" class="headerlink" title="汉化"></a>汉化</h4><p><img src="/wp-content/uploads/2018/11/2018-11-16-17-36-53%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png" alt> 错误提示</p>
+<blockquote>
+<p>You are not able to choose some of the languages, because locales for them are not installed on the web server.</p>
+</blockquote>
+<pre><code># 选中zh-CN UTF-8
+sudo dpkg-reconfigure locales
+sudo service apache2 restart</code></pre><h4 id="安装客户端"><a href="#安装客户端" class="headerlink" title="安装客户端"></a>安装客户端</h4><p><a href="https://www.zabbix.com/documentation/3.2/manual/installation/install_from_packages/agent_installation" target="_blank" rel="noopener">官方</a> <a href="https://tecadmin.net/install-zabbix-agent-on-centos-rhel/" target="_blank" rel="noopener">参考</a></p>
+<h4 id="设置邮件报警"><a href="#设置邮件报警" class="headerlink" title="设置邮件报警"></a>设置邮件报警</h4><p>Media types <img src="/wp-content/uploads/2018/11/zabbix-email.png" alt> <img src="/wp-content/uploads/2018/11/zabbix-email-1.png" alt></p>
+<h4 id="交换分区错误问题"><a href="#交换分区错误问题" class="headerlink" title="交换分区错误问题"></a>交换分区错误问题</h4><pre><code>Lack of free swap space</code></pre><p>现在的云主机默认没有交换分区 Configuration-&gt;Templates-&gt;Template OS Linux-&gt;Triggers-&gt;Lack of free swap space on {HOST.NAME}-&gt;Expression</p>
+<pre><code>{Template OS Linux:system.swap.size[,pfree].last(0)}&lt;50改成
+{Template OS Linux:system.swap.size[,pfree].last(0)}&lt;50 and {Template OS Linux:system.swap.size[,free].last(0)}&lt;&gt;0</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.zhuohc.com/2018/11/16/zabbix-e5-ae-89-e8-a3-85-e5-8f-8a-e4-bd-bf-e7-94-a8/" data-id="cjyfelqwr003gcta41oakh071" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-centos7-2-e5-ae-89-e8-a3-85-e4-bd-bf-e7-94-a8openresty" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/11/14/centos7-2-e5-ae-89-e8-a3-85-e4-bd-bf-e7-94-a8openresty/" class="article-date">
+  <time datetime="2018-11-14T10:35:08.000Z" itemprop="datePublished">2018-11-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/运维/">运维</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/14/centos7-2-e5-ae-89-e8-a3-85-e4-bd-bf-e7-94-a8openresty/">centos7.2安装使用openResty</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code># 安装
+sudo yum install pcre-devel openssl-devel gcc curl
+wget https://openresty.org/download/openresty-1.13.6.2.tar.gz
+tar -xzvf openresty-1.13.6.2.tar.gz
+cd openresty-1.13.6.2
+# 默认安装到/usr/local/openresty, 可以指定./configure --prefix=/your/path/openresty设置
+# 默认安装的组件https://openresty.org/cn/components.html
+./configure --with-luajit \
+            --without-http_redis2_module \
+            --with-http_iconv_module \
+            --with-http_postgres_module
+make &amp;&amp; sudo make install
+# 创建软链接
+ln -s /usr/local/openresty/nginx/sbin/nginx /usr/local/nginx
+# 启动/重启/停止
+nginx 
+nginx -s reload
+nginx -s stop</code></pre><h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><ul>
+<li>openResty的nginx和普通nginx配置一致</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.zhuohc.com/2018/11/14/centos7-2-e5-ae-89-e8-a3-85-e4-bd-bf-e7-94-a8openresty/" data-id="cjyfelqvi0008cta4umxqr295" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-e5-85-b3-e4-ba-8ecentos7-2-e7-8e-af-e5-a2-83nginx-php-fpm-e6-9d-83-e9-99-90-e9-97-ae-e9-a2-98" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/11/10/e5-85-b3-e4-ba-8ecentos7-2-e7-8e-af-e5-a2-83nginx-php-fpm-e6-9d-83-e9-99-90-e9-97-ae-e9-a2-98/" class="article-date">
+  <time datetime="2018-11-10T05:10:28.000Z" itemprop="datePublished">2018-11-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/运维/">运维</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/10/e5-85-b3-e4-ba-8ecentos7-2-e7-8e-af-e5-a2-83nginx-php-fpm-e6-9d-83-e9-99-90-e9-97-ae-e9-a2-98/">关于linux环境nginx/php-fpm权限问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="当前用户hanchang-nginx用户nginx"><a href="#当前用户hanchang-nginx用户nginx" class="headerlink" title="当前用户hanchang, nginx用户nginx"></a>当前用户hanchang, nginx用户nginx</h4><pre><code>vim /etc/nginx/nginx.conf
+user hanchang;
+
+
+vim /etc/php-fpm.d/www.conf 
+user = hanchang
+group = nginx
+listen.owner = hanchang
+listen.group = nginx
+listen.mode = 0660</code></pre><h4 id="划重点-将当前用户加入nginx用户组"><a href="#划重点-将当前用户加入nginx用户组" class="headerlink" title="划重点 将当前用户加入nginx用户组"></a>划重点 将当前用户加入nginx用户组</h4><pre><code>sudo usermod -a -G nginx hanchang</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.zhuohc.com/2018/11/10/e5-85-b3-e4-ba-8ecentos7-2-e7-8e-af-e5-a2-83nginx-php-fpm-e6-9d-83-e9-99-90-e9-97-ae-e9-a2-98/" data-id="cjyfelqvq000mcta4zvvxbtjp" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-ubuntu16-04-e5-ae-89-e8-a3-85-e5-8f-8a-e4-bd-bf-e7-94-a8svn" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/09/ubuntu16-04-e5-ae-89-e8-a3-85-e5-8f-8a-e4-bd-bf-e7-94-a8svn/" class="article-date">
+  <time datetime="2018-10-09T10:21:49.000Z" itemprop="datePublished">2018-10-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/办公/">办公</a>►<a class="article-category-link" href="/categories/办公/后端/">后端</a>►<a class="article-category-link" href="/categories/办公/后端/运维/">运维</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/09/ubuntu16-04-e5-ae-89-e8-a3-85-e5-8f-8a-e4-bd-bf-e7-94-a8svn/">ubuntu16.04安装及使用SVN</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="服务器端安装"><a href="#服务器端安装" class="headerlink" title="服务器端安装"></a>服务器端安装</h4><p><a href="https://help.ubuntu.com/lts/serverguide/subversion.html.en/" target="_blank" rel="noopener">官方推荐</a></p>
+<pre><code># 安装包
+sudo apt install subversion apache2 libapache2-svn
+# 创建目录及两个svn项目
+mkdir svn
+svnadmin create svn/doneself-app
+svnadmin create svn/doneself-web
+# 多个项目公用一个权限文件
+cp -rf svn/doneself/conf/passwd snv/
+cp -rf svn/doneself/conf/authz snv/
+
+
+# 编辑每个项目的配置文件
+vim svn/doneself/conf/svnserve.conf
+[general]   
+# 匿名用户没有权限
+anon-access = none
+# 验证用户写权限
+auth-access = write
+# 账号密码文件路径
+password-db = ../../passwd 
+# 权限文件路径
+authz-db = ../../authz
+
+
+# 编写账号密码文件
+vim svn/passwd
+[users] 
+ui = ui  # 注意空格
+
+
+# 编写组和权限文件
+vim svn/
+[groups]
+ui = ui  
+[doneself-app:/]  
+ui = wr</code></pre><h4 id="启动svn服务器"><a href="#启动svn服务器" class="headerlink" title="启动svn服务器"></a>启动svn服务器</h4><pre><code># 启动,默认端口号3690
+sudo svnserve -d -r /home/svn
+# 结束
+sudo pkill svnserve</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.zhuohc.com/2018/10/09/ubuntu16-04-e5-ae-89-e8-a3-85-e5-8f-8a-e4-bd-bf-e7-94-a8svn/" data-id="cjyfelqwn002ycta45xt9ajij" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-vuejs" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/26/vuejs/" class="article-date">
+  <time datetime="2018-09-26T09:32:56.000Z" itemprop="datePublished">2018-09-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/前端/">前端</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/26/vuejs/">vue.js</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="安装nodejs"><a href="#安装nodejs" class="headerlink" title="安装nodejs"></a>安装nodejs</h4><pre><code># 安装nodejs
+# https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions
+curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+sudo apt-get install -y nodejs
+# 安装cnpm
+sudo npm install -g cnpm</code></pre><h4 id="安装vue-cli"><a href="#安装vue-cli" class="headerlink" title="安装vue-cli"></a>安装vue-cli</h4><pre><code>sudo cnpm install -g vue-cli</code></pre><h4 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h4><pre><code>vue init webpack your-project
+ cnpm install
+ npm run dev  # 启动项目</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.zhuohc.com/2018/09/26/vuejs/" data-id="cjyfelqwo0032cta417awy9ja" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-centos7-2-e5-ae-89-e8-a3-85-e5-8f-8a-e4-bd-bf-e7-94-a8docker" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/08/centos7-2-e5-ae-89-e8-a3-85-e5-8f-8a-e4-bd-bf-e7-94-a8docker/" class="article-date">
+  <time datetime="2018-09-08T06:52:53.000Z" itemprop="datePublished">2018-09-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/后端/">后端</a>►<a class="article-category-link" href="/categories/后端/运维/">运维</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/08/centos7-2-e5-ae-89-e8-a3-85-e5-8f-8a-e4-bd-bf-e7-94-a8docker/">centos7.2安装及使用docker</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code># https://docs.docker.com/install/linux/docker-ce/centos/#install-docker-ce
+# 卸载旧版本
+$ sudo yum remove docker docker-client docker-client-latest docker-common docker-latest docker-latest-logrotate docker-logrotate docker-selinux docker-engine-selinux docker-engine
+# 安装依赖包
+$ sudo yum install -y yum-utils device-mapper-persistent-data lvm2
+# 安装源
+$ sudo yum-config-manager  --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+# 安装
+$ sudo yum install docker-ce
+# 启动
+$ sudo systemctl start docker
+$ sudo systemctl enable docker
+# 测试
+$ sudo docker run hello-world
+# 加入用户组(记得退出重新登录) https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user
+# 安装docker-compose
+$ sudo yum install epel-release
+$ sudo yum install python-pip
+$ sudo pip install docker-compose
+# 换源https://lug.ustc.edu.cn/wiki/mirrors/help/docker</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.zhuohc.com/2018/09/08/centos7-2-e5-ae-89-e8-a3-85-e5-8f-8a-e4-bd-bf-e7-94-a8docker/" data-id="cjyfelqvk000bcta4cczb8a77" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-centos7-2-e5-ae-89-e8-a3-85-e4-bd-bf-e7-94-a8sentry" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/08/centos7-2-e5-ae-89-e8-a3-85-e4-bd-bf-e7-94-a8sentry/" class="article-date">
+  <time datetime="2018-09-08T06:48:41.000Z" itemprop="datePublished">2018-09-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/运维/">运维</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/08/centos7-2-e5-ae-89-e8-a3-85-e4-bd-bf-e7-94-a8sentry/">centos7.2安装使用sentry</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code># 先安装docker  https://docs.docker.com/install/linux/docker-ce/centos/#install-docker-ce
+# 后安装sentry   https://github.com/getsentry/onpremise
+$ mkdir sentry
+$ cd sentry
+$ mkdir -p data/{sentry,postgres}
+$ git clone https://github.com/getsentry/onpremise
+$ cd onpremise
+$ docker-compose run --rm web config generate-secret-key # 创建一个secret key并配置到docker-compose.yml中的SENTRY_SECRET_KEY.
+$ docker-compose run --rm web upgrade # 创建数据库
+$ docker-compose up -d  # 后台执行</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.zhuohc.com/2018/09/08/centos7-2-e5-ae-89-e8-a3-85-e4-bd-bf-e7-94-a8sentry/" data-id="cjyfelqvj000acta4ad5be0ua" class="article-share-link">Share</a>
       
       
     </footer>
@@ -149,23 +610,49 @@
   
 
 
+  <nav id="page-nav">
+    
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+  </nav>
+
 </section>
         
           <aside id="sidebar">
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/办公/">办公</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/办公/后端/">后端</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/办公/后端/运维/">运维</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/办公/运维/">运维</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/后端/">后端</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/后端/运维/">运维</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/运维/">运维</a></li></ul>
+    </div>
+  </div>
+
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDE/">IDE</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bash/">bash</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/">django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/">redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/">windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微信/">微信</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li></ul>
+    </div>
+  </div>
+
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/IDE/" style="font-size: 12.5px;">IDE</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/django/" style="font-size: 10px;">django</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/linux/" style="font-size: 15px;">linux</a> <a href="/tags/mysql/" style="font-size: 12.5px;">mysql</a> <a href="/tags/php/" style="font-size: 15px;">php</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/ubuntu/" style="font-size: 12.5px;">ubuntu</a> <a href="/tags/windows/" style="font-size: 17.5px;">windows</a> <a href="/tags/微信/" style="font-size: 10px;">微信</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a>
+    </div>
+  </div>
+
   
     
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li></ul>
     </div>
   </div>
 
@@ -185,6 +672,18 @@
             <a href="/2019/07/23/hello-world/">Hello World</a>
           </li>
         
+          <li>
+            <a href="/2018/11/17/e5-9c-a8bash-e6-98-be-e7-a4-bagit-e5-88-86-e6-94-af-e4-bf-a1-e6-81-af/">在bash显示git分支信息</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/16/zabbix-e5-ae-89-e8-a3-85-e5-8f-8a-e4-bd-bf-e7-94-a8/">zabbix安装及使用</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/14/centos7-2-e5-ae-89-e8-a3-85-e4-bd-bf-e7-94-a8openresty/">centos7.2安装使用openResty</a>
+          </li>
+        
       </ul>
     </div>
   </div>
@@ -197,7 +696,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2019 John Doe<br>
+      &copy; 2019 www.zhuohc.om<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>

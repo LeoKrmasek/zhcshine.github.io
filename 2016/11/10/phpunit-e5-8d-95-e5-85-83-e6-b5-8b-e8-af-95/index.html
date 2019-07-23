@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>PHPUnit单元测试 | zhuohc.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="安装安装composer sudo apt-get install composer安装PHPUnit sudo composer require --dev phpunit/phpunit安装xdebug sudo apt-get install php-xdebug配置路径/phpunit.xml &amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;">
+<meta name="keywords" content="php">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHPUnit单元测试">
+<meta property="og:url" content="http://www.zhuohc.com/2016/11/10/phpunit-e5-8d-95-e5-85-83-e6-b5-8b-e8-af-95/index.html">
+<meta property="og:site_name" content="zhuohc.com">
+<meta property="og:description" content="安装安装composer sudo apt-get install composer安装PHPUnit sudo composer require --dev phpunit/phpunit安装xdebug sudo apt-get install php-xdebug配置路径/phpunit.xml &amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://7xq3ry.com1.z0.glb.clouddn.com/phpunit-run">
+<meta property="og:updated_time" content="2019-07-23T05:51:43.847Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PHPUnit单元测试">
+<meta name="twitter:description" content="安装安装composer sudo apt-get install composer安装PHPUnit sudo composer require --dev phpunit/phpunit安装xdebug sudo apt-get install php-xdebug配置路径/phpunit.xml &amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;">
+<meta name="twitter:image" content="http://7xq3ry.com1.z0.glb.clouddn.com/phpunit-run">
+  
+    <link rel="alternate" href="/atom.xml" title="zhuohc.com" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">zhuohc.com</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">我的个人网站</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://www.zhuohc.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-phpunit-e5-8d-95-e5-85-83-e6-b5-8b-e8-af-95" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/10/phpunit-e5-8d-95-e5-85-83-e6-b5-8b-e8-af-95/" class="article-date">
+  <time datetime="2016-11-10T02:31:18.000Z" itemprop="datePublished">2016-11-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/后端/">后端</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      PHPUnit单元测试
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>安装composer</p>
+<pre><code>sudo apt-get install composer</code></pre><p>安装PHPUnit</p>
+<pre><code>sudo composer require --dev phpunit/phpunit</code></pre><p>安装xdebug</p>
+<pre><code>sudo apt-get install php-xdebug</code></pre><h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>路径/phpunit.xml</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+&lt;phpunit bootstrap=&quot;tests/bootstrap.php&quot;&gt;
+   &lt;testsuites&gt;
+       &lt;testsuite name=&quot;whovian&quot;&gt;
+           &lt;directory suffix=&quot;Test.php&quot;&gt;
+               tests
+           &lt;/directory&gt;
+       &lt;/testsuite&gt;
+   &lt;/testsuites&gt;
+    &lt;filter&gt;
+        &lt;whitelist&gt;
+            &lt;directory&gt;src&lt;/directory&gt;
+        &lt;/whitelist&gt;
+    &lt;/filter&gt;
+&lt;/phpunit&gt;</code></pre><p>tests/bootstrap..php表示phpunit文件的路径<br>filter元素列出需要分析代码覆盖度分析涵盖的目录<br>whitelist元素告诉PHPUnit只分析src/目录中的代码<br>tests/bootstrap.php</p>
+<pre><code>&lt;?php
+require dirname(__DIR__) . &apos;/vendor/autoload.php&apos;;</code></pre><p>src/Whovian.php</p>
+<pre><code>&lt;?php
+
+class Whovian
+{
+  protected $favoriteDoctor;
+
+  // 设置实例喜欢的医生
+  public function __construct($favoriteDoctor)
+  {
+    $this-&gt;favoriteDoctor = (string)$favoriteDoctor;
+  }
+
+  // 返回一个字符串，说出实例最喜欢的医生
+  public function say()
+  {
+    return &apos;The best doctor is &apos; . $this-&gt;favoriteDoctor;
+  }
+
+  // 与另一个实例喜欢的医生进行比较，并做出回应
+  public function respondTo($input)
+  {
+    $input = strtolower($input);
+    $myDoctor = strtolower($this-&gt;favoriteDoctor);
+    if(strpos($input, $myDoctor) === false) {
+      throw new Exception(sprintf(
+        &apos;No way, %s is the best doctor ever&apos;, $this-&gt;favoriteDoctor
+      ));
+    }
+    return &apos;I agree!&apos;;
+  }
+}</code></pre><p>tests/WhovianTest.php</p>
+<pre><code>&lt;?php
+
+  require dirname(__DIR__) . &apos;/src/Whovian.php&apos;;
+  class WhovianTest extends PHPUnit_Framework_TestCase
+  {
+    // 确认构造方法是否设定了Whovian实例最喜欢的医生
+    public function testSetsDoctorWithConstructor()
+    {
+      $whovian = new Whovian(&apos;Peter Capaldi&apos;);
+      $this-&gt;assertAttributeEquals(&apos;Peter Capaldi&apos;, &apos;favoriteDoctor&apos;, $whovian);
+    }
+
+    // 确认say方法是否会返回一个包含最喜欢医生名字的字符串
+    public function testSaysDoctorName()
+    {
+      $whovian = new Whovian(&apos;David Tennant&apos;);
+      $this-&gt;assertEquals(&apos;The best doctor is David Tennant&apos;, $whovian-&gt;say());
+    }
+    // 确认认同另一个实例最喜欢的医生
+    public function testRespondToInAgreement()
+    {
+      $whovian = new Whovian(&apos;David Tennant&apos;);
+      $opinion = &apos;David Tennant is the best doctor, period&apos;;
+      $this-&gt;assertEquals(&apos;I agree!&apos;, $whovian-&gt;respondTo($opinion));
+    }
+    // 反对另一个实例最喜欢的医生
+    public function testRespondToInDisagreement()
+    {
+      $whovian = new Whovian(&apos;David Tennant&apos;);
+      $opinion = &apos;No way, Matt smith was awesome!&apos;;
+      $whovian-&gt;respondTo($opinion);
+    }
+  }</code></pre><p>终端执行测试</p>
+<pre><code>vendor/bin/phpunit -c phpunit.xml</code></pre><p><img src="http://7xq3ry.com1.z0.glb.clouddn.com/phpunit-run" alt> 测试的目录结构</p>
+<pre><code>src/     
+    /Whovian.php  
+tests/    
+    /bootstrap.php  
+    /WhovianTest.php
+vendor/
+    /bin/  
+    /composer/  
+    /phpunit/  
+    /autoload.php  
+composer.json  
+composer.lock  
+phpunit.xml</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.zhuohc.com/2016/11/10/phpunit-e5-8d-95-e5-85-83-e6-b5-8b-e8-af-95/" data-id="cjyfelqw6001xcta4jm2p6xu7" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/11/10/ubuntu14-04-e6-9c-8d-e5-8a-a1-e5-99-a8-e5-9f-ba-e7-a1-80-e9-85-8d-e7-bd-ae/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Ubuntu14.04服务器基础配置
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/11/10/centos7-e6-9c-8d-e5-8a-a1-e5-99-a8-e5-9f-ba-e7-a1-80-e9-85-8d-e7-bd-ae/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Centos7服务器基础配置</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/办公/">办公</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/办公/后端/">后端</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/办公/后端/运维/">运维</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/办公/运维/">运维</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/后端/">后端</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/后端/运维/">运维</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/运维/">运维</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDE/">IDE</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bash/">bash</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/">django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/">redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/">windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微信/">微信</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/IDE/" style="font-size: 12.5px;">IDE</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/django/" style="font-size: 10px;">django</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/linux/" style="font-size: 15px;">linux</a> <a href="/tags/mysql/" style="font-size: 12.5px;">mysql</a> <a href="/tags/php/" style="font-size: 15px;">php</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/ubuntu/" style="font-size: 12.5px;">ubuntu</a> <a href="/tags/windows/" style="font-size: 17.5px;">windows</a> <a href="/tags/微信/" style="font-size: 10px;">微信</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/07/23/测试blog/">测试blog</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/23/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/17/e5-9c-a8bash-e6-98-be-e7-a4-bagit-e5-88-86-e6-94-af-e4-bf-a1-e6-81-af/">在bash显示git分支信息</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/16/zabbix-e5-ae-89-e8-a3-85-e5-8f-8a-e4-bd-bf-e7-94-a8/">zabbix安装及使用</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/14/centos7-2-e5-ae-89-e8-a3-85-e4-bd-bf-e7-94-a8openresty/">centos7.2安装使用openResty</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 www.zhuohc.om<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

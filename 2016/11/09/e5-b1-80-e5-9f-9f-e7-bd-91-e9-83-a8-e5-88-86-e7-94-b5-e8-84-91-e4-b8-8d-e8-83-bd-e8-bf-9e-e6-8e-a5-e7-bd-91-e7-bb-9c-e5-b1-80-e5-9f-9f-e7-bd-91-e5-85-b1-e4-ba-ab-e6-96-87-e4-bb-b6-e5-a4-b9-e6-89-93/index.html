@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>局域网部分电脑不能连接网络,局域网共享文件夹,打印机等情况 | zhuohc.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="问题反应今天公司出现网络故障，有2个部门全部不能连接网络。 正常问题 一台电脑不能上网，找该台电脑的问题一部门电脑不能上网，找该部门交换机多部门电脑不能上网，找主交换机问题全部不能上网，拿电脑直连路由  问题分析公司主交换机A部门分交换机B测试电脑C部门不能上网故障，正常情况应该是A模块出现问题。于是重启A，仍然有一个部门故障。重启B，不能解决问题。将C与B直连的线路连接到C，C正常。A,B问题都">
+<meta name="keywords" content="windows">
+<meta property="og:type" content="article">
+<meta property="og:title" content="局域网部分电脑不能连接网络,局域网共享文件夹,打印机等情况">
+<meta property="og:url" content="http://www.zhuohc.com/2016/11/09/e5-b1-80-e5-9f-9f-e7-bd-91-e9-83-a8-e5-88-86-e7-94-b5-e8-84-91-e4-b8-8d-e8-83-bd-e8-bf-9e-e6-8e-a5-e7-bd-91-e7-bb-9c-e5-b1-80-e5-9f-9f-e7-bd-91-e5-85-b1-e4-ba-ab-e6-96-87-e4-bb-b6-e5-a4-b9-e6-89-93/index.html">
+<meta property="og:site_name" content="zhuohc.com">
+<meta property="og:description" content="问题反应今天公司出现网络故障，有2个部门全部不能连接网络。 正常问题 一台电脑不能上网，找该台电脑的问题一部门电脑不能上网，找该部门交换机多部门电脑不能上网，找主交换机问题全部不能上网，拿电脑直连路由  问题分析公司主交换机A部门分交换机B测试电脑C部门不能上网故障，正常情况应该是A模块出现问题。于是重启A，仍然有一个部门故障。重启B，不能解决问题。将C与B直连的线路连接到C，C正常。A,B问题都">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-07-23T05:51:43.847Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="局域网部分电脑不能连接网络,局域网共享文件夹,打印机等情况">
+<meta name="twitter:description" content="问题反应今天公司出现网络故障，有2个部门全部不能连接网络。 正常问题 一台电脑不能上网，找该台电脑的问题一部门电脑不能上网，找该部门交换机多部门电脑不能上网，找主交换机问题全部不能上网，拿电脑直连路由  问题分析公司主交换机A部门分交换机B测试电脑C部门不能上网故障，正常情况应该是A模块出现问题。于是重启A，仍然有一个部门故障。重启B，不能解决问题。将C与B直连的线路连接到C，C正常。A,B问题都">
+  
+    <link rel="alternate" href="/atom.xml" title="zhuohc.com" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">zhuohc.com</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">我的个人网站</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://www.zhuohc.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-e5-b1-80-e5-9f-9f-e7-bd-91-e9-83-a8-e5-88-86-e7-94-b5-e8-84-91-e4-b8-8d-e8-83-bd-e8-bf-9e-e6-8e-a5-e7-bd-91-e7-bb-9c-e5-b1-80-e5-9f-9f-e7-bd-91-e5-85-b1-e4-ba-ab-e6-96-87-e4-bb-b6-e5-a4-b9-e6-89-93" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/09/e5-b1-80-e5-9f-9f-e7-bd-91-e9-83-a8-e5-88-86-e7-94-b5-e8-84-91-e4-b8-8d-e8-83-bd-e8-bf-9e-e6-8e-a5-e7-bd-91-e7-bb-9c-e5-b1-80-e5-9f-9f-e7-bd-91-e5-85-b1-e4-ba-ab-e6-96-87-e4-bb-b6-e5-a4-b9-e6-89-93/" class="article-date">
+  <time datetime="2016-11-09T01:54:26.000Z" itemprop="datePublished">2016-11-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/运维/">运维</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      局域网部分电脑不能连接网络,局域网共享文件夹,打印机等情况
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="问题反应"><a href="#问题反应" class="headerlink" title="问题反应"></a>问题反应</h3><p>今天公司出现网络故障，有2个部门全部不能连接网络。</p>
+<h3 id="正常问题"><a href="#正常问题" class="headerlink" title="正常问题"></a>正常问题</h3><blockquote>
+<p>一台电脑不能上网，找该台电脑的问题<br>一部门电脑不能上网，找该部门交换机<br>多部门电脑不能上网，找主交换机问题<br>全部不能上网，拿电脑直连路由</p>
+</blockquote>
+<h3 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h3><p>公司主交换机A<br>部门分交换机B<br>测试电脑C<br>部门不能上网故障，正常情况应该是A模块出现问题。于是重启A，仍然有一个部门故障。<br>重启B，不能解决问题。<br>将C与B直连的线路连接到C，C正常。<br>A,B问题都排除，那么问题在哪？<br>继续尝试，B上只连接C，正常。B上连接该部门全部电脑，故障。<br>找到那条会导致故障的线路，换掉网线，OK.<br>确认问题原因居然是<strong><em>网线！</em></strong></p>
+<h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><p>子交换机上的网线问题会影响主交换。</p>
+<h3 id="共享打印机安装出现0x00000709"><a href="#共享打印机安装出现0x00000709" class="headerlink" title="共享打印机安装出现0x00000709"></a>共享打印机安装出现0x00000709</h3><p>解决办法：重启打印机服务器的Print Spooler服务，重启本地计算机</p>
+<h3 id="账号密码问题"><a href="#账号密码问题" class="headerlink" title="账号密码问题"></a>账号密码问题</h3><p>局域网有xp电脑可以正常访问共享电脑，排序账号密码问题。</p>
+<h3 id="共享设置问题"><a href="#共享设置问题" class="headerlink" title="共享设置问题"></a>共享设置问题</h3><p>xp系统访问正常，win7系统访问显示“帐号密码错误”。于是想到共享设置问题。</p>
+<blockquote>
+<p>开始=&gt;<br>运行=&gt;<br>gpedit.msc=&gt;<br>本地计算机策略=&gt;<br>计算机配置=&gt;<br>Windows设置=&gt;<br>安全设置=&gt;<br>本地策略=&gt;<br>安全选项=&gt;<br>网络安全：LAN管理器身份验证级别=&gt;<br>发送LM &amp; NTLM响应</p>
+</blockquote>
+<p>但是之前win7是可以正常访问的，所以该项设置是正确的。</p>
+<h3 id="时间设置问题"><a href="#时间设置问题" class="headerlink" title="时间设置问题"></a>时间设置问题</h3><p>于是询问是什么时候不能访问的，告之电脑蓝屏重启后。那么原因自然是蓝屏导致共享电脑设置的时间出现错误。</p>
+<blockquote>
+<p>如果win7的系统时间和访问的共享文件夹的创建时间间隔太长的话，会出现此现象。这是win7的安全机制造成的。<br>将共享电脑时间设置为当前时间即可</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.zhuohc.com/2016/11/09/e5-b1-80-e5-9f-9f-e7-bd-91-e9-83-a8-e5-88-86-e7-94-b5-e8-84-91-e4-b8-8d-e8-83-bd-e8-bf-9e-e6-8e-a5-e7-bd-91-e7-bb-9c-e5-b1-80-e5-9f-9f-e7-bd-91-e5-85-b1-e4-ba-ab-e6-96-87-e4-bb-b6-e5-a4-b9-e6-89-93/" data-id="cjyfelqvt000vcta404ddn70e" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/">windows</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/11/09/e5-88-a9-e7-94-a8python-e4-bb-8eexcel-e5-af-bc-e5-87-ba-e6-95-b0-e6-8d-ae-e5-b9-b6-e6-89-b9-e9-87-8f-e6-9b-bf-e6-8d-a2word-e6-96-87-e6-a1-a3-e5-86-85-e5-ae-b9/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          利用Python从EXCEL导出数据并批量替换WORD文档内容
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/11/08/window-e5-b8-b8-e7-94-a8-e8-bd-af-e4-bb-b6-e5-8f-8a-e5-85-b6-e4-bd-bf-e7-94-a8-e6-96-b9-e6-b3-95/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Window常用软件及其使用方法</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/办公/">办公</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/办公/后端/">后端</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/办公/后端/运维/">运维</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/办公/运维/">运维</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/后端/">后端</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/后端/运维/">运维</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/运维/">运维</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDE/">IDE</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bash/">bash</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/">django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/">redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/">windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微信/">微信</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/IDE/" style="font-size: 12.5px;">IDE</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/django/" style="font-size: 10px;">django</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/linux/" style="font-size: 15px;">linux</a> <a href="/tags/mysql/" style="font-size: 12.5px;">mysql</a> <a href="/tags/php/" style="font-size: 15px;">php</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/ubuntu/" style="font-size: 12.5px;">ubuntu</a> <a href="/tags/windows/" style="font-size: 17.5px;">windows</a> <a href="/tags/微信/" style="font-size: 10px;">微信</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/07/23/测试blog/">测试blog</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/23/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/17/e5-9c-a8bash-e6-98-be-e7-a4-bagit-e5-88-86-e6-94-af-e4-bf-a1-e6-81-af/">在bash显示git分支信息</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/16/zabbix-e5-ae-89-e8-a3-85-e5-8f-8a-e4-bd-bf-e7-94-a8/">zabbix安装及使用</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/14/centos7-2-e5-ae-89-e8-a3-85-e4-bd-bf-e7-94-a8openresty/">centos7.2安装使用openResty</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 www.zhuohc.om<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

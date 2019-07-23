@@ -1,0 +1,1389 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>zhuohc.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="技术博客、日记记录">
+<meta property="og:type" content="website">
+<meta property="og:title" content="zhuohc.com">
+<meta property="og:url" content="http://www.zhuohc.com/page/2/index.html">
+<meta property="og:site_name" content="zhuohc.com">
+<meta property="og:description" content="技术博客、日记记录">
+<meta property="og:locale" content="default">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="zhuohc.com">
+<meta name="twitter:description" content="技术博客、日记记录">
+  
+    <link rel="alternate" href="/atom.xml" title="zhuohc.com" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">zhuohc.com</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">我的个人网站</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://www.zhuohc.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-centos7-2-e4-bd-bf-e7-94-a8rabbitmq" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/08/centos7-2-e4-bd-bf-e7-94-a8rabbitmq/" class="article-date">
+  <time datetime="2018-09-08T06:45:54.000Z" itemprop="datePublished">2018-09-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/后端/">后端</a>►<a class="article-category-link" href="/categories/后端/运维/">运维</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/08/centos7-2-e4-bd-bf-e7-94-a8rabbitmq/">centos7.2使用rabbitMQ</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code># 安装 Erlang
+yum -y install epel-release
+yum -y update
+yum -y install erlang socat
+
+
+# 查看是否安装成功
+erl -version
+
+
+# 安装rabbitMQ
+wget https://www.rabbitmq.com/releases/rabbitmq-server/v3.6.10/rabbitmq-server-3.6.10-1.el7.noarch.rpm
+rpm --import https://www.rabbitmq.com/rabbitmq-release-signing-key.asc
+rpm -Uvh rabbitmq-server-3.6.10-1.el7.noarch.rpm
+
+
+# 启用,开机启动,状态
+systemctl start rabbitmq-server
+systemctl enable rabbitmq-server
+systemctl status rabbitmq-server
+
+
+# 启动图形界面管理
+rabbitmq-plugins enable rabbitmq_management
+chown -R rabbitmq:rabbitmq /var/lib/rabbitmq/
+rabbitmqctl add_user admin StrongPassword  # 踩坑:密码不要以&apos;;&apos;结尾
+rabbitmqctl set_user_tags admin administrator
+rabbitmqctl set_permissions -p / admin &quot;.*&quot; &quot;.*&quot; &quot;.*&quot;
+
+
+# 自定义配置文件
+cd /etc/rabbitmq
+touch rabbitmq.conf
+
+
+# 访问图形界面
+http://Your_Server_IP:15672/
+
+
+# api文档
+http://Your_Server_IP:15672/api</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.zhuohc.com/2018/09/08/centos7-2-e4-bd-bf-e7-94-a8rabbitmq/" data-id="cjyfelqvg0006cta47xcig2td" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-postgresql-e5-b8-b8-e8-a7-81-e5-91-bd-e4-bb-a4" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/07/postgresql-e5-b8-b8-e8-a7-81-e5-91-bd-e4-bb-a4/" class="article-date">
+  <time datetime="2018-08-07T05:55:57.000Z" itemprop="datePublished">2018-08-07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/后端/">后端</a>►<a class="article-category-link" href="/categories/后端/运维/">运维</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/07/postgresql-e5-b8-b8-e8-a7-81-e5-91-bd-e4-bb-a4/">postgresql使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p><a href="https://www.postgresql.org/download/linux/ubuntu/" target="_blank" rel="noopener">ubuntu安装</a> <a href="https://www.postgresql.org/download/linux/redhat/" target="_blank" rel="noopener">centos安装</a> centos7.2 安装postgresql9.6</p>
+<pre><code># 添加RPM
+yum install https://download.postgresql.org/pub/repos/yum/9.6/redhat/rhel-7-x86_64/pgdg-centos96-9.6-3.noarch.rpm
+
+# 安装PostgreSQL 9.6
+# postgresql96-server 数据库核心服务端
+# postgresql96-contrib 附加第三方扩展
+# postgresql96-devel C语言开发Header头文件和库
+yum install postgresql96-server postgresql96-contrib postgresql96-devel
+
+# 验证是否安装成功
+rpm -aq| grep postgres
+
+
+# 设置目录（可省略）
+cd /mnt
+sudo mkdir vdb1
+sudo chown -R postgres:postgres vdb1
+sudo chmod 700 vdb1
+vi /usr/lib/systemd/system/postgresql-9.6.service
+Environment=PGDATA=/mnt/vdb1/ 修改为自己的新的数据路径
+
+
+# 初始化数据库
+sudo /usr/pgsql-9.6/bin/postgresql96-setup initdb
+# 开启服务
+sudo service postgresql-9.6 start 或者 systemctl start postgresql-9.6.service
+# 开机启动
+sudo sudo chkconfig postgresql-9.6 on 或者 systemctl enable postgresql-9.6.service
+
+
+# 配置文件
+ /var/lib/pgsql/9.6/data/postgresql.conf 通用设置
+ /var/lib/pgsql/9.6/data/pg_hba.conf  控制访问安全
+ /var/lib/pgsql/9.6/data/pg_ident.conf 配合pg_hba.conf使用  
+
+
+sudo su postgres
+psql # 进入命令行模式
+# 修改密码
+ALTER USER postgres WITH PASSWORD &apos;密码&apos;; 
+# 创建用户
+CREATE USER userdoneself WITH PASSWORD &apos;密码passworddoneself&apos;;
+# 创建数据库
+create --encoding=UTF8 database dbdoneself owner userdoneself;
+# 赋予权限
+grant all privileges on database dbdoneself to userdoneself;
+\q
+# 安装postgresql时，系统会自动创建postgres用户
+
+
+# 开启远程访问
+vi /var/lib/pgsql/9.6/data/postgresql.conf 或者  vi /mnt/vdb1/postgresql.conf(创建了目录)
+
+修改#listen_addresses = &apos;localhost&apos; 为  listen_addresses=&apos;*&apos;
+
+
+# 连接数据库
+先配置登录权限
+vim pg_hba.conf
+# 是否远程登录 数据库 用户名 ip地段 方式
+# 允许doneself用户远程访问
+host doneself doneself 127.0.0.1/32 md5
+# 允许管理员密码登录
+local all postgres  md5
+# 如果不知道怎么配置， 将全部登录方式改成md5
+
+# 查看版本
+/usr/pgsql-9.6/bin/psql --version</code></pre><h4 id="安装postgis2"><a href="#安装postgis2" class="headerlink" title="安装postgis2"></a>安装postgis2</h4><p>centos7.2</p>
+<pre><code>sudo yum install postgis2_96  # 96和安装的postgresql一致
+sudo yum install ogr_fdw96  # 安装ogrfdw
+sudo yum install pgrouting_96 # 安装pgrouting
+
+
+# 用管理员登录postgerysql
+&gt;-- Enable PostGIS (includes raster)
+CREATE EXTENSION postgis;
+-- Enable Topology
+CREATE EXTENSION postgis_topology;
+-- Enable PostGIS Advanced 3D
+-- and other geoprocessing algorithms
+-- sfcgal not available with all distributions
+CREATE EXTENSION postgis_sfcgal;
+-- fuzzy matching needed for Tiger
+CREATE EXTENSION fuzzystrmatch;
+-- rule based standardizer
+CREATE EXTENSION address_standardizer;
+-- example rule data set
+CREATE EXTENSION address_standardizer_data_us;
+-- Enable US Tiger Geocoder
+CREATE EXTENSION postgis_tiger_geocoder;
+
+# 验证是否安装成功
+#postgres=&gt; postgis_full_version();</code></pre><h4 id="安装postgresql中文全文搜索zhparser"><a href="#安装postgresql中文全文搜索zhparser" class="headerlink" title="安装postgresql中文全文搜索zhparser"></a>安装postgresql中文全文搜索zhparser</h4><p>centos7.2</p>
+<pre><code> yum install bzip2  # 安装解压包
+ # 安装SCWS中文分词 https://github.com/hightman/scws
+ wget http://www.xunsearch.com/scws/down/scws-1.2.3.tar.bz2
+ tar -jxvf scws-1.2.3.tar.bz2 
+ cd scws-1.2.3
+ ./configure
+ make install
+ # 测试
+ scws &apos;请问怎么自己动手做西红柿蛋炒饭&apos; -c utf-8
+ # 安装zhparser
+ git clone https://github.com/amutu/zhparser.git
+ cd zhparser
+export PATH=$PATH:/usr/pgsql-9.6/bin/
+cmake &amp;&amp; make install
+
+
+# 登录（第一次登录）
+&gt; sudo su - postgres
+# 修改可以md5登录后
+&gt; &gt; psql -U user -D database -W
+&gt;  输入口令
+# 创建用户
+user=&gt;  CREATE USER dbuser WITH PASSWORD &apos;password&apos;;
+# 修改密码
+user=&gt;  ALTER USER dbuser WITH PASSWORD &apos;newpassword&apos;;
+# 赋予权限
+user=&gt;  GRANT ALL PRIVILEGES ON DATABASE exampledb to dbuser;
+# 允许用户创建数据库
+user=&gt; ALTER USER doneself CREATEDB;
+# 设置为超级管理员
+user=&gt; ALTER ROLE doneself SUPERUSER;
+# 创建数据库
+user=&gt;  Create database exampledb owner=dbuser  template= template1  ENCODING = &apos;UTF8&apos;;
+# 选择数据库
+user=&gt; \c database
+# 查看当前数据库所有表
+user=&gt;  \dt
+user=&gt;  \d 数据库 —— 得到所有表的名字
+user=&gt;  \d 表名 —— 得到表结构</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.zhuohc.com/2018/08/07/postgresql-e5-b8-b8-e8-a7-81-e5-91-bd-e4-bb-a4/" data-id="cjyfelqwb002acta4irxmwwjq" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-java-e5-9f-ba-e7-a1-80" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/31/java-e5-9f-ba-e7-a1-80/" class="article-date">
+  <time datetime="2018-01-31T01:44:05.000Z" itemprop="datePublished">2018-01-31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/前端/">前端</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/31/java-e5-9f-ba-e7-a1-80/">java基础</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="linux安装java开发环境"><a href="#linux安装java开发环境" class="headerlink" title="linux安装java开发环境"></a>linux安装java开发环境</h3><pre><code>[root@localhost ~]# mkdir /usr/java
+[root@localhost ~]# cd /usr/java
+# 从官方网站下载javaLTS版本源码并复制到当前目录
+# 下载地址: https://www.oracle.com/technetwork/java/javase/downloads/index.html
+[root@localhost ~]# tar -zxvf jdk-11.0.3_linux-x64_bin.tar.gz &amp;&amp; rm  jdk-11.0.3_linux-x64_bin.tar.gz
+
+
+# 设置环境变量
+vi /etc/profile
+#set java environment
+JAVA_HOME=/usr/java/jdk-11.0.3
+JRE_HOME=/usr/java/jdk-11.0.3/jre
+CLASS_PATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib
+PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin
+export JAVA_HOME JRE_HOME CLASS_PATH PATH
+
+
+# 验证
+[root@localhost ~]# which java
+/usr/java/jdk-11.0.3/bin/java
+[root@localhost ~]# java -version
+java version &quot;11.0.3&quot; 2019-04-16 LTS
+Java(TM) SE Runtime Environment 18.9 (build 11.0.3+12-LTS)                                           
+Java HotSpot(TM) 64-Bit Server VM 18.9 (build 11.0.3+12-LTS, mixed mode)</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.zhuohc.com/2018/01/31/java-e5-9f-ba-e7-a1-80/" data-id="cjyfelqw70020cta4difcvjzb" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-e5-be-ae-e4-bf-a1-e6-9c-ac-e5-9c-b0-e5-bc-80-e5-8f-91-e5-8f-8a-e7-ba-bf-e4-b8-8a-e7-8e-af-e5-a2-83-e6-90-ad-e5-bb-ba" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/29/e5-be-ae-e4-bf-a1-e6-9c-ac-e5-9c-b0-e5-bc-80-e5-8f-91-e5-8f-8a-e7-ba-bf-e4-b8-8a-e7-8e-af-e5-a2-83-e6-90-ad-e5-bb-ba/" class="article-date">
+  <time datetime="2018-01-29T09:25:48.000Z" itemprop="datePublished">2018-01-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/后端/">后端</a>►<a class="article-category-link" href="/categories/后端/运维/">运维</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/29/e5-be-ae-e4-bf-a1-e6-9c-ac-e5-9c-b0-e5-bc-80-e5-8f-91-e5-8f-8a-e7-ba-bf-e4-b8-8a-e7-8e-af-e5-a2-83-e6-90-ad-e5-bb-ba/">微信本地开发及线上环境搭建</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="微信开发者中心"><a href="#微信开发者中心" class="headerlink" title="微信开发者中心"></a>微信开发者中心</h4><p><a href="https://open.weixin.qq.com" target="_blank" rel="noopener">https://open.weixin.qq.com</a> 1. 注册线上账号，开发者资质认证 2. 注册本地账号，开发者资质认证</p>
+<h4 id="网站应用"><a href="#网站应用" class="headerlink" title="网站应用"></a>网站应用</h4><ol>
+<li>添加相关信息，并盖章认证，添加授权回调域example.com</li>
+<li>认证通过后获取AppId, AppSecret</li>
+</ol>
+<h4 id="公众号应用"><a href="#公众号应用" class="headerlink" title="公众号应用"></a>公众号应用</h4><h4 id="本地环境配置"><a href="#本地环境配置" class="headerlink" title="本地环境配置"></a>本地环境配置</h4><ol>
+<li>将回调的url <a href="http://www.example.com" target="_blank" rel="noopener">www.example.com</a> 添加到host文件中</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.zhuohc.com/2018/01/29/e5-be-ae-e4-bf-a1-e6-9c-ac-e5-9c-b0-e5-bc-80-e5-8f-91-e5-8f-8a-e7-ba-bf-e4-b8-8a-e7-8e-af-e5-a2-83-e6-90-ad-e5-bb-ba/" data-id="cjyfelqvu000xcta44lsf68c4" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/微信/">微信</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-redis-e5-9f-ba-e7-a1-80" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/11/redis-e5-9f-ba-e7-a1-80/" class="article-date">
+  <time datetime="2018-01-11T07:51:36.000Z" itemprop="datePublished">2018-01-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/后端/">后端</a>►<a class="article-category-link" href="/categories/后端/运维/">运维</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/11/redis-e5-9f-ba-e7-a1-80/">Redis基础</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>REmote DIctionary Server(Redis) 是一个由Salvatore Sanfilippo写的key-value存储系统。 Redis是一个开源的使用ANSI C语言编写、遵守BSD协议、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API。 它通常被称为数据结构服务器，因为值（value）可以是 字符串(String), 哈希(Map), 列表(list), 集合(sets) 和 有序集合(sorted sets)等类型。</p>
+<h3 id="redis安装"><a href="#redis安装" class="headerlink" title="redis安装"></a>redis安装</h3><pre><code>$sudo apt-get update
+$sudo apt-get install redis-server
+$redis-cli</code></pre><h3 id="redis配置"><a href="#redis配置" class="headerlink" title="redis配置"></a>redis配置</h3><pre><code>sudo vim /etc/redis.conf
+# 设置为守护进程
+protected-mode yes
+# 设置密码
+requirepass redispassword
+# port
+port 6379
+# bind 127.0.0.1
+bing 0.0.0.0 # 允许远程访问</code></pre><h3 id="客户端远程登录"><a href="#客户端远程登录" class="headerlink" title="客户端远程登录"></a>客户端远程登录</h3><pre><code>redis-cli -h 127.0.0.1 -p 6379 -a redispassword</code></pre><h3 id="redis客户端"><a href="#redis客户端" class="headerlink" title="redis客户端"></a>redis客户端</h3><pre><code># redis-commander，基于nodejs
+$ npm install -g redis-commander
+$ redis-commander</code></pre><h3 id="通用命令"><a href="#通用命令" class="headerlink" title="通用命令"></a>通用命令</h3><pre><code>$ 127.0.0.1:6379&gt; del name # 删除数据
+$ 127.0.0.1:6379&gt; type name # 查看数据类型
+$ 127.0.0.1:6379&gt; rename name # 重命名</code></pre><h3 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h3><p>字符串string</p>
+<pre><code>$ 127.0.0.1:6379&gt;  set string-name value
+$ 127.0.0.1:6379&gt; get string-name
+$ 127.0.0.1:6379&gt;  del string-name</code></pre><p>列表list： 相当于默认键的数组</p>
+<pre><code>$ 127.0.0.1:6379&gt; lpush list-name value1 value2 value3 ... # 左侧插入列表值
+(integer) 3
+$ 127.0.0.1:6379&gt; rpush list-name value4 value5 value6... # 右侧插入列表值
+(integer) 6
+$ 127.0.0.1:6379&gt;  lindex list-name 1 # 获取第1个的值
+&quot;value2&quot;
+$ 127.0.0.1:6379&gt;  lrange list-name 1 2 # 获取从第1位置到2位置的列表值
+1) &quot;value2&quot;
+2) &quot;value1&quot;
+$ 127.0.0.1:6379&gt;  lpop list-name # 弹出最左边值
+&quot;value3&quot;
+$ 127.0.0.1:6379&gt; rpop list-name # 弹出最右边值
+&quot;value6&quot;</code></pre><p>集合set：无序，不重复的列表</p>
+<pre><code>$ 127.0.0.1:6379&gt;  sadd set-name value1 value2 value3 # 设置无序列表值
+(integer) 3
+$ 127.0.0.1:6379&gt; smembers set-name  # 查看所有值
+1) &quot;value3&quot;
+2) &quot;value2&quot;
+3) &quot;value1&quot;
+$ 127.0.0.1:6379&gt; srem set-name value1 # 删除值
+(integer) 1
+$ 127.0.0.1:6379&gt; sismember set-name value2 # 查看是否在无序列表内
+(integer) 1</code></pre><p>散列值hash：相当于自定义键的数组</p>
+<pre><code>$ 127.0.0.1:6379&gt; HSET hash-name key1 value1 #设置键值对
+(integer) 1
+$ 127.0.0.1:6379&gt; HGET hash-name key1 # 获取指定键的值
+&quot;value1&quot;
+$ 127.0.0.1:6379&gt; HSET hash-name key1 value2 # 更新键的值
+(integer) 0
+$ 127.0.0.1:6379&gt; HGET hash-name key1 
+&quot;value2&quot;
+$ 127.0.0.1:6379&gt; HSET hash-name key2 value2
+(integer) 1
+$ 127.0.0.1:6379&gt; HGETALL hash-name # 查找所有键值对
+1) &quot;key1&quot;
+2) &quot;value2&quot;
+3) &quot;key2&quot;
+4) &quot;value2&quot;
+$ 127.0.0.1:6379&gt; HDEL hash-name key1 # 删除hash键值对
+(integer) 1</code></pre><p>有序集合zset：成员+分值，分值必须是浮点数，通过浮点数进行排序</p>
+<pre><code>$ 127.0.0.1:6379&gt; zadd zset-name 100 member1 # 添加键值对
+(integer) 1
+$ 127.0.0.1:6379&gt; zadd zset-name 202 member2
+(integer) 1
+$ 127.0.0.1:6379&gt; zadd zset-name 803 member3
+(integer) 1
+$ 127.0.0.1:6379&gt; ZRANGE zset-name 0 -1 # 获取多个元素
+1) &quot;member1&quot;
+2) &quot;member2&quot;
+3) &quot;member3&quot;
+$ 127.0.0.1:6379&gt; ZRANGE zset-name 0 -1 withscores # 获取多个元素
+1) &quot;member1&quot;
+2) &quot;100&quot;
+3) &quot;member2&quot;
+4) &quot;202&quot;
+5) &quot;member3&quot;
+6) &quot;803&quot;
+$ 127.0.0.1:6379&gt; ZRANGEBYSCORE zset-name 0 300 withscores # 按score获取多个元素
+1) &quot;member1&quot;
+2) &quot;100&quot;
+3) &quot;member2&quot;
+4) &quot;202&quot;
+$ 127.0.0.1:6379&gt; ZREM zset-name member1 # 移除一个元素
+(integer) 1</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.zhuohc.com/2018/01/11/redis-e5-9f-ba-e7-a1-80/" data-id="cjyfelqwc002gcta4zwafd71y" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis/">redis</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据库/">数据库</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-python-e7-88-ac-e8-99-abscrapy-e6-a1-86-e6-9e-b6-e7-ae-80-e4-bb-8b" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/10/python-e7-88-ac-e8-99-abscrapy-e6-a1-86-e6-9e-b6-e7-ae-80-e4-bb-8b/" class="article-date">
+  <time datetime="2018-01-10T07:44:12.000Z" itemprop="datePublished">2018-01-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/后端/">后端</a>►<a class="article-category-link" href="/categories/后端/运维/">运维</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/10/python-e7-88-ac-e8-99-abscrapy-e6-a1-86-e6-9e-b6-e7-ae-80-e4-bb-8b/">python爬虫scrapy框架简介</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Scrapy是一个为了爬取网站数据，提取结构性数据而编写的应用框架。 可以应用在包括数据挖掘，信息处理或存储历史数据等一系列的程序中。 其最初是为了页面抓取 (更确切来说, 网络抓取 )所设计的， 也可以应用在获取API所返回的数据(例如 Amazon Associates Web Services ) 或者通用的网络爬虫。Scrapy用途广泛，可以用于数据挖掘、监测和自动化测试</p>
+<h3 id="Scrapy主要包括了以下组件："><a href="#Scrapy主要包括了以下组件：" class="headerlink" title="Scrapy主要包括了以下组件："></a>Scrapy主要包括了以下组件：</h3><ol>
+<li>引擎(Scrapy): 用来处理整个系统的数据流处理, 触发事务(框架核心)</li>
+<li>调度器(Scheduler): 用来接受引擎发过来的请求, 压入队列中, 并在引擎再次请求的时候返回. 可以想像成一个URL（抓取网页的网址或者说是链接）的优先队列, 由它来决定下一个要抓取的网址是什么, 同时去除重复的网址</li>
+<li>下载器(Downloader): 用于下载网页内容, 并将网页内容返回给蜘蛛(Scrapy下载器是建立在twisted这个高效的异步模型上的)</li>
+<li>爬虫(Spiders): 爬虫是主要干活的, 用于从特定的网页中提取自己需要的信息, 即所谓的实体(Item)。用户也可以从中提取出链接,让Scrapy继续抓取下一个页面</li>
+<li>项目管道(Pipeline): 负责处理爬虫从网页中抽取的实体，主要的功能是持久化实体、验证实体的有效性、清除不需要的信息。当页面被爬虫解析后，将被发送到项目管道，并经过几个特定的次序处理数据。</li>
+<li>下载器中间件(Downloader Middlewares): 位于Scrapy引擎和下载器之间的框架，主要是处理Scrapy引擎与下载器之间的请求及响应。</li>
+<li>爬虫中间件(Spider Middlewares): 介于Scrapy引擎和爬虫之间的框架，主要工作是处理蜘蛛的响应输入和请求输出。</li>
+<li>调度中间件(Scheduler Middewares): 介于Scrapy引擎和调度之间的中间件，从Scrapy引擎发送到调度的请求和响应。</li>
+</ol>
+<h3 id="Scrapy运行流程大概如下："><a href="#Scrapy运行流程大概如下：" class="headerlink" title="Scrapy运行流程大概如下："></a>Scrapy运行流程大概如下：</h3><p>首先，引擎从调度器中取出一个链接(URL)用于接下来的抓取 引擎把URL封装成一个请求(Request)传给下载器，下载器把资源下载下来，并封装成应答包(Response) 然后，爬虫解析Response 若是解析出实体（Item）,则交给实体管道进行进一步的处理。 若是解析出的是链接（URL）,则把URL交给Scheduler等待抓取</p>
+<h3 id="备忘"><a href="#备忘" class="headerlink" title="备忘"></a>备忘</h3><h4 id="使用Selector提取数据"><a href="#使用Selector提取数据" class="headerlink" title="使用Selector提取数据"></a>使用Selector提取数据</h4><h4 id="xpath语法和基本函数"><a href="#xpath语法和基本函数" class="headerlink" title="xpath语法和基本函数"></a>xpath语法和基本函数</h4><pre><code>/
+.
+..
+ELEMENT
+//ELEMENT
+*
+text
+@ALTER
+@*
+position()
+last()
+string()</code></pre><h4 id="css选择器"><a href="#css选择器" class="headerlink" title="css选择器"></a>css选择器</h4><pre><code>*
+E
+E1&gt;E2
+E1+E2
+.CLASS
+#ID
+[ATTR]
+[ATTR=VALUE]
+E:nth-child(n)
+E:first-child</code></pre><h4 id="使用Item和Field封装数据"><a href="#使用Item和Field封装数据" class="headerlink" title="使用Item和Field封装数据"></a>使用Item和Field封装数据</h4><p>Field(serializer=lambda)设置存储数据</p>
+<h4 id="使用Item-Pipeline处理数据"><a href="#使用Item-Pipeline处理数据" class="headerlink" title="使用Item Pipeline处理数据"></a>使用Item Pipeline处理数据</h4><p>修改数据,过滤重复数据,将数据写入到数据库等</p>
+<h4 id="LinkExtractor提取链接"><a href="#LinkExtractor提取链接" class="headerlink" title="LinkExtractor提取链接"></a>LinkExtractor提取链接</h4><pre><code>LinkExtractor参数
+allow 允许链接
+deny 拒绝链接
+allow_domains 允许域名
+deny_domains 拒绝域名
+restrict_xpaths 允许xpath链接
+restrict_css 允许css选择器链接</code></pre><h4 id="Exporter导出数据"><a href="#Exporter导出数据" class="headerlink" title="Exporter导出数据"></a>Exporter导出数据</h4><p>默认包含以下</p>
+<pre><code>JSON, JSON LINES, CSV, XML, PICKLE, MARSHAL</code></pre><p>可配置导出格式和存放文件地址, 可自定义导出格式,例如xls</p>
+<h4 id="下载文件和图片"><a href="#下载文件和图片" class="headerlink" title="下载文件和图片"></a>下载文件和图片</h4><p>FIlesPipeline</p>
+<pre><code>setting.py
+ITEM_PIPELINES = {&apos;scrapy.pipelines.files.FilesPipeline&apos;: 1}
+FILES_STORE = &apos;/home/hanchang/download&apos;</code></pre><p>ImagesPipeline</p>
+<h4 id="模拟登录"><a href="#模拟登录" class="headerlink" title="模拟登录"></a>模拟登录</h4><p>使用FromRequest ORC识别验证码:pillow, pytesseract 付费网络平台识别 人工识别:爬取登录页面的验证码图片,调用Image.show方法,肉眼识别并输入到内置的input函数中 Cookie登录: 获取浏览器的cookie值(browsercookie包), 利用BrowserCookiesMiddleware将获取的cookie值添加到CookieJar中</p>
+<h4 id="动态页面抓取"><a href="#动态页面抓取" class="headerlink" title="动态页面抓取"></a>动态页面抓取</h4><p>Splash是Scrapy官方推荐的javascript渲染引擎, Webkit无界面浏览器</p>
+<pre><code># 安装
+sudo apt-get install docker
+sudo docker pull scrapinghub/splash
+sudo docker run -p 8050:8050 -p 8051:8051 scrapinghub/splash</code></pre><p>splash常见服务端点 <a href="http://localhost:8050/render.html" target="_blank" rel="noopener">http://localhost:8050/render.html</a> GET/POST 返回html 参数: url, timeout, proxy, wait, images, js_source <a href="http://localhost:8050/excute" target="_blank" rel="noopener">http://localhost:8050/excute</a> 传递模拟的动作给splash,例如等待页面渲染，执行代码，等等</p>
+<h5 id="scrapy使用splash"><a href="#scrapy使用splash" class="headerlink" title="scrapy使用splash"></a>scrapy使用splash</h5><pre><code>安装
+pip install scrapy-splash
+
+
+setting.py
+# splash服务器地址
+SPLASH_URL = &apos;http://localhost:8050&apos;
+# 开启splash的两个下载中间件并调整HttpCompressionMiddleware的次序
+DOWNLOADER_MIDDLEWARES = {
+    &apos;scrapy_splash.SplashCookiesMiddleware&apos;: 723,
+        &apos;scrapy_splash.SplashMiddleware&apos;: 725,
+        &apos;scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware&apos;: 810,
+}
+# 过滤去重函数
+DUPEFILTER_CLASS = &apos;scrapy_splash.SplashAwareDupeFilter&apos;,
+# 用户支持cahce_args
+SPIDER_MIDDLEWARES = {
+  &apos;scrapy_splash.SplashDeduplicateArgsMiddleware&apos;: 100,
+}</code></pre><h4 id="分布式爬取"><a href="#分布式爬取" class="headerlink" title="分布式爬取"></a>分布式爬取</h4><p>使用scrapy-redis</p>
+<pre><code># 安装
+pip install scrapy
+pip install scrapy-redis
+
+
+# 在配置文件setting.py中添加scrapy-redis相关信息
+# redis服务器
+REDIS_URL = &apos;redis://127.0.0.1:6379&apos;
+# 使用scrapy_redis调度器替代原生调度器
+SCHEDULER = &apos;scrapy_redis.scheduler.Scheduler&apos;
+# 使用scrapy_redis的RFPDupeFilter作为去重过滤器
+DUPEFILTER_CLASS = &apos;scrapy_redis.dupefilter.RFPDupeFilter&apos;
+# 将爬取的数据存储到redis中
+ITEM_PIPELINES = {
+    &apos;scrapy_redis.pipelines.RedisPipeline&apos;: 300,
+}
+# 爬虫停止后,保留/清除Reids中的请求队列以及去重集合
+SCHEDULER_PERSIST = False
+
+
+# 修改爬虫spider.py
+from scrapy_redis.spiders import RedisSpider
+
+class BookSpider(RedisSpider):
+
+    # 注释start_urls
+    # start_urls = []
+
+
+# 手动添加start_urls
+redis-cli -h 127.0.0.1
+lpush books:start_urls &apos;http://www.books.com/&apos;</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.zhuohc.com/2018/01/10/python-e7-88-ac-e8-99-abscrapy-e6-a1-86-e6-9e-b6-e7-ae-80-e4-bb-8b/" data-id="cjyfelqwd002jcta40ckkwqvd" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-e6-9c-80-e6-96-b0-e5-9c-a8linux-ubuntu-e4-b8-ad-e5-ae-89-e8-a3-85qq-e7-9a-84-e5-8a-9e-e6-b3-95" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/22/e6-9c-80-e6-96-b0-e5-9c-a8linux-ubuntu-e4-b8-ad-e5-ae-89-e8-a3-85qq-e7-9a-84-e5-8a-9e-e6-b3-95/" class="article-date">
+  <time datetime="2017-11-22T01:49:34.000Z" itemprop="datePublished">2017-11-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/办公/">办公</a>►<a class="article-category-link" href="/categories/办公/运维/">运维</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/22/e6-9c-80-e6-96-b0-e5-9c-a8linux-ubuntu-e4-b8-ad-e5-ae-89-e8-a3-85qq-e7-9a-84-e5-8a-9e-e6-b3-95/">最新在linux/ubuntu中安装qq的办法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>通过docker镜像文件的方式安装qq 1, 首先需要在主机上安装docker 2, 下载镜像文件 <a href="https://hub.docker.com/r/bestwu/qq/" target="_blank" rel="noopener">https://hub.docker.com/r/bestwu/qq/</a></p>
+<pre><code>sudo docker pull bestwu/qq # 速度慢可以换镜像源</code></pre><p>3, 编辑启动脚本</p>
+<pre><code>vim qq.sh
+sudo docker run -d --name qq --device /dev/snd --net=host \
+-v /tmp/.X11-unix:/tmp/.X11-unix \
+-v /home/YOURUSERNAME/TencentFiles:/TencentFiles \ # 此处数据卷的目录填写自己的目录
+-e DISPLAY=unix$DISPLAY \
+-e XMODIFIERS=@im=fcitx \
+-e QT_IM_MODULE=fcitx \
+-e GTK_IM_MODULE=fcitx \
+-e AUDIO_GID=63 \
+-e GID=1000 \
+-e UID=1000 \
+bestwu/qq:latest # 此处版本自行选择，作者提供了im (QQ) light,latest (QQLight) office (TIM)三个版本</code></pre><p>4, 启动脚本</p>
+<pre><code>./qq.sh</code></pre><p>5, 感谢作者提供的镜像，本镜像基于深度操作系统.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.zhuohc.com/2017/11/22/e6-9c-80-e6-96-b0-e5-9c-a8linux-ubuntu-e4-b8-ad-e5-ae-89-e8-a3-85qq-e7-9a-84-e5-8a-9e-e6-b3-95/" data-id="cjyfelqvw0010cta49sqs4hof" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-ubuntu16-04-e5-ae-89-e8-a3-85-e5-8f-8a-e4-bd-bf-e7-94-a8docker-part1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/20/ubuntu16-04-e5-ae-89-e8-a3-85-e5-8f-8a-e4-bd-bf-e7-94-a8docker-part1/" class="article-date">
+  <time datetime="2017-11-20T03:45:42.000Z" itemprop="datePublished">2017-11-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/后端/">后端</a>►<a class="article-category-link" href="/categories/后端/运维/">运维</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/20/ubuntu16-04-e5-ae-89-e8-a3-85-e5-8f-8a-e4-bd-bf-e7-94-a8docker-part1/">ubuntu16.04安装及使用docker(一)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="删除旧版本"><a href="#删除旧版本" class="headerlink" title="删除旧版本"></a>删除旧版本</h3><pre><code>sudo apt-get remove docker docker-engine docker.io</code></pre><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><pre><code>$ sudo apt-get update
+# 安装依赖
+$ sudo apt-get install  apt-transport-https ca-certificates curl software-properties-common
+# 添加官方key
+$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+# 查找key
+$ sudo apt-key fingerprint 0EBFCD88
+pub   4096R/0EBFCD88 2017-02-22
+      Key fingerprint = 9DC8 5822 9FC7 DD38 854A  E2D8 8D81 803C 0EBF CD88
+uid                  Docker Release (CE deb) &lt;docker@docker.com&gt;
+sub   4096R/F273FCD8 2017-02-22
+# 获取资源
+sudo add-apt-repository &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&quot;
+# 查找合适的版本
+$ apt-cache madison docker-ce
+docker-ce | 17.09.0~ce-0~ubuntu | https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages
+# 安装
+$ sudo apt-get install docker-ce=&lt;VERSION&gt;
+# 打印安装结果
+$ sudo docker version
+Client:
+ Version:      17.09.0-ce
+ API version:  1.32
+ Go version:   go1.8.3
+ Git commit:   afdb6d4
+ Built:        Tue Sep 26 22:42:18 2017
+ OS/Arch:      linux/amd64
+
+Server:
+ Version:      17.09.0-ce
+ API version:  1.32 (minimum version 1.12)
+ Go version:   go1.8.3
+ Git commit:   afdb6d4
+ Built:        Tue Sep 26 22:40:56 2017
+ OS/Arch:      linux/amd64
+ Experimental: false</code></pre><h3 id="将用户加入docker用户组，这样不需要输入sudo"><a href="#将用户加入docker用户组，这样不需要输入sudo" class="headerlink" title="将用户加入docker用户组，这样不需要输入sudo"></a>将用户加入docker用户组，这样不需要输入sudo</h3><pre><code>1. sudo cat /etc/group | grep docker 
+2. 如果不存在docker组，可以添加sudo groupadd docker 
+3. 添加当前用户到docker组，sudo usermod -aG  docker $USER 
+4. 重启docker服务,sudo systemctl restart docker 
+5. 如果权限不够，sudo chmod a+rw /var/run/docker.sock　
+6. sudo chown -R $USER ~/.docker</code></pre><h3 id="启动测试"><a href="#启动测试" class="headerlink" title="启动测试"></a>启动测试</h3><pre><code>$ sudo  docker run hello-world
+Unable to find image &apos;hello-world:latest&apos; locally
+
+latest: Pulling from library/hello-world
+9a0669468bf7: Pull complete
+Digest: sha256:0e06ef5e1945a718b02a8c319e15bae44f47039005530bc617a5d071190ed3fc
+Status: Downloaded newer image for hello-world:latest
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the &quot;hello-world&quot; image from the Docker Hub.
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://cloud.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/engine/userguide/</code></pre><h3 id="更换镜像源"><a href="#更换镜像源" class="headerlink" title="更换镜像源"></a>更换镜像源</h3><pre><code># 可以修改 /etc/docker/daemon.json 文件并添加上 registry-mirrors 键值,没有就创建一个
+
+{
+  &quot;registry-mirrors&quot;: [&quot;https://registry.docker-cn.com&quot;]
+}</code></pre><h3 id="安装ctop查看容器状态"><a href="#安装ctop查看容器状态" class="headerlink" title="安装ctop查看容器状态"></a>安装ctop查看容器状态</h3><pre><code># https://github.com/bcicen/ctop
+$ sudo wget https://github.com/bcicen/ctop/releases/download/v0.6.1/ctop-0.6.1-linux-amd64 -O /usr/local/bin/ctop
+$ sudo chmod +x /usr/local/bin/ctop</code></pre><h3 id="第一个实例"><a href="#第一个实例" class="headerlink" title="第一个实例"></a>第一个实例</h3><pre><code># 第一次使用会下载debian的镜像文件
+$ sudo docker run debian echo &apos;hello world&apos;
+&gt; Unable to find image &apos;debian&apos; locally
+&gt; ......
+
+
+# -i -t 表示进行交互会话
+$ sudo docker run -i -t debian /user/bash
+root@622ac5689680:/#  echo &apos;hello world&apos;
+&gt; hello world
+root@622ac5689680:/# exit
+&gt; exit
+
+
+# 基本命令
+$ sudo docker run -h container -i -t debian /bin/bash #-h表示主机名称
+$ sudo docker ps  # 查看当前运行的主机
+$ sudo docker ps -a # 查看全部的主机
+$sudo docker events  # 查看守护进程
+$ sudo docker inspect HOST_NAME 　# 查看HOST_NAME的信息
+$ sudo docker port HOST_NAME # 查看端口映射信息
+$ sudo docker diff HOST_NAME　# 查看更改的信息
+$ sudo docker logs HOST_NAME   # 打印log信息
+$ sudo docker rm HOST_NAME  # 删除
+$ sudo docker pull redis  # 拉取镜像
+$ sudo docker create redis # 创建容器
+$ sudo docker start zen_brown # 开启容器（kitematic是绿色波浪线）
+$ sudo docker stop zen_brown # 停止容器（kitematic是灰色直线）
+$ sudo docker pause zen_brown  # 暂停容器kitematic是灰色波浪线）
+$ sudo docker commit zen_brown # 将容器变成镜像
+$ sudo docker run redis /bin/bash
+$ sudo docker attach zen_brown # 查看容器内进程
+$ sudo docker cp # 在容器和主机之间复制内容
+$ sudo docker exec # 在容器中运行命令
+$ sudo docker kill # 容器立即退出</code></pre><h3 id="创建dockerfile镜像"><a href="#创建dockerfile镜像" class="headerlink" title="创建dockerfile镜像"></a>创建dockerfile镜像</h3><pre><code># 创建项目
+$ mkdir cowsay
+$ cd cowsay
+$ vim Dockerfile
+~ FROM debian:wheezy
+~ RUN apt-get update &amp;&amp; apt-get install -y cowsay fortune
+~ :wq
+# 创建
+$ sudo docker build -t test/cowsay-dockerfile . 
+&gt; Sending build content to Docker .....
+&gt; ....
+# 运行
+$ sudo docker run test/cowsay-dockerfile /usr/games/cowsay &apos;Moo&apos;
+
+
+# 使用entrypoint指令
+$ vim Dockerfile
+~ FROM debian:wheezy
+~ RUN apt-get update &amp;&amp; apt-get install -y cowsay fortune
+~ ENTRYPOINTER [&quot;/usr/games/cowsay&quot;]
+~ :wq 
+# 创建
+$ sudo docker build -t test/cowsay-dockerfile . 
+&gt; Sending build content to Docker .....
+&gt; ....
+# 运行
+$ sudo docker run test/cowsay-dockerfile  &apos;Moo&apos;
+
+
+# 使用脚本解决entrypoint
+$ vim entrypoint.sh
+~ #! /bin/bash
+~ if [ $# -eq 0 ]; then
+~      /usr/games/fortune | /usr/games/cowsay
+~  else
+~     /usr/games/cowsay &quot;$@&quot;
+~   fi
+~ :wq
+$ chmod +x entrypoint.sh
+$ vim Dockerfile
+~ FROM debian:wheezy
+~ RUN apt-get update &amp;&amp; apt-get install -y cowsay fortune
+~ COPY entrypoint.sh /
+~ ENTRYPOINTER [&quot;/entrypoint.sh&quot;]
+~ :wq 
+# 创建
+$ sudo docker build -t test/cowsay-dockerfile . 
+&gt; Sending build content to Docker .....
+&gt; ....
+# 运行
+$ sudo docker run test/cowsay-dockerfile &apos;Moo&apos;</code></pre><h3 id="使用在线仓库"><a href="#使用在线仓库" class="headerlink" title="使用在线仓库"></a>使用在线仓库</h3><p>在线注册地址：　<a href="https://cloud.docker.com" target="_blank" rel="noopener">https://cloud.docker.com</a></p>
+<pre><code># 登陆
+$ sudo docker login
+$ username:
+$ password:
+# 填写作者信息
+$ vim Dockerfile
+~ FROM debian:wheezy
+~ MAINTAINER username &lt;username@mail.com&gt;
+~ RUN apt-get update &amp;&amp; apt-get install -y cowsay fortune
+~ COPY entrypoint.sh /
+~ ENTRYPOINTER [&quot;/entrypoint.sh&quot;]
+~ :wq 
+# 创建
+$ sudo docker build -t username/cowsay-dockerfile . 
+&gt; Sending build content to Docker .....
+&gt; ....
+# 运行
+$ sudo docker run username/cowsay-dockerfile  &apos;Moo&apos;
+# 上传
+$ sudo docker push </code></pre><h3 id="容器连接"><a href="#容器连接" class="headerlink" title="容器连接"></a>容器连接</h3><pre><code>$ sudo docker run --name myredis -d redis # -d表示后台运行
+~ a1696406326aaaa6c28931e886b8dd664d191b083de4aed464d584b4720d57b1
+$ docker run --rm -it --link myredis:redis redis /bin/bash
+&gt; root@9c914447f5e1:/data# redis-cli -h redis -p 6379
+&gt; redis:6379&gt; ping
+&gt; PONG
+&gt; redis:6379&gt; set &quot;abc&quot; 123
+&gt; OK
+&gt; redis:6379&gt; get &quot;abc&quot;
+&gt; &quot;123&quot;
+&gt; redis:6379&gt; exit
+&gt; root@9c914447f5e1:/data# exit
+&gt; exit</code></pre><h3 id="容器的备份"><a href="#容器的备份" class="headerlink" title="容器的备份"></a>容器的备份</h3><pre><code># 查看所有的容器
+$ docker ps -a
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS               NAMES
+a1696406326a        redis               &quot;docker-entrypoint...&quot;   13 minutes ago      Up 13 minutes       6379/tcp            myredis
+# 备份指定的id
+$ docker commit -p a1696406326a redis-backup
+# 查看镜像
+$ docker images
+REPOSITORY                   TAG                 IMAGE ID            CREATED             SIZE
+redis-backup                 latest              fb9d896b3a39        11 seconds ago      107MB
+# 上传镜像(docker login &amp;&amp; docker push)
+# 或者打包
+$ docker save -o ./redis-backup.tar redis-backup
+# 恢复容器
+$ docker pull ****
+# 或者使用包
+$ docker load -i ./redis-backup.tar</code></pre><h3 id="让docker容器连接互联网"><a href="#让docker容器连接互联网" class="headerlink" title="让docker容器连接互联网"></a>让docker容器连接互联网</h3><pre><code># -p 8000:80 表示将主机的8000端口转发至容器的80端口
+$ docker run -d -p 8000:80 nginx 
+
+# 容器互联
+$ docker run -d --name myredis redis
+$ docker run --link myredis:redis debian env  # --link 目标容器:目标容器在主容器内的简称
+~ PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+~ HOSTNAME=69df45e6f92d
+~ REDIS_PORT=tcp://172.17.0.2:6379
+~ REDIS_PORT_6379_TCP=tcp://172.17.0.2:6379
+~ REDIS_PORT_6379_TCP_ADDR=172.17.0.2
+~ REDIS_PORT_6379_TCP_PORT=6379
+~ REDIS_PORT_6379_TCP_PROTO=tcp
+~ REDIS_NAME=/stupefied_chandrasekhar/redis
+~ REDIS_ENV_GOSU_VERSION=1.10
+~ REDIS_ENV_REDIS_VERSION=4.0.2
+~ REDIS_ENV_REDIS_DOWNLOAD_URL=http://download.redis.io/releases/redis-4.0.2.tar.gz
+~ REDIS_ENV_REDIS_DOWNLOAD_SHA=b1a0915dbc91b979d06df1977fe594c3fa9b189f1f3d38743a2948c9f7634813
+~ HOME=/root</code></pre><h3 id="数据卷"><a href="#数据卷" class="headerlink" title="数据卷"></a>数据卷</h3><pre><code>#  -v指定数据卷
+$ docker run -it --name container-test -h container -v /ddata debian /bin/bash
+# 查看数据卷在本机的位置
+$ docker inspect -f { {.Mounts}} container-test  
+[{volume 4687a1d9a80dff56d951f14704a8125f1b642b50c78dac63d3a02a42ff05ffb9 /var/lib/docker/volumes/4687a1d9a80dff56d951f14704a8125f1b642b50c78dac63d3a02a42ff05ffb9/_data /ddata local  true }]
+# 可以在本机中添加文件并在容器中查看修改结果
+
+
+### 在dockerfile中设置数据卷
+FROM debian:wheezy
+RUN useradd foo
+# VOLUME /ddata # 此处添加无效果，因为touch chown是在一个临时容器内的数据卷中执行的
+RUN touch /data/x
+RUN CHOWN -R foo:foo /data
+# VOLUME /ddata # 此处添加可以
+
+
+# docker run -v 指定到特定数据卷
+$ docker run -v /home/adrian/data:./data debian ls /data
+
+
+# 数据容器
+$ docker run --name dbdata postgres echo &apos;data-only container for postage&apos; # 创建一个postgreSQL的容器
+# 使用--volumes-from参数，使其他容器也可以使用这个数据卷
+$ docker run -d --volumes-from dbdata --name db1 postgres</code></pre><h3 id="如何在开发中使用docker-以python-flask为例"><a href="#如何在开发中使用docker-以python-flask为例" class="headerlink" title="如何在开发中使用docker,以python flask为例"></a>如何在开发中使用docker,以python flask为例</h3><pre><code># 创建项目
+$ tree identidock
+.
+├── app
+│   └── identidock.py
+└── Dockerfile
+
+
+# 编辑flask文件
+$ vim app/identidock.py
+from flask import Flask
+app = Flask(__name__)
+
+@app.route(&apos;/&apos;)
+def hello_world():
+    return &apos;hello world&apos;
+
+if __name__ == &apos;__main__&apos;:
+    app.run(debug=True, host=&apos;0.0.0.0&apos;)
+
+
+# 编辑dockerfile文件
+$ vim Dockerfile
+FROM python:3.4
+
+RUN pip install Flask==0.10.1
+WORKDIR /app
+COPY app /app
+CMD [&quot;python&quot;, &quot;identidock.py&quot;]
+
+
+# 创建镜像并使用容器
+$ docker build -t identidock .
+...
+$ docker run -d -p 5000:5000 identidock # 后台运行并将主机的5000端口转发到docker
+$ curl localhost:5000
+~ hello world
+
+# 将开发的代码目录挂载到docker上，这样就不必每次更改代码都需要重新bulid一次．
+$ docker run -d -p 5000:5000 -v &quot;$PWD&quot;/app:/app identidock  # -v &quot;$PWD&quot;/app:/app把位于主机的./app目录挂载到容器内，覆盖容器/app目录下的内容
+# 可以修改app目录下的文件查看改动情况
+
+# 以wsgi服务器运行flask并且修改设置用户
+$ vim Dockerfile
+FROM python:3.4
+
+RUN groupadd -r uwsgi &amp;&amp; useradd -r -g uwsgi uwsgi # 创建用户组和用户
+RUN pip install Flask==0.10.1 uWSGI==2.0.8
+WORKDIR /app
+COPY app /app
+
+EXPOSE 9090 9191  # 声明主机和其他容器可以访问的端口号
+USER uwsgi #使用用户运行以下代码，默认docker是以root用户运行的，不安全
+CMD [&quot;uwsgi&quot;, &quot;--http&quot;, &quot;0.0.0.0:9090&quot;, &quot;--wsgi-file&quot;, &quot;/app/identidock.py&quot;, &quot;--callable&quot;, &quot;app&quot;, &quot;--stats&quot;, &quot;0.0.0.0:9191&quot;]</code></pre><h3 id="使用配置文件配置开发环境和生产环境"><a href="#使用配置文件配置开发环境和生产环境" class="headerlink" title="使用配置文件配置开发环境和生产环境"></a>使用配置文件配置开发环境和生产环境</h3><pre><code># 创建脚本文件cmd.sh
+$ tree
+.
+├── app
+│   └── identidock.py
+├── cmd.sh
+└── Dockerfile
+
+$ vim cmd.sh
+#! /bin/bash
+set -e
+
+if [ &quot;$ENV&quot; = &apos;DEV&apos; ]; then
+  echo &quot;Running Development Server&quot;
+  exec python &quot;identidock.py&quot;
+else
+  echo &quot;Running Production Server&quot;
+  exec uwsgi --http 0.0.0.0:9090 --wsgi-file /app/identidock.py --callable app --stats 0.0.0.0:9191
+fi
+
+$ chmod +x cmd.sh
+$ vim Dockerfile
+FROM python:3.4
+
+RUN groupadd -r uwsgi &amp;&amp; useradd -r -g uwsgi uwsgi
+RUN pip install Flask==0.10.1 uWSGI==2.0.8
+WORKDIR /app
+COPY app /app
+COPY cmd.sh /
+
+EXPOSE 9090 9191
+USER uwsgi
+CMD [&quot;/cmd.sh&quot;]
+
+$ docker build -t identidock .
+$ docker run -e &quot;ENV=DEV&quot; -p 5000:5000 identidock # 开发环境
+$ docker run -d -P identidock</code></pre><h3 id="使用compose自动化安装创建运行docker环境"><a href="#使用compose自动化安装创建运行docker环境" class="headerlink" title="使用compose自动化安装创建运行docker环境"></a>使用compose自动化安装创建运行docker环境</h3><pre><code># 安装环境
+# https://docs.docker.com/compose/install/
+$ sudo curl -L https://github.com/docker/compose/releases/download/1.17.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+$ sudo chmod +x /usr/local/bin/docker-compose
+$ docker-compose --version
+
+
+# 配置文件
+tree
+.
+├── app
+│   └── identidock.py
+├── cmd.sh
+├── docker-compose.yml
+└── Dockerfile
+# 编辑docker-compose文件
+$ vim docker-compose.yml
+identidock:
+  build: .
+  ports:
+    - &quot;5000:5000&quot;
+  environment:
+    ENV: DEV
+  volumes:
+    - ./app:/app
+~                    
+
+
+# 使用方法
+$ docker-compose up # 如果有镜像则直接运行，如果没有镜像则先build
+$ docker-compose build # 重新构建镜像
+$ docker-compose ps 获取由compose管理的容器状态
+$ docker-compose logs 输出日志
+$ docker-stop 停止容器，但不会删除他们</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.zhuohc.com/2017/11/20/ubuntu16-04-e5-ae-89-e8-a3-85-e5-8f-8a-e4-bd-bf-e7-94-a8docker-part1/" data-id="cjyfelqx4004ecta453sw6lkv" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-linux-e5-91-bd-e4-bb-a4-e8-ae-b0-e5-bd-95" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/08/linux-e5-91-bd-e4-bb-a4-e8-ae-b0-e5-bd-95/" class="article-date">
+  <time datetime="2017-11-08T06:41:40.000Z" itemprop="datePublished">2017-11-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/运维/">运维</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/08/linux-e5-91-bd-e4-bb-a4-e8-ae-b0-e5-bd-95/">linux命令记录</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="查看文件夹大小"><a href="#查看文件夹大小" class="headerlink" title="查看文件夹大小"></a>查看文件夹大小</h3><pre><code>du -h your_path --max-depth=1</code></pre><h4 id="常见命令"><a href="#常见命令" class="headerlink" title="常见命令"></a>常见命令</h4><blockquote>
+<p>-a或-all 为每个指定文件显示磁盘使用情况，或者为目录中每个文件显示各自磁盘使用情况。 -b或-bytes 显示目录或文件大小时，以byte为单位。 -c或–total 除了显示目录或文件的大小外，同时也显示所有目录或文件的总和。 -D或–dereference-args 显示指定符号连接的源文件大小。 -h或–human-readable 以K，M，G为单位，提高信息的可读性。 -H或–si 与-h参数相同，但是K，M，G是以1000为换算单位,而不是以1024为换算单位。 -k或–kilobytes 以1024 bytes为单位。 -l或–count-links 重复计算硬件连接的文件。 -L&lt;符号连接&gt;或–dereference&lt;符号连接&gt; 显示选项中所指定符号连接的源文件大小。 -m或–megabytes 以1MB为单位。 -s或–summarize 仅显示总计，即当前目录的大小。 -S或–separate-dirs 显示每个目录的大小时，并不含其子目录的大小。 -x或–one-file-xystem 以一开始处理时的文件系统为准，若遇上其它不同的文件系统目录则略过。 -X&lt;文件&gt;或–exclude-from=&lt;文件&gt; 在&lt;文件&gt;指定目录或文件。 –exclude=&lt;目录或文件&gt; 略过指定的目录或文件。 –max-depth=&lt;目录层数&gt; 超过指定层数的目录后，予以忽略。 –help 显示帮助。 –version 显示版本信息</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.zhuohc.com/2017/11/08/linux-e5-91-bd-e4-bb-a4-e8-ae-b0-e5-bd-95/" data-id="cjyfelqw2001hcta48lsg0whu" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-ubuntu-e6-9c-ac-e5-9c-b0-e9-85-8d-e7-bd-aessl" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/07/ubuntu-e6-9c-ac-e5-9c-b0-e9-85-8d-e7-bd-aessl/" class="article-date">
+  <time datetime="2017-11-07T03:25:08.000Z" itemprop="datePublished">2017-11-07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/运维/">运维</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/07/ubuntu-e6-9c-ac-e5-9c-b0-e9-85-8d-e7-bd-aessl/">ubuntu本地配置SSL</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code># 安装相关模块
+sudo a2enmod ssl   //启用ssl模块
+sudo apt-get install openssl  //安装openssl
+
+
+# 创建证书
+openssl genrsa -des3 -out server.key 1024  //创建CA签名(不使用密码去除-des3选项)
+openssl req -new -key server.key -out server.csr  //创建CSR(Certificate Signing Request)
+openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt  //自己签发证书
+sudo cp server.crt /etc/ssl/certs
+sudo cp server.key /etc/ssl/private
+
+
+# 修改虚拟主机信息
+在&lt;VirtualHost *:80&gt;段中，DocumentRoot一行的下方加入内容：
+SSLEngine On
+SSLOptions +StrictRequire
+SSLCertificateFile /etc/ssl/certs/server.crt
+SSLCertificateKeyFile /etc/ssl/private/server.key
+端口修改为：443，即&lt;VirtualHost *:443&gt;(ssl的端口)
+
+
+# 重启apache2
+sudo /etc/init.d/apache2 force-reload
+sudo /etc/init.d/apache2 restart</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.zhuohc.com/2017/11/07/ubuntu-e6-9c-ac-e5-9c-b0-e9-85-8d-e7-bd-aessl/" data-id="cjyfelqwg002qcta45dvv4qyg" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/办公/">办公</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/办公/后端/">后端</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/办公/后端/运维/">运维</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/办公/运维/">运维</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/后端/">后端</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/后端/运维/">运维</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/运维/">运维</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDE/">IDE</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bash/">bash</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/">django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/">redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/">windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微信/">微信</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/IDE/" style="font-size: 12.5px;">IDE</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/django/" style="font-size: 10px;">django</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/linux/" style="font-size: 15px;">linux</a> <a href="/tags/mysql/" style="font-size: 12.5px;">mysql</a> <a href="/tags/php/" style="font-size: 15px;">php</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/ubuntu/" style="font-size: 12.5px;">ubuntu</a> <a href="/tags/windows/" style="font-size: 17.5px;">windows</a> <a href="/tags/微信/" style="font-size: 10px;">微信</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/07/23/测试blog/">测试blog</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/23/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/17/e5-9c-a8bash-e6-98-be-e7-a4-bagit-e5-88-86-e6-94-af-e4-bf-a1-e6-81-af/">在bash显示git分支信息</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/16/zabbix-e5-ae-89-e8-a3-85-e5-8f-8a-e4-bd-bf-e7-94-a8/">zabbix安装及使用</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/14/centos7-2-e5-ae-89-e8-a3-85-e4-bd-bf-e7-94-a8openresty/">centos7.2安装使用openResty</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 www.zhuohc.om<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
