@@ -315,6 +315,1413 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2016/11/09/centos安装s_h_a_d_o_w_s_o_c_k_s服务/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="www.zhuohc.om">
+      <meta itemprop="description" content="技术博客、日记记录">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wellread">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2016/11/09/centos安装s_h_a_d_o_w_s_o_c_k_s服务/" class="post-title-link" itemprop="url">centos安装s_h_a_d_o_w_s_o_c_k_s服务</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2016-11-09 10:22:52" itemprop="dateCreated datePublished" datetime="2016-11-09T10:22:52+08:00">2016-11-09</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-07-24 09:24:32" itemprop="dateModified" datetime="2019-07-24T09:24:32+08:00">2019-07-24</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/运维/" itemprop="url" rel="index"><span itemprop="name">运维</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="Python版本"><a href="#Python版本" class="headerlink" title="Python版本"></a>Python版本</h3><pre><code>python –version</code></pre><p>CentOS6.5默认安装的Python版本是2.6.6，返回值为：Python 2.6.6</p>
+<h3 id="安装setuptools"><a href="#安装setuptools" class="headerlink" title="安装setuptools"></a>安装setuptools</h3><pre><code>yum install -y python-setuptools</code></pre><p>安装完毕后，easy_install命令就可以使用了。</p>
+<h3 id="安装pip"><a href="#安装pip" class="headerlink" title="安装pip"></a>安装pip</h3><p>easy_install pip 通过easy_install安装pip是最为简单的方法。pip默认安装到/usr/bin目录下。</p>
+<h3 id="安装s-h-a-d-o-w-s-o-c-k-s"><a href="#安装s-h-a-d-o-w-s-o-c-k-s" class="headerlink" title="安装s_h_a_d_o_w_s_o_c_k_s"></a>安装s_h_a_d_o_w_s_o_c_k_s</h3><pre><code>pip install shadowsocks</code></pre><h3 id="s-h-a-d-o-w-s-o-c-k-s的配置和使用"><a href="#s-h-a-d-o-w-s-o-c-k-s的配置和使用" class="headerlink" title="s_h_a_d_o_w_s_o_c_k_s的配置和使用"></a>s_h_a_d_o_w_s_o_c_k_s的配置和使用</h3><p>至于s_h_a_d_o_w_s_o_c_k_s可以拿来做什么，这里就毋须赘述了。直接开始吧。</p>
+<h3 id="创建s-h-a-d-o-w-s-o-c-k-ss的配置文件："><a href="#创建s-h-a-d-o-w-s-o-c-k-ss的配置文件：" class="headerlink" title="创建s_h_a_d_o_w_s_o_c_k_ss的配置文件："></a>创建s_h_a_d_o_w_s_o_c_k_ss的配置文件：</h3><p>CentOS下通过vim创建该配置，运行命令： vi /etc/shadowsocks.json</p>
+<pre><code>{
+&quot;server&quot;:&quot;your_server_ip&quot;,
+&quot;server_port&quot;:8989,
+&quot;local_address&quot;: &quot;127.0.0.1&quot;,
+&quot;local_port&quot;:1080,
+&quot;password&quot;:&quot;yourpassword&quot;,
+&quot;timeout&quot;:600,
+&quot;method&quot;:&quot;aes-256-cfb&quot;,
+&quot;fast_open&quot;: false,
+&quot;workers&quot;: 1
+}</code></pre><p>各字段的含义： server：服务器 IP (IPv4/IPv6)，注意这也将是服务端监听的 IP 地址<br>server_port：监听的服务器端口<br>local_address：本地监听的 IP 地址<br>local_port：本地端端口<br>password：用来加密的密码<br>timeout：超时时间（秒）<br>method：加密方法，可选择 “bf-cfb”, “aes-256-cfb”, “des-cfb”, “rc4″, 等等。默认是一种不安全的加密，推荐用 “aes-256-cfb” fast_open：true 或 false。如果你的服务器 Linux 内核在3.7+，可以开启 fast_open 以降低延迟。开启方法： echo 3 &gt; /proc/sys/net/ipv4/tcp_fastopen<br>开启之后，将 fast_open 的配置设置为 true 即可。<br>works：works数量，默认为 1</p>
+<h3 id="安装M2Crypto"><a href="#安装M2Crypto" class="headerlink" title="安装M2Crypto"></a>安装M2Crypto</h3><p>默认加密方法 table 速度很快，但很不安全。推荐使用 “aes-256-cfb” 或者 “bf-cfb”。请不要使用 “rc4″，它不安全。如果选择 “table” 之外的加密，需要安装 M2Crypto。 先安装依赖包：</p>
+<pre><code>yum install -y openssl-devel gcc swig python-devel autoconf libtool</code></pre><h3 id="安装setuptools-1"><a href="#安装setuptools-1" class="headerlink" title="安装setuptools"></a>安装setuptools</h3><pre><code>wget --no-check-certificate https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py
+python ez_setup.py install</code></pre><p>再通过pip安装M2Crypto：</p>
+<pre><code>pip install M2Crypto</code></pre><h3 id="安装-gevent"><a href="#安装-gevent" class="headerlink" title="安装 gevent"></a>安装 gevent</h3><p>安装 gevent可以提高 Shadowsocks 的性能。CentOS下安装gevent依赖libevent和greenlet。</p>
+<h3 id="安装libevent"><a href="#安装libevent" class="headerlink" title="安装libevent"></a>安装libevent</h3><pre><code>yum install -y libevent</code></pre><h3 id="greenlet："><a href="#greenlet：" class="headerlink" title="greenlet："></a>greenlet：</h3><pre><code>pip install greenlet</code></pre><p>###安装gevent：</p>
+<pre><code>pip install gevent</code></pre><h3 id="命令行参数（服务器端启动命令）"><a href="#命令行参数（服务器端启动命令）" class="headerlink" title="命令行参数（服务器端启动命令）"></a>命令行参数（服务器端启动命令）</h3><pre><code>ssserver -c /etc/shadowsocks.json</code></pre><p>如果想在后台一直运行Shadowsocks，启动命令如下：</p>
+<pre><code>nohup ssserver -c /etc/shadowsocks.json &gt; /dev/null 2&gt;&amp;1 &amp;</code></pre><p>备注：关于nohup，是可以让程序在后台运行的命令。 同时可以用命令行参数覆盖 /etc/shadowsocks.json 里的设置：</p>
+<pre><code>sslocal -s 服务器地址 -p 服务器端口 -l 本地端端口 -k 密码 -m 加密方法
+ssserver -p 服务器端口 -k 密码 -m 加密方法</code></pre><p>备注：sslocal是客户端程序；ssserver是服务端程序。</p>
+<h3 id="防火墙设置（如有）"><a href="#防火墙设置（如有）" class="headerlink" title="防火墙设置（如有）"></a>防火墙设置（如有）</h3><p>编辑防火墙配置文件/etc/sysconfig/iptables，将服务器端口（server_port）放行。<br>新增一条防火墙规则：</p>
+<pre><code>iptables -A INPUT -m state --state NEW -m tcp -p tcp --dport 8989 -j ACCEPT</code></pre><p>先要保存下:</p>
+<pre><code>service iptables save</code></pre><p>重启防火墙iptables：</p>
+<pre><code>service iptables restart</code></pre><p>至此，服务器端的 Shadowsocks 安装和配置完毕。 配置多个用户</p>
+<pre><code>{
+&quot;timeout&quot;: 600,
+&quot;method&quot;: &quot;aes-256-cfb&quot;,
+&quot;port_password&quot;:
+{
+&quot;40001&quot;: &quot;password1&quot;,
+&quot;40002&quot;: &quot;password2&quot;,
+&quot;40003&quot;: &quot;password3&quot;
+},
+&quot;_comment&quot;:
+{
+&quot;40001&quot;: &quot;xiaoming&quot;,
+&quot;40002&quot;: &quot;lilei&quot;,
+&quot;40003&quot;: &quot;mike&quot;
+}
+}</code></pre>
+          
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2016/11/09/python将office word 转为html 并提取相关图片信息/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="www.zhuohc.om">
+      <meta itemprop="description" content="技术博客、日记记录">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wellread">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2016/11/09/python将office word 转为html 并提取相关图片信息/" class="post-title-link" itemprop="url">python将office word 转为html 并提取相关图片信息</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2016-11-09 10:10:01" itemprop="dateCreated datePublished" datetime="2016-11-09T10:10:01+08:00">2016-11-09</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-07-24 09:32:50" itemprop="dateModified" datetime="2019-07-24T09:32:50+08:00">2019-07-24</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/办公/" itemprop="url" rel="index"><span itemprop="name">办公</span></a></span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/办公/运维/" itemprop="url" rel="index"><span itemprop="name">运维</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h3><p>工作需要将2000多格word文档中的图片提取出来，并改名为word文档名</p>
+<h3 id="思路1"><a href="#思路1" class="headerlink" title="思路1"></a>思路1</h3><blockquote>
+<p>More exactly, a .docx document is a Zip archive in OpenXML format: you have first to uncompress it. I downloaded a sample (Google: some search term filetype:docx) and after unzipping I found some folders. The word folder contains the document itself, in file document.xml.</p>
+</blockquote>
+<p>于是使用unzip模块</p>
+<pre><code>import zipfile</code></pre><p>但是报错</p>
+<pre><code>BadZipfile: File is not a zip file</code></pre><p>检查发现同事提供的office word文件结尾为.doc,<br>于是使用7-zip进行提取发现确实报错</p>
+<blockquote>
+<p>文件末端错误</p>
+</blockquote>
+<p>尝试用本机office2013打开并另存为word文档.docx<br>再次使用7-zip进行提取，成功，会生成以下一个文件夹</p>
+<blockquote>
+<p>_rels文件夹<br>docProps文件夹<br>word文件夹<br>[Content_Types].xml文件</p>
+</blockquote>
+<p>其中\word\media文件夹下就有我需要的图片信息<br>既然需要更改文件后缀，那么就有另一个思路。</p>
+<h3 id="思路2"><a href="#思路2" class="headerlink" title="思路2"></a>思路2</h3><blockquote>
+<p>通过win32com.clientm将文件改为html文件，会生成类似的文件夹</p>
+</blockquote>
+<p>核心代码</p>
+<pre><code># -*- encoding: utf8 -*-
+
+import win32com
+from win32com.client import constants
+
+# 打开初始化word文档
+w = win32com.client.Dispatch(&apos;Word.Application&apos;)
+w.Visible = 0
+w.DisplayAlerts = 0
+doc = w.Documents.Open(source_file)  # 打开文件
+doc.SaveAs(target_fold + &apos;/&apos; + file_number + &apos;.htm&apos;, 8)  # 更名为htm文件
+doc.Close()
+w.Quit()</code></pre><p>另存为其他规格只需要将参数8修改即可</p>
+<blockquote>
+<p>wdFormatDocument = 0<br>wdFormatDocument97 = 0<br>wdFormatDocumentDefault = 16<br>wdFormatDOSText = 4<br>wdFormatDOSTextLineBreaks = 5<br>wdFormatEncodedText = 7<br>wdFormatFilteredHTML = 10<br>wdFormatFlatXML = 19<br>wdFormatFlatXMLMacroEnabled = 20<br>wdFormatFlatXMLTemplate = 21<br>wdFormatFlatXMLTemplateMacroEnabled = 22<br>wdFormatHTML = 8<br>wdFormatPDF = 17<br>wdFormatRTF = 6<br>wdFormatTemplate = 1<br>wdFormatTemplate97 = 1<br>wdFormatText = 2<br>wdFormatTextLineBreaks = 3<br>wdFormatUnicodeText = 7<br>wdFormatWebArchive = 9<br>wdFormatXML = 11<br>wdFormatXMLDocument = 12<br>wdFormatXMLDocumentMacroEnabled = 13<br>wdFormatXMLTemplate = 14<br>wdFormatXMLTemplateMacroEnabled = 15<br>wdFormatXPS = 18</p>
+</blockquote>
+<p>最后脚本</p>
+<pre><code># -*- encoding: utf8 -*-
+
+import win32com
+import os
+import xlrd
+import shutil
+from win32com.client import constants
+
+# 从excel表格中导入数据并组成字典
+XlsFile = &apos;default.xlsx&apos;                  # 需要的数据
+data = xlrd.open_workbook(XlsFile)
+table = data.sheets()[0]
+nrows = table.nrows
+
+# 获取文件名列表
+number_list = []
+for i in range(1, nrows):
+    number_list.append(table.row_values(i)[0])
+
+# 打开初始化word文档
+w = win32com.client.Dispatch(&apos;Word.Application&apos;)
+w.Visible = 0
+w.DisplayAlerts = 0
+
+
+# 遍历文件夹并将文件剪贴到新的文件夹中
+source_fold = os.path.split(os.path.realpath(__file__))[0] + &apos;/&apos; + &apos;WordFile&apos;
+target_fold = os.path.split(os.path.realpath(__file__))[0] + &apos;/&apos; + &apos;NewFile&apos;
+img_fold = os.path.split(os.path.realpath(__file__))[0] + &apos;/&apos; + &apos;Img&apos;
+word_list = os.listdir(source_fold)
+for file_name in word_list:
+    # 根据货号在列表中查找
+    try:
+        file_number = file_name[0:10]
+        if file_number in number_list:
+            print(file_name + &apos;是需要的文件.&apos;)
+            source_file = source_fold + &apos;/&apos; + file_name
+            doc = w.Documents.Open(source_file)  # 打开文件
+            doc.SaveAs(target_fold + &apos;/&apos; + file_number + &apos;.htm&apos;, 8)  # 更名为htm文件
+            doc.Close()
+            od_img = target_fold + &apos;/&apos; + file_number + &apos;.files&apos; + &apos;/&apos; + &apos;image003.jpg&apos;
+            shutil.copyfile(od_img, img_fold + &apos;/&apos; + file_number + &apos;.jpg&apos;)  # 复制新的文件
+            number_list.remove(file_number)  # 从excel列表中删除此元素防止重复选取
+    except Exception, e:
+        print(file_name)
+        print e
+w.Quit()
+
+try:
+    f = open(&quot;php.json&quot;, &quot;w&quot;)
+    print &gt;&gt;f, number_list  # 最后将剩下的元素打印到文件中
+except Exception, e:
+    print &apos;写入php.json失败&apos;</code></pre>
+          
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2016/11/09/python从excel导出数据并批量替换word文档内容/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="www.zhuohc.om">
+      <meta itemprop="description" content="技术博客、日记记录">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wellread">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2016/11/09/python从excel导出数据并批量替换word文档内容/" class="post-title-link" itemprop="url">python从excel导出数据并批量替换word文档内容</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2016-11-09 10:07:56" itemprop="dateCreated datePublished" datetime="2016-11-09T10:07:56+08:00">2016-11-09</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-07-24 09:37:03" itemprop="dateModified" datetime="2019-07-24T09:37:03+08:00">2019-07-24</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/办公/" itemprop="url" rel="index"><span itemprop="name">办公</span></a></span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/办公/运维/" itemprop="url" rel="index"><span itemprop="name">运维</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="老外的代码"><a href="#老外的代码" class="headerlink" title="老外的代码"></a>老外的代码</h3><p>第一个是操作word，第二个是操作excel</p>
+<pre><code>from win32com.client import constants, Dispatch
+import pythoncom
+wdStory = 6
+class WordDocument(object):
+  &quot;&quot;&quot;
+  Some convenience methods for Word documents accessed
+  through COM.
+  &quot;&quot;&quot;
+
+  def __init__(self, visible=False):
+    self.app = Dispatch(&quot;Word.Application&quot;)
+    self.app.Visible = visible
+
+  def new(self, filename=None):
+    &quot;&quot;&quot;
+    Create a new Word document. If &apos;filename&apos; specified,
+    use the file as a template.
+    &quot;&quot;&quot;
+    self.app.Documents.Add(filename)
+
+  def open(self, filename):
+    &quot;&quot;&quot;
+    Open an existing Word document for editing.
+    &quot;&quot;&quot;
+    self.app.Documents.Open(filename)
+
+  def save(self, filename=None):
+    &quot;&quot;&quot;
+    Save the active document. If &apos;filename&apos; is given,
+    do a Save As.
+    &quot;&quot;&quot;
+    if filename:
+      self.app.ActiveDocument.SaveAs(filename)
+    else:
+      self.app.ActiveDocument.Save()
+
+  def save_as(self, filename):
+    return self.save(filename)
+
+  def print_out(self):
+    &quot;&quot;&quot;
+    Print the active document.
+    &quot;&quot;&quot;
+    self.app.Application.PrintOut()
+
+  def close(self):
+    &quot;&quot;&quot;
+    Close the active document.
+    &quot;&quot;&quot;
+    self.app.ActiveDocument.Close()
+
+  def quit(self):
+    &quot;&quot;&quot;
+    Quit Word.
+    &quot;&quot;&quot;
+    return self.app.Quit()
+
+  def find_and_replace(self, find_str, replace_str):
+    &quot;&quot;&quot;
+    Find all occurances of &apos;find_str&apos; and replace with &apos;replace_str&apos;
+    in the active document.
+    &quot;&quot;&quot;
+    self.app.Selection.HomeKey(Unit=wdStory)
+    find = self.app.Selection.Find
+    find.Text = find_str
+    while self.app.Selection.Find.Execute():
+      self.app.Selection.TypeText(Text=replace_str)
+
+
+from win32com.client import constants, Dispatch
+import pythoncom
+import os
+borderTop = 3
+borderBottom = 4
+borderLeft = 1
+borderRight = 2
+borderSolid = 1
+borderDashed = 2
+borderDotted = 3
+colorBlack = 1
+directionUp = -4162
+directionDown = -4121
+directionLeft = -4131
+directionRight = -4152
+class ExcelDocument(object):
+  &quot;&quot;&quot;
+  Some convenience methods for Excel documents accessed
+  through COM.
+  &quot;&quot;&quot;
+  def __init__(self, visible=False):
+    self.app = Dispatch(&quot;Excel.Application&quot;)
+    self.app.Visible = visible
+    self.sheet = 1
+  def new(self, filename=None):
+    &quot;&quot;&quot;
+    Create a new Excel workbook. If &apos;filename&apos; specified,
+    use the file as a template.
+    &quot;&quot;&quot;
+    self.app.Workbooks.Add(filename)
+  def open(self, filename):
+    &quot;&quot;&quot;
+    Open an existing Excel workbook for editing.
+    &quot;&quot;&quot;
+    self.app.Workbooks.Open(filename)
+  def set_sheet(self, sheet):
+    &quot;&quot;&quot;
+    Set the active worksheet.
+    &quot;&quot;&quot;
+    self.sheet = sheet
+  def get_range(self, range):
+    &quot;&quot;&quot;
+    Get a range object for the specified range or single cell.
+    &quot;&quot;&quot;
+    return self.app.ActiveWorkbook.Sheets(self.sheet).Range(range)
+  def set_value(self, cell, value=&apos;&apos;):
+    &quot;&quot;&quot;
+    Set the value of &apos;cell&apos; to &apos;value&apos;.
+    &quot;&quot;&quot;
+    self.get_range(cell).Value = value
+  def get_value(self, cell):
+    &quot;&quot;&quot;
+    Get the value of &apos;cell&apos;.
+    &quot;&quot;&quot;
+    value = self.get_range(cell).Value
+    if isinstance(value, tuple):
+      value = [v[0] for v in value]
+    return value
+  def set_border(self, range, side, line_style=borderSolid, color=colorBlack):
+    &quot;&quot;&quot;
+    Set a border on the specified range of cells or single cell.
+    &apos;range&apos; = range of cells or single cell
+    &apos;side&apos; = one of borderTop, borderBottom, borderLeft, borderRight
+    &apos;line_style&apos; = one of borderSolid, borderDashed, borderDotted, others?
+    &apos;color&apos; = one of colorBlack, others?
+    &quot;&quot;&quot;
+    range = self.get_range(range).Borders(side)
+    range.LineStyle = line_style
+    range.Color = color
+  def sort(self, range, key_cell):
+    &quot;&quot;&quot;
+    Sort the specified &apos;range&apos; of the activeworksheet by the
+    specified &apos;key_cell&apos;.
+    &quot;&quot;&quot;
+    range.Sort(Key1=self.get_range(key_cell), Order1=1, Header=0, OrderCustom=1, MatchCase=False, Orientation=1)
+  def hide_row(self, row, hide=True):
+    &quot;&quot;&quot;
+    Hide the specified &apos;row&apos;.
+    Specify hide=False to show the row.
+    &quot;&quot;&quot;
+    self.get_range(&apos;a%s&apos; % row).EntireRow.Hidden = hide
+  def hide_column(self, column, hide=True):
+    &quot;&quot;&quot;
+    Hide the specified &apos;column&apos;.
+    Specify hide=False to show the column.
+    &quot;&quot;&quot;
+    self.get_range(&apos;%s1&apos; % column).EntireColumn.Hidden = hide
+  def delete_row(self, row, shift=directionUp):
+    &quot;&quot;&quot;
+    Delete the entire &apos;row&apos;.
+    &quot;&quot;&quot;
+    self.get_range(&apos;a%s&apos; % row).EntireRow.Delete(Shift=shift)
+  def delete_column(self, column, shift=directionLeft):
+    &quot;&quot;&quot;
+    Delete the entire &apos;column&apos;.
+    &quot;&quot;&quot;
+    self.get_range(&apos;%s1&apos; % column).EntireColumn.Delete(Shift=shift)
+  def fit_column(self, column):
+    &quot;&quot;&quot;
+    Resize the specified &apos;column&apos; to fit all its contents.
+    &quot;&quot;&quot;
+    self.get_range(&apos;%s1&apos; % column).EntireColumn.AutoFit()
+  def save(self):
+    &quot;&quot;&quot;
+    Save the active workbook.
+    &quot;&quot;&quot;
+    self.app.ActiveWorkbook.Save()
+  def save_as(self, filename, delete_existing=False):
+    &quot;&quot;&quot;
+    Save the active workbook as a different filename.
+    If &apos;delete_existing&apos; is specified and the file already
+    exists, it will be deleted before saving.
+    &quot;&quot;&quot;
+    if delete_existing and os.path.exists(filename):
+      os.remove(filename)
+    self.app.ActiveWorkbook.SaveAs(filename)
+  def print_out(self):
+    &quot;&quot;&quot;
+    Print the active workbook.
+    &quot;&quot;&quot;
+    self.app.Application.PrintOut()
+  def close(self):
+    &quot;&quot;&quot;
+    Close the active workbook.
+    &quot;&quot;&quot;
+    self.app.ActiveWorkbook.Close()
+  def quit(self):
+    &quot;&quot;&quot;
+    Quit Excel.
+    &quot;&quot;&quot;
+    return self.app.Quit()</code></pre><h3 id="基本使用方法"><a href="#基本使用方法" class="headerlink" title="基本使用方法"></a>基本使用方法</h3><pre><code># -*- encoding: utf8 -*-
+
+# 配置项
+import os
+import shutil
+import re
+import time
+import win32com
+from win32com.client import constants
+import xlrd
+XlsFile = &apos;default.xls&apos;                  # 需要的数据
+OldStrs = [&apos;#CatalogNumber#&apos;,
+           &apos;#ProductName#&apos;,
+           &apos;#OSpecies#&apos;,
+           &apos;#Short#&apos;,
+           &apos;#Organism#&apos;,
+           &apos;#Fragment#&apos;,
+           &apos;#PROTEIN#&apos;,
+           &apos;#Tag#&apos;
+           ]
+
+# 确认模板类型
+DefaultFile = raw_input(&apos;Want to use ihc.jpg,input \&apos;Y\&apos;,or input \&apos;N\&apos;:\n&apos;)
+if DefaultFile == &apos;N&apos;:
+    DocFile = os.path.abspath(&apos;default_noihc.doc&apos;)
+    print DocFile
+elif DefaultFile == &apos;Y&apos;:
+    DocFile = os.path.abspath(&apos;default.doc&apos;)
+    print DocFile
+else:
+    raise
+filepath = &apos;D:/Py/CreateAntibodyWord/NewFile&apos;    # 生成文件目录
+
+
+# 获取括号内容的正则表达式
+patt = re.compile(r&quot;\((.*?)\)&quot;, re.I | re.X)
+
+# 打开初始化word文档
+w = win32com.client.Dispatch(&apos;Word.Application&apos;)
+w.Visible = 0
+w.DisplayAlerts = 0
+
+# 从excel表格中导入数据
+
+data = xlrd.open_workbook(XlsFile) 
+table = data.sheets()[0]
+nrows = table.nrows
+
+# 循环表格中的内容
+for i in range(1, nrows):
+    try:
+        # 获取新的数据
+        CatalogNumber = table.row_values(i)[0]
+        ProductName = table.row_values(i)[1]
+        OrganismSpecies = table.row_values(i)[2]
+        Tag = table.row_values(i)[3]
+        Fragment = table.row_values(i)[4]
+        Short = patt.findall(ProductName)[0]
+        # 获取对应蛋白的货号
+        ProteinNumber = re.sub(r&apos;^PA&apos;, r&apos;RP&apos;, CatalogNumber)
+        # Ge多物种没有缩写，用General替代
+        Organism = patt.findall(OrganismSpecies)
+        if len(Organism) &gt; 0:
+            Organism = Organism[0]
+        else:
+            Organism = &apos;General&apos;
+        # 没有氨基酸片段信息的用原始值替代
+        Fragment = patt.findall(Fragment)
+        if len(Fragment) &gt; 0:
+            Fragment = Fragment[0]
+        else:
+            Fragment = &apos;#Fragment#&apos;
+        NewStrs = [CatalogNumber,
+                   ProductName,
+                   OrganismSpecies,
+                   Short,
+                   Organism,
+                   Fragment,
+                   ProteinNumber,
+                   Tag
+                   ]
+
+        # 打开复制的文件
+        NewFileName = CatalogNumber + &apos;-e.doc&apos;                                        # 命名新的文件
+        shutil.copyfile(DocFile, filepath + &apos;/&apos; + NewFileName)                        # 复制新的文件
+        CopyFile = os.path.abspath(filepath + &apos;/&apos; + NewFileName)                      # 新的文件目录
+        doc = w.Documents.Open(FileName=CopyFile)                                     # 打开文件
+
+        # 文本框处理
+        canvas = doc.Shapes[2]
+        canvas.TextFrame.TextRange.Find.Execute(OldStrs[3], False, False, False, False, False, True, 1, True, NewStrs[3], 2)
+        canvas.TextFrame.TextRange.Find.Execute(OldStrs[4], False, False, False, False, False, True, 1, True, NewStrs[4], 2)
+
+        # 正文文字处理
+        w.Selection.Find.ClearFormatting()
+        w.Selection.Find.Replacement.ClearFormatting()
+        for j in range(len(NewStrs)):
+            w.Selection.Find.Execute(OldStrs[j], False, False, False, False, False, True, 1, True, NewStrs[j], 2)
+
+        # 获取属性信息并修改,参考https://msdn.microsoft.com/en-us/library/microsoft.office.tools.excel.workbook.builtindocumentproperties(v=vs.120).aspx?cs-save-lang=1&amp;cs-lang=vb#code-snippet-1
+        doc.BuiltInDocumentProperties(&apos;Title&apos;).Value = ProductName
+        doc.BuiltInDocumentProperties(&apos;Subject&apos;).Value = &apos;Instruction manual (Catalog No.&apos; + CatalogNumber + &apos;)&apos;
+        doc.BuiltInDocumentProperties(&apos;Keywords&apos;).Value = ProductName
+        doc.BuiltInDocumentProperties(&apos;Category&apos;).Value = OrganismSpecies
+
+        # 保存文件并关闭
+        doc.Save()
+        doc.Close()
+        print CatalogNumber + &apos; create word success!&apos;
+
+    # 捕获异常并写入log文件中
+    except Exception, e:
+        print CatalogNumber + &apos; create word error!&apos;
+        print e
+        errorfile = open(filepath + &apos;/errorlog.txt&apos;, &apos;a&apos;)
+        try:
+            errorfile.write(CatalogNumber + &apos; create word error! &apos; + time.strftime(&apos;%Y-%m-%d %H:%M:%S&apos;) + &apos;\n&apos;)
+        except Exception, e:
+            doc.Close()
+            w.Quit()
+            raise e
+        finally:
+            errorfile.close()
+w.Quit()        </code></pre><h3 id="替换Word文档属性里的详细信息"><a href="#替换Word文档属性里的详细信息" class="headerlink" title="替换Word文档属性里的详细信息"></a>替换Word文档属性里的详细信息</h3><pre><code>doc.BuiltInDocumentProperties(&apos;Title&apos;).Value = ProductName
+doc.BuiltInDocumentProperties(&apos;Subject&apos;).Value = &apos;Instruction manual (Catalog No.&apos; + CatalogNumber + &apos;)&apos;
+doc.BuiltInDocumentProperties(&apos;Keywords&apos;).Value = ProductName
+doc.BuiltInDocumentProperties(&apos;Category&apos;).Value = Ospecies</code></pre><p>参考<a href="http://stackoverflow.com/questions/3022898/python-win32com-automating-word-how-to-replace-text-in-a-text-box" target="_blank" rel="noopener">微软官方说明</a></p>
+<h3 id="替换Word长文本"><a href="#替换Word长文本" class="headerlink" title="替换Word长文本"></a>替换Word长文本</h3><p>使用以下语句替换长文本会报错”字符串过长”</p>
+<pre><code>w.Selection.Find.Execute(OldStrs[j], False, False, False, False, False, True, 1, True, NewStrs[j], 2)</code></pre><p>使用以下语句</p>
+<pre><code>find = w.Selection.Find
+find.Text = &apos;#SEQUENCE#&apos;
+while w.Selection.Find.Execute():
+    w.Selection.TypeText(Text=SEQUENCE)</code></pre><h3 id="替换Word文本框内容"><a href="#替换Word文本框内容" class="headerlink" title="替换Word文本框内容"></a>替换Word文本框内容</h3><p>参考以下代码 <a href="http://stackoverflow.com/questions/3022898/python-win32com-automating-word-how-to-replace-text-in-a-text-box" target="_blank" rel="noopener">http://stackoverflow.com/</a></p>
+<pre><code>import win32com.client
+
+word = win32com.client.Dispatch(&quot;Word.Application&quot;)
+canvas = word.ActiveDocument.Shapes[0]
+for item in canvas.CanvasItems:
+    print item.TextFrame.TextRange.Text</code></pre><p>或者</p>
+<pre><code>find = shp.TextFrame.TextRange.Find
+find.Text = source
+find.Replacement.Text = target
+find.Execute(Replace=1, Forward=True)</code></pre>
+          
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2016/11/09/局域网部分电脑不能连接网络,局域网共享文件夹,打印机等情况/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="www.zhuohc.om">
+      <meta itemprop="description" content="技术博客、日记记录">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wellread">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2016/11/09/局域网部分电脑不能连接网络,局域网共享文件夹,打印机等情况/" class="post-title-link" itemprop="url">局域网部分电脑不能连接网络,局域网共享文件夹,打印机等情况</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2016-11-09 09:54:26" itemprop="dateCreated datePublished" datetime="2016-11-09T09:54:26+08:00">2016-11-09</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-07-23 14:50:41" itemprop="dateModified" datetime="2019-07-23T14:50:41+08:00">2019-07-23</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/运维/" itemprop="url" rel="index"><span itemprop="name">运维</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="问题反应"><a href="#问题反应" class="headerlink" title="问题反应"></a>问题反应</h3><p>今天公司出现网络故障，有2个部门全部不能连接网络。</p>
+<h3 id="正常问题"><a href="#正常问题" class="headerlink" title="正常问题"></a>正常问题</h3><blockquote>
+<p>一台电脑不能上网，找该台电脑的问题<br>一部门电脑不能上网，找该部门交换机<br>多部门电脑不能上网，找主交换机问题<br>全部不能上网，拿电脑直连路由</p>
+</blockquote>
+<h3 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h3><p>公司主交换机A<br>部门分交换机B<br>测试电脑C<br>部门不能上网故障，正常情况应该是A模块出现问题。于是重启A，仍然有一个部门故障。<br>重启B，不能解决问题。<br>将C与B直连的线路连接到C，C正常。<br>A,B问题都排除，那么问题在哪？<br>继续尝试，B上只连接C，正常。B上连接该部门全部电脑，故障。<br>找到那条会导致故障的线路，换掉网线，OK.<br>确认问题原因居然是<strong><em>网线！</em></strong></p>
+<h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><p>子交换机上的网线问题会影响主交换。</p>
+<h3 id="共享打印机安装出现0x00000709"><a href="#共享打印机安装出现0x00000709" class="headerlink" title="共享打印机安装出现0x00000709"></a>共享打印机安装出现0x00000709</h3><p>解决办法：重启打印机服务器的Print Spooler服务，重启本地计算机</p>
+<h3 id="账号密码问题"><a href="#账号密码问题" class="headerlink" title="账号密码问题"></a>账号密码问题</h3><p>局域网有xp电脑可以正常访问共享电脑，排序账号密码问题。</p>
+<h3 id="共享设置问题"><a href="#共享设置问题" class="headerlink" title="共享设置问题"></a>共享设置问题</h3><p>xp系统访问正常，win7系统访问显示“帐号密码错误”。于是想到共享设置问题。</p>
+<blockquote>
+<p>开始=&gt;<br>运行=&gt;<br>gpedit.msc=&gt;<br>本地计算机策略=&gt;<br>计算机配置=&gt;<br>Windows设置=&gt;<br>安全设置=&gt;<br>本地策略=&gt;<br>安全选项=&gt;<br>网络安全：LAN管理器身份验证级别=&gt;<br>发送LM &amp; NTLM响应</p>
+</blockquote>
+<p>但是之前win7是可以正常访问的，所以该项设置是正确的。</p>
+<h3 id="时间设置问题"><a href="#时间设置问题" class="headerlink" title="时间设置问题"></a>时间设置问题</h3><p>于是询问是什么时候不能访问的，告之电脑蓝屏重启后。那么原因自然是蓝屏导致共享电脑设置的时间出现错误。</p>
+<blockquote>
+<p>如果win7的系统时间和访问的共享文件夹的创建时间间隔太长的话，会出现此现象。这是win7的安全机制造成的。<br>将共享电脑时间设置为当前时间即可</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2016/11/08/window常用软件/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="www.zhuohc.om">
+      <meta itemprop="description" content="技术博客、日记记录">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wellread">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2016/11/08/window常用软件/" class="post-title-link" itemprop="url">window常用软件</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2016-11-08 17:04:39" itemprop="dateCreated datePublished" datetime="2016-11-08T17:04:39+08:00">2016-11-08</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-07-24 09:35:34" itemprop="dateModified" datetime="2019-07-24T09:35:34+08:00">2019-07-24</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/办公/" itemprop="url" rel="index"><span itemprop="name">办公</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="压缩软件7-zip"><a href="#压缩软件7-zip" class="headerlink" title="压缩软件7-zip"></a>压缩软件7-zip</h3><p>终端命令(需要将安装目录添加到环境变量)</p>
+<blockquote>
+<p>7z a file.zip filefold #添加文件压缩<br>7z e file.zip filefold #释放文件解压</p>
+</blockquote>
+<h3 id="电脑清理ccleaner"><a href="#电脑清理ccleaner" class="headerlink" title="电脑清理ccleaner"></a>电脑清理ccleaner</h3><p>电脑清理工具：清理注册表，系统垃圾文件 下载地址 <a href="http://pan.baidu.com/s/1c0G34re" target="_blank" rel="noopener">http://pan.baidu.com/s/1c0G34re</a><br>断网后注册，可用注册码</p>
+<blockquote>
+<p>注册名： R J. van der Linden<br>注册码：CBEW-ZZJA-84DT-VZQG-SRJC<br>注册名：Registered User<br>注册码：CBB4-FJN4-EPC6-G5P6-QT4C</p>
+</blockquote>
+<h3 id="卸载软件Total-Uninstall"><a href="#卸载软件Total-Uninstall" class="headerlink" title="卸载软件Total Uninstall"></a>卸载软件Total Uninstall</h3><p>电脑清理工具：卸载软件<br>破解版v6.16.0下载地址<a href="http://pan.baidu.com/s/1mgwAta4" target="_blank" rel="noopener">http://pan.baidu.com/s/1mgwAta4</a></p>
+<h3 id="驱动管理工具DriverDownloader"><a href="#驱动管理工具DriverDownloader" class="headerlink" title="驱动管理工具DriverDownloader"></a>驱动管理工具DriverDownloader</h3><p>下载地址 <a href="http://pan.baidu.com/s/1qW9tPF2" target="_blank" rel="noopener">http://pan.baidu.com/s/1qW9tPF2</a><br>需要使用代理更新驱动，在Settings设置(前提是设置了代理上网)</p>
+<blockquote>
+<p>proxy 127.0.0.1<br>port 1080</p>
+</blockquote>
+<p>注册码</p>
+<blockquote>
+<p>DF12-2RM2-JDPE-1009</p>
+</blockquote>
+<p>如果提示its usage limit 将1009改成逐渐+1，改成1010，1011等等等等</p>
+<h3 id="下载工具IDM-Internet-Download-Manager-6-25版"><a href="#下载工具IDM-Internet-Download-Manager-6-25版" class="headerlink" title="下载工具IDM(Internet Download Manager)6.25版"></a>下载工具IDM(Internet Download Manager)6.25版</h3><p>下载地址<br><a href="http://www.internetdownloadmanager.com/download.html" target="_blank" rel="noopener">官网</a><br><a href="http://pan.baidu.com/s/1c0Be5Bq" target="_blank" rel="noopener">官网下载版</a><br><a href="http://pan.baidu.com/s/1eQfmv8e" target="_blank" rel="noopener">破解版</a><br>注册码(断网注册)</p>
+<pre><code>DBNJC-D4R59-YPAGA-T3S1Q  #已经失效  
+F9TZ9-P6IGF-SME74-2WP21  
+CJA0S-K6CO4-R4NPJ-EKNRK  
+F9TZ9-P6IGF-SME74-2WP21  
+CJA0S-K6CO4-R4NPJ-EKNRK  
+N0Z90-KJTTW-7TZO4-I27A1  
+629U7-XLT5H-6SCGJ-2CENZ  
+XONF7-PMUOL-HU7P4-D1QQX  
+N0Z90-KJTTW-7TZO4-I27A1  
+L67GT-CE6TR-DFT1D-XWVCM </code></pre><p>或者使用host修改办法<br>host文件添加</p>
+<pre><code>127.0.0.1 registeridm.com
+127.0.0.1 www.registeridm.com
+127.0.0.1 www.internetdownloadmanager.com</code></pre><p>打开IDM，注册，注册码如下：</p>
+<pre><code>OS5HG-K90NH-SXOGT-7JYEZ
+R2C1T-O0KQO-JAVU2-4MMYP
+M2A16-47AAW-6NLYP-V1E0J
+IZO7M-360FW-QY1XP-AWLPN
+46YFS-S9G7H-QZFWI-QQBQB
+TUTR2-I2NHO-GQBC6-ZECWH</code></pre><h3 id="终端管理工具Cmder"><a href="#终端管理工具Cmder" class="headerlink" title="终端管理工具Cmder"></a>终端管理工具Cmder</h3><p>下载地址<a href="http://cmder.net/" target="_blank" rel="noopener">官方</a></p>
+<h3 id="文件图片批量处理软件"><a href="#文件图片批量处理软件" class="headerlink" title="文件图片批量处理软件"></a>文件图片批量处理软件</h3><p>Bulk Rename Utility<br>下载地址<a href="http://www.bulkrenameutility.co.uk/Main_Intro.php" target="_blank" rel="noopener">官方</a><a href="http://pan.baidu.com/s/1sjpaa1R" target="_blank" rel="noopener">云盘</a></p>
+<h3 id="文件资源管理器Total-Commander"><a href="#文件资源管理器Total-Commander" class="headerlink" title="文件资源管理器Total Commander"></a>文件资源管理器Total Commander</h3><p><a href="http://pan.baidu.com/s/1dEvQm5b" target="_blank" rel="noopener">破解版下载</a><br>快捷键</p>
+<blockquote>
+<p>F3——查看文件<br>F4——编辑文件<br>F5——拷贝文件<br>F6——重命名、移动文件<br>F7——新建文件夹<br>F8——删除文件、文件夹<br>F10——菜单条激活开关<br>ALT<br>Alt+F1——改变左边窗口的驱动器<br>Alt+F2——改变右边窗口的驱动器<br>Alt+Shift+F3——使用内部查看程序浏览文件<br>Alt+F5——压缩文件/文件夹<br>Alt+Shift+F5——压缩文件/文件夹，并删除原文件/文件夹<br>Alt+F7——查找文件/文件夹<br>Alt+F9——文件解压缩<br>Alt+left/right——切换至上次进入的前一个/后一个文件夹<br>Alt+down——显示历史访问地址列表<br>SHIFT<br>Shift+F4——用外部编辑器（UltraEdit）创建新文件<br>Shift+F5——复制（重命名）文件/文件夹到当前文件夹<br>Shift+Ctrl+F5——创建所选对象的快捷方式<br>Shift+F6——重命名文件/文件夹<br>Shift+ESC——Total Commander最小化<br>NUM<br>NUM + ——选择属性相同的一组文件<br>NUM — ——清除所选文件中属性相同的一组文件<br>NUM * ——反向选择<br>NUM / ——恢复选择<br>CTRL+NUM + ——全部选择<br>CTRL+NUM - ——清除全部选择<br>Alt+NUM + ——选择与当前光标选中的文件扩展名相同的一组文件<br>CTRL<br>Ctrl+PgUP——回上一级目录<br>Ctrl+left/right——在左边/右边文件窗口中显示当前文件夹列表<br>CTRL+/——返回根目录<br>CTRL+SHIFT+F1——缩略图视图（图片预览）<br>CTRL+F2——显示文件/文件夹详细资料<br>CTRL+F3——以名称排序<br>CTRL+F4——以扩展名排序<br>CTRL+F5——以文件的创建时间排序<br>CTRL+F6——以文件的大小排序<br>CTRL+F8——显示目录结构<br>CTRL+F9——打印当前光标处的文件<br>CTRL+F10——显示所有文件<br>CTRL+F11——显示所有可执行文件/隐藏非执行文件<br>CTRL+ENTER——将当前文件名复制到TC的命令行<br>CTRL+SHIFT+ENTER——将当前完整路径及文件名复制到TC的命令行<br>CTRL+D——打开常用文件夹列表（可作书签用）<br>CTRL+F——连接到FTP服务器<br>CTRL+SHIFT+F——断开与FTP服务器的连接<br>CTRL+Q——打开/关闭快速查看<br>CTRL+U——切换左右文件窗口显示内容<br>CTRL+W——关闭当前目录标签<br>CTRL+SHIFT+W——关闭所有目录标签<br>CTRL+Y——清空命令行输入框并置光标于命令行<br>ESC——清空命令行输入框并置光标于文件窗口<br>INSERT——选择文件/目录<br>SPACE——选择文件/目录<br>SHIFT+ENTER——<br>1.当命令行输入框有字符串命令：运行命令行的字符串命令<br>2.当光标位于压缩文件用相应的压缩工具打开压缩文件<br>3.位于压缩文件内：将所选中的文件解到临时文件目录，并试图将其做压缩文件的解压处理<br>ALT+ENTER——显示所选文件属性<br>Total Commander常用快捷键<br>显示编辑文件：<br>F3：这个恐怕是使用程度最高的快捷键了，专门用来查看文件。需要说明的是，默认安装的TC 5.5版只能查看文本及一些关联的影像文件，图片只支持BMP等很少的种类。如需要查看更多类型的文件，还需要安装插件。<br>Ctrl + Q：快速预览。<br>F4：主要用来编辑文本文件。可以设置外部程序来编辑文本(我设置的是Editplus)。<br>Shift + F4： 新建文本文件，调用记事本编辑（自定义编辑器）。<br>Ctrl + Z： 编辑文件/文件夹的说明。<br>Ctlt + Enter：查看文件或文件夹属性。<br>空格键：选择或取消选择文件，如在文件夹按下，则计算该文件夹占用空间。<br>Shift + 空格： 选中光标所在，不计算文件夹的容量。<br>Alt + Shift + Enter：计算当前窗格下所有文件夹的占用空间，设置后再点击顶栏的“大小”可使文件夹参与排序，迅速找到占用空间最大的文件夹。<br>Ctrl+Shift+Enter获取光标所在处文件/文件夹的绝对路径并显示在命令行里。 操作复制文件<br>F5：复制文件，这个也是最常用的快捷键之一。TC分为左、右两个窗口，我们把光标选中的文件拷贝到另一个窗口。另外，TC也支持以鼠标拖拽方式复制文件，两者哪个更方便完全由你的个人喜好决定。<br>Shift + F5： 同目录复制<br>F6：移动文件，将光标选中的文件移动到另一个窗口。<br>shift+Ins TC中的块拷贝<br>SHIFT + F6 重命名文件（F2修改版）<br>Ctrl + M： 批量更改文件名。<br>空格 选择文件/文件夹(如同 INSERT)。如果光标处文件夹还未选中，按空格键后，计算其占用空间（含子文件夹）并用字节数代替</p>
+<p>（详细资料显示方式下）。通过 ‘配置’ - ‘选项’ - ‘操作’ - ‘用空格键选择’ 可禁用该特性。 右键长按 在NC风格下这是调用 Windows 风格下的右键菜单<br>Shift + F10——显示关联试菜单，类似于鼠标右键的效果<br>新建<br>SHIFT + F4 新建文本文件，加载到编辑器(自定义）<br>F7：新建一个或多层文件夹。可以像DOS那样新建多层的目录，比如c:/file/a/b/c 删除<br>F8 / Del：删除文件。与Windows一样，按住Shift + Delete，则直接删除而不放到回收站中。<br>搜索定位<br>Alt + Ctrl + 任意字母 或 Alt+任意字母 或 任意字母 ：快速定位文件 [菜单：配置–选项–快速搜索 中设置]<br>Alt + F7：搜索。有了TC之后，我再没用过Windows系统自带的搜索。TC的搜索简单，而且速度快，功能全，非常好用。<br>Ctrl + D：常用文件夹列表。按下会弹出浮动窗口，能够快速跳转到设定好的文件夹中。(非常好用）<br>ctrl + s: 快速搜索只显示所选文件<br>Alt + ↓：历史文件夹列表，可以快速回溯到你曾经到过的某个文件夹。<br>Alt + ← 或 →：快速后退或前进历史目录。<br>Tab： 左右窗口间切换。<br>Alt + Tab： 窗口标签间切换。<br>空格键：选择或取消选择文件，如在文件夹按下，则计算该文件夹占用空间。<br><em>(小键盘星号键)：反向选择。<br>+(小键盘加号键)：选择全部或指定类型的文件。<br>-(小键盘加号键)：取消选择全部或指定类型的文件。<br>Ctrl + A：全选当前窗口所有文件。与Windows资源管理器不同，按下此快捷键并不选中文件夹。<br>Shift + ↓ 和 Shift + ↑：选择或取消选择文件或文件夹。<br>Ctrl+↑： 在当前窗口的新标签中打开光标处文件夹<br>Ctrl+↓： 在对面窗口的新标签中打开光标处文件夹<br>Ctrl + ←/→：如果光标在窗格顶部，将左/右窗格的显示内容调整为一样的；如果光标所在处是一个文件夹，在左/右窗格打开此文件夹；如果光标所在处是一个压缩文件，在左/右窗格打开此文件。<br>Ctrl + num</em> 锁定/解锁当前标签。<br>ALT+F1 改变左侧窗口的驱动器<br>ALT+F2 改变右侧窗口的驱动器<br>压缩文件<br>Alt + F5：压缩选中的文件。按下回车，生成后的压缩包将会出现另一个目的窗口中。<br>Alt + F6 解压缩文件<br>显示方式<br>Ctrl + B： 显示当前文件夹及子文件夹下的所有文件。<br>Ctrl + R： 刷新<br>Ctrl + F1-8、10-12 不同方式在窗口显示文件列表</p>
+</blockquote>
+<h3 id="翻译软件-灵格斯"><a href="#翻译软件-灵格斯" class="headerlink" title="翻译软件 灵格斯"></a>翻译软件 灵格斯</h3><p>下载地址<a href="http://www.lingoes.cn/" target="_blank" rel="noopener">http://www.lingoes.cn/</a></p>
+<h3 id="CorelDRAWX7破解版"><a href="#CorelDRAWX7破解版" class="headerlink" title="CorelDRAWX7破解版"></a>CorelDRAWX7破解版</h3><p>下载地址[百度网盘]（<a href="http://pan.baidu.com/s/1ntVwlgH）" target="_blank" rel="noopener">http://pan.baidu.com/s/1ntVwlgH）</a><br>断网注册</p>
+<h3 id="XMIND7破解版"><a href="#XMIND7破解版" class="headerlink" title="XMIND7破解版"></a>XMIND7破解版</h3><p>下载地址<a href="http://pan.baidu.com/s/1i3OdeVr" target="_blank" rel="noopener">百度网盘</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2016/11/08/硬链接软链接方式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -516,7 +1923,7 @@ ln -s source target # 软链接</code></pre><p>软链接如果跨文件夹，必
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2016/11/08/PHP将PDF转为jpg，png图片/">
+    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2016/11/08/php将pdf转为jpg，png图片/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="www.zhuohc.om">
@@ -536,7 +1943,7 @@ ln -s source target # 软链接</code></pre><p>软链接如果跨文件夹，必
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2016/11/08/PHP将PDF转为jpg，png图片/" class="post-title-link" itemprop="url">PHP将PDF转为jpg，png图片</a>
+                <a href="/2016/11/08/php将pdf转为jpg，png图片/" class="post-title-link" itemprop="url">php将pdf转为jpg，png图片</a>
               
             
           </h1>
@@ -576,7 +1983,7 @@ ln -s source target # 软链接</code></pre><p>软链接如果跨文件夹，必
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-23 18:41:52" itemprop="dateModified" datetime="2019-07-23T18:41:52+08:00">2019-07-23</time>
+                <time title="Modified: 2019-07-24 09:29:12" itemprop="dateModified" datetime="2019-07-24T09:29:12+08:00">2019-07-24</time>
               </span>
             
           
@@ -705,7 +2112,7 @@ ln -s source target # 软链接</code></pre><p>软链接如果跨文件夹，必
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2016/11/08/ORACLE Virtualbox使用/">
+    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2016/11/08/oracle virtualbox入门基础/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="www.zhuohc.om">
@@ -725,7 +2132,7 @@ ln -s source target # 软链接</code></pre><p>软链接如果跨文件夹，必
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2016/11/08/ORACLE Virtualbox使用/" class="post-title-link" itemprop="url">ORACLE Virtualbox使用</a>
+                <a href="/2016/11/08/oracle virtualbox入门基础/" class="post-title-link" itemprop="url">oracle virtualbox入门基础</a>
               
             
           </h1>
@@ -765,7 +2172,7 @@ ln -s source target # 软链接</code></pre><p>软链接如果跨文件夹，必
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-23 13:51:43" itemprop="dateModified" datetime="2019-07-23T13:51:43+08:00">2019-07-23</time>
+                <time title="Modified: 2019-07-24 09:28:51" itemprop="dateModified" datetime="2019-07-24T09:28:51+08:00">2019-07-24</time>
               </span>
             
           
@@ -931,7 +2338,7 @@ netmask 255.255.255.0
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-count">58</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -999,9 +2406,7 @@ netmask 255.255.255.0
         
           
         
-          
-        
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">tags</span>
         
       </div>

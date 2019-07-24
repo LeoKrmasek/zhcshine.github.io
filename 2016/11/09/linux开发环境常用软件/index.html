@@ -1,0 +1,1421 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0">
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    }
+  };
+</script>
+
+  <meta name="description" content="显示电脑硬件信息$ sudo add-apt-repository ppa:dawidd0811/neofetch $ sudo apt-get update $ sudo apt-get install neofetch neofetch安装独立显卡驱动https://blog.csdn.net/ghw15221836342/article/details/79571559 # 驱动版本查询">
+<meta name="keywords" content="linux,ubuntu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux开发环境常用软件">
+<meta property="og:url" content="http://www.zhuohc.com/2016/11/09/linux开发环境常用软件/index.html">
+<meta property="og:site_name" content="Wellread">
+<meta property="og:description" content="显示电脑硬件信息$ sudo add-apt-repository ppa:dawidd0811/neofetch $ sudo apt-get update $ sudo apt-get install neofetch neofetch安装独立显卡驱动https://blog.csdn.net/ghw15221836342/article/details/79571559 # 驱动版本查询">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-07-23T05:51:43.847Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux开发环境常用软件">
+<meta name="twitter:description" content="显示电脑硬件信息$ sudo add-apt-repository ppa:dawidd0811/neofetch $ sudo apt-get update $ sudo apt-get install neofetch neofetch安装独立显卡驱动https://blog.csdn.net/ghw15221836342/article/details/79571559 # 驱动版本查询">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://www.zhuohc.com/2016/11/09/linux开发环境常用软件/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  
+  <title>Linux开发环境常用软件 | Wellread</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Wellread</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">饱读诗书</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2016/11/09/linux开发环境常用软件/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="www.zhuohc.om">
+      <meta itemprop="description" content="技术博客、日记记录">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wellread">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Linux开发环境常用软件
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2016-11-09 10:58:19" itemprop="dateCreated datePublished" datetime="2016-11-09T10:58:19+08:00">2016-11-09</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-07-23 13:51:43" itemprop="dateModified" datetime="2019-07-23T13:51:43+08:00">2019-07-23</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/办公/" itemprop="url" rel="index"><span itemprop="name">办公</span></a></span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/办公/运维/" itemprop="url" rel="index"><span itemprop="name">运维</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="显示电脑硬件信息"><a href="#显示电脑硬件信息" class="headerlink" title="显示电脑硬件信息"></a>显示电脑硬件信息</h4><pre><code>$ sudo add-apt-repository ppa:dawidd0811/neofetch
+$ sudo apt-get update
+$ sudo apt-get install neofetch
+neofetch</code></pre><h4 id="安装独立显卡驱动"><a href="#安装独立显卡驱动" class="headerlink" title="安装独立显卡驱动"></a>安装独立显卡驱动</h4><p><a href="https://blog.csdn.net/ghw15221836342/article/details/79571559" target="_blank" rel="noopener">https://blog.csdn.net/ghw15221836342/article/details/79571559</a></p>
+<pre><code># 驱动版本查询   https://www.nvidia.com/Download/index.aspx?lang=en-us
+# 安装
+sudo add-apt-repository ppa:graphics-drivers/ppa  
+sudo apt-get update  
+sudo apt-get install nvidia-390 #此处要根据上面查询到的版本适当更改
+sudo apt-get install mesa-common-dev  
+sudo apt-get install freeglut3-de
+# 测试
+nvidia-smi  #若出现电脑GPU列表，即安装成功
+或者
+nvidia-settings #显示你的显卡信息
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">    </span><br><span class="line">    </span><br><span class="line">    #### Chrome浏览器</span><br><span class="line">    下载地址 [百度云盘](http://pan.baidu.com/s/1hq0Nom4)</span><br><span class="line">    </span><br><span class="line">    #### 配置SS</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">安装</span><br><span class="line">==</span><br><span class="line"></span><br><span class="line">apt-get install python-pip pip install s\_h\_a\_d\_o\_w\_s\_o\_c\_k\_s</span><br><span class="line"></span><br><span class="line">启动</span><br><span class="line">==</span><br><span class="line"></span><br><span class="line">sslocal -s server\_ip -p server\_port -l 1080 -k password -t 600 -m aes-256-cfb</span><br><span class="line"></span><br><span class="line">简写</span><br><span class="line">==</span><br><span class="line"></span><br><span class="line">sslocal -s ip -p port -k &quot;password&quot;</span><br><span class="line"></span><br><span class="line">    开机启动配置  </span><br><span class="line">    在/home下新建文件ss.sh脚本</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">#!/bin/bash #文件名:ss.sh sslocal -s ip -p port -k &quot;password&quot;</span><br><span class="line"></span><br><span class="line">    编辑开机启动文件</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">sudo vim /etc/rc.local</span><br></pre></td></tr></table></figure>
+
+# 最后加入以下内容
+nohup bash /home/ss.sh&gt;/home/ss.txt &amp;</code></pre><p>代理设置</p>
+<pre><code>service： 127.0.0.1
+port ： 1080
+type： socks5</code></pre><h4 id="配置proxychains"><a href="#配置proxychains" class="headerlink" title="配置proxychains"></a>配置proxychains</h4><pre><code># 安装
+sudo apt install proxychains
+sudo vim /etc/proxychains.conf
+~ socks5 127.0.0.1 1080  # 最后一行加入socks代理
+# 测试
+proxychains wget https://www.google.com</code></pre><h4 id="wine-qq（现在推荐docker安装qq）"><a href="#wine-qq（现在推荐docker安装qq）" class="headerlink" title="wine qq（现在推荐docker安装qq）"></a>wine qq（现在推荐docker安装qq）</h4><p>安装wine1.7以上版本<br>安装WineQQ7.8-20151109-Longene.deb版本<br>下载<a href="https://pan.baidu.com/s/1bpLn0vl" target="_blank" rel="noopener">网盘</a></p>
+<h4 id="elinks-纯文本浏览器"><a href="#elinks-纯文本浏览器" class="headerlink" title="elinks 纯文本浏览器"></a>elinks 纯文本浏览器</h4><pre><code>sudo apt-get install elinks   # 安装
+
+
+elinks www.zhuohc.com  # 使用</code></pre><h4 id="unzip-zip"><a href="#unzip-zip" class="headerlink" title="unzip / zip"></a>unzip / zip</h4><p>解决中文乱码</p>
+<pre><code>unzip -O CP936 xxx.zip</code></pre><p>解压到指定目录</p>
+<pre><code>unzip -O xxx.zip -d xxx/</code></pre><p>压缩文件</p>
+<pre><code>zip -r yasuo.zip abc.txt dir1</code></pre><h4 id="wps-office办公"><a href="#wps-office办公" class="headerlink" title="wps office办公"></a>wps office办公</h4><p>显示字体确实错误 <a href="https://pan.baidu.com/s/1bpLn0vl" target="_blank" rel="noopener">下载字体</a><br>将字体复制到linux字体中</p>
+<pre><code>sudo cp * /usr/share/fonts</code></pre><p>生成字体索引信息</p>
+<pre><code>sudo mkfontscale
+
+sudo mkfontdir</code></pre><p>更新字体缓存</p>
+<pre><code>sudo fc-cache</code></pre><p>中文无法输入</p>
+<pre><code>$ vi /usr/bin/wps  # word文档
+
+
+#!/bin/bash
+export XMODIFIERS=&quot;@im=fcitx&quot;  # 添加的内容  
+export QT_IM_MODULE=&quot;fcitx&quot;     # 添加的内容    
+gOpt=
+#gOptExt=-multiply
+gTemplateExt=(&quot;wpt&quot; &quot;dot&quot; &quot;dotx&quot;)
+
+
+$ vi /usr/bin/et   # excel表格
+
+
+#!/bin/bash
+export XMODIFIERS=&quot;@im=fcitx&quot;  # 添加的内容  
+export QT_IM_MODULE=&quot;fcitx&quot;  # 添加的内容  
+gOpt=
+#gOptExt=-multiply</code></pre><h4 id="输入法"><a href="#输入法" class="headerlink" title="输入法"></a>输入法</h4><p>系统自带或者sougou输入法 ， 倬彼昊天系列皮肤</p>
+<h4 id="截屏"><a href="#截屏" class="headerlink" title="截屏"></a>截屏</h4><p>系统设置&gt;键盘&gt;自定义快捷键&gt;+&gt;<br>名称填screenshot<br>命令</p>
+<pre><code>gnome-screenshot -a</code></pre><p>在disabled修改快捷键</p>
+<h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><p>安装uget</p>
+<pre><code>sudo add-apt-repository ppa:plushuang-tw/uget-stable 
+sudo apt-get update 
+sudo apt-get install uget</code></pre><p>安装aria2</p>
+<pre><code>sudo add-apt-repository ppa:t-tujikawa/ppa 
+sudo apt-get update 
+sudo apt-get install aria2</code></pre><p>在uget gui里编辑插件，选择aria2</p>
+<h4 id="美化监视工具"><a href="#美化监视工具" class="headerlink" title="美化监视工具"></a>美化监视工具</h4><pre><code> sudo apt-get install conky  
+ sudo add-apt-repository ppa:teejee2008/ppa
+ sudo apt-get update
+ sudo apt-get install conky-manager
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">显示桌面会自动隐藏conky的bug解决办法:  </span><br><span class="line">编辑配置文件</span><br></pre></td></tr></table></figure>
+
+ # own_window_type normal
+own_window_type desktop</code></pre><p>#### 快速搜索文件</p>
+<pre><code>sudo add-apt-repository ppa:synapse-core/testing
+sudo apt-get update
+sudo apt-get install synapse  </code></pre><h4 id="卸载synapse"><a href="#卸载synapse" class="headerlink" title="卸载synapse"></a>卸载synapse</h4><pre><code>sudo apt-get remove synapse</code></pre><h4 id="移除PPA"><a href="#移除PPA" class="headerlink" title="移除PPA"></a>移除PPA</h4><pre><code>sudo apt-get install ppa-purge
+sudo ppa-purge ppa:synapse-core/testing</code></pre><h4 id="安装oh-my-zsh"><a href="#安装oh-my-zsh" class="headerlink" title="安装oh-my-zsh"></a>安装oh-my-zsh</h4><pre><code># https://github.com/robbyrussell/oh-my-zsh
+$ sudo apt-get install git
+$ sudo apt-get install zsh
+$ sh -c &quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;
+$ chsh -s /bin/zsh # 更改默认bash
+//或:
+$ chsh -s `which zsh`
+$ sudo reboot</code></pre><h4 id="terminator-终端管理软件"><a href="#terminator-终端管理软件" class="headerlink" title="terminator 终端管理软件"></a>terminator 终端管理软件</h4><p>安装</p>
+<pre><code>sudo add-apt-repository ppa:gnome-terminator
+sudo apt-get update
+sudo apt-get install terminator</code></pre><p>基本设置方法</p>
+<blockquote>
+<p>右键点击终端任意区域，选择首选项</p>
+</blockquote>
+<p>设置<a href="https://github.com/ghuntley/terminator-solarized" target="_blank" rel="noopener">solarized</a>配色（<a href="http://blog.codinglabs.org/articles/getting-started-with-ubuntu.html" target="_blank" rel="noopener">参考</a>）</p>
+<pre><code>cd ~/.config/terminator  
+vim config</code></pre><p>覆盖以下内容</p>
+<pre><code>[global_config]
+    title_transmit_bg_color = &quot;#d30102&quot;
+    focus = system
+    suppress_multiple_term_dialog = True
+[keybindings]
+[profiles]
+    [[default]]
+        palette = &quot;#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3&quot;
+        copy_on_selection = True
+        background_image = None
+        background_darkness = 0.95
+        background_type = transparent
+        use_system_font = False
+        cursor_color = &quot;#eee8d5&quot;
+        foreground_color = &quot;#839496&quot;
+        show_titlebar = False
+        font = Monospace 11
+        background_color = &quot;#002b36&quot;
+    [[solarized-dark]]
+        palette = &quot;#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3&quot;
+        background_color = &quot;#002b36&quot;
+        background_image = None
+        cursor_color = &quot;#eee8d5&quot;
+        foreground_color = &quot;#839496&quot;
+    [[solarized-light]]
+        palette = &quot;#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3&quot;
+        background_color = &quot;#fdf6e3&quot;
+        background_image = None
+        cursor_color = &quot;#002b36&quot;
+        foreground_color = &quot;#657b83&quot;
+[layouts]
+    [[default]]
+        [[[child1]]]
+            type = Terminal
+            parent = window0
+            profile = default
+        [[[window0]]]
+            type = Window
+            parent = &quot;&quot;
+[plugins]</code></pre><p>以上配置后会修改配色方案，但是没有bright色<br><a href="https://github.com/seebi/dircolors-solarized" target="_blank" rel="noopener">dircolors-solarized</a>项目提供了适合于solarized的dircolors配色方案，只要选择合适的方案使用就可以了。</p>
+<pre><code>curl https://raw.github.com/seebi/dircolors-solarized/master/dircolors.ansi-dark &gt; ~/.dircolors</code></pre><p>然后在~/.bashrc中加入如下配置：</p>
+<pre><code># enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors &amp;&amp; eval &quot;$(dircolors -b ~/.dircolors)&quot; || eval &quot;$(dircolors -b)&quot;
+    alias ls=&apos;ls --color=auto&apos;
+    #alias dir=&apos;dir --color=auto&apos;
+    #alias vdir=&apos;vdir --color=auto&apos;
+
+    alias grep=&apos;grep --color=auto&apos;
+    alias fgrep=&apos;fgrep --color=auto&apos;
+    alias egrep=&apos;egrep --color=auto&apos;
+fi
+
+# some more ls aliases
+alias ll=&apos;ls -alF&apos;
+alias la=&apos;ls -A&apos;
+alias l=&apos;ls -CF&apos;</code></pre><p>执行</p>
+<pre><code>source ~/.bashrc</code></pre><h4 id="tmux配合terminator使用"><a href="#tmux配合terminator使用" class="headerlink" title="tmux配合terminator使用"></a>tmux配合terminator使用</h4><p>安装</p>
+<pre><code>sudo apt-get install tmux</code></pre><p>配置</p>
+<pre><code>touch .tmux.conf</code></pre><p>配置内容和使用方法</p>
+<pre><code># 设置前缀为Ctrl + x
+set -g prefix C-x
+# 解除Ctrl+b 与前缀的对应关系
+unbind C-b
+# 将r 设置为加载配置文件，并显示&quot;reloaded!&quot;信息
+bind r source-file ~/.tmux.conf \; display &quot;Reloaded!&quot;
+
+
+
+# copy-mode 将快捷键设置为vi 模式
+setw -g mode-keys vi
+
+# tmux-powerline设置
+set-option -g status on
+set-option -g status-interval 2
+set-option -g status-utf8 on
+set-option -g status-justify &quot;centre&quot;
+set-option -g status-left-length 60
+set-option -g status-right-length 90
+set-option -g status-left &quot;#(~/.tmux/tmux-powerline/powerline.sh left)&quot;
+set-option -g status-right &quot;#(~/.tmux/tmux-powerline/powerline.sh right)&quot;
+# 将窗口列表换成 powerline的风格
+set-window-option -g window-status-current-format &quot;#[fg=colour235, bg=colour27]⮀#[fg=colour255, bg=colour27] #I ⮁ #W #[fg=colour27, bg=colour235]⮀&quot;
+# 设置默认bash
+set-option -g default-shell /bin/zsh
+
+
+########## 复制模式  ##########
+
+# copy mode 复制模式
+# &apos;prefix +  [ &apos;进入复制模式
+# 按space 开始复制
+# Enter退出复制模式</code></pre><p>需要安装powerline插件</p>
+<pre><code>https://github.com/erikw/tmux-powerline</code></pre><p>显示日期的星期</p>
+<pre><code>vim data_day.sh
+ # date +&quot;%a&quot;改成大写
+ date +&quot;%A&quot;</code></pre><p>powerline字体安装查看 <a href="http://powerline.readthedocs.io/en/latest/installation/linux.html" target="_blank" rel="noopener">http://powerline.readthedocs.io/en/latest/installation/linux.html</a> 在terminator配置自动启动turm</p>
+<pre><code>首选项-&gt;配置&gt;命令&gt;自定义命令  
+ ([[ -f &quot;$TMUX&quot; ]] &amp;&amp; tmux -2 -S $TMUX) || (TMUX=&quot;&quot; tmux -2)</code></pre><p>自动部署多窗口任务</p>
+<pre><code>touch ~/development.start
+chmod +x development.start
+
+
+tmux has-session -t development
+if [ $? != 0 ]
+then
+    tmux new-session -s development -n editor -d
+    tmux send-keys -t development &apos;vim&apos; C-m
+    tmux split-window -v -t development
+    tmux select-layout -t development main-horizontal
+    tmux new-window -n bash -t development
+    tmux new-window -n ssh -t development
+    tmux new-window -n mysql -t development
+    tmux new-window -n front-end -t development
+    tmux select-window -t development:1
+fi
+tmux attach -t development</code></pre><p>执行文件</p>
+<pre><code>~/development.start</code></pre><h4 id="Visual-Studio-Code"><a href="#Visual-Studio-Code" class="headerlink" title="Visual Studio Code"></a>Visual Studio Code</h4><p>通过官方PPA来安装Ubuntu Make</p>
+<pre><code>sudo add-apt-repository ppa:ubuntu-desktop/ubuntu-make
+sudo apt-get update
+sudo apt-get install ubuntu-make</code></pre><p>安装Ubuntu Make完后，接着使用下列命令安装Visual Studio Code</p>
+<pre><code>umake web visual-studio-code</code></pre><p>卸载命令</p>
+<pre><code>umake web visual-studio-code --remove</code></pre><h4 id="wine"><a href="#wine" class="headerlink" title="wine"></a>wine</h4><p>卸载wineqq</p>
+<pre><code>sudo dpkg -l | grep qq  # 找到安装包名称   
+sudo dpkg -r wine-qq7.8-longeneteam # 卸载</code></pre><h4 id="curl-http请求"><a href="#curl-http请求" class="headerlink" title="curl http请求"></a>curl http请求</h4><pre><code>curl &quot;http://www.baidu.com&quot; # 如果这里的URL指向的是一个文件或者一幅图都可以直接下载到本地  
+curl -i &quot;http://www.baidu.com&quot; # 显示全部信息  
+curl -l &quot;http://www.baidu.com&quot; # 只显示头部信息  
+curl -v &quot;http://www.baidu.com&quot; # 显示get请求全过程解析    
+curl -d &quot;param1=value1¶m2=value2&quot; &quot;http://www.baidu.com&quot; # post请求  </code></pre><h4 id="安卓虚拟机genymotion"><a href="#安卓虚拟机genymotion" class="headerlink" title="安卓虚拟机genymotion"></a>安卓虚拟机genymotion</h4><p>前提必须安装virtualBox<br>下载地址: <a href="https://www.genymotion.com/download/" target="_blank" rel="noopener">https://www.genymotion.com/download/</a><br>需要先注册,下载后执行</p>
+<pre><code>chmod +x genymotion-2.2.2_x64.bin
+./genymotion-2.2.2_x64.bin -d /home/user</code></pre><p>执行home/user/genymotion/genymotion</p>
+<h4 id="安装为知笔记"><a href="#安装为知笔记" class="headerlink" title="安装为知笔记"></a>安装为知笔记</h4><p>简易版本</p>
+<pre><code>http://ppa.launchpad.net/wiznote-team/ppa/ubuntu/pool/main/w/wiznote/</code></pre><p>编译安装</p>
+<pre><code>http://www.wiz.cn/compile-client.html</code></pre><p>chrome安装扩展</p>
+<pre><code>https://chrome.google.com/webstore/detail/wiznote-web-clipper/jfanfpmalehkemdiiebjljddhgojhfab/related?hl=zh-CN</code></pre><h4 id="安装系统状态指示器"><a href="#安装系统状态指示器" class="headerlink" title="安装系统状态指示器"></a>安装系统状态指示器</h4><pre><code>sudo add-apt-repository ppa:indicator-multiload/stable-daily
+
+sudo apt-get update
+
+sudo apt-get install indicator-multiload</code></pre><h4 id="安装albert搜索框"><a href="#安装albert搜索框" class="headerlink" title="安装albert搜索框"></a>安装albert搜索框</h4><pre><code>sudo add-apt-repository ppa:noobslab/macbuntu
+sudo apt-get update
+sudo apt-get install albert
+设置快捷键Ctrl+/ 样式NUMIX</code></pre><h4 id="下载特殊文件"><a href="#下载特殊文件" class="headerlink" title="下载特殊文件"></a>下载特殊文件</h4><pre><code>sudo apt-get install ktorrent
+sudo apt-get install amule</code></pre>
+      
+    </div>
+
+    
+
+    
+      
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag"># linux</a>
+          
+            <a href="/tags/ubuntu/" rel="tag"># ubuntu</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/09/python入门基础/" rel="next" title="python入门基础">
+                <i class="fa fa-chevron-left"></i> python入门基础
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/09/rsync同步web服务器/" rel="prev" title="rsync同步web服务器">
+                rsync同步web服务器 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  
+  <p class="site-author-name" itemprop="name">www.zhuohc.om</p>
+  <div class="site-description motion-element" itemprop="description">技术博客、日记记录</div>
+</div>
+
+
+  <nav class="site-state motion-element">
+    
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">58</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+    
+
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span>
+        
+      </div>
+    
+
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">tags</span>
+        
+      </div>
+    
+  </nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+          
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#显示电脑硬件信息"><span class="nav-number">1.</span> <span class="nav-text">显示电脑硬件信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装独立显卡驱动"><span class="nav-number">2.</span> <span class="nav-text">安装独立显卡驱动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置proxychains"><span class="nav-number">3.</span> <span class="nav-text">配置proxychains</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#wine-qq（现在推荐docker安装qq）"><span class="nav-number">4.</span> <span class="nav-text">wine qq（现在推荐docker安装qq）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#elinks-纯文本浏览器"><span class="nav-number">5.</span> <span class="nav-text">elinks 纯文本浏览器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#unzip-zip"><span class="nav-number">6.</span> <span class="nav-text">unzip / zip</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#wps-office办公"><span class="nav-number">7.</span> <span class="nav-text">wps office办公</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输入法"><span class="nav-number">8.</span> <span class="nav-text">输入法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#截屏"><span class="nav-number">9.</span> <span class="nav-text">截屏</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#下载"><span class="nav-number">10.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#美化监视工具"><span class="nav-number">11.</span> <span class="nav-text">美化监视工具</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#卸载synapse"><span class="nav-number">12.</span> <span class="nav-text">卸载synapse</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#移除PPA"><span class="nav-number">13.</span> <span class="nav-text">移除PPA</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装oh-my-zsh"><span class="nav-number">14.</span> <span class="nav-text">安装oh-my-zsh</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#terminator-终端管理软件"><span class="nav-number">15.</span> <span class="nav-text">terminator 终端管理软件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tmux配合terminator使用"><span class="nav-number">16.</span> <span class="nav-text">tmux配合terminator使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Visual-Studio-Code"><span class="nav-number">17.</span> <span class="nav-text">Visual Studio Code</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#wine"><span class="nav-number">18.</span> <span class="nav-text">wine</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#curl-http请求"><span class="nav-number">19.</span> <span class="nav-text">curl http请求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安卓虚拟机genymotion"><span class="nav-number">20.</span> <span class="nav-text">安卓虚拟机genymotion</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装为知笔记"><span class="nav-number">21.</span> <span class="nav-text">安装为知笔记</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装系统状态指示器"><span class="nav-number">22.</span> <span class="nav-text">安装系统状态指示器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装albert搜索框"><span class="nav-number">23.</span> <span class="nav-text">安装albert搜索框</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#下载特殊文件"><span class="nav-number">24.</span> <span class="nav-text">下载特殊文件</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">www.zhuohc.om</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.2.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.2.0"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+  
+
+  
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+// GET RESPONSIVE HEIGHT PASSED FROM IFRAME
+
+window.addEventListener("message", function(e) {
+  var data = e.data;
+  if ((typeof data === 'string') && (data.indexOf('ciu_embed') > -1)) {
+    var featureID = data.split(':')[1];
+    var height = data.split(':')[2];
+    $(`iframe[data-feature=${featureID}]`).height(parseInt(height) + 30);
+  }
+}, false);
+</script>
+
+
+
+
+
+
+
+
+  
+
+</body>
+</html>

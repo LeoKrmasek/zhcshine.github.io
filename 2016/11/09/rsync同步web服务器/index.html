@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0">
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    }
+  };
+</script>
+
+  <meta name="description" content="测试环境服务端安装 WIN2008R2 ip:192.168.0.160客户端安装 WIN2003 ip:192.168.0.206 程序下载新版已经开始收费，这里使用旧版4.0.5,百度网盘下载http://pan.baidu.com/s/1kTNyk1h 服务端安装 一路直接下一步，这里会创建一个用户，创建的默认密码可以不需要修改，直接下一步。  创建的用户  创建的服务改为自动启动 客户端安">
+<meta name="keywords" content="windows">
+<meta property="og:type" content="article">
+<meta property="og:title" content="rsync同步web服务器">
+<meta property="og:url" content="http://www.zhuohc.com/2016/11/09/rsync同步web服务器/index.html">
+<meta property="og:site_name" content="Wellread">
+<meta property="og:description" content="测试环境服务端安装 WIN2008R2 ip:192.168.0.160客户端安装 WIN2003 ip:192.168.0.206 程序下载新版已经开始收费，这里使用旧版4.0.5,百度网盘下载http://pan.baidu.com/s/1kTNyk1h 服务端安装 一路直接下一步，这里会创建一个用户，创建的默认密码可以不需要修改，直接下一步。  创建的用户  创建的服务改为自动启动 客户端安">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://7xq3ry.com1.z0.glb.clouddn.com/cwrsync.png">
+<meta property="og:image" content="http://7xq3ry.com1.z0.glb.clouddn.com/cwrsync1.png">
+<meta property="og:image" content="http://7xq3ry.com1.z0.glb.clouddn.com/cwrsync2.png">
+<meta property="og:image" content="http://7xq3ry.com1.z0.glb.clouddn.com/cwrsync3.png">
+<meta property="og:updated_time" content="2019-07-24T01:33:42.843Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="rsync同步web服务器">
+<meta name="twitter:description" content="测试环境服务端安装 WIN2008R2 ip:192.168.0.160客户端安装 WIN2003 ip:192.168.0.206 程序下载新版已经开始收费，这里使用旧版4.0.5,百度网盘下载http://pan.baidu.com/s/1kTNyk1h 服务端安装 一路直接下一步，这里会创建一个用户，创建的默认密码可以不需要修改，直接下一步。  创建的用户  创建的服务改为自动启动 客户端安">
+<meta name="twitter:image" content="http://7xq3ry.com1.z0.glb.clouddn.com/cwrsync.png">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://www.zhuohc.com/2016/11/09/rsync同步web服务器/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  
+  <title>rsync同步web服务器 | Wellread</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Wellread</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">饱读诗书</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2016/11/09/rsync同步web服务器/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="www.zhuohc.om">
+      <meta itemprop="description" content="技术博客、日记记录">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wellread">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">rsync同步web服务器
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2016-11-09 11:05:34" itemprop="dateCreated datePublished" datetime="2016-11-09T11:05:34+08:00">2016-11-09</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-07-24 09:33:42" itemprop="dateModified" datetime="2019-07-24T09:33:42+08:00">2019-07-24</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/运维/" itemprop="url" rel="index"><span itemprop="name">运维</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="测试环境"><a href="#测试环境" class="headerlink" title="测试环境"></a>测试环境</h3><p>服务端安装 WIN2008R2 ip:192.168.0.160<br>客户端安装 WIN2003 ip:192.168.0.206</p>
+<h3 id="程序下载"><a href="#程序下载" class="headerlink" title="程序下载"></a>程序下载</h3><p>新版已经开始收费，这里使用旧版4.0.5,百度网盘下载<a href="http://pan.baidu.com/s/1kTNyk1h" target="_blank" rel="noopener">http://pan.baidu.com/s/1kTNyk1h</a></p>
+<h3 id="服务端安装"><a href="#服务端安装" class="headerlink" title="服务端安装"></a>服务端安装</h3><p><img src="http://7xq3ry.com1.z0.glb.clouddn.com/cwrsync.png" alt> 一路直接下一步，这里会创建一个用户，创建的默认密码可以不需要修改，直接下一步。 <img src="http://7xq3ry.com1.z0.glb.clouddn.com/cwrsync1.png" alt> 创建的用户 <img src="http://7xq3ry.com1.z0.glb.clouddn.com/cwrsync2.png" alt> 创建的服务改为自动启动</p>
+<h3 id="客户端安装"><a href="#客户端安装" class="headerlink" title="客户端安装"></a>客户端安装</h3><p>一路下一步直到完成。</p>
+<h3 id="配置服务端"><a href="#配置服务端" class="headerlink" title="配置服务端"></a>配置服务端</h3><pre><code>use chroot = false
+# 不验证用户密码
+strict modes = false
+lock file = rsyncd.lock 
+hosts allow = 192.168.0.206
+max connections = 5
+# 默认端口
+port = 873
+
+# 指定匿名访问
+uid = 0
+gid = 0
+
+
+log file = rsyncd.log
+
+# Module definitions
+# Remember cygwin naming conventions : c:\work becomes /cygdrive/c/work
+
+[web]
+path = /cygdrive/C/WEB
+# 下面两行是配置用户名密码的
+# auth users = dbbackuper
+# secrets file = /cygdrive/e/Setting/Rsync/rsync_db.ps
+# 只允许客户端下载，不允许客户端上传
+read only = true
+transfer logging = yes</code></pre><p>防火墙设置允许配置的端口通过<br>查看端口配置是否错误</p>
+<pre><code>telnet 192.168.0.160 873  
+@RSYNCD: 30.0</code></pre><p>服务器端配置测试文件目录 <img src="http://7xq3ry.com1.z0.glb.clouddn.com/cwrsync3.png" alt> 其中targetDir为联接文件</p>
+<pre><code>C:\&gt;mklink /J WEB\targetDir\ source\
+为 WEB\targetDir\ &lt;&lt;===&gt;&gt; source\ 创建的联接</code></pre><h3 id="配置客户端"><a href="#配置客户端" class="headerlink" title="配置客户端"></a>配置客户端</h3><p>在安装目录下使用如下命令</p>
+<pre><code>C:\Program Files\cwRsync\bin&gt;rsync --port=873 -vzrtopg --progress --delete 192.168.0.160::web /cygdrive/C/WEB
+receiving incremental file list
+skipping non-regular file &quot;targetDir&quot;
+./
+TEST4/
+test3/
+
+sent 39 bytes  received 163 bytes  134.67 bytes/sec
+total size is 19  speedup is 0.09</code></pre><p>查看客户端文件目录</p>
+<pre><code>test3
+TEST4</code></pre><p>提示skipping non-regular file ‘targetDir’忽略软链接解决办法<br>参数-L:–copy-links 像对待常规文件一样处理软链结</p>
+<pre><code>C:\Program Files\cwRsync\bin&gt;rsync --port=873 -vzrtopgL --progress --delete 192.
+168.0.160::web /cygdrive/C/WEB
+receiving incremental file list
+deleting test5/adda.txt
+deleting test5/
+./
+TEST4/
+targetDir/
+targetDir/HAFA/
+targetDir/pdf/
+targetDir/pdf/TARGE.txt
+           0 100%    0.00kB/s    0:00:00 (xfer#1, to-check=1/8)
+test3/
+
+sent 70 bytes  received 272 bytes  97.71 bytes/sec
+total size is 0  speedup is 0.00</code></pre><h3 id="实现客户端定时任务"><a href="#实现客户端定时任务" class="headerlink" title="实现客户端定时任务"></a>实现客户端定时任务</h3><p>1，要添加环境变量到系统中<br>2，上传脚本文件到客户端sync_client.bat</p>
+<pre><code>rsync --port=873 -vzrtopgL --progress --delete 192.168.0.160::web /cygdrive/C/WEB</code></pre><p>3,在系统中添加定时任务，并指定更新时间</p>
+<h3 id="具体参数详解"><a href="#具体参数详解" class="headerlink" title="具体参数详解"></a>具体参数详解</h3><p>rsync参数的具体解释如下： -v, –verbose 详细模式输出<br>-q, –quiet 精简输出模式<br>-c, –checksum 打开校验开关，强制对文件传输进行校验<br>-a, –archive 归档模式，表示以递归方式传输文件，并保持所有文件属性，等于-rlptgoD<br>-r, –recursive 对子目录以递归模式处理<br>-R, –relative 使用相对路径信息<br>-b, –backup 创建备份，也就是对于目的已经存在有同样的文件名时，将老的文件重新命名为<del>filename。可以使用–suffix选项来指定不同的备份文件前缀。<br>–backup-dir 将备份文件(如</del>filename)存放在在目录下。<br>-suffix=SUFFIX 定义备份文件前缀<br>-u, –update 仅仅进行更新，也就是跳过所有已经存在于DST，并且文件时间晚于要备份的文件。(不覆盖更新的文件)<br>-l, –links 保留软链结<br>-L, –copy-links 想对待常规文件一样处理软链结<br>–copy-unsafe-links 仅仅拷贝指向SRC路径目录树以外的链结<br>–safe-links 忽略指向SRC路径目录树以外的链结<br>-H, –hard-links 保留硬链结<br>-p, –perms 保持文件权限<br>-o, –owner 保持文件属主信息<br>-g, –group 保持文件属组信息<br>-D, –devices 保持设备文件信息<br>-t, –times 保持文件时间信息<br>-S, –sparse 对稀疏文件进行特殊处理以节省DST的空间<br>-n, –dry-run现实哪些文件将被传输<br>-W, –whole-file 拷贝文件，不进行增量检测<br>-x, –one-file-system 不要跨越文件系统边界<br>-B, –block-size=SIZE 检验算法使用的块尺寸，默认是700字节<br>-e, –rsh=COMMAND 指定使用rsh、ssh方式进行数据同步<br>–rsync-path=PATH 指定远程服务器上的rsync命令所在路径信息<br>-C, –cvs-exclude 使用和CVS一样的方法自动忽略文件，用来排除那些不希望传输的文件<br>–existing 仅仅更新那些已经存在于DST的文件，而不备份那些新创建的文件<br>–delete 删除那些DST中SRC没有的文件<br>–delete-excluded 同样删除接收端那些被该选项指定排除的文件<br>–delete-after 传输结束以后再删除<br>–ignore-errors 及时出现IO错误也进行删除<br>–max-delete=NUM 最多删除NUM个文件<br>–partial 保留那些因故没有完全传输的文件，以是加快随后的再次传输<br>–force 强制删除目录，即使不为空<br>–numeric-ids 不将数字的用户和组ID匹配为用户名和组名<br>–timeout=TIME IP超时时间，单位为秒<br>-I, –ignore-times 不跳过那些有同样的时间和长度的文件<br>–size-only 当决定是否要备份文件时，仅仅察看文件大小而不考虑文件时间<br>–modify-window=NUM 决定文件是否时间相同时使用的时间戳窗口，默认为0<br>-T –temp-dir=DIR 在DIR中创建临时文件<br>–compare-dest=DIR 同样比较DIR中的文件来决定是否需要备份<br>-P 等同于 –partial<br>–progress 显示备份过程<br>-z, –compress 对备份的文件在传输时进行压缩处理<br>–exclude=PATTERN 指定排除不需要传输的文件模式<br>–include=PATTERN 指定不排除而需要传输的文件模式<br>–exclude-from=FILE 排除FILE中指定模式的文件<br>–include-from=FILE 不排除FILE指定模式匹配的文件<br>–version 打印版本信息<br>–address 绑定到特定的地址<br>–config=FILE 指定其他的配置文件，不使用默认的rsyncd.conf文件<br>–port=PORT 指定其他的rsync服务端口<br>–blocking-io 对远程shell使用阻塞IO<br>-stats 给出某些文件的传输状态<br>–progress 在传输时现实传输过程<br>–log-format=formAT 指定日志文件格式<br>–password-file=FILE 从FILE中得到密码<br>–bwlimit=KBPS 限制I/O带宽，KBytes per second<br>-h, –help 显示帮助信息</p>
+<h3 id="部分错误的解决办法"><a href="#部分错误的解决办法" class="headerlink" title="部分错误的解决办法"></a>部分错误的解决办法</h3><p>1.’rsync’ 不是内部或外部命令，也不是可运行的程序或批处理文件。<br>加环境变量 path = C:\Program Files (x86)\cwRsync\bin 2.rsync: failed to connect to 192.168.1.82: Connection timed out (116) rsync error: error in socket IO (code 10) at clientserver.c(122) [Receiver=3.0.7]<br>网络通畅，服务器端允许访问端口 873 3.@ERROR: invalid uid nobody<br>rsync error: error starting client-server protocol (code 5) at main.c(1506) [Receiver=3.0.7]<br>指定uid gid<br>uid = 0<br>gid = 0 4.@ERROR: chdir failed<br>rsync error: error starting client-server protocol (code 5) at main.c(1506) [Receiver=3.0.7]<br>path目录配置的正确，得存在<br>解决：服务器端同步目录没有权限，cwrsync默认用户是Svcwrsync。为同步目录添加用户Svcwrsync权限。<br>也可以通过 菜单–cwRsyncServer–02. Prep a Dir for Upload 配置目录权限 除完全控制和特殊权限外的所有权限 5.@ERROR: auth failed on module test<br>rsync error: error starting client-server protocol (code 5) at main.c(1506) [Receiver=3.0.7]<br>客户端设置<br>a.在命令上要指定好用户名<br>b.密码文件只写密码<br>rsyncd.secrets文件<br>rsyncpass<br>c.用户名密码都要正确 6.Unexpected local arg: /cygdrive/d/rsyncBackup<br>If arg is a remote file/dir, prefix it with a colon (:).<br>rsync error: syntax or usage error (code 1) at main.c(1218) [Receiver=3.0.7]<br>不一定是这个路径有问题，可能是–password-file路径中有空格，服务器端没问题，客户端好像不行 7.password file must be owned by root when running as root<br>continuing without password file<br>Password:<br>设置密码访问权限chown.exe可从服务器端拷贝过来<br>chmod -c 600 /cygdrive/c/etc/rsyncd.secrets<br>chown administrator /cygdrive/c/etc/rsyncd.secrets<br>服务器端不设也可以 8.当出现rsync: chown “” failed: Invalid argument (22)错误时，是因为参数中有o，即保留文件的owner信息，而window服务端无法完成chown操作，解决办法是去掉参数o。另外有些可能还会出现rsync: chgrp “” failed: Invalid argument (22)，原因类似，只要去掉参数中的g即可。</p>
+
+      
+    </div>
+
+    
+
+    
+      
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/windows/" rel="tag"># windows</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/09/linux开发环境常用软件/" rel="next" title="Linux开发环境常用软件">
+                <i class="fa fa-chevron-left"></i> Linux开发环境常用软件
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/09/mysql入门基础/" rel="prev" title="mysql入门基础">
+                mysql入门基础 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  
+  <p class="site-author-name" itemprop="name">www.zhuohc.om</p>
+  <div class="site-description motion-element" itemprop="description">技术博客、日记记录</div>
+</div>
+
+
+  <nav class="site-state motion-element">
+    
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">58</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+    
+
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span>
+        
+      </div>
+    
+
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">tags</span>
+        
+      </div>
+    
+  </nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+          
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#测试环境"><span class="nav-number">1.</span> <span class="nav-text">测试环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#程序下载"><span class="nav-number">2.</span> <span class="nav-text">程序下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务端安装"><span class="nav-number">3.</span> <span class="nav-text">服务端安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#客户端安装"><span class="nav-number">4.</span> <span class="nav-text">客户端安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置服务端"><span class="nav-number">5.</span> <span class="nav-text">配置服务端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置客户端"><span class="nav-number">6.</span> <span class="nav-text">配置客户端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现客户端定时任务"><span class="nav-number">7.</span> <span class="nav-text">实现客户端定时任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#具体参数详解"><span class="nav-number">8.</span> <span class="nav-text">具体参数详解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部分错误的解决办法"><span class="nav-number">9.</span> <span class="nav-text">部分错误的解决办法</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">www.zhuohc.om</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.2.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.2.0"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+  
+
+  
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+// GET RESPONSIVE HEIGHT PASSED FROM IFRAME
+
+window.addEventListener("message", function(e) {
+  var data = e.data;
+  if ((typeof data === 'string') && (data.indexOf('ciu_embed') > -1)) {
+    var featureID = data.split(':')[1];
+    var height = data.split(':')[2];
+    $(`iframe[data-feature=${featureID}]`).height(parseInt(height) + 30);
+  }
+}, false);
+</script>
+
+
+
+
+
+
+
+
+  
+
+</body>
+</html>

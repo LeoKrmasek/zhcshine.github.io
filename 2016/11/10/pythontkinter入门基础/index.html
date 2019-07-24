@@ -1,0 +1,2179 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0">
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    }
+  };
+</script>
+
+  <meta name="description" content="python基础环境 sudo apt-get install python sudo apt-get install python-pipTkinter安装 sudo apt-get install python-tk配置组件外观 #!/usr/bin/python # -*- coding: UTF-8 -*- from Tkinter import * root = Tk() # 定义图标">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="pythontkinter入门基础">
+<meta property="og:url" content="http://www.zhuohc.com/2016/11/10/pythontkinter入门基础/index.html">
+<meta property="og:site_name" content="Wellread">
+<meta property="og:description" content="python基础环境 sudo apt-get install python sudo apt-get install python-pipTkinter安装 sudo apt-get install python-tk配置组件外观 #!/usr/bin/python # -*- coding: UTF-8 -*- from Tkinter import * root = Tk() # 定义图标">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-07-24T01:37:19.180Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="pythontkinter入门基础">
+<meta name="twitter:description" content="python基础环境 sudo apt-get install python sudo apt-get install python-pipTkinter安装 sudo apt-get install python-tk配置组件外观 #!/usr/bin/python # -*- coding: UTF-8 -*- from Tkinter import * root = Tk() # 定义图标">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://www.zhuohc.com/2016/11/10/pythontkinter入门基础/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  
+  <title>pythontkinter入门基础 | Wellread</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Wellread</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">饱读诗书</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2016/11/10/pythontkinter入门基础/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="www.zhuohc.om">
+      <meta itemprop="description" content="技术博客、日记记录">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wellread">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">pythontkinter入门基础
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2016-11-10 10:58:02" itemprop="dateCreated datePublished" datetime="2016-11-10T10:58:02+08:00">2016-11-10</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-07-24 09:37:19" itemprop="dateModified" datetime="2019-07-24T09:37:19+08:00">2019-07-24</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/后端/" itemprop="url" rel="index"><span itemprop="name">后端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>python基础环境</p>
+<pre><code>sudo apt-get install python
+sudo apt-get install python-pip</code></pre><p>Tkinter安装</p>
+<pre><code>sudo apt-get install python-tk</code></pre><p>配置组件外观</p>
+<pre><code>#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+from Tkinter import *
+root = Tk()
+# 定义图标
+if sys.platform == &apos;win32&apos;:
+    root.iconbitmap(&apos;favicon.ico&apos;)
+else:
+    icon = PhotoImage(file=&apos;phone.gif&apos;)
+    root.tk.call(&apos;wm&apos;, &apos;iconphoto&apos;, root._w, icon)
+# 定义字体，字号，类型
+label_font = (&apos;Ubuntu&apos;, 20, &apos;bold underline italic&apos;)
+# 创建组件
+widget = Label(root, text=&apos;Hello,云克隆&apos;, padx=100, pady=20)
+# 配置组件字体
+widget.config(font=label_font)
+# 组件宽，高
+widget.config(height=3, width=20)
+# 组件背景颜色
+widget.config(bg=&apos;#FF0&apos;)
+# 组件字体颜色
+widget.config(fg=&apos;#F0F&apos;)
+# 组件边框宽度
+widget.config(bd=3)
+# 组件边框外形, FLAT扁平, SUNKEN凹陷, RAISED凸起, GROOVE凹槽, SOLID加粗, RIDGE脊状,
+widget.config(relief=SUNKEN)
+# 组件鼠标手势, &apos;gumby&apos;, &apos;watch&apos;, &apos;pencil&apos;, &apos;crdss&apos;, hand2
+widget.config(cursor=&apos;gumby&apos;)
+# 组件状态, DISABLE禁用, NORMAL正常, READONLY只读
+widget.config(state=DISABLED)
+# 布置组件
+# expand设置是否可以扩展，fill表示随父组件扩展方向，可以设置BOTH, X, Y
+# 设置组件padding值
+# side表示按钮布置窗口的位置
+widget.pack(expand=True, fill=X, padx=10, pady=50, side=LEFT)
+root.mainloop()</code></pre><h4 id="标准弹出框"><a href="#标准弹出框" class="headerlink" title="标准弹出框"></a>标准弹出框</h4><pre><code># -*- coding: UTF-8 -*-
+from Tkinter import *
+from tkMessageBox import *
+# python3
+# from Tkinter.messagebox import *
+def callback():
+    if askyesno(&apos;Verify&apos;, &apos;Do you ready want to quit?&apos;):
+        showwarning(&apos;Yes&apos;, &apos;Quit not yet&apos;)
+    else:
+        showinfo(&apos;No&apos;, &apos;Quit has been cancelled&apos;)
+
+errmsg = &apos;Sorry, no spam allowed&apos;
+Button(None, text=&apos;Quit&apos;, command=callback).pack(fill=X)
+Button(None, text=&apos;spam&apos;, command=(lambda: showerror(&apos;spam&apos;, errmsg))).pack(fill=X)
+mainloop()</code></pre><h4 id="常见弹框"><a href="#常见弹框" class="headerlink" title="常见弹框"></a>常见弹框</h4><pre><code># gui6.py
+# -*- coding: UTF-8 -*-
+from Tkinter import *
+from tkMessageBox import *
+from tkFileDialog import *
+from tkColorChooser import *
+from tkSimpleDialog import *
+
+
+demos = {
+    &apos;Open&apos;: askopenfilename,
+    &apos;Color&apos;: askcolor,
+    &apos;Query&apos;: lambda: askquestion(&apos;Warning&apos;, &apos;You typed &quot;rm *&quot;\nconfirm?&apos;),
+    &apos;Error&apos;: lambda: showerror(&apos;Error!&apos;, &apos;He is dead&apos;),
+    &apos;Input&apos;: lambda: askfloat(&apos;Entry&apos;, &apos;Enter credit card number&apos;)
+}
+
+
+class Demo(Frame):
+    def __init__(self, parent=None, **options):
+        Frame.__init__(self, parent, **options)
+        self.pack()
+        Label(self, text=&apos;Basic demos&apos;).pack()
+        for (key, value) in demos.items():
+            Button(self, text=key, command=value).pack(side=TOP, fill=BOTH)
+
+if __name__ == &apos;__main__&apos;:
+    Demo().mainloop()
+自定义弹框
+
+# -*- coding: UTF-8 -*-
+import sys
+from Tkinter import *
+makemodal = (len(sys.argv) &gt; 1)
+
+def dialog():
+    win = Toplevel()
+    Label(win, text=&apos;Hard drive reformatted!&apos;).pack()
+    Button(win, text=&apos;OK&apos;, command=win.destroy).pack()
+    if makemodal:
+        # 获取输入的焦点
+        win.focus_set()
+        # 打开的时候，禁用其他窗口
+        win.grab_set()
+        # 在win销毁之前，继续等待
+        win.wait_window()
+    print &apos;dialog exit&apos;
+
+root = Tk()
+Button(root, text=&apos;popup&apos;, command=dialog).pack()
+root.mainloop()</code></pre><h4 id="绑定事件"><a href="#绑定事件" class="headerlink" title="绑定事件"></a>绑定事件</h4><pre><code># -*- coding: UTF-8 -*-
+from Tkinter import *
+
+
+def showPosEvent(event):
+    print(&apos;Widget=%s, X=%s, Y=%s&apos; % (event.widget, event.x, event.y))
+
+
+def showAllEvent(event):
+    print(event)
+    for attr in dir(event):
+        if not attr.startswith(&apos;__&apos;):
+            print(attr, &apos;=&gt;&apos;, getattr(event, attr))
+
+
+def onKeyPress(event):
+    print(&apos;Got key press: &apos;, event.char)
+
+
+def onArrowKey(event):
+    print(&apos;Got up arrow key press&apos;)
+
+
+def onReturnKey(event):
+    print(&apos;Got return key press&apos;)
+
+
+def onLeftClick(event):
+    print(&apos;Got left mouse button click: &apos;)
+    showPosEvent(event)
+
+
+def onRightClick(event):
+    print(&apos;Got right mouse button click: &apos;)
+    showPosEvent(event)
+
+
+def onMiddleClick(event):
+    print(&apos;Got middle mouse button click: &apos;)
+    showPosEvent(event)
+    showAllEvent(event)
+
+
+def onLeftDrag(event):
+    print(&apos;Got left mouse drag click: &apos;)
+    showPosEvent(event)
+
+
+def onDoubleLeftClick(event):
+    print(&apos;Got double left mouse click: &apos;)
+    showPosEvent(event)
+    tkroot.quit()
+
+
+tkroot = Tk()
+labelfont = (&apos;courier&apos;, 20, &apos;bold&apos;)
+widget = Label(tkroot, text=&apos;Hello bind world&apos;)
+widget.config(bg=&apos;red&apos;, font=labelfont)
+widget.config(height=5, width=20)
+widget.pack(expand=YES, fill=BOTH)
+# 绑定单击左键
+widget.bind(&apos;&lt;Button-1&gt;&apos;, onLeftClick)
+# 绑定单击右键
+widget.bind(&apos;&lt;Button-3&gt;&apos;, onRightClick)
+# 绑定单击中键
+widget.bind(&apos;&lt;Button-2&gt;&apos;, onMiddleClick)
+# 绑定双击左键
+widget.bind(&apos;&lt;Double-1&gt;&apos;, onDoubleLeftClick)
+# 绑定拖拽 B1表示点击左键，Motion表示拖拽
+widget.bind(&apos;&lt;B1-Motion&gt;&apos;, onLeftDrag)
+# 绑定键盘按键
+widget.bind(&apos;&lt;KeyPress&gt;&apos;, onKeyPress)
+# 绑定按下箭头键
+widget.bind(&apos;&lt;Up&gt;&apos;, onArrowKey)
+# 绑定回车，返回键
+widget.bind(&apos;&lt;Return&gt;&apos;, onReturnKey)
+widget.focus()
+tkroot.title(&apos;CLICK ME&apos;)
+tkroot.mainloop()
+
+# &lt;ButtonPress&gt; 按下按钮
+# &lt;ButtonRelease&gt; 松开按钮
+# &lt;Motion&gt; 鼠标指针移动
+# &lt;Configure&gt; 窗口大小，位置改变时候
+# &lt;Destroy&gt; 销毁窗口
+# &lt;FocusIn&gt; 获取焦点
+# &lt;FocusOut&gt; 失去焦点
+# &lt;Map&gt; 窗口打开
+# &lt;Unmap&gt; 窗口最小化
+# &lt;Escape&gt;, &lt;BackSpace&gt;, &lt;Tab&gt; 捕获特点ESC键，回车键，tab键
+# &lt;Down&gt;, &lt;Up&gt;, &lt;Left&gt;, &lt;Right&gt; 捕获方向键
+# &lt;B1-Motion&gt; 按下左键并拖拽
+# &lt;KeyPress-a&gt; 按下按键“a”，大小写敏感</code></pre><h4 id="输入框"><a href="#输入框" class="headerlink" title="输入框"></a>输入框</h4><pre><code># -*- coding: UTF-8 -*-
+from Tkinter import *
+from quitGui import Quitter
+
+fields = &apos;Name&apos;, &apos;Job&apos;, &apos;Pay&apos;
+
+
+def fetch(entries):
+    for entry in entries:
+        print(&apos;Input =&gt; %s&apos; % entry.get())  # 获取文本信息
+
+
+def makeform(root, fields):
+    entries = []
+    for field in fields:
+        row = Frame(root)
+        lab = Label(row, width=5, text=field)
+        ent = Entry(row)
+        row.pack(side=TOP, fill=X)
+        lab.pack(side=LEFT)
+        ent.pack(side=RIGHT, expand=YES, fill=X)
+        entries.append(ent)
+    return entries
+
+
+def show(entries, popup):
+    fetch(entries)  # 必须在销毁前取出
+    popup.destroy()  # 如果修改了stmt， order， msgs会随之失败
+
+
+def ask():
+    popup = Toplevel()  # 在模拟对话框窗口中显示表单
+    ents = makeform(popup, fields)
+    Button(popup, text=&apos;OK&apos;, command=(lambda: show(ents, popup))).pack()
+    popup.grab_set()  # 打开的时候，禁用其他窗口
+    popup.focus_set()  # 获取输入的焦点
+    popup.wait_window()  # 在这里等待销毁
+
+
+if __name__ == &apos;__main__&apos;:
+    root = Tk()
+    Button(root, text=&apos;Dialog&apos;, command=ask).pack()
+    root.mainloop()</code></pre><h4 id="复选框"><a href="#复选框" class="headerlink" title="复选框"></a>复选框</h4><pre><code># gui13.py
+# -*- coding: UTF-8 -*-
+from Tkinter import *
+from gui6 import demos
+from quitGui import Quitter
+
+
+class Demo(Frame):
+    def __init__(self, parent=None, **options):
+        Frame.__init__(self, parent, **options)
+        self.pack()
+        self.tools()
+        Label(self, text=&apos;Ckech demos&apos;).pack()
+        self.vars = []
+        for key in demos:
+            var = IntVar()
+            Checkbutton(self, text=key, variable=var, command=demos[key]).pack(side=LEFT)
+            self.vars.append(var)
+
+    def report(self):
+        for var in self.vars:
+            print(var.get())  # 当前开关设置1或者0
+        print()
+
+    def tools(self):
+        frm = Frame(self)
+        frm.pack(side=RIGHT)
+        Button(frm, text=&apos;State&apos;, command=self.report).pack(fill=X)
+        Quitter(frm).pack(fill=X)
+
+
+if __name__ == &apos;__main__&apos;:
+    Demo().mainloop()</code></pre><h4 id="单选按钮"><a href="#单选按钮" class="headerlink" title="单选按钮"></a>单选按钮</h4><pre><code>#gui14.py
+# -*- coding: UTF-8 -*-
+from Tkinter import *
+from gui6 import demos
+from quitGui import Quitter
+
+
+class Demo(Frame):
+    def __init__(self, parent=None, **options):
+        Frame.__init__(self, parent, **options)
+        self.pack()
+        Label(self, text=&apos;Radio demos&apos;).pack(side=TOP)
+        self.var = StringVar()
+        # variable表示单选按钮的变量，相当与html的name标签
+        # value表示单选按钮的变量值，相当与html的value标签
+        for key in demos:
+            Radiobutton(self, text=key, command=self.onPress, variable=self.var, value=key).pack(anchor=NW)
+        self.var.set(key)  # 选中最后一个开始
+        Button(self, text=&apos;State&apos;, command=self.report).pack(fill=X)
+        Quitter(self).pack(fill=X)
+
+    def onPress(self):
+        pick = self.var.get()
+        print(&apos;you pressed&apos;, pick)
+        print(&apos;result: &apos;, demos[pick]())  # 按钮使用返回的值
+
+    def report(self):
+        print(self.var.get())
+
+if __name__ == &apos;__main__&apos;:
+    Demo().mainloop()</code></pre><h4 id="标尺滚动条"><a href="#标尺滚动条" class="headerlink" title="标尺滚动条"></a>标尺滚动条</h4><pre><code># gui16.py
+# -*- coding: UTF-8 -*-
+from Tkinter import *
+from gui6 import demos
+from quitGui import Quitter
+
+
+class Demo(Frame):
+    def __init__(self, parent=None, **options):
+        Frame.__init__(self, parent, **options)
+        self.pack()
+        Label(self, text=&apos;Scale demos&apos;).pack()
+        self.var = IntVar()
+        Scale(self, label=&apos;Pick demo number&apos;,
+              command=self.onMove, variable=self.var,
+              from_=0, to=len(demos)-1).pack()
+        Scale(self, label=&apos;Pick demo number&apos;,  # 标尺的文本
+              command=self.onMove,  # 绑定回调
+              variable=self.var,  # 变量
+              from_=0,   # 标尺最小值
+              to=len(demos) - 1,   # 标尺最大值
+              length = 200,  # 长度
+              tickinterval = 2,   # 每隔几个单位显示标记单位
+              showvalue = YES,  # 显示或隐藏标尺滑动条旁边的当前值
+              orient = &apos;horizontal&apos;  # 横向展示
+              ).pack()
+        Quitter(self).pack(side=RIGHT)
+        Button(self, text=&apos;Run demo&apos;, command=self.onRun).pack(side=LEFT)
+        Button(self, text=&apos;State&apos;, command=self.report).pack(side=RIGHT)
+
+    def onMove(self, value):
+        print(&apos;in onMove&apos;, value)
+
+    def onRun(self):
+        pos = self.var.get()
+        print(&apos;you picked&apos;, pos)
+        demo = list(demos.values())[pos]
+        print(demo())
+
+    def report(self):
+        print(self.var.get())
+
+if __name__ == &apos;__main__&apos;:
+    print(list(demos.keys()))
+    Demo().mainloop()</code></pre><h4 id="创建图片"><a href="#创建图片" class="headerlink" title="创建图片"></a>创建图片</h4><pre><code># gui17.py
+# -*- coding: UTF-8 -*-
+from Tkinter import *
+
+gifdir = &apos;./gif/&apos;
+win = Tk()
+igm = PhotoImage(file=gifdir + &apos;logo.png&apos;)
+
+# 按钮上绑定图片
+# Button(win, image=igm).pack()
+# win.mainloop()
+
+# 创建画布
+can = Canvas(win)
+can.pack(fill=BOTH)
+can.config(width=igm.width() + 4, height=igm.height() + 4)
+can.create_image(2,  # x坐标
+                 2,  # y坐标
+                 image=igm, anchor=NW)
+win.mainloop()</code></pre><h3 id="按钮随机读取图片"><a href="#按钮随机读取图片" class="headerlink" title="按钮随机读取图片"></a>按钮随机读取图片</h3><pre><code># gui18.py
+# -*- coding: UTF-8 -*-
+from glob import glob
+from gui13 import *
+import random
+
+gifdir = &apos;./gif/&apos;
+
+&quot; 按钮随机读取图片 &quot;
+class ButtonPicsDemo(Frame):
+    def __init__(self, gifdir=gifdir, parent=None):
+        Frame.__init__(self, parent)
+        self.pack()
+        self.lbl = Label(self, text=&apos;none&apos;, bg=&apos;blue&apos;, fg=&apos;red&apos;)
+        self.pix = Button(self, text=&apos;press me&apos;, command=self.draw, bg=&apos;white&apos;)
+        self.lbl.pack(fill=BOTH)
+        self.pix.pack(pady=10)
+        Demo(self, relief=SUNKEN, bd=2).pack(fill=BOTH)
+        # glob模块， glob方法，返回所有匹配的文件列表
+        files = glob(gifdir + &apos;*.png&apos;)
+        self.images = [(x, PhotoImage(file=x)) for x in files]
+        print(files)
+
+    def draw(self):
+        name, photo = random.choice(self.images)
+        self.lbl.config(text=name)
+        self.pix.config(image=photo)
+
+if __name__ == &apos;__main__&apos;:
+    if __name__ == &apos;__main__&apos;:
+        ButtonPicsDemo().mainloop()</code></pre><h4 id="缩略图"><a href="#缩略图" class="headerlink" title="缩略图"></a>缩略图</h4><pre><code># gui19.py
+# -*- coding: UTF-8 -*-
+import os
+import math
+import PIL
+from PIL import Image
+from Tkinter import *
+
+
+def make_thumbs(img_dir, size=(100, 100), subdir=&apos;thumbs&apos;):
+    thumb_dir = os.path.join(img_dir, subdir)
+    if not os.path.exists(thumb_dir):
+        os.mkdir(thumb_dir)
+    thumbs = []
+    for img_file in os.listdir(img_dir):
+        thumb_path = os.path.join(thumb_dir, img_file)
+        if os.path.exists(thumb_path):
+            thumb_obj = PIL.Image.open(thumb_path)
+            thumbs.append((img_file, thumb_obj))
+        else:
+            print(&apos;making&apos;, thumb_path)
+            img_path = os.path.join(img_dir, img_file)
+            try:
+                img_obj = PIL.Image.open(img_path)
+                img_obj.thumbnail(size, PIL.Image.ANTIALIAS)
+                img_obj.save(thumb_path)
+                thumbs.append((img_file, img_obj))
+            except Exception, e:
+                print(&apos;skipping: &apos;, img_path)
+                print e
+    return thumbs
+
+
+class ViewOne(Toplevel):
+    def __init__(self, img_dir, img_file):
+        Toplevel.__init__(self)
+        self.title(img_file)
+        img_path = os.path.join(img_dir, img_file)
+        img_obj = PhotoImage(file=img_path)
+        Label(self, image=img_obj).pack()
+        print(img_path, img_obj.width(), img_obj.height())
+        self.savephoto = img_obj
+
+
+def viewer(img_dir, kind=Toplevel, cols=None):
+    win = kind()
+    win.title(&apos;VIEWER: &apos; + img_dir)
+    thumbs = make_thumbs(img_dir)
+    if not cols:
+        # 固定大小 或者N×N
+        cols = int(math.ceil(math.sqrt(len(thumbs))))
+    savephotos = []
+    while thumbs:
+        thumbs_row, thumbs = thumbs[:cols], thumbs[cols:]
+        row = Frame(win)
+        row.pack(fill=BOTH)
+        for(img_file, img_obj) in thumbs_row:
+            size = max(img_obj.size)
+            photo = PhotoImage(file=os.path.join(img_dir, &apos;thumbs&apos;, img_file))
+            link = Button(row, image=photo)
+        handler = lambda savefile=img_file: ViewOne(img_dir, savefile)
+        link.config(command=handler, width=size, height=size)
+        link.pack(side=LEFT, expand=YES)
+        savephotos.append(photo)
+    Button(win, text=&apos;Quit&apos;, command=win.quit, bg=&apos;beige&apos;).pack(fill=X)
+    return win, savephotos
+
+if __name__ == &apos;__main__&apos;:
+    img_dir = len(sys.argv) &gt; 1 and sys.argv[1] or &apos;gif&apos;
+    main, save = viewer(img_dir, kind=Tk)
+    main.mainloop()</code></pre><h3 id="创建基础顶级菜单"><a href="#创建基础顶级菜单" class="headerlink" title="创建基础顶级菜单"></a>创建基础顶级菜单</h3><pre><code># gui20.py
+# -*- coding: UTF-8 -*-
+from Tkinter import *
+from tkMessageBox import *
+
+
+def not_done():
+    showerror(&apos;Not implemented&apos;, &apos;Not yet available&apos;)
+
+
+def make_menu(win):
+    top = Menu(win)  # 定义顶级菜单
+    win.config(menu=top)
+    file = Menu(top, tearoff=True)  # 一级菜单 tearoff:设置菜单下的虚线是否显示
+    file.add_command(label=&apos;New...&apos;, command=not_done, underline=0)
+    file.add_command(label=&apos;Open...&apos;, command=not_done, underline=0)
+    file.add_command(label=&apos;Quit...&apos;, command=win.quit,  underline=0)
+    top.add_cascade(label=&apos;File&apos;, menu=file, underline=0)  # 在顶级菜单中添加一级菜单
+
+    edit = Menu(top, tearoff=False)  # 一级菜单
+    edit.add_command(label=&apos;Cut&apos;, command=not_done, underline=0)
+    edit.add_command(label=&apos;Paste&apos;, command=not_done, underline=0)
+    edit.add_separator()  # 添加下划线
+    top.add_cascade(label=&apos;Edit&apos;, menu=edit, underline=0)
+
+    submenu = Menu(edit, tearoff=True)  # 二级菜单
+    submenu.add_command(label=&apos;Spam&apos;, command=win.quit, underline=0)
+    submenu.add_command(label=&apos;Eggs&apos;, command=not_done, underline=0)
+    edit.add_cascade(label=&apos;Stuff&apos;, menu=submenu, underline=0)  # 在一级菜单中添加二级菜单
+
+if __name__ == &apos;__main__&apos;:
+    root = Tk()
+    root.title(&apos;menu_win&apos;)
+    make_menu(root)
+    msg = Label(root, text=&apos;Window menu basic&apos;)
+    msg.pack(expand=YES, fill=BOTH)
+    msg.config(relief=SUNKEN, width=40, height=7, bg=&apos;beige&apos;)
+    root.mainloop()</code></pre><h4 id="创建框架级别菜单"><a href="#创建框架级别菜单" class="headerlink" title="创建框架级别菜单"></a>创建框架级别菜单</h4><pre><code># gui21.py
+# -*- coding: UTF-8 -*-
+from Tkinter import *
+from tkMessageBox import *
+
+
+def not_done():
+    showerror(&apos;Not implemented&apos;, &apos;Not yet available&apos;)
+
+
+def make_menu(parent):
+    menu_bar = Frame(parent)
+    menu_bar.pack(side=TOP, fill=X)
+
+    f_button = Menubutton(menu_bar, text=&apos;File&apos;, underline=0)
+    f_button.pack(side=LEFT)
+    file = Menu(f_button)
+    file.add_command(label=&apos;New...&apos;, command=not_done, underline=0)
+    file.add_command(label=&apos;Open...&apos;, command=not_done, underline=0)
+    file.add_command(label=&apos;Quit...&apos;, command=parent.quit,  underline=0)
+    f_button.config(menu=file)
+
+    e_button = Menubutton(menu_bar, text=&apos;Edit&apos;, underline=0)
+    e_button.pack(side=LEFT)
+    edit = Menu(e_button)
+    edit.add_command(label=&apos;Cut&apos;, command=not_done, underline=0)
+    edit.add_command(label=&apos;Paste&apos;, command=not_done, underline=0)
+    edit.add_separator()
+    e_button.config(menu=edit)
+
+    sub_menu = Menu(edit, tearoff=True)
+    sub_menu.add_command(label=&apos;Spam&apos;, command=parent.quit, underline=0)
+    sub_menu.add_command(label=&apos;Eggs&apos;, command=not_done, underline=0)
+    edit.add_cascade(label=&apos;Stuff&apos;, menu=sub_menu, underline=0)
+    return menu_bar
+
+
+
+if __name__ == &apos;__main__&apos;:
+    root = Tk()
+    root.title(&apos;menu_fra&apos;)
+    for i in range(2):
+        mnu = make_menu(root)
+        mnu.config(bd=2, relief=RAISED)
+        Label(root, bg=&apos;black&apos;, height=5, width=25).pack(expand=YES, fill=BOTH)
+    Button(root, text=&apos;Bye&apos;, command=root.quit).pack()
+    root.mainloop()</code></pre><h4 id="图片菜单"><a href="#图片菜单" class="headerlink" title="图片菜单"></a>图片菜单</h4><pre><code># gui22.py
+# -*- coding:UTF-8 -*-
+from Tkinter import *
+from tkMessageBox import *
+
+
+class NewMenuDemo(Frame):
+    def __init__(self, parent=None):
+        Frame.__init__(self, parent)
+        self.pack(expand=YES, fill=BOTH)
+        self.create_widgets()
+
+    def create_widgets(self):
+        self.make_menubar()
+        self.make_toolbar()
+        l = Label(self, text=&apos;Menu and Toolbar Demo&apos;)
+        l.config(relief=SUNKEN, width=40, height=10, bg=&apos;white&apos;)
+        l.pack(expand=YES, fill=BOTH)
+
+    def make_toolbar(self, size=(30, 30)):
+        toolbar = Frame(self, cursor=&apos;hand2&apos;, relief=SUNKEN, bd=2)
+        toolbar.pack(side=BOTTOM, fill=X)
+        Button(toolbar, text=&apos;Quit&apos;, command=self.quit).pack(side=RIGHT)
+        photo_files = (&apos;at.png&apos;, &apos;bd.png&apos;, &apos;dk.png&apos;)
+        self.tool_photo_objs = []
+        for file in photo_files:
+            img = PhotoImage(file=&apos;./gif/thumbs/&apos; + file)
+            btn = Button(toolbar, image=img, command=self.greeting)
+            btn.config(bd=5, relief=RIDGE)
+            btn.config(width=size[0], height=size[0])
+            btn.pack(side=LEFT)
+            self.tool_photo_objs.append(img)
+        Button(toolbar, text=&apos;Hello&apos;, command=self.greeting).pack(side=LEFT)
+
+    def make_menubar(self):
+        self.menubar = Menu(self.master)
+        self.master.config(menu=self.menubar)
+        self.file_menu()
+        self.edit_menu()
+        self.image_menu()
+
+    def file_menu(self):
+        pulldown = Menu(self.menubar)
+        pulldown.add_command(label=&apos;OPEN...&apos;, command=self.notdone)
+        pulldown.add_command(label=&apos;QUIT&apos;, command=self.quit)
+        self.menubar.add_cascade(label=&apos;FILE&apos;, underline=0, menu=pulldown)
+
+    def edit_menu(self):
+        pulldown = Menu(self.menubar)
+        pulldown.add_command(label=&apos;PASTE&apos;, command=self.notdone)
+        pulldown.add_command(label=&apos;SPAM&apos;, command=self.greeting)
+        pulldown.add_separator()
+        pulldown.add_command(label=&apos;DELETE&apos;, command=self.greeting)
+        pulldown.entryconfig(4, state=DISABLED)
+        self.menubar.add_cascade(label=&apos;EDIT&apos;, underline=0, menu=pulldown)
+
+    def image_menu(self):
+        photo_files = (&apos;at.png&apos;, &apos;bd.png&apos;, &apos;dk.png&apos;)
+        pulldown = Menu(self.menubar)
+        self.photo_objs = []
+        for file in photo_files:
+            img = PhotoImage(file=&apos;./gif/&apos; + file)
+            pulldown.add_command(image=img, command=self.notdone)
+            self.photo_objs.append(img)
+        self.menubar.add_cascade(label=&apos;IMAGE&apos;, underline=0, menu=pulldown)
+
+    def greeting(self):
+        showinfo(&apos;greeting&apos;, &apos;GREETING&apos;)
+
+    def notdone(self):
+        showerror(&apos;NOT DONE&apos;, &apos;NOT DONE&apos;)
+
+    def quit(self):
+        if askyesno(&apos;Verify quit&apos;, &apos;Sure?&apos;):
+            Frame.quit(self)
+
+if __name__ == &apos;__main__&apos;:
+    NewMenuDemo().mainloop()</code></pre><h4 id="滚动条与列表"><a href="#滚动条与列表" class="headerlink" title="滚动条与列表"></a>滚动条与列表</h4><pre><code># gui23.py
+# -*- coding: UTF-8 -*-
+from Tkinter import *
+
+
+class ScrolledList(Frame):
+    def __init__(self, options, parent=None):
+        Frame.__init__(self, parent)
+        self.pack(expand=YES, fill=BOTH)
+        self.makeWidgets(options)
+
+
+    def handle_list(self, event):
+        index = self.listbox.curselection()  # 鼠标选中的行
+        label = self.listbox.get(index)  # 获取鼠标选中的值
+        self.runCommand(label)  # 打印出值
+
+
+    def makeWidgets(self, options):
+        # sbar = Scrollbar(self, orient=&apos;horizontal&apos;)  # 横向滚动
+        sbar = Scrollbar(self)
+        list = Listbox(self, relief=SUNKEN)
+        sbar.config(command=list.yview)  # 移动滚动条启用回调： 按比例调节列表框的显示，
+        list.config(yscrollcommand=sbar.set)  # 移动列表框启用回调：按比例调节滚动条
+        sbar.pack(side=RIGHT, fill=Y)
+        list.pack(side=LEFT, expand=YES, fill=BOTH)
+        pos = 0
+        for label in options:
+            list.insert(pos, label)
+            pos += 1
+        # selectmode 选择模式SINGLE(单选), BROWSE(默认单选), MULTIPLE(多选), EXTENDED(多选)
+        # 启用多选时， curselection返回列表
+        # 启用单选时， curselection返回字符串
+        list.config(selectmode=EXTENDED, setgrid=1)
+        list.bind(&apos;&lt;Double-1&gt;&apos;, self.handle_list)
+        self.listbox = list
+
+    def runCommand(self, selection):
+        print(&apos;YOU SELECTED:&apos;, selection)
+
+
+if __name__ == &apos;__main__&apos;:
+    options = ((&apos;Lumberjack-%s&apos; % x) for x in range(20))
+    ScrolledList(options).mainloop()</code></pre><h4 id="TEXT组件"><a href="#TEXT组件" class="headerlink" title="TEXT组件"></a>TEXT组件</h4><pre><code>gui24.py
+# -*- coding: UTF-8 -*-
+from Tkinter import *
+
+
+class ScrollText(Frame):
+    def __init__(self, parent=None, text=&apos;&apos;, file=None):
+        Frame.__init__(self, parent)
+        self.pack(expand=YES, fill=BOTH)
+        self.make_widgets()
+        self.set_text(text, file)
+
+    def make_widgets(self):
+        sbar = Scrollbar(self)
+        text = Text(self, relief=SUNKEN)
+        sbar.config(command=text.yview)
+        text.config(yscrollcommand=sbar.set)
+        sbar.pack(side=RIGHT, fill=Y)
+        text.pack(side=LEFT, expand=YES, fill=BOTH)
+        self.text = text
+
+    def set_text(self, text=&apos;&apos;, file=None):
+        if file:
+            text = open(file, &apos;r&apos;).read()
+        # 1.0表示第一行，第0列（行从1开始，列从0开始）
+        # END表示最末一个字符后面第一个位置
+        self.text.delete(&apos;1.0&apos;, END)  # 删除从第一行第0列开始到最后的字符串，即删除全部
+        self.text.insert(&apos;1.0&apos;, text)  # 从第一行第0列开始填充数据
+        # mark_set 设置text标志
+        self.text.mark_set(INSERT, &apos;1.0&apos;)  # 设置将光标设置在文本开始位置
+        # self.text.mark_set(&apos;line_two&apos;, &apos;2.2&apos;)  # 自定义标志位置 可以用mark_unset取消
+        self.text.focus()
+        # TEXT的tag标签
+        # SEL是内置的标签，表示当前选中的文本
+        # text = self.text.get(SEL_FIRST, SEL_LAST)
+        # text = self.text.get(&apos;sel.first&apos;, &apos;sel.last&apos;)
+        # self.text.tag_add(&apos;alltext&apos;, &apos;1.0&apos;, END)  # 选中所有文本
+        # self.text.tag_add(SEL, index1, index2)  # 将一定范围内的文本添加到内建的SEL标签
+        # self.text.tag_remove(SEL, &apos;1.0&apos;, END)  # 将字符串所有字符从SEL标签中删除
+        # self.text.tag_delete(SEL)  # 删除SEL标签
+        # self.text.tag_add(&apos;demo&apos;, &apos;1.5&apos;, &apos;1.7&apos;)
+        # self.text.tag_add(&apos;demo&apos;, &apos;3.0&apos;, &apos;5.7&apos;)
+        # self.text.tag_config(&apos;demo&apos;, background=&apos;purple&apos;)
+        # self.text.tag_config(&apos;demo&apos;, fontground=&apos;white&apos;)
+        # self.text.tag_config(&apos;demo&apos;, font=(&apos;times&apos;, 16, &apos;underline&apos;))
+        # self.text.tag_bind(&apos;demo&apos;, &apos;&lt;Double-1&gt;&apos;, func)
+        # see方法
+        # self.text.see(&apos;1.0&apos;)  # 滚动到第一行第0列
+        # self.text.see(INSERT)  # 滚动到光标插入处
+        # self.text.see(SEL_FIRST)  # 滚动到选中文本第一个字符串
+    def get_text(self):
+        # -1c 表示往回数一个字符串
+        # +1l 表示往前数一行
+        return self.text.get(&apos;1.0&apos;, END + &apos;-1c&apos;)
+
+
+if __name__ == &apos;__main__&apos;:
+    root = Tk()
+    if len(sys.argv) &gt; 1:
+        st = ScrollText(file=sys.argv[1])
+    else:
+        st = ScrollText(text=&apos;Words\ngo here&apos;)
+
+    def show(event):
+        print(repr(st.get_text()))
+
+    root.bind(&apos;&lt;Key-Escape&gt;&apos;, show)
+    root.mainloop()</code></pre><h4 id="简单的文本编辑器"><a href="#简单的文本编辑器" class="headerlink" title="简单的文本编辑器"></a>简单的文本编辑器</h4><pre><code># gui25.py
+# -*- coding: UTF-8 -*-
+from Tkinter import *
+from tkSimpleDialog import askstring
+from tkFileDialog import asksaveasfilename
+from quitGui import Quitter
+from gui24 import ScrollText
+
+
+class SimpleEditor(ScrollText):
+    def __init__(self, parent=None, file=None):
+        frm = Frame(parent)
+        frm.pack(fill=X)
+        Button(frm, text=&apos;Save&apos;, command=self.on_save).pack(side=LEFT)
+        Button(frm, text=&apos;Cut&apos;, command=self.on_cut).pack(side=LEFT)
+        Button(frm, text=&apos;Paste&apos;, command=self.on_paste).pack(side=LEFT)
+        Button(frm, text=&apos;Find&apos;, command=self.on_find).pack(side=LEFT)
+        Quitter(frm).pack(side=LEFT)
+        ScrollText.__init__(self, parent, file=file)
+        self.text.config(font=(&apos;courier&apos;, 9, &apos;normal&apos;))
+
+    def on_save(self):
+        filename = asksaveasfilename()
+        if filename:
+            alltext = self.get_text()
+            open(filename, &apos;w&apos;).write(alltext)
+
+
+    def on_cut(self):
+        text = self.text.get(SEL_FIRST, SEL_LAST)
+        self.text.delete(SEL_FIRST, SEL_LAST)
+        self.clipboard_clear()
+        self.clipboard_append(text)
+
+
+    def on_paste(self):
+        try:
+            text = self.selection_get(selection=&apos;CLIPBOARD&apos;)
+            self.text.insert(INSERT, text)
+        except TclError:
+            pass
+
+
+    def on_find(self):
+        target = askstring(&apos;SimpleEdit&apos;, &apos;Search string?&apos;)
+        if target:
+            where = self.text.search(target, INSERT, END)
+            if where:
+                print(where)
+                pastit = where + (&apos;+%dc&apos; % len(target))
+                self.text.tag_remove(SEL, &apos;1.0&apos;, END)
+                self.text.tag_add(SEL, where, pastit)
+                self.text.mark_set(INSERT, pastit)
+                self.text.see(INSERT)
+                self.text.focus()
+
+if __name__ == &apos;__main__&apos;:
+    if len(sys.argv) &gt; 1:
+        SimpleEditor(file=sys.argv[1]).mainloop()
+    else:
+        SimpleEditor().mainloop()</code></pre><h4 id="创建基础画布"><a href="#创建基础画布" class="headerlink" title="创建基础画布"></a>创建基础画布</h4><pre><code># gui26.py
+# -*- coding: UTF-8 -*-
+
+from Tkinter import *
+canvas = Canvas(width=525, height=300, bg=&apos;white&apos;)
+canvas.pack(expand=YES, fill=BOTH)
+
+canvas.create_line(100, 100, 200, 200)
+canvas.create_line(100, 200, 200, 300)
+for i in range(1, 20, 2):
+    canvas.create_line(0, i, 50, i)
+canvas.create_oval(20, 20, 300, 100, width=10, fill=&apos;yellow&apos;)
+d = {1:PIESLICE,2:CHORD,3:ARC}
+for i in d:
+    canvas.create_arc(
+        (10,10 + 60*i,110,110 + 60*i),
+        style=d[i],   #指定样式
+        start=30,     #指定起始角度
+        extent=30     #指定角度偏移量
+        )
+canvas.create_arc(0, 0, 100, 200, fill=&apos;black&apos;)
+canvas.create_rectangle(200, 200, 300, 300, width=5, fill=&apos;red&apos;)
+canvas.create_line(0, 300, 150, 150, width=10, fill=&apos;green&apos;)
+
+photo = PhotoImage(file=&apos;./gif/lightmachine.png&apos;)
+canvas.create_image(325,25, image=photo, anchor=NW)
+
+widget = Label(canvas, text=&apos;Spam&apos;, fg=&apos;white&apos;, bg=&apos;black&apos;)
+widget.pack()
+canvas.create_window(100, 100, window=widget)
+canvas.create_text(100, 280, text=&apos;CLOUD CLONE CORP.&apos;)
+
+# id = canvas.create_line(fromX, fromY, toX, toY)  # 创建直线
+# id = canvas.create_oval(fromX, fromY, toX, toY) # 创建椭圆
+# id = canvas.create_arc(fromX, fromY, toX, toY)  # 创建扇形
+# id =canvas.create_rectangle(fromX, fromY, toX, toY)  # 创建矩形
+# canvas.move(id, offsetX, offsetY)  # 移动对象
+# canvas.delete(id)  # 删除对象
+# canvas.tkraise(id)  # 将对象移动到前端
+# canvas.lower(id)  # 将对象移动到底部
+# canvas.itemconfig(id, fill=&apos;red&apos;)  # 修改对象属性
+
+# 画布标签
+# canvas.create_line(fromX, fromY, toX, toY, tag=&apos;bubbles&apos;) 
+# canvas.create_line(fromX, fromY, toX, toY, tag=&apos;bubbles&apos;) 
+# id = canvas.create_line(fromX, fromY, toX, toY)
+# canvas.addtag_withtag(&apos;bubbles&apos;, id)
+# canvas.move(&apos;bubbles&apos;, diffX, diffY)
+mainloop()</code></pre><h4 id="canvas与滚动条"><a href="#canvas与滚动条" class="headerlink" title="canvas与滚动条"></a>canvas与滚动条</h4><pre><code># gui27.py
+# -*- coding: UTF-8 -*-
+from Tkinter import *
+
+class ScrolledCanvas(Frame):
+    def __init__(self, parent=None, color=&apos;brown&apos;):
+        Frame.__init__(self, parent)
+        self.pack(expand=YES, fill=BOTH)
+        canv = Canvas(self, bg=color, relief=SUNKEN)
+        canv.config(width=300, height=200)
+        canv.config(scrollregion=(0, 0, 300, 1000))
+        canv.config(highlightthickness=0)
+
+        sbar = Scrollbar(self)
+        sbar.config(command=canv.yview)
+        canv.config(yscrollcommand=sbar.set)
+        sbar.pack(side=RIGHT, fill=Y)
+        canv.pack(side=LEFT, expand=YES, fill=BOTH)
+
+        self.fillContent(canv)
+        canv.bind(&apos;&lt;Double-1&gt;&apos;, self.onDoubleClick)
+        self.canvas = canv
+
+    def fillContent(self, canv):
+        for i in range(10):
+            canv.create_text(150, 50+(i*100), text=&apos;spam&apos;+str(i), fill=&apos;beige&apos;)
+
+    def onDoubleClick(self, event):
+        print(event.x, event.y)
+        print(self.canvas.canvasx(event.x), self.canvas.canvasy(event.y))
+
+if __name__ == &apos;__main__&apos;:
+    ScrolledCanvas().mainloop()</code></pre><h4 id="canvas绑定事件"><a href="#canvas绑定事件" class="headerlink" title="canvas绑定事件"></a>canvas绑定事件</h4><pre><code># gui28.py
+# -*- coding: UTF-8 -*-
+from Tkinter import *
+trace = False
+
+class CanvasEventDemo:
+    def __init__(self, parent=None):
+        canvas = Canvas(width=300, height=300, bg=&apos;beige&apos;)
+        canvas.pack()
+        canvas.bind(&apos;&lt;ButtonPress-1&gt;&apos;, self.on_start)
+        canvas.bind(&apos;&lt;B1-Motion&gt;&apos;, self.on_grow)
+        canvas.bind(&apos;&lt;Double-1&gt;&apos;, self.on_clear)
+        canvas.bind(&apos;&lt;ButtonPress-3&gt;&apos;, self.on_move)
+        self.canvas = canvas
+        self.drawn = None
+        self.kinds = [canvas.create_oval, canvas.create_rectangle]
+
+    def on_start(self, event):
+        self.shape =self.kinds[0]
+        self.kinds = self.kinds[1:] + self.kinds[:1]
+        self.start = event
+        self.drawn = None
+
+    def on_grow(self, event):
+        canvas = event.widget
+        if self.drawn:
+            canvas.delete(self.drawn)
+        object_id = self.shape(self.start.x, self.start.y, event.x, event.y)
+        if trace:
+            print(object_id)
+        self.drawn = object_id
+
+    def on_clear(self, event):
+        event.widget.delete(&apos;all&apos;)
+
+
+    def on_move(self, event):
+        if self.drawn:
+            if trace:
+                print(self.drawn)
+            canvas = event.widget
+            diffx, diffy = (event.x - self.start.x), (event.y - self.start.y)
+            canvas.move(self.drawn, diffx, diffy)
+            self.start = event
+
+if __name__ == &apos;__main__&apos;:
+    CanvasEventDemo()
+    mainloop()</code></pre><h4 id="grid布局和pack布局实现自动扩展"><a href="#grid布局和pack布局实现自动扩展" class="headerlink" title="grid布局和pack布局实现自动扩展"></a>grid布局和pack布局实现自动扩展</h4><pre><code># gui29.py
+# -*- coding: UTF-8 -*-
+
+from Tkinter import *
+colors = [&apos;red&apos;, &apos;green&apos;, &apos;orange&apos;, &apos;white&apos;, &apos;yellow&apos;, &apos;blue&apos;]
+
+def gridbox(root):
+    Label(root, text=&apos;GRID&apos;).grid(columnspan=2)  # 跨两列
+    row = 1
+    for color in colors:
+        lab = Label(root, text=color, relief=RIDGE, width=25)
+        ent = Entry(root, bg=color, relief=SUNKEN, width=50)
+        lab.grid(row=row, column=0, sticky=NSEW)  # 向4个方向扩展
+        ent.grid(row=row, column=1, sticky=NSEW)
+        root.rowconfigure(row, weight=1)  # 循环行自动扩展
+        row += 1
+    root.columnconfigure(0, weight=1)  # 第一列自动扩展
+    root.columnconfigure(1, weight=1)  # 第二列自动扩展
+
+def packbox(root):
+    Label(root, text=&apos;PACK&apos;).pack()
+    for color in colors:
+        row = Frame(root)
+        lab = Label(row, text=color, relief=RIDGE, width=25)
+        ent = Entry(row, bg=color, relief=SUNKEN, width=50)
+        row.pack(side=TOP, expand=YES, fill=BOTH)
+        lab.pack(side=LEFT, expand=YES, fill=BOTH)
+        ent.pack(side=RIGHT, expand=YES, fill=BOTH)
+
+if __name__ == &apos;__main__&apos;:
+    root = Tk()
+    gridbox(Toplevel(root))
+    packbox(Toplevel(root))
+    Button(root, text=&apos;Quit&apos;, command=root.quit).pack()
+    mainloop()</code></pre><h3 id="PIL：Python-Imaging-Library"><a href="#PIL：Python-Imaging-Library" class="headerlink" title="PIL：Python Imaging Library"></a>PIL：Python Imaging Library</h3><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><pre><code>sudo apt-get install python-imaging
+或者
+sudo easy_install PIL</code></pre><p>window系统选择</p>
+<pre><code>pip install Pillow</code></pre><p>图像操作</p>
+<pre><code>import Image
+# 打开一个jpg图像文件，注意路径要改成你自己的:
+im = Image.open(&apos;/Users/michael/test.jpg&apos;)
+# 获得图像尺寸:
+w, h = im.size
+# 缩放到50%:
+im.thumbnail((w//2, h//2))
+# 把缩放后的图像用jpeg格式保存:
+im.save(&apos;/Users/michael/thumbnail.jpg&apos;, &apos;jpeg&apos;)</code></pre><p>模糊效果</p>
+<pre><code>import Image, ImageFilter
+
+im = Image.open(&apos;/Users/hanchang/test.jpg&apos;)
+im2 = im.filter(ImageFilter.BLUR)
+im2.save(&apos;/Users/hanchang/blur.jpg&apos;, &apos;jpeg&apos;)</code></pre><p>自定义图像验证码</p>
+<pre><code>import Image, ImageDraw, ImageFont, ImageFilter
+import random
+# 随机字母:
+def rndChar():
+    return chr(random.randint(65, 90))
+
+# 随机颜色1:
+def rndColor():
+    return (random.randint(64, 255), random.randint(64, 255), random.randint(64, 255))
+
+# 随机颜色2:
+def rndColor2():
+    return (random.randint(32, 127), random.randint(32, 127), random.randint(32, 127))
+
+# 240 x 60:
+width = 60 * 4
+height = 60
+image = Image.new(&apos;RGB&apos;, (width, height), (255, 255, 255))
+# 创建Font对象:
+font = ImageFont.truetype(&apos;Arial.ttf&apos;, 36)
+# 创建Draw对象:
+draw = ImageDraw.Draw(image)
+# 填充每个像素:
+for x in range(width):
+    for y in range(height):
+        draw.point((x, y), fill=rndColor())
+# 输出文字:
+for t in range(4):
+    draw.text((60 * t + 10, 10), rndChar(), font=font, fill=rndColor2())
+# 模糊:
+image = image.filter(ImageFilter.BLUR)
+image.save(&apos;code.jpg&apos;, &apos;jpeg&apos;);
+自定义字符串生成图片</code></pre><p><code>from PIL import Image,ImageDraw,ImageFont,ImageOps &lt;h1&gt;生成图片&lt;/h1&gt; def create\_image(str, line, name, dir): img\_size = (400, (line*20) + 10) img\_mode = &#39;RGB&#39; img\_font = ImageFont.truetype(&#39;UbuntuMono-R.ttf&#39;, 14) img\_bg = &#39;#FFF&#39; img\_fg = &#39;#000&#39; img = Image.new(mode=img\_mode, size=img\_size, color=img\_bg) draw = ImageDraw.Draw(img) draw.text((10, 10), str, fill=img\_fg, font=img_font) img.save( dir + name + &#39;.png&#39;, &#39;png&#39;)</code></p>
+
+      
+    </div>
+
+    
+
+    
+      
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/10/ubuntu14.04服务器基础配置/" rel="next" title="Ubuntu14.04服务器基础配置">
+                <i class="fa fa-chevron-left"></i> Ubuntu14.04服务器基础配置
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/10/wordpress插件开发基础入门/" rel="prev" title="wordpress插件开发基础入门">
+                wordpress插件开发基础入门 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  
+  <p class="site-author-name" itemprop="name">www.zhuohc.om</p>
+  <div class="site-description motion-element" itemprop="description">技术博客、日记记录</div>
+</div>
+
+
+  <nav class="site-state motion-element">
+    
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">58</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+    
+
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span>
+        
+      </div>
+    
+
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">tags</span>
+        
+      </div>
+    
+  </nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+          
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#标准弹出框"><span class="nav-number">1.</span> <span class="nav-text">标准弹出框</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常见弹框"><span class="nav-number">2.</span> <span class="nav-text">常见弹框</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#绑定事件"><span class="nav-number">3.</span> <span class="nav-text">绑定事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输入框"><span class="nav-number">4.</span> <span class="nav-text">输入框</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#复选框"><span class="nav-number">5.</span> <span class="nav-text">复选框</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#单选按钮"><span class="nav-number">6.</span> <span class="nav-text">单选按钮</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#标尺滚动条"><span class="nav-number">7.</span> <span class="nav-text">标尺滚动条</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建图片"><span class="nav-number">8.</span> <span class="nav-text">创建图片</span></a></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#按钮随机读取图片"><span class="nav-number"></span> <span class="nav-text">按钮随机读取图片</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#缩略图"><span class="nav-number">1.</span> <span class="nav-text">缩略图</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建基础顶级菜单"><span class="nav-number"></span> <span class="nav-text">创建基础顶级菜单</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建框架级别菜单"><span class="nav-number">1.</span> <span class="nav-text">创建框架级别菜单</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#图片菜单"><span class="nav-number">2.</span> <span class="nav-text">图片菜单</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#滚动条与列表"><span class="nav-number">3.</span> <span class="nav-text">滚动条与列表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TEXT组件"><span class="nav-number">4.</span> <span class="nav-text">TEXT组件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简单的文本编辑器"><span class="nav-number">5.</span> <span class="nav-text">简单的文本编辑器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建基础画布"><span class="nav-number">6.</span> <span class="nav-text">创建基础画布</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#canvas与滚动条"><span class="nav-number">7.</span> <span class="nav-text">canvas与滚动条</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#canvas绑定事件"><span class="nav-number">8.</span> <span class="nav-text">canvas绑定事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#grid布局和pack布局实现自动扩展"><span class="nav-number">9.</span> <span class="nav-text">grid布局和pack布局实现自动扩展</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PIL：Python-Imaging-Library"><span class="nav-number"></span> <span class="nav-text">PIL：Python Imaging Library</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li></ol></li></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">www.zhuohc.om</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.2.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.2.0"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+  
+
+  
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+// GET RESPONSIVE HEIGHT PASSED FROM IFRAME
+
+window.addEventListener("message", function(e) {
+  var data = e.data;
+  if ((typeof data === 'string') && (data.indexOf('ciu_embed') > -1)) {
+    var featureID = data.split(':')[1];
+    var height = data.split(':')[2];
+    $(`iframe[data-feature=${featureID}]`).height(parseInt(height) + 30);
+  }
+}, false);
+</script>
+
+
+
+
+
+
+
+
+  
+
+</body>
+</html>

@@ -1,0 +1,1393 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0">
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    }
+  };
+</script>
+
+  <meta name="description" content="安装及基本操作# -*- coding:utf-8 -*- # 环境: ubuntu14.04 # pip install seleninum # firefox # https://github.com/mozilla/geckodriver/releases 下载对应版本放在$PATH目录下 # google # https://sites.google.com/a/chromium.org/">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="selenium入门基础">
+<meta property="og:url" content="http://www.zhuohc.com/2016/11/30/selenium入门基础/index.html">
+<meta property="og:site_name" content="Wellread">
+<meta property="og:description" content="安装及基本操作# -*- coding:utf-8 -*- # 环境: ubuntu14.04 # pip install seleninum # firefox # https://github.com/mozilla/geckodriver/releases 下载对应版本放在$PATH目录下 # google # https://sites.google.com/a/chromium.org/">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-07-24T01:33:56.506Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="selenium入门基础">
+<meta name="twitter:description" content="安装及基本操作# -*- coding:utf-8 -*- # 环境: ubuntu14.04 # pip install seleninum # firefox # https://github.com/mozilla/geckodriver/releases 下载对应版本放在$PATH目录下 # google # https://sites.google.com/a/chromium.org/">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://www.zhuohc.com/2016/11/30/selenium入门基础/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  
+  <title>selenium入门基础 | Wellread</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Wellread</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">饱读诗书</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2016/11/30/selenium入门基础/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="www.zhuohc.om">
+      <meta itemprop="description" content="技术博客、日记记录">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wellread">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">selenium入门基础
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2016-11-30 09:37:47" itemprop="dateCreated datePublished" datetime="2016-11-30T09:37:47+08:00">2016-11-30</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-07-24 09:33:56" itemprop="dateModified" datetime="2019-07-24T09:33:56+08:00">2019-07-24</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/运维/" itemprop="url" rel="index"><span itemprop="name">运维</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="安装及基本操作"><a href="#安装及基本操作" class="headerlink" title="安装及基本操作"></a>安装及基本操作</h4><pre><code># -*- coding:utf-8 -*-
+# 环境: ubuntu14.04
+# pip install seleninum
+# firefox
+# https://github.com/mozilla/geckodriver/releases 下载对应版本放在$PATH目录下
+# google
+# https://sites.google.com/a/chromium.org/chromedriver/downloads 下载对应版本放在$PATH目录下
+# http://www.seleniumhq.org/download/    其他浏览器参考
+# sudo apt-get install phantomjs  安装无界面webkit浏览器引擎
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+
+driver = webdriver.Firefox()
+# driver = webdriver.Chrome()
+# driver =  webdriver.PhantomJS(executable_path=&apos;/usr/bin/phantomjs&apos;)
+driver.get(&apos;http://www.baidu.com&apos;)
+
+# 定位元素
+# 根据id定位
+find_id = driver.find_element_by_id(&apos;wrapper&apos;)
+find_id = driver.find_element(By.ID, &apos;wrapper&apos;)
+# 根据name属性定位
+find_name = driver.find_element_by_name(&apos;wd&apos;)
+find_name = driver.find_element(By.NAME, &apos;wd&apos;)
+# 根据class定位
+find_class = driver.find_element_by_class_name(&apos;head_wrapper&apos;)
+find_class = driver.find_element(By.CLASS_NAME, &apos;head_wrapper&apos;)
+# 根据标签名称定位
+find_tag = driver.find_element_by_tag_name(&apos;div&apos;)
+find_tag = driver.find_element(By.TAG_NAME, &apos;div&apos;)
+# 根据链接文本定位
+find_a_text = driver.find_element_by_link_text(&apos;hao123&apos;)
+find_a_text = driver.find_element(By.LINK_TEXT, &apos;hao123&apos;)
+# 根据部分链接文本定位
+find_a_text = driver.find_element_by_partial_link_text(&apos;hao&apos;)
+find_a_text = driver.find_element(By.PARTIAL_LINK_TEXT, &apos;hao&apos;)
+# 根据绝对位置定位
+find_x_path = driver.find_elements_by_xpath(&apos;/html/body/div&apos;)
+find_x_path = driver.find_element(By.XPATH, &apos;/html/body/div&apos;)
+# 支持层级，属性，逻辑运算符结合使用
+find_x_path = driver.find_element_by_xpath(&quot;//input[@id=&apos;kw&apos;]&quot;)  # // 当前目录下的某个目录下
+# Css定位
+find_css = driver.find_elements_by_css_selector(&apos;.s_ipt&apos;)
+find_css = driver.find_element(By.CSS_SELECTOR, &apos;.s_ipt&apos;)
+
+# 设置浏览器宽高
+driver.set_window_size(480, 800)
+driver.get(&apos;http://www.126.com&apos;)
+# 控制浏览器前进倒退
+driver.back()
+driver.forward()
+# 刷新浏览器(F5)
+driver.refresh()
+# 当前页面
+print driver.current_url()
+# 元素操作
+# dom = driver.find_element(By.ID, &apos;kw&apos;)
+# dom.clear()  # 清除文本
+# dom.send_keys()  # 模拟键盘输入
+# dom.click()  # 点击元素
+# dom.submit()  # 模拟表单提交
+# dom.size()  # 返回元素的尺寸
+# dom.text()  # 返回元素的文本
+# dom.get_attribute(name)  # 返回元素的属性值
+# dom.is_displayed()  # 设置该元素是否可见
+
+# 鼠标操作
+from selenium.webdriver.common.action_chains import ActionChains
+driver.get(&apos;http://www.baidu.com&apos;)
+# context_click 鼠标右键点击
+right_click = driver.find_element_by_id(&apos;xx&apos;)
+# perform 执行所有ActionChains中存储的动作
+ActionChains(driver).context_click(right_click).perform()
+# above 鼠标悬停
+above = driver.find_element_by_id(&apos;xxx&apos;)
+ActionChains(driver).move_to_element(above).perform()
+# double_click 鼠标双击
+# drag_and_drop(source, target) 鼠标拖放
+
+
+# 键盘事件
+from selenium.webdriver.common.keys import Keys
+find_id.send_keys(Keys.BACK_SPACE) # 删除键
+find_id.send_keys(Keys.SPACE)  # 空格键
+find_id.send_keys(Keys.TAB)  # tab键
+find_id.send_keys(Keys.ESCAPE)  # ESC
+find_id.send_keys(Keys.ENTER)  # 回车键
+find_id.send_keys(Keys.CONTROL, &apos;c&apos;)  # 复制
+find_id.send_keys(Keys.CONTROL, &apos;v&apos;)  # 剪贴
+find_id.send_keys(Keys.F1) # F1
+
+# driver.quit()</code></pre><h4 id="webdriver原理"><a href="#webdriver原理" class="headerlink" title="webdriver原理"></a>webdriver原理</h4><pre><code># -*- coding:utf-8 -*-
+from selenium import webdriver
+import logging
+
+logging.basicConfig(level=logging.DEBUG)
+driver = webdriver.Firefox()
+driver.get(&apos;http://www.baidu.com&apos;)
+driver.find_element_by_id(&apos;kw&apos;).send_keys(&apos;selenium&apos;)
+driver.find_element_by_id(&apos;su&apos;).click()
+driver.quit()</code></pre><h4 id="显示等待"><a href="#显示等待" class="headerlink" title="显示等待"></a>显示等待</h4><pre><code># -*- coding:utf-8 -*-
+# 显示等待
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+driver = webdriver.Firefox()
+driver.get(&apos;http://www.baidu.com&apos;)
+# 显示等待
+# 参数driver： 浏览器驱动
+# 参数timeout： 最大超时时间，单位秒
+# 参数poll_frequency： 检测的间隔时间，默认为0.5秒
+# 参数ignored_exceptions: 超时异常信息，默认为NoSuchElementException
+# WebDriverWait(driver, timeout, poll_frequency=0.5, ignored_exceptions=None)
+# until(method, message=&apos;&apos;) 调用该方法提供的驱动程序作为参数，直到返回True
+# until_not(method, message=&apos;&apos;) 调用该方法提供的驱动程序作为参数，直到返回False
+# EC.title_is 判断当前页面的标题是否是否等于预期
+# EC.title_contains 判断当前页面的标题是否包含预期的字符串
+# EC.presence_of_element_located 判断元素是否被加载在DOM树中，并不代表当前元素可见
+# EC.visibility_of_element_located 判断元素是否可见（可见并非代表元素非隐藏，并且元素的宽和高均不等于0）
+# EC.visibility_of 与visibility_of_element_located相同，该方法接受的参数为定位后的元素
+# EC.presence_of_all_elements_located 判断是否至少有一个元素存在与DOM树中
+# EC.text_to_be_present_in_element 判断某个元素的text是否包含预期的字符串
+# EC.text_to_be_present_in_element_value 判断某个元素的vaule属性是否包含了预期的字符串
+# EC.frame_to_be_available_and_switch_to_it 判断该表单是否可以切换进去，如果可以，返回True并switch进去，否则返回false
+# EC.invisibility_of_element_located 判断某个元素是否不存在于DOM树中或者不可见
+# EC.element_to_be_clickable 判断某个元素是否可以点击
+# EC.staleness_of 等到一个元素从DOM树中移除
+# EC.element_to_be_selected 判断某个元素是否被选中，一般用于下拉菜单
+# EC.element_selection_state_to_be 判断某个元素的选中状态是否符合预期, 参数为定位后的元素
+# EC.element_located_selection_state_to_be 判断某个元素的选中状态是否符合预期,该方法接受的参数为定位
+# EC.alert_is_present 判断页面上是否有alert
+# driver.find_element_by_id().is_displayed() 判断元素是否可见
+element = WebDriverWait(driver, 5, 0.5).until(EC.presence_of_element_located((By.ID, &apos;kw&apos;)))
+element.send_keys(&apos;selenium&apos;)
+# driver.quit()</code></pre><h4 id="隐式等待"><a href="#隐式等待" class="headerlink" title="隐式等待"></a>隐式等待</h4><pre><code># -*- coding:utf-8 -*-
+# 隐式等待
+from selenium import webdriver
+from selenium.common.exceptions import NoSuchElementException
+from time import ctime
+from time import sleep
+driver = webdriver.Firefox()
+# sleep(10)
+driver.implicitly_wait(10)
+driver.get(&apos;http://www.baidu.com&apos;)
+print ctime()
+try:
+    driver.find_element_by_id(&apos;kw22&apos;).send_keys(&apos;selenium&apos;)
+except NoSuchElementException as e:
+    print e
+finally:
+    print ctime()</code></pre><h4 id="执行js代码"><a href="#执行js代码" class="headerlink" title="执行js代码"></a>执行js代码</h4><pre><code># -*- coding:utf-8 -*-
+# 执行js代码
+from selenium import webdriver
+from time import sleep
+
+# 访问百度
+driver = webdriver.Firefox()
+driver.get(&apos;http://www.baidu.com&apos;)
+driver.set_window_size(600, 600)
+driver.find_element_by_id(&apos;kw&apos;).send_keys(&apos;selenium&apos;)
+driver.find_element_by_id(&apos;su&apos;).click()
+sleep(2)
+
+js = &apos;window.scrollTo(100, 450);&apos;
+driver.execute_script(js)
+sleep(3)
+
+# driver.quit()</code></pre><h4 id="处理cookie"><a href="#处理cookie" class="headerlink" title="处理cookie"></a>处理cookie</h4><pre><code># -*- coding:utf-8 -*-
+# cookie处理
+from selenium import webdriver
+driver = webdriver.Firefox()
+driver.get(&apos;http://www.youdao.com&apos;)
+driver.add_cookie({&apos;name&apos;: &apos;name-a&apos;, &apos;value&apos;: &apos;value-b&apos;})
+# 获取cookie信息
+cookies = driver.get_cookies()
+print cookies
+for cookie in cookies:
+    print cookie
+    print &apos;{} -&gt; {}&apos;.format(cookie[&apos;name&apos;], cookie[&apos;value&apos;])
+driver.quit()</code></pre><h4 id="截图"><a href="#截图" class="headerlink" title="截图"></a>截图</h4><pre><code># -*- coding:utf-8 -*-
+# 窗口截图
+from selenium import webdriver
+from time import sleep
+
+# driver = webdriver.Firefox()
+driver =  webdriver.PhantomJS(executable_path=&apos;/usr/bin/phantomjs&apos;)
+driver.get(&apos;http://www.baidu.com&apos;)
+
+driver.find_element_by_id(&apos;kw&apos;).send_keys(&apos;selenium&apos;)
+driver.find_element_by_id(&apos;su&apos;).click()
+sleep(2)
+
+driver.get_screenshot_as_file(&apos;./screen.png&apos;)
+driver.quit()</code></pre><h4 id="播放视频"><a href="#播放视频" class="headerlink" title="播放视频"></a>播放视频</h4><pre><code># -*- coding:utf-8 -*-
+from selenium import webdriver
+from time import sleep
+
+driver = webdriver.Firefox()
+driver.get(&apos;http://videojs.com&apos;)
+
+video = driver.find_element_by_xpath(&apos;body/Setion[1]/div/video&apos;)
+# 返回播放文件地址
+url = driver.execute_script(&apos;return arguments[0].currentSrc;&apos;, video)
+print url
+
+# 播放视频
+print &apos;start&apos;
+driver.execute_script(&apos;return arguments[0].play()&apos;, video)
+
+# 播放15秒
+sleep(15)
+
+# 暂停播放
+print &apos;stop&apos;
+driver.execute_script(&apos;arguments[0].pause()&apos;, video)
+
+# driver.quit()</code></pre>
+      
+    </div>
+
+    
+
+    
+      
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/10/wordpress插件开发基础入门/" rel="next" title="wordpress插件开发基础入门">
+                <i class="fa fa-chevron-left"></i> wordpress插件开发基础入门
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/30/unittest单元测试/" rel="prev" title="unittest单元测试">
+                unittest单元测试 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  
+  <p class="site-author-name" itemprop="name">www.zhuohc.om</p>
+  <div class="site-description motion-element" itemprop="description">技术博客、日记记录</div>
+</div>
+
+
+  <nav class="site-state motion-element">
+    
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">58</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+    
+
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span>
+        
+      </div>
+    
+
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">tags</span>
+        
+      </div>
+    
+  </nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+          
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装及基本操作"><span class="nav-number">1.</span> <span class="nav-text">安装及基本操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#webdriver原理"><span class="nav-number">2.</span> <span class="nav-text">webdriver原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#显示等待"><span class="nav-number">3.</span> <span class="nav-text">显示等待</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#隐式等待"><span class="nav-number">4.</span> <span class="nav-text">隐式等待</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#执行js代码"><span class="nav-number">5.</span> <span class="nav-text">执行js代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#处理cookie"><span class="nav-number">6.</span> <span class="nav-text">处理cookie</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#截图"><span class="nav-number">7.</span> <span class="nav-text">截图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#播放视频"><span class="nav-number">8.</span> <span class="nav-text">播放视频</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">www.zhuohc.om</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.2.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.2.0"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+  
+
+  
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+// GET RESPONSIVE HEIGHT PASSED FROM IFRAME
+
+window.addEventListener("message", function(e) {
+  var data = e.data;
+  if ((typeof data === 'string') && (data.indexOf('ciu_embed') > -1)) {
+    var featureID = data.split(':')[1];
+    var height = data.split(':')[2];
+    $(`iframe[data-feature=${featureID}]`).height(parseInt(height) + 30);
+  }
+}, false);
+</script>
+
+
+
+
+
+
+
+
+  
+
+</body>
+</html>
