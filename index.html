@@ -360,7 +360,7 @@
                 
               
 
-              <time title="Created: 2019-07-24 09:21:02 / Modified: 09:21:26" itemprop="dateCreated datePublished" datetime="2019-07-24T09:21:02+08:00">2019-07-24</time>
+              <time title="Created: 2019-07-24 09:21:02 / Modified: 09:46:03" itemprop="dateCreated datePublished" datetime="2019-07-24T09:21:02+08:00">2019-07-24</time>
             </span>
           
 
@@ -516,11 +516,11 @@
 </blockquote>
 </blockquote>
 <h5 id="fbdev：-linux终端录制设备"><a href="#fbdev：-linux终端录制设备" class="headerlink" title="fbdev： linux终端录制设备"></a>fbdev： linux终端录制设备</h5><p>查看使用指定采集设备参数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -hide_banner -h demuxer=fbdev</span><br><span class="line">Demuxer fbdev [Linux framebuffer]:</span><br><span class="line">fbdev indev AVOptions:</span><br><span class="line">  -framerate         &lt;video_rate&gt; .D.......  (default &quot;25&quot;)</span><br><span class="line"># framerate 帧数 默认25帧</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> ffmpeg -hide_banner -h demuxer=fbdev</span><br><span class="line">Demuxer fbdev [Linux framebuffer]:</span><br><span class="line">fbdev indev AVOptions:</span><br><span class="line">  -framerate         &lt;video_rate&gt; .D.......  (default "25")</span><br><span class="line"><span class="meta">#</span> framerate 帧数 默认25帧</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo ffmpeg -framerate 30  -f fbdev -i /dev/fb0 output.mp4</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo ffmpeg -framerate 30  -f fbdev -i /dev/fb0 output.mp4</span><br></pre></td></tr></table></figure>
 
-<h5 id="v412：linux摄像头录制设备"><a href="#v412：linux摄像头录制设备" class="headerlink" title="v412：linux摄像头录制设备"></a>v412：linux摄像头录制设备</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -hide_banner -h demuxer=Video4Linux2</span><br></pre></td></tr></table></figure>
+<h5 id="v412：linux摄像头录制设备"><a href="#v412：linux摄像头录制设备" class="headerlink" title="v412：linux摄像头录制设备"></a>v412：linux摄像头录制设备</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> ffmpeg -hide_banner -h demuxer=Video4Linux2</span><br></pre></td></tr></table></figure>
 
 <table>
 <thead>
@@ -586,16 +586,16 @@
 <td>使用第三方库libv412选项</td>
 </tr>
 </tbody></table>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -hide_banner -f Video4Linux2 -list_formats all -i /dev/video0</span><br><span class="line"># /dev/video0根据自己的摄像头来设置</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> ffmpeg -hide_banner -f Video4Linux2 -list_formats all -i /dev/video0</span><br><span class="line"><span class="meta">#</span> /dev/video0根据自己的摄像头来设置</span><br></pre></td></tr></table></figure>
 
 <h5 id="x11grab：linux桌面录制设备"><a href="#x11grab：linux桌面录制设备" class="headerlink" title="x11grab：linux桌面录制设备"></a>x11grab：linux桌面录制设备</h5><p><a href="https://trac.ffmpeg.org/wiki/Capture/Desktop" target="_blank" rel="noopener">桌面录制方法</a></p>
 <p>linux环境下如果此方法报错</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Cannot open display :0.0, error 1.</span><br><span class="line">:0.0: Input/output error</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Cannot open display :0.0, error 1.</span><br><span class="line">:0.0: Input/output error</span><br></pre></td></tr></table></figure>
 
 <p>则需要查看$DISPLAY， 在Linux/Unix类操作系统上, DISPLAY用来设置将图形显示到何处. 直接登陆图形界面或者登陆命令行界面后使用startx启动图形, DISPLAY环境变量将自动设置为:0:0</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ echo $DISPLAY</span><br><span class="line">:1</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> echo $DISPLAY</span><br><span class="line">:1</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -video_size 1024x768 -framerate 25 -f x11grab -i :1+100,200 output.mp4</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> ffmpeg -video_size 1024x768 -framerate 25 -f x11grab -i :1+100,200 output.mp4</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p>video_size 字符串 输入采集视频的分辨率</p>
@@ -603,14 +603,14 @@
 <p>-f 指定输入设备</p>
 <p>-i 指定输入内容（此处为显示器）+100, 200 代表从100, 200处位移<br>使用pulse录制音频</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pactl list sources  # 查看全部输入设备</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> pactl list sources  # 查看全部输入设备</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -f pulse -i default pulse.wav</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> ffmpeg -f pulse -i default pulse.wav</span><br></pre></td></tr></table></figure>
 
 <p>同时录制视频和音频</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -video_size 1366x768 -framerate 25 -f x11grab -i :1 -f pulse -ac 2 -i 1 output.mkv</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> ffmpeg -video_size 1366x768 -framerate 25 -f x11grab -i :1 -f pulse -ac 2 -i 1 output.mkv</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -video_size 1024x768 -framerate 25 -f x11grab -i :1+100,200 -f alsa -ac 2 -i hw:0 output.mkv</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> ffmpeg -video_size 1024x768 -framerate 25 -f x11grab -i :1+100,200 -f alsa -ac 2 -i hw:0 output.mkv</span><br></pre></td></tr></table></figure>
 
 
           
