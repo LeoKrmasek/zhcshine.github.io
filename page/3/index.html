@@ -1654,7 +1654,7 @@ $ docker-stop 停止容器，但不会删除他们</code></pre>
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-23 13:51:43" itemprop="dateModified" datetime="2019-07-23T13:51:43+08:00">2019-07-23</time>
+                <time title="Modified: 2019-07-24 18:05:19" itemprop="dateModified" datetime="2019-07-24T18:05:19+08:00">2019-07-24</time>
               </span>
             
           
@@ -1707,10 +1707,90 @@ $ docker-stop 停止容器，但不会删除他们</code></pre>
       
         
           
-            <h3 id="查看文件夹大小"><a href="#查看文件夹大小" class="headerlink" title="查看文件夹大小"></a>查看文件夹大小</h3><pre><code>du -h your_path --max-depth=1</code></pre><h4 id="常见命令"><a href="#常见命令" class="headerlink" title="常见命令"></a>常见命令</h4><blockquote>
-<p>-a或-all 为每个指定文件显示磁盘使用情况，或者为目录中每个文件显示各自磁盘使用情况。 -b或-bytes 显示目录或文件大小时，以byte为单位。 -c或–total 除了显示目录或文件的大小外，同时也显示所有目录或文件的总和。 -D或–dereference-args 显示指定符号连接的源文件大小。 -h或–human-readable 以K，M，G为单位，提高信息的可读性。 -H或–si 与-h参数相同，但是K，M，G是以1000为换算单位,而不是以1024为换算单位。 -k或–kilobytes 以1024 bytes为单位。 -l或–count-links 重复计算硬件连接的文件。 -L&lt;符号连接&gt;或–dereference&lt;符号连接&gt; 显示选项中所指定符号连接的源文件大小。 -m或–megabytes 以1MB为单位。 -s或–summarize 仅显示总计，即当前目录的大小。 -S或–separate-dirs 显示每个目录的大小时，并不含其子目录的大小。 -x或–one-file-xystem 以一开始处理时的文件系统为准，若遇上其它不同的文件系统目录则略过。 -X&lt;文件&gt;或–exclude-from=&lt;文件&gt; 在&lt;文件&gt;指定目录或文件。 –exclude=&lt;目录或文件&gt; 略过指定的目录或文件。 –max-depth=&lt;目录层数&gt; 超过指定层数的目录后，予以忽略。 –help 显示帮助。 –version 显示版本信息</p>
-</blockquote>
+            <h4 id="查看文件夹大小"><a href="#查看文件夹大小" class="headerlink" title="查看文件夹大小"></a>查看文件夹大小</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">du -h your_path --max-depth=1</span><br></pre></td></tr></table></figure>
 
+<p><strong>参数：</strong></p>
+<blockquote>
+<p>-a或-all 为每个指定文件显示磁盘使用情况，或者为目录中每个文件显示各自磁盘使用情况。 </p>
+</blockquote>
+<blockquote>
+<p>-b或-bytes 显示目录或文件大小时，以byte为单位。 </p>
+</blockquote>
+<blockquote>
+<p>-c或–total 除了显示目录或文件的大小外，同时也显示所有目录或文件的总和。 </p>
+</blockquote>
+<blockquote>
+<p>-D或–dereference-args 显示指定符号连接的源文件大小。 </p>
+</blockquote>
+<blockquote>
+<p>-h或–human-readable 以K，M，G为单位，提高信息的可读性。 </p>
+</blockquote>
+<blockquote>
+<p>-H或–si 与-h参数相同，但是K，M，G是以1000为换算单位,而不是以1024为换算单位。 </p>
+</blockquote>
+<blockquote>
+<p>-k或–kilobytes 以1024 bytes为单位。 </p>
+</blockquote>
+<blockquote>
+<p>-l或–count-links 重复计算硬件连接的文件。 </p>
+</blockquote>
+<blockquote>
+<p>-L&lt;符号连接&gt;或–dereference&lt;符号连接&gt; 显示选项中所指定符号连接的源文件大小。 </p>
+</blockquote>
+<blockquote>
+<p>-m或–megabytes 以1MB为单位。 </p>
+</blockquote>
+<blockquote>
+<p>-s或–summarize 仅显示总计，即当前目录的大小。 </p>
+</blockquote>
+<blockquote>
+<p>-S或–separate-dirs 显示每个目录的大小时，并不含其子目录的大小。 </p>
+</blockquote>
+<blockquote>
+<p>-x或–one-file-xystem 以一开始处理时的文件系统为准，若遇上其它不同的文件系统目录则略过。 </p>
+</blockquote>
+<blockquote>
+<p>-X&lt;文件&gt;或–exclude-from=&lt;文件&gt; 在&lt;文件&gt;指定目录或文件。 </p>
+</blockquote>
+<blockquote>
+<p>–exclude=&lt;目录或文件&gt; 略过指定的目录或文件。 </p>
+</blockquote>
+<blockquote>
+<p>–max-depth=&lt;目录层数&gt; 超过指定层数的目录后，予以忽略。 </p>
+</blockquote>
+<blockquote>
+<p>–help 显示帮助。 </p>
+</blockquote>
+<blockquote>
+<p>–version 显示版本信息</p>
+</blockquote>
+<h4 id="pkg-config"><a href="#pkg-config" class="headerlink" title="pkg-config"></a>pkg-config</h4><p><strong>作用</strong></p>
+<blockquote>
+<p>检查库的版本号。如果所需要的库的版本不满足要求，它会打印出错误信息，避免链接错误版本的库文件。</p>
+</blockquote>
+<blockquote>
+<p>获得编译预处理参数，如宏定义，头文件的位置。</p>
+</blockquote>
+<blockquote>
+<p>获得链接参数，如库及依赖的其它库的位置，文件名及其它一些连接参数。</p>
+</blockquote>
+<blockquote>
+<p>自动加入所依赖的其它库的设置。</p>
+</blockquote>
+<p><strong>命令</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> pkg-config --cflags --libs gdk-3.0</span><br><span class="line">-I/usr/include/gtk-3.0 -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/lib/libffi-3.2.1/include -I/usr/include/fribidi -I/usr/include/harfbuzz -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/uuid -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/gio-unix-2.0 -pthread -I/usr/include/libdrm -lgdk-3 -lz -lpangocairo-1.0 -lpango-1.0 -lgdk_pixbuf-2.0 -lcairo-gobject -lcairo -lgobject-2.0 -lglib-2.0</span><br></pre></td></tr></table></figure>
+
+<p><strong>PKG_CONFIG_PATH</strong><br>环境变量PKG_CONFIG_PATH是用来设置.pc文件的搜索路径的，pkg-config按照设置路径的先后顺序进行搜索，直到找到指定的.pc 文件为止。这样，库的头文件的搜索路径的设置实际上就变成了对.pc文件搜索路径的设置。</p>
+<p>在安装完一个需要使用的库后，比如Glib，一是将相应的.pc文件，如glib-2.0.pc拷贝到/usr/lib/pkgconfig目录下，二是通过设置环境变量PKG_CONFIG_PATH添加glib-2.0.pc文件的搜索路径。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 添加环境变量PKG_CONFIG_PATH，在bash中应该进行如下设置：</span><br><span class="line"><span class="meta">$</span> export PKG_CONFIG_PATH=/opt/gtk/lib/pkgconfig:$PKG_CONFIG_PATH</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 可以执行下面的命令检查是否 /opt/gtk/lib/pkgconfig 路径已经设置在PKG_CONFIG_PATH环境变量中：</span><br><span class="line">echo $PKG_CONFIG_PATH</span><br></pre></td></tr></table></figure>
+
+<p><strong>原理</strong><br>正常情况下，库文件在编译通过后会生成prefix/lib/pkgconfig目录，目录下会包含.pc文件，例如：</p>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> ls -la /usr/include/gtk3.24/lib/pkgconfig</span><br><span class="line">总用量 40</span><br><span class="line">drwxr-xr-x 2 root root 4096  7月 24 15:56 .</span><br><span class="line">drwxr-xr-x 4 root root 4096  7月 24 15:56 ..</span><br><span class="line">-rw-r--r-- 1 root root  277  7月 24 15:56 gail-3.0.pc</span><br><span class="line">-rw-r--r-- 1 root root  608  7月 24 15:56 gdk-3.0.pc</span><br><span class="line">-rw-r--r-- 1 root root  608  7月 24 15:56 gdk-wayland-3.0.pc</span><br><span class="line">-rw-r--r-- 1 root root  608  7月 24 15:56 gdk-x11-3.0.pc</span><br><span class="line">-rw-r--r-- 1 root root  631  7月 24 15:56 gtk+-3.0.pc</span><br><span class="line">-rw-r--r-- 1 root root  405  7月 24 15:56 gtk+-unix-print-3.0.pc</span><br><span class="line">-rw-r--r-- 1 root root  631  7月 24 15:56 gtk+-wayland-3.0.pc</span><br><span class="line">-rw-r--r-- 1 root root  631  7月 24 15:56 gtk+-x11-3.0.pc</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> vim gtk+-3.0</span><br><span class="line"></span><br><span class="line">prefix=/usr/include/gtk3.24</span><br><span class="line">exec_prefix=$&#123;prefix&#125;</span><br><span class="line">libdir=$&#123;exec_prefix&#125;/lib</span><br><span class="line">includedir=$&#123;prefix&#125;/include</span><br><span class="line">targets=x11 wayland</span><br><span class="line"> </span><br><span class="line">gtk_binary_version=3.0.0</span><br><span class="line">gtk_host=x86_64-pc-linux-gnu</span><br><span class="line"> </span><br><span class="line">Name: GTK+</span><br><span class="line">Description: GTK+ Graphical UI Library</span><br><span class="line">Version: 3.24.10</span><br><span class="line">Requires: gdk-3.0 atk &gt;= 2.15.1 cairo &gt;= 1.14.0 cairo-gobject &gt;= 1.14.0 gdk-pixbuf-2.0 &gt;= 2.30.0 gio-2.0 &gt;= 2.53.4                                                                                        </span><br><span class="line">Requires.private: atk atk-bridge-2.0 wayland-client &gt;= 1.9.91 wayland-protocols &gt;= 1.12 xkbcommon &gt;= 0.2.0 wayland-cursor &gt;= 1.9.91 wayland-egl  epoxy &gt;= 1.4 fribidi &gt;= 0.19.7 pangoft2 gio-unix-2.0 &gt;= 2</span><br><span class="line">Libs: -L$&#123;libdir&#125; -lgtk-3</span><br><span class="line">Cflags: -I$&#123;includedir&#125;/gtk-3.0</span><br></pre></td></tr></table></figure>
           
         
       
