@@ -315,6 +315,350 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2019/07/24/minicat-manjaro-18-0-4-dev/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="www.zhuohc.om">
+      <meta itemprop="description" content="技术博客、日记记录">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wellread">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/07/24/minicat-manjaro-18-0-4-dev/" class="post-title-link" itemprop="url">minicat-manjaro-18.0.4-dev</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-07-24 14:11:44 / Modified: 14:16:01" itemprop="dateCreated datePublished" datetime="2019-07-24T14:11:44+08:00">2019-07-24</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="添加中科大源"><a href="#添加中科大源" class="headerlink" title="添加中科大源"></a>添加中科大源</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vi /etc/pacman.conf</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 在文件末尾添加</span><br><span class="line">[archlinuxcn]</span><br><span class="line">SigLevel = Optional TrustedOnly</span><br><span class="line">Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch</span><br></pre></td></tr></table></figure>
+
+<h4 id="导入GPG-Key"><a href="#导入GPG-Key" class="headerlink" title="导入GPG Key"></a>导入GPG Key</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pacman -Syy &amp;&amp; sudo pacman -S archlinuxcn-keyring</span><br></pre></td></tr></table></figure>
+
+<h4 id="安装基本开发编译软件"><a href="#安装基本开发编译软件" class="headerlink" title="安装基本开发编译软件"></a>安装基本开发编译软件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S --needed base-devel</span><br></pre></td></tr></table></figure>
+
+<h4 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pacman -S git</span><br></pre></td></tr></table></figure>
+
+<h4 id="安装chrome"><a href="#安装chrome" class="headerlink" title="安装chrome"></a>安装chrome</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pacman -S google-chrome</span><br></pre></td></tr></table></figure>
+
+<h4 id="安装搜狗拼音输入法"><a href="#安装搜狗拼音输入法" class="headerlink" title="安装搜狗拼音输入法"></a>安装搜狗拼音输入法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pacman -S fcitx-im #默认全部安装</span><br><span class="line">$ sudo pacman -S fcitx-configtool</span><br><span class="line">$ sudo pacman -S fcitx-sogoupinyin</span><br></pre></td></tr></table></figure>
+
+<h4 id="编辑输入法配置文件"><a href="#编辑输入法配置文件" class="headerlink" title="编辑输入法配置文件"></a>编辑输入法配置文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ sudo nano ~/.xprofile</span><br><span class="line"></span><br><span class="line">export GTK_IM_MODULE=fcitx</span><br><span class="line">export QT_IM_MODULE=fcitx</span><br><span class="line">export XMODIFIERS=&quot;@im=fcitx&quot;</span><br><span class="line"># 重启后输入法就可以正常使用。</span><br></pre></td></tr></table></figure>
+
+<h4 id="安装vim"><a href="#安装vim" class="headerlink" title="安装vim"></a>安装vim</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pacman -S vim</span><br></pre></td></tr></table></figure>
+
+<p>安装vim基础配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl https://raw.githubusercontent.com/wklken/vim-for-server/master/vimrc &gt; ~/.vimrc</span><br></pre></td></tr></table></figure>
+
+<h4 id="安装tmux和-tmux"><a href="#安装tmux和-tmux" class="headerlink" title="安装tmux和.tmux"></a>安装tmux和.tmux</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pacman -S tmux</span><br><span class="line">$ cd ~</span><br><span class="line">$ git clone https://github.com/gpakosz/.tmux.git</span><br><span class="line">$ ln -s -f .tmux/.tmux.conf</span><br><span class="line">$ cp .tmux/.tmux.conf.local .</span><br></pre></td></tr></table></figure>
+
+<h4 id="安装zsh和oh-my-zsh"><a href="#安装zsh和oh-my-zsh" class="headerlink" title="安装zsh和oh-my-zsh"></a>安装zsh和oh-my-zsh</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pacman -S zsh</span><br><span class="line">$ sh -c &quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;</span><br></pre></td></tr></table></figure>
+
+<h4 id="安装yaourt"><a href="#安装yaourt" class="headerlink" title="安装yaourt"></a>安装yaourt</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pacman -S --needed base-devel git wget yajl</span><br><span class="line">$ cd /tmp</span><br><span class="line">$ git clone https://aur.archlinux.org/package-query.git</span><br><span class="line">$ cd package-query/</span><br><span class="line">$ makepkg -si &amp;&amp; cd /tmp/</span><br><span class="line">$ git clone https://aur.archlinux.org/yaourt.git</span><br><span class="line">$ cd yaourt/</span><br><span class="line">$ makepkg -si</span><br></pre></td></tr></table></figure>
+
+<h4 id="安装shadowsocks"><a href="#安装shadowsocks" class="headerlink" title="安装shadowsocks"></a>安装shadowsocks</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://aur.archlinux.org/shadowsocks-qt5-git.git</span><br><span class="line">$ cd shadowsocks-qt5-git</span><br><span class="line">$ less PKGBUILD  # 查看</span><br><span class="line">$ makepkg -si  # 安装</span><br></pre></td></tr></table></figure>
+
+<h4 id="设置ssh连接不断开"><a href="#设置ssh连接不断开" class="headerlink" title="设置ssh连接不断开"></a>设置ssh连接不断开</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># vim ~/.ssh/config</span><br><span class="line">Host *</span><br><span class="line">    ServerAliveInterval 60</span><br></pre></td></tr></table></figure>
+
+<h4 id="安装jetbrain全家桶"><a href="#安装jetbrain全家桶" class="headerlink" title="安装jetbrain全家桶"></a>安装jetbrain全家桶</h4><p><a href="http://idea.lanyus.com/" target="_blank" rel="noopener">jetbrain激活参考地址</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vim /etc/hosts</span><br><span class="line"># 添加以下两行代码</span><br><span class="line">0.0.0.0 account.jetbrains.com</span><br><span class="line">0.0.0.0 www.jetbrains.com</span><br></pre></td></tr></table></figure>
+
+<h4 id="安装python开发环境"><a href="#安装python开发环境" class="headerlink" title="安装python开发环境"></a>安装python开发环境</h4><p><a href="https://github.com/zhcshine/wellread/blob/master/python/environment.md" target="_blank" rel="noopener">python开发环境</a></p>
+/2016/11/09/python入门基础/
+<h4 id="安装rabbitmq"><a href="#安装rabbitmq" class="headerlink" title="安装rabbitmq"></a>安装rabbitmq</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pacman -S rabbitmq rabbitmqadmin</span><br><span class="line">$ sudo systemctl enable rabbitmq.service  # 开机启动</span><br><span class="line">$ sudo systemctl start rabbitmq.service  # 启动</span><br><span class="line">$ rabbitmq-plugins enable rabbitmq_management  # 开启web界面</span><br></pre></td></tr></table></figure>
+
+<h4 id="安装redis"><a href="#安装redis" class="headerlink" title="安装redis"></a>安装redis</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pacman -S redis</span><br><span class="line">$ sudo systemctl enable redis.service  # 开机启动</span><br><span class="line">$ sudo systemctl start redis.service  # 启动</span><br></pre></td></tr></table></figure>
+
+<p>设置密码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vim /etc/redis.conf</span><br><span class="line">redispassword password</span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2019/07/24/c开发gtk+-入门基础/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="www.zhuohc.om">
+      <meta itemprop="description" content="技术博客、日记记录">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wellread">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/07/24/c开发gtk+-入门基础/" class="post-title-link" itemprop="url">c开发gtk+入门基础</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-07-24 13:58:51 / Modified: 14:05:15" itemprop="dateCreated datePublished" datetime="2019-07-24T13:58:51+08:00">2019-07-24</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="gdk-介绍"><a href="#gdk-介绍" class="headerlink" title="gdk+介绍"></a>gdk+介绍</h4><blockquote>
+<p>gtk+是c语言编写的用于开发图形界面程序的函数库。gtk+来源于gimp（gnu image minipulation program），gtk+在gdk（gimp drawing kit）基础上创建，并进行封装。</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2019/07/24/ffmpeg录制基础/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1923,377 +2267,6 @@ sudo service apache2 restart</code></pre><h4 id="安装客户端"><a href="#安�
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2018/11/14/centos7.2安装使用openResty/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="www.zhuohc.om">
-      <meta itemprop="description" content="技术博客、日记记录">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wellread">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/11/14/centos7.2安装使用openResty/" class="post-title-link" itemprop="url">centos7.2安装使用openResty</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-11-14 18:35:08" itemprop="dateCreated datePublished" datetime="2018-11-14T18:35:08+08:00">2018-11-14</time>
-            </span>
-          
-
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-07-23 13:51:43" itemprop="dateModified" datetime="2019-07-23T13:51:43+08:00">2019-07-23</time>
-              </span>
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/运维/" itemprop="url" rel="index"><span itemprop="name">运维</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <pre><code># 安装
-sudo yum install pcre-devel openssl-devel gcc curl
-wget https://openresty.org/download/openresty-1.13.6.2.tar.gz
-tar -xzvf openresty-1.13.6.2.tar.gz
-cd openresty-1.13.6.2
-# 默认安装到/usr/local/openresty, 可以指定./configure --prefix=/your/path/openresty设置
-# 默认安装的组件https://openresty.org/cn/components.html
-./configure --with-luajit \
-            --without-http_redis2_module \
-            --with-http_iconv_module \
-            --with-http_postgres_module
-make &amp;&amp; sudo make install
-# 创建软链接
-ln -s /usr/local/openresty/nginx/sbin/nginx /usr/local/nginx
-# 启动/重启/停止
-nginx 
-nginx -s reload
-nginx -s stop</code></pre><h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><ul>
-<li>openResty的nginx和普通nginx配置一致</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2018/11/10/linux环境nginx-php-fpm权限问题/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="www.zhuohc.om">
-      <meta itemprop="description" content="技术博客、日记记录">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wellread">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/11/10/linux环境nginx-php-fpm权限问题/" class="post-title-link" itemprop="url">linux环境nginx/php-fpm权限问题</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-11-10 13:10:28" itemprop="dateCreated datePublished" datetime="2018-11-10T13:10:28+08:00">2018-11-10</time>
-            </span>
-          
-
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-07-24 09:36:23" itemprop="dateModified" datetime="2019-07-24T09:36:23+08:00">2019-07-24</time>
-              </span>
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/运维/" itemprop="url" rel="index"><span itemprop="name">运维</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="当前用户hanchang-nginx用户nginx"><a href="#当前用户hanchang-nginx用户nginx" class="headerlink" title="当前用户hanchang, nginx用户nginx"></a>当前用户hanchang, nginx用户nginx</h4><pre><code>vim /etc/nginx/nginx.conf
-user hanchang;
-
-
-vim /etc/php-fpm.d/www.conf 
-user = hanchang
-group = nginx
-listen.owner = hanchang
-listen.group = nginx
-listen.mode = 0660</code></pre><h4 id="划重点-将当前用户加入nginx用户组"><a href="#划重点-将当前用户加入nginx用户组" class="headerlink" title="划重点 将当前用户加入nginx用户组"></a>划重点 将当前用户加入nginx用户组</h4><pre><code>sudo usermod -a -G nginx hanchang</code></pre>
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2341,7 +2314,7 @@ listen.mode = 0660</code></pre><h4 id="划重点-将当前用户加入nginx用�
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">58</span>
+          <span class="site-state-item-count">60</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -2409,7 +2382,9 @@ listen.mode = 0660</code></pre><h4 id="划重点-将当前用户加入nginx用�
         
           
         
-        <span class="site-state-item-count">13</span>
+          
+        
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">tags</span>
         
       </div>

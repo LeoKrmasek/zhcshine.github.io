@@ -94,17 +94,18 @@
   };
 </script>
 
-  <meta name="description" content="当前用户hanchang, nginx用户nginxvim /etc/nginx/nginx.conf user hanchang;   vim /etc/php-fpm.d/www.conf  user = hanchang group = nginx listen.owner = hanchang listen.group = nginx listen.mode = 0660划重点 将当前用户">
+  <meta name="description" content="添加中科大源1$ sudo vi /etc/pacman.conf  1234# 在文件末尾添加[archlinuxcn]SigLevel = Optional TrustedOnlyServer = https://mirrors.ustc.edu.cn/archlinuxcn/$arch  导入GPG Key1$ sudo pacman -Syy &amp;amp;&amp;amp; sudo pacman">
+<meta name="keywords" content="linux,manjaro">
 <meta property="og:type" content="article">
-<meta property="og:title" content="linux环境nginx&#x2F;php-fpm权限问题">
-<meta property="og:url" content="http://www.zhuohc.com/2018/11/10/linux环境nginx-php-fpm权限问题/index.html">
+<meta property="og:title" content="minicat-manjaro-18.0.4-dev">
+<meta property="og:url" content="http://www.zhuohc.com/2019/07/24/minicat-manjaro-18-0-4-dev/index.html">
 <meta property="og:site_name" content="Wellread">
-<meta property="og:description" content="当前用户hanchang, nginx用户nginxvim /etc/nginx/nginx.conf user hanchang;   vim /etc/php-fpm.d/www.conf  user = hanchang group = nginx listen.owner = hanchang listen.group = nginx listen.mode = 0660划重点 将当前用户">
+<meta property="og:description" content="添加中科大源1$ sudo vi /etc/pacman.conf  1234# 在文件末尾添加[archlinuxcn]SigLevel = Optional TrustedOnlyServer = https://mirrors.ustc.edu.cn/archlinuxcn/$arch  导入GPG Key1$ sudo pacman -Syy &amp;amp;&amp;amp; sudo pacman">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-24T01:36:23.340Z">
+<meta property="og:updated_time" content="2019-07-24T06:16:01.997Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="linux环境nginx&#x2F;php-fpm权限问题">
-<meta name="twitter:description" content="当前用户hanchang, nginx用户nginxvim /etc/nginx/nginx.conf user hanchang;   vim /etc/php-fpm.d/www.conf  user = hanchang group = nginx listen.owner = hanchang listen.group = nginx listen.mode = 0660划重点 将当前用户">
+<meta name="twitter:title" content="minicat-manjaro-18.0.4-dev">
+<meta name="twitter:description" content="添加中科大源1$ sudo vi /etc/pacman.conf  1234# 在文件末尾添加[archlinuxcn]SigLevel = Optional TrustedOnlyServer = https://mirrors.ustc.edu.cn/archlinuxcn/$arch  导入GPG Key1$ sudo pacman -Syy &amp;amp;&amp;amp; sudo pacman">
 
 
 
@@ -112,7 +113,7 @@
 
   
   
-  <link rel="canonical" href="http://www.zhuohc.com/2018/11/10/linux环境nginx-php-fpm权限问题/">
+  <link rel="canonical" href="http://www.zhuohc.com/2019/07/24/minicat-manjaro-18-0-4-dev/">
 
 
 
@@ -123,7 +124,7 @@
 </script>
 
   
-  <title>linux环境nginx/php-fpm权限问题 | Wellread</title>
+  <title>minicat-manjaro-18.0.4-dev | Wellread</title>
   
 
 
@@ -315,7 +316,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2018/11/10/linux环境nginx-php-fpm权限问题/">
+    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2019/07/24/minicat-manjaro-18-0-4-dev/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="www.zhuohc.om">
@@ -332,7 +333,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">linux环境nginx/php-fpm权限问题
+          <h1 class="post-title" itemprop="name headline">minicat-manjaro-18.0.4-dev
 
               
             
@@ -358,7 +359,7 @@
                 
               
 
-              <time title="Created: 2018-11-10 13:10:28" itemprop="dateCreated datePublished" datetime="2018-11-10T13:10:28+08:00">2018-11-10</time>
+              <time title="Created: 2019-07-24 14:11:44 / Modified: 14:16:01" itemprop="dateCreated datePublished" datetime="2019-07-24T14:11:44+08:00">2019-07-24</time>
             </span>
           
 
@@ -366,35 +367,13 @@
             
 
             
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-07-24 09:36:23" itemprop="dateModified" datetime="2019-07-24T09:36:23+08:00">2019-07-24</time>
-              </span>
+          
+
+          
+
+          
             
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/运维/" itemprop="url" rel="index"><span itemprop="name">运维</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
+            
           
 
           
@@ -424,16 +403,50 @@
       
 
       
-        <h4 id="当前用户hanchang-nginx用户nginx"><a href="#当前用户hanchang-nginx用户nginx" class="headerlink" title="当前用户hanchang, nginx用户nginx"></a>当前用户hanchang, nginx用户nginx</h4><pre><code>vim /etc/nginx/nginx.conf
-user hanchang;
+        <h4 id="添加中科大源"><a href="#添加中科大源" class="headerlink" title="添加中科大源"></a>添加中科大源</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vi /etc/pacman.conf</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 在文件末尾添加</span><br><span class="line">[archlinuxcn]</span><br><span class="line">SigLevel = Optional TrustedOnly</span><br><span class="line">Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch</span><br></pre></td></tr></table></figure>
+
+<h4 id="导入GPG-Key"><a href="#导入GPG-Key" class="headerlink" title="导入GPG Key"></a>导入GPG Key</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pacman -Syy &amp;&amp; sudo pacman -S archlinuxcn-keyring</span><br></pre></td></tr></table></figure>
+
+<h4 id="安装基本开发编译软件"><a href="#安装基本开发编译软件" class="headerlink" title="安装基本开发编译软件"></a>安装基本开发编译软件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S --needed base-devel</span><br></pre></td></tr></table></figure>
+
+<h4 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pacman -S git</span><br></pre></td></tr></table></figure>
+
+<h4 id="安装chrome"><a href="#安装chrome" class="headerlink" title="安装chrome"></a>安装chrome</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pacman -S google-chrome</span><br></pre></td></tr></table></figure>
+
+<h4 id="安装搜狗拼音输入法"><a href="#安装搜狗拼音输入法" class="headerlink" title="安装搜狗拼音输入法"></a>安装搜狗拼音输入法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pacman -S fcitx-im #默认全部安装</span><br><span class="line">$ sudo pacman -S fcitx-configtool</span><br><span class="line">$ sudo pacman -S fcitx-sogoupinyin</span><br></pre></td></tr></table></figure>
+
+<h4 id="编辑输入法配置文件"><a href="#编辑输入法配置文件" class="headerlink" title="编辑输入法配置文件"></a>编辑输入法配置文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ sudo nano ~/.xprofile</span><br><span class="line"></span><br><span class="line">export GTK_IM_MODULE=fcitx</span><br><span class="line">export QT_IM_MODULE=fcitx</span><br><span class="line">export XMODIFIERS=&quot;@im=fcitx&quot;</span><br><span class="line"># 重启后输入法就可以正常使用。</span><br></pre></td></tr></table></figure>
+
+<h4 id="安装vim"><a href="#安装vim" class="headerlink" title="安装vim"></a>安装vim</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pacman -S vim</span><br></pre></td></tr></table></figure>
+
+<p>安装vim基础配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl https://raw.githubusercontent.com/wklken/vim-for-server/master/vimrc &gt; ~/.vimrc</span><br></pre></td></tr></table></figure>
+
+<h4 id="安装tmux和-tmux"><a href="#安装tmux和-tmux" class="headerlink" title="安装tmux和.tmux"></a>安装tmux和.tmux</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pacman -S tmux</span><br><span class="line">$ cd ~</span><br><span class="line">$ git clone https://github.com/gpakosz/.tmux.git</span><br><span class="line">$ ln -s -f .tmux/.tmux.conf</span><br><span class="line">$ cp .tmux/.tmux.conf.local .</span><br></pre></td></tr></table></figure>
+
+<h4 id="安装zsh和oh-my-zsh"><a href="#安装zsh和oh-my-zsh" class="headerlink" title="安装zsh和oh-my-zsh"></a>安装zsh和oh-my-zsh</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pacman -S zsh</span><br><span class="line">$ sh -c &quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;</span><br></pre></td></tr></table></figure>
+
+<h4 id="安装yaourt"><a href="#安装yaourt" class="headerlink" title="安装yaourt"></a>安装yaourt</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pacman -S --needed base-devel git wget yajl</span><br><span class="line">$ cd /tmp</span><br><span class="line">$ git clone https://aur.archlinux.org/package-query.git</span><br><span class="line">$ cd package-query/</span><br><span class="line">$ makepkg -si &amp;&amp; cd /tmp/</span><br><span class="line">$ git clone https://aur.archlinux.org/yaourt.git</span><br><span class="line">$ cd yaourt/</span><br><span class="line">$ makepkg -si</span><br></pre></td></tr></table></figure>
+
+<h4 id="安装shadowsocks"><a href="#安装shadowsocks" class="headerlink" title="安装shadowsocks"></a>安装shadowsocks</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://aur.archlinux.org/shadowsocks-qt5-git.git</span><br><span class="line">$ cd shadowsocks-qt5-git</span><br><span class="line">$ less PKGBUILD  # 查看</span><br><span class="line">$ makepkg -si  # 安装</span><br></pre></td></tr></table></figure>
+
+<h4 id="设置ssh连接不断开"><a href="#设置ssh连接不断开" class="headerlink" title="设置ssh连接不断开"></a>设置ssh连接不断开</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># vim ~/.ssh/config</span><br><span class="line">Host *</span><br><span class="line">    ServerAliveInterval 60</span><br></pre></td></tr></table></figure>
+
+<h4 id="安装jetbrain全家桶"><a href="#安装jetbrain全家桶" class="headerlink" title="安装jetbrain全家桶"></a>安装jetbrain全家桶</h4><p><a href="http://idea.lanyus.com/" target="_blank" rel="noopener">jetbrain激活参考地址</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vim /etc/hosts</span><br><span class="line"># 添加以下两行代码</span><br><span class="line">0.0.0.0 account.jetbrains.com</span><br><span class="line">0.0.0.0 www.jetbrains.com</span><br></pre></td></tr></table></figure>
+
+<h4 id="安装python开发环境"><a href="#安装python开发环境" class="headerlink" title="安装python开发环境"></a>安装python开发环境</h4><p><a href="https://github.com/zhcshine/wellread/blob/master/python/environment.md" target="_blank" rel="noopener">python开发环境</a></p>
+/2016/11/09/python入门基础/
+<h4 id="安装rabbitmq"><a href="#安装rabbitmq" class="headerlink" title="安装rabbitmq"></a>安装rabbitmq</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pacman -S rabbitmq rabbitmqadmin</span><br><span class="line">$ sudo systemctl enable rabbitmq.service  # 开机启动</span><br><span class="line">$ sudo systemctl start rabbitmq.service  # 启动</span><br><span class="line">$ rabbitmq-plugins enable rabbitmq_management  # 开启web界面</span><br></pre></td></tr></table></figure>
+
+<h4 id="安装redis"><a href="#安装redis" class="headerlink" title="安装redis"></a>安装redis</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pacman -S redis</span><br><span class="line">$ sudo systemctl enable redis.service  # 开机启动</span><br><span class="line">$ sudo systemctl start redis.service  # 启动</span><br></pre></td></tr></table></figure>
+
+<p>设置密码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vim /etc/redis.conf</span><br><span class="line">redispassword password</span><br></pre></td></tr></table></figure>
 
 
-vim /etc/php-fpm.d/www.conf 
-user = hanchang
-group = nginx
-listen.owner = hanchang
-listen.group = nginx
-listen.mode = 0660</code></pre><h4 id="划重点-将当前用户加入nginx用户组"><a href="#划重点-将当前用户加入nginx用户组" class="headerlink" title="划重点 将当前用户加入nginx用户组"></a>划重点 将当前用户加入nginx用户组</h4><pre><code>sudo usermod -a -G nginx hanchang</code></pre>
       
     </div>
 
@@ -458,6 +471,17 @@ listen.mode = 0660</code></pre><h4 id="划重点-将当前用户加入nginx用�
 
     <footer class="post-footer">
       
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag"># linux</a>
+          
+            <a href="/tags/manjaro/" rel="tag"># manjaro</a>
+          
+        </div>
+      
 
       
       
@@ -467,8 +491,8 @@ listen.mode = 0660</code></pre><h4 id="划重点-将当前用户加入nginx用�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/09/ubuntu16.04安装及使用SVN/" rel="next" title="ubuntu16.04安装及使用SVN">
-                <i class="fa fa-chevron-left"></i> ubuntu16.04安装及使用SVN
+              <a href="/2019/07/24/c开发gtk+-入门基础/" rel="next" title="c开发gtk+入门基础">
+                <i class="fa fa-chevron-left"></i> c开发gtk+入门基础
               </a>
             
           </div>
@@ -476,10 +500,6 @@ listen.mode = 0660</code></pre><h4 id="划重点-将当前用户加入nginx用�
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/11/14/centos7.2安装使用openResty/" rel="prev" title="centos7.2安装使用openResty">
-                centos7.2安装使用openResty <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -500,6 +520,10 @@ listen.mode = 0660</code></pre><h4 id="划重点-将当前用户加入nginx用�
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -650,7 +674,7 @@ listen.mode = 0660</code></pre><h4 id="划重点-将当前用户加入nginx用�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#当前用户hanchang-nginx用户nginx"><span class="nav-number">1.</span> <span class="nav-text">当前用户hanchang, nginx用户nginx</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#划重点-将当前用户加入nginx用户组"><span class="nav-number">2.</span> <span class="nav-text">划重点 将当前用户加入nginx用户组</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#添加中科大源"><span class="nav-number">1.</span> <span class="nav-text">添加中科大源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#导入GPG-Key"><span class="nav-number">2.</span> <span class="nav-text">导入GPG Key</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装基本开发编译软件"><span class="nav-number">3.</span> <span class="nav-text">安装基本开发编译软件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装git"><span class="nav-number">4.</span> <span class="nav-text">安装git</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装chrome"><span class="nav-number">5.</span> <span class="nav-text">安装chrome</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装搜狗拼音输入法"><span class="nav-number">6.</span> <span class="nav-text">安装搜狗拼音输入法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#编辑输入法配置文件"><span class="nav-number">7.</span> <span class="nav-text">编辑输入法配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装vim"><span class="nav-number">8.</span> <span class="nav-text">安装vim</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装tmux和-tmux"><span class="nav-number">9.</span> <span class="nav-text">安装tmux和.tmux</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装zsh和oh-my-zsh"><span class="nav-number">10.</span> <span class="nav-text">安装zsh和oh-my-zsh</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装yaourt"><span class="nav-number">11.</span> <span class="nav-text">安装yaourt</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装shadowsocks"><span class="nav-number">12.</span> <span class="nav-text">安装shadowsocks</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置ssh连接不断开"><span class="nav-number">13.</span> <span class="nav-text">设置ssh连接不断开</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装jetbrain全家桶"><span class="nav-number">14.</span> <span class="nav-text">安装jetbrain全家桶</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装python开发环境"><span class="nav-number">15.</span> <span class="nav-text">安装python开发环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装rabbitmq"><span class="nav-number">16.</span> <span class="nav-text">安装rabbitmq</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装redis"><span class="nav-number">17.</span> <span class="nav-text">安装redis</span></a></li></ol></div>
             
 
           </div>
@@ -809,6 +833,8 @@ listen.mode = 0660</code></pre><h4 id="划重点-将当前用户加入nginx用�
 
 
 
+
+  
 
 
 
