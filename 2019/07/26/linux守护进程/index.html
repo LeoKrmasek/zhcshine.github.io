@@ -106,7 +106,7 @@
 <meta property="og:site_name" content="饱读诗书">
 <meta property="og:description" content="什么是守护进程？守护进程（Daemon Process），也就是通常说的 Daemon 进程（精灵进程），是 Linux 中的后台服务进程。它是一个生存期较长的进程，通常独立于控制终端并且周期性地执行某种任务或等待处理某些发生的事件。 守护进程是个特殊的孤儿进程，这种进程脱离终端，为什么要脱离终端呢？之所以脱离于终端是为了避免进程被任何终端所产生的信息所打断，其在执行过程中的信息也不在任何终端上显">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-26T07:58:46.181Z">
+<meta property="og:updated_time" content="2019-07-26T08:07:02.477Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux守护进程">
 <meta name="twitter:description" content="什么是守护进程？守护进程（Daemon Process），也就是通常说的 Daemon 进程（精灵进程），是 Linux 中的后台服务进程。它是一个生存期较长的进程，通常独立于控制终端并且周期性地执行某种任务或等待处理某些发生的事件。 守护进程是个特殊的孤儿进程，这种进程脱离终端，为什么要脱离终端呢？之所以脱离于终端是为了避免进程被任何终端所产生的信息所打断，其在执行过程中的信息也不在任何终端上显">
@@ -367,7 +367,7 @@
                 
               
 
-              <time title="Created: 2019-07-26 13:43:45 / Modified: 15:58:46" itemprop="dateCreated datePublished" datetime="2019-07-26T13:43:45+08:00">2019-07-26</time>
+              <time title="Created: 2019-07-26 13:43:45 / Modified: 16:07:02" itemprop="dateCreated datePublished" datetime="2019-07-26T13:43:45+08:00">2019-07-26</time>
             </span>
           
 
@@ -459,13 +459,18 @@
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">signal(SIGTTOU,SIG_IGN);   </span><br><span class="line">signal(SIGTTIN,SIG_IGN);   </span><br><span class="line">signal(SIGTSTP,SIG_IGN);   </span><br><span class="line">signal(SIGHUP ,SIG_IGN);</span><br></pre></td></tr></table></figure>
 
 <p><strong>在后台运行</strong></p>
-<p>这是为避免挂起控制终端将守护进程放入后台执行。方法是在进程中调用 <figure class="highlight plain"><figcaption><span>使父进程终止， 让守护进行在子进程中后台执行。 </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```c</span><br><span class="line">if( pid = fork() )&#123; // 父进程  </span><br><span class="line">    exit(0);        //结束父进程，子进程继续  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这是为避免挂起控制终端将守护进程放入后台执行。方法是在进程中调用 fork() 使父进程终止， 让守护进行在子进程中后台执行。 </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>( pid = fork() )&#123; <span class="comment">// 父进程  </span></span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);        <span class="comment">//结束父进程，子进程继续  </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p><strong>脱离控制终端、登录会话和进程组</strong></p>
 <p>Linux 中的进程与控制终端，登录会话和进程组之间的关系：</p>
 <p>进程属于一个进程组，进程组号（GID）就是进程组长的进程号（PID）。登录会话可以包含多个进程组。这些进程组共享一个控制终端。这个控制终端通常是创建进程的 shell 登录终端。 控制终端、登录会话和进程组通常是从父进程继承下来的。我们的目的就是要摆脱它们 ，使之不受它们的影响。因此需要调用 setsid() 使子进程成为新的会话组长，示例代码如下：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setsid();</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**禁止进程重新打开控制终端**</span><br><span class="line"></span><br><span class="line">现在，进程已经成为无终端的会话组长，但它可以重新申请打开一个控制终端。可以通过使进程不再成为会话组长来禁止进程重新打开控制终端，采用的方法是再次创建一个子进程，示例代码如下：</span><br><span class="line"></span><br><span class="line">```c</span><br><span class="line">if( pid=fork() )&#123; // 父进程  </span><br><span class="line">    exit(0);      // 结束第一子进程，第二子进程继续（第二子进程不再是会话组长）   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>setsid()调用成功后，进程成为新的会话组长和新的进程组长，并与原来的登录会话和进程组脱离。由于会话过程对控制终端的独占性，进程同时与控制终端脱离。 </p>
+<p><strong>禁止进程重新打开控制终端</strong></p>
+<p>现在，进程已经成为无终端的会话组长，但它可以重新申请打开一个控制终端。可以通过使进程不再成为会话组长来禁止进程重新打开控制终端，采用的方法是再次创建一个子进程，示例代码如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>( pid=fork() )&#123; <span class="comment">// 父进程  </span></span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);      <span class="comment">// 结束第一子进程，第二子进程继续（第二子进程不再是会话组长）   </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><strong>关闭打开的文件描述符</strong></p>
 <p>进程从创建它的父进程那里继承了打开的文件描述符。如不关闭，将会浪费系统资源，造成进程所在的文件系统无法卸下以及引起无法预料的错误。按如下方法关闭它们：</p>

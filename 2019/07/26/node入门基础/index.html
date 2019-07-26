@@ -98,17 +98,17 @@
   };
 </script>
 
-  <meta name="description" content="安装开发环境 安装nvm 1$ wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash  添加以下代码到```~/.profile```, or ```~/.zshrc```12345```shellexport NVM_DIR=&amp;quot;$HOME/.nvm&amp;quot;[ -s &amp;quot">
+  <meta name="description" content="安装开发环境 安装nvm 1$ wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash  添加以下代码到~/.bashrc, ~/.profile, or ~/.zshrc 123export NVM_DIR=&quot;$HOME/.nvm&quot;[ -s &quot;$NVM_DIR/nvm.sh&quot; ] &amp;amp;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="node入门基础">
 <meta property="og:url" content="http://www.zhuohc.com/2019/07/26/node入门基础/index.html">
 <meta property="og:site_name" content="饱读诗书">
-<meta property="og:description" content="安装开发环境 安装nvm 1$ wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash  添加以下代码到```~/.profile```, or ```~/.zshrc```12345```shellexport NVM_DIR=&amp;quot;$HOME/.nvm&amp;quot;[ -s &amp;quot">
+<meta property="og:description" content="安装开发环境 安装nvm 1$ wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash  添加以下代码到~/.bashrc, ~/.profile, or ~/.zshrc 123export NVM_DIR=&quot;$HOME/.nvm&quot;[ -s &quot;$NVM_DIR/nvm.sh&quot; ] &amp;amp;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-26T07:54:56.597Z">
+<meta property="og:updated_time" content="2019-07-26T08:07:02.471Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="node入门基础">
-<meta name="twitter:description" content="安装开发环境 安装nvm 1$ wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash  添加以下代码到```~/.profile```, or ```~/.zshrc```12345```shellexport NVM_DIR=&amp;quot;$HOME/.nvm&amp;quot;[ -s &amp;quot">
+<meta name="twitter:description" content="安装开发环境 安装nvm 1$ wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash  添加以下代码到~/.bashrc, ~/.profile, or ~/.zshrc 123export NVM_DIR=&quot;$HOME/.nvm&quot;[ -s &quot;$NVM_DIR/nvm.sh&quot; ] &amp;amp;">
 
 
 
@@ -366,7 +366,7 @@
                 
               
 
-              <time title="Created: 2019-07-26 15:48:00 / Modified: 15:54:56" itemprop="dateCreated datePublished" datetime="2019-07-26T15:48:00+08:00">2019-07-26</time>
+              <time title="Created: 2019-07-26 15:48:00 / Modified: 16:07:02" itemprop="dateCreated datePublished" datetime="2019-07-26T15:48:00+08:00">2019-07-26</time>
             </span>
           
 
@@ -414,7 +414,9 @@
 <p><a href="https://github.com/nvm-sh/nvm" target="_blank" rel="noopener">安装nvm</a></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash</span><br></pre></td></tr></table></figure>
 
-<p>添加以下代码到<figure class="highlight plain"><figcaption><span>```~/.profile```, or ```~/.zshrc```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```shell</span><br><span class="line">export NVM_DIR=&quot;$HOME/.nvm&quot;</span><br><span class="line">[ -s &quot;$NVM_DIR/nvm.sh&quot; ] &amp;&amp; \. &quot;$NVM_DIR/nvm.sh&quot;  # This loads nvm</span><br><span class="line">[ -s &quot;$NVM_DIR/bash_completion&quot; ] &amp;&amp; \. &quot;$NVM_DIR/bash_completion&quot;  # This loads nvm bash_completion</span><br></pre></td></tr></table></figure></p>
+<p>添加以下代码到~/.bashrc, ~/.profile, or ~/.zshrc</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export NVM_DIR="$HOME/.nvm"</span><br><span class="line">[ -s "$NVM_DIR/nvm.sh" ] &amp;&amp; \. "$NVM_DIR/nvm.sh"  # This loads nvm</span><br><span class="line">[ -s "$NVM_DIR/bash_completion" ] &amp;&amp; \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion</span><br></pre></td></tr></table></figure>
+
 <p>nvm命令</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> nvm install 6.14.4  # 安装or 10.10.0, 8.9.1, etc</span><br><span class="line"><span class="meta">$</span> nvm ls 查看</span><br></pre></td></tr></table></figure>
 
