@@ -246,7 +246,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">62</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">63</span></a>
 
   </li>
 
@@ -307,6 +307,261 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2017/04/20/centos7创建nagios监控集群服务/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhuohanchang">
+      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="饱读诗书">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2017/04/20/centos7创建nagios监控集群服务/" class="post-title-link" itemprop="url">centos7创建nagios监控集群服务</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2017-04-20 11:17:12" itemprop="dateCreated datePublished" datetime="2017-04-20T11:17:12+08:00">2017-04-20</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-07-23 13:51:43" itemprop="dateModified" datetime="2019-07-23T13:51:43+08:00">2019-07-23</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/运维/" itemprop="url" rel="index"><span itemprop="name">运维</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="安装服务器端192-168-0-206"><a href="#安装服务器端192-168-0-206" class="headerlink" title="安装服务器端192.168.0.206"></a>安装服务器端192.168.0.206</h3><p>1,安装lamp环境 <a href="http://www.zhuohc.com/articles/centos7%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/">参考</a> 2, 配置nagios服务</p>
+<pre><code># 创建nagiso用户
+$ sudo useradd nagios
+# 创建apache用户，yum安装httpd服务会自动创建
+$ sudo useradd apache -M -s /sbin/nologin
+useradd：用户“apache”已存在
+# 创建nagcmd用户组
+$ sudo groupadd nagcmd
+# 将usermod加入nagcmd用户组
+sudo usermod -a -G nagcmd nagios
+# 将apache用户加入nagcmd用户组
+$ sudo usermod -a -G nagcmd apache
+# 查看nagios用户所属的组
+$ id -n -G nagios
+nagios nagcmd
+# 查看apace用户所属的组
+$ id -n -G apache
+apache nagcmd
+# 安装nagiso服务
+$sudo yum install nagios
+$sudo yum install nagios-plugins-all
+# 安装nrpe（服务器端和客户端都需要安装）
+$sudo yum install nrpe
+# 启动和开机启动
+$sudo systemctl start nagios
+$sudo systemctl enable nagios
+$sudo systemctl start nrpe
+$sudo systemctl enable nrpe</code></pre><p>3,配置web</p>
+<pre><code># 取消认证
+$ sudo vim /etc/nagios/cgi.cfg
+use_authentication=0 # 此处将1改为0
+# 查看配置文件
+$ls /etc/httpd/conf.d
+autoindex.conf  nagios.conf  php.conf  README  userdir.conf  welcome.conf  xcache.conf
+# 其中nagiso.conf就是nagios的web配置文件
+# 访问http://192.168.0.206/nagios，其中登陆密码在/etc/nagios/passwd文件中，具体文件位置可以在/etc/httpd/conf.d/nagios.conf中查看</code></pre><h3 id="安装客户端192-168-0-208"><a href="#安装客户端192-168-0-208" class="headerlink" title="安装客户端192.168.0.208"></a>安装客户端192.168.0.208</h3><pre><code># 安装mysql，参考上方链接，配合生成check_mysql插件
+# 安装nrpe（服务器端和客户端都需要安装）
+$ sudo yum -y install epel-release
+$ sudo yum install nrpe
+$ sudo yum install nagios-plugins-all
+# 配置nagios客户端
+$ sudo vim /etc/nagios/nrpe.cfg
+allowed_hosts=127.0.0.1,192.168.0.206 # 监控当前客户端的nagios服务器地址
+# 启动服务
+$ sudo systemctl restart nrpe
+$ sudo systemctl enable nrpe
+# 检查启动结果
+$ sudo netstat -lntup | grep nrpe
+tcp        0      0 0.0.0.0:5666            0.0.0.0:*               LISTEN      2540/nrpe           
+tcp6       0      0 :::5666                 :::*                    LISTEN      2540/nrpe
+$ sudo ps -ef | grep nrpe | grep -v grep
+nrpe      2540     1  0 11:59 ?        00:00:00 /usr/sbin/nrpe -c /etc/nagios/nrpe.cfg -d</code></pre><h3 id="配置服务器端192-168-0-206"><a href="#配置服务器端192-168-0-206" class="headerlink" title="配置服务器端192.168.0.206"></a>配置服务器端192.168.0.206</h3><pre><code>$ tree /etc/nagios
+.
+├── cgi.cfg  
+├── conf.d  # 添加新的监视客户端信息
+│   └── web_one.cfg
+├── nagios.cfg  # 配置服务器端nagios
+├── nrpe.cfg # 配置服务器端nrpe
+├── objects
+│   ├── commands.cfg
+│   ├── contacts.cfg
+│   ├── localhost.cfg
+│   ├── printer.cfg
+│   ├── switch.cfg
+│   ├── templates.cfg
+│   ├── timeperiods.cfg
+│   └── windows.cfg
+├── passwd
+└── private
+    └── resource.cfg
+$ cp /etc/nagios/objects/localhost.cfg  /etc/nagios/conf.d/web_one.cfg
+$ vim /etc/nagios/conf.d/web_one.cfg # 将localhost 改成web_one
+define host{
+        use                     linux-server  
+        host_name         web_one
+        alias                   web_one
+        address              192.168.0.208
+}
+define service{
+        use                             local-service 
+        host_name                 web_one
+        service_description    PING
+        check_command        check_ping!100.0,20%!500.0,60%
+}</code></pre><h3 id="查看结果"><a href="#查看结果" class="headerlink" title="查看结果"></a>查看结果</h3><p><img src="http://www.zhuohc.com/wp-content/uploads/2017/04/nagios.png" alt="nagios"></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -4560,7 +4815,7 @@ expose_php = Off # 隐藏php版本信息</code></pre><h4 id="静态文件同步"
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-24 09:24:47" itemprop="dateModified" datetime="2019-07-24T09:24:47+08:00">2019-07-24</time>
+                <time title="Modified: 2019-08-02 19:08:10" itemprop="dateModified" datetime="2019-08-02T19:08:10+08:00">2019-08-02</time>
               </span>
             
           
@@ -5135,6 +5390,15 @@ $ redis-server --version
 
 
 # 使用方法 http://www.zhuohc.com/articles/redis%E5%9F%BA%E7%A1%80/</code></pre><p><a href="/articles/centos7-2安装及使用docker/">centos7.2安装使用docker</a> <a href="/articles/centos7-2安装使用sentry/">centos7.2安装使用sentry</a> <a href="/articles/centos7-2使用rabbitmq/">centos7.2安装使用rabbitMQ</a> <a href="/articles/postgresql常见命令/">centos7.2安装使用postgresql</a></p>
+<h4 id="centos7-2安装supervisor"><a href="#centos7-2安装supervisor" class="headerlink" title="centos7.2安装supervisor"></a>centos7.2安装supervisor</h4><p>安装</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo yum install -y supervisor</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> systemctl <span class="built_in">enable</span> supervisord <span class="comment"># 开机自启动</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> systemctl start supervisord <span class="comment"># 启动supervisord服务</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> systemctl status supervisord <span class="comment"># 查看supervisord服务状态</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ps -ef|grep supervisord <span class="comment"># 查看是否存在supervisord进程</span></span></span><br></pre></td></tr></table></figure>
+
+<p>配置</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 设置web访问</span></span><br><span class="line">[inet_http_server]</span><br><span class="line">port=*:9001                                                  </span><br><span class="line">username=username</span><br><span class="line">password=password </span><br><span class="line">[include]                                                                                   │(.env-api) ➜  supervisord.d sudo vim doneself-api.ini                 </span><br><span class="line">files = supervisord.d/*.ini   # 配置文件地址</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> vim xxx.ini</span></span><br><span class="line">[program:doneself-api-uwsgi]</span><br><span class="line">command = /home/doneself/code/web/.env-api/bin/uwsgi --ini /home/doneself/code/web/api/uwsgi.ini</span><br><span class="line">autostart = true</span><br><span class="line">autorestart = true</span><br><span class="line">stopsignal= QUIT</span><br><span class="line">user= doneself</span><br><span class="line">redirect_stderr=false</span><br><span class="line">stdout_logfile = /home/doneself/code/web/api/log/uwsgi_stdout.log</span><br><span class="line">stderr_logfile = /home/doneself/code/web/api/log/uwsgi_stderr.log</span><br></pre></td></tr></table></figure>
+
+<p><a href="http://supervisord.org/" target="_blank" rel="noopener">其他信息</a></p>
 
           
         
@@ -7006,205 +7270,6 @@ defaultTopPosition = -parseInt(defaultTopPosition);</code></pre>
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2016/11/09/windowsserver服务器基础设置/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhuohanchang">
-      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="饱读诗书">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2016/11/09/windowsserver服务器基础设置/" class="post-title-link" itemprop="url">windowsserver服务器基础设置</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2016-11-09 16:04:17" itemprop="dateCreated datePublished" datetime="2016-11-09T16:04:17+08:00">2016-11-09</time>
-            </span>
-          
-
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-07-24 09:36:42" itemprop="dateModified" datetime="2019-07-24T09:36:42+08:00">2019-07-24</time>
-              </span>
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/运维/" itemprop="url" rel="index"><span itemprop="name">运维</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="远程连接"><a href="#远程连接" class="headerlink" title="远程连接"></a>远程连接</h3><p>禁止administrators组远程连接</p>
-<blockquote>
-<p>运行gpedit.msc<br>计算机配置-&gt;windows设置-&gt;安全设置-&gt;本地策略-&gt;用户权限分配-&gt;通过终端服务允许登录<br>将Administrators账号删除掉,保留Remote Desktop Users</p>
-</blockquote>
-<p>创建新的用户</p>
-<blockquote>
-<p>本地用户和组-&gt;用户右键-&gt;新用户-&gt;输入用户名，设置密码 添加Administrators组，Remote Desktop Users组</p>
-</blockquote>
-<p>限制登陆次数</p>
-<blockquote>
-<p>计算机配置-&gt;windows设置-&gt;安全设置-&gt;账户策略-&gt;账户锁定策略”，“账户锁定阈值”设置为 20后，系统会自动设置锁定时间和计数器</p>
-</blockquote>
-<p>3389端口修改</p>
-<blockquote>
-<p>修改注册表，是不是需要修改？</p>
-</blockquote>
-<p>超过2个远程连接处理办法及规避方法</p>
-<pre><code>mstsc /console /v:10.10.10.10:3389</code></pre><blockquote>
-<p>开始－管理工具－终端服务配置－服务器配置－限制每个用户使用一个会话</p>
-</blockquote>
-<h3 id="防火墙"><a href="#防火墙" class="headerlink" title="防火墙"></a>防火墙</h3><p>开启防火墙</p>
-<blockquote>
-<p>控制面板&gt;防火墙&gt;开启<br>例外里勾选远程桌面,保证服务器可以正常连接<br>其他情况就在添加端口里添加即可</p>
-</blockquote>
-<h3 id="FTP"><a href="#FTP" class="headerlink" title="FTP"></a>FTP</h3><p>开启ftp</p>
-<blockquote>
-<p>在控制面板的添加/删除程序——Windows组件向导——应用程序服务器——Internet信息服务(IIS)中选中“文件传输协议(FTP)服务”。<br>需要文件夹AMD64 设置一个ftp用户ftpuser<br>在ftp设置中关掉允许匿名连接<br>主目录中本地路径为E:\FTP<br>不要勾选写入权限<br>默认ftp站点新建虚拟目录ftpuser 路径E:\FTP\ftpuser<br>在防火墙上开启20，21端口 在ftp客户端选择port主动模式，主动模式不需要服务器开启其他端口</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -7252,7 +7317,7 @@ defaultTopPosition = -parseInt(defaultTopPosition);</code></pre>
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-count">63</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

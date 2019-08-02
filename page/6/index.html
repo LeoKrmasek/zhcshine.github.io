@@ -246,7 +246,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">62</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">63</span></a>
 
   </li>
 
@@ -323,6 +323,229 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2016/11/09/mysql主从复制/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhuohanchang">
+      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="饱读诗书">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2016/11/09/mysql主从复制/" class="post-title-link" itemprop="url">mysql主从复制</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2016-11-09 14:34:49" itemprop="dateCreated datePublished" datetime="2016-11-09T14:34:49+08:00">2016-11-09</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-07-24 09:27:38" itemprop="dateModified" datetime="2019-07-24T09:27:38+08:00">2019-07-24</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/运维/" itemprop="url" rel="index"><span itemprop="name">运维</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="测试环境"><a href="#测试环境" class="headerlink" title="测试环境"></a>测试环境</h3><p>主服务器<br>192.168.0.160 mysql 5.6.17 win2008R2<br>从服务器<br>192.168.0.206 mysql 5.6.12 win2003</p>
+<h3 id="主服务器创建数据库test1-test2"><a href="#主服务器创建数据库test1-test2" class="headerlink" title="主服务器创建数据库test1, test2"></a>主服务器创建数据库test1, test2</h3><pre><code>mysql&gt;CREATE DATABASE `test1` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;     
+mysql&gt;USE test1
+mysql&gt;CREATE TABLE `test1`.`user` ( `id` INT(10) NOT NULL AUTO_INCREMENT , `name` VARCHAR(100) NOT NULL , PRIMARY KEY (`id`)) ENGINE = MyISAM;  
+mysql&gt;INSERT INTO `user` (`id`, `name`) VALUES (NULL, &apos;user1&apos;), (NULL, &apos;user2&apos;)
+
+
+mysql&gt;CREATE DATABASE `test2` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;    
+mysql&gt;USE test2
+mysql&gt;CREATE TABLE `test2`.`user` ( `id` INT(10) NOT NULL AUTO_INCREMENT , `name` VARCHAR(100) NOT NULL , PRIMARY KEY (`id`)) ENGINE = MyISAM;  
+mysql&gt;INSERT INTO `user` (`id`, `name`) VALUES (NULL, &apos;user1&apos;), (NULL, &apos;user2&apos;)</code></pre><h3 id="将test1-test2-复制到从服务器上"><a href="#将test1-test2-复制到从服务器上" class="headerlink" title="将test1,test2 复制到从服务器上"></a>将test1,test2 复制到从服务器上</h3><pre><code>mysql&gt;CREATE DATABASE `test1` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;     
+mysql&gt;USE test1  
+mysql&gt;set names utf8;  
+mysql&gt;source c:/test1.sql;
+mysql&gt;CREATE DATABASE `test2` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;     
+mysql&gt;USE test2  
+mysql&gt;set names utf8;  
+mysql&gt;source c:/test2.sql;</code></pre><h3 id="主服务器配置"><a href="#主服务器配置" class="headerlink" title="主服务器配置"></a>主服务器配置</h3><p>编辑配置文件my.ini</p>
+<pre><code>[mysqld] 
+server-id=1     # 配一个唯一的ID编号，1至32  
+log-bin=mysql-bin  # 二进制文件存放路径  
+binlog-do-db=test1  # 需要同步的数据库名  
+binlog-ignore-db=test2  # 不需要同步的数据库名</code></pre><p>重启mysql并重新登陆，创建授权用户</p>
+<pre><code>mysql&gt;grant REPLICATION SLAVE,RELOAD,SUPER on *.* to slave@192.168.0.206 identified by &apos;123456&apos; ;  
+mysql&gt;grant REPLICATION SLAVE,RELOAD,SUPER on *.* to slave1@192.168.0.118 identified by &apos;123456&apos; ; # 如果是多从
+mysql&gt;flush privileges;     
+mysql&gt;show master status;  # 找到File 和 Position 的值记录下来    </code></pre><p><img src="http://7xq3ry.com1.z0.glb.clouddn.com/20160401152254.png" alt></p>
+<h3 id="从服务器配置192-168-0-206"><a href="#从服务器配置192-168-0-206" class="headerlink" title="从服务器配置192.168.0.206"></a>从服务器配置192.168.0.206</h3><p>编辑配置文件my.ini添加</p>
+<pre><code>[mysqld]
+server-id=2     #唯一
+replicate-do-db=test1
+replicate-ignore-db=test2</code></pre><p>重启数据库并重新登陆</p>
+<pre><code>mysql&gt;mysql -uroot -p  
+mysql&gt;change master to master_host=&apos;192.168.0.160&apos;,master_user=&apos;slave&apos;,master_password=&apos;123456&apos;, master_log_file=&apos;mysql-bin.000001&apos;,master_log_pos=199;  
+mysql&gt;start slave;
+mysql&gt;show slave status\G</code></pre><p>结果出现一下内容表示成功</p>
+<pre><code>Slave_IO_Running: Yes
+Slave_SQL_Running: Yes</code></pre><p><img src="http://7xq3ry.com1.z0.glb.clouddn.com/20160401152538.png" alt> 多从，另一个从服务器配置192.168.0.118<br>编辑配置文件my.ini添加</p>
+<pre><code>[mysqld]
+server-id=3     #唯一，注意和其他的从服务器不一致
+replicate-do-db=test1
+replicate-ignore-db=test2</code></pre><p>重启mysql并重新登陆，创建授权用户</p>
+<pre><code>mysql&gt;change master to master_host=&apos;192.168.0.160&apos;,master_user=&apos;slave1&apos;,master_password=&apos;123456&apos;, master_log_file=&apos;mysql-bin.000001&apos;,master_log_pos=199;  
+mysql&gt;start slave;
+mysql&gt;show slave status\G    </code></pre><h3 id="最后测试"><a href="#最后测试" class="headerlink" title="最后测试"></a>最后测试</h3><p>在主服务器添加表和数据，可以看到从服务器数据库已经修改。<br>重启主从数据库，依然可以正常同步。</p>
+<h3 id="错误处理办法"><a href="#错误处理办法" class="headerlink" title="错误处理办法"></a>错误处理办法</h3><p>连接不上master：<br>1，密码是否正确，是否给予权限<br>2，防火墙是否开启3306端口 配置的时候注意锁表</p>
+<pre><code>LOCK TABLES
+
+
+UNLOCK TABLES;</code></pre><p>错误提示 Got fatal error 1236 from master when reading data from binary log: ‘Slave can not handle replication events with the checksum that master is configured to log; the first event ‘mysql-bin.000002’ at 120, the last event read from ‘./mysql-bin.000002’ at 120, the last byte read from ‘./mysql-bin.000002’ at 120 由于主库是5.6, 从库是5.5.<br>5.6的版本中加入了replication event checksum，主从复制时间校验功能，所以需要把这个关掉才能正常同步到5.5的slave 修改主库</p>
+<pre><code>sudo vim /etc/my.cnf
+binlog_checksum=none</code></pre><p>重新配置主从即可</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2016/11/09/mysql入门基础/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -383,7 +606,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-24 09:27:47" itemprop="dateModified" datetime="2019-07-24T09:27:47+08:00">2019-07-24</time>
+                <time title="Modified: 2019-07-29 09:59:10" itemprop="dateModified" datetime="2019-07-29T09:59:10+08:00">2019-07-29</time>
               </span>
             
           
@@ -436,33 +659,29 @@
       
         
           
-            <h4 id="安装mysql"><a href="#安装mysql" class="headerlink" title="安装mysql"></a>安装mysql</h4><p>ubuntu16.04</p>
-<pre><code>sudo apt-get install mysql-server
-sudo apt install mysql-client  # 服务器端不需要
-mysql_secure_installation</code></pre><h4 id="查看mysql版本信息"><a href="#查看mysql版本信息" class="headerlink" title="查看mysql版本信息"></a>查看mysql版本信息</h4><pre><code>mysql --version  
-mysql&gt; show variables like &apos;%version_%&apos;;</code></pre><p><img src="http://7xq3ry.com1.z0.glb.clouddn.com/20160121142352.png" alt></p>
-<h4 id="数据库创建备份导入命令"><a href="#数据库创建备份导入命令" class="headerlink" title="数据库创建备份导入命令"></a>数据库创建备份导入命令</h4><pre><code>// 创建数据库  
-CREATE DATABASE `test` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;  
+            <h4 id="安装mysql"><a href="#安装mysql" class="headerlink" title="安装mysql"></a>安装mysql</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// ubuntu16.04</span><br><span class="line">sudo apt-get install mysql-server</span><br><span class="line">sudo apt install mysql-client  # 服务器端不需要</span><br><span class="line">mysql_secure_installation</span><br></pre></td></tr></table></figure>
 
-// 删除数据库  
- DROP DATABASE IF EXISTS `test`; 
+<h4 id="查看mysql版本信息"><a href="#查看mysql版本信息" class="headerlink" title="查看mysql版本信息"></a>查看mysql版本信息</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql --version  </span><br><span class="line"><span class="meta">mysql&gt;</span> show variables like '%version_%';</span><br></pre></td></tr></table></figure>
 
-// 创建表  
-CREATE TABLE test(name varchar(32) not null,password varchar(64) not null)DEFAULT charset=utf8;  
+<h4 id="数据库创建备份导入命令"><a href="#数据库创建备份导入命令" class="headerlink" title="数据库创建备份导入命令"></a>数据库创建备份导入命令</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">// 创建数据库  </span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">DATABASE</span> <span class="string">`test`</span> <span class="keyword">DEFAULT</span> <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> utf8 <span class="keyword">COLLATE</span> utf8_general_ci;  </span><br><span class="line"></span><br><span class="line">// 删除数据库  </span><br><span class="line"> <span class="keyword">DROP</span> <span class="keyword">DATABASE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> <span class="string">`test`</span>; </span><br><span class="line"></span><br><span class="line">// 创建表  </span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">test</span>(<span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">32</span>) <span class="keyword">not</span> <span class="literal">null</span>,<span class="keyword">password</span> <span class="built_in">varchar</span>(<span class="number">64</span>) <span class="keyword">not</span> <span class="literal">null</span>)<span class="keyword">DEFAULT</span> <span class="keyword">charset</span>=utf8;  </span><br><span class="line"></span><br><span class="line"><span class="comment">### 重置自增字段</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="string">`tableName`</span> AUTO_INCREMENT = <span class="number">1</span>; </span><br><span class="line">或者</span><br><span class="line"><span class="keyword">truncate</span> tableName; </span><br><span class="line"></span><br><span class="line">// 删除表</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">test</span>;</span><br><span class="line">    </span><br><span class="line">// 删除表内容，保留表结构  </span><br><span class="line">mysql&gt; TRUNCATE TABLE `tabel_name`;</span><br><span class="line">    </span><br><span class="line">// 删除表并重置主键，不会留下日志，相当于删除表并重建    </span><br><span class="line"><span class="keyword">TRUNCATE</span> <span class="keyword">TABLE</span> <span class="string">`animal_cell_attribute`</span></span><br></pre></td></tr></table></figure>
 
-### 重置自增字段
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br></pre></td><td class="code"><pre><span class="line">    <span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="string">`tableName`</span> AUTO_INCREMENT = <span class="number">1</span>; </span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">或者</span><br><span class="line"></span><br><span class="line">    <span class="keyword">truncate</span> tableName; </span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    // 删除表</span><br><span class="line">    <span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">test</span>;</span><br><span class="line">    </span><br><span class="line">    // 删除表内容，保留表结构  </span><br><span class="line">    mysql&gt; TRUNCATE TABLE `tabel_name`;</span><br><span class="line">    Query OK, 0 rows affected (0.29 sec)</span><br><span class="line">    </span><br><span class="line">    // 删除表并重置主键，不会留下日志，相当于删除表并重建    </span><br><span class="line">    <span class="keyword">TRUNCATE</span> <span class="keyword">TABLE</span> <span class="string">`animal_cell_attribute`</span> </span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    // 导出一个数据库    </span><br><span class="line">    mysqldump -u 用户名 -p 数据库名 &gt; 导出的文件名.sql   </span><br><span class="line">    mysqldump -u root -p uscnerp &gt; uscnerp.sql    </span><br><span class="line">    Enter <span class="keyword">password</span>:  </span><br><span class="line">    </span><br><span class="line">    // 导出一张表</span><br><span class="line">    mysqldump -u 用户名 -p 数据库名 表名 &gt; 导出的文件名.sql  </span><br><span class="line">    mysqldump -u root -p animal animal_service &gt; animal_service.sql</span><br><span class="line">    Enter <span class="keyword">password</span>: **********  </span><br><span class="line">    </span><br><span class="line">    // 导出多个数据库</span><br><span class="line">    mysqldump  -uroot -p <span class="comment">--databases test mysql #空格分隔</span></span><br><span class="line">    </span><br><span class="line">    // 导出到excel表格</span><br><span class="line">    mysql   -uroot   -p   -e   <span class="string">"select   *   from   test.table2 "</span>   &gt;   d:a.xsl</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    // 导入数据库  </span><br><span class="line">    mysql -u root -p   </span><br><span class="line">    mysql&gt;<span class="keyword">use</span> 数据库  </span><br><span class="line">    mysql&gt;<span class="keyword">set</span> <span class="keyword">names</span> utf8; （先确认编码，如果不设置可能会出现乱码，注意不是UTF-8）   </span><br><span class="line">    mysql&gt;source d:\wcnc_db.sql</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line"><span class="comment">### 查看表</span></span><br><span class="line"></span><br><span class="line">查看表结构</span><br><span class="line"></span><br><span class="line">    <span class="keyword">show</span> <span class="keyword">create</span> <span class="keyword">table</span> 表名;</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line"><span class="comment">### 配置用户权限</span></span><br><span class="line"></span><br><span class="line">重置root密码并查看所有用户权限</span><br><span class="line"></span><br><span class="line">    mysql&gt; use mysql;</span><br><span class="line">    Database changed</span><br><span class="line">    mysql&gt; UPDATE user SET Password = PASSWORD('newpassword') WHERE user = 'root';</span><br><span class="line">    Query OK, 3 rows affected (0.02 sec)</span><br><span class="line">    Rows matched: 3  Changed: 3  Warnings: 0</span><br><span class="line">    </span><br><span class="line">    mysql&gt; SELECT Host,User,Password FROM mysql.user;</span><br><span class="line">    +<span class="comment">-----------+--------+-------------------------------------------+</span></span><br><span class="line">    | Host      | User   | Password                                  |</span><br><span class="line">    +<span class="comment">-----------+--------+-------------------------------------------+</span></span><br><span class="line">    | localhost | root   | *2ED3112AFECE04CEE0AA42619AB00D4498BA3342 |</span><br><span class="line">    | 127.0.0.1 | root   | *2ED3112AFECE04CEE0AA42619AB00D4498BA3342 |</span><br><span class="line">    | ::1       | root   | *2ED3112AFECE04CEE0AA42619AB00D4498BA3342 |</span><br><span class="line">    | localhost |        |                                           |</span><br><span class="line">    | localhost | animal | *CC87B1E39E699B64E0B80741B5D1991BC5BE57AC |</span><br><span class="line">    +<span class="comment">-----------+--------+-------------------------------------------+</span></span><br><span class="line">    5 rows in <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">查看全部用户</span><br><span class="line"></span><br><span class="line">    <span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> <span class="keyword">CONCAT</span>(<span class="string">'User: '''</span>,<span class="keyword">user</span>,<span class="string">'''@'''</span>,host,<span class="string">''';'</span>) <span class="keyword">AS</span> <span class="keyword">query</span> <span class="keyword">FROM</span> mysql.user;</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">创建用户</span><br><span class="line"></span><br><span class="line">    mysql&gt; CREATE USER username@localhost IDENTIFIED BY 'password';</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">&gt; username:用户名  </span><br><span class="line">&gt; @localhost：表示用户只能在本地访问  </span><br><span class="line">&gt; password:密码</span><br><span class="line"></span><br><span class="line">配置权限</span><br><span class="line"></span><br><span class="line">    <span class="keyword">GRANT</span> <span class="keyword">SELECT</span>,<span class="keyword">INSERT</span>,<span class="keyword">UPDATE</span> <span class="keyword">ON</span> database.* <span class="keyword">TO</span> username@localhost <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'password'</span>;  </span><br><span class="line">    <span class="keyword">GRANT</span> <span class="keyword">ALL</span> <span class="keyword">PRIVILEGES</span> <span class="keyword">ON</span> *.* <span class="keyword">TO</span> <span class="keyword">user</span>;@localhost </span><br><span class="line">    // <span class="keyword">GRANT</span> 权限名称 <span class="keyword">ON</span> 数据库.数据表 <span class="keyword">TO</span> 用户名@访问地址 <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'密码'</span>;</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">刷新权限列表</span><br><span class="line"></span><br><span class="line">    <span class="keyword">flush</span> <span class="keyword">privileges</span>;</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">配置备份用户权限</span><br><span class="line"></span><br><span class="line">    <span class="keyword">CREATE</span> <span class="keyword">USER</span> <span class="string">'backuper'</span>@<span class="string">'localhost'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'PASSWORD'</span>;</span><br><span class="line">    <span class="keyword">GRANT</span> <span class="keyword">SELECT</span>, RELOAD, PROCESS, <span class="keyword">SHOW</span> <span class="keyword">DATABASES</span>, SUPER, <span class="keyword">LOCK</span> <span class="keyword">TABLES</span>, <span class="keyword">REPLICATION</span> <span class="keyword">CLIENT</span>, <span class="keyword">SHOW</span> <span class="keyword">VIEW</span>, <span class="keyword">EVENT</span> <span class="keyword">ON</span> *.* <span class="keyword">TO</span> <span class="string">'backuper'</span>@<span class="string">'localhost'</span>;</span><br><span class="line">    <span class="keyword">FLUSH</span> <span class="keyword">PRIVILEGES</span>;</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line"><span class="comment">### window服务器下自动备份</span></span><br><span class="line"></span><br><span class="line">**编写脚本**</span><br><span class="line"></span><br><span class="line">    rem *******************************Code Start*****************************</span><br><span class="line">    @echo off</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">set</span> <span class="string">"Ymd=%date:~,4%%date:~5,2%%date:~8,2%"</span></span><br><span class="line">    mysqldump <span class="comment">--opt -u root --password=abcdefg database &gt; F:\FTP\BackupMysql\database_%Ymd%.sql</span></span><br><span class="line">    @echo <span class="keyword">on</span></span><br><span class="line">    <span class="keyword">rem</span> *******************************Code <span class="keyword">End</span>*****************************</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">**定时任务**  </span><br><span class="line">注意在操作中填写脚本并在起始于写入脚本所在盘符E:\</span><br><span class="line"></span><br><span class="line"><span class="comment">### 删除mysql</span></span><br><span class="line"></span><br><span class="line">&gt; 在服务里找到mysql服务，停止使用  </span><br><span class="line">&gt; 控制面板中卸载mysql 注册表文件删除： HKEY\_LOCAL\_MACHINE/<span class="keyword">SYSTEM</span>/ControlSet001/Services/Eventlog/Application/MySQL 目录删除; HKEY\_LOCAL\_MACHINE/SYSTEM/ControlSet002/Services/Eventlog/Application/MySQL 目录删除; HKEY\_LOCAL\_MACHINE/SYSTEM/CurrentControlSet/Services/Eventlog/Application/MySQL 目录删除; 在硬盘和注册表中搜索mysql并删除掉</span><br><span class="line"></span><br><span class="line"><span class="comment">### 开启慢查询日志</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// 导出一个数据库    </span><br><span class="line">mysqldump -u 用户名 -p 数据库名 &gt; 导出的文件名.sql   </span><br><span class="line">mysqldump -u root -p uscnerp &gt; uscnerp.sql    </span><br><span class="line">Enter password:  </span><br><span class="line">    </span><br><span class="line">// 导出一张表</span><br><span class="line">mysqldump -u 用户名 -p 数据库名 表名 &gt; 导出的文件名.sql  </span><br><span class="line">mysqldump -u root -p animal animal_service &gt; animal_service.sql</span><br><span class="line">Enter password: **********  </span><br><span class="line">    </span><br><span class="line">// 导出多个数据库</span><br><span class="line">mysqldump  -uroot -p --databases test mysql #空格分隔</span><br><span class="line">    </span><br><span class="line">// 导出到excel表格</span><br><span class="line">mysql   -uroot   -p   -e   "select   *   from   test.table2 "   &gt;   d:a.xsl</span><br></pre></td></tr></table></figure>
 
-sudo vim /etc/my.cnf
-# slow_query_log
-slow_query_log=on
-slow-query-log-file=/var/log/mysql/slow.log # 保证此文件属于mysql用户，mysql组，并可写权限
-long_query_time=1 # 超过1秒写入慢查询日志
-log-queries-not-using-indexes</code></pre><blockquote>
-<p>重启mysql</p>
+
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 导入数据库  </span><br><span class="line"></span><br><span class="line">mysql&gt;use 数据库  </span><br><span class="line">mysql&gt;set names utf8; （先确认编码，如果不设置可能会出现乱码，注意不是UTF-8）   </span><br><span class="line">mysql&gt;source d:\wcnc_db.sql</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="查看表"><a href="#查看表" class="headerlink" title="查看表"></a>查看表</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 查看表结构</span><br><span class="line"><span class="keyword">show</span> <span class="keyword">create</span> <span class="keyword">table</span> 表名;</span><br></pre></td></tr></table></figure>
+
+<h4 id="配置用户权限"><a href="#配置用户权限" class="headerlink" title="配置用户权限"></a>配置用户权限</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 重置root密码并查看所有用户权限</span></span><br><span class="line"> mysql&gt; use mysql;</span><br><span class="line">Database changed</span><br><span class="line">mysql&gt; UPDATE user SET Password = PASSWORD('newpassword') WHERE user = 'root';</span><br><span class="line">Query OK, 3 rows affected (0.02 sec)</span><br><span class="line">Rows matched: 3  Changed: 3  Warnings: 0</span><br><span class="line"></span><br><span class="line">mysql&gt; SELECT Host,User,Password FROM mysql.user;</span><br><span class="line">+<span class="comment">-----------+--------+-------------------------------------------+</span></span><br><span class="line">| Host      | User   | Password                                  |</span><br><span class="line">+<span class="comment">-----------+--------+-------------------------------------------+</span></span><br><span class="line">| localhost | root   | *2ED3112AFECE04CEE0AA42619AB00D4498BA3342 |</span><br><span class="line">| 127.0.0.1 | root   | *2ED3112AFECE04CEE0AA42619AB00D4498BA3342 |</span><br><span class="line">| ::1       | root   | *2ED3112AFECE04CEE0AA42619AB00D4498BA3342 |</span><br><span class="line">| localhost |        |                                           |</span><br><span class="line">| localhost | animal | *CC87B1E39E699B64E0B80741B5D1991BC5BE57AC |</span><br><span class="line">+<span class="comment">-----------+--------+-------------------------------------------+</span></span><br><span class="line">5 rows in <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br><span class="line"></span><br><span class="line">// 查看全部用户</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> <span class="keyword">CONCAT</span>(<span class="string">'User: '''</span>,<span class="keyword">user</span>,<span class="string">'''@'''</span>,host,<span class="string">''';'</span>) <span class="keyword">AS</span> <span class="keyword">query</span> <span class="keyword">FROM</span> mysql.user;</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">// 创建用户</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> username@localhost <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'password'</span>;</span><br><span class="line">&gt; username:用户名  </span><br><span class="line">&gt; @localhost：表示用户只能在本地访问  </span><br><span class="line">&gt; password:密码</span><br><span class="line"></span><br><span class="line">// 配置权限</span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">SELECT</span>,<span class="keyword">INSERT</span>,<span class="keyword">UPDATE</span> <span class="keyword">ON</span> database.* <span class="keyword">TO</span> username@localhost <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'password'</span>;  </span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">ALL</span> <span class="keyword">PRIVILEGES</span> <span class="keyword">ON</span> *.* <span class="keyword">TO</span> <span class="keyword">user</span>;@localhost </span><br><span class="line">// <span class="keyword">GRANT</span> 权限名称 <span class="keyword">ON</span> 数据库.数据表 <span class="keyword">TO</span> 用户名@访问地址 <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'密码'</span>;</span><br><span class="line">    </span><br><span class="line">// 刷新权限列表</span><br><span class="line"><span class="keyword">flush</span> <span class="keyword">privileges</span>;</span><br><span class="line">    </span><br><span class="line">// 配置备份用户权限</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> <span class="string">'backuper'</span>@<span class="string">'localhost'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'PASSWORD'</span>;</span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">SELECT</span>, RELOAD, PROCESS, <span class="keyword">SHOW</span> <span class="keyword">DATABASES</span>, SUPER, <span class="keyword">LOCK</span> <span class="keyword">TABLES</span>, <span class="keyword">REPLICATION</span> <span class="keyword">CLIENT</span>, <span class="keyword">SHOW</span> <span class="keyword">VIEW</span>, <span class="keyword">EVENT</span> <span class="keyword">ON</span> *.* <span class="keyword">TO</span> <span class="string">'backuper'</span>@<span class="string">'localhost'</span>;</span><br><span class="line"><span class="keyword">FLUSH</span> <span class="keyword">PRIVILEGES</span>;</span><br><span class="line"></span><br><span class="line">// 开启慢查询日志</span><br><span class="line">```bash </span><br><span class="line">sudo vim /etc/my.cnf</span><br><span class="line"></span><br><span class="line"><span class="comment"># slow_query_log</span></span><br><span class="line">slow_query_log=on</span><br><span class="line">slow-query-log-file=/var/log/mysql/slow.log <span class="comment"># 保证此文件属于mysql用户，mysql组，并可写权限</span></span><br><span class="line">long_query_time=1 <span class="comment"># 超过1秒写入慢查询日志</span></span><br><span class="line">log-queries-not-using-indexes</span><br><span class="line">    </span><br><span class="line">// 查看是否开启mysql慢查询日志</span><br><span class="line">&gt;mysql show variables like "slow_query_log";</span><br><span class="line"></span><br><span class="line">// 设置密码过期时间</span><br><span class="line"><span class="keyword">SET</span> <span class="keyword">GLOBAL</span> default_password_lifetime = <span class="number">0</span>;  // 全局用户永不过期</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">USER</span> <span class="string">'root'</span>@<span class="string">'localhost'</span> <span class="keyword">PASSWORD</span> <span class="keyword">EXPIRE</span> <span class="keyword">NEVER</span>;  // 单个用户用户过期</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">USER</span> <span class="string">'root'</span>@<span class="string">'localhost'</span> <span class="keyword">PASSWORD</span> <span class="keyword">EXPIRE</span> <span class="built_in">INTERVAL</span> <span class="number">90</span> <span class="keyword">DAY</span>;  // 单个用户</span><br></pre></td></tr></table></figure>
+
+<h4 id="window服务器下自动备份"><a href="#window服务器下自动备份" class="headerlink" title="window服务器下自动备份"></a>window服务器下自动备份</h4><h5 id="编写脚本"><a href="#编写脚本" class="headerlink" title="编写脚本"></a>编写脚本</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">rem *******************************Code Start*****************************</span><br><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line">    </span><br><span class="line"><span class="built_in">set</span> <span class="string">"Ymd=%date:~,4%%date:~5,2%%date:~8,2%"</span></span><br><span class="line">mysqldump --opt -u root --password=abcdefg database &gt; F:\FTP\BackupMysql\database_%Ymd%.sql</span><br><span class="line">@<span class="built_in">echo</span> on</span><br><span class="line">rem *******************************Code End*****************************</span><br></pre></td></tr></table></figure>
+
+<h5 id="定时任务"><a href="#定时任务" class="headerlink" title="定时任务"></a>定时任务</h5><p>注意在操作中填写脚本并在起始于写入脚本所在盘符E:\</p>
+<h5 id="删除mysql"><a href="#删除mysql" class="headerlink" title="删除mysql"></a>删除mysql</h5><blockquote>
+<p>在服务里找到mysql服务，停止使用<br>控制面板中卸载mysql 注册表文件删除： HKEY_LOCAL_MACHINE/SYSTEM/ControlSet001/Services/Eventlog/Application/MySQL 目录删除; HKEY_LOCAL_MACHINE/SYSTEM/ControlSet002/Services/Eventlog/Application/MySQL 目录删除; HKEY_LOCAL_MACHINE/SYSTEM/CurrentControlSet/Services/Eventlog/Application/MySQL 目录删除; 在硬盘和注册表中搜索mysql并删除掉</p>
 </blockquote>
-<pre><code>### 查看是否开启mysql慢查询日志
-&gt;mysql show variables like &quot;slow_query_log&quot;;</code></pre>
+
           
         
       
@@ -2868,207 +3087,6 @@ TUTR2-I2NHO-GQBC6-ZECWH</code></pre><h3 id="终端管理工具Cmder"><a href="#�
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2016/11/08/硬链接软链接方式/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhuohanchang">
-      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="饱读诗书">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2016/11/08/硬链接软链接方式/" class="post-title-link" itemprop="url">硬链接软链接方式</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2016-11-08 16:44:53" itemprop="dateCreated datePublished" datetime="2016-11-08T16:44:53+08:00">2016-11-08</time>
-            </span>
-          
-
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-07-23 13:51:43" itemprop="dateModified" datetime="2019-07-23T13:51:43+08:00">2019-07-23</time>
-              </span>
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/运维/" itemprop="url" rel="index"><span itemprop="name">运维</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="硬链结和符号链接的区别"><a href="#硬链结和符号链接的区别" class="headerlink" title="硬链结和符号链接的区别"></a>硬链结和符号链接的区别</h3><p>硬连接记录的是目标的 inode,符号连接记录的是目标的 path。<br>软连接就像是快捷方式,而硬连接就像是备份!符号连接可以做跨分区的 link；而 硬连接由于 inode 的缘故，只能在本分区中做 link.所以,符号连接的使用频率要高的多。</p>
-<h3 id="软链接文件"><a href="#软链接文件" class="headerlink" title="软链接文件"></a>软链接文件</h3><p>软链接又叫符号链接，这个文件包含了另一个文件的路径名。可以是任意文件或目录，可以链接不同文件系统的文件。和win下的快捷方式差不多。链接文件甚至可以链接不存在的文件，这就产生一般称之为”断链”的问题(或曰“现象”)，链接文件甚至可以循环链接自己。类似于编程语言中的递归。 命令格式：</p>
-<pre><code>ln [-s] source_path target_path </code></pre><h3 id="硬链接文件"><a href="#硬链接文件" class="headerlink" title="硬链接文件"></a>硬链接文件</h3><p>info ln 命令告诉您，硬链接是已存在文件的另一个名字，硬连接的命令是</p>
-<pre><code>ln -d existfile newfile </code></pre><p>硬链接文件有两个限制 1、不允许给目录创建硬链接；<br>2、只有在同一文件系统中的文件之间才能创建链接。<br>对硬链接文件进行读写和删除操作时候，结果和软链接相同。但如果我们删除硬链接文件的源文件，硬链接文件仍然存在，而且保留了愿有的内容。这时，系统就“忘记”了它曾经是硬链接文件。而把他当成一个普通文件。修改其中一个，与其连接的文件同时被修改</p>
-<h3 id="Windows-下创建硬链接，只能适用于-NTFS-文件系统"><a href="#Windows-下创建硬链接，只能适用于-NTFS-文件系统" class="headerlink" title="Windows 下创建硬链接，只能适用于 NTFS 文件系统"></a>Windows 下创建硬链接，只能适用于 NTFS 文件系统</h3><pre><code>fsutil hardlink create NewFileName ExistingFileName</code></pre><h3 id="Windows-下创建软链接"><a href="#Windows-下创建软链接" class="headerlink" title="Windows 下创建软链接"></a>Windows 下创建软链接</h3><p>NTFS只支持对目录的软链接，微软把它称作 junction。但是对于文件的软链接，微软也有提供解决方案，那就是快捷方式(Shortcut，.lnk 文件)。不过软链接和快捷方式不是一个层次上的东西，前者是底层文件系统的功能，后者是应用层的功能。Windows 下目录的快捷方式用 dir 看起来是个文件。<br>命令方式</p>
-<pre><code>junction  LinkDirectory ExistingDirectory</code></pre><p>例如</p>
-<pre><code>junction d:\link c:\winnt</code></pre><p>将为c:\winnt 建立一个链接目录 d:\link，C和D分区都要是 NTFS 格式，在资源管理器和 dir 列示中 d:\link 都以目录的面目存在的。d:\link 就像是 c:\winnt 的一个引用一般，删除 d:\link 目录中的内容也就是删除了 c:\winnt 中的内容，但删除 d:\link 本身是不会影响到 c:\winnt 的。</p>
-<h3 id="win7可以使用mklink命令"><a href="#win7可以使用mklink命令" class="headerlink" title="win7可以使用mklink命令"></a>win7可以使用mklink命令</h3><pre><code>λ mklink /?
-创建符号链接。
-
-MKLINK [[/D] | [/H] | [/J]] Link Target
-
-        /D      创建目录符号链接。默认为文件
-                符号链接。
-        /H      创建硬链接而非符号链接。
-        /J      创建目录联接。
-        Link    指定新的符号链接名称。
-        Target  指定新链接引用的路径
-                (相对或绝对)。</code></pre><p>其中\D \J区别如下</p>
-<pre><code>E:\
-λ mkdir SourceDir
-E:\
-λ mklink /D DTargetDir\ SourceDir\
-为 DTargetDir\ &lt;&lt;===&gt;&gt; SourceDir\ 创建的符号链接
-E:\
-λ mklink /J JTargetDir\ SourceDir\
-为 JTargetDir\ &lt;&lt;===&gt;&gt; SourceDir\ 创建的联接</code></pre><p><img src="http://7xq3ry.com1.z0.glb.clouddn.com/20160127111417.png" alt> <img src="http://7xq3ry.com1.z0.glb.clouddn.com/20160127111459.png" alt> SourceDir,JTargetDir,DTargetDir 3个文件夹内部修改/增加/删除都会互相影响。<br>复制JTargetDir, 不会出现新的目录，文件夹文件内部复制 <img src="http://7xq3ry.com1.z0.glb.clouddn.com/20160127112544.png" alt> 这样复制会影响DTargetDir和SourceDir，慎用！ 复制DTargetDir文件夹会生成一个全新的文件夹，不会被其他文件夹影响，也不能影响其他文件夹。 复制JTargetDir的父级目录不会影响该目录，复制生成的目录下JTargetDir目录会变成独立的文件夹且文件夹内为空 <img src="http://7xq3ry.com1.z0.glb.clouddn.com/20160127132448.png" alt> ![][0.048387699760496616] [0.048387699760496616]: <a href="http://7xq3ry.com1.z0.glb.clouddn.com/20160127132633.png" target="_blank" rel="noopener">http://7xq3ry.com1.z0.glb.clouddn.com/20160127132633.png</a> 删除JTargetDir,DTargetDir均不影响SourceDir<br>删除SorceDir,会使得JTargetDir和DTargetDir失效 使用mklink /D时需要保证源目录和目标目录在同一个目录下，否则创建成功但不能正常访问</p>
-<h3 id="linux服务器的软硬件链接"><a href="#linux服务器的软硬件链接" class="headerlink" title="linux服务器的软硬件链接"></a>linux服务器的软硬件链接</h3><p>软链接可以跨文件系统，硬链接不可以</p>
-<pre><code>ln source target # 硬链接
-ln -s source target # 软链接</code></pre><p>软链接如果跨文件夹，必须使用绝对路径,否则会出现软链接无法访问的情况</p>
-<pre><code>ln -s /var/www/html/Upload/product/manual/en/ /var/www/html/manual</code></pre>
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -3116,7 +3134,7 @@ ln -s source target # 软链接</code></pre><p>软链接如果跨文件夹，必
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-count">63</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
