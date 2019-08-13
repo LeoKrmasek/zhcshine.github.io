@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[django环境部署]]></title>
     <url>%2F2019%2F08%2F02%2Fdjango%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2%2F</url>
-    <content type="text"><![CDATA[安装supervisor服务地址 待续123$ pip3 install service_identity$ pip3 install channels$ pip3 install channels_redis]]></content>
+    <content type="text"><![CDATA[安装supervisor服务地址sudo yum install supervisor 待续123$ pip3 install service_identity$ pip3 install channels$ pip3 install channels_redis]]></content>
   </entry>
   <entry>
     <title><![CDATA[node入门基础]]></title>
@@ -166,7 +166,7 @@
   <entry>
     <title><![CDATA[java入门基础]]></title>
     <url>%2F2018%2F01%2F31%2Fjava%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80%2F</url>
-    <content type="text"><![CDATA[linux安装java开发环境[root@localhost ~]# mkdir /usr/java [root@localhost ~]# cd /usr/java # 从官方网站下载javaLTS版本源码并复制到当前目录 # 下载地址: https://www.oracle.com/technetwork/java/javase/downloads/index.html [root@localhost ~]# tar -zxvf jdk-11.0.3_linux-x64_bin.tar.gz &amp;&amp; rm jdk-11.0.3_linux-x64_bin.tar.gz # 设置环境变量 vi /etc/profile #set java environment JAVA_HOME=/usr/java/jdk-11.0.3 JRE_HOME=/usr/java/jdk-11.0.3/jre CLASS_PATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin export JAVA_HOME JRE_HOME CLASS_PATH PATH # 验证 [root@localhost ~]# which java /usr/java/jdk-11.0.3/bin/java [root@localhost ~]# java -version java version &quot;11.0.3&quot; 2019-04-16 LTS Java(TM) SE Runtime Environment 18.9 (build 11.0.3+12-LTS) Java HotSpot(TM) 64-Bit Server VM 18.9 (build 11.0.3+12-LTS, mixed mode)]]></content>
+    <content type="text"><![CDATA[linux安装java开发环境下载源码 123456# 从官方网站下载javaLTS版本源码并复制到当前目录# 下载地址: https://www.oracle.com/technetwork/java/javase/downloads/index.html$ sudo mkdir /usr/java$ sudo cd /usr/java$ sudo cp -rf ~/Download/jdk-11.0.3_linux-x64_bin.tar.gz .$ sudo tar -zxvf jdk-11.0.3_linux-x64_bin.tar.gz &amp;&amp; rm jdk-11.0.3_linux-x64_bin.tar.gz 设置环境变量 1$ sudo vi /etc/profile 123456#set java environmentJAVA_HOME=/usr/java/jdk-11.0.3JRE_HOME=/usr/java/jdk-11.0.3/jreCLASS_PATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/libPATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/binexport JAVA_HOME JRE_HOME CLASS_PATH PATH 验证 1234567$ which java/usr/java/jdk-11.0.3/bin/java$ java -versionjava version "11.0.3" 2019-04-16 LTSJava(TM) SE Runtime Environment 18.9 (build 11.0.3+12-LTS) Java HotSpot(TM) 64-Bit Server VM 18.9 (build 11.0.3+12-LTS, mixed mode) linux安装tomcat12345$ cd /home/zhc/java# https://tomcat.apache.org/download-90.cgi$ wget http://mirror.bit.edu.cn/apache/tomcat/tomcat-9/v9.0.22/bin/apache-tomcat-9.0.22.tar.gz$ tar -xzvf apache-tomcat-9.0.22.tar.gz$ mv apache-tomcat-9.0.22 tomcat 12345678# 启动 http://127.0.0.1:8080$ sudo ./tomcat/bin/startup.shUsing CATALINA_BASE: /home/zhc/work/java/tomcatUsing CATALINA_HOME: /home/zhc/work/java/tomcatUsing CATALINA_TMPDIR: /home/zhc/work/java/tomcat/tempUsing JRE_HOME: /usr/java/jdk-11.0.4Using CLASSPATH: /home/zhc/work/java/tomcat/bin/bootstrap.jar:/home/zhc/work/java/tomcat/bin/tomcat-juli.jarTomcat started. 12# 关闭$ sudo ./tomcat-9/bin/shutdown.sh centos设置为系统启动]]></content>
       <categories>
         <category>前端</category>
       </categories>
