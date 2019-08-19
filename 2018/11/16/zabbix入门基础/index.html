@@ -98,21 +98,21 @@
   };
 </script>
 
-  <meta name="description" content="安装服务器端官方 1. 根据实际情况选择数据库 2. 根据实际情况选择操作系统 汉化 错误提示  You are not able to choose some of the languages, because locales for them are not installed on the web server.  # 选中zh-CN UTF-8 sudo dpkg-reconfigure">
+  <meta name="description" content="安装服务器端 官方 1. 根据实际情况选择数据库 2. 根据实际情况选择操作系统 汉化  错误提示  You are not able to choose some of the languages, because locales for them are not installed on the web server.  # 选中zh-CN UTF-8 sudo dpkg-reconfigur">
 <meta property="og:type" content="article">
 <meta property="og:title" content="zabbix入门基础">
 <meta property="og:url" content="http://www.zhuohc.com/2018/11/16/zabbix入门基础/index.html">
 <meta property="og:site_name" content="饱读诗书">
-<meta property="og:description" content="安装服务器端官方 1. 根据实际情况选择数据库 2. 根据实际情况选择操作系统 汉化 错误提示  You are not able to choose some of the languages, because locales for them are not installed on the web server.  # 选中zh-CN UTF-8 sudo dpkg-reconfigure">
+<meta property="og:description" content="安装服务器端 官方 1. 根据实际情况选择数据库 2. 根据实际情况选择操作系统 汉化  错误提示  You are not able to choose some of the languages, because locales for them are not installed on the web server.  # 选中zh-CN UTF-8 sudo dpkg-reconfigur">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://www.zhuohc.com/wp-content/uploads/2018/11/2018-11-16-17-36-53%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png">
+<meta property="og:image" content="http://www.zhuohc.com/wp-content/uploads/2018/11/2018-11-16-17-36-53屏幕截图.png">
 <meta property="og:image" content="http://www.zhuohc.com/wp-content/uploads/2018/11/zabbix-email.png">
 <meta property="og:image" content="http://www.zhuohc.com/wp-content/uploads/2018/11/zabbix-email-1.png">
 <meta property="og:updated_time" content="2019-07-24T01:36:10.136Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="zabbix入门基础">
-<meta name="twitter:description" content="安装服务器端官方 1. 根据实际情况选择数据库 2. 根据实际情况选择操作系统 汉化 错误提示  You are not able to choose some of the languages, because locales for them are not installed on the web server.  # 选中zh-CN UTF-8 sudo dpkg-reconfigure">
-<meta name="twitter:image" content="http://www.zhuohc.com/wp-content/uploads/2018/11/2018-11-16-17-36-53%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png">
+<meta name="twitter:description" content="安装服务器端 官方 1. 根据实际情况选择数据库 2. 根据实际情况选择操作系统 汉化  错误提示  You are not able to choose some of the languages, because locales for them are not installed on the web server.  # 选中zh-CN UTF-8 sudo dpkg-reconfigur">
+<meta name="twitter:image" content="http://www.zhuohc.com/wp-content/uploads/2018/11/2018-11-16-17-36-53屏幕截图.png">
 
 
 
@@ -250,7 +250,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">63</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">68</span></a>
 
   </li>
 
@@ -436,18 +436,26 @@
       
 
       
-        <h4 id="安装服务器端"><a href="#安装服务器端" class="headerlink" title="安装服务器端"></a>安装服务器端</h4><p><a href="https://www.zabbix.com/download" target="_blank" rel="noopener">官方</a> 1. 根据实际情况选择数据库 2. 根据实际情况选择操作系统</p>
-<h4 id="汉化"><a href="#汉化" class="headerlink" title="汉化"></a>汉化</h4><p><img src="/wp-content/uploads/2018/11/2018-11-16-17-36-53%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png" alt> 错误提示</p>
+        <h4 id="安装服务器端">安装服务器端</h4>
+<p><a href="https://www.zabbix.com/download" target="_blank" rel="noopener">官方</a> 1. 根据实际情况选择数据库 2. 根据实际情况选择操作系统</p>
+<h4 id="汉化">汉化</h4>
+<p><img src="/wp-content/uploads/2018/11/2018-11-16-17-36-53屏幕截图.png"> 错误提示</p>
 <blockquote>
 <p>You are not able to choose some of the languages, because locales for them are not installed on the web server.</p>
 </blockquote>
 <pre><code># 选中zh-CN UTF-8
 sudo dpkg-reconfigure locales
-sudo service apache2 restart</code></pre><h4 id="安装客户端"><a href="#安装客户端" class="headerlink" title="安装客户端"></a>安装客户端</h4><p><a href="https://www.zabbix.com/documentation/3.2/manual/installation/install_from_packages/agent_installation" target="_blank" rel="noopener">官方</a> <a href="https://tecadmin.net/install-zabbix-agent-on-centos-rhel/" target="_blank" rel="noopener">参考</a></p>
-<h4 id="设置邮件报警"><a href="#设置邮件报警" class="headerlink" title="设置邮件报警"></a>设置邮件报警</h4><p>Media types <img src="/wp-content/uploads/2018/11/zabbix-email.png" alt> <img src="/wp-content/uploads/2018/11/zabbix-email-1.png" alt></p>
-<h4 id="交换分区错误问题"><a href="#交换分区错误问题" class="headerlink" title="交换分区错误问题"></a>交换分区错误问题</h4><pre><code>Lack of free swap space</code></pre><p>现在的云主机默认没有交换分区 Configuration-&gt;Templates-&gt;Template OS Linux-&gt;Triggers-&gt;Lack of free swap space on {HOST.NAME}-&gt;Expression</p>
+sudo service apache2 restart</code></pre>
+<h4 id="安装客户端">安装客户端</h4>
+<p><a href="https://www.zabbix.com/documentation/3.2/manual/installation/install_from_packages/agent_installation" target="_blank" rel="noopener">官方</a> <a href="https://tecadmin.net/install-zabbix-agent-on-centos-rhel/" target="_blank" rel="noopener">参考</a></p>
+<h4 id="设置邮件报警">设置邮件报警</h4>
+<p>Media types <img src="/wp-content/uploads/2018/11/zabbix-email.png"> <img src="/wp-content/uploads/2018/11/zabbix-email-1.png"></p>
+<h4 id="交换分区错误问题">交换分区错误问题</h4>
+<pre><code>Lack of free swap space</code></pre>
+<p>现在的云主机默认没有交换分区 Configuration-&gt;Templates-&gt;Template OS Linux-&gt;Triggers-&gt;Lack of free swap space on {HOST.NAME}-&gt;Expression</p>
 <pre><code>{Template OS Linux:system.swap.size[,pfree].last(0)}&lt;50改成
 {Template OS Linux:system.swap.size[,pfree].last(0)}&lt;50 and {Template OS Linux:system.swap.size[,free].last(0)}&lt;&gt;0</code></pre>
+
       
     </div>
 
@@ -579,7 +587,7 @@ sudo service apache2 restart</code></pre><h4 id="安装客户端"><a href="#安�
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">68</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

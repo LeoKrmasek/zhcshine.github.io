@@ -98,18 +98,18 @@
   };
 </script>
 
-  <meta name="description" content="老外的代码第一个是操作word，第二个是操作excel from win32com.client import constants, Dispatch import pythoncom wdStory = 6 class WordDocument(object):   &amp;quot;&amp;quot;&amp;quot;   Some convenience methods for Word documents">
+  <meta name="description" content="老外的代码 第一个是操作word，第二个是操作excel from win32com.client import constants, Dispatch import pythoncom wdStory = 6 class WordDocument(object):   &amp;quot;&amp;quot;&amp;quot;   Some convenience methods for Word documents">
 <meta name="keywords" content="python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python从excel导出数据并批量替换word文档内容">
 <meta property="og:url" content="http://www.zhuohc.com/2016/11/09/python从excel导出数据并批量替换word文档内容/index.html">
 <meta property="og:site_name" content="饱读诗书">
-<meta property="og:description" content="老外的代码第一个是操作word，第二个是操作excel from win32com.client import constants, Dispatch import pythoncom wdStory = 6 class WordDocument(object):   &amp;quot;&amp;quot;&amp;quot;   Some convenience methods for Word documents">
+<meta property="og:description" content="老外的代码 第一个是操作word，第二个是操作excel from win32com.client import constants, Dispatch import pythoncom wdStory = 6 class WordDocument(object):   &amp;quot;&amp;quot;&amp;quot;   Some convenience methods for Word documents">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-07-24T01:37:03.210Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python从excel导出数据并批量替换word文档内容">
-<meta name="twitter:description" content="老外的代码第一个是操作word，第二个是操作excel from win32com.client import constants, Dispatch import pythoncom wdStory = 6 class WordDocument(object):   &amp;quot;&amp;quot;&amp;quot;   Some convenience methods for Word documents">
+<meta name="twitter:description" content="老外的代码 第一个是操作word，第二个是操作excel from win32com.client import constants, Dispatch import pythoncom wdStory = 6 class WordDocument(object):   &amp;quot;&amp;quot;&amp;quot;   Some convenience methods for Word documents">
 
 
 
@@ -247,7 +247,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">63</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">68</span></a>
 
   </li>
 
@@ -440,7 +440,8 @@
       
 
       
-        <h3 id="老外的代码"><a href="#老外的代码" class="headerlink" title="老外的代码"></a>老外的代码</h3><p>第一个是操作word，第二个是操作excel</p>
+        <h3 id="老外的代码">老外的代码</h3>
+<p>第一个是操作word，第二个是操作excel</p>
 <pre><code>from win32com.client import constants, Dispatch
 import pythoncom
 wdStory = 6
@@ -456,7 +457,7 @@ class WordDocument(object):
 
   def new(self, filename=None):
     &quot;&quot;&quot;
-    Create a new Word document. If &apos;filename&apos; specified,
+    Create a new Word document. If &#39;filename&#39; specified,
     use the file as a template.
     &quot;&quot;&quot;
     self.app.Documents.Add(filename)
@@ -469,7 +470,7 @@ class WordDocument(object):
 
   def save(self, filename=None):
     &quot;&quot;&quot;
-    Save the active document. If &apos;filename&apos; is given,
+    Save the active document. If &#39;filename&#39; is given,
     do a Save As.
     &quot;&quot;&quot;
     if filename:
@@ -500,7 +501,7 @@ class WordDocument(object):
 
   def find_and_replace(self, find_str, replace_str):
     &quot;&quot;&quot;
-    Find all occurances of &apos;find_str&apos; and replace with &apos;replace_str&apos;
+    Find all occurances of &#39;find_str&#39; and replace with &#39;replace_str&#39;
     in the active document.
     &quot;&quot;&quot;
     self.app.Selection.HomeKey(Unit=wdStory)
@@ -536,7 +537,7 @@ class ExcelDocument(object):
     self.sheet = 1
   def new(self, filename=None):
     &quot;&quot;&quot;
-    Create a new Excel workbook. If &apos;filename&apos; specified,
+    Create a new Excel workbook. If &#39;filename&#39; specified,
     use the file as a template.
     &quot;&quot;&quot;
     self.app.Workbooks.Add(filename)
@@ -555,14 +556,14 @@ class ExcelDocument(object):
     Get a range object for the specified range or single cell.
     &quot;&quot;&quot;
     return self.app.ActiveWorkbook.Sheets(self.sheet).Range(range)
-  def set_value(self, cell, value=&apos;&apos;):
+  def set_value(self, cell, value=&#39;&#39;):
     &quot;&quot;&quot;
-    Set the value of &apos;cell&apos; to &apos;value&apos;.
+    Set the value of &#39;cell&#39; to &#39;value&#39;.
     &quot;&quot;&quot;
     self.get_range(cell).Value = value
   def get_value(self, cell):
     &quot;&quot;&quot;
-    Get the value of &apos;cell&apos;.
+    Get the value of &#39;cell&#39;.
     &quot;&quot;&quot;
     value = self.get_range(cell).Value
     if isinstance(value, tuple):
@@ -571,47 +572,47 @@ class ExcelDocument(object):
   def set_border(self, range, side, line_style=borderSolid, color=colorBlack):
     &quot;&quot;&quot;
     Set a border on the specified range of cells or single cell.
-    &apos;range&apos; = range of cells or single cell
-    &apos;side&apos; = one of borderTop, borderBottom, borderLeft, borderRight
-    &apos;line_style&apos; = one of borderSolid, borderDashed, borderDotted, others?
-    &apos;color&apos; = one of colorBlack, others?
+    &#39;range&#39; = range of cells or single cell
+    &#39;side&#39; = one of borderTop, borderBottom, borderLeft, borderRight
+    &#39;line_style&#39; = one of borderSolid, borderDashed, borderDotted, others?
+    &#39;color&#39; = one of colorBlack, others?
     &quot;&quot;&quot;
     range = self.get_range(range).Borders(side)
     range.LineStyle = line_style
     range.Color = color
   def sort(self, range, key_cell):
     &quot;&quot;&quot;
-    Sort the specified &apos;range&apos; of the activeworksheet by the
-    specified &apos;key_cell&apos;.
+    Sort the specified &#39;range&#39; of the activeworksheet by the
+    specified &#39;key_cell&#39;.
     &quot;&quot;&quot;
     range.Sort(Key1=self.get_range(key_cell), Order1=1, Header=0, OrderCustom=1, MatchCase=False, Orientation=1)
   def hide_row(self, row, hide=True):
     &quot;&quot;&quot;
-    Hide the specified &apos;row&apos;.
+    Hide the specified &#39;row&#39;.
     Specify hide=False to show the row.
     &quot;&quot;&quot;
-    self.get_range(&apos;a%s&apos; % row).EntireRow.Hidden = hide
+    self.get_range(&#39;a%s&#39; % row).EntireRow.Hidden = hide
   def hide_column(self, column, hide=True):
     &quot;&quot;&quot;
-    Hide the specified &apos;column&apos;.
+    Hide the specified &#39;column&#39;.
     Specify hide=False to show the column.
     &quot;&quot;&quot;
-    self.get_range(&apos;%s1&apos; % column).EntireColumn.Hidden = hide
+    self.get_range(&#39;%s1&#39; % column).EntireColumn.Hidden = hide
   def delete_row(self, row, shift=directionUp):
     &quot;&quot;&quot;
-    Delete the entire &apos;row&apos;.
+    Delete the entire &#39;row&#39;.
     &quot;&quot;&quot;
-    self.get_range(&apos;a%s&apos; % row).EntireRow.Delete(Shift=shift)
+    self.get_range(&#39;a%s&#39; % row).EntireRow.Delete(Shift=shift)
   def delete_column(self, column, shift=directionLeft):
     &quot;&quot;&quot;
-    Delete the entire &apos;column&apos;.
+    Delete the entire &#39;column&#39;.
     &quot;&quot;&quot;
-    self.get_range(&apos;%s1&apos; % column).EntireColumn.Delete(Shift=shift)
+    self.get_range(&#39;%s1&#39; % column).EntireColumn.Delete(Shift=shift)
   def fit_column(self, column):
     &quot;&quot;&quot;
-    Resize the specified &apos;column&apos; to fit all its contents.
+    Resize the specified &#39;column&#39; to fit all its contents.
     &quot;&quot;&quot;
-    self.get_range(&apos;%s1&apos; % column).EntireColumn.AutoFit()
+    self.get_range(&#39;%s1&#39; % column).EntireColumn.AutoFit()
   def save(self):
     &quot;&quot;&quot;
     Save the active workbook.
@@ -620,7 +621,7 @@ class ExcelDocument(object):
   def save_as(self, filename, delete_existing=False):
     &quot;&quot;&quot;
     Save the active workbook as a different filename.
-    If &apos;delete_existing&apos; is specified and the file already
+    If &#39;delete_existing&#39; is specified and the file already
     exists, it will be deleted before saving.
     &quot;&quot;&quot;
     if delete_existing and os.path.exists(filename):
@@ -640,7 +641,9 @@ class ExcelDocument(object):
     &quot;&quot;&quot;
     Quit Excel.
     &quot;&quot;&quot;
-    return self.app.Quit()</code></pre><h3 id="基本使用方法"><a href="#基本使用方法" class="headerlink" title="基本使用方法"></a>基本使用方法</h3><pre><code># -*- encoding: utf8 -*-
+    return self.app.Quit()</code></pre>
+<h3 id="基本使用方法">基本使用方法</h3>
+<pre><code># -*- encoding: utf8 -*-
 
 # 配置项
 import os
@@ -650,35 +653,35 @@ import time
 import win32com
 from win32com.client import constants
 import xlrd
-XlsFile = &apos;default.xls&apos;                  # 需要的数据
-OldStrs = [&apos;#CatalogNumber#&apos;,
-           &apos;#ProductName#&apos;,
-           &apos;#OSpecies#&apos;,
-           &apos;#Short#&apos;,
-           &apos;#Organism#&apos;,
-           &apos;#Fragment#&apos;,
-           &apos;#PROTEIN#&apos;,
-           &apos;#Tag#&apos;
+XlsFile = &#39;default.xls&#39;                  # 需要的数据
+OldStrs = [&#39;#CatalogNumber#&#39;,
+           &#39;#ProductName#&#39;,
+           &#39;#OSpecies#&#39;,
+           &#39;#Short#&#39;,
+           &#39;#Organism#&#39;,
+           &#39;#Fragment#&#39;,
+           &#39;#PROTEIN#&#39;,
+           &#39;#Tag#&#39;
            ]
 
 # 确认模板类型
-DefaultFile = raw_input(&apos;Want to use ihc.jpg,input \&apos;Y\&apos;,or input \&apos;N\&apos;:\n&apos;)
-if DefaultFile == &apos;N&apos;:
-    DocFile = os.path.abspath(&apos;default_noihc.doc&apos;)
+DefaultFile = raw_input(&#39;Want to use ihc.jpg,input \&#39;Y\&#39;,or input \&#39;N\&#39;:\n&#39;)
+if DefaultFile == &#39;N&#39;:
+    DocFile = os.path.abspath(&#39;default_noihc.doc&#39;)
     print DocFile
-elif DefaultFile == &apos;Y&apos;:
-    DocFile = os.path.abspath(&apos;default.doc&apos;)
+elif DefaultFile == &#39;Y&#39;:
+    DocFile = os.path.abspath(&#39;default.doc&#39;)
     print DocFile
 else:
     raise
-filepath = &apos;D:/Py/CreateAntibodyWord/NewFile&apos;    # 生成文件目录
+filepath = &#39;D:/Py/CreateAntibodyWord/NewFile&#39;    # 生成文件目录
 
 
 # 获取括号内容的正则表达式
 patt = re.compile(r&quot;\((.*?)\)&quot;, re.I | re.X)
 
 # 打开初始化word文档
-w = win32com.client.Dispatch(&apos;Word.Application&apos;)
+w = win32com.client.Dispatch(&#39;Word.Application&#39;)
 w.Visible = 0
 w.DisplayAlerts = 0
 
@@ -699,19 +702,19 @@ for i in range(1, nrows):
         Fragment = table.row_values(i)[4]
         Short = patt.findall(ProductName)[0]
         # 获取对应蛋白的货号
-        ProteinNumber = re.sub(r&apos;^PA&apos;, r&apos;RP&apos;, CatalogNumber)
+        ProteinNumber = re.sub(r&#39;^PA&#39;, r&#39;RP&#39;, CatalogNumber)
         # Ge多物种没有缩写，用General替代
         Organism = patt.findall(OrganismSpecies)
         if len(Organism) &gt; 0:
             Organism = Organism[0]
         else:
-            Organism = &apos;General&apos;
+            Organism = &#39;General&#39;
         # 没有氨基酸片段信息的用原始值替代
         Fragment = patt.findall(Fragment)
         if len(Fragment) &gt; 0:
             Fragment = Fragment[0]
         else:
-            Fragment = &apos;#Fragment#&apos;
+            Fragment = &#39;#Fragment#&#39;
         NewStrs = [CatalogNumber,
                    ProductName,
                    OrganismSpecies,
@@ -723,9 +726,9 @@ for i in range(1, nrows):
                    ]
 
         # 打开复制的文件
-        NewFileName = CatalogNumber + &apos;-e.doc&apos;                                        # 命名新的文件
-        shutil.copyfile(DocFile, filepath + &apos;/&apos; + NewFileName)                        # 复制新的文件
-        CopyFile = os.path.abspath(filepath + &apos;/&apos; + NewFileName)                      # 新的文件目录
+        NewFileName = CatalogNumber + &#39;-e.doc&#39;                                        # 命名新的文件
+        shutil.copyfile(DocFile, filepath + &#39;/&#39; + NewFileName)                        # 复制新的文件
+        CopyFile = os.path.abspath(filepath + &#39;/&#39; + NewFileName)                      # 新的文件目录
         doc = w.Documents.Open(FileName=CopyFile)                                     # 打开文件
 
         # 文本框处理
@@ -740,49 +743,58 @@ for i in range(1, nrows):
             w.Selection.Find.Execute(OldStrs[j], False, False, False, False, False, True, 1, True, NewStrs[j], 2)
 
         # 获取属性信息并修改,参考https://msdn.microsoft.com/en-us/library/microsoft.office.tools.excel.workbook.builtindocumentproperties(v=vs.120).aspx?cs-save-lang=1&amp;cs-lang=vb#code-snippet-1
-        doc.BuiltInDocumentProperties(&apos;Title&apos;).Value = ProductName
-        doc.BuiltInDocumentProperties(&apos;Subject&apos;).Value = &apos;Instruction manual (Catalog No.&apos; + CatalogNumber + &apos;)&apos;
-        doc.BuiltInDocumentProperties(&apos;Keywords&apos;).Value = ProductName
-        doc.BuiltInDocumentProperties(&apos;Category&apos;).Value = OrganismSpecies
+        doc.BuiltInDocumentProperties(&#39;Title&#39;).Value = ProductName
+        doc.BuiltInDocumentProperties(&#39;Subject&#39;).Value = &#39;Instruction manual (Catalog No.&#39; + CatalogNumber + &#39;)&#39;
+        doc.BuiltInDocumentProperties(&#39;Keywords&#39;).Value = ProductName
+        doc.BuiltInDocumentProperties(&#39;Category&#39;).Value = OrganismSpecies
 
         # 保存文件并关闭
         doc.Save()
         doc.Close()
-        print CatalogNumber + &apos; create word success!&apos;
+        print CatalogNumber + &#39; create word success!&#39;
 
     # 捕获异常并写入log文件中
     except Exception, e:
-        print CatalogNumber + &apos; create word error!&apos;
+        print CatalogNumber + &#39; create word error!&#39;
         print e
-        errorfile = open(filepath + &apos;/errorlog.txt&apos;, &apos;a&apos;)
+        errorfile = open(filepath + &#39;/errorlog.txt&#39;, &#39;a&#39;)
         try:
-            errorfile.write(CatalogNumber + &apos; create word error! &apos; + time.strftime(&apos;%Y-%m-%d %H:%M:%S&apos;) + &apos;\n&apos;)
+            errorfile.write(CatalogNumber + &#39; create word error! &#39; + time.strftime(&#39;%Y-%m-%d %H:%M:%S&#39;) + &#39;\n&#39;)
         except Exception, e:
             doc.Close()
             w.Quit()
             raise e
         finally:
             errorfile.close()
-w.Quit()        </code></pre><h3 id="替换Word文档属性里的详细信息"><a href="#替换Word文档属性里的详细信息" class="headerlink" title="替换Word文档属性里的详细信息"></a>替换Word文档属性里的详细信息</h3><pre><code>doc.BuiltInDocumentProperties(&apos;Title&apos;).Value = ProductName
-doc.BuiltInDocumentProperties(&apos;Subject&apos;).Value = &apos;Instruction manual (Catalog No.&apos; + CatalogNumber + &apos;)&apos;
-doc.BuiltInDocumentProperties(&apos;Keywords&apos;).Value = ProductName
-doc.BuiltInDocumentProperties(&apos;Category&apos;).Value = Ospecies</code></pre><p>参考<a href="http://stackoverflow.com/questions/3022898/python-win32com-automating-word-how-to-replace-text-in-a-text-box" target="_blank" rel="noopener">微软官方说明</a></p>
-<h3 id="替换Word长文本"><a href="#替换Word长文本" class="headerlink" title="替换Word长文本"></a>替换Word长文本</h3><p>使用以下语句替换长文本会报错”字符串过长”</p>
-<pre><code>w.Selection.Find.Execute(OldStrs[j], False, False, False, False, False, True, 1, True, NewStrs[j], 2)</code></pre><p>使用以下语句</p>
+w.Quit()        </code></pre>
+<h3 id="替换word文档属性里的详细信息">替换Word文档属性里的详细信息</h3>
+<pre><code>        doc.BuiltInDocumentProperties(&#39;Title&#39;).Value = ProductName
+        doc.BuiltInDocumentProperties(&#39;Subject&#39;).Value = &#39;Instruction manual (Catalog No.&#39; + CatalogNumber + &#39;)&#39;
+        doc.BuiltInDocumentProperties(&#39;Keywords&#39;).Value = ProductName
+        doc.BuiltInDocumentProperties(&#39;Category&#39;).Value = Ospecies</code></pre>
+<p>参考<a href="http://stackoverflow.com/questions/3022898/python-win32com-automating-word-how-to-replace-text-in-a-text-box" target="_blank" rel="noopener">微软官方说明</a></p>
+<h3 id="替换word长文本">替换Word长文本</h3>
+<p>使用以下语句替换长文本会报错"字符串过长"</p>
+<pre><code>w.Selection.Find.Execute(OldStrs[j], False, False, False, False, False, True, 1, True, NewStrs[j], 2)</code></pre>
+<p>使用以下语句</p>
 <pre><code>find = w.Selection.Find
-find.Text = &apos;#SEQUENCE#&apos;
+find.Text = &#39;#SEQUENCE#&#39;
 while w.Selection.Find.Execute():
-    w.Selection.TypeText(Text=SEQUENCE)</code></pre><h3 id="替换Word文本框内容"><a href="#替换Word文本框内容" class="headerlink" title="替换Word文本框内容"></a>替换Word文本框内容</h3><p>参考以下代码 <a href="http://stackoverflow.com/questions/3022898/python-win32com-automating-word-how-to-replace-text-in-a-text-box" target="_blank" rel="noopener">http://stackoverflow.com/</a></p>
+    w.Selection.TypeText(Text=SEQUENCE)</code></pre>
+<h3 id="替换word文本框内容">替换Word文本框内容</h3>
+<p>参考以下代码 <a href="http://stackoverflow.com/questions/3022898/python-win32com-automating-word-how-to-replace-text-in-a-text-box" target="_blank" rel="noopener">http://stackoverflow.com/</a></p>
 <pre><code>import win32com.client
 
 word = win32com.client.Dispatch(&quot;Word.Application&quot;)
 canvas = word.ActiveDocument.Shapes[0]
 for item in canvas.CanvasItems:
-    print item.TextFrame.TextRange.Text</code></pre><p>或者</p>
+    print item.TextFrame.TextRange.Text</code></pre>
+<p>或者</p>
 <pre><code>find = shp.TextFrame.TextRange.Find
 find.Text = source
 find.Replacement.Text = target
 find.Execute(Replace=1, Forward=True)</code></pre>
+
       
     </div>
 
@@ -923,7 +935,7 @@ find.Execute(Replace=1, Forward=True)</code></pre>
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">68</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1030,7 +1042,7 @@ find.Execute(Replace=1, Forward=True)</code></pre>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#老外的代码"><span class="nav-number">1.</span> <span class="nav-text">老外的代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本使用方法"><span class="nav-number">2.</span> <span class="nav-text">基本使用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#替换Word文档属性里的详细信息"><span class="nav-number">3.</span> <span class="nav-text">替换Word文档属性里的详细信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#替换Word长文本"><span class="nav-number">4.</span> <span class="nav-text">替换Word长文本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#替换Word文本框内容"><span class="nav-number">5.</span> <span class="nav-text">替换Word文本框内容</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#老外的代码"><span class="nav-number">1.</span> <span class="nav-text">老外的代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本使用方法"><span class="nav-number">2.</span> <span class="nav-text">基本使用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#替换word文档属性里的详细信息"><span class="nav-number">3.</span> <span class="nav-text">替换Word文档属性里的详细信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#替换word长文本"><span class="nav-number">4.</span> <span class="nav-text">替换Word长文本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#替换word文本框内容"><span class="nav-number">5.</span> <span class="nav-text">替换Word文本框内容</span></a></li></ol></div>
             
 
           </div>

@@ -247,7 +247,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">63</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">68</span></a>
 
   </li>
 
@@ -441,9 +441,12 @@
 
       
         <p>REmote DIctionary Server(Redis) 是一个由Salvatore Sanfilippo写的key-value存储系统。 Redis是一个开源的使用ANSI C语言编写、遵守BSD协议、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API。 它通常被称为数据结构服务器，因为值（value）可以是 字符串(String), 哈希(Map), 列表(list), 集合(sets) 和 有序集合(sorted sets)等类型。</p>
-<h3 id="redis安装"><a href="#redis安装" class="headerlink" title="redis安装"></a>redis安装</h3><pre><code>$sudo apt-get update
+<h3 id="redis安装">redis安装</h3>
+<pre><code>$sudo apt-get update
 $sudo apt-get install redis-server
-$redis-cli</code></pre><h3 id="redis配置"><a href="#redis配置" class="headerlink" title="redis配置"></a>redis配置</h3><pre><code>sudo vim /etc/redis.conf
+$redis-cli</code></pre>
+<h3 id="redis配置">redis配置</h3>
+<pre><code>sudo vim /etc/redis.conf
 # 设置为守护进程
 protected-mode yes
 # 设置密码
@@ -451,14 +454,23 @@ requirepass redispassword
 # port
 port 6379
 # bind 127.0.0.1
-bing 0.0.0.0 # 允许远程访问</code></pre><h3 id="客户端远程登录"><a href="#客户端远程登录" class="headerlink" title="客户端远程登录"></a>客户端远程登录</h3><pre><code>redis-cli -h 127.0.0.1 -p 6379 -a redispassword</code></pre><h3 id="redis客户端"><a href="#redis客户端" class="headerlink" title="redis客户端"></a>redis客户端</h3><pre><code># redis-commander，基于nodejs
+bing 0.0.0.0 # 允许远程访问</code></pre>
+<h3 id="客户端远程登录">客户端远程登录</h3>
+<pre><code>redis-cli -h 127.0.0.1 -p 6379 -a redispassword</code></pre>
+<h3 id="redis客户端">redis客户端</h3>
+<pre><code># redis-commander，基于nodejs
 $ npm install -g redis-commander
-$ redis-commander</code></pre><h3 id="通用命令"><a href="#通用命令" class="headerlink" title="通用命令"></a>通用命令</h3><pre><code>$ 127.0.0.1:6379&gt; del name # 删除数据
+$ redis-commander</code></pre>
+<h3 id="通用命令">通用命令</h3>
+<pre><code>$ 127.0.0.1:6379&gt; del name # 删除数据
 $ 127.0.0.1:6379&gt; type name # 查看数据类型
-$ 127.0.0.1:6379&gt; rename name # 重命名</code></pre><h3 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h3><p>字符串string</p>
+$ 127.0.0.1:6379&gt; rename name # 重命名</code></pre>
+<h3 id="数据结构">数据结构</h3>
+<p>字符串string</p>
 <pre><code>$ 127.0.0.1:6379&gt;  set string-name value
 $ 127.0.0.1:6379&gt; get string-name
-$ 127.0.0.1:6379&gt;  del string-name</code></pre><p>列表list： 相当于默认键的数组</p>
+$ 127.0.0.1:6379&gt;  del string-name</code></pre>
+<p>列表list： 相当于默认键的数组</p>
 <pre><code>$ 127.0.0.1:6379&gt; lpush list-name value1 value2 value3 ... # 左侧插入列表值
 (integer) 3
 $ 127.0.0.1:6379&gt; rpush list-name value4 value5 value6... # 右侧插入列表值
@@ -471,7 +483,8 @@ $ 127.0.0.1:6379&gt;  lrange list-name 1 2 # 获取从第1位置到2位置的列
 $ 127.0.0.1:6379&gt;  lpop list-name # 弹出最左边值
 &quot;value3&quot;
 $ 127.0.0.1:6379&gt; rpop list-name # 弹出最右边值
-&quot;value6&quot;</code></pre><p>集合set：无序，不重复的列表</p>
+&quot;value6&quot;</code></pre>
+<p>集合set：无序，不重复的列表</p>
 <pre><code>$ 127.0.0.1:6379&gt;  sadd set-name value1 value2 value3 # 设置无序列表值
 (integer) 3
 $ 127.0.0.1:6379&gt; smembers set-name  # 查看所有值
@@ -481,7 +494,8 @@ $ 127.0.0.1:6379&gt; smembers set-name  # 查看所有值
 $ 127.0.0.1:6379&gt; srem set-name value1 # 删除值
 (integer) 1
 $ 127.0.0.1:6379&gt; sismember set-name value2 # 查看是否在无序列表内
-(integer) 1</code></pre><p>散列值hash：相当于自定义键的数组</p>
+(integer) 1</code></pre>
+<p>散列值hash：相当于自定义键的数组</p>
 <pre><code>$ 127.0.0.1:6379&gt; HSET hash-name key1 value1 #设置键值对
 (integer) 1
 $ 127.0.0.1:6379&gt; HGET hash-name key1 # 获取指定键的值
@@ -498,7 +512,8 @@ $ 127.0.0.1:6379&gt; HGETALL hash-name # 查找所有键值对
 3) &quot;key2&quot;
 4) &quot;value2&quot;
 $ 127.0.0.1:6379&gt; HDEL hash-name key1 # 删除hash键值对
-(integer) 1</code></pre><p>有序集合zset：成员+分值，分值必须是浮点数，通过浮点数进行排序</p>
+(integer) 1</code></pre>
+<p>有序集合zset：成员+分值，分值必须是浮点数，通过浮点数进行排序</p>
 <pre><code>$ 127.0.0.1:6379&gt; zadd zset-name 100 member1 # 添加键值对
 (integer) 1
 $ 127.0.0.1:6379&gt; zadd zset-name 202 member2
@@ -523,6 +538,7 @@ $ 127.0.0.1:6379&gt; ZRANGEBYSCORE zset-name 0 300 withscores # 按score获取�
 4) &quot;202&quot;
 $ 127.0.0.1:6379&gt; ZREM zset-name member1 # 移除一个元素
 (integer) 1</code></pre>
+
       
     </div>
 
@@ -665,7 +681,7 @@ $ 127.0.0.1:6379&gt; ZREM zset-name member1 # 移除一个元素
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">68</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

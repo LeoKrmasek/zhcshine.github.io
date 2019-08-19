@@ -246,7 +246,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">63</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">68</span></a>
 
   </li>
 
@@ -464,7 +464,7 @@ systemctl status rabbitmq-server
 # 启动图形界面管理
 rabbitmq-plugins enable rabbitmq_management
 chown -R rabbitmq:rabbitmq /var/lib/rabbitmq/
-rabbitmqctl add_user admin StrongPassword  # 踩坑:密码不要以&apos;;&apos;结尾
+rabbitmqctl add_user admin StrongPassword  # 踩坑:密码不要以&#39;;&#39;结尾
 rabbitmqctl set_user_tags admin administrator
 rabbitmqctl set_permissions -p / admin &quot;.*&quot; &quot;.*&quot; &quot;.*&quot;
 
@@ -480,6 +480,7 @@ http://Your_Server_IP:15672/
 
 # api文档
 http://Your_Server_IP:15672/api</code></pre>
+
       
     </div>
 
@@ -602,7 +603,7 @@ http://Your_Server_IP:15672/api</code></pre>
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">68</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

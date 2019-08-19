@@ -98,17 +98,17 @@
   };
 </script>
 
-  <meta name="description" content="裁剪滤镜1$ ffmpeg -i output.mkv -vf crop=in_w-400:in_h-200 -c:v libx264 -c:a copy output.mp4   -i 输入 -vf -v 视频 f 滤镜 crop 裁剪滤镜 -c:v -c:a copy 音频直接复制  视频裁剪1$ ffmpeg -i output.mkv -ss 00:00:00 -t 10 output.m">
+  <meta name="description" content="裁剪滤镜 1$ ffmpeg -i output.mkv -vf crop=in_w-400:in_h-200 -c:v libx264 -c:a copy output.mp4  -i 输入 -vf -v 视频 f 滤镜 crop 裁剪滤镜 -c:v -c:a copy 音频直接复制  视频裁剪 1$ ffmpeg -i output.mkv -ss 00:00:00 -t 10 output.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ffmpeg滤镜基础">
 <meta property="og:url" content="http://www.zhuohc.com/2019/07/24/ffmpeg滤镜基础/index.html">
 <meta property="og:site_name" content="饱读诗书">
-<meta property="og:description" content="裁剪滤镜1$ ffmpeg -i output.mkv -vf crop=in_w-400:in_h-200 -c:v libx264 -c:a copy output.mp4   -i 输入 -vf -v 视频 f 滤镜 crop 裁剪滤镜 -c:v -c:a copy 音频直接复制  视频裁剪1$ ffmpeg -i output.mkv -ss 00:00:00 -t 10 output.m">
+<meta property="og:description" content="裁剪滤镜 1$ ffmpeg -i output.mkv -vf crop=in_w-400:in_h-200 -c:v libx264 -c:a copy output.mp4  -i 输入 -vf -v 视频 f 滤镜 crop 裁剪滤镜 -c:v -c:a copy 音频直接复制  视频裁剪 1$ ffmpeg -i output.mkv -ss 00:00:00 -t 10 output.">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-07-24T01:19:04.270Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ffmpeg滤镜基础">
-<meta name="twitter:description" content="裁剪滤镜1$ ffmpeg -i output.mkv -vf crop=in_w-400:in_h-200 -c:v libx264 -c:a copy output.mp4   -i 输入 -vf -v 视频 f 滤镜 crop 裁剪滤镜 -c:v -c:a copy 音频直接复制  视频裁剪1$ ffmpeg -i output.mkv -ss 00:00:00 -t 10 output.m">
+<meta name="twitter:description" content="裁剪滤镜 1$ ffmpeg -i output.mkv -vf crop=in_w-400:in_h-200 -c:v libx264 -c:a copy output.mp4  -i 输入 -vf -v 视频 f 滤镜 crop 裁剪滤镜 -c:v -c:a copy 音频直接复制  视频裁剪 1$ ffmpeg -i output.mkv -ss 00:00:00 -t 10 output.">
 
 
 
@@ -246,7 +246,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">63</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">68</span></a>
 
   </li>
 
@@ -410,40 +410,42 @@
       
 
       
-        <h5 id="裁剪滤镜"><a href="#裁剪滤镜" class="headerlink" title="裁剪滤镜"></a>裁剪滤镜</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -i output.mkv -vf crop=in_w-400:in_h-200 -c:v libx264 -c:a copy output.mp4</span><br></pre></td></tr></table></figure>
-
+        <h5 id="裁剪滤镜">裁剪滤镜</h5>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -i output.mkv -vf crop=in_w-400:in_h-200 -c:v libx264 -c:a copy output.mp4</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>-i 输入</p>
 <p>-vf -v 视频 f 滤镜 crop 裁剪滤镜</p>
 <p>-c:v</p>
 <p>-c:a copy 音频直接复制</p>
 </blockquote>
-<h5 id="视频裁剪"><a href="#视频裁剪" class="headerlink" title="视频裁剪"></a>视频裁剪</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -i output.mkv -ss 00:00:00 -t 10 output.mp4</span><br></pre></td></tr></table></figure>
-
+<h5 id="视频裁剪">视频裁剪</h5>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -i output.mkv -ss 00:00:00 -t 10 output.mp4</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>-ss 开始时间(时:分:秒)</p>
 <p>-t 时常(秒)</p>
 </blockquote>
-<h5 id="视频合并"><a href="#视频合并" class="headerlink" title="视频合并"></a>视频合并</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -f concat -i inputs.txt output.mp4</span><br></pre></td></tr></table></figure>
-
+<h5 id="视频合并">视频合并</h5>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -f concat -i inputs.txt output.mp4</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>-f  concat 拼接</p>
+<p>-f concat 拼接</p>
 <p>-i 输入文件 inputs.txt 记录全部等待拼接的文件</p>
 <p>inputs.txt每一行为“file filename”</p>
-<pre><code>&gt; file &apos;out1.mp4&apos;
-&gt;
-&gt; file &apos;out2.mp4&apos;</code></pre><p>output.mp4 输出文件</p>
+<blockquote>
+<p>file 'out1.mp4'</p>
+<p>file 'out2.mp4'</p>
 </blockquote>
-<h5 id="视频转图片"><a href="#视频转图片" class="headerlink" title="视频转图片"></a>视频转图片</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -i output.mp4 -r 1 -f image2 image-%3d.jpeg</span><br></pre></td></tr></table></figure>
-
+<p>output.mp4 输出文件</p>
+</blockquote>
+<h5 id="视频转图片">视频转图片</h5>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -i output.mp4 -r 1 -f image2 image-%3d.jpeg</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>-i 输入文件</p>
 <p>-r 1, r 帧率， 1 每秒一张图片</p>
 <p>-f image2, 转成image2格式</p>
 <p>image-%3d.jpeg 输出文件</p>
 </blockquote>
-<h5 id="图片转视频"><a href="#图片转视频" class="headerlink" title="图片转视频"></a>图片转视频</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -i image-%3d.jpeg output.mp4</span><br></pre></td></tr></table></figure>
-
+<h5 id="图片转视频">图片转视频</h5>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -i image-%3d.jpeg output.mp4</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -580,7 +582,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">68</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

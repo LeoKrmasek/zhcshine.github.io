@@ -98,18 +98,18 @@
   };
 </script>
 
-  <meta name="description" content="安装及基本操作# -*- coding:utf-8 -*- # 环境: ubuntu14.04 # pip install seleninum # firefox # https://github.com/mozilla/geckodriver/releases 下载对应版本放在$PATH目录下 # google # https://sites.google.com/a/chromium.org/">
+  <meta name="description" content="安装及基本操作 # -*- coding:utf-8 -*- # 环境: ubuntu14.04 # pip install seleninum # firefox # https://github.com/mozilla/geckodriver/releases 下载对应版本放在$PATH目录下 # google # https://sites.google.com/a/chromium.org">
 <meta name="keywords" content="python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="selenium入门基础">
 <meta property="og:url" content="http://www.zhuohc.com/2016/11/30/selenium入门基础/index.html">
 <meta property="og:site_name" content="饱读诗书">
-<meta property="og:description" content="安装及基本操作# -*- coding:utf-8 -*- # 环境: ubuntu14.04 # pip install seleninum # firefox # https://github.com/mozilla/geckodriver/releases 下载对应版本放在$PATH目录下 # google # https://sites.google.com/a/chromium.org/">
+<meta property="og:description" content="安装及基本操作 # -*- coding:utf-8 -*- # 环境: ubuntu14.04 # pip install seleninum # firefox # https://github.com/mozilla/geckodriver/releases 下载对应版本放在$PATH目录下 # google # https://sites.google.com/a/chromium.org">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-07-24T01:33:56.506Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="selenium入门基础">
-<meta name="twitter:description" content="安装及基本操作# -*- coding:utf-8 -*- # 环境: ubuntu14.04 # pip install seleninum # firefox # https://github.com/mozilla/geckodriver/releases 下载对应版本放在$PATH目录下 # google # https://sites.google.com/a/chromium.org/">
+<meta name="twitter:description" content="安装及基本操作 # -*- coding:utf-8 -*- # 环境: ubuntu14.04 # pip install seleninum # firefox # https://github.com/mozilla/geckodriver/releases 下载对应版本放在$PATH目录下 # google # https://sites.google.com/a/chromium.org">
 
 
 
@@ -247,7 +247,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">63</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">68</span></a>
 
   </li>
 
@@ -433,7 +433,8 @@
       
 
       
-        <h4 id="安装及基本操作"><a href="#安装及基本操作" class="headerlink" title="安装及基本操作"></a>安装及基本操作</h4><pre><code># -*- coding:utf-8 -*-
+        <h4 id="安装及基本操作">安装及基本操作</h4>
+<pre><code># -*- coding:utf-8 -*-
 # 环境: ubuntu14.04
 # pip install seleninum
 # firefox
@@ -447,40 +448,40 @@ from selenium.webdriver.common.by import By
 
 driver = webdriver.Firefox()
 # driver = webdriver.Chrome()
-# driver =  webdriver.PhantomJS(executable_path=&apos;/usr/bin/phantomjs&apos;)
-driver.get(&apos;http://www.baidu.com&apos;)
+# driver =  webdriver.PhantomJS(executable_path=&#39;/usr/bin/phantomjs&#39;)
+driver.get(&#39;http://www.baidu.com&#39;)
 
 # 定位元素
 # 根据id定位
-find_id = driver.find_element_by_id(&apos;wrapper&apos;)
-find_id = driver.find_element(By.ID, &apos;wrapper&apos;)
+find_id = driver.find_element_by_id(&#39;wrapper&#39;)
+find_id = driver.find_element(By.ID, &#39;wrapper&#39;)
 # 根据name属性定位
-find_name = driver.find_element_by_name(&apos;wd&apos;)
-find_name = driver.find_element(By.NAME, &apos;wd&apos;)
+find_name = driver.find_element_by_name(&#39;wd&#39;)
+find_name = driver.find_element(By.NAME, &#39;wd&#39;)
 # 根据class定位
-find_class = driver.find_element_by_class_name(&apos;head_wrapper&apos;)
-find_class = driver.find_element(By.CLASS_NAME, &apos;head_wrapper&apos;)
+find_class = driver.find_element_by_class_name(&#39;head_wrapper&#39;)
+find_class = driver.find_element(By.CLASS_NAME, &#39;head_wrapper&#39;)
 # 根据标签名称定位
-find_tag = driver.find_element_by_tag_name(&apos;div&apos;)
-find_tag = driver.find_element(By.TAG_NAME, &apos;div&apos;)
+find_tag = driver.find_element_by_tag_name(&#39;div&#39;)
+find_tag = driver.find_element(By.TAG_NAME, &#39;div&#39;)
 # 根据链接文本定位
-find_a_text = driver.find_element_by_link_text(&apos;hao123&apos;)
-find_a_text = driver.find_element(By.LINK_TEXT, &apos;hao123&apos;)
+find_a_text = driver.find_element_by_link_text(&#39;hao123&#39;)
+find_a_text = driver.find_element(By.LINK_TEXT, &#39;hao123&#39;)
 # 根据部分链接文本定位
-find_a_text = driver.find_element_by_partial_link_text(&apos;hao&apos;)
-find_a_text = driver.find_element(By.PARTIAL_LINK_TEXT, &apos;hao&apos;)
+find_a_text = driver.find_element_by_partial_link_text(&#39;hao&#39;)
+find_a_text = driver.find_element(By.PARTIAL_LINK_TEXT, &#39;hao&#39;)
 # 根据绝对位置定位
-find_x_path = driver.find_elements_by_xpath(&apos;/html/body/div&apos;)
-find_x_path = driver.find_element(By.XPATH, &apos;/html/body/div&apos;)
+find_x_path = driver.find_elements_by_xpath(&#39;/html/body/div&#39;)
+find_x_path = driver.find_element(By.XPATH, &#39;/html/body/div&#39;)
 # 支持层级，属性，逻辑运算符结合使用
-find_x_path = driver.find_element_by_xpath(&quot;//input[@id=&apos;kw&apos;]&quot;)  # // 当前目录下的某个目录下
+find_x_path = driver.find_element_by_xpath(&quot;//input[@id=&#39;kw&#39;]&quot;)  # // 当前目录下的某个目录下
 # Css定位
-find_css = driver.find_elements_by_css_selector(&apos;.s_ipt&apos;)
-find_css = driver.find_element(By.CSS_SELECTOR, &apos;.s_ipt&apos;)
+find_css = driver.find_elements_by_css_selector(&#39;.s_ipt&#39;)
+find_css = driver.find_element(By.CSS_SELECTOR, &#39;.s_ipt&#39;)
 
 # 设置浏览器宽高
 driver.set_window_size(480, 800)
-driver.get(&apos;http://www.126.com&apos;)
+driver.get(&#39;http://www.126.com&#39;)
 # 控制浏览器前进倒退
 driver.back()
 driver.forward()
@@ -489,7 +490,7 @@ driver.refresh()
 # 当前页面
 print driver.current_url()
 # 元素操作
-# dom = driver.find_element(By.ID, &apos;kw&apos;)
+# dom = driver.find_element(By.ID, &#39;kw&#39;)
 # dom.clear()  # 清除文本
 # dom.send_keys()  # 模拟键盘输入
 # dom.click()  # 点击元素
@@ -501,13 +502,13 @@ print driver.current_url()
 
 # 鼠标操作
 from selenium.webdriver.common.action_chains import ActionChains
-driver.get(&apos;http://www.baidu.com&apos;)
+driver.get(&#39;http://www.baidu.com&#39;)
 # context_click 鼠标右键点击
-right_click = driver.find_element_by_id(&apos;xx&apos;)
+right_click = driver.find_element_by_id(&#39;xx&#39;)
 # perform 执行所有ActionChains中存储的动作
 ActionChains(driver).context_click(right_click).perform()
 # above 鼠标悬停
-above = driver.find_element_by_id(&apos;xxx&apos;)
+above = driver.find_element_by_id(&#39;xxx&#39;)
 ActionChains(driver).move_to_element(above).perform()
 # double_click 鼠标双击
 # drag_and_drop(source, target) 鼠标拖放
@@ -520,20 +521,24 @@ find_id.send_keys(Keys.SPACE)  # 空格键
 find_id.send_keys(Keys.TAB)  # tab键
 find_id.send_keys(Keys.ESCAPE)  # ESC
 find_id.send_keys(Keys.ENTER)  # 回车键
-find_id.send_keys(Keys.CONTROL, &apos;c&apos;)  # 复制
-find_id.send_keys(Keys.CONTROL, &apos;v&apos;)  # 剪贴
+find_id.send_keys(Keys.CONTROL, &#39;c&#39;)  # 复制
+find_id.send_keys(Keys.CONTROL, &#39;v&#39;)  # 剪贴
 find_id.send_keys(Keys.F1) # F1
 
-# driver.quit()</code></pre><h4 id="webdriver原理"><a href="#webdriver原理" class="headerlink" title="webdriver原理"></a>webdriver原理</h4><pre><code># -*- coding:utf-8 -*-
+# driver.quit()</code></pre>
+<h4 id="webdriver原理">webdriver原理</h4>
+<pre><code># -*- coding:utf-8 -*-
 from selenium import webdriver
 import logging
 
 logging.basicConfig(level=logging.DEBUG)
 driver = webdriver.Firefox()
-driver.get(&apos;http://www.baidu.com&apos;)
-driver.find_element_by_id(&apos;kw&apos;).send_keys(&apos;selenium&apos;)
-driver.find_element_by_id(&apos;su&apos;).click()
-driver.quit()</code></pre><h4 id="显示等待"><a href="#显示等待" class="headerlink" title="显示等待"></a>显示等待</h4><pre><code># -*- coding:utf-8 -*-
+driver.get(&#39;http://www.baidu.com&#39;)
+driver.find_element_by_id(&#39;kw&#39;).send_keys(&#39;selenium&#39;)
+driver.find_element_by_id(&#39;su&#39;).click()
+driver.quit()</code></pre>
+<h4 id="显示等待">显示等待</h4>
+<pre><code># -*- coding:utf-8 -*-
 # 显示等待
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -541,15 +546,15 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 driver = webdriver.Firefox()
-driver.get(&apos;http://www.baidu.com&apos;)
+driver.get(&#39;http://www.baidu.com&#39;)
 # 显示等待
 # 参数driver： 浏览器驱动
 # 参数timeout： 最大超时时间，单位秒
 # 参数poll_frequency： 检测的间隔时间，默认为0.5秒
 # 参数ignored_exceptions: 超时异常信息，默认为NoSuchElementException
 # WebDriverWait(driver, timeout, poll_frequency=0.5, ignored_exceptions=None)
-# until(method, message=&apos;&apos;) 调用该方法提供的驱动程序作为参数，直到返回True
-# until_not(method, message=&apos;&apos;) 调用该方法提供的驱动程序作为参数，直到返回False
+# until(method, message=&#39;&#39;) 调用该方法提供的驱动程序作为参数，直到返回True
+# until_not(method, message=&#39;&#39;) 调用该方法提供的驱动程序作为参数，直到返回False
 # EC.title_is 判断当前页面的标题是否是否等于预期
 # EC.title_contains 判断当前页面的标题是否包含预期的字符串
 # EC.presence_of_element_located 判断元素是否被加载在DOM树中，并不代表当前元素可见
@@ -567,9 +572,11 @@ driver.get(&apos;http://www.baidu.com&apos;)
 # EC.element_located_selection_state_to_be 判断某个元素的选中状态是否符合预期,该方法接受的参数为定位
 # EC.alert_is_present 判断页面上是否有alert
 # driver.find_element_by_id().is_displayed() 判断元素是否可见
-element = WebDriverWait(driver, 5, 0.5).until(EC.presence_of_element_located((By.ID, &apos;kw&apos;)))
-element.send_keys(&apos;selenium&apos;)
-# driver.quit()</code></pre><h4 id="隐式等待"><a href="#隐式等待" class="headerlink" title="隐式等待"></a>隐式等待</h4><pre><code># -*- coding:utf-8 -*-
+element = WebDriverWait(driver, 5, 0.5).until(EC.presence_of_element_located((By.ID, &#39;kw&#39;)))
+element.send_keys(&#39;selenium&#39;)
+# driver.quit()</code></pre>
+<h4 id="隐式等待">隐式等待</h4>
+<pre><code># -*- coding:utf-8 -*-
 # 隐式等待
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
@@ -578,80 +585,89 @@ from time import sleep
 driver = webdriver.Firefox()
 # sleep(10)
 driver.implicitly_wait(10)
-driver.get(&apos;http://www.baidu.com&apos;)
+driver.get(&#39;http://www.baidu.com&#39;)
 print ctime()
 try:
-    driver.find_element_by_id(&apos;kw22&apos;).send_keys(&apos;selenium&apos;)
+    driver.find_element_by_id(&#39;kw22&#39;).send_keys(&#39;selenium&#39;)
 except NoSuchElementException as e:
     print e
 finally:
-    print ctime()</code></pre><h4 id="执行js代码"><a href="#执行js代码" class="headerlink" title="执行js代码"></a>执行js代码</h4><pre><code># -*- coding:utf-8 -*-
+    print ctime()</code></pre>
+<h4 id="执行js代码">执行js代码</h4>
+<pre><code># -*- coding:utf-8 -*-
 # 执行js代码
 from selenium import webdriver
 from time import sleep
 
 # 访问百度
 driver = webdriver.Firefox()
-driver.get(&apos;http://www.baidu.com&apos;)
+driver.get(&#39;http://www.baidu.com&#39;)
 driver.set_window_size(600, 600)
-driver.find_element_by_id(&apos;kw&apos;).send_keys(&apos;selenium&apos;)
-driver.find_element_by_id(&apos;su&apos;).click()
+driver.find_element_by_id(&#39;kw&#39;).send_keys(&#39;selenium&#39;)
+driver.find_element_by_id(&#39;su&#39;).click()
 sleep(2)
 
-js = &apos;window.scrollTo(100, 450);&apos;
+js = &#39;window.scrollTo(100, 450);&#39;
 driver.execute_script(js)
 sleep(3)
 
-# driver.quit()</code></pre><h4 id="处理cookie"><a href="#处理cookie" class="headerlink" title="处理cookie"></a>处理cookie</h4><pre><code># -*- coding:utf-8 -*-
+# driver.quit()</code></pre>
+<h4 id="处理cookie">处理cookie</h4>
+<pre><code># -*- coding:utf-8 -*-
 # cookie处理
 from selenium import webdriver
 driver = webdriver.Firefox()
-driver.get(&apos;http://www.youdao.com&apos;)
-driver.add_cookie({&apos;name&apos;: &apos;name-a&apos;, &apos;value&apos;: &apos;value-b&apos;})
+driver.get(&#39;http://www.youdao.com&#39;)
+driver.add_cookie({&#39;name&#39;: &#39;name-a&#39;, &#39;value&#39;: &#39;value-b&#39;})
 # 获取cookie信息
 cookies = driver.get_cookies()
 print cookies
 for cookie in cookies:
     print cookie
-    print &apos;{} -&gt; {}&apos;.format(cookie[&apos;name&apos;], cookie[&apos;value&apos;])
-driver.quit()</code></pre><h4 id="截图"><a href="#截图" class="headerlink" title="截图"></a>截图</h4><pre><code># -*- coding:utf-8 -*-
+    print &#39;{} -&gt; {}&#39;.format(cookie[&#39;name&#39;], cookie[&#39;value&#39;])
+driver.quit()</code></pre>
+<h4 id="截图">截图</h4>
+<pre><code># -*- coding:utf-8 -*-
 # 窗口截图
 from selenium import webdriver
 from time import sleep
 
 # driver = webdriver.Firefox()
-driver =  webdriver.PhantomJS(executable_path=&apos;/usr/bin/phantomjs&apos;)
-driver.get(&apos;http://www.baidu.com&apos;)
+driver =  webdriver.PhantomJS(executable_path=&#39;/usr/bin/phantomjs&#39;)
+driver.get(&#39;http://www.baidu.com&#39;)
 
-driver.find_element_by_id(&apos;kw&apos;).send_keys(&apos;selenium&apos;)
-driver.find_element_by_id(&apos;su&apos;).click()
+driver.find_element_by_id(&#39;kw&#39;).send_keys(&#39;selenium&#39;)
+driver.find_element_by_id(&#39;su&#39;).click()
 sleep(2)
 
-driver.get_screenshot_as_file(&apos;./screen.png&apos;)
-driver.quit()</code></pre><h4 id="播放视频"><a href="#播放视频" class="headerlink" title="播放视频"></a>播放视频</h4><pre><code># -*- coding:utf-8 -*-
+driver.get_screenshot_as_file(&#39;./screen.png&#39;)
+driver.quit()</code></pre>
+<h4 id="播放视频">播放视频</h4>
+<pre><code># -*- coding:utf-8 -*-
 from selenium import webdriver
 from time import sleep
 
 driver = webdriver.Firefox()
-driver.get(&apos;http://videojs.com&apos;)
+driver.get(&#39;http://videojs.com&#39;)
 
-video = driver.find_element_by_xpath(&apos;body/Setion[1]/div/video&apos;)
+video = driver.find_element_by_xpath(&#39;body/Setion[1]/div/video&#39;)
 # 返回播放文件地址
-url = driver.execute_script(&apos;return arguments[0].currentSrc;&apos;, video)
+url = driver.execute_script(&#39;return arguments[0].currentSrc;&#39;, video)
 print url
 
 # 播放视频
-print &apos;start&apos;
-driver.execute_script(&apos;return arguments[0].play()&apos;, video)
+print &#39;start&#39;
+driver.execute_script(&#39;return arguments[0].play()&#39;, video)
 
 # 播放15秒
 sleep(15)
 
 # 暂停播放
-print &apos;stop&apos;
-driver.execute_script(&apos;arguments[0].pause()&apos;, video)
+print &#39;stop&#39;
+driver.execute_script(&#39;arguments[0].pause()&#39;, video)
 
 # driver.quit()</code></pre>
+
       
     </div>
 
@@ -792,7 +808,7 @@ driver.execute_script(&apos;arguments[0].pause()&apos;, video)
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">68</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

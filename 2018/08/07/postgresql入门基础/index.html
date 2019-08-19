@@ -98,17 +98,17 @@
   };
 </script>
 
-  <meta name="description" content="manjaro安装安装postgresql1234$ git clone https://aur.archlinux.org/postgresql-9.6.git$ cd postgresql-9.6-git$ less PKGBUILD  # 查看$ makepkg -si  # 安装  1234# 初始化数据$ sudo su postgres -l $ initdb --locale $LA">
+  <meta name="description" content="manjaro安装 安装postgresql 1234$ git clone https://aur.archlinux.org/postgresql-9.6.git$ cd postgresql-9.6-git$ less PKGBUILD  # 查看$ makepkg -si  # 安装 1234# 初始化数据$ sudo su postgres -l $ initdb --locale $L">
 <meta property="og:type" content="article">
 <meta property="og:title" content="postgresql入门基础">
 <meta property="og:url" content="http://www.zhuohc.com/2018/08/07/postgresql入门基础/index.html">
 <meta property="og:site_name" content="饱读诗书">
-<meta property="og:description" content="manjaro安装安装postgresql1234$ git clone https://aur.archlinux.org/postgresql-9.6.git$ cd postgresql-9.6-git$ less PKGBUILD  # 查看$ makepkg -si  # 安装  1234# 初始化数据$ sudo su postgres -l $ initdb --locale $LA">
+<meta property="og:description" content="manjaro安装 安装postgresql 1234$ git clone https://aur.archlinux.org/postgresql-9.6.git$ cd postgresql-9.6-git$ less PKGBUILD  # 查看$ makepkg -si  # 安装 1234# 初始化数据$ sudo su postgres -l $ initdb --locale $L">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-07-24T06:24:41.084Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="postgresql入门基础">
-<meta name="twitter:description" content="manjaro安装安装postgresql1234$ git clone https://aur.archlinux.org/postgresql-9.6.git$ cd postgresql-9.6-git$ less PKGBUILD  # 查看$ makepkg -si  # 安装  1234# 初始化数据$ sudo su postgres -l $ initdb --locale $LA">
+<meta name="twitter:description" content="manjaro安装 安装postgresql 1234$ git clone https://aur.archlinux.org/postgresql-9.6.git$ cd postgresql-9.6-git$ less PKGBUILD  # 查看$ makepkg -si  # 安装 1234# 初始化数据$ sudo su postgres -l $ initdb --locale $L">
 
 
 
@@ -246,7 +246,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">63</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">68</span></a>
 
   </li>
 
@@ -439,25 +439,23 @@
       
 
       
-        <h4 id="manjaro安装"><a href="#manjaro安装" class="headerlink" title="manjaro安装"></a>manjaro安装</h4><h5 id="安装postgresql"><a href="#安装postgresql" class="headerlink" title="安装postgresql"></a>安装postgresql</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://aur.archlinux.org/postgresql-9.6.git</span><br><span class="line">$ cd postgresql-9.6-git</span><br><span class="line">$ less PKGBUILD  # 查看</span><br><span class="line">$ makepkg -si  # 安装</span><br></pre></td></tr></table></figure>
-
+        <h4 id="manjaro安装">manjaro安装</h4>
+<h5 id="安装postgresql">安装postgresql</h5>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://aur.archlinux.org/postgresql-9.6.git</span><br><span class="line">$ cd postgresql-9.6-git</span><br><span class="line">$ less PKGBUILD  # 查看</span><br><span class="line">$ makepkg -si  # 安装</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 初始化数据</span><br><span class="line">$ sudo su postgres -l </span><br><span class="line">$ initdb --locale $LANG -E UTF8 -D &apos;/var/lib/postgres/data/&apos;</span><br><span class="line">$ exit</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 启动及开机启动</span><br><span class="line">sudo systemctl start postgresql.service </span><br><span class="line">sudo systemctl enable postgresql.service</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 登录</span><br><span class="line">$ sudo su postgres -l</span><br><span class="line">$ psql</span><br></pre></td></tr></table></figure>
-
-<h5 id="安装postgis"><a href="#安装postgis" class="headerlink" title="安装postgis"></a>安装postgis</h5><p>1, 安装proj4.9</p>
+<h5 id="安装postgis">安装postgis</h5>
+<p>1, 安装proj4.9</p>
 <p>下载源码 <a href="https://proj.org/download.html" target="_blank" rel="noopener">地址</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">tar xfz proj-4.9.3.tar.gz</span><br><span class="line">cd proj-4.9.3</span><br><span class="line">./configure</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br><span class="line"># 安装postgis时，如果没有找到库则需要复制动态库</span><br><span class="line">sudo ln -s /usr/local/lib/libproj.so.12 /usr/lib/libproj.so.12</span><br></pre></td></tr></table></figure>
-
 <p>2, 安装postgis2.5.2</p>
 <p>下载源码 <a href="https://postgis.net/source/" target="_blank" rel="noopener">地址</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">wget http://download.osgeo.org/postgis/source/postgis-2.5.2.tar.gz</span><br><span class="line">tar xfz postgis-2.5.2.tar.gz</span><br><span class="line">cd postgis-2.5.2</span><br><span class="line">./configure</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br><span class="line">sudo ldconfig</span><br><span class="line">sudo make comments-install</span><br></pre></td></tr></table></figure>
-
-<h5 id="创建库"><a href="#创建库" class="headerlink" title="创建库"></a>创建库</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 第一件事是使用\password命令，为postgres用户设置一个密码。</span><br><span class="line">postgres=# \password postgres</span><br><span class="line"># 第二件事是创建数据库用户dbuser（刚才创建的是Linux系统用户），并设置密码。</span><br><span class="line">postgres=# CREATE USER dbuser WITH PASSWORD &apos;password&apos;;</span><br><span class="line"># 第三件事是创建用户数据库，这里为exampledb，并指定所有者为dbuser。</span><br><span class="line">postgres=# CREATE DATABASE exampledb OWNER dbuser;</span><br><span class="line"># 第四件事是将exampledb数据库的所有权限都赋予dbuser，否则dbuser只能登录控制台，没有数据库操作权限。</span><br><span class="line">postgres=# GRANT ALL PRIVILEGES ON DATABASE exampledb to dbuser;</span><br></pre></td></tr></table></figure>
-
-<h4 id="ubuntu-centos安装"><a href="#ubuntu-centos安装" class="headerlink" title="ubuntu/centos安装"></a>ubuntu/centos安装</h4><p><a href="https://www.postgresql.org/download/linux/ubuntu/" target="_blank" rel="noopener">ubuntu安装</a> <a href="https://www.postgresql.org/download/linux/redhat/" target="_blank" rel="noopener">centos安装</a> centos7.2 安装postgresql9.6</p>
+<h5 id="创建库">创建库</h5>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 第一件事是使用\password命令，为postgres用户设置一个密码。</span><br><span class="line">postgres=# \password postgres</span><br><span class="line"># 第二件事是创建数据库用户dbuser（刚才创建的是Linux系统用户），并设置密码。</span><br><span class="line">postgres=# CREATE USER dbuser WITH PASSWORD &apos;password&apos;;</span><br><span class="line"># 第三件事是创建用户数据库，这里为exampledb，并指定所有者为dbuser。</span><br><span class="line">postgres=# CREATE DATABASE exampledb OWNER dbuser;</span><br><span class="line"># 第四件事是将exampledb数据库的所有权限都赋予dbuser，否则dbuser只能登录控制台，没有数据库操作权限。</span><br><span class="line">postgres=# GRANT ALL PRIVILEGES ON DATABASE exampledb to dbuser;</span><br></pre></td></tr></table></figure>
+<h4 id="ubuntucentos安装">ubuntu/centos安装</h4>
+<p><a href="https://www.postgresql.org/download/linux/ubuntu/" target="_blank" rel="noopener">ubuntu安装</a> <a href="https://www.postgresql.org/download/linux/redhat/" target="_blank" rel="noopener">centos安装</a> centos7.2 安装postgresql9.6</p>
 <pre><code># 添加RPM
 yum install https://download.postgresql.org/pub/repos/yum/9.6/redhat/rhel-7-x86_64/pgdg-centos96-9.6-3.noarch.rpm
 
@@ -497,9 +495,9 @@ sudo sudo chkconfig postgresql-9.6 on 或者 systemctl enable postgresql-9.6.ser
 sudo su postgres
 psql # 进入命令行模式
 # 修改密码
-ALTER USER postgres WITH PASSWORD &apos;密码&apos;; 
+ALTER USER postgres WITH PASSWORD &#39;密码&#39;; 
 # 创建用户
-CREATE USER userdoneself WITH PASSWORD &apos;密码passworddoneself&apos;;
+CREATE USER userdoneself WITH PASSWORD &#39;密码passworddoneself&#39;;
 # 创建数据库
 create --encoding=UTF8 database dbdoneself owner userdoneself;
 # 赋予权限
@@ -511,7 +509,7 @@ grant all privileges on database dbdoneself to userdoneself;
 # 开启远程访问
 vi /var/lib/pgsql/9.6/data/postgresql.conf 或者  vi /mnt/vdb1/postgresql.conf(创建了目录)
 
-修改#listen_addresses = &apos;localhost&apos; 为  listen_addresses=&apos;*&apos;
+修改#listen_addresses = &#39;localhost&#39; 为  listen_addresses=&#39;*&#39;
 
 
 # 连接数据库
@@ -525,7 +523,9 @@ local all postgres  md5
 # 如果不知道怎么配置， 将全部登录方式改成md5
 
 # 查看版本
-/usr/pgsql-9.6/bin/psql --version</code></pre><h4 id="安装postgis2"><a href="#安装postgis2" class="headerlink" title="安装postgis2"></a>安装postgis2</h4><p>centos7.2</p>
+/usr/pgsql-9.6/bin/psql --version</code></pre>
+<h4 id="安装postgis2">安装postgis2</h4>
+<p>centos7.2</p>
 <pre><code>sudo yum install postgis2_96  # 96和安装的postgresql一致
 sudo yum install ogr_fdw96  # 安装ogrfdw
 sudo yum install pgrouting_96 # 安装pgrouting
@@ -550,7 +550,9 @@ CREATE EXTENSION address_standardizer_data_us;
 CREATE EXTENSION postgis_tiger_geocoder;
 
 # 验证是否安装成功
-#postgres=&gt; postgis_full_version();</code></pre><h4 id="安装postgresql中文全文搜索zhparser"><a href="#安装postgresql中文全文搜索zhparser" class="headerlink" title="安装postgresql中文全文搜索zhparser"></a>安装postgresql中文全文搜索zhparser</h4><p>centos7.2</p>
+#postgres=&gt; postgis_full_version();</code></pre>
+<h4 id="安装postgresql中文全文搜索zhparser">安装postgresql中文全文搜索zhparser</h4>
+<p>centos7.2</p>
 <pre><code> yum install bzip2  # 安装解压包
  # 安装SCWS中文分词 https://github.com/hightman/scws
  wget http://www.xunsearch.com/scws/down/scws-1.2.3.tar.bz2
@@ -559,7 +561,7 @@ CREATE EXTENSION postgis_tiger_geocoder;
  ./configure
  make install
  # 测试
- scws &apos;请问怎么自己动手做西红柿蛋炒饭&apos; -c utf-8
+ scws &#39;请问怎么自己动手做西红柿蛋炒饭&#39; -c utf-8
  # 安装zhparser
  git clone https://github.com/amutu/zhparser.git
  cd zhparser
@@ -573,9 +575,9 @@ cmake &amp;&amp; make install
 &gt; &gt; psql -U user -D database -W
 &gt;  输入口令
 # 创建用户
-user=&gt;  CREATE USER dbuser WITH PASSWORD &apos;password&apos;;
+user=&gt;  CREATE USER dbuser WITH PASSWORD &#39;password&#39;;
 # 修改密码
-user=&gt;  ALTER USER dbuser WITH PASSWORD &apos;newpassword&apos;;
+user=&gt;  ALTER USER dbuser WITH PASSWORD &#39;newpassword&#39;;
 # 赋予权限
 user=&gt;  GRANT ALL PRIVILEGES ON DATABASE exampledb to dbuser;
 # 允许用户创建数据库
@@ -583,13 +585,14 @@ user=&gt; ALTER USER doneself CREATEDB;
 # 设置为超级管理员
 user=&gt; ALTER ROLE doneself SUPERUSER;
 # 创建数据库
-user=&gt;  Create database exampledb owner=dbuser  template= template1  ENCODING = &apos;UTF8&apos;;
+user=&gt;  Create database exampledb owner=dbuser  template= template1  ENCODING = &#39;UTF8&#39;;
 # 选择数据库
 user=&gt; \c database
 # 查看当前数据库所有表
 user=&gt;  \dt
 user=&gt;  \d 数据库 —— 得到所有表的名字
 user=&gt;  \d 表名 —— 得到表结构</code></pre>
+
       
     </div>
 
@@ -721,7 +724,7 @@ user=&gt;  \d 表名 —— 得到表结构</code></pre>
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">68</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -828,7 +831,7 @@ user=&gt;  \d 表名 —— 得到表结构</code></pre>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#manjaro安装"><span class="nav-number">1.</span> <span class="nav-text">manjaro安装</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#安装postgresql"><span class="nav-number">1.1.</span> <span class="nav-text">安装postgresql</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#安装postgis"><span class="nav-number">1.2.</span> <span class="nav-text">安装postgis</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#创建库"><span class="nav-number">1.3.</span> <span class="nav-text">创建库</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ubuntu-centos安装"><span class="nav-number">2.</span> <span class="nav-text">ubuntu/centos安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装postgis2"><span class="nav-number">3.</span> <span class="nav-text">安装postgis2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装postgresql中文全文搜索zhparser"><span class="nav-number">4.</span> <span class="nav-text">安装postgresql中文全文搜索zhparser</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#manjaro安装"><span class="nav-number">1.</span> <span class="nav-text">manjaro安装</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#安装postgresql"><span class="nav-number">1.1.</span> <span class="nav-text">安装postgresql</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#安装postgis"><span class="nav-number">1.2.</span> <span class="nav-text">安装postgis</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#创建库"><span class="nav-number">1.3.</span> <span class="nav-text">创建库</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ubuntucentos安装"><span class="nav-number">2.</span> <span class="nav-text">ubuntu/centos安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装postgis2"><span class="nav-number">3.</span> <span class="nav-text">安装postgis2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装postgresql中文全文搜索zhparser"><span class="nav-number">4.</span> <span class="nav-text">安装postgresql中文全文搜索zhparser</span></a></li></ol></div>
             
 
           </div>

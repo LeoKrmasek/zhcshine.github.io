@@ -98,18 +98,18 @@
   };
 </script>
 
-  <meta name="description" content="需求工作需要将2000多格word文档中的图片提取出来，并改名为word文档名 思路1 More exactly, a .docx document is a Zip archive in OpenXML format: you have first to uncompress it. I downloaded a sample (Google: some search term filetype">
+  <meta name="description" content="需求 工作需要将2000多格word文档中的图片提取出来，并改名为word文档名 思路1  More exactly, a .docx document is a Zip archive in OpenXML format: you have first to uncompress it. I downloaded a sample (Google: some search term filety">
 <meta name="keywords" content="python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python将office word 转为html 并提取相关图片信息">
 <meta property="og:url" content="http://www.zhuohc.com/2016/11/09/python将office word 转为html 并提取相关图片信息/index.html">
 <meta property="og:site_name" content="饱读诗书">
-<meta property="og:description" content="需求工作需要将2000多格word文档中的图片提取出来，并改名为word文档名 思路1 More exactly, a .docx document is a Zip archive in OpenXML format: you have first to uncompress it. I downloaded a sample (Google: some search term filetype">
+<meta property="og:description" content="需求 工作需要将2000多格word文档中的图片提取出来，并改名为word文档名 思路1  More exactly, a .docx document is a Zip archive in OpenXML format: you have first to uncompress it. I downloaded a sample (Google: some search term filety">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-07-24T01:32:50.250Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python将office word 转为html 并提取相关图片信息">
-<meta name="twitter:description" content="需求工作需要将2000多格word文档中的图片提取出来，并改名为word文档名 思路1 More exactly, a .docx document is a Zip archive in OpenXML format: you have first to uncompress it. I downloaded a sample (Google: some search term filetype">
+<meta name="twitter:description" content="需求 工作需要将2000多格word文档中的图片提取出来，并改名为word文档名 思路1  More exactly, a .docx document is a Zip archive in OpenXML format: you have first to uncompress it. I downloaded a sample (Google: some search term filety">
 
 
 
@@ -247,7 +247,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">63</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">68</span></a>
 
   </li>
 
@@ -440,22 +440,33 @@
       
 
       
-        <h3 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h3><p>工作需要将2000多格word文档中的图片提取出来，并改名为word文档名</p>
-<h3 id="思路1"><a href="#思路1" class="headerlink" title="思路1"></a>思路1</h3><blockquote>
+        <h3 id="需求">需求</h3>
+<p>工作需要将2000多格word文档中的图片提取出来，并改名为word文档名</p>
+<h3 id="思路1">思路1</h3>
+<blockquote>
 <p>More exactly, a .docx document is a Zip archive in OpenXML format: you have first to uncompress it. I downloaded a sample (Google: some search term filetype:docx) and after unzipping I found some folders. The word folder contains the document itself, in file document.xml.</p>
 </blockquote>
 <p>于是使用unzip模块</p>
-<pre><code>import zipfile</code></pre><p>但是报错</p>
-<pre><code>BadZipfile: File is not a zip file</code></pre><p>检查发现同事提供的office word文件结尾为.doc,<br>于是使用7-zip进行提取发现确实报错</p>
+<pre><code>import zipfile</code></pre>
+<p>但是报错</p>
+<pre><code>BadZipfile: File is not a zip file</code></pre>
+<p>检查发现同事提供的office word文件结尾为.doc,<br>
+于是使用7-zip进行提取发现确实报错</p>
 <blockquote>
 <p>文件末端错误</p>
 </blockquote>
-<p>尝试用本机office2013打开并另存为word文档.docx<br>再次使用7-zip进行提取，成功，会生成以下一个文件夹</p>
+<p>尝试用本机office2013打开并另存为word文档.docx<br>
+再次使用7-zip进行提取，成功，会生成以下一个文件夹</p>
 <blockquote>
-<p>_rels文件夹<br>docProps文件夹<br>word文件夹<br>[Content_Types].xml文件</p>
+<p>_rels文件夹<br>
+docProps文件夹<br>
+word文件夹<br>
+[Content_Types].xml文件</p>
 </blockquote>
-<p>其中\word\media文件夹下就有我需要的图片信息<br>既然需要更改文件后缀，那么就有另一个思路。</p>
-<h3 id="思路2"><a href="#思路2" class="headerlink" title="思路2"></a>思路2</h3><blockquote>
+<p>其中\word\media文件夹下就有我需要的图片信息<br>
+既然需要更改文件后缀，那么就有另一个思路。</p>
+<h3 id="思路2">思路2</h3>
+<blockquote>
 <p>通过win32com.clientm将文件改为html文件，会生成类似的文件夹</p>
 </blockquote>
 <p>核心代码</p>
@@ -465,15 +476,41 @@ import win32com
 from win32com.client import constants
 
 # 打开初始化word文档
-w = win32com.client.Dispatch(&apos;Word.Application&apos;)
+w = win32com.client.Dispatch(&#39;Word.Application&#39;)
 w.Visible = 0
 w.DisplayAlerts = 0
 doc = w.Documents.Open(source_file)  # 打开文件
-doc.SaveAs(target_fold + &apos;/&apos; + file_number + &apos;.htm&apos;, 8)  # 更名为htm文件
+doc.SaveAs(target_fold + &#39;/&#39; + file_number + &#39;.htm&#39;, 8)  # 更名为htm文件
 doc.Close()
-w.Quit()</code></pre><p>另存为其他规格只需要将参数8修改即可</p>
+w.Quit()</code></pre>
+<p>另存为其他规格只需要将参数8修改即可</p>
 <blockquote>
-<p>wdFormatDocument = 0<br>wdFormatDocument97 = 0<br>wdFormatDocumentDefault = 16<br>wdFormatDOSText = 4<br>wdFormatDOSTextLineBreaks = 5<br>wdFormatEncodedText = 7<br>wdFormatFilteredHTML = 10<br>wdFormatFlatXML = 19<br>wdFormatFlatXMLMacroEnabled = 20<br>wdFormatFlatXMLTemplate = 21<br>wdFormatFlatXMLTemplateMacroEnabled = 22<br>wdFormatHTML = 8<br>wdFormatPDF = 17<br>wdFormatRTF = 6<br>wdFormatTemplate = 1<br>wdFormatTemplate97 = 1<br>wdFormatText = 2<br>wdFormatTextLineBreaks = 3<br>wdFormatUnicodeText = 7<br>wdFormatWebArchive = 9<br>wdFormatXML = 11<br>wdFormatXMLDocument = 12<br>wdFormatXMLDocumentMacroEnabled = 13<br>wdFormatXMLTemplate = 14<br>wdFormatXMLTemplateMacroEnabled = 15<br>wdFormatXPS = 18</p>
+<p>wdFormatDocument = 0<br>
+wdFormatDocument97 = 0<br>
+wdFormatDocumentDefault = 16<br>
+wdFormatDOSText = 4<br>
+wdFormatDOSTextLineBreaks = 5<br>
+wdFormatEncodedText = 7<br>
+wdFormatFilteredHTML = 10<br>
+wdFormatFlatXML = 19<br>
+wdFormatFlatXMLMacroEnabled = 20<br>
+wdFormatFlatXMLTemplate = 21<br>
+wdFormatFlatXMLTemplateMacroEnabled = 22<br>
+wdFormatHTML = 8<br>
+wdFormatPDF = 17<br>
+wdFormatRTF = 6<br>
+wdFormatTemplate = 1<br>
+wdFormatTemplate97 = 1<br>
+wdFormatText = 2<br>
+wdFormatTextLineBreaks = 3<br>
+wdFormatUnicodeText = 7<br>
+wdFormatWebArchive = 9<br>
+wdFormatXML = 11<br>
+wdFormatXMLDocument = 12<br>
+wdFormatXMLDocumentMacroEnabled = 13<br>
+wdFormatXMLTemplate = 14<br>
+wdFormatXMLTemplateMacroEnabled = 15<br>
+wdFormatXPS = 18</p>
 </blockquote>
 <p>最后脚本</p>
 <pre><code># -*- encoding: utf8 -*-
@@ -485,7 +522,7 @@ import shutil
 from win32com.client import constants
 
 # 从excel表格中导入数据并组成字典
-XlsFile = &apos;default.xlsx&apos;                  # 需要的数据
+XlsFile = &#39;default.xlsx&#39;                  # 需要的数据
 data = xlrd.open_workbook(XlsFile)
 table = data.sheets()[0]
 nrows = table.nrows
@@ -496,28 +533,28 @@ for i in range(1, nrows):
     number_list.append(table.row_values(i)[0])
 
 # 打开初始化word文档
-w = win32com.client.Dispatch(&apos;Word.Application&apos;)
+w = win32com.client.Dispatch(&#39;Word.Application&#39;)
 w.Visible = 0
 w.DisplayAlerts = 0
 
 
 # 遍历文件夹并将文件剪贴到新的文件夹中
-source_fold = os.path.split(os.path.realpath(__file__))[0] + &apos;/&apos; + &apos;WordFile&apos;
-target_fold = os.path.split(os.path.realpath(__file__))[0] + &apos;/&apos; + &apos;NewFile&apos;
-img_fold = os.path.split(os.path.realpath(__file__))[0] + &apos;/&apos; + &apos;Img&apos;
+source_fold = os.path.split(os.path.realpath(__file__))[0] + &#39;/&#39; + &#39;WordFile&#39;
+target_fold = os.path.split(os.path.realpath(__file__))[0] + &#39;/&#39; + &#39;NewFile&#39;
+img_fold = os.path.split(os.path.realpath(__file__))[0] + &#39;/&#39; + &#39;Img&#39;
 word_list = os.listdir(source_fold)
 for file_name in word_list:
     # 根据货号在列表中查找
     try:
         file_number = file_name[0:10]
         if file_number in number_list:
-            print(file_name + &apos;是需要的文件.&apos;)
-            source_file = source_fold + &apos;/&apos; + file_name
+            print(file_name + &#39;是需要的文件.&#39;)
+            source_file = source_fold + &#39;/&#39; + file_name
             doc = w.Documents.Open(source_file)  # 打开文件
-            doc.SaveAs(target_fold + &apos;/&apos; + file_number + &apos;.htm&apos;, 8)  # 更名为htm文件
+            doc.SaveAs(target_fold + &#39;/&#39; + file_number + &#39;.htm&#39;, 8)  # 更名为htm文件
             doc.Close()
-            od_img = target_fold + &apos;/&apos; + file_number + &apos;.files&apos; + &apos;/&apos; + &apos;image003.jpg&apos;
-            shutil.copyfile(od_img, img_fold + &apos;/&apos; + file_number + &apos;.jpg&apos;)  # 复制新的文件
+            od_img = target_fold + &#39;/&#39; + file_number + &#39;.files&#39; + &#39;/&#39; + &#39;image003.jpg&#39;
+            shutil.copyfile(od_img, img_fold + &#39;/&#39; + file_number + &#39;.jpg&#39;)  # 复制新的文件
             number_list.remove(file_number)  # 从excel列表中删除此元素防止重复选取
     except Exception, e:
         print(file_name)
@@ -528,7 +565,8 @@ try:
     f = open(&quot;php.json&quot;, &quot;w&quot;)
     print &gt;&gt;f, number_list  # 最后将剩下的元素打印到文件中
 except Exception, e:
-    print &apos;写入php.json失败&apos;</code></pre>
+    print &#39;写入php.json失败&#39;</code></pre>
+
       
     </div>
 
@@ -669,7 +707,7 @@ except Exception, e:
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">68</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

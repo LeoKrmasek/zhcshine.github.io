@@ -98,17 +98,17 @@
   };
 </script>
 
-  <meta name="description" content="创建项目git init查看分支E:\HKMAIN (master) λ git branch * master   v1.1   v1.2 λ git branch -v * master bf0d2bf 蛋白模板修改USAGE:Reconstitute in sterile ddH2O.   v1.1   b48a782 试剂盒现货列表添加样本信息一栏   v1.2   acbf4f1 c1.">
+  <meta name="description" content="创建项目 git init 查看分支 E:\HKMAIN (master) λ git branch * master   v1.1   v1.2 λ git branch -v * master bf0d2bf 蛋白模板修改USAGE:Reconstitute in sterile ddH2O.   v1.1   b48a782 试剂盒现货列表添加样本信息一栏   v1.2   acbf4f1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git入门基础">
 <meta property="og:url" content="http://www.zhuohc.com/2016/11/09/git入门基础/index.html">
 <meta property="og:site_name" content="饱读诗书">
-<meta property="og:description" content="创建项目git init查看分支E:\HKMAIN (master) λ git branch * master   v1.1   v1.2 λ git branch -v * master bf0d2bf 蛋白模板修改USAGE:Reconstitute in sterile ddH2O.   v1.1   b48a782 试剂盒现货列表添加样本信息一栏   v1.2   acbf4f1 c1.">
+<meta property="og:description" content="创建项目 git init 查看分支 E:\HKMAIN (master) λ git branch * master   v1.1   v1.2 λ git branch -v * master bf0d2bf 蛋白模板修改USAGE:Reconstitute in sterile ddH2O.   v1.1   b48a782 试剂盒现货列表添加样本信息一栏   v1.2   acbf4f1">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-07-24T01:26:06.416Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git入门基础">
-<meta name="twitter:description" content="创建项目git init查看分支E:\HKMAIN (master) λ git branch * master   v1.1   v1.2 λ git branch -v * master bf0d2bf 蛋白模板修改USAGE:Reconstitute in sterile ddH2O.   v1.1   b48a782 试剂盒现货列表添加样本信息一栏   v1.2   acbf4f1 c1.">
+<meta name="twitter:description" content="创建项目 git init 查看分支 E:\HKMAIN (master) λ git branch * master   v1.1   v1.2 λ git branch -v * master bf0d2bf 蛋白模板修改USAGE:Reconstitute in sterile ddH2O.   v1.1   b48a782 试剂盒现货列表添加样本信息一栏   v1.2   acbf4f1">
 
 
 
@@ -246,7 +246,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">63</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">68</span></a>
 
   </li>
 
@@ -432,7 +432,10 @@
       
 
       
-        <h3 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h3><pre><code>git init</code></pre><h3 id="查看分支"><a href="#查看分支" class="headerlink" title="查看分支"></a>查看分支</h3><pre><code>E:\HKMAIN (master)
+        <h3 id="创建项目">创建项目</h3>
+<pre><code>git init</code></pre>
+<h3 id="查看分支">查看分支</h3>
+<pre><code>E:\HKMAIN (master)
 λ git branch
 * master
   v1.1
@@ -440,9 +443,13 @@
 λ git branch -v
 * master bf0d2bf 蛋白模板修改USAGE:Reconstitute in sterile ddH2O.
   v1.1   b48a782 试剂盒现货列表添加样本信息一栏
-  v1.2   acbf4f1 c1.2</code></pre><h3 id="删除分支"><a href="#删除分支" class="headerlink" title="删除分支"></a>删除分支</h3><p>查看未合并的分支</p>
-<pre><code>λ git branch --no-merged</code></pre><p>删除分支</p>
-<pre><code>git branch -d v1.1</code></pre><p>如果是未合并的分支，使用大写的-D</p>
+  v1.2   acbf4f1 c1.2</code></pre>
+<h3 id="删除分支">删除分支</h3>
+<p>查看未合并的分支</p>
+<pre><code>λ git branch --no-merged</code></pre>
+<p>删除分支</p>
+<pre><code>git branch -d v1.1</code></pre>
+<p>如果是未合并的分支，使用大写的-D</p>
 <pre><code>E:\HKMAIN (master)
 λ git branch -d v1.1
 Deleted branch v1.1 (was b48a782).
@@ -450,7 +457,9 @@ Deleted branch v1.1 (was b48a782).
 E:\HKMAIN (master)
 λ git branch -v
 * master bf0d2bf 蛋白模板修改USAGE:Reconstitute in sterile ddH2O.
-  v1.2   acbf4f1 c1.2</code></pre><h3 id="创建分支"><a href="#创建分支" class="headerlink" title="创建分支"></a>创建分支</h3><pre><code>git branch v2.0
+  v1.2   acbf4f1 c1.2</code></pre>
+<h3 id="创建分支">创建分支</h3>
+<pre><code>git branch v2.0
 
 
 E:\HKMAIN (master)
@@ -464,25 +473,30 @@ E:\HKMAIN (master)
 
 E:\HKMAIN (master)
 λ git checkout Vmysql
-Switched to branch &apos;Vmysql&apos;
+Switched to branch &#39;Vmysql&#39;
 
 E:\HKMAIN (Vmysql)
-λ</code></pre><p>或者直接使用git checkout -b v3.0</p>
+λ</code></pre>
+<p>或者直接使用git checkout -b v3.0</p>
 <pre><code>E:\HKMAIN (Vmysql)
 λ git checkout -b Vsqlserver
-Switched to a new branch &apos;Vsqlserver&apos;
+Switched to a new branch &#39;Vsqlserver&#39;
 
 E:\HKMAIN (Vsqlserver)
 λ git branch
   Vmysql
 * Vsqlserver
   master
-  v1.2</code></pre><h3 id="git查看远程仓库"><a href="#git查看远程仓库" class="headerlink" title="git查看远程仓库"></a>git查看远程仓库</h3><pre><code># git查看远程仓库
+  v1.2</code></pre>
+<h3 id="git查看远程仓库">git查看远程仓库</h3>
+<pre><code># git查看远程仓库
 git remote -v
 # git添加远程仓库
 git remote add xxx git@gitlab.xxx.com:xxx/xxx
 # 删除远程分值
-git remote rm xxx</code></pre><h3 id="git-stash"><a href="#git-stash" class="headerlink" title="git stash"></a>git stash</h3><p>使用git stash命令先把当前进度保存起来，然后切换到另一个分支去修改bug，修改完提交后，再切回dev分支，使用git stash pop来恢复之前的进度继续开发新功能。</p>
+git remote rm xxx</code></pre>
+<h3 id="git-stash">git stash</h3>
+<p>使用git stash命令先把当前进度保存起来，然后切换到另一个分支去修改bug，修改完提交后，再切回dev分支，使用git stash pop来恢复之前的进度继续开发新功能。</p>
 <pre><code># 保存当前进度
 git stash
 # 查看现有的存储
@@ -490,6 +504,7 @@ git stash list
 # 恢复最新的进度到工作区
 git stash pop
 git stash save your-file-name</code></pre>
+
       
     </div>
 
@@ -621,7 +636,7 @@ git stash save your-file-name</code></pre>
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">68</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

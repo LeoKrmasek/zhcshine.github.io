@@ -98,19 +98,19 @@
   };
 </script>
 
-  <meta name="description" content="基本概念H264基本概念  I帧： 关键帧、采用帧内压缩技术P帧：向前参考帧，采用帧内压缩技术B帧：双向参考帧，采用帧内压缩技术  GOF:  一组帧group of frame  SPS:  Sequence parameter set: 序列参数集：存放一组帧的存放帧数，参考帧数目，解码图像尺寸等  PPS：  picture parameter set: 图像参数集：存放熵编码模式选择标识、">
+  <meta name="description" content="基本概念 H264基本概念  I帧： 关键帧、采用帧内压缩技术 P帧：向前参考帧，采用帧内压缩技术 B帧：双向参考帧，采用帧内压缩技术  GOF: &amp;gt; 一组帧group of frame SPS: &amp;gt; Sequence parameter set: 序列参数集：存放一组帧的存放帧数，参考帧数目，解码图像尺寸等 PPS： &amp;gt; picture parameter set: 图像参数集">
 <meta name="keywords" content="ffmpeg">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ffmpeg视频基础">
 <meta property="og:url" content="http://www.zhuohc.com/2019/07/24/ffmpeg视频基础/index.html">
 <meta property="og:site_name" content="饱读诗书">
-<meta property="og:description" content="基本概念H264基本概念  I帧： 关键帧、采用帧内压缩技术P帧：向前参考帧，采用帧内压缩技术B帧：双向参考帧，采用帧内压缩技术  GOF:  一组帧group of frame  SPS:  Sequence parameter set: 序列参数集：存放一组帧的存放帧数，参考帧数目，解码图像尺寸等  PPS：  picture parameter set: 图像参数集：存放熵编码模式选择标识、">
+<meta property="og:description" content="基本概念 H264基本概念  I帧： 关键帧、采用帧内压缩技术 P帧：向前参考帧，采用帧内压缩技术 B帧：双向参考帧，采用帧内压缩技术  GOF: &amp;gt; 一组帧group of frame SPS: &amp;gt; Sequence parameter set: 序列参数集：存放一组帧的存放帧数，参考帧数目，解码图像尺寸等 PPS： &amp;gt; picture parameter set: 图像参数集">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://zhuohc-com.oss-cn-hangzhou.aliyuncs.com/H264%E7%BB%93%E6%9E%84%E5%9B%BE.png">
 <meta property="og:updated_time" content="2019-07-24T01:16:41.880Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ffmpeg视频基础">
-<meta name="twitter:description" content="基本概念H264基本概念  I帧： 关键帧、采用帧内压缩技术P帧：向前参考帧，采用帧内压缩技术B帧：双向参考帧，采用帧内压缩技术  GOF:  一组帧group of frame  SPS:  Sequence parameter set: 序列参数集：存放一组帧的存放帧数，参考帧数目，解码图像尺寸等  PPS：  picture parameter set: 图像参数集：存放熵编码模式选择标识、">
+<meta name="twitter:description" content="基本概念 H264基本概念  I帧： 关键帧、采用帧内压缩技术 P帧：向前参考帧，采用帧内压缩技术 B帧：双向参考帧，采用帧内压缩技术  GOF: &amp;gt; 一组帧group of frame SPS: &amp;gt; Sequence parameter set: 序列参数集：存放一组帧的存放帧数，参考帧数目，解码图像尺寸等 PPS： &amp;gt; picture parameter set: 图像参数集">
 <meta name="twitter:image" content="https://zhuohc-com.oss-cn-hangzhou.aliyuncs.com/H264%E7%BB%93%E6%9E%84%E5%9B%BE.png">
 
 
@@ -249,7 +249,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">63</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">68</span></a>
 
   </li>
 
@@ -413,45 +413,38 @@
       
 
       
-        <h4 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h4><p>H264基本概念</p>
+        <h4 id="基本概念">基本概念</h4>
+<p>H264基本概念</p>
 <blockquote>
-<p>I帧： 关键帧、采用帧内压缩技术<br>P帧：向前参考帧，采用帧内压缩技术<br>B帧：双向参考帧，采用帧内压缩技术</p>
+<p>I帧： 关键帧、采用帧内压缩技术 P帧：向前参考帧，采用帧内压缩技术 B帧：双向参考帧，采用帧内压缩技术</p>
 </blockquote>
-<p>GOF:</p>
+<p>GOF: &gt; 一组帧group of frame</p>
+<p>SPS: &gt; Sequence parameter set: 序列参数集：存放一组帧的存放帧数，参考帧数目，解码图像尺寸等</p>
+<p>PPS： &gt; picture parameter set: 图像参数集：存放熵编码模式选择标识、片组数目等</p>
+<h4 id="视频编解码器">视频编解码器</h4>
 <blockquote>
-<p>一组帧group of frame</p>
+<p>x264：最流行的 x265：耗性能 openH264：支持svc视频技术 vp8: x264 vp9: x265</p>
 </blockquote>
-<p>SPS:</p>
+<h4 id="h264压缩技术">H264压缩技术</h4>
 <blockquote>
-<p>Sequence parameter set: 序列参数集：存放一组帧的存放帧数，参考帧数目，解码图像尺寸等</p>
-</blockquote>
-<p>PPS：</p>
-<blockquote>
-<p>picture parameter set: 图像参数集：存放熵编码模式选择标识、片组数目等</p>
-</blockquote>
-<h4 id="视频编解码器"><a href="#视频编解码器" class="headerlink" title="视频编解码器"></a>视频编解码器</h4><blockquote>
-<p>x264：最流行的<br>x265：耗性能<br>openH264：支持svc视频技术<br>vp8: x264<br>vp9: x265</p>
-</blockquote>
-<h4 id="H264压缩技术"><a href="#H264压缩技术" class="headerlink" title="H264压缩技术"></a>H264压缩技术</h4><blockquote>
 <p>帧内压缩：解决空域数据冗余技术</p>
 <p>帧间压缩：解决时域数据冗余技术</p>
 <p>整数离散余弦变换(DCT)：将空间上的相关性变为频域上无关的数据然后进行量化</p>
 <p>CABAC压缩</p>
 </blockquote>
-<p><img src="https://zhuohc-com.oss-cn-hangzhou.aliyuncs.com/H264%E7%BB%93%E6%9E%84%E5%9B%BE.png" alt="H264结构图"></p>
-<h4 id="H264编码分层"><a href="#H264编码分层" class="headerlink" title="H264编码分层"></a>H264编码分层</h4><blockquote>
-<p>NAL层：network abstraction layer 视频数据网络抽象层<br>VCL层：video coding layer 视频数据编码层</p>
-</blockquote>
-<h4 id="码流"><a href="#码流" class="headerlink" title="码流"></a>码流</h4><p>SODB</p>
+<figure>
+<img src="https://zhuohc-com.oss-cn-hangzhou.aliyuncs.com/H264%E7%BB%93%E6%9E%84%E5%9B%BE.png" alt><figcaption>H264结构图</figcaption>
+</figure>
+<h4 id="h264编码分层">H264编码分层</h4>
 <blockquote>
-<p>string of data bits 原始数据比特流，它是由vcl层产生的</p>
+<p>NAL层：network abstraction layer 视频数据网络抽象层 VCL层：video coding layer 视频数据编码层</p>
 </blockquote>
-<p>RBSP</p>
-<blockquote>
-<p>在SODB最后一位补1，不按字节对其则补0</p>
-</blockquote>
+<h4 id="码流">码流</h4>
+<p>SODB &gt; string of data bits 原始数据比特流，它是由vcl层产生的</p>
+<p>RBSP &gt; 在SODB最后一位补1，不按字节对其则补0</p>
 <p>EBSP</p>
 <blockquote>
+
 </blockquote>
 <p>NALU</p>
 <blockquote>
@@ -602,7 +595,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">68</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -709,7 +702,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#基本概念"><span class="nav-number">1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#视频编解码器"><span class="nav-number">2.</span> <span class="nav-text">视频编解码器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#H264压缩技术"><span class="nav-number">3.</span> <span class="nav-text">H264压缩技术</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#H264编码分层"><span class="nav-number">4.</span> <span class="nav-text">H264编码分层</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#码流"><span class="nav-number">5.</span> <span class="nav-text">码流</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#基本概念"><span class="nav-number">1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#视频编解码器"><span class="nav-number">2.</span> <span class="nav-text">视频编解码器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#h264压缩技术"><span class="nav-number">3.</span> <span class="nav-text">H264压缩技术</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#h264编码分层"><span class="nav-number">4.</span> <span class="nav-text">H264编码分层</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#码流"><span class="nav-number">5.</span> <span class="nav-text">码流</span></a></li></ol></div>
             
 
           </div>

@@ -98,18 +98,18 @@
   };
 </script>
 
-  <meta name="description" content="2017.11.10号重新更新基本安装和线上部署环境：python3.5 django1.11 # 安装环境 $ sudo apt-get update $ sudo apt-get install python3-pip apache2 libapache2-mod-wsgi-py3 $ sudo pip3 install virtualenv   # 安装项目目录 $ cd ~/www/htm">
+  <meta name="description" content="2017.11.10号重新更新基本安装和线上部署 环境：python3.5 django1.11 # 安装环境 $ sudo apt-get update $ sudo apt-get install python3-pip apache2 libapache2-mod-wsgi-py3 $ sudo pip3 install virtualenv   # 安装项目目录 $ cd ~/www/ht">
 <meta name="keywords" content="django,python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="django入门基础">
 <meta property="og:url" content="http://www.zhuohc.com/2016/11/09/django入门基础/index.html">
 <meta property="og:site_name" content="饱读诗书">
-<meta property="og:description" content="2017.11.10号重新更新基本安装和线上部署环境：python3.5 django1.11 # 安装环境 $ sudo apt-get update $ sudo apt-get install python3-pip apache2 libapache2-mod-wsgi-py3 $ sudo pip3 install virtualenv   # 安装项目目录 $ cd ~/www/htm">
+<meta property="og:description" content="2017.11.10号重新更新基本安装和线上部署 环境：python3.5 django1.11 # 安装环境 $ sudo apt-get update $ sudo apt-get install python3-pip apache2 libapache2-mod-wsgi-py3 $ sudo pip3 install virtualenv   # 安装项目目录 $ cd ~/www/ht">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-07-24T01:25:47.823Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="django入门基础">
-<meta name="twitter:description" content="2017.11.10号重新更新基本安装和线上部署环境：python3.5 django1.11 # 安装环境 $ sudo apt-get update $ sudo apt-get install python3-pip apache2 libapache2-mod-wsgi-py3 $ sudo pip3 install virtualenv   # 安装项目目录 $ cd ~/www/htm">
+<meta name="twitter:description" content="2017.11.10号重新更新基本安装和线上部署 环境：python3.5 django1.11 # 安装环境 $ sudo apt-get update $ sudo apt-get install python3-pip apache2 libapache2-mod-wsgi-py3 $ sudo pip3 install virtualenv   # 安装项目目录 $ cd ~/www/ht">
 
 
 
@@ -247,7 +247,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">63</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">68</span></a>
 
   </li>
 
@@ -433,7 +433,8 @@
       
 
       
-        <h3 id="2017-11-10号重新更新基本安装和线上部署"><a href="#2017-11-10号重新更新基本安装和线上部署" class="headerlink" title="2017.11.10号重新更新基本安装和线上部署"></a>2017.11.10号重新更新基本安装和线上部署</h3><p>环境：python3.5 django1.11</p>
+        <h3 id="号重新更新基本安装和线上部署">2017.11.10号重新更新基本安装和线上部署</h3>
+<p>环境：python3.5 django1.11</p>
 <pre><code># 安装环境
 $ sudo apt-get update
 $ sudo apt-get install python3-pip apache2 libapache2-mod-wsgi-py3
@@ -460,9 +461,9 @@ $ source ./bin/activate
 
 # 修改文件内容
 (CCO) $ vim CCO_WEB/CCO_WEB/setting.py
-ALLOWED_HOSTS = [&apos;127.0.0.1&apos;, &apos;localhost&apos;]  # 修改
-STATIC_URL = &apos;/static/&apos; # 原始
-STATIC_ROOT = os.path.join(BASE_DIR, &apos;static/&apos;) # 添加
+ALLOWED_HOSTS = [&#39;127.0.0.1&#39;, &#39;localhost&#39;]  # 修改
+STATIC_URL = &#39;/static/&#39; # 原始
+STATIC_ROOT = os.path.join(BASE_DIR, &#39;static/&#39;) # 添加
 
 
 # 创建数据库和超级管理员
@@ -507,44 +508,67 @@ $ sudo vim /etc/apache2/sites-available/www.cco.com.conf
 sudo a2ensite www.cco.com
 sudo service apache2 restart
 http://127.0.0.1 查看
-原文查看　https://www.digitalocean.com/community/tutorials/how-to-serve-django-applications-with-apache-and-mod_wsgi-on-ubuntu-16-04</code></pre><h3 id="数据库安装"><a href="#数据库安装" class="headerlink" title="数据库安装"></a>数据库安装</h3><pre><code>$ sudo apt-get install python-setuptools
+原文查看　https://www.digitalocean.com/community/tutorials/how-to-serve-django-applications-with-apache-and-mod_wsgi-on-ubuntu-16-04</code></pre>
+<h3 id="数据库安装">数据库安装</h3>
+<pre><code>$ sudo apt-get install python-setuptools
 $ sudo apt-get install libmysqld-dev
 $ sudo apt-get install libmysqlclient-dev
 $ sudo apt-get install python-dev
 $ sudo easy_install mysql-python
-$ pip3 install mysqlclient</code></pre><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><pre><code># 需要先安装虚拟环境
-(Novel) pip isntall django==1.8.2 # 不能加sudo</code></pre><h3 id="查看是否安装成功及版本号"><a href="#查看是否安装成功及版本号" class="headerlink" title="查看是否安装成功及版本号"></a>查看是否安装成功及版本号</h3><pre><code>python
+$ pip3 install mysqlclient</code></pre>
+<h3 id="安装">安装</h3>
+<pre><code># 需要先安装虚拟环境
+(Novel) pip isntall django==1.8.2 # 不能加sudo</code></pre>
+<h3 id="查看是否安装成功及版本号">查看是否安装成功及版本号</h3>
+<pre><code>python
 import django
-django.VERSION</code></pre><h3 id="安装MysqlDb"><a href="#安装MysqlDb" class="headerlink" title="安装MysqlDb"></a>安装MysqlDb</h3><p>ubuntu</p>
+django.VERSION</code></pre>
+<h3 id="安装mysqldb">安装MysqlDb</h3>
+<p>ubuntu</p>
 <pre><code># ubuntu安装步骤：
 sudo apt-get install python-setuptools
 sudo apt-get install libmysqld-dev
 sudo apt-get install libmysqlclient-dev
 sudo apt-get install python-dev
-sudo easy_install mysql-python</code></pre><p>windows下<a href="https://pypi.python.org/pypi/MySQL-python/1.2.5" target="_blank" rel="noopener">https://pypi.python.org/pypi/MySQL-python/1.2.5</a> 下载.exe一键安装</p>
-<h3 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h3><pre><code>django-admin.py startproject Novel</code></pre><h3 id="创建APP"><a href="#创建APP" class="headerlink" title="创建APP"></a>创建APP</h3><pre><code>python manage.py startapp Heros</code></pre><p>/Novel/settings.py</p>
+sudo easy_install mysql-python</code></pre>
+<p>windows下https://pypi.python.org/pypi/MySQL-python/1.2.5 下载.exe一键安装</p>
+<h3 id="创建项目">创建项目</h3>
+<pre><code>django-admin.py startproject Novel</code></pre>
+<h3 id="创建app">创建APP</h3>
+<pre><code>python manage.py startapp Heros</code></pre>
+<p>/Novel/settings.py</p>
 <pre><code>INSTALLED_APPS = (
     ...
-    &apos;Heroes&apos;,  #这里填写的是app的名称
-)</code></pre><h3 id="命令行调试模式"><a href="#命令行调试模式" class="headerlink" title="命令行调试模式"></a>命令行调试模式</h3><pre><code>python manage.py shell</code></pre><h3 id="运行开发服务器"><a href="#运行开发服务器" class="headerlink" title="运行开发服务器"></a>运行开发服务器</h3><pre><code>cd mysite
+    &#39;Heroes&#39;,  #这里填写的是app的名称
+)</code></pre>
+<h3 id="命令行调试模式">命令行调试模式</h3>
+<pre><code>python manage.py shell</code></pre>
+<h3 id="运行开发服务器">运行开发服务器</h3>
+<pre><code>cd mysite
 python manage.py runserver 或者
-python manage.py runserver 0.0.0.0:8000</code></pre><h3 id="运行shell脚本方式"><a href="#运行shell脚本方式" class="headerlink" title="运行shell脚本方式"></a>运行shell脚本方式</h3><pre><code>python manager.py shell # 启动脚本环境
-from testapp.models import *  # 导入数据库</code></pre><h3 id="部署线上环境"><a href="#部署线上环境" class="headerlink" title="部署线上环境"></a>部署线上环境</h3><p>安装apache模块</p>
+python manage.py runserver 0.0.0.0:8000</code></pre>
+<h3 id="运行shell脚本方式">运行shell脚本方式</h3>
+<pre><code>python manager.py shell # 启动脚本环境
+from testapp.models import *  # 导入数据库</code></pre>
+<h3 id="部署线上环境">部署线上环境</h3>
+<p>安装apache模块</p>
 <pre><code># Python 2
 sudo apt-get install libapache2-mod-wsgi
 
 # Python 3
-sudo apt-get install libapache2-mod-wsgi-py3</code></pre><p>Novel/Novel/wsgi.py</p>
+sudo apt-get install libapache2-mod-wsgi-py3</code></pre>
+<p>Novel/Novel/wsgi.py</p>
 <pre><code>import os
 import sys
-sys.path.append(&apos;/var/www/html/Novel/&apos;)
-sys.path.append(&apos;/var/www/html/Novel/Novel/&apos;)
-sys.path.append(&apos;/var/www/html/Novel/lib/python2.7/site-packages&apos;) # 虚拟环境需要添加
+sys.path.append(&#39;/var/www/html/Novel/&#39;)
+sys.path.append(&#39;/var/www/html/Novel/Novel/&#39;)
+sys.path.append(&#39;/var/www/html/Novel/lib/python2.7/site-packages&#39;) # 虚拟环境需要添加
 from django.core.wsgi import get_wsgi_application
 
 
 os.environ.setdefault(&quot;DJANGO_SETTINGS_MODULE&quot;, &quot;Novel.settings&quot;)
-application = get_wsgi_application()</code></pre><p>/etc/apache2/sites-enable/novel.conf</p>
+application = get_wsgi_application()</code></pre>
+<p>/etc/apache2/sites-enable/novel.conf</p>
 <pre><code>&lt;VirtualHost *:1200&gt;
     ServerAdmin webmaster@localhost
     DocumentRoot /var/www/html/Novel/Novel/Novel
@@ -565,29 +589,35 @@ application = get_wsgi_application()</code></pre><p>/etc/apache2/sites-enable/no
         &lt;/Files&gt;
     &lt;/Directory&gt;
 
-&lt;/VirtualHost&gt;</code></pre><h3 id="视图与路由绑定"><a href="#视图与路由绑定" class="headerlink" title="视图与路由绑定"></a>视图与路由绑定</h3><p>/Heroes/views.py</p>
+&lt;/VirtualHost&gt;</code></pre>
+<h3 id="视图与路由绑定">视图与路由绑定</h3>
+<p>/Heroes/views.py</p>
 <pre><code>from django.http import HttpResponse, Http404
 # Create your views here.
 
 
 def hello(request):
-    return HttpResponse(&quot;Hello World&quot;)</code></pre><p>/Novel/urls.py</p>
+    return HttpResponse(&quot;Hello World&quot;)</code></pre>
+<p>/Novel/urls.py</p>
 <pre><code>from django.conf.urls import include, url
 from Heroes.views import *
 
 urlpatterns = [
-    url(r&apos;^hello/$&apos;, hello),
-    url(r&apos;^time/plus/(\d{1,2})/$&apos;, hours_ahead)
-]</code></pre><h3 id="视图与模板"><a href="#视图与模板" class="headerlink" title="视图与模板"></a>视图与模板</h3><p>/Novel/settings.py设置模板路径</p>
+    url(r&#39;^hello/$&#39;, hello),
+    url(r&#39;^time/plus/(\d{1,2})/$&#39;, hours_ahead)
+]</code></pre>
+<h3 id="视图与模板">视图与模板</h3>
+<p>/Novel/settings.py设置模板路径</p>
 <pre><code>TEMPLATES = [
     {
         # .....
-        &apos;DIRS&apos;: [
-            os.path.join(os.path.dirname(__file__), &apos;templates&apos;).replace(&apos;\\&apos;,&apos;/&apos;),
+        &#39;DIRS&#39;: [
+            os.path.join(os.path.dirname(__file__), &#39;templates&#39;).replace(&#39;\\&#39;,&#39;/&#39;),
         ],
         # ....
     },
-]</code></pre><p>/Novel/Heroes/views.py修改视图</p>
+]</code></pre>
+<p>/Novel/Heroes/views.py修改视图</p>
 <pre><code>from django.shortcuts import render_to_response
 from django.http import HttpResponse, Http404
 import datetime
@@ -597,8 +627,9 @@ import datetime
 
 def current_datetime(request):
     now = datetime.datetime.now()
-    # html = &apos;&lt;html&gt;&lt;body&gt;It is %s.&lt;/body&gt;&lt;/html&gt;&apos; % now
-    return render_to_response(&apos;Heroes/current_datetime.html&apos;, {&apos;current_time&apos;: now})</code></pre><p>/Novel目录下创建templates/Heroes/current_datetime.html</p>
+    # html = &#39;&lt;html&gt;&lt;body&gt;It is %s.&lt;/body&gt;&lt;/html&gt;&#39; % now
+    return render_to_response(&#39;Heroes/current_datetime.html&#39;, {&#39;current_time&#39;: now})</code></pre>
+<p>/Novel目录下创建templates/Heroes/current_datetime.html</p>
 <pre><code>&lt;!doctype html&gt;
 &lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
@@ -608,29 +639,35 @@ def current_datetime(request):
 &lt;body&gt;
     &lt;h1&gt;{ { current_time }}&lt;/h1&gt;
 &lt;/body&gt;
-&lt;/html&gt;</code></pre><h3 id="数据库配置"><a href="#数据库配置" class="headerlink" title="数据库配置"></a>数据库配置</h3><p>/Novel/settings.py</p>
+&lt;/html&gt;</code></pre>
+<h3 id="数据库配置">数据库配置</h3>
+<p>/Novel/settings.py</p>
 <pre><code>DATABASES = {
-    &apos;default&apos;: {
-        &apos;ENGINE&apos;: &apos;django.db.backends.mysql&apos;,
-        &apos;NAME&apos;: &apos;Novel&apos;,
-        &apos;USER&apos;: &apos;root&apos;,
-        &apos;PASSWORD&apos;: &apos;password&apos;,
-        &apos;HOST&apos;: &apos;127.0.0.1&apos;,
-        &apos;PORT&apos;: &apos;3306&apos;
+    &#39;default&#39;: {
+        &#39;ENGINE&#39;: &#39;django.db.backends.mysql&#39;,
+        &#39;NAME&#39;: &#39;Novel&#39;,
+        &#39;USER&#39;: &#39;root&#39;,
+        &#39;PASSWORD&#39;: &#39;password&#39;,
+        &#39;HOST&#39;: &#39;127.0.0.1&#39;,
+        &#39;PORT&#39;: &#39;3306&#39;
     }
-}</code></pre><p>测试是否成功</p>
+}</code></pre>
+<p>测试是否成功</p>
 <pre><code>python manage.py shell
 &gt;&gt;&gt; from django.db import connection
-&gt;&gt;&gt; cursor = connection.cursor()</code></pre><h3 id="视图返回json数据格式"><a href="#视图返回json数据格式" class="headerlink" title="视图返回json数据格式"></a>视图返回json数据格式</h3><p>views.py</p>
+&gt;&gt;&gt; cursor = connection.cursor()</code></pre>
+<h3 id="视图返回json数据格式">视图返回json数据格式</h3>
+<p>views.py</p>
 <pre><code>from django.http import HttpResponse, Http404
 from json import dumps
 
 def login_handle(request):
-    if request.method != &apos;POST&apos;:
+    if request.method != &#39;POST&#39;:
         raise Http404()
     inputs = request.POST
     json_str = dumps(inputs)
-    return HttpResponse(json_str, content_type=&apos;application/json&apos;)</code></pre><p>### 静态文件 settings.py <figure class="highlight plain"><figcaption><span>线上模式静态地址 STATIC_URL </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">开发模式静态地址</span><br><span class="line">========</span><br><span class="line"></span><br><span class="line">STATICFILES_DIRS = (os.path.join(os.path.dirname(**file**), &apos;static&apos;).replace(&apos;\\&apos;,&apos;/&apos;),)</span><br></pre></td></tr></table></figure></p>
+    return HttpResponse(json_str, content_type=&#39;application/json&#39;)</code></pre>
+<p>### 静态文件 settings.py <figure class="highlight plain"><figcaption><span>线上模式静态地址 STATIC_URL </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">开发模式静态地址</span><br><span class="line">========</span><br><span class="line"></span><br><span class="line">STATICFILES_DIRS = (os.path.join(os.path.dirname(**file**), &apos;static&apos;).replace(&apos;\\&apos;,&apos;/&apos;),)</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -774,7 +811,7 @@ def login_handle(request):
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">68</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -881,7 +918,7 @@ def login_handle(request):
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-11-10号重新更新基本安装和线上部署"><span class="nav-number">1.</span> <span class="nav-text">2017.11.10号重新更新基本安装和线上部署</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库安装"><span class="nav-number">2.</span> <span class="nav-text">数据库安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">3.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看是否安装成功及版本号"><span class="nav-number">4.</span> <span class="nav-text">查看是否安装成功及版本号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装MysqlDb"><span class="nav-number">5.</span> <span class="nav-text">安装MysqlDb</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建项目"><span class="nav-number">6.</span> <span class="nav-text">创建项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建APP"><span class="nav-number">7.</span> <span class="nav-text">创建APP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#命令行调试模式"><span class="nav-number">8.</span> <span class="nav-text">命令行调试模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行开发服务器"><span class="nav-number">9.</span> <span class="nav-text">运行开发服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行shell脚本方式"><span class="nav-number">10.</span> <span class="nav-text">运行shell脚本方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部署线上环境"><span class="nav-number">11.</span> <span class="nav-text">部署线上环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#视图与路由绑定"><span class="nav-number">12.</span> <span class="nav-text">视图与路由绑定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#视图与模板"><span class="nav-number">13.</span> <span class="nav-text">视图与模板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库配置"><span class="nav-number">14.</span> <span class="nav-text">数据库配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#视图返回json数据格式"><span class="nav-number">15.</span> <span class="nav-text">视图返回json数据格式</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#号重新更新基本安装和线上部署"><span class="nav-number">1.</span> <span class="nav-text">2017.11.10号重新更新基本安装和线上部署</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库安装"><span class="nav-number">2.</span> <span class="nav-text">数据库安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">3.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看是否安装成功及版本号"><span class="nav-number">4.</span> <span class="nav-text">查看是否安装成功及版本号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装mysqldb"><span class="nav-number">5.</span> <span class="nav-text">安装MysqlDb</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建项目"><span class="nav-number">6.</span> <span class="nav-text">创建项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建app"><span class="nav-number">7.</span> <span class="nav-text">创建APP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#命令行调试模式"><span class="nav-number">8.</span> <span class="nav-text">命令行调试模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行开发服务器"><span class="nav-number">9.</span> <span class="nav-text">运行开发服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行shell脚本方式"><span class="nav-number">10.</span> <span class="nav-text">运行shell脚本方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部署线上环境"><span class="nav-number">11.</span> <span class="nav-text">部署线上环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#视图与路由绑定"><span class="nav-number">12.</span> <span class="nav-text">视图与路由绑定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#视图与模板"><span class="nav-number">13.</span> <span class="nav-text">视图与模板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库配置"><span class="nav-number">14.</span> <span class="nav-text">数据库配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#视图返回json数据格式"><span class="nav-number">15.</span> <span class="nav-text">视图返回json数据格式</span></a></li></ol></div>
             
 
           </div>

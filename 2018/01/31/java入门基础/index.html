@@ -98,17 +98,17 @@
   };
 </script>
 
-  <meta name="description" content="linux安装java开发环境下载源码 123456# 从官方网站下载javaLTS版本源码并复制到当前目录# 下载地址: https://www.oracle.com/technetwork/java/javase/downloads/index.html$ sudo mkdir /usr/java$ sudo cd /usr/java$ sudo cp -rf ~/Download/jdk-1">
+  <meta name="description" content="linux安装java开发环境 安装java 下载源码 123456# 从官方网站下载javaLTS版本源码并复制到当前目录# 下载地址: https://www.oracle.com/technetwork/java/javase/downloads/index.html$ sudo mkdir /usr/java$ sudo cd /usr/java$ sudo cp -rf ~/Downlo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java入门基础">
 <meta property="og:url" content="http://www.zhuohc.com/2018/01/31/java入门基础/index.html">
 <meta property="og:site_name" content="饱读诗书">
-<meta property="og:description" content="linux安装java开发环境下载源码 123456# 从官方网站下载javaLTS版本源码并复制到当前目录# 下载地址: https://www.oracle.com/technetwork/java/javase/downloads/index.html$ sudo mkdir /usr/java$ sudo cd /usr/java$ sudo cp -rf ~/Download/jdk-1">
+<meta property="og:description" content="linux安装java开发环境 安装java 下载源码 123456# 从官方网站下载javaLTS版本源码并复制到当前目录# 下载地址: https://www.oracle.com/technetwork/java/javase/downloads/index.html$ sudo mkdir /usr/java$ sudo cd /usr/java$ sudo cp -rf ~/Downlo">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-13T10:51:00.381Z">
+<meta property="og:updated_time" content="2019-08-16T07:19:46.617Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java入门基础">
-<meta name="twitter:description" content="linux安装java开发环境下载源码 123456# 从官方网站下载javaLTS版本源码并复制到当前目录# 下载地址: https://www.oracle.com/technetwork/java/javase/downloads/index.html$ sudo mkdir /usr/java$ sudo cd /usr/java$ sudo cp -rf ~/Download/jdk-1">
+<meta name="twitter:description" content="linux安装java开发环境 安装java 下载源码 123456# 从官方网站下载javaLTS版本源码并复制到当前目录# 下载地址: https://www.oracle.com/technetwork/java/javase/downloads/index.html$ sudo mkdir /usr/java$ sudo cd /usr/java$ sudo cp -rf ~/Downlo">
 
 
 
@@ -246,7 +246,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">63</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">68</span></a>
 
   </li>
 
@@ -381,7 +381,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-08-13 18:51:00" itemprop="dateModified" datetime="2019-08-13T18:51:00+08:00">2019-08-13</time>
+                <time title="Modified: 2019-08-16 15:19:46" itemprop="dateModified" datetime="2019-08-16T15:19:46+08:00">2019-08-16</time>
               </span>
             
           
@@ -432,24 +432,48 @@
       
 
       
-        <h4 id="linux安装java开发环境"><a href="#linux安装java开发环境" class="headerlink" title="linux安装java开发环境"></a>linux安装java开发环境</h4><p>下载源码</p>
+        <h4 id="linux安装java开发环境">linux安装java开发环境</h4>
+<h5 id="安装java">安装java</h5>
+<p>下载源码</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 从官方网站下载javaLTS版本源码并复制到当前目录</span><br><span class="line"><span class="meta">#</span> 下载地址: https://www.oracle.com/technetwork/java/javase/downloads/index.html</span><br><span class="line"><span class="meta">$</span> sudo mkdir /usr/java</span><br><span class="line"><span class="meta">$</span> sudo cd /usr/java</span><br><span class="line"><span class="meta">$</span> sudo cp -rf ~/Download/jdk-11.0.3_linux-x64_bin.tar.gz .</span><br><span class="line"><span class="meta">$</span> sudo tar -zxvf jdk-11.0.3_linux-x64_bin.tar.gz &amp;&amp; rm  jdk-11.0.3_linux-x64_bin.tar.gz</span><br></pre></td></tr></table></figure>
-
 <p>设置环境变量</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo vi /etc/profile</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>set java environment</span><br><span class="line">JAVA_HOME=/usr/java/jdk-11.0.3</span><br><span class="line">JRE_HOME=/usr/java/jdk-11.0.3/jre</span><br><span class="line">CLASS_PATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib</span><br><span class="line">PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin</span><br><span class="line">export JAVA_HOME JRE_HOME CLASS_PATH PATH</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>set java environment</span><br><span class="line">JAVA_HOME=/usr/java/jdk-11.0.3</span><br><span class="line">JRE_HOME=/usr/java/jdk-11.0.3/jre  # 如果安装包中没有jre文件夹，则改成和JAVA_HOME一致</span><br><span class="line">CLASS_PATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib</span><br><span class="line">PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin</span><br><span class="line">export JAVA_HOME JRE_HOME CLASS_PATH PATH</span><br></pre></td></tr></table></figure>
 <p>验证</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> which java</span><br><span class="line">/usr/java/jdk-11.0.3/bin/java</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span> java -version</span><br><span class="line">java version "11.0.3" 2019-04-16 LTS</span><br><span class="line">Java(TM) SE Runtime Environment 18.9 (build 11.0.3+12-LTS)                                           </span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM 18.9 (build 11.0.3+12-LTS, mixed mode)</span><br></pre></td></tr></table></figure>
-
-<h4 id="linux安装tomcat"><a href="#linux安装tomcat" class="headerlink" title="linux安装tomcat"></a>linux安装tomcat</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> cd /home/zhc/java</span><br><span class="line"><span class="meta">#</span> https://tomcat.apache.org/download-90.cgi</span><br><span class="line"><span class="meta">$</span> wget http://mirror.bit.edu.cn/apache/tomcat/tomcat-9/v9.0.22/bin/apache-tomcat-9.0.22.tar.gz</span><br><span class="line"><span class="meta">$</span> tar -xzvf apache-tomcat-9.0.22.tar.gz</span><br><span class="line"><span class="meta">$</span> mv apache-tomcat-9.0.22 tomcat</span><br></pre></td></tr></table></figure>
-
+<h5 id="linux安装tomcat">linux安装tomcat</h5>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> cd /home/zhc/java</span><br><span class="line"><span class="meta">#</span> https://tomcat.apache.org/download-90.cgi</span><br><span class="line"><span class="meta">$</span> wget http://mirror.bit.edu.cn/apache/tomcat/tomcat-9/v9.0.22/bin/apache-tomcat-9.0.22.tar.gz</span><br><span class="line"><span class="meta">$</span> tar -xzvf apache-tomcat-9.0.22.tar.gz</span><br><span class="line"><span class="meta">$</span> mv apache-tomcat-9.0.22 tomcat</span><br></pre></td></tr></table></figure>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 启动 http://127.0.0.1:8080</span><br><span class="line"><span class="meta">$</span> sudo ./tomcat/bin/startup.sh</span><br><span class="line">Using CATALINA_BASE:   /home/zhc/work/java/tomcat</span><br><span class="line">Using CATALINA_HOME:   /home/zhc/work/java/tomcat</span><br><span class="line">Using CATALINA_TMPDIR: /home/zhc/work/java/tomcat/temp</span><br><span class="line">Using JRE_HOME:        /usr/java/jdk-11.0.4</span><br><span class="line">Using CLASSPATH:       /home/zhc/work/java/tomcat/bin/bootstrap.jar:/home/zhc/work/java/tomcat/bin/tomcat-juli.jar</span><br><span class="line">Tomcat started.</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 关闭</span><br><span class="line"><span class="meta">$</span> sudo ./tomcat-9/bin/shutdown.sh</span><br></pre></td></tr></table></figure>
-
 <p><a href="!https://www.vultr.com/docs/how-to-install-apache-tomcat-8-on-centos-7">centos设置为系统启动</a></p>
+<h6 id="idea配置tomcat服务">idea配置tomcat服务</h6>
+<ul>
+<li>修改虚拟路径 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 以下两个配置需要保持一致</span><br><span class="line">RUN/DEBUG Configurations -&gt; Server -&gt; URL http://localhost:8080/&#123;ProjectName&#125;_war_exploded/ </span><br><span class="line">RUN/DEBUG Configurations -&gt; Deployment -&gt; Application content /&#123;ProjectName&#125;_war_exploded</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h5 id="安装maven">安装maven</h5>
+<a href="/2019/08/16/java开发maven构建工具入门基础/" title="java开发maven构建工具入门基础">java开发maven构建工具入门基础</a>
+<h5 id="安装gradle">安装gradle</h5>
+<a href="/2019/08/16/java开发gradle构建工具入门基础/" title="java开发gradle构建工具入门基础">java开发gradle构建工具入门基础</a>
+<h5 id="安装commons-logging">安装commons-logging</h5>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 从官网下载二进制文件包</span><br><span class="line"><span class="meta">#</span> http://commons.apache.org/proper/commons-logging/download_logging.cgi</span><br><span class="line"><span class="meta">$</span> wget http://mirrors.tuna.tsinghua.edu.cn/apache//commons/logging/binaries/commons-logging-1.2-bin.tar.gz</span><br><span class="line"><span class="meta">$</span> tar -xzvf commons-logging-1.2-bin.tar.gz</span><br><span class="line"><span class="meta">$</span> sudo mv commons-logging-1.2 /usr/java_jar/</span><br></pre></td></tr></table></figure>
+<h5 id="使用sdkman管理sdk">使用sdkman管理sdk</h5>
+<p><a href="!https://sdkman.io/install">sdkman</a></p>
+<h4 id="打包">打包</h4>
+<h5 id="创建jar包">创建jar包</h5>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 编写应用程序</span><br><span class="line"><span class="meta">$</span> sudo vim com/zhuohc/jar/HelloWorld.java</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.zhuohc.jar;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"hello world!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> javac com/zhuohc/jar/HelloWorld.java  # 编译</span><br><span class="line"><span class="meta">$</span> jar cvf hello.jar com/zhuohc/jar/HelloWorld.class  # 打包 参数c: 创建， 参数v: 输出具体文件信息， 参数f: 指定输出文件名</span><br><span class="line">已添加清单</span><br><span class="line">正在添加: com/zhuohc/jar/HelloWorld.class(输入 = 441) (输出 = 302)(压缩了 31%)</span><br></pre></td></tr></table></figure>
+<h5 id="查看jar包信息">查看jar包信息</h5>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> jar tvf hello.jar  # 查看 参数t： 查看</span><br><span class="line">0 Fri Aug 16 14:21:06 CST 2019 META-INF/</span><br><span class="line">66 Fri Aug 16 14:21:06 CST 2019 META-INF/MANIFEST.MF</span><br><span class="line">441 Fri Aug 16 14:20:20 CST 2019 com/zhuohc/jar/HelloWorld.class</span><br></pre></td></tr></table></figure>
+<h5 id="提取jar包信息">提取jar包信息</h5>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> jar xvf hello.jar # 解压 参数x： 提取extract</span><br><span class="line">已创建: META-INF/</span><br><span class="line">已解压: META-INF/MANIFEST.MF</span><br><span class="line">已解压: com/zhuohc/jar/HelloWorld.class</span><br></pre></td></tr></table></figure>
+<h5 id="jar包清单文件">jar包清单文件</h5>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">创建清单文件</span><br><span class="line"><span class="meta">$</span> sudo vim Manifest.txt</span><br></pre></td></tr></table></figure>
+<p>Manifest.txt指定程序入口 警告： 文本文件必须以新行或回车符结束。如果最后一行不以新行或回车结束，则不会正确解析.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> Manifest.txt</span><br><span class="line">Main-Class: com.zhuohc.jar.HelloWorld</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 重新打包</span><br><span class="line"><span class="meta">$</span> jar cvfm hello.jar Manifest.txt com/zhuohc/jar/HelloWorld.class  # 参数m: 指定清单文件地址</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 执行jar文件</span><br><span class="line"><span class="meta">$</span> java -jar hello.jar</span><br><span class="line">hello world!</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> Manifest.txt 其他信息</span><br><span class="line">Name: com/zhuohc/jar</span><br><span class="line">Specification-Title: Java Utility Classes</span><br><span class="line">Specification-Version: 1.2</span><br><span class="line">Specification-Vendor: Example Tech, Inc.</span><br><span class="line">Implementation-Title: com.zhuohc.jar</span><br><span class="line">Implementation-Version: build57</span><br><span class="line">Implementation-Vendor: Example Tech, Inc.</span><br><span class="line">Main-Class: com.zhuohc.jar.HelloWorld</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -582,7 +606,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">68</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -689,7 +713,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#linux安装java开发环境"><span class="nav-number">1.</span> <span class="nav-text">linux安装java开发环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#linux安装tomcat"><span class="nav-number">2.</span> <span class="nav-text">linux安装tomcat</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#linux安装java开发环境"><span class="nav-number">1.</span> <span class="nav-text">linux安装java开发环境</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#安装java"><span class="nav-number">1.1.</span> <span class="nav-text">安装java</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#linux安装tomcat"><span class="nav-number">1.2.</span> <span class="nav-text">linux安装tomcat</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#idea配置tomcat服务"><span class="nav-number">1.2.1.</span> <span class="nav-text">idea配置tomcat服务</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#安装maven"><span class="nav-number">1.3.</span> <span class="nav-text">安装maven</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#安装gradle"><span class="nav-number">1.4.</span> <span class="nav-text">安装gradle</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#安装commons-logging"><span class="nav-number">1.5.</span> <span class="nav-text">安装commons-logging</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#使用sdkman管理sdk"><span class="nav-number">1.6.</span> <span class="nav-text">使用sdkman管理sdk</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#打包"><span class="nav-number">2.</span> <span class="nav-text">打包</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#创建jar包"><span class="nav-number">2.1.</span> <span class="nav-text">创建jar包</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#查看jar包信息"><span class="nav-number">2.2.</span> <span class="nav-text">查看jar包信息</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#提取jar包信息"><span class="nav-number">2.3.</span> <span class="nav-text">提取jar包信息</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#jar包清单文件"><span class="nav-number">2.4.</span> <span class="nav-text">jar包清单文件</span></a></li></ol></li></ol></div>
             
 
           </div>

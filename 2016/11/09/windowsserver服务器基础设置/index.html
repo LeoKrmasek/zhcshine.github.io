@@ -98,18 +98,18 @@
   };
 </script>
 
-  <meta name="description" content="远程连接禁止administrators组远程连接  运行gpedit.msc计算机配置-&amp;gt;windows设置-&amp;gt;安全设置-&amp;gt;本地策略-&amp;gt;用户权限分配-&amp;gt;通过终端服务允许登录将Administrators账号删除掉,保留Remote Desktop Users  创建新的用户  本地用户和组-&amp;gt;用户右键-&amp;gt;新用户-&amp;gt;输入用户名，设置密码 添加Admi">
+  <meta name="description" content="远程连接 禁止administrators组远程连接  运行gpedit.msc 计算机配置-&amp;gt;windows设置-&amp;gt;安全设置-&amp;gt;本地策略-&amp;gt;用户权限分配-&amp;gt;通过终端服务允许登录 将Administrators账号删除掉,保留Remote Desktop Users  创建新的用户  本地用户和组-&amp;gt;用户右键-&amp;gt;新用户-&amp;gt;输入用户名，设置密码 添加A">
 <meta name="keywords" content="windows">
 <meta property="og:type" content="article">
 <meta property="og:title" content="windowsserver服务器基础设置">
 <meta property="og:url" content="http://www.zhuohc.com/2016/11/09/windowsserver服务器基础设置/index.html">
 <meta property="og:site_name" content="饱读诗书">
-<meta property="og:description" content="远程连接禁止administrators组远程连接  运行gpedit.msc计算机配置-&amp;gt;windows设置-&amp;gt;安全设置-&amp;gt;本地策略-&amp;gt;用户权限分配-&amp;gt;通过终端服务允许登录将Administrators账号删除掉,保留Remote Desktop Users  创建新的用户  本地用户和组-&amp;gt;用户右键-&amp;gt;新用户-&amp;gt;输入用户名，设置密码 添加Admi">
+<meta property="og:description" content="远程连接 禁止administrators组远程连接  运行gpedit.msc 计算机配置-&amp;gt;windows设置-&amp;gt;安全设置-&amp;gt;本地策略-&amp;gt;用户权限分配-&amp;gt;通过终端服务允许登录 将Administrators账号删除掉,保留Remote Desktop Users  创建新的用户  本地用户和组-&amp;gt;用户右键-&amp;gt;新用户-&amp;gt;输入用户名，设置密码 添加A">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-07-24T01:36:42.606Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="windowsserver服务器基础设置">
-<meta name="twitter:description" content="远程连接禁止administrators组远程连接  运行gpedit.msc计算机配置-&amp;gt;windows设置-&amp;gt;安全设置-&amp;gt;本地策略-&amp;gt;用户权限分配-&amp;gt;通过终端服务允许登录将Administrators账号删除掉,保留Remote Desktop Users  创建新的用户  本地用户和组-&amp;gt;用户右键-&amp;gt;新用户-&amp;gt;输入用户名，设置密码 添加Admi">
+<meta name="twitter:description" content="远程连接 禁止administrators组远程连接  运行gpedit.msc 计算机配置-&amp;gt;windows设置-&amp;gt;安全设置-&amp;gt;本地策略-&amp;gt;用户权限分配-&amp;gt;通过终端服务允许登录 将Administrators账号删除掉,保留Remote Desktop Users  创建新的用户  本地用户和组-&amp;gt;用户右键-&amp;gt;新用户-&amp;gt;输入用户名，设置密码 添加A">
 
 
 
@@ -247,7 +247,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">63</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">68</span></a>
 
   </li>
 
@@ -433,9 +433,12 @@
       
 
       
-        <h3 id="远程连接"><a href="#远程连接" class="headerlink" title="远程连接"></a>远程连接</h3><p>禁止administrators组远程连接</p>
+        <h3 id="远程连接">远程连接</h3>
+<p>禁止administrators组远程连接</p>
 <blockquote>
-<p>运行gpedit.msc<br>计算机配置-&gt;windows设置-&gt;安全设置-&gt;本地策略-&gt;用户权限分配-&gt;通过终端服务允许登录<br>将Administrators账号删除掉,保留Remote Desktop Users</p>
+<p>运行gpedit.msc<br>
+计算机配置-&gt;windows设置-&gt;安全设置-&gt;本地策略-&gt;用户权限分配-&gt;通过终端服务允许登录<br>
+将Administrators账号删除掉,保留Remote Desktop Users</p>
 </blockquote>
 <p>创建新的用户</p>
 <blockquote>
@@ -450,16 +453,27 @@
 <p>修改注册表，是不是需要修改？</p>
 </blockquote>
 <p>超过2个远程连接处理办法及规避方法</p>
-<pre><code>mstsc /console /v:10.10.10.10:3389</code></pre><blockquote>
+<pre><code>mstsc /console /v:10.10.10.10:3389</code></pre>
+<blockquote>
 <p>开始－管理工具－终端服务配置－服务器配置－限制每个用户使用一个会话</p>
 </blockquote>
-<h3 id="防火墙"><a href="#防火墙" class="headerlink" title="防火墙"></a>防火墙</h3><p>开启防火墙</p>
+<h3 id="防火墙">防火墙</h3>
+<p>开启防火墙</p>
 <blockquote>
-<p>控制面板&gt;防火墙&gt;开启<br>例外里勾选远程桌面,保证服务器可以正常连接<br>其他情况就在添加端口里添加即可</p>
+<p>控制面板&gt;防火墙&gt;开启<br>
+例外里勾选远程桌面,保证服务器可以正常连接<br>
+其他情况就在添加端口里添加即可</p>
 </blockquote>
-<h3 id="FTP"><a href="#FTP" class="headerlink" title="FTP"></a>FTP</h3><p>开启ftp</p>
+<h3 id="ftp">FTP</h3>
+<p>开启ftp</p>
 <blockquote>
-<p>在控制面板的添加/删除程序——Windows组件向导——应用程序服务器——Internet信息服务(IIS)中选中“文件传输协议(FTP)服务”。<br>需要文件夹AMD64 设置一个ftp用户ftpuser<br>在ftp设置中关掉允许匿名连接<br>主目录中本地路径为E:\FTP<br>不要勾选写入权限<br>默认ftp站点新建虚拟目录ftpuser 路径E:\FTP\ftpuser<br>在防火墙上开启20，21端口 在ftp客户端选择port主动模式，主动模式不需要服务器开启其他端口</p>
+<p>在控制面板的添加/删除程序——Windows组件向导——应用程序服务器——Internet信息服务(IIS)中选中“文件传输协议(FTP)服务”。<br>
+需要文件夹AMD64 设置一个ftp用户ftpuser<br>
+在ftp设置中关掉允许匿名连接<br>
+主目录中本地路径为E:\FTP<br>
+不要勾选写入权限<br>
+默认ftp站点新建虚拟目录ftpuser 路径E:\FTP\ftpuser<br>
+在防火墙上开启20，21端口 在ftp客户端选择port主动模式，主动模式不需要服务器开启其他端口</p>
 </blockquote>
 
       
@@ -602,7 +616,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">68</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -709,7 +723,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#远程连接"><span class="nav-number">1.</span> <span class="nav-text">远程连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#防火墙"><span class="nav-number">2.</span> <span class="nav-text">防火墙</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FTP"><span class="nav-number">3.</span> <span class="nav-text">FTP</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#远程连接"><span class="nav-number">1.</span> <span class="nav-text">远程连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#防火墙"><span class="nav-number">2.</span> <span class="nav-text">防火墙</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ftp"><span class="nav-number">3.</span> <span class="nav-text">FTP</span></a></li></ol></div>
             
 
           </div>

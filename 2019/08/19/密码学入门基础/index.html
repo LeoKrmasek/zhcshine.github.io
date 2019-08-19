@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0">
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    }
+  };
+</script>
+
+  <meta name="description" content="古典密码： 替换式密码或移项式密码 凯撒密码  凯撒密码的替换方法是通过排列明文和密文字母表，密文字母表示通过将明文字母表向左或向右移动一个固定数目的位置。例如，当偏移量是左移3的时候（解密时的密钥就是3）：  12明文字母表：ABCDEFGHIJKLMNOPQRSTUVWXYZ密文字母表：DEFGHIJKLMNOPQRSTUVWXYZABC 替换式密码缺点 暴力破解，密码本的安全性 现代密码学：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="密码学入门基础">
+<meta property="og:url" content="http://www.zhuohc.com/2019/08/19/密码学入门基础/index.html">
+<meta property="og:site_name" content="饱读诗书">
+<meta property="og:description" content="古典密码： 替换式密码或移项式密码 凯撒密码  凯撒密码的替换方法是通过排列明文和密文字母表，密文字母表示通过将明文字母表向左或向右移动一个固定数目的位置。例如，当偏移量是左移3的时候（解密时的密钥就是3）：  12明文字母表：ABCDEFGHIJKLMNOPQRSTUVWXYZ密文字母表：DEFGHIJKLMNOPQRSTUVWXYZABC 替换式密码缺点 暴力破解，密码本的安全性 现代密码学：">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-08-19T06:10:47.391Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="密码学入门基础">
+<meta name="twitter:description" content="古典密码： 替换式密码或移项式密码 凯撒密码  凯撒密码的替换方法是通过排列明文和密文字母表，密文字母表示通过将明文字母表向左或向右移动一个固定数目的位置。例如，当偏移量是左移3的时候（解密时的密钥就是3）：  12明文字母表：ABCDEFGHIJKLMNOPQRSTUVWXYZ密文字母表：DEFGHIJKLMNOPQRSTUVWXYZABC 替换式密码缺点 暴力破解，密码本的安全性 现代密码学：">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://www.zhuohc.com/2019/08/19/密码学入门基础/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  
+  <title>密码学入门基础 | 饱读诗书</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">饱读诗书</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">怕什么真理无穷，进一寸有一寸的欢喜。</h1>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">68</span></a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2019/08/19/密码学入门基础/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhuohanchang">
+      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="饱读诗书">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">密码学入门基础
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-08-19 08:45:34 / Modified: 14:10:47" itemprop="dateCreated datePublished" datetime="2019-08-19T08:45:34+08:00">2019-08-19</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="古典密码-替换式密码或移项式密码">古典密码： 替换式密码或移项式密码</h4>
+<h5 id="凯撒密码">凯撒密码</h5>
+<blockquote>
+<p>凯撒密码的替换方法是通过排列明文和密文字母表，密文字母表示通过将明文字母表向左或向右移动一个固定数目的位置。例如，当偏移量是左移3的时候（解密时的密钥就是3）：</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">明文字母表：ABCDEFGHIJKLMNOPQRSTUVWXYZ</span><br><span class="line">密文字母表：DEFGHIJKLMNOPQRSTUVWXYZABC</span><br></pre></td></tr></table></figure>
+<h5 id="替换式密码缺点">替换式密码缺点</h5>
+<p>暴力破解，密码本的安全性</p>
+<h4 id="现代密码学hash-散列函数">现代密码学：Hash （散列函数）</h4>
+<blockquote>
+<p>Hash，一般翻译做散列、杂凑，或音译为哈希，是把任意长度的输入（又叫做预映射pre-image）通过散列算法变换成固定长度的输出，该输出就是散列值。这种转换是一种压缩映射，也就是，散列值的空间通常远小于输入的空间，不同的输入可能会散列成相同的输出，所以不可能从散列值来确定唯一的输入值。简单的说就是一种将任意长度的消息压缩到某一固定长度的消息摘要的函数。</p>
+</blockquote>
+<blockquote>
+<p>Hash算法可以将一个数据转换为一个标志，这个标志和源数据的每一个字节都有十分紧密的关系。Hash算法还具有一个特点，就是很难找到逆向规律。</p>
+</blockquote>
+<blockquote>
+<p>Hash算法是一个广义的算法，也可以认为是一种思想，使用Hash算法可以提高存储空间的利用率，可以提高数据的查询效率，也可以做数字签名来保障数据传递的安全性。所以Hash算法被广泛地应用在互联网应用中。</p>
+</blockquote>
+<blockquote>
+<p>Hash算法也被称为散列算法，Hash算法虽然被称为算法，但实际上它更像是一种思想。Hash算法没有一个固定的公式，只要符合散列思想的算法都可以被称为是Hash算法。</p>
+</blockquote>
+<h5 id="md5">MD5</h5>
+<h5 id="sha">SHA</h5>
+<ul>
+<li>SHA-1算法的哈希值大小为160位，其计算输出长度为40位。(SHA-1不再推荐使用)</li>
+<li>SHA-224算法的哈希值大小为224位，其计算输出长度为56位。</li>
+<li>SHA-256算法的哈希值大小为256位，其计算输出长度为64位。</li>
+<li>SHA-384算法的哈希值大小为384位，其计算输出长度为96位。</li>
+<li>SHA-512算法的哈希值大小为384位，其计算输出长度为128位。</li>
+</ul>
+<h4 id="现代密码学对称加密">现代密码学：对称加密</h4>
+<blockquote>
+<p>对称加密算法是应用较早的加密算法，技术成熟。在对称加密算法中，数据发信方将明文（原始数据）和加密密钥（mi yao）一起经过特殊加密算法处理后，使其变成复杂的加密密文发送出去。收信方收到密文后，若想解读原文，则需要使用加密用过的密钥及相同算法的逆算法对密文进行解密，才能使其恢复成可读明文。在对称加密算法中，使用的密钥只有一个，发收信双方都使用这个密钥对数据进行加密和解密，这就要求解密方事先必须知道加密密钥。</p>
+</blockquote>
+<h5 id="des">DES</h5>
+<blockquote>
+<p>数据加密标准（英语：Data Encryption Standard，缩写为 DES）是一种对称密钥加密块密码算法，1976年被美国联邦政府的国家标准局确定为联邦资料处理标准（FIPS），随后在国际上广泛流传开来</p>
+</blockquote>
+<blockquote>
+<p>DES现在已经不是一种安全的加密方法，主要因为它使用的56位密钥过短。</p>
+</blockquote>
+<blockquote>
+<p>1999年1月，distributed.net与电子前哨基金会合作，在22小时15分钟内即公开破解了一个DES密钥。</p>
+</blockquote>
+<blockquote>
+<p>美国国家标准局倡导的AES即将作为新标准取代DES。</p>
+</blockquote>
+<h5 id="aes">AES</h5>
+<h5 id="对称加密的缺点">对称加密的缺点</h5>
+<p>甲方必须把加密规则告诉乙方，否则无法解密。保存和传递密钥，就成了最头疼的问题。</p>
+<h4 id="现代密码学非对称加密">现代密码学：非对称加密</h4>
+<blockquote>
+<p>公钥加密的信息只有私钥解得开，那么只要私钥不泄漏，通信就是安全的</p>
+</blockquote>
+<h5 id="rsa">RSA</h5>
+<h4 id="rsa算法">RSA算法</h4>
+<blockquote>
+<p>1977年，三位数学家Rivest、Shamir 和 Adleman 设计了一种算法，可以实现非对称加密。这种算法用他们三个人的名字命名，叫做RSA算法。 RSA算法基于一个十分简单的数论事实：将两个大质数相乘十分容易，但是想要对其乘积进行因式分解却极其困难，因此可以将乘积公开作为加密密钥。</p>
+</blockquote>
+<p>RSA算法运用的几个数论知识： 互素关系， 欧拉函数， 欧拉定理， 模逆元</p>
+<h5 id="互素关系">互素关系</h5>
+<p>如果没有大于1的正数既是r的因数也是s的因数，则r和s互素。</p>
+<h5 id="欧拉函数">欧拉函数</h5>
+<p>在数论，对正整数m，欧拉函数φ(m)是小于或等于m的正整数中与m互素的数的数目</p>
+<ol type="1">
+<li>如果m是素数， φ(m)=m-1, 例如φ(3) = 2</li>
+<li>若m = p * q, φ(m) = (p-1) * (q-1)</li>
+</ol>
+<h5 id="欧拉定理">欧拉定理</h5>
+<p>在数论中，欧拉定理是一个关于同余的性质。欧拉定理表明，若n,a为正整数，且n,a互素，则a^φ(n)≡1 (mod n)</p>
+<h5 id="模逆元">模逆元</h5>
+<p>如果两个正整数a和n互质，那么一定可以找到整数b，使得 ab-1 被n整除，或者说ab被n除的余数是1。这时，b就叫做a的"模反元素"。</p>
+<h5 id="rsa公钥密钥生成方法">rsa公钥密钥生成方法</h5>
+<p>公钥，密钥生成方法</p>
+<ol type="1">
+<li><p>随机取俩个不相等素数p, q; 例如：p=61, q=53 # 实际应用中，这两个质数很大，常常是几百位</p></li>
+<li><p>计算p和q的乘积n， 其中n的长度就是密钥的长度; n=p*q=3233 3233写成二进制是110010100001，一共有12位，所以这个密钥就是12位 # 实际应用中，RSA密钥一般是1024位，重要场合则为2048位</p></li>
+<li><p>计算n的欧拉函数φ(n); φ(n) = (p-1)(q-1) = 60*52 = 3120</p></li>
+<li><p>随机选择一个整数e，条件是1&lt; e &lt; φ(n)，且e与φ(n) 互质; e = 17</p></li>
+<li><p>计算e对于φ(n)的模逆元d</p>
+<ol type="1">
+<li><p>ed ≡ 1 (mod φ(n)) # 模逆元公式A</p></li>
+<li><p>ed - 1 = kφ(n) # 模逆元公式转换B</p></li>
+<li><p>ed - kφ(n) = 1 # 转换公式</p></li>
+<li><p>ex + φ(n)y = 1 # 转换公式 (e=17, φ(n)=3120, x=d, y=-k)</p></li>
+<li><p>17x + 3120y = 1 # 代入数值</p></li>
+</ol></li>
+<li><p>扩展欧几里得算法求解17x+3120y=1， 一组整数解为 (x,y)=(2753,-15)， 此时计算出d=2753</p></li>
+<li><p>n=3233，e=17，d=2753，所以公钥就是 (3233,17)，私钥就是（3233, 2753）</p></li>
+</ol>
+<p>是否可以破解密钥？</p>
+<ol type="1">
+<li><p>已知公钥(n, e)</p></li>
+<li><p>已知 ed ≡ 1 (mod φ(n))。只有知道e和φ(n)，才能算出d, 目前只需要算出φ(n)</p></li>
+<li><p>已知 φ(n)=(p-1)(q-1)。只有知道p和q，才能算出φ(n)，目前需要算出p和q</p></li>
+<li><p>已知 n=pq。只有将n因数分解，才能算出p和q，n已知，如果n可以被因数分解，d就可以算出，也就意味着私钥被破解。</p></li>
+<li><p>可是，大整数的因数分解，是一件非常困难的事情。目前，除了暴力破解，还没有发现别的有效方法。</p></li>
+<li><p>维基百科这样写道：</p></li>
+</ol>
+<p>　　"对极大整数做因数分解的难度决定了RSA算法的可靠性。换言之，对一极大整数做因数分解愈困难，RSA算法愈可靠。假如有人找到一种快速因数分解的算法，那么RSA的可靠性就会极度下降。但找到这样的算法的可能性是非常小的。今天只有短的RSA密钥才可能被暴力破解。到2008年为止，世界上还没有任何可靠的攻击RSA算法的方式。只要密钥长度足够长，用RSA加密的信息实际上是不能被解破的。"</p>
+<h5 id="rsa加密和解密">rsa加密和解密</h5>
+<p>加密公钥 (n,e)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">m^e ≡ c (mod n)  # m是明文， 必须是整数（字符串可以取ascii值或unicode值），且m必须小于n</span><br><span class="line">65^17 ≡ c (mod 3233)  # 本例中n=3233，e=17</span><br><span class="line">c = 2790  # 计算出c=2790, c则是密文</span><br></pre></td></tr></table></figure>
+<p>解密私钥(n,d)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">c^d ≡ m (mod n)  # 公式一定成立，下面有介绍</span><br><span class="line">2790^2753 ≡ m (mod 3233)  # 本例中c=2790, d=2753</span><br><span class="line">m = 65  # 计算出明文m=65</span><br></pre></td></tr></table></figure>
+<h5 id="rsa私钥解密证明">rsa私钥解密证明</h5>
+<ol type="1">
+<li><p>c^d ≡ m (mod n) # 要证明的公式A</p></li>
+<li><p>因为 m^e ≡ c (mod n)， 根据模运算的含义，所以 c = m^e - kn</p></li>
+<li><p>将c代入公式A中， (m^e - kn)^d ≡ m (mod n)</p></li>
+<li><p>将上述方程式的左侧用二项式定理展开，会发现都是n的倍数，模运算为0，所以可以简化为 m<sup>e</sup>d ≡ m (mod n) 即 m^(ed) = m (mod n)</p></li>
+<li><p>因为ed ≡ 1 (modφ(n))， 所以ed = 1 + hφ(n)</p></li>
+<li><p>代入公式B中 m^(1 + hφ(n)) ≡ m (mod n) # 公式C</p></li>
+<li><p>当m与n互素时</p>
+<ol type="1">
+<li><p>根据欧拉定理m^φ(n) ≡ 1 (mod n) 可得m^φ(n) = kn + 1</p></li>
+<li><p>上述公式两边乘以m得到 m * m^φ(n) = m * (kn + 1)</p></li>
+<li><p>上述公式转换 m^(1 + hφ(n)) = m * (kn + 1) = m + mk * n ≡ m (mod n), 公式C得到证明</p></li>
+</ol></li>
+<li><p>当m与n不互素</p>
+<ol type="1">
+<li><p>由于n等于质数p和q的乘积，所以m必然等于kp或kq。</p></li>
+<li><p>以 m = kp为例，考虑到这时k与q必然互质，则根据欧拉定理，下面的式子成立： (kp)^(q-1) ≡ 1 (mod q)</p></li>
+<li><p>进一步扩展，可得 [(kp)^(q-1)]^(h(p-1)) × kp ≡ kp (mod q)</p></li>
+<li><p>根据上述可得 (kp)^(ed) ≡ kp (mod q)</p></li>
+<li><p>根据上述可得 (kp)^(ed) = kp + tq</p></li>
+<li><p>显然，t能被p整除， 即t=t’p,可以得出 (kp)^(ed) = kp+t′pq</p></li>
+<li><p>因为m=kp, n=pq, 最后得出 m^(ed) ≡ m (mod n) 公式得证</p></li>
+</ol></li>
+</ol>
+<h4 id="补充模算数">补充：模算数</h4>
+<h5 id="同余">同余</h5>
+<h6 id="同余表达式">同余表达式</h6>
+<p>维基百科</p>
+<blockquote>
+<p>数学上，同余（英语：congruence modulo，符号：≡）是数论中的一种等价关系。当两个整数除以同一个正整数，若得相同余数，则二整数同余。同余是抽象代数中的同余关系的原型。最先引用同余的概念与“≡”符号者为德国数学家高斯。</p>
+</blockquote>
+<p>两个整数a， b，若它们除以正整数m所得的余数相等，则称a，b对于模m同余，记作</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a ≡ b (mod m)</span><br></pre></td></tr></table></figure>
+<h6 id="同余换代">同余换代</h6>
+<blockquote>
+<p>在任意一个成立的模同余式中，将任意子表达式替换为一个与其同余的子表达式，所得的模同余式依然成立</p>
+</blockquote>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(12 + 4) * 2 ≡ x + 1 (mod 7)</span><br></pre></td></tr></table></figure>
+<p>(12 + 4)(模7)同余与2，故上同余式可表示为</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2 * 2  ≡ x + 1 (mod 7)</span><br></pre></td></tr></table></figure>
+<h6 id="代表元">代表元</h6>
+<blockquote>
+<p>每个整数恰好和整数0,1,2,...,m-1中的一个模m同余</p>
+</blockquote>
+<p>例如，在模7的情况下，每个整数和整数0,1,2,3,4,5，6中的一个同余</p>
+<h6 id="商和余数">商和余数</h6>
+<p>b被m除时，r为余数，q为商</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">b = mq + r</span><br></pre></td></tr></table></figure>
+<p>余数操作运算符一般使用rem表示，例如25 rem 7 = 4</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">如果a rem m = b rem m, 则 a ≡ b (mod m)</span><br><span class="line">如果 a ≡ b (mod m)， 则a rem m = b rem m</span><br></pre></td></tr></table></figure>
+<h6 id="用rem运算简化模同余数">用rem运算简化模同余数</h6>
+<p>例</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">12 <span class="bullet">* 11 *</span> 10 <span class="bullet">* 9 *</span> 8 * 7 ≡ x (mod 13)</span><br><span class="line">因为</span><br><span class="line">12 * 11 = 132</span><br><span class="line">132 rem 13 = 2</span><br><span class="line">根据同余换代，上式可表示为</span><br><span class="line">2 <span class="bullet">* 10 *</span> 9 <span class="bullet">* 8 *</span> 7 ≡ x (mod 13)</span><br><span class="line">同上，上式可表示为</span><br><span class="line">7 <span class="bullet">* 9 *</span> 8 * 7 ≡ x (mod 13)</span><br><span class="line">11 <span class="bullet">* 8 *</span> 7 ≡ x (mod 13)</span><br><span class="line">10 * 7 ≡ x (mod 13)</span><br><span class="line">5 ≡ x (mod 13)</span><br></pre></td></tr></table></figure>
+<p>现在要求计算 12 * 11 * 10 * 9 * 8 * 7 * 6 rem 13</p>
+<p>上面求出 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">12 <span class="bullet">* 11 *</span> 10 <span class="bullet">* 9 *</span> 8 * 7 ≡ 5 (mod 13)</span><br></pre></td></tr></table></figure></p>
+<p>根据商和余数与模的关系</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">如果 a ≡ b (mod m)， 则a rem m = b rem m</span><br></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">12 <span class="bullet">* 11 *</span> 10 <span class="bullet">* 9 *</span> 8 <span class="bullet">* 7 *</span> 6 rem 13 可转为 5 * 6 rem 13</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+
+    
+      
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+              <div id="needsharebutton-postbottom">
+                <span class="btn">
+                  <i class="fa fa-share-alt" aria-hidden="true"></i>
+                </span>
+              </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/16/java开发spring入门基础/" rel="next" title="java开发spring入门基础">
+                <i class="fa fa-chevron-left"></i> java开发spring入门基础
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/08/19/hexo博客搭建/" rel="prev" title="hexo博客搭建">
+                hexo博客搭建 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  
+  <p class="site-author-name" itemprop="name">zhuohanchang</p>
+  <div class="site-description motion-element" itemprop="description">怕什么真理无穷，进一寸有一寸的欢喜。</div>
+</div>
+
+
+  <nav class="site-state motion-element">
+    
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">68</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+    
+
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span>
+        
+      </div>
+    
+
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">tags</span>
+        
+      </div>
+    
+  </nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+          
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#古典密码-替换式密码或移项式密码"><span class="nav-number">1.</span> <span class="nav-text">古典密码： 替换式密码或移项式密码</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#凯撒密码"><span class="nav-number">1.1.</span> <span class="nav-text">凯撒密码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#替换式密码缺点"><span class="nav-number">1.2.</span> <span class="nav-text">替换式密码缺点</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#现代密码学hash-散列函数"><span class="nav-number">2.</span> <span class="nav-text">现代密码学：Hash （散列函数）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#md5"><span class="nav-number">2.1.</span> <span class="nav-text">MD5</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#sha"><span class="nav-number">2.2.</span> <span class="nav-text">SHA</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#现代密码学对称加密"><span class="nav-number">3.</span> <span class="nav-text">现代密码学：对称加密</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#des"><span class="nav-number">3.1.</span> <span class="nav-text">DES</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#aes"><span class="nav-number">3.2.</span> <span class="nav-text">AES</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#对称加密的缺点"><span class="nav-number">3.3.</span> <span class="nav-text">对称加密的缺点</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#现代密码学非对称加密"><span class="nav-number">4.</span> <span class="nav-text">现代密码学：非对称加密</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#rsa"><span class="nav-number">4.1.</span> <span class="nav-text">RSA</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rsa算法"><span class="nav-number">5.</span> <span class="nav-text">RSA算法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#互素关系"><span class="nav-number">5.1.</span> <span class="nav-text">互素关系</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#欧拉函数"><span class="nav-number">5.2.</span> <span class="nav-text">欧拉函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#欧拉定理"><span class="nav-number">5.3.</span> <span class="nav-text">欧拉定理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#模逆元"><span class="nav-number">5.4.</span> <span class="nav-text">模逆元</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#rsa公钥密钥生成方法"><span class="nav-number">5.5.</span> <span class="nav-text">rsa公钥密钥生成方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#rsa加密和解密"><span class="nav-number">5.6.</span> <span class="nav-text">rsa加密和解密</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#rsa私钥解密证明"><span class="nav-number">5.7.</span> <span class="nav-text">rsa私钥解密证明</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#补充模算数"><span class="nav-number">6.</span> <span class="nav-text">补充：模算数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#同余"><span class="nav-number">6.1.</span> <span class="nav-text">同余</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#同余表达式"><span class="nav-number">6.1.1.</span> <span class="nav-text">同余表达式</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#同余换代"><span class="nav-number">6.1.2.</span> <span class="nav-text">同余换代</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#代表元"><span class="nav-number">6.1.3.</span> <span class="nav-text">代表元</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#商和余数"><span class="nav-number">6.1.4.</span> <span class="nav-text">商和余数</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#用rem运算简化模同余数"><span class="nav-number">6.1.5.</span> <span class="nav-text">用rem运算简化模同余数</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhuohanchang</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.2.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+
+    
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+  <script>
+    
+      pbOptions = {};
+      
+        pbOptions.iconStyle = "box";
+      
+        pbOptions.boxForm = "horizontal";
+      
+        pbOptions.position = "bottomCenter";
+      
+        pbOptions.networks = "Weibo,Wechat,Douban";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+        flOptions.iconStyle = "box";
+      
+        flOptions.boxForm = "horizontal";
+      
+        flOptions.position = "middleRight";
+      
+        flOptions.networks = "Weibo,Wechat,Douban";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+
+    
+
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.2.0"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+  
+
+  
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+// GET RESPONSIVE HEIGHT PASSED FROM IFRAME
+
+window.addEventListener("message", function(e) {
+  var data = e.data;
+  if ((typeof data === 'string') && (data.indexOf('ciu_embed') > -1)) {
+    var featureID = data.split(':')[1];
+    var height = data.split(':')[2];
+    $(`iframe[data-feature=${featureID}]`).height(parseInt(height) + 30);
+  }
+}, false);
+</script>
+
+
+
+
+
+
+
+
+  
+
+</body>
+</html>

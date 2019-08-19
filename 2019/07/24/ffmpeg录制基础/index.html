@@ -98,18 +98,18 @@
   };
 </script>
 
-  <meta name="description" content="ffmpeg录制功能 ffmpeg第一步：录制音视频  录制设备查询1234567891011121314151617➜  $ ffmpeg -hide_banner -devicesDevices: D. = Demuxing supported .E = Muxing supported -- DE alsa            ALSA audio output DE fbdev">
+  <meta name="description" content="ffmpeg录制功能  ffmpeg第一步：录制音视频  录制设备查询 1234567891011121314151617➜  $ ffmpeg -hide_banner -devicesDevices: D. = Demuxing supported .E = Muxing supported -- DE alsa            ALSA audio output DE fbdev">
 <meta name="keywords" content="ffmpeg">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ffmpeg录制基础">
 <meta property="og:url" content="http://www.zhuohc.com/2019/07/24/ffmpeg录制基础/index.html">
 <meta property="og:site_name" content="饱读诗书">
-<meta property="og:description" content="ffmpeg录制功能 ffmpeg第一步：录制音视频  录制设备查询1234567891011121314151617➜  $ ffmpeg -hide_banner -devicesDevices: D. = Demuxing supported .E = Muxing supported -- DE alsa            ALSA audio output DE fbdev">
+<meta property="og:description" content="ffmpeg录制功能  ffmpeg第一步：录制音视频  录制设备查询 1234567891011121314151617➜  $ ffmpeg -hide_banner -devicesDevices: D. = Demuxing supported .E = Muxing supported -- DE alsa            ALSA audio output DE fbdev">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-07-24T01:55:00.296Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ffmpeg录制基础">
-<meta name="twitter:description" content="ffmpeg录制功能 ffmpeg第一步：录制音视频  录制设备查询1234567891011121314151617➜  $ ffmpeg -hide_banner -devicesDevices: D. = Demuxing supported .E = Muxing supported -- DE alsa            ALSA audio output DE fbdev">
+<meta name="twitter:description" content="ffmpeg录制功能  ffmpeg第一步：录制音视频  录制设备查询 1234567891011121314151617➜  $ ffmpeg -hide_banner -devicesDevices: D. = Demuxing supported .E = Muxing supported -- DE alsa            ALSA audio output DE fbdev">
 
 
 
@@ -247,7 +247,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">63</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">68</span></a>
 
   </li>
 
@@ -411,13 +411,14 @@
       
 
       
-        <h4 id="ffmpeg录制功能"><a href="#ffmpeg录制功能" class="headerlink" title="ffmpeg录制功能"></a>ffmpeg录制功能</h4><blockquote>
+        <h4 id="ffmpeg录制功能">ffmpeg录制功能</h4>
+<blockquote>
 <p>ffmpeg第一步：录制音视频</p>
 </blockquote>
-<h4 id="录制设备查询"><a href="#录制设备查询" class="headerlink" title="录制设备查询"></a>录制设备查询</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">➜  $ ffmpeg -hide_banner -devices</span><br><span class="line">Devices:</span><br><span class="line"> D. = Demuxing supported</span><br><span class="line"> .E = Muxing supported</span><br><span class="line"> --</span><br><span class="line"> DE alsa            ALSA audio output</span><br><span class="line"> DE fbdev           Linux framebuffer</span><br><span class="line"> D  iec61883        libiec61883 (new DV1394) A/V input device</span><br><span class="line"> D  jack            JACK Audio Connection Kit</span><br><span class="line"> D  kmsgrab         KMS screen capture</span><br><span class="line"> D  lavfi           Libavfilter virtual input device</span><br><span class="line"> DE oss             OSS (Open Sound System) playback</span><br><span class="line"> DE pulse           Pulse audio output</span><br><span class="line">  E sdl,sdl2        SDL2 output device</span><br><span class="line"> DE video4linux2,v4l2 Video4Linux2 output device</span><br><span class="line"> D  x11grab         X11 screen capture, using XCB</span><br><span class="line">  E xv              XV (XVideo) output device</span><br></pre></td></tr></table></figure>
-
+<h4 id="录制设备查询">录制设备查询</h4>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">➜  $ ffmpeg -hide_banner -devices</span><br><span class="line">Devices:</span><br><span class="line"> D. = Demuxing supported</span><br><span class="line"> .E = Muxing supported</span><br><span class="line"> --</span><br><span class="line"> DE alsa            ALSA audio output</span><br><span class="line"> DE fbdev           Linux framebuffer</span><br><span class="line"> D  iec61883        libiec61883 (new DV1394) A/V input device</span><br><span class="line"> D  jack            JACK Audio Connection Kit</span><br><span class="line"> D  kmsgrab         KMS screen capture</span><br><span class="line"> D  lavfi           Libavfilter virtual input device</span><br><span class="line"> DE oss             OSS (Open Sound System) playback</span><br><span class="line"> DE pulse           Pulse audio output</span><br><span class="line">  E sdl,sdl2        SDL2 output device</span><br><span class="line"> DE video4linux2,v4l2 Video4Linux2 output device</span><br><span class="line"> D  x11grab         X11 screen capture, using XCB</span><br><span class="line">  E xv              XV (XVideo) output device</span><br></pre></td></tr></table></figure>
 <p>D：输入设备</p>
-<p>E：输出设备 </p>
+<p>E：输出设备</p>
 <p><a href="https://ffmpeg.org/ffmpeg-devices.html#Input-Devices" target="_blank" rel="noopener">ffmpeg输入设备列表</a></p>
 <blockquote>
 <p>alsa</p>
@@ -503,7 +504,7 @@
 <p>video4linux2, v4l2</p>
 <blockquote>
 <p>Video4Linux2 输入视频设备</p>
-<p>“v4l2”是”video4linux2”的别名</p>
+<p>"v4l2"是"video4linux2"的别名</p>
 <p>编译需要<code>v4l-utiles</code>支持（<code>--enable-libv4l2</code>编译选项被配置），也可用于<code>-use_libv4l2</code>输入设备选项。</p>
 <p>捕获的设备名是一个文件设备节点，通常Linux系统在设备（例如USB摄像头）插入到系统时自动创建这样的节点，会被命名为<code>/dev/videoN</code>，<code>N</code>是设备索引序号</p>
 <p>Video4Linux设备通常只支持有限的分辨率（<code>width x height</code>）和帧率,通过<code>-list_formats all</code>选项来获取支持情况。一些设备，例如电视卡可以支持1个或者多个标准，它支持的标准可以通过<code>-list_standards all</code>来了解。</p>
@@ -520,103 +521,97 @@
 <p>使用需要<code>libxcb</code>库，它会在编译时自动检测。</p>
 </blockquote>
 </blockquote>
-<h5 id="fbdev：-linux终端录制设备"><a href="#fbdev：-linux终端录制设备" class="headerlink" title="fbdev： linux终端录制设备"></a>fbdev： linux终端录制设备</h5><p>查看使用指定采集设备参数</p>
+<h5 id="fbdev-linux终端录制设备">fbdev： linux终端录制设备</h5>
+<p>查看使用指定采集设备参数</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> ffmpeg -hide_banner -h demuxer=fbdev</span><br><span class="line">Demuxer fbdev [Linux framebuffer]:</span><br><span class="line">fbdev indev AVOptions:</span><br><span class="line">  -framerate         &lt;video_rate&gt; .D.......  (default "25")</span><br><span class="line"><span class="meta">#</span> framerate 帧数 默认25帧</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo ffmpeg -framerate 30  -f fbdev -i /dev/fb0 output.mp4</span><br></pre></td></tr></table></figure>
-
-<h5 id="v412：linux摄像头录制设备"><a href="#v412：linux摄像头录制设备" class="headerlink" title="v412：linux摄像头录制设备"></a>v412：linux摄像头录制设备</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> ffmpeg -hide_banner -h demuxer=Video4Linux2</span><br></pre></td></tr></table></figure>
-
+<h5 id="v412linux摄像头录制设备">v412：linux摄像头录制设备</h5>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> ffmpeg -hide_banner -h demuxer=Video4Linux2</span><br></pre></td></tr></table></figure>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>参数</th>
 <th>类型</th>
 <th>说明</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>-standard</td>
 <td>字符串</td>
 <td>设置tv标准</td>
 </tr>
-<tr>
+<tr class="even">
 <td>-channel</td>
 <td>整数</td>
 <td>设置tv通道</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>-video_size</td>
 <td>图像大小</td>
 <td>设置采集视频频帧大小</td>
 </tr>
-<tr>
+<tr class="even">
 <td>-pixel_format</td>
 <td>字符串</td>
 <td>设置采集视频的分辨率</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>-input_format</td>
 <td>字符串</td>
 <td>设置采集视频的分辨率</td>
 </tr>
-<tr>
+<tr class="even">
 <td>-framerate</td>
 <td>字符串</td>
 <td>设置采集视频帧率</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>-list_formats</td>
 <td>整数</td>
 <td>列举输入视频信号的信息</td>
 </tr>
-<tr>
+<tr class="even">
 <td>-list_standards</td>
 <td>整数</td>
 <td>列举标准信息</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>-timestamps</td>
 <td>整数</td>
 <td>设置时间戳</td>
 </tr>
-<tr>
+<tr class="even">
 <td>-ts</td>
 <td>整数</td>
 <td>设置模拟器分析帧使用的时间戳</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>-use_libv4l2</td>
 <td>布尔</td>
 <td>使用第三方库libv412选项</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> ffmpeg -hide_banner -f Video4Linux2 -list_formats all -i /dev/video0</span><br><span class="line"><span class="meta">#</span> /dev/video0根据自己的摄像头来设置</span><br></pre></td></tr></table></figure>
-
-<h5 id="x11grab：linux桌面录制设备"><a href="#x11grab：linux桌面录制设备" class="headerlink" title="x11grab：linux桌面录制设备"></a>x11grab：linux桌面录制设备</h5><p><a href="https://trac.ffmpeg.org/wiki/Capture/Desktop" target="_blank" rel="noopener">桌面录制方法</a></p>
+<h5 id="x11grablinux桌面录制设备">x11grab：linux桌面录制设备</h5>
+<p><a href="https://trac.ffmpeg.org/wiki/Capture/Desktop" target="_blank" rel="noopener">桌面录制方法</a></p>
 <p>linux环境下如果此方法报错</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Cannot open display :0.0, error 1.</span><br><span class="line">:0.0: Input/output error</span><br></pre></td></tr></table></figure>
-
 <p>则需要查看$DISPLAY， 在Linux/Unix类操作系统上, DISPLAY用来设置将图形显示到何处. 直接登陆图形界面或者登陆命令行界面后使用startx启动图形, DISPLAY环境变量将自动设置为:0:0</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> echo $DISPLAY</span><br><span class="line">:1</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> ffmpeg -video_size 1024x768 -framerate 25 -f x11grab -i :1+100,200 output.mp4</span><br></pre></td></tr></table></figure>
-
 <blockquote>
 <p>video_size 字符串 输入采集视频的分辨率</p>
 <p>framerate 字符串 输入采集的视频帧率</p>
 <p>-f 指定输入设备</p>
-<p>-i 指定输入内容（此处为显示器）+100, 200 代表从100, 200处位移<br>使用pulse录制音频</p>
+<p>-i 指定输入内容（此处为显示器）+100, 200 代表从100, 200处位移 使用pulse录制音频</p>
 </blockquote>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> pactl list sources  # 查看全部输入设备</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> ffmpeg -f pulse -i default pulse.wav</span><br></pre></td></tr></table></figure>
-
 <p>同时录制视频和音频</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> ffmpeg -video_size 1366x768 -framerate 25 -f x11grab -i :1 -f pulse -ac 2 -i 1 output.mkv</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> ffmpeg -video_size 1024x768 -framerate 25 -f x11grab -i :1+100,200 -f alsa -ac 2 -i hw:0 output.mkv</span><br></pre></td></tr></table></figure>
-
 
       
     </div>
@@ -762,7 +757,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">68</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -869,7 +864,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#ffmpeg录制功能"><span class="nav-number">1.</span> <span class="nav-text">ffmpeg录制功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#录制设备查询"><span class="nav-number">2.</span> <span class="nav-text">录制设备查询</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#fbdev：-linux终端录制设备"><span class="nav-number">2.1.</span> <span class="nav-text">fbdev： linux终端录制设备</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#v412：linux摄像头录制设备"><span class="nav-number">2.2.</span> <span class="nav-text">v412：linux摄像头录制设备</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#x11grab：linux桌面录制设备"><span class="nav-number">2.3.</span> <span class="nav-text">x11grab：linux桌面录制设备</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#ffmpeg录制功能"><span class="nav-number">1.</span> <span class="nav-text">ffmpeg录制功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#录制设备查询"><span class="nav-number">2.</span> <span class="nav-text">录制设备查询</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#fbdev-linux终端录制设备"><span class="nav-number">2.1.</span> <span class="nav-text">fbdev： linux终端录制设备</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#v412linux摄像头录制设备"><span class="nav-number">2.2.</span> <span class="nav-text">v412：linux摄像头录制设备</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#x11grablinux桌面录制设备"><span class="nav-number">2.3.</span> <span class="nav-text">x11grab：linux桌面录制设备</span></a></li></ol></li></ol></div>
             
 
           </div>

@@ -98,17 +98,17 @@
   };
 </script>
 
-  <meta name="description" content="CENTOS6.8 192.168.0.106 MASTER# 安装 sudo yum install keepalived # 配置 sudo vim /etc/keepalived/keepalived.conf  ! Configuration File for keepalived  global_defs {     # 这些信息是配置报警发邮件信息    notification_em">
+  <meta name="description" content="CENTOS6.8 192.168.0.106 MASTER # 安装 sudo yum install keepalived # 配置 sudo vim /etc/keepalived/keepalived.conf  ! Configuration File for keepalived  global_defs {     # 这些信息是配置报警发邮件信息    notification_e">
 <meta property="og:type" content="article">
 <meta property="og:title" content="centos7配置keepalived实现高可用集群">
 <meta property="og:url" content="http://www.zhuohc.com/2017/04/19/centos7配置keepalived实现高可用集群/index.html">
 <meta property="og:site_name" content="饱读诗书">
-<meta property="og:description" content="CENTOS6.8 192.168.0.106 MASTER# 安装 sudo yum install keepalived # 配置 sudo vim /etc/keepalived/keepalived.conf  ! Configuration File for keepalived  global_defs {     # 这些信息是配置报警发邮件信息    notification_em">
+<meta property="og:description" content="CENTOS6.8 192.168.0.106 MASTER # 安装 sudo yum install keepalived # 配置 sudo vim /etc/keepalived/keepalived.conf  ! Configuration File for keepalived  global_defs {     # 这些信息是配置报警发邮件信息    notification_e">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-07-23T05:51:43.847Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="centos7配置keepalived实现高可用集群">
-<meta name="twitter:description" content="CENTOS6.8 192.168.0.106 MASTER# 安装 sudo yum install keepalived # 配置 sudo vim /etc/keepalived/keepalived.conf  ! Configuration File for keepalived  global_defs {     # 这些信息是配置报警发邮件信息    notification_em">
+<meta name="twitter:description" content="CENTOS6.8 192.168.0.106 MASTER # 安装 sudo yum install keepalived # 配置 sudo vim /etc/keepalived/keepalived.conf  ! Configuration File for keepalived  global_defs {     # 这些信息是配置报警发邮件信息    notification_e">
 
 
 
@@ -246,7 +246,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">63</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">68</span></a>
 
   </li>
 
@@ -432,7 +432,8 @@
       
 
       
-        <h3 id="CENTOS6-8-192-168-0-106-MASTER"><a href="#CENTOS6-8-192-168-0-106-MASTER" class="headerlink" title="CENTOS6.8 192.168.0.106 MASTER"></a>CENTOS6.8 192.168.0.106 MASTER</h3><pre><code># 安装
+        <h3 id="centos6.8-192.168.0.106-master">CENTOS6.8 192.168.0.106 MASTER</h3>
+<pre><code># 安装
 sudo yum install keepalived
 # 配置
 sudo vim /etc/keepalived/keepalived.conf
@@ -475,7 +476,9 @@ vrrp_instance VI_1 {
 # 重启
 sudo /etc/init.d/keepalived restart
 # 查看结果
-ip addr | grep 192.168.0.200</code></pre><h3 id="CENTOS7-2-192-168-0-209-BACKUP"><a href="#CENTOS7-2-192-168-0-209-BACKUP" class="headerlink" title="CENTOS7.2 192.168.0.209 BACKUP"></a>CENTOS7.2 192.168.0.209 BACKUP</h3><pre><code># 安装
+ip addr | grep 192.168.0.200</code></pre>
+<h3 id="centos7.2-192.168.0.209-backup">CENTOS7.2 192.168.0.209 BACKUP</h3>
+<pre><code># 安装
 sudo yum install keepalived
 # 配置
 sudo vim /etc/keepalived/keepalived.conf
@@ -511,7 +514,9 @@ vrrp_instance VI_1 {
 # 重启
 sudo systemctl restart keepalived
 # 查看结果
-ip addr | grep 192.168.0.200</code></pre><h3 id="CENTOS6-8-192-168-0-106-nginx配置"><a href="#CENTOS6-8-192-168-0-106-nginx配置" class="headerlink" title="CENTOS6.8 192.168.0.106 nginx配置"></a>CENTOS6.8 192.168.0.106 nginx配置</h3><pre><code># nginx配置文件
+ip addr | grep 192.168.0.200</code></pre>
+<h3 id="centos6.8-192.168.0.106-nginx配置">CENTOS6.8 192.168.0.106 nginx配置</h3>
+<pre><code># nginx配置文件
     server {
         listen       192.168.0.200:80; # 这里需要指定虚拟vip监听
         server_name  localhost;
@@ -524,7 +529,9 @@ ip addr | grep 192.168.0.200</code></pre><h3 id="CENTOS6-8-192-168-0-106-nginx�
         location = /50x.html {
             root   html;
         }
-    }</code></pre><h3 id="CENTOS7-2-192-168-0-209-配置nginx"><a href="#CENTOS7-2-192-168-0-209-配置nginx" class="headerlink" title="CENTOS7.2 192.168.0.209 配置nginx"></a>CENTOS7.2 192.168.0.209 配置nginx</h3><pre><code># nginx配置文件
+    }</code></pre>
+<h3 id="centos7.2-192.168.0.209-配置nginx">CENTOS7.2 192.168.0.209 配置nginx</h3>
+<pre><code># nginx配置文件
    server {
         listen       192.168.0.200:80;
         server_name  localhost;
@@ -537,7 +544,9 @@ ip addr | grep 192.168.0.200</code></pre><h3 id="CENTOS6-8-192-168-0-106-nginx�
         location = /50x.html {
             root   html;
         }
-    }</code></pre><h3 id="测试结果"><a href="#测试结果" class="headerlink" title="测试结果"></a>测试结果</h3><pre><code># 开启192.168.0.106，192.168.0.209的keepalive服务
+    }</code></pre>
+<h3 id="测试结果">测试结果</h3>
+<pre><code># 开启192.168.0.106，192.168.0.209的keepalive服务
 
 # 查看192.168.0.106
 $ ip addr | grep 192.168.0.200
@@ -564,6 +573,7 @@ $ ip addr | grep 192.168.0.200
 inet 192.168.0.200/32 scope global enp0s3 # 此时有这行结果
 
 # 重启192.168.0.106的keepalive服务，应该恢复之前的测试结果</code></pre>
+
       
     </div>
 
@@ -695,7 +705,7 @@ inet 192.168.0.200/32 scope global enp0s3 # 此时有这行结果
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">68</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -802,7 +812,7 @@ inet 192.168.0.200/32 scope global enp0s3 # 此时有这行结果
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#CENTOS6-8-192-168-0-106-MASTER"><span class="nav-number">1.</span> <span class="nav-text">CENTOS6.8 192.168.0.106 MASTER</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CENTOS7-2-192-168-0-209-BACKUP"><span class="nav-number">2.</span> <span class="nav-text">CENTOS7.2 192.168.0.209 BACKUP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CENTOS6-8-192-168-0-106-nginx配置"><span class="nav-number">3.</span> <span class="nav-text">CENTOS6.8 192.168.0.106 nginx配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CENTOS7-2-192-168-0-209-配置nginx"><span class="nav-number">4.</span> <span class="nav-text">CENTOS7.2 192.168.0.209 配置nginx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试结果"><span class="nav-number">5.</span> <span class="nav-text">测试结果</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#centos6.8-192.168.0.106-master"><span class="nav-number">1.</span> <span class="nav-text">CENTOS6.8 192.168.0.106 MASTER</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#centos7.2-192.168.0.209-backup"><span class="nav-number">2.</span> <span class="nav-text">CENTOS7.2 192.168.0.209 BACKUP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#centos6.8-192.168.0.106-nginx配置"><span class="nav-number">3.</span> <span class="nav-text">CENTOS6.8 192.168.0.106 nginx配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#centos7.2-192.168.0.209-配置nginx"><span class="nav-number">4.</span> <span class="nav-text">CENTOS7.2 192.168.0.209 配置nginx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试结果"><span class="nav-number">5.</span> <span class="nav-text">测试结果</span></a></li></ol></div>
             
 
           </div>

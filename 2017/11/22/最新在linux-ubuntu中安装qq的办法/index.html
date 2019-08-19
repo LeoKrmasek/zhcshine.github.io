@@ -98,17 +98,17 @@
   };
 </script>
 
-  <meta name="description" content="通过docker镜像文件的方式安装qq 1, 首先需要在主机上安装docker 2, 下载镜像文件 https://hub.docker.com/r/bestwu/qq/ sudo docker pull bestwu/qq # 速度慢可以换镜像源3, 编辑启动脚本 vim qq.sh sudo docker run -d --name qq --device /dev/snd --net=hos">
+  <meta name="description" content="通过docker镜像文件的方式安装qq 1, 首先需要在主机上安装docker 2, 下载镜像文件 https://hub.docker.com/r/bestwu/qq/ sudo docker pull bestwu/qq # 速度慢可以换镜像源 3, 编辑启动脚本 vim qq.sh sudo docker run -d --name qq --device /dev/snd --net=ho">
 <meta property="og:type" content="article">
 <meta property="og:title" content="最新在linux&#x2F;ubuntu中安装qq的办法">
 <meta property="og:url" content="http://www.zhuohc.com/2017/11/22/最新在linux-ubuntu中安装qq的办法/index.html">
 <meta property="og:site_name" content="饱读诗书">
-<meta property="og:description" content="通过docker镜像文件的方式安装qq 1, 首先需要在主机上安装docker 2, 下载镜像文件 https://hub.docker.com/r/bestwu/qq/ sudo docker pull bestwu/qq # 速度慢可以换镜像源3, 编辑启动脚本 vim qq.sh sudo docker run -d --name qq --device /dev/snd --net=hos">
+<meta property="og:description" content="通过docker镜像文件的方式安装qq 1, 首先需要在主机上安装docker 2, 下载镜像文件 https://hub.docker.com/r/bestwu/qq/ sudo docker pull bestwu/qq # 速度慢可以换镜像源 3, 编辑启动脚本 vim qq.sh sudo docker run -d --name qq --device /dev/snd --net=ho">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-07-23T05:51:43.847Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="最新在linux&#x2F;ubuntu中安装qq的办法">
-<meta name="twitter:description" content="通过docker镜像文件的方式安装qq 1, 首先需要在主机上安装docker 2, 下载镜像文件 https://hub.docker.com/r/bestwu/qq/ sudo docker pull bestwu/qq # 速度慢可以换镜像源3, 编辑启动脚本 vim qq.sh sudo docker run -d --name qq --device /dev/snd --net=hos">
+<meta name="twitter:description" content="通过docker镜像文件的方式安装qq 1, 首先需要在主机上安装docker 2, 下载镜像文件 https://hub.docker.com/r/bestwu/qq/ sudo docker pull bestwu/qq # 速度慢可以换镜像源 3, 编辑启动脚本 vim qq.sh sudo docker run -d --name qq --device /dev/snd --net=ho">
 
 
 
@@ -246,7 +246,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">63</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">68</span></a>
 
   </li>
 
@@ -439,8 +439,9 @@
       
 
       
-        <p>通过docker镜像文件的方式安装qq 1, 首先需要在主机上安装docker 2, 下载镜像文件 <a href="https://hub.docker.com/r/bestwu/qq/" target="_blank" rel="noopener">https://hub.docker.com/r/bestwu/qq/</a></p>
-<pre><code>sudo docker pull bestwu/qq # 速度慢可以换镜像源</code></pre><p>3, 编辑启动脚本</p>
+        <p>通过docker镜像文件的方式安装qq 1, 首先需要在主机上安装docker 2, 下载镜像文件 https://hub.docker.com/r/bestwu/qq/</p>
+<pre><code>sudo docker pull bestwu/qq # 速度慢可以换镜像源</code></pre>
+<p>3, 编辑启动脚本</p>
 <pre><code>vim qq.sh
 sudo docker run -d --name qq --device /dev/snd --net=host \
 -v /tmp/.X11-unix:/tmp/.X11-unix \
@@ -452,8 +453,10 @@ sudo docker run -d --name qq --device /dev/snd --net=host \
 -e AUDIO_GID=63 \
 -e GID=1000 \
 -e UID=1000 \
-bestwu/qq:latest # 此处版本自行选择，作者提供了im (QQ) light,latest (QQLight) office (TIM)三个版本</code></pre><p>4, 启动脚本</p>
-<pre><code>./qq.sh</code></pre><p>5, 感谢作者提供的镜像，本镜像基于深度操作系统.</p>
+bestwu/qq:latest # 此处版本自行选择，作者提供了im (QQ) light,latest (QQLight) office (TIM)三个版本</code></pre>
+<p>4, 启动脚本</p>
+<pre><code>./qq.sh</code></pre>
+<p>5, 感谢作者提供的镜像，本镜像基于深度操作系统.</p>
 
       
     </div>
@@ -577,7 +580,7 @@ bestwu/qq:latest # 此处版本自行选择，作者提供了im (QQ) light,lates
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">68</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

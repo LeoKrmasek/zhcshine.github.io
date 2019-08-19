@@ -98,18 +98,18 @@
   };
 </script>
 
-  <meta name="description" content="登陆sshssh root@ipaddress  password:首次登陆出现的错误perl: warning: Setting locale failed. perl: warning: Please check that your locale settings:   # 安装 localepurge 管理语言文件 sudo apt-get install localepurge # 或者之">
+  <meta name="description" content="登陆ssh ssh root@ipaddress  password: 首次登陆出现的错误 perl: warning: Setting locale failed. perl: warning: Please check that your locale settings:   # 安装 localepurge 管理语言文件 sudo apt-get install localepurge #">
 <meta name="keywords" content="ubuntu">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ubuntu14.04服务器基础配置">
 <meta property="og:url" content="http://www.zhuohc.com/2016/11/10/ubuntu14.04服务器基础配置/index.html">
 <meta property="og:site_name" content="饱读诗书">
-<meta property="og:description" content="登陆sshssh root@ipaddress  password:首次登陆出现的错误perl: warning: Setting locale failed. perl: warning: Please check that your locale settings:   # 安装 localepurge 管理语言文件 sudo apt-get install localepurge # 或者之">
+<meta property="og:description" content="登陆ssh ssh root@ipaddress  password: 首次登陆出现的错误 perl: warning: Setting locale failed. perl: warning: Please check that your locale settings:   # 安装 localepurge 管理语言文件 sudo apt-get install localepurge #">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-07-23T05:51:43.847Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu14.04服务器基础配置">
-<meta name="twitter:description" content="登陆sshssh root@ipaddress  password:首次登陆出现的错误perl: warning: Setting locale failed. perl: warning: Please check that your locale settings:   # 安装 localepurge 管理语言文件 sudo apt-get install localepurge # 或者之">
+<meta name="twitter:description" content="登陆ssh ssh root@ipaddress  password: 首次登陆出现的错误 perl: warning: Setting locale failed. perl: warning: Please check that your locale settings:   # 安装 localepurge 管理语言文件 sudo apt-get install localepurge #">
 
 
 
@@ -247,7 +247,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">63</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">68</span></a>
 
   </li>
 
@@ -433,8 +433,11 @@
       
 
       
-        <h4 id="登陆ssh"><a href="#登陆ssh" class="headerlink" title="登陆ssh"></a>登陆ssh</h4><pre><code>ssh root@ipaddress 
-password:</code></pre><h4 id="首次登陆出现的错误"><a href="#首次登陆出现的错误" class="headerlink" title="首次登陆出现的错误"></a>首次登陆出现的错误</h4><pre><code>perl: warning: Setting locale failed.
+        <h4 id="登陆ssh">登陆ssh</h4>
+<pre><code>ssh root@ipaddress 
+password:</code></pre>
+<h4 id="首次登陆出现的错误">首次登陆出现的错误</h4>
+<pre><code>perl: warning: Setting locale failed.
 perl: warning: Please check that your locale settings:
 
 
@@ -447,9 +450,13 @@ sudo locale-gen zh_CN.UTF-8 en_US.UTF-8
 # 打印结果
 locale
 # ssh连接时候指定语言
-LC_ALL=en_US.UTF-8 ssh &lt;host&gt;</code></pre><h4 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h4><pre><code>adduser hanchang
+LC_ALL=en_US.UTF-8 ssh &lt;host&gt;</code></pre>
+<h4 id="创建用户">创建用户</h4>
+<pre><code>adduser hanchang
 password:
-retry password:</code></pre><h4 id="将用户添加到sudo用户组"><a href="#将用户添加到sudo用户组" class="headerlink" title="将用户添加到sudo用户组"></a>将用户添加到sudo用户组</h4><p>错误提示</p>
+retry password:</code></pre>
+<h4 id="将用户添加到sudo用户组">将用户添加到sudo用户组</h4>
+<p>错误提示</p>
 <pre><code>username is not in the sudoers file.
 
 
@@ -459,26 +466,36 @@ chmod u+w /etc/sudoers   # 添加文件写权限
 root ALL=(ALL) ALL 下面添加以下代码
 hanchang ALL=(ALL) NOPASSWD: ALL
 :wq 退出
-chmod u-w /etc/sudoers  # 取消文件写权限</code></pre><p>修改root密码</p>
+chmod u-w /etc/sudoers  # 取消文件写权限</code></pre>
+<p>修改root密码</p>
 <pre><code>sudo passwd
 password:
-retry password:</code></pre><h4 id="禁止root用户远程登陆ssh"><a href="#禁止root用户远程登陆ssh" class="headerlink" title="禁止root用户远程登陆ssh"></a>禁止root用户远程登陆ssh</h4><pre><code>cd /e   tc/ssh/
+retry password:</code></pre>
+<h4 id="禁止root用户远程登陆ssh">禁止root用户远程登陆ssh</h4>
+<pre><code>cd /e   tc/ssh/
 sudo vim sshd_config
 PermitRootLogin yes改成PermitRootLogin no
-service sshd restart    或者 /etc/init.d/sshd restart（ssh服务器重启）</code></pre><h4 id="指定IP地址登陆"><a href="#指定IP地址登陆" class="headerlink" title="指定IP地址登陆"></a>指定IP地址登陆</h4><pre><code>vim  /etc/hosts.allow
+service sshd restart    或者 /etc/init.d/sshd restart（ssh服务器重启）</code></pre>
+<h4 id="指定ip地址登陆">指定IP地址登陆</h4>
+<pre><code>vim  /etc/hosts.allow
 sshd:192.168.220.164:allow  # 最后添加
 
 vim /etc/hosts.deny
-sshd:ALL #最后添加</code></pre><h4 id="避免sshd连接超时"><a href="#避免sshd连接超时" class="headerlink" title="避免sshd连接超时"></a>避免sshd连接超时</h4><p>修改客户端</p>
+sshd:ALL #最后添加</code></pre>
+<h4 id="避免sshd连接超时">避免sshd连接超时</h4>
+<p>修改客户端</p>
 <pre><code>sudo vim /etc/ssh/ssh_config
 # 添加
 ServerAliveInterval 30   # 每30秒向服务器发起心跳
-ServerAliveCountMax 6 # 允许6次无响应</code></pre><p>或者修改服务器端</p>
+ServerAliveCountMax 6 # 允许6次无响应</code></pre>
+<p>或者修改服务器端</p>
 <pre><code># 打开
 sudo vim /etc/ssh/sshd_config
 # 添加
 ClientAliveInterval 30
-ClientAliveCountMax 6</code></pre><h4 id="流量监控"><a href="#流量监控" class="headerlink" title="流量监控"></a>流量监控</h4><pre><code># 安装监控软件
+ClientAliveCountMax 6</code></pre>
+<h4 id="流量监控">流量监控</h4>
+<pre><code># 安装监控软件
 sudo apt-get install vnstat
 
 
@@ -495,8 +512,11 @@ Interface &quot;eth1&quot; #此处修改需要监控的网卡
 # 启动守护进程
 sudo /etc/init.d/vnstat start
 # 默认开机启动
-sudo update-rc.d vnstat enable</code></pre><h4 id="查看是否安装iptables"><a href="#查看是否安装iptables" class="headerlink" title="查看是否安装iptables"></a>查看是否安装iptables</h4><pre><code>iptables: /sbin/iptables /usr/share/iptables /usr/share/man/man8/iptables.8.gz #表示已经安装iptables
-apt-get install iptables #如果默认没有安装，请运行此命令安装防火墙</code></pre><p>编辑iptables配置文件</p>
+sudo update-rc.d vnstat enable</code></pre>
+<h4 id="查看是否安装iptables">查看是否安装iptables</h4>
+<pre><code>iptables: /sbin/iptables /usr/share/iptables /usr/share/man/man8/iptables.8.gz #表示已经安装iptables
+apt-get install iptables #如果默认没有安装，请运行此命令安装防火墙</code></pre>
+<p>编辑iptables配置文件</p>
 <pre><code>sudo vi /etc/iptables.rules
 *filter
 :INPUT DROP [0:0]
@@ -530,19 +550,26 @@ iptables-restore &lt; /etc/iptables.rules
 
 
 # chmod +x /etc/network/if-pre-up.d/iptables #添加执行权限
-# sudo iptables -L -n查看规则是否生效.</code></pre><h4 id="挂载新的硬盘"><a href="#挂载新的硬盘" class="headerlink" title="挂载新的硬盘"></a>挂载新的硬盘</h4><pre><code>fdisk -l
+# sudo iptables -L -n查看规则是否生效.</code></pre>
+<h4 id="挂载新的硬盘">挂载新的硬盘</h4>
+<pre><code>fdisk -l
 如果出现
-Disk /dev/sdb doesn&apos;t contain a valid partition table
+Disk /dev/sdb doesn&#39;t contain a valid partition table
 说明没有分区,需要处理
 fdisk /dev/sdb
 Command (m for help):  m为查看选项，这里我们输入n表示创建一个新的分区
-选中默认，在分区大小中填写分区大小 +500G</code></pre><p>第二步：使新创建的分区在系统中立即生效 root#partprobe 第三步：格式化新创建的分区</p>
-<pre><code>mkfs.ext3 /dev/hdb1</code></pre><p>第四步：使新创建的分区挂载/mnt/ssd_one 目录下</p>
-<pre><code>mount /dev/hda1 /mnt/rhce01</code></pre><p>查看已经挂载的信息</p>
-<pre><code>sudo vim /etc/mtab</code></pre><p>第五步：开机自动挂载</p>
+选中默认，在分区大小中填写分区大小 +500G</code></pre>
+<p>第二步：使新创建的分区在系统中立即生效 root#partprobe 第三步：格式化新创建的分区</p>
+<pre><code>mkfs.ext3 /dev/hdb1</code></pre>
+<p>第四步：使新创建的分区挂载/mnt/ssd_one 目录下</p>
+<pre><code>mount /dev/hda1 /mnt/rhce01</code></pre>
+<p>查看已经挂载的信息</p>
+<pre><code>sudo vim /etc/mtab</code></pre>
+<p>第五步：开机自动挂载</p>
 <pre><code>sudo vim /etc/fstab
 # 底部添加
-/dev/sdb1              /mnt/hdd_one              ext3    defaults        0 0</code></pre><p>查看现在的硬盘信息</p>
+/dev/sdb1              /mnt/hdd_one              ext3    defaults        0 0</code></pre>
+<p>查看现在的硬盘信息</p>
 <pre><code>root@m1095:~# df -hl
 Filesystem      Size  Used Avail Use% Mounted on
 udev             12G  4.0K   12G   1% /dev
@@ -553,7 +580,10 @@ none            5.0M     0  5.0M   0% /run/lock
 none             12G     0   12G   0% /run/shm
 none            100M     0  100M   0% /run/user
 /dev/sda1       226M   35M  175M  17% /boot
-/dev/sdb1       493G   70M  467G   1% /mnt/hdd_one</code></pre><h4 id="ftp服务器搭建"><a href="#ftp服务器搭建" class="headerlink" title="ftp服务器搭建"></a>ftp服务器搭建</h4><pre><code>sudo apt-get install vsftpd</code></pre><p>编辑配置文件</p>
+/dev/sdb1       493G   70M  467G   1% /mnt/hdd_one</code></pre>
+<h4 id="ftp服务器搭建">ftp服务器搭建</h4>
+<pre><code>sudo apt-get install vsftpd</code></pre>
+<p>编辑配置文件</p>
 <pre><code>sudo vim /etc/vsftpd.conf
 
 
@@ -577,9 +607,12 @@ userlist_deny=YES
 
 
 sudo vim /etc/vsftpd.user_list
-添加root到文件中</code></pre><p>出现500 OOPS: vsftpd: refusing to run with writable root inside chroot()错误的时候 原因：chroot设置为yes的时候，需要取消ftp根目录的写权限</p>
+添加root到文件中</code></pre>
+<p>出现500 OOPS: vsftpd: refusing to run with writable root inside chroot()错误的时候 原因：chroot设置为yes的时候，需要取消ftp根目录的写权限</p>
 <pre><code>#### 在配置文件中添加此设置
-allow_writeable_chroot=YES </code></pre><h4 id="开启防火墙后vsftpd连接错误处理"><a href="#开启防火墙后vsftpd连接错误处理" class="headerlink" title="开启防火墙后vsftpd连接错误处理"></a>开启防火墙后vsftpd连接错误处理</h4><p>载入以下2个模块</p>
+allow_writeable_chroot=YES </code></pre>
+<h4 id="开启防火墙后vsftpd连接错误处理">开启防火墙后vsftpd连接错误处理</h4>
+<p>载入以下2个模块</p>
 <pre><code>sudo modprobe ip_nat_ftp
 sudo modprobe ip_conntrack_ftp
 
@@ -588,8 +621,10 @@ sudo vi /etc/modules
 
 # Add these lines:
 ip_nat_ftp
-ip_conntrack_ftp</code></pre><p>重启vsftpd服务</p>
-<h4 id="安装lamp服务"><a href="#安装lamp服务" class="headerlink" title="安装lamp服务"></a>安装lamp服务</h4><p>安装apache</p>
+ip_conntrack_ftp</code></pre>
+<p>重启vsftpd服务</p>
+<h4 id="安装lamp服务">安装lamp服务</h4>
+<p>安装apache</p>
 <pre><code>sudo apt-get install apache2
 # 将用户添加到apache用户组中
 sudo usermod -a -G www-data username # www-data 为apache用户组名，username为登陆用户名
@@ -598,18 +633,21 @@ sudo a2enmod rewrite
 sudo service apache2 restart
 # 删除显示的版本信息
 ServerTokens Prod
-ServerSignature Off </code></pre><p>配置虚拟主机</p>
+ServerSignature Off </code></pre>
+<p>配置虚拟主机</p>
 <pre><code>sudo vim /etc/apache.2/apache2.conf
 # 添加以下内容
 &lt;Directory /home/zhc/www/&gt;
         Options FollowSymLinks　#　不要加Index
         AllowOverride All
         Require all granted
-&lt;/Directory&gt;</code></pre><p>安装mysql</p>
+&lt;/Directory&gt;</code></pre>
+<p>安装mysql</p>
 <pre><code>sudo apt-get install mysql-server php5-mysql
 ＃配置mysql
-sudo mysql_secure_installation</code></pre><p>查看mysql是否开启慢查询日志</p>
-<pre><code>mysql&gt; show variables like &apos;%slow%&apos;;
+sudo mysql_secure_installation</code></pre>
+<p>查看mysql是否开启慢查询日志</p>
+<pre><code>mysql&gt; show variables like &#39;%slow%&#39;;
 +---------------------------+---------------------------------------+
 | Variable_name             | Value                                 |
 +---------------------------+---------------------------------------+
@@ -623,8 +661,8 @@ sudo mysql_secure_installation</code></pre><p>查看mysql是否开启慢查询�
 
 
 #开启慢查询
-mysql&gt; set global log_slow_queries  = &apos;ON&apos;;
-mysql&gt; show variables like &apos;%slow%&apos;;
+mysql&gt; set global log_slow_queries  = &#39;ON&#39;;
+mysql&gt; show variables like &#39;%slow%&#39;;
 
 
 #开启常规查询
@@ -634,7 +672,8 @@ general_log             = 1
 #开启错误查询
 log_error = /var/log/mysql/error.log
 #　防止innodb ibdata1文件过大
-innodb_file_per_table=1　</code></pre><p>安装php</p>
+innodb_file_per_table=1　</code></pre>
+<p>安装php</p>
 <pre><code>sudo apt-get install php5 libapache2-mod-php5 php5-mcrypt
 #ubuntu16.04安装方法
 # Add the PPA
@@ -644,12 +683,16 @@ sudo add-apt-repository ppa:ondrej/php
 sudo apt-get install software-properties-common
 sudo apt-get update
 sudo apt-get install php5.6
-sudo apt-get install php5.6-*</code></pre><p>配置php</p>
+sudo apt-get install php5.6-*</code></pre>
+<p>配置php</p>
 <pre><code>vim /etc/php/5.6/apache/php.ini
-expose_php = Off # 隐藏php版本信息</code></pre><h4 id="静态文件同步"><a href="#静态文件同步" class="headerlink" title="静态文件同步"></a>静态文件同步</h4><p>定时任务 crontab -e # 编辑当前用户的定时任务 crontab -u hanchang -e # 编辑指定用户的定时任务</p>
+expose_php = Off # 隐藏php版本信息</code></pre>
+<h4 id="静态文件同步">静态文件同步</h4>
+<p>定时任务 crontab -e # 编辑当前用户的定时任务 crontab -u hanchang -e # 编辑指定用户的定时任务</p>
 <pre><code># m h  dom mon dow   command
 # 分钟 小时 日期 月份 星期 命令
 0 0 * * * /bin/sh /home/hanchang/www/scripts/rsyncHK.sh</code></pre>
+
       
     </div>
 
@@ -790,7 +833,7 @@ expose_php = Off # 隐藏php版本信息</code></pre><h4 id="静态文件同步"
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">68</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -897,7 +940,7 @@ expose_php = Off # 隐藏php版本信息</code></pre><h4 id="静态文件同步"
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#登陆ssh"><span class="nav-number">1.</span> <span class="nav-text">登陆ssh</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#首次登陆出现的错误"><span class="nav-number">2.</span> <span class="nav-text">首次登陆出现的错误</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建用户"><span class="nav-number">3.</span> <span class="nav-text">创建用户</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#将用户添加到sudo用户组"><span class="nav-number">4.</span> <span class="nav-text">将用户添加到sudo用户组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#禁止root用户远程登陆ssh"><span class="nav-number">5.</span> <span class="nav-text">禁止root用户远程登陆ssh</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指定IP地址登陆"><span class="nav-number">6.</span> <span class="nav-text">指定IP地址登陆</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#避免sshd连接超时"><span class="nav-number">7.</span> <span class="nav-text">避免sshd连接超时</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#流量监控"><span class="nav-number">8.</span> <span class="nav-text">流量监控</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看是否安装iptables"><span class="nav-number">9.</span> <span class="nav-text">查看是否安装iptables</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#挂载新的硬盘"><span class="nav-number">10.</span> <span class="nav-text">挂载新的硬盘</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ftp服务器搭建"><span class="nav-number">11.</span> <span class="nav-text">ftp服务器搭建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#开启防火墙后vsftpd连接错误处理"><span class="nav-number">12.</span> <span class="nav-text">开启防火墙后vsftpd连接错误处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装lamp服务"><span class="nav-number">13.</span> <span class="nav-text">安装lamp服务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#静态文件同步"><span class="nav-number">14.</span> <span class="nav-text">静态文件同步</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#登陆ssh"><span class="nav-number">1.</span> <span class="nav-text">登陆ssh</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#首次登陆出现的错误"><span class="nav-number">2.</span> <span class="nav-text">首次登陆出现的错误</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建用户"><span class="nav-number">3.</span> <span class="nav-text">创建用户</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#将用户添加到sudo用户组"><span class="nav-number">4.</span> <span class="nav-text">将用户添加到sudo用户组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#禁止root用户远程登陆ssh"><span class="nav-number">5.</span> <span class="nav-text">禁止root用户远程登陆ssh</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指定ip地址登陆"><span class="nav-number">6.</span> <span class="nav-text">指定IP地址登陆</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#避免sshd连接超时"><span class="nav-number">7.</span> <span class="nav-text">避免sshd连接超时</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#流量监控"><span class="nav-number">8.</span> <span class="nav-text">流量监控</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看是否安装iptables"><span class="nav-number">9.</span> <span class="nav-text">查看是否安装iptables</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#挂载新的硬盘"><span class="nav-number">10.</span> <span class="nav-text">挂载新的硬盘</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ftp服务器搭建"><span class="nav-number">11.</span> <span class="nav-text">ftp服务器搭建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#开启防火墙后vsftpd连接错误处理"><span class="nav-number">12.</span> <span class="nav-text">开启防火墙后vsftpd连接错误处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装lamp服务"><span class="nav-number">13.</span> <span class="nav-text">安装lamp服务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#静态文件同步"><span class="nav-number">14.</span> <span class="nav-text">静态文件同步</span></a></li></ol></div>
             
 
           </div>

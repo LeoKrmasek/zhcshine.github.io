@@ -98,18 +98,18 @@
   };
 </script>
 
-  <meta name="description" content="URL配置URL伪静态3.1版本默认支持.html,.shtml,.xml,.pdf伪静态在配置文件中配置[是在项目下的配置文件./App/Conf/config.php] &amp;apos;URL_HTML_SUFFIX&amp;apos;=&amp;gt;&amp;apos;html|shmtl|xml&amp;apos; // 多个用 | 分割配置URL路由基本规则  一、规则路由格式1：’路由规则’=&amp;gt;’[分组/模块/操">
+  <meta name="description" content="URL 配置URL伪静态 3.1版本默认支持.html,.shtml,.xml,.pdf伪静态 在配置文件中配置[是在项目下的配置文件./App/Conf/config.php] &amp;#39;URL_HTML_SUFFIX&amp;#39;=&amp;gt;&amp;#39;html|shmtl|xml&amp;#39; // 多个用 | 分割 配置URL路由 基本规则  一、规则路由 格式1：&apos;路由规则&apos;=&amp;gt;&apos;[分组/模块">
 <meta name="keywords" content="php">
 <meta property="og:type" content="article">
 <meta property="og:title" content="thinkphp入门基础">
 <meta property="og:url" content="http://www.zhuohc.com/2016/11/09/thinkphp入门基础/index.html">
 <meta property="og:site_name" content="饱读诗书">
-<meta property="og:description" content="URL配置URL伪静态3.1版本默认支持.html,.shtml,.xml,.pdf伪静态在配置文件中配置[是在项目下的配置文件./App/Conf/config.php] &amp;apos;URL_HTML_SUFFIX&amp;apos;=&amp;gt;&amp;apos;html|shmtl|xml&amp;apos; // 多个用 | 分割配置URL路由基本规则  一、规则路由格式1：’路由规则’=&amp;gt;’[分组/模块/操">
+<meta property="og:description" content="URL 配置URL伪静态 3.1版本默认支持.html,.shtml,.xml,.pdf伪静态 在配置文件中配置[是在项目下的配置文件./App/Conf/config.php] &amp;#39;URL_HTML_SUFFIX&amp;#39;=&amp;gt;&amp;#39;html|shmtl|xml&amp;#39; // 多个用 | 分割 配置URL路由 基本规则  一、规则路由 格式1：&apos;路由规则&apos;=&amp;gt;&apos;[分组/模块">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-07-24T01:34:35.226Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="thinkphp入门基础">
-<meta name="twitter:description" content="URL配置URL伪静态3.1版本默认支持.html,.shtml,.xml,.pdf伪静态在配置文件中配置[是在项目下的配置文件./App/Conf/config.php] &amp;apos;URL_HTML_SUFFIX&amp;apos;=&amp;gt;&amp;apos;html|shmtl|xml&amp;apos; // 多个用 | 分割配置URL路由基本规则  一、规则路由格式1：’路由规则’=&amp;gt;’[分组/模块/操">
+<meta name="twitter:description" content="URL 配置URL伪静态 3.1版本默认支持.html,.shtml,.xml,.pdf伪静态 在配置文件中配置[是在项目下的配置文件./App/Conf/config.php] &amp;#39;URL_HTML_SUFFIX&amp;#39;=&amp;gt;&amp;#39;html|shmtl|xml&amp;#39; // 多个用 | 分割 配置URL路由 基本规则  一、规则路由 格式1：&apos;路由规则&apos;=&amp;gt;&apos;[分组/模块">
 
 
 
@@ -247,7 +247,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">63</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">68</span></a>
 
   </li>
 
@@ -433,31 +433,60 @@
       
 
       
-        <h3 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h3><h3 id="配置URL伪静态"><a href="#配置URL伪静态" class="headerlink" title="配置URL伪静态"></a>配置URL伪静态</h3><p>3.1版本默认支持.html,.shtml,.xml,.pdf伪静态<br>在配置文件中配置[是在项目下的配置文件./App/Conf/config.php]</p>
-<pre><code>&apos;URL_HTML_SUFFIX&apos;=&gt;&apos;html|shmtl|xml&apos; // 多个用 | 分割</code></pre><h3 id="配置URL路由"><a href="#配置URL路由" class="headerlink" title="配置URL路由"></a>配置URL路由</h3><p>基本规则</p>
+        <h3 id="url">URL</h3>
+<h3 id="配置url伪静态">配置URL伪静态</h3>
+<p>3.1版本默认支持.html,.shtml,.xml,.pdf伪静态<br>
+在配置文件中配置[是在项目下的配置文件./App/Conf/config.php]</p>
+<pre><code>&#39;URL_HTML_SUFFIX&#39;=&gt;&#39;html|shmtl|xml&#39; // 多个用 | 分割</code></pre>
+<h3 id="配置url路由">配置URL路由</h3>
+<p>基本规则</p>
 <blockquote>
-<p>一、规则路由<br>格式1：’路由规则’=&gt;’[分组/模块/操作]?额外参数1=值1&amp;额外参数2=值2…’<br>格式2：’路由规则’=&gt;array(‘[分组/模块/操作]‘,’额外参数1=值1&amp;额外参数2=值2…’)<br>格式3：’路由规则’=&gt;’外部地址’<br>格式4：’路由规则’=&gt;array(‘外部地址’,’重定向代码’)<br>注意事项：<br>路由规则中如果以“:”开头，表示动态变量，否则为静态地址<br>格式2的额外参数可以传入数组或者字符串<br>外部地址中如果要引用动态变量， 采用 :1、:2 的方式<br>路由规则支持变量的数字约束定义，例如：’news/:id\d’=&gt;’News/read’<br>规则路由可以支持 全动态和动静结合定义，例如’:user/blog/:id’=&gt;’Home/Blog/user’<br>路由规则非数字变量支持排除，例如 ‘news/:cate^add|edit|delete’=&gt;’News/category’<br>路由规则中的静态地址部分不区分大小写</p>
+<p>一、规则路由<br>
+格式1：'路由规则'=&gt;'[分组/模块/操作]?额外参数1=值1&amp;额外参数2=值2...'<br>
+格式2：'路由规则'=&gt;array('[分组/模块/操作]','额外参数1=值1&amp;额外参数2=值2...')<br>
+格式3：'路由规则'=&gt;'外部地址'<br>
+格式4：'路由规则'=&gt;array('外部地址','重定向代码')<br>
+注意事项：<br>
+路由规则中如果以“:”开头，表示动态变量，否则为静态地址<br>
+格式2的额外参数可以传入数组或者字符串<br>
+外部地址中如果要引用动态变量， 采用 :1、:2 的方式<br>
+路由规则支持变量的数字约束定义，例如：'news/:id\d'=&gt;'News/read'<br>
+规则路由可以支持 全动态和动静结合定义，例如':user/blog/:id'=&gt;'Home/Blog/user'<br>
+路由规则非数字变量支持排除，例如 'news/:cate^add|edit|delete'=&gt;'News/category'<br>
+路由规则中的静态地址部分不区分大小写</p>
 </blockquote>
 <p>配置文件开启路由</p>
-<pre><code>&apos;URL_ROUTER_ON&apos;   =&gt; true, //开启路由
-&apos;URL_ROUTE_RULES&apos; =&gt; array( //定义路由规则
-    &apos;news/:year/:month/:day&apos; =&gt; array(&apos;News/archive&apos;, &apos;status=1&apos;),
-    &apos;news/:id&apos;               =&gt; &apos;News/read&apos;,
-    &apos;news/read/:id&apos;          =&gt; &apos;/news/:1&apos;,
- ),</code></pre><blockquote>
-<p><code>http://serverName/index.php/news/2012/01/08</code>匹配第一条路由<br>也可以写成<code>&#39;news/:year/:month/:day/&#39;=&gt;&#39;News/archive?status=1&#39;,</code> <code>http://serverName/index.php/news/8</code>匹配第二条路由 第三条用于url地址迁移，重定向使用</p>
+<pre><code>&#39;URL_ROUTER_ON&#39;   =&gt; true, //开启路由
+&#39;URL_ROUTE_RULES&#39; =&gt; array( //定义路由规则
+    &#39;news/:year/:month/:day&#39; =&gt; array(&#39;News/archive&#39;, &#39;status=1&#39;),
+    &#39;news/:id&#39;               =&gt; &#39;News/read&#39;,
+    &#39;news/read/:id&#39;          =&gt; &#39;/news/:1&#39;,
+ ),</code></pre>
+<blockquote>
+<p><code>http://serverName/index.php/news/2012/01/08</code>匹配第一条路由<br>
+也可以写成<code>'news/:year/:month/:day/'=&gt;'News/archive?status=1',</code> <code>http://serverName/index.php/news/8</code>匹配第二条路由 第三条用于url地址迁移，重定向使用</p>
 </blockquote>
-<h3 id="正则路由"><a href="#正则路由" class="headerlink" title="正则路由"></a>正则路由</h3><blockquote>
-<p>正则路由可以实现更加复杂的路由定义，支持的定义格式如下：<br>格式1：’路由正则’=&gt;’[分组/模块/操作]?参数1=值1&amp;参数2=值2…’<br>格式2：’路由正则’=&gt;array(‘[分组/模块/操作]‘,’参数1=值1&amp;参数2=值2…’)<br>格式3：’路由正则’=&gt;’外部地址’<br>格式4：’路由正则’=&gt;array(‘外部地址’,’重定向代码’)</p>
+<h3 id="正则路由">正则路由</h3>
+<blockquote>
+<p>正则路由可以实现更加复杂的路由定义，支持的定义格式如下：<br>
+格式1：'路由正则'=&gt;'[分组/模块/操作]?参数1=值1&amp;参数2=值2...'<br>
+格式2：'路由正则'=&gt;array('[分组/模块/操作]','参数1=值1&amp;参数2=值2...')<br>
+格式3：'路由正则'=&gt;'外部地址'<br>
+格式4：'路由正则'=&gt;array('外部地址','重定向代码')</p>
 </blockquote>
-<p>注意事项：<br>正则路由规则必须以“/”开始和结束<br>格式2的参数可以传入数组或者字符串<br>参数值和外部地址中可以用动态变量 采用 :1、 :2 的方式<br>下面是正则路由的定义示例：</p>
-<pre><code>&apos;URL_ROUTER_ON&apos;   =&gt; true, //开启路由
- &apos;URL_ROUTE_RULES&apos; =&gt; array( //定义路由规则
-    &apos;/^blog\/(\d+)$/&apos;        =&gt; &apos;Blog/read?id=:1&apos;,
-    &apos;/^blog\/(\d+)\/(\d+)$/&apos; =&gt; &apos;Blog/achive?year=:1&amp;month=:2&apos;,
-    &apos;/^blog\/(\d+)_(\d+)$/&apos;  =&gt; &apos;blog.php?id=:1&amp;page=:2&apos;,
+<p>注意事项：<br>
+正则路由规则必须以“/”开始和结束<br>
+格式2的参数可以传入数组或者字符串<br>
+参数值和外部地址中可以用动态变量 采用 :1、 :2 的方式<br>
+下面是正则路由的定义示例：</p>
+<pre><code>&#39;URL_ROUTER_ON&#39;   =&gt; true, //开启路由
+ &#39;URL_ROUTE_RULES&#39; =&gt; array( //定义路由规则
+    &#39;/^blog\/(\d+)$/&#39;        =&gt; &#39;Blog/read?id=:1&#39;,
+    &#39;/^blog\/(\d+)\/(\d+)$/&#39; =&gt; &#39;Blog/achive?year=:1&amp;month=:2&#39;,
+    &#39;/^blog\/(\d+)_(\d+)$/&#39;  =&gt; &#39;blog.php?id=:1&amp;page=:2&#39;,
  ),
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">    ### URL区分大小写</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">&apos;URL\_CASE\_INSENSITIVE&apos; =&gt;true, // 不区分 &apos;URL\_CASE\_INSENSITIVE&apos; =&gt;false, // 区分</span><br><span class="line"></span><br><span class="line">    ### 缓存</span><br><span class="line">    ### 静态缓存</span><br><span class="line">    开启静态缓存[是在分组下的配置文件./App/Moduels/Index/Conf/config.php]  </span><br><span class="line">    和静态缓存相关的配置参数包括：  </span><br><span class="line">    HTML_CACHE_ON 是否开启静态缓存功能  </span><br><span class="line">    HTML_FILE_SUFFIX 静态文件后缀 惯例配置的值是 .html  </span><br><span class="line">    HTML_CACHE_TIME 默认的静态缓存有效期 默认60秒 可以在静态规则定义覆盖  </span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">&apos;HTML\_CACHE\_ON&apos;=&gt;true, &apos;HTML\_CACHE\_RULES&apos;=&gt; array( &apos;ActionName&apos; =&gt; array(&apos;静态规则&apos;, &apos;静态缓存有效期&apos;, &apos;附加规则&apos;), &apos;ModuleName(小写)&apos; =&gt; array(&apos;静态规则&apos;, &apos;静态缓存有效期&apos;, &apos;附加规则&apos;), &apos;ModuleName(小写):ActionName&apos; =&gt; array(&apos;静态规则&apos;, &apos;静态缓存有效期&apos;, &apos;附加规则&apos;), &apos;*&apos; =&gt; array(&apos;静态规则&apos;, &apos;静态缓存有效期&apos;, &apos;附加规则&apos;), &apos;Show:index&apos; =&gt; array(&apos;&#123;:module&#125;_&#123;:action&#125;_&#123;id&#125;&apos;, 100),</span><br><span class="line"></span><br><span class="line">    所有控制器下read方法缓存，其中，&#123;id&#125; 表示取$_GET[&apos;id&apos;] 为静态缓存文件名，第二个参数表示缓存60秒</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">&apos;read&apos;=&gt;array(&apos;&#123;id&#125;&apos;,&apos;60&apos;)</span><br><span class="line"></span><br><span class="line">    User控制器下所有方法缓存，其中，&#123;:action&#125; 表示当前的操作名称</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">&apos;user:&apos;=&gt;array(&apos;User/&#123;:action&#125;_&#123;id&#125;&apos;,&apos;600&apos;)</span><br><span class="line"></span><br><span class="line">    Blog控制器下read方法缓存</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">&apos;blog:read&apos;=&gt;array(&apos;&#123;id&#125;&apos;,0)</span><br><span class="line"></span><br><span class="line">    全局缓存</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">&apos;*&apos;=&gt;array(&apos;&#123;$\_SERVER.REQUEST\_URI|md5&#125;&apos;),</span><br><span class="line"></span><br><span class="line">    静态规则  </span><br><span class="line">    1.  使用系统变量 包括 _GET _REQUEST _SERVER _SESSION _COOKIE</span><br><span class="line">    &gt; &#123;$_×××|function&#125;</span><br><span class="line">    </span><br><span class="line">    2.  使用框架特定的变量</span><br><span class="line">    &gt; &#123;:app&#125;、&#123;:group&#125; 、&#123;:module&#125; 和&#123;:action&#125; 分别表示当前项目名、分组名、模块名和操作名</span><br><span class="line">    </span><br><span class="line">    3.  使用_GET变量</span><br><span class="line">    &gt; &#123;var|function&#125;    也就是说 &#123;id&#125; 其实等效于 &#123;$_GET.id&#125;</span><br><span class="line">    </span><br><span class="line">    4.  直接使用函数</span><br><span class="line">    &gt; &#123;|function&#125;   例如：&#123;|time&#125;</span><br><span class="line">    </span><br><span class="line">    5.  支持混合定义</span><br><span class="line">    &gt; &apos;&#123;id&#125;,&#123;name|md5&#125;&apos;   </span><br><span class="line">    在&#123;&#125;之外的字符作为字符串对待，如果包含有”/”，会自动创建目录。  </span><br><span class="line">    例如，定义下面的静态规则：  </span><br><span class="line">    &#123;:module&#125;/&#123;:action&#125;_&#123;id&#125;  </span><br><span class="line">    则会在静态目录下面创建模块名称的子目录，然后写入操作名_id.shtml 文件。    </span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    使用get中文参数乱码问题</span><br><span class="line">    ### 原因</span><br><span class="line">    中文浏览器中默认使用的是gbk2312编码</span><br><span class="line">    </span><br><span class="line">    ### 解决方法</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">/\*\* \* 解决get参数中带中文的乱码问题 * @param $keywords 传入的关键字 * @return string */ function decodeToUtf($keywords) &#123; $keywords = mb\_convert\_encoding($keywords, &apos;UTF-8&apos;,&apos;GB2312,UTF-8&apos;); return $keywords; &#125;</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">$keywords = I(&apos;keywords&apos;); $keywords = decodeToUtf($keywords); $page = new Page($count,self::$perPage); $page-&gt;parameter = &apos;keywords=&apos; . $keywords;</span><br></pre></td></tr></table></figure></code></pre>
+
       
     </div>
 
@@ -598,7 +627,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">68</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -705,7 +734,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#URL"><span class="nav-number">1.</span> <span class="nav-text">URL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置URL伪静态"><span class="nav-number">2.</span> <span class="nav-text">配置URL伪静态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置URL路由"><span class="nav-number">3.</span> <span class="nav-text">配置URL路由</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正则路由"><span class="nav-number">4.</span> <span class="nav-text">正则路由</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#url"><span class="nav-number">1.</span> <span class="nav-text">URL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置url伪静态"><span class="nav-number">2.</span> <span class="nav-text">配置URL伪静态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置url路由"><span class="nav-number">3.</span> <span class="nav-text">配置URL路由</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正则路由"><span class="nav-number">4.</span> <span class="nav-text">正则路由</span></a></li></ol></div>
             
 
           </div>

@@ -98,18 +98,18 @@
   };
 </script>
 
-  <meta name="description" content="unittest基础使用方法# -*- coding:utf-8 -*- # calculator.py # 需要测试的类 class Count:      def __init__(self, a, b):         self.a = int(a)         self.b = int(b)      def add(self):         return self.a + se">
+  <meta name="description" content="unittest基础使用方法 # -*- coding:utf-8 -*- # calculator.py # 需要测试的类 class Count:      def __init__(self, a, b):         self.a = int(a)         self.b = int(b)      def add(self):         return self.a + s">
 <meta name="keywords" content="python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="unittest单元测试">
 <meta property="og:url" content="http://www.zhuohc.com/2016/11/30/unittest单元测试/index.html">
 <meta property="og:site_name" content="饱读诗书">
-<meta property="og:description" content="unittest基础使用方法# -*- coding:utf-8 -*- # calculator.py # 需要测试的类 class Count:      def __init__(self, a, b):         self.a = int(a)         self.b = int(b)      def add(self):         return self.a + se">
+<meta property="og:description" content="unittest基础使用方法 # -*- coding:utf-8 -*- # calculator.py # 需要测试的类 class Count:      def __init__(self, a, b):         self.a = int(a)         self.b = int(b)      def add(self):         return self.a + s">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-07-24T01:35:07.600Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="unittest单元测试">
-<meta name="twitter:description" content="unittest基础使用方法# -*- coding:utf-8 -*- # calculator.py # 需要测试的类 class Count:      def __init__(self, a, b):         self.a = int(a)         self.b = int(b)      def add(self):         return self.a + se">
+<meta name="twitter:description" content="unittest基础使用方法 # -*- coding:utf-8 -*- # calculator.py # 需要测试的类 class Count:      def __init__(self, a, b):         self.a = int(a)         self.b = int(b)      def add(self):         return self.a + s">
 
 
 
@@ -247,7 +247,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">63</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">68</span></a>
 
   </li>
 
@@ -433,7 +433,8 @@
       
 
       
-        <h4 id="unittest基础使用方法"><a href="#unittest基础使用方法" class="headerlink" title="unittest基础使用方法"></a>unittest基础使用方法</h4><pre><code># -*- coding:utf-8 -*-
+        <h4 id="unittest基础使用方法">unittest基础使用方法</h4>
+<pre><code># -*- coding:utf-8 -*-
 # calculator.py
 # 需要测试的类
 class Count:
@@ -453,7 +454,7 @@ from calculator import Count
 import unittest
 class TestCount(unittest.TestCase):
     def setUp(self):
-        print &apos;test start&apos;
+        print &#39;test start&#39;
 
     def test_add(self):
         j = Count(2,3)
@@ -461,22 +462,24 @@ class TestCount(unittest.TestCase):
 
     def test_add2(self):
         j = Count(41, 76)
-        self.assertEqual(j.add(), 115, &apos;not equal&apos;)
+        self.assertEqual(j.add(), 115, &#39;not equal&#39;)
 
     def tearDown(self):
-        print &apos;test end&apos;
+        print &#39;test end&#39;
 
 
-if __name__ == &apos;__main__&apos;:
+if __name__ == &#39;__main__&#39;:
     # 测试全部方法
     # unittest.main()
     # 构造测试集
     suite = unittest.TestSuite()
     # 指定测试方法
-    suite.addTest(TestCount(&apos;test_add2&apos;))
+    suite.addTest(TestCount(&#39;test_add2&#39;))
     # 执行测试
     runner = unittest.TextTestRunner()
-    runner.run(suite)</code></pre><h4 id="自动识别测试用例"><a href="#自动识别测试用例" class="headerlink" title="自动识别测试用例"></a>自动识别测试用例</h4><pre><code># -*- coding:utf-8 -*-
+    runner.run(suite)</code></pre>
+<h4 id="自动识别测试用例">自动识别测试用例</h4>
+<pre><code># -*- coding:utf-8 -*-
 # calculator.py
 # 需要测试的类
 class Count:
@@ -498,7 +501,7 @@ from calculator import Count
 import unittest
 class TestAdd(unittest.TestCase):
     def setUp(self):
-        print &apos;test add start&apos;
+        print &#39;test add start&#39;
 
     def test_add(self):
         j = Count(2,3)
@@ -506,13 +509,13 @@ class TestAdd(unittest.TestCase):
 
     def test_add2(self):
         j = Count(41, 76)
-        self.assertEqual(j.add(), 115, &apos;not equal&apos;)
+        self.assertEqual(j.add(), 115, &#39;not equal&#39;)
 
     def tearDown(self):
-        print &apos;test add end&apos;
+        print &#39;test add end&#39;
 
 
-if __name__ == &apos;__main__&apos;:
+if __name__ == &#39;__main__&#39;:
     # 测试全部方法
     unittest.main()
 
@@ -525,7 +528,7 @@ import unittest
 
 class TestSub(unittest.TestCase):
     def setUp(self):
-        print &apos;test sub start&apos;
+        print &#39;test sub start&#39;
 
     def test_sub(self):
         j = Count(2,3)
@@ -533,13 +536,13 @@ class TestSub(unittest.TestCase):
 
     def test_sub2(self):
         j = Count(41, 76)
-        self.assertEqual(j.sub(), 115, &apos;not equal&apos;)
+        self.assertEqual(j.sub(), 115, &#39;not equal&#39;)
 
     def tearDown(self):
-        print &apos;test sub end&apos;
+        print &#39;test sub end&#39;
 
 
-if __name__ == &apos;__main__&apos;:
+if __name__ == &#39;__main__&#39;:
     # 测试全部方法
     unittest.main()
 
@@ -547,11 +550,13 @@ if __name__ == &apos;__main__&apos;:
 # -*- coding: utf-8 -*-
 # runtest.py
 import unittest
-test_dir = &apos;./&apos;
-discover = unittest.defaultTestLoader.discover(test_dir, pattern=&apos;test*.py&apos;)
-if __name__ == &apos;__main__&apos;:
+test_dir = &#39;./&#39;
+discover = unittest.defaultTestLoader.discover(test_dir, pattern=&#39;test*.py&#39;)
+if __name__ == &#39;__main__&#39;:
     runner = unittest.TextTestRunner()
-    runner.run(discover)</code></pre><h4 id="断言方法啊"><a href="#断言方法啊" class="headerlink" title="断言方法啊"></a>断言方法啊</h4><pre><code># unittest.TestCase.assertEqual(a, b, msg=None)   a == b
+    runner.run(discover)</code></pre>
+<h4 id="断言方法啊">断言方法啊</h4>
+<pre><code># unittest.TestCase.assertEqual(a, b, msg=None)   a == b
 # unittest.TestCase.assertNotEqual(a, b) a !=b  
 # unittest.TestCase.assertTrue(x)   x is True
 # unittest.TestCase.assertFalse(x)  x is False
@@ -561,7 +566,9 @@ if __name__ == &apos;__main__&apos;:
 # unittest.TestCase.assertIn(a, b)  a in b
 # unittest.TestCase.assertNotIn(a, b) a not in b
 # unittest.TestCase.assertNotIsInstance(a, b) isinstance(a,b)
-# unittest.TestCase.assertNotIsInstance(a, b) not isinstance(a,b)</code></pre><h4 id="跳过测试与预期失败"><a href="#跳过测试与预期失败" class="headerlink" title="跳过测试与预期失败"></a>跳过测试与预期失败</h4><pre><code># -*- coding: utf-8 -*-
+# unittest.TestCase.assertNotIsInstance(a, b) not isinstance(a,b)</code></pre>
+<h4 id="跳过测试与预期失败">跳过测试与预期失败</h4>
+<pre><code># -*- coding: utf-8 -*-
 # test.py
 import unittest
 
@@ -572,26 +579,27 @@ class MyTest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    @unittest.skip(u&apos;直接跳过测试&apos;)
+    @unittest.skip(u&#39;直接跳过测试&#39;)
     def test_skip(self):
-        print &apos;test aaa&apos;
+        print &#39;test aaa&#39;
 
-    @unittest.skipIf(3 &gt; 2, u&apos;条件满足时跳过测试&apos;)
+    @unittest.skipIf(3 &gt; 2, u&#39;条件满足时跳过测试&#39;)
     def test_skip_if(self):
-        print &apos;test bbb&apos;
+        print &#39;test bbb&#39;
 
-    @unittest.skipUnless(3 &gt; 2, u&apos;条件满足时执行测试&apos;)
+    @unittest.skipUnless(3 &gt; 2, u&#39;条件满足时执行测试&#39;)
     def test_skip_unless(self):
-        print &apos;test ccc&apos;
+        print &#39;test ccc&#39;
 
     # 不管测试成功与否，都标记为失败
     @unittest.expectedFailure
     def test_expected_failure(self):
-        print &apos;test ddd&apos;
+        print &#39;test ddd&#39;
         self.assertEqual(2, 3)
 
-if __name__ == &apos;__main__&apos;:
+if __name__ == &#39;__main__&#39;:
     unittest.main()</code></pre>
+
       
     </div>
 
@@ -732,7 +740,7 @@ if __name__ == &apos;__main__&apos;:
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">68</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

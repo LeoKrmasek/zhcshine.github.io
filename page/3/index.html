@@ -246,7 +246,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">63</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">68</span></a>
 
   </li>
 
@@ -307,6 +307,1016 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2018/10/09/ubuntu16.04安装及使用SVN/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhuohanchang">
+      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="饱读诗书">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/10/09/ubuntu16.04安装及使用SVN/" class="post-title-link" itemprop="url">ubuntu16.04安装及使用SVN</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-10-09 18:21:49" itemprop="dateCreated datePublished" datetime="2018-10-09T18:21:49+08:00">2018-10-09</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-07-23 13:51:43" itemprop="dateModified" datetime="2019-07-23T13:51:43+08:00">2019-07-23</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/办公/" itemprop="url" rel="index"><span itemprop="name">办公</span></a></span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/办公/后端/" itemprop="url" rel="index"><span itemprop="name">后端</span></a></span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/办公/后端/运维/" itemprop="url" rel="index"><span itemprop="name">运维</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="服务器端安装">服务器端安装</h4>
+<p><a href="https://help.ubuntu.com/lts/serverguide/subversion.html.en/" target="_blank" rel="noopener">官方推荐</a></p>
+<pre><code># 安装包
+sudo apt install subversion apache2 libapache2-svn
+# 创建目录及两个svn项目
+mkdir svn
+svnadmin create svn/doneself-app
+svnadmin create svn/doneself-web
+# 多个项目公用一个权限文件
+cp -rf svn/doneself/conf/passwd snv/
+cp -rf svn/doneself/conf/authz snv/
+
+
+# 编辑每个项目的配置文件
+vim svn/doneself/conf/svnserve.conf
+[general]   
+# 匿名用户没有权限
+anon-access = none
+# 验证用户写权限
+auth-access = write
+# 账号密码文件路径
+password-db = ../../passwd 
+# 权限文件路径
+authz-db = ../../authz
+
+
+# 编写账号密码文件
+vim svn/passwd
+[users] 
+ui = ui  # 注意空格
+
+
+# 编写组和权限文件
+vim svn/
+[groups]
+ui = ui  
+[doneself-app:/]  
+ui = wr</code></pre>
+<h4 id="启动svn服务器">启动svn服务器</h4>
+<pre><code># 启动,默认端口号3690
+sudo svnserve -d -r /home/svn
+# 结束
+sudo pkill svnserve</code></pre>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2018/09/26/vuejs/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhuohanchang">
+      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="饱读诗书">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/09/26/vuejs/" class="post-title-link" itemprop="url">vue.js</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-09-26 17:32:56" itemprop="dateCreated datePublished" datetime="2018-09-26T17:32:56+08:00">2018-09-26</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-07-23 13:51:43" itemprop="dateModified" datetime="2019-07-23T13:51:43+08:00">2019-07-23</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="安装nodejs">安装nodejs</h4>
+<pre><code># 安装nodejs
+# https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions
+curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+sudo apt-get install -y nodejs
+# 安装cnpm
+sudo npm install -g cnpm</code></pre>
+<h4 id="安装vue-cli">安装vue-cli</h4>
+<pre><code>sudo cnpm install -g vue-cli</code></pre>
+<h4 id="创建项目">创建项目</h4>
+<pre><code>vue init webpack your-project
+ cnpm install
+ npm run dev  # 启动项目</code></pre>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2018/09/08/centos7.2安装及使用docker/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhuohanchang">
+      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="饱读诗书">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/09/08/centos7.2安装及使用docker/" class="post-title-link" itemprop="url">centos7.2安装及使用docker</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-09-08 14:52:53" itemprop="dateCreated datePublished" datetime="2018-09-08T14:52:53+08:00">2018-09-08</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-07-23 13:51:43" itemprop="dateModified" datetime="2019-07-23T13:51:43+08:00">2019-07-23</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/后端/" itemprop="url" rel="index"><span itemprop="name">后端</span></a></span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/后端/运维/" itemprop="url" rel="index"><span itemprop="name">运维</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <pre><code># https://docs.docker.com/install/linux/docker-ce/centos/#install-docker-ce
+# 卸载旧版本
+$ sudo yum remove docker docker-client docker-client-latest docker-common docker-latest docker-latest-logrotate docker-logrotate docker-selinux docker-engine-selinux docker-engine
+# 安装依赖包
+$ sudo yum install -y yum-utils device-mapper-persistent-data lvm2
+# 安装源
+$ sudo yum-config-manager  --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+# 安装
+$ sudo yum install docker-ce
+# 启动
+$ sudo systemctl start docker
+$ sudo systemctl enable docker
+# 测试
+$ sudo docker run hello-world
+# 加入用户组(记得退出重新登录) https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user
+# 安装docker-compose
+$ sudo yum install epel-release
+$ sudo yum install python-pip
+$ sudo pip install docker-compose
+# 换源https://lug.ustc.edu.cn/wiki/mirrors/help/docker</code></pre>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2018/09/08/centos7.2安装使用sentry/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhuohanchang">
+      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="饱读诗书">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/09/08/centos7.2安装使用sentry/" class="post-title-link" itemprop="url">centos7.2安装使用sentry</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-09-08 14:48:41" itemprop="dateCreated datePublished" datetime="2018-09-08T14:48:41+08:00">2018-09-08</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-07-23 13:51:43" itemprop="dateModified" datetime="2019-07-23T13:51:43+08:00">2019-07-23</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/运维/" itemprop="url" rel="index"><span itemprop="name">运维</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <pre><code># 先安装docker  https://docs.docker.com/install/linux/docker-ce/centos/#install-docker-ce
+# 后安装sentry   https://github.com/getsentry/onpremise
+$ mkdir sentry
+$ cd sentry
+$ mkdir -p data/{sentry,postgres}
+$ git clone https://github.com/getsentry/onpremise
+$ cd onpremise
+$ docker-compose run --rm web config generate-secret-key # 创建一个secret key并配置到docker-compose.yml中的SENTRY_SECRET_KEY.
+$ docker-compose run --rm web upgrade # 创建数据库
+$ docker-compose up -d  # 后台执行</code></pre>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2018/09/08/centos7.2使用rabbitMQ/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhuohanchang">
+      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="饱读诗书">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/09/08/centos7.2使用rabbitMQ/" class="post-title-link" itemprop="url">centos7.2使用rabbitMQ</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-09-08 14:45:54" itemprop="dateCreated datePublished" datetime="2018-09-08T14:45:54+08:00">2018-09-08</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-07-23 13:51:43" itemprop="dateModified" datetime="2019-07-23T13:51:43+08:00">2019-07-23</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/后端/" itemprop="url" rel="index"><span itemprop="name">后端</span></a></span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/后端/运维/" itemprop="url" rel="index"><span itemprop="name">运维</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <pre><code># 安装 Erlang
+yum -y install epel-release
+yum -y update
+yum -y install erlang socat
+
+
+# 查看是否安装成功
+erl -version
+
+
+# 安装rabbitMQ
+wget https://www.rabbitmq.com/releases/rabbitmq-server/v3.6.10/rabbitmq-server-3.6.10-1.el7.noarch.rpm
+rpm --import https://www.rabbitmq.com/rabbitmq-release-signing-key.asc
+rpm -Uvh rabbitmq-server-3.6.10-1.el7.noarch.rpm
+
+
+# 启用,开机启动,状态
+systemctl start rabbitmq-server
+systemctl enable rabbitmq-server
+systemctl status rabbitmq-server
+
+
+# 启动图形界面管理
+rabbitmq-plugins enable rabbitmq_management
+chown -R rabbitmq:rabbitmq /var/lib/rabbitmq/
+rabbitmqctl add_user admin StrongPassword  # 踩坑:密码不要以&#39;;&#39;结尾
+rabbitmqctl set_user_tags admin administrator
+rabbitmqctl set_permissions -p / admin &quot;.*&quot; &quot;.*&quot; &quot;.*&quot;
+
+
+# 自定义配置文件
+cd /etc/rabbitmq
+touch rabbitmq.conf
+
+
+# 访问图形界面
+http://Your_Server_IP:15672/
+
+
+# api文档
+http://Your_Server_IP:15672/api</code></pre>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -443,25 +1453,23 @@
       
         
           
-            <h4 id="manjaro安装"><a href="#manjaro安装" class="headerlink" title="manjaro安装"></a>manjaro安装</h4><h5 id="安装postgresql"><a href="#安装postgresql" class="headerlink" title="安装postgresql"></a>安装postgresql</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://aur.archlinux.org/postgresql-9.6.git</span><br><span class="line">$ cd postgresql-9.6-git</span><br><span class="line">$ less PKGBUILD  # 查看</span><br><span class="line">$ makepkg -si  # 安装</span><br></pre></td></tr></table></figure>
-
+            <h4 id="manjaro安装">manjaro安装</h4>
+<h5 id="安装postgresql">安装postgresql</h5>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://aur.archlinux.org/postgresql-9.6.git</span><br><span class="line">$ cd postgresql-9.6-git</span><br><span class="line">$ less PKGBUILD  # 查看</span><br><span class="line">$ makepkg -si  # 安装</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 初始化数据</span><br><span class="line">$ sudo su postgres -l </span><br><span class="line">$ initdb --locale $LANG -E UTF8 -D &apos;/var/lib/postgres/data/&apos;</span><br><span class="line">$ exit</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 启动及开机启动</span><br><span class="line">sudo systemctl start postgresql.service </span><br><span class="line">sudo systemctl enable postgresql.service</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 登录</span><br><span class="line">$ sudo su postgres -l</span><br><span class="line">$ psql</span><br></pre></td></tr></table></figure>
-
-<h5 id="安装postgis"><a href="#安装postgis" class="headerlink" title="安装postgis"></a>安装postgis</h5><p>1, 安装proj4.9</p>
+<h5 id="安装postgis">安装postgis</h5>
+<p>1, 安装proj4.9</p>
 <p>下载源码 <a href="https://proj.org/download.html" target="_blank" rel="noopener">地址</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">tar xfz proj-4.9.3.tar.gz</span><br><span class="line">cd proj-4.9.3</span><br><span class="line">./configure</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br><span class="line"># 安装postgis时，如果没有找到库则需要复制动态库</span><br><span class="line">sudo ln -s /usr/local/lib/libproj.so.12 /usr/lib/libproj.so.12</span><br></pre></td></tr></table></figure>
-
 <p>2, 安装postgis2.5.2</p>
 <p>下载源码 <a href="https://postgis.net/source/" target="_blank" rel="noopener">地址</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">wget http://download.osgeo.org/postgis/source/postgis-2.5.2.tar.gz</span><br><span class="line">tar xfz postgis-2.5.2.tar.gz</span><br><span class="line">cd postgis-2.5.2</span><br><span class="line">./configure</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br><span class="line">sudo ldconfig</span><br><span class="line">sudo make comments-install</span><br></pre></td></tr></table></figure>
-
-<h5 id="创建库"><a href="#创建库" class="headerlink" title="创建库"></a>创建库</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 第一件事是使用\password命令，为postgres用户设置一个密码。</span><br><span class="line">postgres=# \password postgres</span><br><span class="line"># 第二件事是创建数据库用户dbuser（刚才创建的是Linux系统用户），并设置密码。</span><br><span class="line">postgres=# CREATE USER dbuser WITH PASSWORD &apos;password&apos;;</span><br><span class="line"># 第三件事是创建用户数据库，这里为exampledb，并指定所有者为dbuser。</span><br><span class="line">postgres=# CREATE DATABASE exampledb OWNER dbuser;</span><br><span class="line"># 第四件事是将exampledb数据库的所有权限都赋予dbuser，否则dbuser只能登录控制台，没有数据库操作权限。</span><br><span class="line">postgres=# GRANT ALL PRIVILEGES ON DATABASE exampledb to dbuser;</span><br></pre></td></tr></table></figure>
-
-<h4 id="ubuntu-centos安装"><a href="#ubuntu-centos安装" class="headerlink" title="ubuntu/centos安装"></a>ubuntu/centos安装</h4><p><a href="https://www.postgresql.org/download/linux/ubuntu/" target="_blank" rel="noopener">ubuntu安装</a> <a href="https://www.postgresql.org/download/linux/redhat/" target="_blank" rel="noopener">centos安装</a> centos7.2 安装postgresql9.6</p>
+<h5 id="创建库">创建库</h5>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 第一件事是使用\password命令，为postgres用户设置一个密码。</span><br><span class="line">postgres=# \password postgres</span><br><span class="line"># 第二件事是创建数据库用户dbuser（刚才创建的是Linux系统用户），并设置密码。</span><br><span class="line">postgres=# CREATE USER dbuser WITH PASSWORD &apos;password&apos;;</span><br><span class="line"># 第三件事是创建用户数据库，这里为exampledb，并指定所有者为dbuser。</span><br><span class="line">postgres=# CREATE DATABASE exampledb OWNER dbuser;</span><br><span class="line"># 第四件事是将exampledb数据库的所有权限都赋予dbuser，否则dbuser只能登录控制台，没有数据库操作权限。</span><br><span class="line">postgres=# GRANT ALL PRIVILEGES ON DATABASE exampledb to dbuser;</span><br></pre></td></tr></table></figure>
+<h4 id="ubuntucentos安装">ubuntu/centos安装</h4>
+<p><a href="https://www.postgresql.org/download/linux/ubuntu/" target="_blank" rel="noopener">ubuntu安装</a> <a href="https://www.postgresql.org/download/linux/redhat/" target="_blank" rel="noopener">centos安装</a> centos7.2 安装postgresql9.6</p>
 <pre><code># 添加RPM
 yum install https://download.postgresql.org/pub/repos/yum/9.6/redhat/rhel-7-x86_64/pgdg-centos96-9.6-3.noarch.rpm
 
@@ -501,9 +1509,9 @@ sudo sudo chkconfig postgresql-9.6 on 或者 systemctl enable postgresql-9.6.ser
 sudo su postgres
 psql # 进入命令行模式
 # 修改密码
-ALTER USER postgres WITH PASSWORD &apos;密码&apos;; 
+ALTER USER postgres WITH PASSWORD &#39;密码&#39;; 
 # 创建用户
-CREATE USER userdoneself WITH PASSWORD &apos;密码passworddoneself&apos;;
+CREATE USER userdoneself WITH PASSWORD &#39;密码passworddoneself&#39;;
 # 创建数据库
 create --encoding=UTF8 database dbdoneself owner userdoneself;
 # 赋予权限
@@ -515,7 +1523,7 @@ grant all privileges on database dbdoneself to userdoneself;
 # 开启远程访问
 vi /var/lib/pgsql/9.6/data/postgresql.conf 或者  vi /mnt/vdb1/postgresql.conf(创建了目录)
 
-修改#listen_addresses = &apos;localhost&apos; 为  listen_addresses=&apos;*&apos;
+修改#listen_addresses = &#39;localhost&#39; 为  listen_addresses=&#39;*&#39;
 
 
 # 连接数据库
@@ -529,7 +1537,9 @@ local all postgres  md5
 # 如果不知道怎么配置， 将全部登录方式改成md5
 
 # 查看版本
-/usr/pgsql-9.6/bin/psql --version</code></pre><h4 id="安装postgis2"><a href="#安装postgis2" class="headerlink" title="安装postgis2"></a>安装postgis2</h4><p>centos7.2</p>
+/usr/pgsql-9.6/bin/psql --version</code></pre>
+<h4 id="安装postgis2">安装postgis2</h4>
+<p>centos7.2</p>
 <pre><code>sudo yum install postgis2_96  # 96和安装的postgresql一致
 sudo yum install ogr_fdw96  # 安装ogrfdw
 sudo yum install pgrouting_96 # 安装pgrouting
@@ -554,7 +1564,9 @@ CREATE EXTENSION address_standardizer_data_us;
 CREATE EXTENSION postgis_tiger_geocoder;
 
 # 验证是否安装成功
-#postgres=&gt; postgis_full_version();</code></pre><h4 id="安装postgresql中文全文搜索zhparser"><a href="#安装postgresql中文全文搜索zhparser" class="headerlink" title="安装postgresql中文全文搜索zhparser"></a>安装postgresql中文全文搜索zhparser</h4><p>centos7.2</p>
+#postgres=&gt; postgis_full_version();</code></pre>
+<h4 id="安装postgresql中文全文搜索zhparser">安装postgresql中文全文搜索zhparser</h4>
+<p>centos7.2</p>
 <pre><code> yum install bzip2  # 安装解压包
  # 安装SCWS中文分词 https://github.com/hightman/scws
  wget http://www.xunsearch.com/scws/down/scws-1.2.3.tar.bz2
@@ -563,7 +1575,7 @@ CREATE EXTENSION postgis_tiger_geocoder;
  ./configure
  make install
  # 测试
- scws &apos;请问怎么自己动手做西红柿蛋炒饭&apos; -c utf-8
+ scws &#39;请问怎么自己动手做西红柿蛋炒饭&#39; -c utf-8
  # 安装zhparser
  git clone https://github.com/amutu/zhparser.git
  cd zhparser
@@ -577,9 +1589,9 @@ cmake &amp;&amp; make install
 &gt; &gt; psql -U user -D database -W
 &gt;  输入口令
 # 创建用户
-user=&gt;  CREATE USER dbuser WITH PASSWORD &apos;password&apos;;
+user=&gt;  CREATE USER dbuser WITH PASSWORD &#39;password&#39;;
 # 修改密码
-user=&gt;  ALTER USER dbuser WITH PASSWORD &apos;newpassword&apos;;
+user=&gt;  ALTER USER dbuser WITH PASSWORD &#39;newpassword&#39;;
 # 赋予权限
 user=&gt;  GRANT ALL PRIVILEGES ON DATABASE exampledb to dbuser;
 # 允许用户创建数据库
@@ -587,13 +1599,14 @@ user=&gt; ALTER USER doneself CREATEDB;
 # 设置为超级管理员
 user=&gt; ALTER ROLE doneself SUPERUSER;
 # 创建数据库
-user=&gt;  Create database exampledb owner=dbuser  template= template1  ENCODING = &apos;UTF8&apos;;
+user=&gt;  Create database exampledb owner=dbuser  template= template1  ENCODING = &#39;UTF8&#39;;
 # 选择数据库
 user=&gt; \c database
 # 查看当前数据库所有表
 user=&gt;  \dt
 user=&gt;  \d 数据库 —— 得到所有表的名字
 user=&gt;  \d 表名 —— 得到表结构</code></pre>
+
           
         
       
@@ -711,7 +1724,7 @@ user=&gt;  \d 表名 —— 得到表结构</code></pre>
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-08-13 18:51:00" itemprop="dateModified" datetime="2019-08-13T18:51:00+08:00">2019-08-13</time>
+                <time title="Modified: 2019-08-16 15:19:46" itemprop="dateModified" datetime="2019-08-16T15:19:46+08:00">2019-08-16</time>
               </span>
             
           
@@ -764,24 +1777,48 @@ user=&gt;  \d 表名 —— 得到表结构</code></pre>
       
         
           
-            <h4 id="linux安装java开发环境"><a href="#linux安装java开发环境" class="headerlink" title="linux安装java开发环境"></a>linux安装java开发环境</h4><p>下载源码</p>
+            <h4 id="linux安装java开发环境">linux安装java开发环境</h4>
+<h5 id="安装java">安装java</h5>
+<p>下载源码</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 从官方网站下载javaLTS版本源码并复制到当前目录</span><br><span class="line"><span class="meta">#</span> 下载地址: https://www.oracle.com/technetwork/java/javase/downloads/index.html</span><br><span class="line"><span class="meta">$</span> sudo mkdir /usr/java</span><br><span class="line"><span class="meta">$</span> sudo cd /usr/java</span><br><span class="line"><span class="meta">$</span> sudo cp -rf ~/Download/jdk-11.0.3_linux-x64_bin.tar.gz .</span><br><span class="line"><span class="meta">$</span> sudo tar -zxvf jdk-11.0.3_linux-x64_bin.tar.gz &amp;&amp; rm  jdk-11.0.3_linux-x64_bin.tar.gz</span><br></pre></td></tr></table></figure>
-
 <p>设置环境变量</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo vi /etc/profile</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>set java environment</span><br><span class="line">JAVA_HOME=/usr/java/jdk-11.0.3</span><br><span class="line">JRE_HOME=/usr/java/jdk-11.0.3/jre</span><br><span class="line">CLASS_PATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib</span><br><span class="line">PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin</span><br><span class="line">export JAVA_HOME JRE_HOME CLASS_PATH PATH</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>set java environment</span><br><span class="line">JAVA_HOME=/usr/java/jdk-11.0.3</span><br><span class="line">JRE_HOME=/usr/java/jdk-11.0.3/jre  # 如果安装包中没有jre文件夹，则改成和JAVA_HOME一致</span><br><span class="line">CLASS_PATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib</span><br><span class="line">PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin</span><br><span class="line">export JAVA_HOME JRE_HOME CLASS_PATH PATH</span><br></pre></td></tr></table></figure>
 <p>验证</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> which java</span><br><span class="line">/usr/java/jdk-11.0.3/bin/java</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span> java -version</span><br><span class="line">java version "11.0.3" 2019-04-16 LTS</span><br><span class="line">Java(TM) SE Runtime Environment 18.9 (build 11.0.3+12-LTS)                                           </span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM 18.9 (build 11.0.3+12-LTS, mixed mode)</span><br></pre></td></tr></table></figure>
-
-<h4 id="linux安装tomcat"><a href="#linux安装tomcat" class="headerlink" title="linux安装tomcat"></a>linux安装tomcat</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> cd /home/zhc/java</span><br><span class="line"><span class="meta">#</span> https://tomcat.apache.org/download-90.cgi</span><br><span class="line"><span class="meta">$</span> wget http://mirror.bit.edu.cn/apache/tomcat/tomcat-9/v9.0.22/bin/apache-tomcat-9.0.22.tar.gz</span><br><span class="line"><span class="meta">$</span> tar -xzvf apache-tomcat-9.0.22.tar.gz</span><br><span class="line"><span class="meta">$</span> mv apache-tomcat-9.0.22 tomcat</span><br></pre></td></tr></table></figure>
-
+<h5 id="linux安装tomcat">linux安装tomcat</h5>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> cd /home/zhc/java</span><br><span class="line"><span class="meta">#</span> https://tomcat.apache.org/download-90.cgi</span><br><span class="line"><span class="meta">$</span> wget http://mirror.bit.edu.cn/apache/tomcat/tomcat-9/v9.0.22/bin/apache-tomcat-9.0.22.tar.gz</span><br><span class="line"><span class="meta">$</span> tar -xzvf apache-tomcat-9.0.22.tar.gz</span><br><span class="line"><span class="meta">$</span> mv apache-tomcat-9.0.22 tomcat</span><br></pre></td></tr></table></figure>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 启动 http://127.0.0.1:8080</span><br><span class="line"><span class="meta">$</span> sudo ./tomcat/bin/startup.sh</span><br><span class="line">Using CATALINA_BASE:   /home/zhc/work/java/tomcat</span><br><span class="line">Using CATALINA_HOME:   /home/zhc/work/java/tomcat</span><br><span class="line">Using CATALINA_TMPDIR: /home/zhc/work/java/tomcat/temp</span><br><span class="line">Using JRE_HOME:        /usr/java/jdk-11.0.4</span><br><span class="line">Using CLASSPATH:       /home/zhc/work/java/tomcat/bin/bootstrap.jar:/home/zhc/work/java/tomcat/bin/tomcat-juli.jar</span><br><span class="line">Tomcat started.</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 关闭</span><br><span class="line"><span class="meta">$</span> sudo ./tomcat-9/bin/shutdown.sh</span><br></pre></td></tr></table></figure>
-
 <p><a href="!https://www.vultr.com/docs/how-to-install-apache-tomcat-8-on-centos-7">centos设置为系统启动</a></p>
+<h6 id="idea配置tomcat服务">idea配置tomcat服务</h6>
+<ul>
+<li>修改虚拟路径 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 以下两个配置需要保持一致</span><br><span class="line">RUN/DEBUG Configurations -&gt; Server -&gt; URL http://localhost:8080/&#123;ProjectName&#125;_war_exploded/ </span><br><span class="line">RUN/DEBUG Configurations -&gt; Deployment -&gt; Application content /&#123;ProjectName&#125;_war_exploded</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h5 id="安装maven">安装maven</h5>
+<a href="/2019/08/16/java开发maven构建工具入门基础/" title="java开发maven构建工具入门基础">java开发maven构建工具入门基础</a>
+<h5 id="安装gradle">安装gradle</h5>
+<a href="/2019/08/16/java开发gradle构建工具入门基础/" title="java开发gradle构建工具入门基础">java开发gradle构建工具入门基础</a>
+<h5 id="安装commons-logging">安装commons-logging</h5>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 从官网下载二进制文件包</span><br><span class="line"><span class="meta">#</span> http://commons.apache.org/proper/commons-logging/download_logging.cgi</span><br><span class="line"><span class="meta">$</span> wget http://mirrors.tuna.tsinghua.edu.cn/apache//commons/logging/binaries/commons-logging-1.2-bin.tar.gz</span><br><span class="line"><span class="meta">$</span> tar -xzvf commons-logging-1.2-bin.tar.gz</span><br><span class="line"><span class="meta">$</span> sudo mv commons-logging-1.2 /usr/java_jar/</span><br></pre></td></tr></table></figure>
+<h5 id="使用sdkman管理sdk">使用sdkman管理sdk</h5>
+<p><a href="!https://sdkman.io/install">sdkman</a></p>
+<h4 id="打包">打包</h4>
+<h5 id="创建jar包">创建jar包</h5>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 编写应用程序</span><br><span class="line"><span class="meta">$</span> sudo vim com/zhuohc/jar/HelloWorld.java</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.zhuohc.jar;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"hello world!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> javac com/zhuohc/jar/HelloWorld.java  # 编译</span><br><span class="line"><span class="meta">$</span> jar cvf hello.jar com/zhuohc/jar/HelloWorld.class  # 打包 参数c: 创建， 参数v: 输出具体文件信息， 参数f: 指定输出文件名</span><br><span class="line">已添加清单</span><br><span class="line">正在添加: com/zhuohc/jar/HelloWorld.class(输入 = 441) (输出 = 302)(压缩了 31%)</span><br></pre></td></tr></table></figure>
+<h5 id="查看jar包信息">查看jar包信息</h5>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> jar tvf hello.jar  # 查看 参数t： 查看</span><br><span class="line">0 Fri Aug 16 14:21:06 CST 2019 META-INF/</span><br><span class="line">66 Fri Aug 16 14:21:06 CST 2019 META-INF/MANIFEST.MF</span><br><span class="line">441 Fri Aug 16 14:20:20 CST 2019 com/zhuohc/jar/HelloWorld.class</span><br></pre></td></tr></table></figure>
+<h5 id="提取jar包信息">提取jar包信息</h5>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> jar xvf hello.jar # 解压 参数x： 提取extract</span><br><span class="line">已创建: META-INF/</span><br><span class="line">已解压: META-INF/MANIFEST.MF</span><br><span class="line">已解压: com/zhuohc/jar/HelloWorld.class</span><br></pre></td></tr></table></figure>
+<h5 id="jar包清单文件">jar包清单文件</h5>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">创建清单文件</span><br><span class="line"><span class="meta">$</span> sudo vim Manifest.txt</span><br></pre></td></tr></table></figure>
+<p>Manifest.txt指定程序入口 警告： 文本文件必须以新行或回车符结束。如果最后一行不以新行或回车结束，则不会正确解析.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> Manifest.txt</span><br><span class="line">Main-Class: com.zhuohc.jar.HelloWorld</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 重新打包</span><br><span class="line"><span class="meta">$</span> jar cvfm hello.jar Manifest.txt com/zhuohc/jar/HelloWorld.class  # 参数m: 指定清单文件地址</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 执行jar文件</span><br><span class="line"><span class="meta">$</span> java -jar hello.jar</span><br><span class="line">hello world!</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> Manifest.txt 其他信息</span><br><span class="line">Name: com/zhuohc/jar</span><br><span class="line">Specification-Title: Java Utility Classes</span><br><span class="line">Specification-Version: 1.2</span><br><span class="line">Specification-Vendor: Example Tech, Inc.</span><br><span class="line">Implementation-Title: com.zhuohc.jar</span><br><span class="line">Implementation-Version: build57</span><br><span class="line">Implementation-Vendor: Example Tech, Inc.</span><br><span class="line">Main-Class: com.zhuohc.jar.HelloWorld</span><br></pre></td></tr></table></figure>
 
           
         
@@ -960,13 +1997,17 @@ user=&gt;  \d 表名 —— 得到表结构</code></pre>
       
         
           
-            <h4 id="微信开发者中心"><a href="#微信开发者中心" class="headerlink" title="微信开发者中心"></a>微信开发者中心</h4><p><a href="https://open.weixin.qq.com" target="_blank" rel="noopener">https://open.weixin.qq.com</a> 1. 注册线上账号，开发者资质认证 2. 注册本地账号，开发者资质认证</p>
-<h4 id="网站应用"><a href="#网站应用" class="headerlink" title="网站应用"></a>网站应用</h4><ol>
+            <h4 id="微信开发者中心">微信开发者中心</h4>
+<p>https://open.weixin.qq.com 1. 注册线上账号，开发者资质认证 2. 注册本地账号，开发者资质认证</p>
+<h4 id="网站应用">网站应用</h4>
+<ol type="1">
 <li>添加相关信息，并盖章认证，添加授权回调域example.com</li>
 <li>认证通过后获取AppId, AppSecret</li>
 </ol>
-<h4 id="公众号应用"><a href="#公众号应用" class="headerlink" title="公众号应用"></a>公众号应用</h4><h4 id="本地环境配置"><a href="#本地环境配置" class="headerlink" title="本地环境配置"></a>本地环境配置</h4><ol>
-<li>将回调的url <a href="http://www.example.com" target="_blank" rel="noopener">www.example.com</a> 添加到host文件中</li>
+<h4 id="公众号应用">公众号应用</h4>
+<h4 id="本地环境配置">本地环境配置</h4>
+<ol type="1">
+<li>将回调的url www.example.com 添加到host文件中</li>
 </ol>
 
           
@@ -1147,9 +2188,12 @@ user=&gt;  \d 表名 —— 得到表结构</code></pre>
         
           
             <p>REmote DIctionary Server(Redis) 是一个由Salvatore Sanfilippo写的key-value存储系统。 Redis是一个开源的使用ANSI C语言编写、遵守BSD协议、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API。 它通常被称为数据结构服务器，因为值（value）可以是 字符串(String), 哈希(Map), 列表(list), 集合(sets) 和 有序集合(sorted sets)等类型。</p>
-<h3 id="redis安装"><a href="#redis安装" class="headerlink" title="redis安装"></a>redis安装</h3><pre><code>$sudo apt-get update
+<h3 id="redis安装">redis安装</h3>
+<pre><code>$sudo apt-get update
 $sudo apt-get install redis-server
-$redis-cli</code></pre><h3 id="redis配置"><a href="#redis配置" class="headerlink" title="redis配置"></a>redis配置</h3><pre><code>sudo vim /etc/redis.conf
+$redis-cli</code></pre>
+<h3 id="redis配置">redis配置</h3>
+<pre><code>sudo vim /etc/redis.conf
 # 设置为守护进程
 protected-mode yes
 # 设置密码
@@ -1157,14 +2201,23 @@ requirepass redispassword
 # port
 port 6379
 # bind 127.0.0.1
-bing 0.0.0.0 # 允许远程访问</code></pre><h3 id="客户端远程登录"><a href="#客户端远程登录" class="headerlink" title="客户端远程登录"></a>客户端远程登录</h3><pre><code>redis-cli -h 127.0.0.1 -p 6379 -a redispassword</code></pre><h3 id="redis客户端"><a href="#redis客户端" class="headerlink" title="redis客户端"></a>redis客户端</h3><pre><code># redis-commander，基于nodejs
+bing 0.0.0.0 # 允许远程访问</code></pre>
+<h3 id="客户端远程登录">客户端远程登录</h3>
+<pre><code>redis-cli -h 127.0.0.1 -p 6379 -a redispassword</code></pre>
+<h3 id="redis客户端">redis客户端</h3>
+<pre><code># redis-commander，基于nodejs
 $ npm install -g redis-commander
-$ redis-commander</code></pre><h3 id="通用命令"><a href="#通用命令" class="headerlink" title="通用命令"></a>通用命令</h3><pre><code>$ 127.0.0.1:6379&gt; del name # 删除数据
+$ redis-commander</code></pre>
+<h3 id="通用命令">通用命令</h3>
+<pre><code>$ 127.0.0.1:6379&gt; del name # 删除数据
 $ 127.0.0.1:6379&gt; type name # 查看数据类型
-$ 127.0.0.1:6379&gt; rename name # 重命名</code></pre><h3 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h3><p>字符串string</p>
+$ 127.0.0.1:6379&gt; rename name # 重命名</code></pre>
+<h3 id="数据结构">数据结构</h3>
+<p>字符串string</p>
 <pre><code>$ 127.0.0.1:6379&gt;  set string-name value
 $ 127.0.0.1:6379&gt; get string-name
-$ 127.0.0.1:6379&gt;  del string-name</code></pre><p>列表list： 相当于默认键的数组</p>
+$ 127.0.0.1:6379&gt;  del string-name</code></pre>
+<p>列表list： 相当于默认键的数组</p>
 <pre><code>$ 127.0.0.1:6379&gt; lpush list-name value1 value2 value3 ... # 左侧插入列表值
 (integer) 3
 $ 127.0.0.1:6379&gt; rpush list-name value4 value5 value6... # 右侧插入列表值
@@ -1177,7 +2230,8 @@ $ 127.0.0.1:6379&gt;  lrange list-name 1 2 # 获取从第1位置到2位置的列
 $ 127.0.0.1:6379&gt;  lpop list-name # 弹出最左边值
 &quot;value3&quot;
 $ 127.0.0.1:6379&gt; rpop list-name # 弹出最右边值
-&quot;value6&quot;</code></pre><p>集合set：无序，不重复的列表</p>
+&quot;value6&quot;</code></pre>
+<p>集合set：无序，不重复的列表</p>
 <pre><code>$ 127.0.0.1:6379&gt;  sadd set-name value1 value2 value3 # 设置无序列表值
 (integer) 3
 $ 127.0.0.1:6379&gt; smembers set-name  # 查看所有值
@@ -1187,7 +2241,8 @@ $ 127.0.0.1:6379&gt; smembers set-name  # 查看所有值
 $ 127.0.0.1:6379&gt; srem set-name value1 # 删除值
 (integer) 1
 $ 127.0.0.1:6379&gt; sismember set-name value2 # 查看是否在无序列表内
-(integer) 1</code></pre><p>散列值hash：相当于自定义键的数组</p>
+(integer) 1</code></pre>
+<p>散列值hash：相当于自定义键的数组</p>
 <pre><code>$ 127.0.0.1:6379&gt; HSET hash-name key1 value1 #设置键值对
 (integer) 1
 $ 127.0.0.1:6379&gt; HGET hash-name key1 # 获取指定键的值
@@ -1204,7 +2259,8 @@ $ 127.0.0.1:6379&gt; HGETALL hash-name # 查找所有键值对
 3) &quot;key2&quot;
 4) &quot;value2&quot;
 $ 127.0.0.1:6379&gt; HDEL hash-name key1 # 删除hash键值对
-(integer) 1</code></pre><p>有序集合zset：成员+分值，分值必须是浮点数，通过浮点数进行排序</p>
+(integer) 1</code></pre>
+<p>有序集合zset：成员+分值，分值必须是浮点数，通过浮点数进行排序</p>
 <pre><code>$ 127.0.0.1:6379&gt; zadd zset-name 100 member1 # 添加键值对
 (integer) 1
 $ 127.0.0.1:6379&gt; zadd zset-name 202 member2
@@ -1229,6 +2285,7 @@ $ 127.0.0.1:6379&gt; ZRANGEBYSCORE zset-name 0 300 withscores # 按score获取�
 4) &quot;202&quot;
 $ 127.0.0.1:6379&gt; ZREM zset-name member1 # 移除一个元素
 (integer) 1</code></pre>
+
           
         
       
@@ -1407,7 +2464,8 @@ $ 127.0.0.1:6379&gt; ZREM zset-name member1 # 移除一个元素
         
           
             <p>Scrapy是一个为了爬取网站数据，提取结构性数据而编写的应用框架。 可以应用在包括数据挖掘，信息处理或存储历史数据等一系列的程序中。 其最初是为了页面抓取 (更确切来说, 网络抓取 )所设计的， 也可以应用在获取API所返回的数据(例如 Amazon Associates Web Services ) 或者通用的网络爬虫。Scrapy用途广泛，可以用于数据挖掘、监测和自动化测试</p>
-<h3 id="Scrapy主要包括了以下组件："><a href="#Scrapy主要包括了以下组件：" class="headerlink" title="Scrapy主要包括了以下组件："></a>Scrapy主要包括了以下组件：</h3><ol>
+<h3 id="scrapy主要包括了以下组件">Scrapy主要包括了以下组件：</h3>
+<ol type="1">
 <li>引擎(Scrapy): 用来处理整个系统的数据流处理, 触发事务(框架核心)</li>
 <li>调度器(Scheduler): 用来接受引擎发过来的请求, 压入队列中, 并在引擎再次请求的时候返回. 可以想像成一个URL（抓取网页的网址或者说是链接）的优先队列, 由它来决定下一个要抓取的网址是什么, 同时去除重复的网址</li>
 <li>下载器(Downloader): 用于下载网页内容, 并将网页内容返回给蜘蛛(Scrapy下载器是建立在twisted这个高效的异步模型上的)</li>
@@ -1417,8 +2475,12 @@ $ 127.0.0.1:6379&gt; ZREM zset-name member1 # 移除一个元素
 <li>爬虫中间件(Spider Middlewares): 介于Scrapy引擎和爬虫之间的框架，主要工作是处理蜘蛛的响应输入和请求输出。</li>
 <li>调度中间件(Scheduler Middewares): 介于Scrapy引擎和调度之间的中间件，从Scrapy引擎发送到调度的请求和响应。</li>
 </ol>
-<h3 id="Scrapy运行流程大概如下："><a href="#Scrapy运行流程大概如下：" class="headerlink" title="Scrapy运行流程大概如下："></a>Scrapy运行流程大概如下：</h3><p>首先，引擎从调度器中取出一个链接(URL)用于接下来的抓取 引擎把URL封装成一个请求(Request)传给下载器，下载器把资源下载下来，并封装成应答包(Response) 然后，爬虫解析Response 若是解析出实体（Item）,则交给实体管道进行进一步的处理。 若是解析出的是链接（URL）,则把URL交给Scheduler等待抓取</p>
-<h3 id="备忘"><a href="#备忘" class="headerlink" title="备忘"></a>备忘</h3><h4 id="使用Selector提取数据"><a href="#使用Selector提取数据" class="headerlink" title="使用Selector提取数据"></a>使用Selector提取数据</h4><h4 id="xpath语法和基本函数"><a href="#xpath语法和基本函数" class="headerlink" title="xpath语法和基本函数"></a>xpath语法和基本函数</h4><pre><code>/
+<h3 id="scrapy运行流程大概如下">Scrapy运行流程大概如下：</h3>
+<p>首先，引擎从调度器中取出一个链接(URL)用于接下来的抓取 引擎把URL封装成一个请求(Request)传给下载器，下载器把资源下载下来，并封装成应答包(Response) 然后，爬虫解析Response 若是解析出实体（Item）,则交给实体管道进行进一步的处理。 若是解析出的是链接（URL）,则把URL交给Scheduler等待抓取</p>
+<h3 id="备忘">备忘</h3>
+<h4 id="使用selector提取数据">使用Selector提取数据</h4>
+<h4 id="xpath语法和基本函数">xpath语法和基本函数</h4>
+<pre><code>/
 .
 ..
 ELEMENT
@@ -1429,7 +2491,9 @@ text
 @*
 position()
 last()
-string()</code></pre><h4 id="css选择器"><a href="#css选择器" class="headerlink" title="css选择器"></a>css选择器</h4><pre><code>*
+string()</code></pre>
+<h4 id="css选择器">css选择器</h4>
+<pre><code>*
 E
 E1&gt;E2
 E1+E2
@@ -1438,45 +2502,60 @@ E1+E2
 [ATTR]
 [ATTR=VALUE]
 E:nth-child(n)
-E:first-child</code></pre><h4 id="使用Item和Field封装数据"><a href="#使用Item和Field封装数据" class="headerlink" title="使用Item和Field封装数据"></a>使用Item和Field封装数据</h4><p>Field(serializer=lambda)设置存储数据</p>
-<h4 id="使用Item-Pipeline处理数据"><a href="#使用Item-Pipeline处理数据" class="headerlink" title="使用Item Pipeline处理数据"></a>使用Item Pipeline处理数据</h4><p>修改数据,过滤重复数据,将数据写入到数据库等</p>
-<h4 id="LinkExtractor提取链接"><a href="#LinkExtractor提取链接" class="headerlink" title="LinkExtractor提取链接"></a>LinkExtractor提取链接</h4><pre><code>LinkExtractor参数
+E:first-child</code></pre>
+<h4 id="使用item和field封装数据">使用Item和Field封装数据</h4>
+<p>Field(serializer=lambda)设置存储数据</p>
+<h4 id="使用item-pipeline处理数据">使用Item Pipeline处理数据</h4>
+<p>修改数据,过滤重复数据,将数据写入到数据库等</p>
+<h4 id="linkextractor提取链接">LinkExtractor提取链接</h4>
+<pre><code>LinkExtractor参数
 allow 允许链接
 deny 拒绝链接
 allow_domains 允许域名
 deny_domains 拒绝域名
 restrict_xpaths 允许xpath链接
-restrict_css 允许css选择器链接</code></pre><h4 id="Exporter导出数据"><a href="#Exporter导出数据" class="headerlink" title="Exporter导出数据"></a>Exporter导出数据</h4><p>默认包含以下</p>
-<pre><code>JSON, JSON LINES, CSV, XML, PICKLE, MARSHAL</code></pre><p>可配置导出格式和存放文件地址, 可自定义导出格式,例如xls</p>
-<h4 id="下载文件和图片"><a href="#下载文件和图片" class="headerlink" title="下载文件和图片"></a>下载文件和图片</h4><p>FIlesPipeline</p>
+restrict_css 允许css选择器链接</code></pre>
+<h4 id="exporter导出数据">Exporter导出数据</h4>
+<p>默认包含以下</p>
+<pre><code>JSON, JSON LINES, CSV, XML, PICKLE, MARSHAL</code></pre>
+<p>可配置导出格式和存放文件地址, 可自定义导出格式,例如xls</p>
+<h4 id="下载文件和图片">下载文件和图片</h4>
+<p>FIlesPipeline</p>
 <pre><code>setting.py
-ITEM_PIPELINES = {&apos;scrapy.pipelines.files.FilesPipeline&apos;: 1}
-FILES_STORE = &apos;/home/hanchang/download&apos;</code></pre><p>ImagesPipeline</p>
-<h4 id="模拟登录"><a href="#模拟登录" class="headerlink" title="模拟登录"></a>模拟登录</h4><p>使用FromRequest ORC识别验证码:pillow, pytesseract 付费网络平台识别 人工识别:爬取登录页面的验证码图片,调用Image.show方法,肉眼识别并输入到内置的input函数中 Cookie登录: 获取浏览器的cookie值(browsercookie包), 利用BrowserCookiesMiddleware将获取的cookie值添加到CookieJar中</p>
-<h4 id="动态页面抓取"><a href="#动态页面抓取" class="headerlink" title="动态页面抓取"></a>动态页面抓取</h4><p>Splash是Scrapy官方推荐的javascript渲染引擎, Webkit无界面浏览器</p>
+ITEM_PIPELINES = {&#39;scrapy.pipelines.files.FilesPipeline&#39;: 1}
+FILES_STORE = &#39;/home/hanchang/download&#39;</code></pre>
+<p>ImagesPipeline</p>
+<h4 id="模拟登录">模拟登录</h4>
+<p>使用FromRequest ORC识别验证码:pillow, pytesseract 付费网络平台识别 人工识别:爬取登录页面的验证码图片,调用Image.show方法,肉眼识别并输入到内置的input函数中 Cookie登录: 获取浏览器的cookie值(browsercookie包), 利用BrowserCookiesMiddleware将获取的cookie值添加到CookieJar中</p>
+<h4 id="动态页面抓取">动态页面抓取</h4>
+<p>Splash是Scrapy官方推荐的javascript渲染引擎, Webkit无界面浏览器</p>
 <pre><code># 安装
 sudo apt-get install docker
 sudo docker pull scrapinghub/splash
-sudo docker run -p 8050:8050 -p 8051:8051 scrapinghub/splash</code></pre><p>splash常见服务端点 <a href="http://localhost:8050/render.html" target="_blank" rel="noopener">http://localhost:8050/render.html</a> GET/POST 返回html 参数: url, timeout, proxy, wait, images, js_source <a href="http://localhost:8050/excute" target="_blank" rel="noopener">http://localhost:8050/excute</a> 传递模拟的动作给splash,例如等待页面渲染，执行代码，等等</p>
-<h5 id="scrapy使用splash"><a href="#scrapy使用splash" class="headerlink" title="scrapy使用splash"></a>scrapy使用splash</h5><pre><code>安装
+sudo docker run -p 8050:8050 -p 8051:8051 scrapinghub/splash</code></pre>
+<p>splash常见服务端点 http://localhost:8050/render.html GET/POST 返回html 参数: url, timeout, proxy, wait, images, js_source http://localhost:8050/excute 传递模拟的动作给splash,例如等待页面渲染，执行代码，等等</p>
+<h5 id="scrapy使用splash">scrapy使用splash</h5>
+<pre><code>安装
 pip install scrapy-splash
 
 
 setting.py
 # splash服务器地址
-SPLASH_URL = &apos;http://localhost:8050&apos;
+SPLASH_URL = &#39;http://localhost:8050&#39;
 # 开启splash的两个下载中间件并调整HttpCompressionMiddleware的次序
 DOWNLOADER_MIDDLEWARES = {
-    &apos;scrapy_splash.SplashCookiesMiddleware&apos;: 723,
-        &apos;scrapy_splash.SplashMiddleware&apos;: 725,
-        &apos;scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware&apos;: 810,
+    &#39;scrapy_splash.SplashCookiesMiddleware&#39;: 723,
+        &#39;scrapy_splash.SplashMiddleware&#39;: 725,
+        &#39;scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware&#39;: 810,
 }
 # 过滤去重函数
-DUPEFILTER_CLASS = &apos;scrapy_splash.SplashAwareDupeFilter&apos;,
+DUPEFILTER_CLASS = &#39;scrapy_splash.SplashAwareDupeFilter&#39;,
 # 用户支持cahce_args
 SPIDER_MIDDLEWARES = {
-  &apos;scrapy_splash.SplashDeduplicateArgsMiddleware&apos;: 100,
-}</code></pre><h4 id="分布式爬取"><a href="#分布式爬取" class="headerlink" title="分布式爬取"></a>分布式爬取</h4><p>使用scrapy-redis</p>
+  &#39;scrapy_splash.SplashDeduplicateArgsMiddleware&#39;: 100,
+}</code></pre>
+<h4 id="分布式爬取">分布式爬取</h4>
+<p>使用scrapy-redis</p>
 <pre><code># 安装
 pip install scrapy
 pip install scrapy-redis
@@ -1484,14 +2563,14 @@ pip install scrapy-redis
 
 # 在配置文件setting.py中添加scrapy-redis相关信息
 # redis服务器
-REDIS_URL = &apos;redis://127.0.0.1:6379&apos;
+REDIS_URL = &#39;redis://127.0.0.1:6379&#39;
 # 使用scrapy_redis调度器替代原生调度器
-SCHEDULER = &apos;scrapy_redis.scheduler.Scheduler&apos;
+SCHEDULER = &#39;scrapy_redis.scheduler.Scheduler&#39;
 # 使用scrapy_redis的RFPDupeFilter作为去重过滤器
-DUPEFILTER_CLASS = &apos;scrapy_redis.dupefilter.RFPDupeFilter&apos;
+DUPEFILTER_CLASS = &#39;scrapy_redis.dupefilter.RFPDupeFilter&#39;
 # 将爬取的数据存储到redis中
 ITEM_PIPELINES = {
-    &apos;scrapy_redis.pipelines.RedisPipeline&apos;: 300,
+    &#39;scrapy_redis.pipelines.RedisPipeline&#39;: 300,
 }
 # 爬虫停止后,保留/清除Reids中的请求队列以及去重集合
 SCHEDULER_PERSIST = False
@@ -1508,1372 +2587,8 @@ class BookSpider(RedisSpider):
 
 # 手动添加start_urls
 redis-cli -h 127.0.0.1
-lpush books:start_urls &apos;http://www.books.com/&apos;</code></pre>
-          
-        
-      
-    </div>
+lpush books:start_urls &#39;http://www.books.com/&#39;</code></pre>
 
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2017/11/22/最新在linux-ubuntu中安装qq的办法/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhuohanchang">
-      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="饱读诗书">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2017/11/22/最新在linux-ubuntu中安装qq的办法/" class="post-title-link" itemprop="url">最新在linux/ubuntu中安装qq的办法</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2017-11-22 09:49:34" itemprop="dateCreated datePublished" datetime="2017-11-22T09:49:34+08:00">2017-11-22</time>
-            </span>
-          
-
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-07-23 13:51:43" itemprop="dateModified" datetime="2019-07-23T13:51:43+08:00">2019-07-23</time>
-              </span>
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/办公/" itemprop="url" rel="index"><span itemprop="name">办公</span></a></span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/办公/运维/" itemprop="url" rel="index"><span itemprop="name">运维</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>通过docker镜像文件的方式安装qq 1, 首先需要在主机上安装docker 2, 下载镜像文件 <a href="https://hub.docker.com/r/bestwu/qq/" target="_blank" rel="noopener">https://hub.docker.com/r/bestwu/qq/</a></p>
-<pre><code>sudo docker pull bestwu/qq # 速度慢可以换镜像源</code></pre><p>3, 编辑启动脚本</p>
-<pre><code>vim qq.sh
-sudo docker run -d --name qq --device /dev/snd --net=host \
--v /tmp/.X11-unix:/tmp/.X11-unix \
--v /home/YOURUSERNAME/TencentFiles:/TencentFiles \ # 此处数据卷的目录填写自己的目录
--e DISPLAY=unix$DISPLAY \
--e XMODIFIERS=@im=fcitx \
--e QT_IM_MODULE=fcitx \
--e GTK_IM_MODULE=fcitx \
--e AUDIO_GID=63 \
--e GID=1000 \
--e UID=1000 \
-bestwu/qq:latest # 此处版本自行选择，作者提供了im (QQ) light,latest (QQLight) office (TIM)三个版本</code></pre><p>4, 启动脚本</p>
-<pre><code>./qq.sh</code></pre><p>5, 感谢作者提供的镜像，本镜像基于深度操作系统.</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2017/11/20/ubuntu16.04安装及使用docker(一)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhuohanchang">
-      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="饱读诗书">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2017/11/20/ubuntu16.04安装及使用docker(一)/" class="post-title-link" itemprop="url">ubuntu16.04安装及使用docker(一)</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2017-11-20 11:45:42" itemprop="dateCreated datePublished" datetime="2017-11-20T11:45:42+08:00">2017-11-20</time>
-            </span>
-          
-
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-07-23 13:51:43" itemprop="dateModified" datetime="2019-07-23T13:51:43+08:00">2019-07-23</time>
-              </span>
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/后端/" itemprop="url" rel="index"><span itemprop="name">后端</span></a></span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/后端/运维/" itemprop="url" rel="index"><span itemprop="name">运维</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="删除旧版本"><a href="#删除旧版本" class="headerlink" title="删除旧版本"></a>删除旧版本</h3><pre><code>sudo apt-get remove docker docker-engine docker.io</code></pre><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><pre><code>$ sudo apt-get update
-# 安装依赖
-$ sudo apt-get install  apt-transport-https ca-certificates curl software-properties-common
-# 添加官方key
-$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-# 查找key
-$ sudo apt-key fingerprint 0EBFCD88
-pub   4096R/0EBFCD88 2017-02-22
-      Key fingerprint = 9DC8 5822 9FC7 DD38 854A  E2D8 8D81 803C 0EBF CD88
-uid                  Docker Release (CE deb) &lt;docker@docker.com&gt;
-sub   4096R/F273FCD8 2017-02-22
-# 获取资源
-sudo add-apt-repository &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&quot;
-# 查找合适的版本
-$ apt-cache madison docker-ce
-docker-ce | 17.09.0~ce-0~ubuntu | https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages
-# 安装
-$ sudo apt-get install docker-ce=&lt;VERSION&gt;
-# 打印安装结果
-$ sudo docker version
-Client:
- Version:      17.09.0-ce
- API version:  1.32
- Go version:   go1.8.3
- Git commit:   afdb6d4
- Built:        Tue Sep 26 22:42:18 2017
- OS/Arch:      linux/amd64
-
-Server:
- Version:      17.09.0-ce
- API version:  1.32 (minimum version 1.12)
- Go version:   go1.8.3
- Git commit:   afdb6d4
- Built:        Tue Sep 26 22:40:56 2017
- OS/Arch:      linux/amd64
- Experimental: false</code></pre><h3 id="将用户加入docker用户组，这样不需要输入sudo"><a href="#将用户加入docker用户组，这样不需要输入sudo" class="headerlink" title="将用户加入docker用户组，这样不需要输入sudo"></a>将用户加入docker用户组，这样不需要输入sudo</h3><pre><code>1. sudo cat /etc/group | grep docker 
-2. 如果不存在docker组，可以添加sudo groupadd docker 
-3. 添加当前用户到docker组，sudo usermod -aG  docker $USER 
-4. 重启docker服务,sudo systemctl restart docker 
-5. 如果权限不够，sudo chmod a+rw /var/run/docker.sock　
-6. sudo chown -R $USER ~/.docker</code></pre><h3 id="启动测试"><a href="#启动测试" class="headerlink" title="启动测试"></a>启动测试</h3><pre><code>$ sudo  docker run hello-world
-Unable to find image &apos;hello-world:latest&apos; locally
-
-latest: Pulling from library/hello-world
-9a0669468bf7: Pull complete
-Digest: sha256:0e06ef5e1945a718b02a8c319e15bae44f47039005530bc617a5d071190ed3fc
-Status: Downloaded newer image for hello-world:latest
-
-Hello from Docker!
-This message shows that your installation appears to be working correctly.
-
-To generate this message, Docker took the following steps:
- 1. The Docker client contacted the Docker daemon.
- 2. The Docker daemon pulled the &quot;hello-world&quot; image from the Docker Hub.
- 3. The Docker daemon created a new container from that image which runs the
-    executable that produces the output you are currently reading.
- 4. The Docker daemon streamed that output to the Docker client, which sent it
-    to your terminal.
-
-To try something more ambitious, you can run an Ubuntu container with:
- $ docker run -it ubuntu bash
-
-Share images, automate workflows, and more with a free Docker ID:
- https://cloud.docker.com/
-
-For more examples and ideas, visit:
- https://docs.docker.com/engine/userguide/</code></pre><h3 id="更换镜像源"><a href="#更换镜像源" class="headerlink" title="更换镜像源"></a>更换镜像源</h3><pre><code># 可以修改 /etc/docker/daemon.json 文件并添加上 registry-mirrors 键值,没有就创建一个
-
-{
-  &quot;registry-mirrors&quot;: [&quot;https://registry.docker-cn.com&quot;]
-}</code></pre><h3 id="安装ctop查看容器状态"><a href="#安装ctop查看容器状态" class="headerlink" title="安装ctop查看容器状态"></a>安装ctop查看容器状态</h3><pre><code># https://github.com/bcicen/ctop
-$ sudo wget https://github.com/bcicen/ctop/releases/download/v0.6.1/ctop-0.6.1-linux-amd64 -O /usr/local/bin/ctop
-$ sudo chmod +x /usr/local/bin/ctop</code></pre><h3 id="第一个实例"><a href="#第一个实例" class="headerlink" title="第一个实例"></a>第一个实例</h3><pre><code># 第一次使用会下载debian的镜像文件
-$ sudo docker run debian echo &apos;hello world&apos;
-&gt; Unable to find image &apos;debian&apos; locally
-&gt; ......
-
-
-# -i -t 表示进行交互会话
-$ sudo docker run -i -t debian /user/bash
-root@622ac5689680:/#  echo &apos;hello world&apos;
-&gt; hello world
-root@622ac5689680:/# exit
-&gt; exit
-
-
-# 基本命令
-$ sudo docker run -h container -i -t debian /bin/bash #-h表示主机名称
-$ sudo docker ps  # 查看当前运行的主机
-$ sudo docker ps -a # 查看全部的主机
-$sudo docker events  # 查看守护进程
-$ sudo docker inspect HOST_NAME 　# 查看HOST_NAME的信息
-$ sudo docker port HOST_NAME # 查看端口映射信息
-$ sudo docker diff HOST_NAME　# 查看更改的信息
-$ sudo docker logs HOST_NAME   # 打印log信息
-$ sudo docker rm HOST_NAME  # 删除
-$ sudo docker pull redis  # 拉取镜像
-$ sudo docker create redis # 创建容器
-$ sudo docker start zen_brown # 开启容器（kitematic是绿色波浪线）
-$ sudo docker stop zen_brown # 停止容器（kitematic是灰色直线）
-$ sudo docker pause zen_brown  # 暂停容器kitematic是灰色波浪线）
-$ sudo docker commit zen_brown # 将容器变成镜像
-$ sudo docker run redis /bin/bash
-$ sudo docker attach zen_brown # 查看容器内进程
-$ sudo docker cp # 在容器和主机之间复制内容
-$ sudo docker exec # 在容器中运行命令
-$ sudo docker kill # 容器立即退出</code></pre><h3 id="创建dockerfile镜像"><a href="#创建dockerfile镜像" class="headerlink" title="创建dockerfile镜像"></a>创建dockerfile镜像</h3><pre><code># 创建项目
-$ mkdir cowsay
-$ cd cowsay
-$ vim Dockerfile
-~ FROM debian:wheezy
-~ RUN apt-get update &amp;&amp; apt-get install -y cowsay fortune
-~ :wq
-# 创建
-$ sudo docker build -t test/cowsay-dockerfile . 
-&gt; Sending build content to Docker .....
-&gt; ....
-# 运行
-$ sudo docker run test/cowsay-dockerfile /usr/games/cowsay &apos;Moo&apos;
-
-
-# 使用entrypoint指令
-$ vim Dockerfile
-~ FROM debian:wheezy
-~ RUN apt-get update &amp;&amp; apt-get install -y cowsay fortune
-~ ENTRYPOINTER [&quot;/usr/games/cowsay&quot;]
-~ :wq 
-# 创建
-$ sudo docker build -t test/cowsay-dockerfile . 
-&gt; Sending build content to Docker .....
-&gt; ....
-# 运行
-$ sudo docker run test/cowsay-dockerfile  &apos;Moo&apos;
-
-
-# 使用脚本解决entrypoint
-$ vim entrypoint.sh
-~ #! /bin/bash
-~ if [ $# -eq 0 ]; then
-~      /usr/games/fortune | /usr/games/cowsay
-~  else
-~     /usr/games/cowsay &quot;$@&quot;
-~   fi
-~ :wq
-$ chmod +x entrypoint.sh
-$ vim Dockerfile
-~ FROM debian:wheezy
-~ RUN apt-get update &amp;&amp; apt-get install -y cowsay fortune
-~ COPY entrypoint.sh /
-~ ENTRYPOINTER [&quot;/entrypoint.sh&quot;]
-~ :wq 
-# 创建
-$ sudo docker build -t test/cowsay-dockerfile . 
-&gt; Sending build content to Docker .....
-&gt; ....
-# 运行
-$ sudo docker run test/cowsay-dockerfile &apos;Moo&apos;</code></pre><h3 id="使用在线仓库"><a href="#使用在线仓库" class="headerlink" title="使用在线仓库"></a>使用在线仓库</h3><p>在线注册地址：　<a href="https://cloud.docker.com" target="_blank" rel="noopener">https://cloud.docker.com</a></p>
-<pre><code># 登陆
-$ sudo docker login
-$ username:
-$ password:
-# 填写作者信息
-$ vim Dockerfile
-~ FROM debian:wheezy
-~ MAINTAINER username &lt;username@mail.com&gt;
-~ RUN apt-get update &amp;&amp; apt-get install -y cowsay fortune
-~ COPY entrypoint.sh /
-~ ENTRYPOINTER [&quot;/entrypoint.sh&quot;]
-~ :wq 
-# 创建
-$ sudo docker build -t username/cowsay-dockerfile . 
-&gt; Sending build content to Docker .....
-&gt; ....
-# 运行
-$ sudo docker run username/cowsay-dockerfile  &apos;Moo&apos;
-# 上传
-$ sudo docker push </code></pre><h3 id="容器连接"><a href="#容器连接" class="headerlink" title="容器连接"></a>容器连接</h3><pre><code>$ sudo docker run --name myredis -d redis # -d表示后台运行
-~ a1696406326aaaa6c28931e886b8dd664d191b083de4aed464d584b4720d57b1
-$ docker run --rm -it --link myredis:redis redis /bin/bash
-&gt; root@9c914447f5e1:/data# redis-cli -h redis -p 6379
-&gt; redis:6379&gt; ping
-&gt; PONG
-&gt; redis:6379&gt; set &quot;abc&quot; 123
-&gt; OK
-&gt; redis:6379&gt; get &quot;abc&quot;
-&gt; &quot;123&quot;
-&gt; redis:6379&gt; exit
-&gt; root@9c914447f5e1:/data# exit
-&gt; exit</code></pre><h3 id="容器的备份"><a href="#容器的备份" class="headerlink" title="容器的备份"></a>容器的备份</h3><pre><code># 查看所有的容器
-$ docker ps -a
-CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS               NAMES
-a1696406326a        redis               &quot;docker-entrypoint...&quot;   13 minutes ago      Up 13 minutes       6379/tcp            myredis
-# 备份指定的id
-$ docker commit -p a1696406326a redis-backup
-# 查看镜像
-$ docker images
-REPOSITORY                   TAG                 IMAGE ID            CREATED             SIZE
-redis-backup                 latest              fb9d896b3a39        11 seconds ago      107MB
-# 上传镜像(docker login &amp;&amp; docker push)
-# 或者打包
-$ docker save -o ./redis-backup.tar redis-backup
-# 恢复容器
-$ docker pull ****
-# 或者使用包
-$ docker load -i ./redis-backup.tar</code></pre><h3 id="让docker容器连接互联网"><a href="#让docker容器连接互联网" class="headerlink" title="让docker容器连接互联网"></a>让docker容器连接互联网</h3><pre><code># -p 8000:80 表示将主机的8000端口转发至容器的80端口
-$ docker run -d -p 8000:80 nginx 
-
-# 容器互联
-$ docker run -d --name myredis redis
-$ docker run --link myredis:redis debian env  # --link 目标容器:目标容器在主容器内的简称
-~ PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-~ HOSTNAME=69df45e6f92d
-~ REDIS_PORT=tcp://172.17.0.2:6379
-~ REDIS_PORT_6379_TCP=tcp://172.17.0.2:6379
-~ REDIS_PORT_6379_TCP_ADDR=172.17.0.2
-~ REDIS_PORT_6379_TCP_PORT=6379
-~ REDIS_PORT_6379_TCP_PROTO=tcp
-~ REDIS_NAME=/stupefied_chandrasekhar/redis
-~ REDIS_ENV_GOSU_VERSION=1.10
-~ REDIS_ENV_REDIS_VERSION=4.0.2
-~ REDIS_ENV_REDIS_DOWNLOAD_URL=http://download.redis.io/releases/redis-4.0.2.tar.gz
-~ REDIS_ENV_REDIS_DOWNLOAD_SHA=b1a0915dbc91b979d06df1977fe594c3fa9b189f1f3d38743a2948c9f7634813
-~ HOME=/root</code></pre><h3 id="数据卷"><a href="#数据卷" class="headerlink" title="数据卷"></a>数据卷</h3><pre><code>#  -v指定数据卷
-$ docker run -it --name container-test -h container -v /ddata debian /bin/bash
-# 查看数据卷在本机的位置
-$ docker inspect -f { {.Mounts}} container-test  
-[{volume 4687a1d9a80dff56d951f14704a8125f1b642b50c78dac63d3a02a42ff05ffb9 /var/lib/docker/volumes/4687a1d9a80dff56d951f14704a8125f1b642b50c78dac63d3a02a42ff05ffb9/_data /ddata local  true }]
-# 可以在本机中添加文件并在容器中查看修改结果
-
-
-### 在dockerfile中设置数据卷
-FROM debian:wheezy
-RUN useradd foo
-# VOLUME /ddata # 此处添加无效果，因为touch chown是在一个临时容器内的数据卷中执行的
-RUN touch /data/x
-RUN CHOWN -R foo:foo /data
-# VOLUME /ddata # 此处添加可以
-
-
-# docker run -v 指定到特定数据卷
-$ docker run -v /home/adrian/data:./data debian ls /data
-
-
-# 数据容器
-$ docker run --name dbdata postgres echo &apos;data-only container for postage&apos; # 创建一个postgreSQL的容器
-# 使用--volumes-from参数，使其他容器也可以使用这个数据卷
-$ docker run -d --volumes-from dbdata --name db1 postgres</code></pre><h3 id="如何在开发中使用docker-以python-flask为例"><a href="#如何在开发中使用docker-以python-flask为例" class="headerlink" title="如何在开发中使用docker,以python flask为例"></a>如何在开发中使用docker,以python flask为例</h3><pre><code># 创建项目
-$ tree identidock
-.
-├── app
-│   └── identidock.py
-└── Dockerfile
-
-
-# 编辑flask文件
-$ vim app/identidock.py
-from flask import Flask
-app = Flask(__name__)
-
-@app.route(&apos;/&apos;)
-def hello_world():
-    return &apos;hello world&apos;
-
-if __name__ == &apos;__main__&apos;:
-    app.run(debug=True, host=&apos;0.0.0.0&apos;)
-
-
-# 编辑dockerfile文件
-$ vim Dockerfile
-FROM python:3.4
-
-RUN pip install Flask==0.10.1
-WORKDIR /app
-COPY app /app
-CMD [&quot;python&quot;, &quot;identidock.py&quot;]
-
-
-# 创建镜像并使用容器
-$ docker build -t identidock .
-...
-$ docker run -d -p 5000:5000 identidock # 后台运行并将主机的5000端口转发到docker
-$ curl localhost:5000
-~ hello world
-
-# 将开发的代码目录挂载到docker上，这样就不必每次更改代码都需要重新bulid一次．
-$ docker run -d -p 5000:5000 -v &quot;$PWD&quot;/app:/app identidock  # -v &quot;$PWD&quot;/app:/app把位于主机的./app目录挂载到容器内，覆盖容器/app目录下的内容
-# 可以修改app目录下的文件查看改动情况
-
-# 以wsgi服务器运行flask并且修改设置用户
-$ vim Dockerfile
-FROM python:3.4
-
-RUN groupadd -r uwsgi &amp;&amp; useradd -r -g uwsgi uwsgi # 创建用户组和用户
-RUN pip install Flask==0.10.1 uWSGI==2.0.8
-WORKDIR /app
-COPY app /app
-
-EXPOSE 9090 9191  # 声明主机和其他容器可以访问的端口号
-USER uwsgi #使用用户运行以下代码，默认docker是以root用户运行的，不安全
-CMD [&quot;uwsgi&quot;, &quot;--http&quot;, &quot;0.0.0.0:9090&quot;, &quot;--wsgi-file&quot;, &quot;/app/identidock.py&quot;, &quot;--callable&quot;, &quot;app&quot;, &quot;--stats&quot;, &quot;0.0.0.0:9191&quot;]</code></pre><h3 id="使用配置文件配置开发环境和生产环境"><a href="#使用配置文件配置开发环境和生产环境" class="headerlink" title="使用配置文件配置开发环境和生产环境"></a>使用配置文件配置开发环境和生产环境</h3><pre><code># 创建脚本文件cmd.sh
-$ tree
-.
-├── app
-│   └── identidock.py
-├── cmd.sh
-└── Dockerfile
-
-$ vim cmd.sh
-#! /bin/bash
-set -e
-
-if [ &quot;$ENV&quot; = &apos;DEV&apos; ]; then
-  echo &quot;Running Development Server&quot;
-  exec python &quot;identidock.py&quot;
-else
-  echo &quot;Running Production Server&quot;
-  exec uwsgi --http 0.0.0.0:9090 --wsgi-file /app/identidock.py --callable app --stats 0.0.0.0:9191
-fi
-
-$ chmod +x cmd.sh
-$ vim Dockerfile
-FROM python:3.4
-
-RUN groupadd -r uwsgi &amp;&amp; useradd -r -g uwsgi uwsgi
-RUN pip install Flask==0.10.1 uWSGI==2.0.8
-WORKDIR /app
-COPY app /app
-COPY cmd.sh /
-
-EXPOSE 9090 9191
-USER uwsgi
-CMD [&quot;/cmd.sh&quot;]
-
-$ docker build -t identidock .
-$ docker run -e &quot;ENV=DEV&quot; -p 5000:5000 identidock # 开发环境
-$ docker run -d -P identidock</code></pre><h3 id="使用compose自动化安装创建运行docker环境"><a href="#使用compose自动化安装创建运行docker环境" class="headerlink" title="使用compose自动化安装创建运行docker环境"></a>使用compose自动化安装创建运行docker环境</h3><pre><code># 安装环境
-# https://docs.docker.com/compose/install/
-$ sudo curl -L https://github.com/docker/compose/releases/download/1.17.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
-$ sudo chmod +x /usr/local/bin/docker-compose
-$ docker-compose --version
-
-
-# 配置文件
-tree
-.
-├── app
-│   └── identidock.py
-├── cmd.sh
-├── docker-compose.yml
-└── Dockerfile
-# 编辑docker-compose文件
-$ vim docker-compose.yml
-identidock:
-  build: .
-  ports:
-    - &quot;5000:5000&quot;
-  environment:
-    ENV: DEV
-  volumes:
-    - ./app:/app
-~                    
-
-
-# 使用方法
-$ docker-compose up # 如果有镜像则直接运行，如果没有镜像则先build
-$ docker-compose build # 重新构建镜像
-$ docker-compose ps 获取由compose管理的容器状态
-$ docker-compose logs 输出日志
-$ docker-stop 停止容器，但不会删除他们</code></pre>
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2017/11/08/linux命令记录/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhuohanchang">
-      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="饱读诗书">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2017/11/08/linux命令记录/" class="post-title-link" itemprop="url">linux命令记录</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2017-11-08 14:41:40" itemprop="dateCreated datePublished" datetime="2017-11-08T14:41:40+08:00">2017-11-08</time>
-            </span>
-          
-
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-07-24 18:05:19" itemprop="dateModified" datetime="2019-07-24T18:05:19+08:00">2019-07-24</time>
-              </span>
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/运维/" itemprop="url" rel="index"><span itemprop="name">运维</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="查看文件夹大小"><a href="#查看文件夹大小" class="headerlink" title="查看文件夹大小"></a>查看文件夹大小</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">du -h your_path --max-depth=1</span><br></pre></td></tr></table></figure>
-
-<p><strong>参数：</strong></p>
-<blockquote>
-<p>-a或-all 为每个指定文件显示磁盘使用情况，或者为目录中每个文件显示各自磁盘使用情况。 </p>
-</blockquote>
-<blockquote>
-<p>-b或-bytes 显示目录或文件大小时，以byte为单位。 </p>
-</blockquote>
-<blockquote>
-<p>-c或–total 除了显示目录或文件的大小外，同时也显示所有目录或文件的总和。 </p>
-</blockquote>
-<blockquote>
-<p>-D或–dereference-args 显示指定符号连接的源文件大小。 </p>
-</blockquote>
-<blockquote>
-<p>-h或–human-readable 以K，M，G为单位，提高信息的可读性。 </p>
-</blockquote>
-<blockquote>
-<p>-H或–si 与-h参数相同，但是K，M，G是以1000为换算单位,而不是以1024为换算单位。 </p>
-</blockquote>
-<blockquote>
-<p>-k或–kilobytes 以1024 bytes为单位。 </p>
-</blockquote>
-<blockquote>
-<p>-l或–count-links 重复计算硬件连接的文件。 </p>
-</blockquote>
-<blockquote>
-<p>-L&lt;符号连接&gt;或–dereference&lt;符号连接&gt; 显示选项中所指定符号连接的源文件大小。 </p>
-</blockquote>
-<blockquote>
-<p>-m或–megabytes 以1MB为单位。 </p>
-</blockquote>
-<blockquote>
-<p>-s或–summarize 仅显示总计，即当前目录的大小。 </p>
-</blockquote>
-<blockquote>
-<p>-S或–separate-dirs 显示每个目录的大小时，并不含其子目录的大小。 </p>
-</blockquote>
-<blockquote>
-<p>-x或–one-file-xystem 以一开始处理时的文件系统为准，若遇上其它不同的文件系统目录则略过。 </p>
-</blockquote>
-<blockquote>
-<p>-X&lt;文件&gt;或–exclude-from=&lt;文件&gt; 在&lt;文件&gt;指定目录或文件。 </p>
-</blockquote>
-<blockquote>
-<p>–exclude=&lt;目录或文件&gt; 略过指定的目录或文件。 </p>
-</blockquote>
-<blockquote>
-<p>–max-depth=&lt;目录层数&gt; 超过指定层数的目录后，予以忽略。 </p>
-</blockquote>
-<blockquote>
-<p>–help 显示帮助。 </p>
-</blockquote>
-<blockquote>
-<p>–version 显示版本信息</p>
-</blockquote>
-<h4 id="pkg-config"><a href="#pkg-config" class="headerlink" title="pkg-config"></a>pkg-config</h4><p><strong>作用</strong></p>
-<blockquote>
-<p>检查库的版本号。如果所需要的库的版本不满足要求，它会打印出错误信息，避免链接错误版本的库文件。</p>
-</blockquote>
-<blockquote>
-<p>获得编译预处理参数，如宏定义，头文件的位置。</p>
-</blockquote>
-<blockquote>
-<p>获得链接参数，如库及依赖的其它库的位置，文件名及其它一些连接参数。</p>
-</blockquote>
-<blockquote>
-<p>自动加入所依赖的其它库的设置。</p>
-</blockquote>
-<p><strong>命令</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> pkg-config --cflags --libs gdk-3.0</span><br><span class="line">-I/usr/include/gtk-3.0 -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/lib/libffi-3.2.1/include -I/usr/include/fribidi -I/usr/include/harfbuzz -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/uuid -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/gio-unix-2.0 -pthread -I/usr/include/libdrm -lgdk-3 -lz -lpangocairo-1.0 -lpango-1.0 -lgdk_pixbuf-2.0 -lcairo-gobject -lcairo -lgobject-2.0 -lglib-2.0</span><br></pre></td></tr></table></figure>
-
-<p><strong>PKG_CONFIG_PATH</strong><br>环境变量PKG_CONFIG_PATH是用来设置.pc文件的搜索路径的，pkg-config按照设置路径的先后顺序进行搜索，直到找到指定的.pc 文件为止。这样，库的头文件的搜索路径的设置实际上就变成了对.pc文件搜索路径的设置。</p>
-<p>在安装完一个需要使用的库后，比如Glib，一是将相应的.pc文件，如glib-2.0.pc拷贝到/usr/lib/pkgconfig目录下，二是通过设置环境变量PKG_CONFIG_PATH添加glib-2.0.pc文件的搜索路径。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 添加环境变量PKG_CONFIG_PATH，在bash中应该进行如下设置：</span><br><span class="line"><span class="meta">$</span> export PKG_CONFIG_PATH=/opt/gtk/lib/pkgconfig:$PKG_CONFIG_PATH</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 可以执行下面的命令检查是否 /opt/gtk/lib/pkgconfig 路径已经设置在PKG_CONFIG_PATH环境变量中：</span><br><span class="line">echo $PKG_CONFIG_PATH</span><br></pre></td></tr></table></figure>
-
-<p><strong>原理</strong><br>正常情况下，库文件在编译通过后会生成prefix/lib/pkgconfig目录，目录下会包含.pc文件，例如：</p>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> ls -la /usr/include/gtk3.24/lib/pkgconfig</span><br><span class="line">总用量 40</span><br><span class="line">drwxr-xr-x 2 root root 4096  7月 24 15:56 .</span><br><span class="line">drwxr-xr-x 4 root root 4096  7月 24 15:56 ..</span><br><span class="line">-rw-r--r-- 1 root root  277  7月 24 15:56 gail-3.0.pc</span><br><span class="line">-rw-r--r-- 1 root root  608  7月 24 15:56 gdk-3.0.pc</span><br><span class="line">-rw-r--r-- 1 root root  608  7月 24 15:56 gdk-wayland-3.0.pc</span><br><span class="line">-rw-r--r-- 1 root root  608  7月 24 15:56 gdk-x11-3.0.pc</span><br><span class="line">-rw-r--r-- 1 root root  631  7月 24 15:56 gtk+-3.0.pc</span><br><span class="line">-rw-r--r-- 1 root root  405  7月 24 15:56 gtk+-unix-print-3.0.pc</span><br><span class="line">-rw-r--r-- 1 root root  631  7月 24 15:56 gtk+-wayland-3.0.pc</span><br><span class="line">-rw-r--r-- 1 root root  631  7月 24 15:56 gtk+-x11-3.0.pc</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> vim gtk+-3.0</span><br><span class="line"></span><br><span class="line">prefix=/usr/include/gtk3.24</span><br><span class="line">exec_prefix=$&#123;prefix&#125;</span><br><span class="line">libdir=$&#123;exec_prefix&#125;/lib</span><br><span class="line">includedir=$&#123;prefix&#125;/include</span><br><span class="line">targets=x11 wayland</span><br><span class="line"> </span><br><span class="line">gtk_binary_version=3.0.0</span><br><span class="line">gtk_host=x86_64-pc-linux-gnu</span><br><span class="line"> </span><br><span class="line">Name: GTK+</span><br><span class="line">Description: GTK+ Graphical UI Library</span><br><span class="line">Version: 3.24.10</span><br><span class="line">Requires: gdk-3.0 atk &gt;= 2.15.1 cairo &gt;= 1.14.0 cairo-gobject &gt;= 1.14.0 gdk-pixbuf-2.0 &gt;= 2.30.0 gio-2.0 &gt;= 2.53.4                                                                                        </span><br><span class="line">Requires.private: atk atk-bridge-2.0 wayland-client &gt;= 1.9.91 wayland-protocols &gt;= 1.12 xkbcommon &gt;= 0.2.0 wayland-cursor &gt;= 1.9.91 wayland-egl  epoxy &gt;= 1.4 fribidi &gt;= 0.19.7 pangoft2 gio-unix-2.0 &gt;= 2</span><br><span class="line">Libs: -L$&#123;libdir&#125; -lgtk-3</span><br><span class="line">Cflags: -I$&#123;includedir&#125;/gtk-3.0</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2017/11/07/ubuntu本地配置SSL/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhuohanchang">
-      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="饱读诗书">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2017/11/07/ubuntu本地配置SSL/" class="post-title-link" itemprop="url">ubuntu本地配置SSL</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2017-11-07 11:25:08" itemprop="dateCreated datePublished" datetime="2017-11-07T11:25:08+08:00">2017-11-07</time>
-            </span>
-          
-
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-07-23 13:51:43" itemprop="dateModified" datetime="2019-07-23T13:51:43+08:00">2019-07-23</time>
-              </span>
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/运维/" itemprop="url" rel="index"><span itemprop="name">运维</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <pre><code># 安装相关模块
-sudo a2enmod ssl   //启用ssl模块
-sudo apt-get install openssl  //安装openssl
-
-
-# 创建证书
-openssl genrsa -des3 -out server.key 1024  //创建CA签名(不使用密码去除-des3选项)
-openssl req -new -key server.key -out server.csr  //创建CSR(Certificate Signing Request)
-openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt  //自己签发证书
-sudo cp server.crt /etc/ssl/certs
-sudo cp server.key /etc/ssl/private
-
-
-# 修改虚拟主机信息
-在&lt;VirtualHost *:80&gt;段中，DocumentRoot一行的下方加入内容：
-SSLEngine On
-SSLOptions +StrictRequire
-SSLCertificateFile /etc/ssl/certs/server.crt
-SSLCertificateKeyFile /etc/ssl/private/server.key
-端口修改为：443，即&lt;VirtualHost *:443&gt;(ssl的端口)
-
-
-# 重启apache2
-sudo /etc/init.d/apache2 force-reload
-sudo /etc/init.d/apache2 restart</code></pre>
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2017/06/19/ubuntu配置Gitlab服务/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhuohanchang">
-      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="饱读诗书">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2017/06/19/ubuntu配置Gitlab服务/" class="post-title-link" itemprop="url">ubuntu配置Gitlab服务</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2017-06-19 14:18:48" itemprop="dateCreated datePublished" datetime="2017-06-19T14:18:48+08:00">2017-06-19</time>
-            </span>
-          
-
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-07-23 18:59:09" itemprop="dateModified" datetime="2019-07-23T18:59:09+08:00">2019-07-23</time>
-              </span>
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/运维/" itemprop="url" rel="index"><span itemprop="name">运维</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装相关服务 postfix为邮件服务</span></span><br><span class="line">sudo apt-get install curl openssh-server ca-certificates postfix</span><br><span class="line"><span class="comment"># 安装gitlab服务包</span></span><br><span class="line">curl -sS https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh | sudo bash</span><br><span class="line">sudo apt-get install gitlab-ce</span><br></pre></td></tr></table></figure>
-
-<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置服务</span></span><br><span class="line">sudo vim /etc/gitlab/gitlab.rb</span><br><span class="line"></span><br><span class="line"><span class="comment">## GitLab URL</span></span><br><span class="line"><span class="comment">##! URL on which GitLab will be reachable.</span></span><br><span class="line"><span class="comment">##! For more details on configuring external_url see:</span></span><br><span class="line"><span class="comment">##! https://docs.gitlab.com/omnibus/settings/configuration.html#configuring-the-external-url-for-gitlab</span></span><br><span class="line">external_url <span class="string">'http:/192.168.0.19:1500'</span>    <span class="comment"># 地址</span></span><br><span class="line"></span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line"><span class="comment"># 邮件基本设置</span></span><br><span class="line"><span class="comment">### Email Settings</span></span><br><span class="line">gitlab_rails[<span class="string">'gitlab_email_enabled'</span>] = <span class="literal">true</span></span><br><span class="line">gitlab_rails[<span class="string">'gitlab_email_from'</span>] = <span class="string">'admin@uscnk.com'</span></span><br><span class="line">gitlab_rails[<span class="string">'gitlab_email_display_name'</span>] = <span class="string">'Gitlab'</span></span><br><span class="line">gitlab_rails[<span class="string">'gitlab_email_reply_to'</span>] = <span class="string">'admin@uscnk.com'</span></span><br><span class="line">gitlab_rails[<span class="string">'gitlab_email_subject_suffix'</span>] = <span class="string">'Gitlab'</span></span><br><span class="line"></span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line"><span class="comment">### GitLab email server settings</span></span><br><span class="line"><span class="comment">###! Docs: https://docs.gitlab.com/omnibus/settings/smtp.html</span></span><br><span class="line"><span class="comment">###! **Use smtp instead of sendmail/postfix.**</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># gitlab_rails['smtp_enable'] = true</span></span><br><span class="line"><span class="comment"># gitlab_rails['smtp_address'] = "smtp.server"</span></span><br><span class="line"><span class="comment"># gitlab_rails['smtp_port'] = 465</span></span><br><span class="line"><span class="comment"># gitlab_rails['smtp_user_name'] = "smtp user"</span></span><br><span class="line"><span class="comment"># gitlab_rails['smtp_password'] = "smtp password"</span></span><br><span class="line"><span class="comment"># gitlab_rails['smtp_domain'] = "example.com"</span></span><br><span class="line"><span class="comment"># gitlab_rails['smtp_authentication'] = "login"</span></span><br><span class="line"><span class="comment"># gitlab_rails['smtp_enable_starttls_auto'] = true</span></span><br><span class="line"><span class="comment"># gitlab_rails['smtp_tls'] = false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 邮件服务地址</span></span><br><span class="line"><span class="comment"># QQ exmail (腾讯企业邮箱)</span></span><br><span class="line">gitlab_rails[<span class="string">'smtp_enable'</span>] = <span class="literal">true</span></span><br><span class="line">gitlab_rails[<span class="string">'smtp_address'</span>] = <span class="string">"smtp.exmail.qq.com"</span></span><br><span class="line">gitlab_rails[<span class="string">'smtp_port'</span>] = 465</span><br><span class="line">gitlab_rails[<span class="string">'smtp_user_name'</span>] = <span class="string">"admin@uscnk.com"</span></span><br><span class="line">gitlab_rails[<span class="string">'smtp_password'</span>] = <span class="string">"xxxxxxxxx"</span></span><br><span class="line">gitlab_rails[<span class="string">'smtp_authentication'</span>] = <span class="string">"login"</span></span><br><span class="line">gitlab_rails[<span class="string">'smtp_enable_starttls_auto'</span>] = <span class="literal">true</span></span><br><span class="line">gitlab_rails[<span class="string">'smtp_tls'</span>] = <span class="literal">true</span></span><br><span class="line">gitlab_rails[<span class="string">'gitlab_email_from'</span>] = <span class="string">'admin@uscnk.com'</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># nginx基本设置</span></span><br><span class="line"><span class="comment">################################################################################</span></span><br><span class="line"><span class="comment">## GitLab Nginx</span></span><br><span class="line"><span class="comment">##! Docs: https://docs.gitlab.com/omnibus/settings/nginx.html</span></span><br><span class="line"><span class="comment">################################################################################</span></span><br><span class="line"></span><br><span class="line">nginx[<span class="string">'listen_addresses'</span>] = [<span class="string">'192.168.0.19'</span>]</span><br><span class="line">nginx[<span class="string">'losten_port'</span>] = 1500</span><br></pre></td></tr></table></figure>
-
-<h4 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 重启服务</span></span><br><span class="line">sudo gitlab-ctl reconfigure</span><br><span class="line"><span class="comment"># 重启邮件服务</span></span><br><span class="line">sudo /etc/init.d/postfix restart</span><br><span class="line"><span class="comment"># 访问</span></span><br><span class="line">http://192.168.0.19:1500</span><br><span class="line">Username: root</span><br><span class="line">Password: 5iveL!fe</span><br></pre></td></tr></table></figure>
-
-<h4 id="github与gitlab共存"><a href="#github与gitlab共存" class="headerlink" title="github与gitlab共存"></a>github与gitlab共存</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># github账户邮箱， 将id_rsa改名成id_rsa_github</span></span><br><span class="line">ssh-keygen -t rsa -C <span class="string">"xxxxx@gmail.com"</span></span><br><span class="line"><span class="comment"># gitlab公司邮箱， 将id_rsa改名成id_rsa_gitlab</span></span><br><span class="line">ssh-keygen -t rsa -C <span class="string">"xxxxxx@work.com"</span></span><br><span class="line"><span class="comment"># 添加私钥</span></span><br><span class="line">ssh-add ~/.ssh/id_rsa_github</span><br><span class="line">ssh-add ~/.ssh/id_rsa_gitlab</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#在 ~/.ssh 目录下新建一个config文件</span></span><br><span class="line">touch config</span><br><span class="line">chmod 755 conifg</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 并添加以下内容</span></span><br><span class="line"><span class="comment"># gitlab</span></span><br><span class="line">Host github.com</span><br><span class="line">    HostName github.com</span><br><span class="line">    PreferredAuthentications publickey</span><br><span class="line">    IdentityFile ~/.ssh/id_rsa_github</span><br><span class="line"><span class="comment"># github</span></span><br><span class="line">Host gitlib.com</span><br><span class="line">    HostName gitlib.com</span><br><span class="line">    PreferredAuthentications publickey</span><br><span class="line">    IdentityFile ~/.ssh/id_rsa_gitlab</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将id_rsa_github.pab内容添加到github中</span></span><br><span class="line"><span class="comment"># 测试结果</span></span><br><span class="line">ssh -T git@github.com</span><br><span class="line"><span class="comment"># 将id_rsa_gitlab.pab内容添加到gitlab中</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> ~/mytest</span><br><span class="line"><span class="comment"># 在github中测试</span></span><br><span class="line">git remote add github https://github.com/zhcshine/mytest.git</span><br><span class="line">git push -u github master</span><br><span class="line"><span class="comment"># 在gitlab中测试</span></span><br><span class="line">git remote add gitlab http://192.168.0.19:1500/zhcshine/mytest.git</span><br><span class="line">git push -u gitlab master</span><br></pre></td></tr></table></figure>
           
         
       
@@ -2963,7 +2678,7 @@ sudo /etc/init.d/apache2 restart</code></pre>
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">68</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
