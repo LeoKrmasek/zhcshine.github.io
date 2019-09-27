@@ -246,7 +246,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">68</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">70</span></a>
 
   </li>
 
@@ -307,6 +307,586 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2016/11/09/sublime入门基础/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhuohanchang">
+      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="饱读诗书">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2016/11/09/sublime入门基础/" class="post-title-link" itemprop="url">sublime入门基础</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2016-11-09 15:36:07" itemprop="dateCreated datePublished" datetime="2016-11-09T15:36:07+08:00">2016-11-09</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-07-24 09:34:15" itemprop="dateModified" datetime="2019-07-24T09:34:15+08:00">2019-07-24</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/办公/" itemprop="url" rel="index"><span itemprop="name">办公</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="下载地址">下载地址</h3>
+<p><a href="http://www.sublimetext.com/3" target="_blank" rel="noopener">http://www.sublimetext.com/3</a></p>
+<h3 id="ubuntu下载">Ubuntu下载</h3>
+<pre><code>sudo add-apt-repository ppa:webupd8team/sublime-text-3
+sudo apt-get update
+sudo apt-get install sublime-text-installer</code></pre>
+<h3 id="插件下载地址">插件下载地址</h3>
+<p><a href="https://packagecontrol.io/" target="_blank" rel="noopener">https://packagecontrol.io/</a></p>
+<h3 id="注册码">注册码</h3>
+<pre><code>----- BEGIN LICENSE ----
+Andrew Weber
+Single User License
+EA7E-855605
+813A03DD 5E4AD9E6 6C0EEB94 BC99798F
+942194A6 02396E98 E62C9979 4BB979FE
+91424C9D A45400BF F6747D88 2FB88078
+90F5CC94 1CDC92DC 8457107A F151657B
+1D22E383 A997F016 42397640 33F41CFC
+E1D0AE85 A0BBD039 0E9C8D55 E1B89D5D
+5CDB7036 E56DE1C0 EFCC0840 650CD3A6
+B98FC99C 8FAC73EE D2B95564 DF450523
+------ END LICENSE ------</code></pre>
+<h3 id="安装package-control">安装Package Control</h3>
+<pre><code>import urllib.request,os; pf = &#39;Package Control.sublime-package&#39;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), &#39;wb&#39;).write(urllib.request.urlopen( &#39;http://sublime.wbond.net/&#39; + pf.replace(&#39; &#39;,&#39;%20&#39;)).read())</code></pre>
+<h3 id="安装模板material-theme">安装模板Material Theme</h3>
+<p>配置方法</p>
+<pre><code>Package Control Messages
+========================
+
+Material Theme
+--------------
+
+  Material Theme for Sublime Text 3
+
+  For more information on the Material Theme: https://github.com/equinusocio/material-theme
+
+  **********************************************************************************************
+
+  If installing manually (not through Package Control), add the following to your 
+  Settings - User file and restart Sublime Text after:
+
+  {
+    &quot;theme&quot;: &quot;Material-Theme.sublime-theme&quot;,
+    &quot;color_scheme&quot;: &quot;Packages/Material Theme/schemes/Material-Theme.tmTheme&quot;,
+  }
+
+  **********************************************************************************************
+
+  This theme includes a Darker and Lighter version:
+
+  Darker version:
+
+  {
+    &quot;theme&quot;: &quot;Material-Theme-Darker.sublime-theme&quot;,
+    &quot;color_scheme&quot;: &quot;Packages/Material Theme/schemes/Material-Theme-Darker.tmTheme&quot;,
+  }
+
+  Lighter version:
+
+  {
+    &quot;theme&quot;: &quot;Material-Theme-Lighter.sublime-theme&quot;,
+    &quot;color_scheme&quot;: &quot;Packages/Material Theme/schemes/Material-Theme-Lighter.tmTheme&quot;,
+  }
+
+  **********************************************************************************************
+
+  Recommended UI and font settings for a better experience:
+
+  {
+    &quot;overlay_scroll_bars&quot;: &quot;enabled&quot;,
+    &quot;line_padding_top&quot;: 3,
+    &quot;line_padding_bottom&quot;: 3,
+    &quot;always_show_minimap_viewport&quot;: true,
+    &quot;bold_folder_labels&quot;: true,
+    &quot;indent_guide_options&quot;: [ &quot;draw_normal&quot;, &quot;draw_active&quot; ]    // Highlight active indent
+    &quot;font_options&quot;: [ &quot;gray_antialias&quot; ],                       // For retina Mac
+  }
+
+  **********************************************************************************************
+
+  Other available theme options:
+
+  &quot;material_theme_small_tab&quot;: true,                           // Set small tabs
+  &quot;material_theme_disable_fileicons&quot;: true,                   // Hide siderbar file type icons
+  &quot;material_theme_disable_folder_animation&quot;: true,            // Disable folder animation
+  &quot;material_theme_small_statusbar&quot;: true,                     // Set small status bar
+  &quot;material_theme_disable_tree_indicator&quot;: true,              // Disable sidebar file indicator
+  &quot;material_theme_bold_tab&quot;: true,                            // Make the tab labels bolder
+  &quot;material_theme_tabs_separator&quot;: true,                      // Show tabs separator
+  &quot;material_theme_accent_lime&quot;: true,                         // set green lime accent color
+  &quot;material_theme_accent_purple&quot;: true,                       // set purple accent color
+  &quot;material_theme_accent_red&quot;: true,                          // set pale red accent color
+  &quot;material_theme_accent_orange&quot;: true,                       // set orange accent color
+  &quot;material_theme_accent_yellow&quot;: true,                       // set yellow accent color
+  &quot;material_theme_panel_separator&quot;: true,                     // show bottom panel separator
+  &quot;material_theme_tabs_autowidth&quot;: true,                      // Enable autowidth for tabs
+  &quot;material_theme_contrast_mode&quot;: true,                       // Enable sidebar and panels contrast mode</code></pre>
+<h3 id="设置空格缩进">设置空格缩进</h3>
+<pre><code>{    
+    &quot;tab_size&quot;: 4,    
+    &quot;translate_tabs_to_spaces&quot;: true 
+} </code></pre>
+<h3 id="设置行间距">设置行间距</h3>
+<pre><code>{
+    &quot;line_padding_bottom&quot;: 3, 
+    &quot;line_padding_top&quot;: 3,
+}    </code></pre>
+<h3 id="插件安装">插件安装</h3>
+<p><strong>Emmet(懂的)</strong><br>
+<strong>ConvertToUtf8(编码转换)</strong><br>
+<strong>Sublime​Linter(代码检查工具，需要配合各语言插件包检查)</strong><br>
+<strong>SideBarEnhancements（侧边栏右键增强）</strong><br>
+<strong>Bracket​Highlighter（显示标签块？？）</strong><br>
+<strong>SublimeCodeIntel(跳转到自定义函数)</strong></p>
+<blockquote>
+<p>For Windows:<br>
+Jump to definition = Alt+Click<br>
+Jump to definition = Control+Windows+Alt+Up<br>
+Go back = Control+Windows+Alt+Left<br>
+Manual Code Intelligence = Control+Shift+space<br>
+需要自己设置执行路径</p>
+</blockquote>
+<pre><code>        &quot;PHP&quot;: {
+            &quot;php&quot;: &quot;D:\\PHP\\php.exe&quot;,
+            &quot;codeintel_scan_extra_dir&quot;: [],
+            &quot;codeintel_scan_files_in_project&quot;: true,
+            &quot;codeintel_max_recursive_dir_depth&quot;: 15,
+            &quot;codeintel_scan_exclude_dir&quot;:[&quot;D:\\PHP&quot;]
+        }</code></pre>
+<p><strong>HTML5(html5的snippets)</strong><br>
+<strong>Alignment(自动对齐插件)</strong><br>
+<strong>SFTP(ftp上传)需要配置对应的ftp路径等信息</strong> <strong>git</strong> <strong>jquery(jquery snippets)</strong> <strong>SaSS(可以支持sass)</strong> <strong>DocBlockr（块状注释）</strong></p>
+<h3 id="ubuntu安装中文输入法">ubuntu安装中文输入法</h3>
+<h3 id="安装">安装</h3>
+<pre><code>git clone https://github.com/lyfeyaj/sublime-text-imfix.git</code></pre>
+<h3 id="复制文件">复制文件</h3>
+<pre><code>cd ~/sublime-text-imfix
+sudo cp ./lib/libsublime-imfix.so /opt/sublime_text/
+sudo cp ./src/subl /usr/bin/</code></pre>
+<h3 id="测试">测试</h3>
+<p>终端输入</p>
+<pre><code>LD_PRELOAD=./libsublime-imfix.so subl</code></pre>
+<h3 id="建立快捷方式">建立快捷方式</h3>
+<p>新建文件sublime放在/home目录下，脚本内容：</p>
+<pre><code>#!/bin/bash
+LD_PRELOAD=/opt/sublime_text/libsublime-imfix.so subl</code></pre>
+<h3 id="测试-1">测试</h3>
+<p>终端输入</p>
+<pre><code>bash ~/sublime</code></pre>
+<h3 id="快捷方式修改">快捷方式修改</h3>
+<p>将[Desktop Entry]中的字符串<br>
+Exec=/opt/sublime_text/sublime_text %F<br>
+修改为<br>
+Exec=bash -c "LD_PRELOAD=/opt/sublime_text/libsublime-imfix.so exec /opt/sublime_text/sublime_text %F"<br>
+将[Desktop Action Window]中的字符串<br>
+Exec=/opt/sublime_text/sublime_text -n<br>
+修改为<br>
+Exec=bash -c "LD_PRELOAD=/opt/sublime_text/libsublime-imfix.so exec /opt/sublime_text/sublime_text -n"<br>
+将[Desktop Action Document]中的字符串<br>
+Exec=/opt/sublime_text/sublime_text --command new_file<br>
+修改为<br>
+Exec=bash -c "LD_PRELOAD=/opt/sublime_text/libsublime-imfix.so exec /opt/sublime_text/sublime_text --command new_file"<br>
+注意：<br>
+修改时请注意双引号"",否则会导致不能打开带有空格文件名的文件。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2016/11/09/git入门基础/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhuohanchang">
+      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="饱读诗书">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2016/11/09/git入门基础/" class="post-title-link" itemprop="url">git入门基础</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2016-11-09 15:19:56" itemprop="dateCreated datePublished" datetime="2016-11-09T15:19:56+08:00">2016-11-09</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-08-23 15:49:18" itemprop="dateModified" datetime="2019-08-23T15:49:18+08:00">2019-08-23</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/运维/" itemprop="url" rel="index"><span itemprop="name">运维</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="配置">配置</h4>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 设置代理</span><br><span class="line"><span class="meta">$</span> git config --global http.proxy 'socks5://127.0.0.1:1080'</span><br><span class="line"><span class="meta">$</span> git config --global https.proxy 'socks5://127.0.0.1:1080'</span><br><span class="line"><span class="meta">#</span> 查看配置项</span><br><span class="line"><span class="meta">$</span> git config --list</span><br></pre></td></tr></table></figure>
+<h4 id="创建项目">创建项目</h4>
+<pre><code>git init</code></pre>
+<h4 id="查看分支">查看分支</h4>
+<pre><code>E:\HKMAIN (master)
+λ git branch
+* master
+  v1.1
+  v1.2
+λ git branch -v
+* master bf0d2bf 蛋白模板修改USAGE:Reconstitute in sterile ddH2O.
+  v1.1   b48a782 试剂盒现货列表添加样本信息一栏
+  v1.2   acbf4f1 c1.2</code></pre>
+<h4 id="删除分支">删除分支</h4>
+<p>查看未合并的分支</p>
+<pre><code>λ git branch --no-merged</code></pre>
+<p>删除分支</p>
+<pre><code>git branch -d v1.1</code></pre>
+<p>如果是未合并的分支，使用大写的-D</p>
+<pre><code>E:\HKMAIN (master)
+λ git branch -d v1.1
+Deleted branch v1.1 (was b48a782).
+
+E:\HKMAIN (master)
+λ git branch -v
+* master bf0d2bf 蛋白模板修改USAGE:Reconstitute in sterile ddH2O.
+  v1.2   acbf4f1 c1.2</code></pre>
+<h3 id="创建分支">创建分支</h3>
+<pre><code>git branch v2.0
+
+
+E:\HKMAIN (master)
+λ git branch Vmysql
+
+E:\HKMAIN (master)
+λ git branch
+  Vmysql
+* master
+  v1.2
+
+E:\HKMAIN (master)
+λ git checkout Vmysql
+Switched to branch &#39;Vmysql&#39;
+
+E:\HKMAIN (Vmysql)
+λ</code></pre>
+<p>或者直接使用git checkout -b v3.0</p>
+<pre><code>E:\HKMAIN (Vmysql)
+λ git checkout -b Vsqlserver
+Switched to a new branch &#39;Vsqlserver&#39;
+
+E:\HKMAIN (Vsqlserver)
+λ git branch
+  Vmysql
+* Vsqlserver
+  master
+  v1.2</code></pre>
+<h3 id="git查看远程仓库">git查看远程仓库</h3>
+<pre><code># git查看远程仓库
+git remote -v
+# git添加远程仓库
+git remote add xxx git@gitlab.xxx.com:xxx/xxx
+# 删除远程分值
+git remote rm xxx</code></pre>
+<h3 id="git-stash">git stash</h3>
+<p>使用git stash命令先把当前进度保存起来，然后切换到另一个分支去修改bug，修改完提交后，再切回dev分支，使用git stash pop来恢复之前的进度继续开发新功能。</p>
+<pre><code># 保存当前进度
+git stash
+# 查看现有的存储
+git stash list
+# 恢复最新的进度到工作区
+git stash pop
+git stash save your-file-name</code></pre>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -2342,817 +2922,6 @@ chown administrator /cygdrive/c/etc/rsyncd.secrets<br>
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2016/11/09/linux开发环境常用软件/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhuohanchang">
-      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="饱读诗书">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2016/11/09/linux开发环境常用软件/" class="post-title-link" itemprop="url">Linux开发环境常用软件</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2016-11-09 10:58:19" itemprop="dateCreated datePublished" datetime="2016-11-09T10:58:19+08:00">2016-11-09</time>
-            </span>
-          
-
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-07-23 13:51:43" itemprop="dateModified" datetime="2019-07-23T13:51:43+08:00">2019-07-23</time>
-              </span>
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/办公/" itemprop="url" rel="index"><span itemprop="name">办公</span></a></span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/办公/运维/" itemprop="url" rel="index"><span itemprop="name">运维</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="显示电脑硬件信息">显示电脑硬件信息</h4>
-<pre><code>$ sudo add-apt-repository ppa:dawidd0811/neofetch
-$ sudo apt-get update
-$ sudo apt-get install neofetch
-neofetch</code></pre>
-<h4 id="安装独立显卡驱动">安装独立显卡驱动</h4>
-<p>https://blog.csdn.net/ghw15221836342/article/details/79571559</p>
-<pre><code># 驱动版本查询   https://www.nvidia.com/Download/index.aspx?lang=en-us
-# 安装
-sudo add-apt-repository ppa:graphics-drivers/ppa  
-sudo apt-get update  
-sudo apt-get install nvidia-390 #此处要根据上面查询到的版本适当更改
-sudo apt-get install mesa-common-dev  
-sudo apt-get install freeglut3-de
-# 测试
-nvidia-smi  #若出现电脑GPU列表，即安装成功
-或者
-nvidia-settings #显示你的显卡信息
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">    </span><br><span class="line">    </span><br><span class="line">    #### Chrome浏览器</span><br><span class="line">    下载地址 [百度云盘](http://pan.baidu.com/s/1hq0Nom4)</span><br><span class="line">    </span><br><span class="line">    #### 配置SS</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">安装</span><br><span class="line">==</span><br><span class="line"></span><br><span class="line">apt-get install python-pip pip install s\_h\_a\_d\_o\_w\_s\_o\_c\_k\_s</span><br><span class="line"></span><br><span class="line">启动</span><br><span class="line">==</span><br><span class="line"></span><br><span class="line">sslocal -s server\_ip -p server\_port -l 1080 -k password -t 600 -m aes-256-cfb</span><br><span class="line"></span><br><span class="line">简写</span><br><span class="line">==</span><br><span class="line"></span><br><span class="line">sslocal -s ip -p port -k &quot;password&quot;</span><br><span class="line"></span><br><span class="line">    开机启动配置  </span><br><span class="line">    在/home下新建文件ss.sh脚本</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">#!/bin/bash #文件名:ss.sh sslocal -s ip -p port -k &quot;password&quot;</span><br><span class="line"></span><br><span class="line">    编辑开机启动文件</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">sudo vim /etc/rc.local</span><br></pre></td></tr></table></figure>
-
-# 最后加入以下内容
-nohup bash /home/ss.sh&gt;/home/ss.txt &amp;</code></pre>
-<p>代理设置</p>
-<pre><code>service： 127.0.0.1
-port ： 1080
-type： socks5</code></pre>
-<h4 id="配置proxychains">配置proxychains</h4>
-<pre><code># 安装
-sudo apt install proxychains
-sudo vim /etc/proxychains.conf
-~ socks5 127.0.0.1 1080  # 最后一行加入socks代理
-# 测试
-proxychains wget https://www.google.com</code></pre>
-<h4 id="wine-qq现在推荐docker安装qq">wine qq（现在推荐docker安装qq）</h4>
-<p>安装wine1.7以上版本<br>
-安装WineQQ7.8-20151109-Longene.deb版本<br>
-下载<a href="https://pan.baidu.com/s/1bpLn0vl" target="_blank" rel="noopener">网盘</a></p>
-<h4 id="elinks-纯文本浏览器">elinks 纯文本浏览器</h4>
-<pre><code>sudo apt-get install elinks   # 安装
-
-
-elinks www.zhuohc.com  # 使用</code></pre>
-<h4 id="unzip-zip">unzip / zip</h4>
-<p>解决中文乱码</p>
-<pre><code>unzip -O CP936 xxx.zip</code></pre>
-<p>解压到指定目录</p>
-<pre><code>unzip -O xxx.zip -d xxx/</code></pre>
-<p>压缩文件</p>
-<pre><code>zip -r yasuo.zip abc.txt dir1</code></pre>
-<h4 id="wps-office办公">wps office办公</h4>
-<p>显示字体确实错误 <a href="https://pan.baidu.com/s/1bpLn0vl" target="_blank" rel="noopener">下载字体</a><br>
-将字体复制到linux字体中</p>
-<pre><code>sudo cp * /usr/share/fonts</code></pre>
-<p>生成字体索引信息</p>
-<pre><code>sudo mkfontscale
-
-sudo mkfontdir</code></pre>
-<p>更新字体缓存</p>
-<pre><code>sudo fc-cache</code></pre>
-<p>中文无法输入</p>
-<pre><code>$ vi /usr/bin/wps  # word文档
-
-
-#!/bin/bash
-export XMODIFIERS=&quot;@im=fcitx&quot;  # 添加的内容  
-export QT_IM_MODULE=&quot;fcitx&quot;     # 添加的内容    
-gOpt=
-#gOptExt=-multiply
-gTemplateExt=(&quot;wpt&quot; &quot;dot&quot; &quot;dotx&quot;)
-
-
-$ vi /usr/bin/et   # excel表格
-
-
-#!/bin/bash
-export XMODIFIERS=&quot;@im=fcitx&quot;  # 添加的内容  
-export QT_IM_MODULE=&quot;fcitx&quot;  # 添加的内容  
-gOpt=
-#gOptExt=-multiply</code></pre>
-<h4 id="输入法">输入法</h4>
-<p>系统自带或者sougou输入法 ， 倬彼昊天系列皮肤</p>
-<h4 id="截屏">截屏</h4>
-<p>系统设置&gt;键盘&gt;自定义快捷键&gt;+&gt;<br>
-名称填screenshot<br>
-命令</p>
-<pre><code>gnome-screenshot -a</code></pre>
-<p>在disabled修改快捷键</p>
-<h4 id="下载">下载</h4>
-<p>安装uget</p>
-<pre><code>sudo add-apt-repository ppa:plushuang-tw/uget-stable 
-sudo apt-get update 
-sudo apt-get install uget</code></pre>
-<p>安装aria2</p>
-<pre><code>sudo add-apt-repository ppa:t-tujikawa/ppa 
-sudo apt-get update 
-sudo apt-get install aria2</code></pre>
-<p>在uget gui里编辑插件，选择aria2</p>
-<h4 id="美化监视工具">美化监视工具</h4>
-<pre><code> sudo apt-get install conky  
- sudo add-apt-repository ppa:teejee2008/ppa
- sudo apt-get update
- sudo apt-get install conky-manager
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">显示桌面会自动隐藏conky的bug解决办法:  </span><br><span class="line">编辑配置文件</span><br></pre></td></tr></table></figure>
-
- # own_window_type normal
-own_window_type desktop</code></pre>
-<p>#### 快速搜索文件</p>
-<pre><code>sudo add-apt-repository ppa:synapse-core/testing
-sudo apt-get update
-sudo apt-get install synapse  </code></pre>
-<h4 id="卸载synapse">卸载synapse</h4>
-<pre><code>sudo apt-get remove synapse</code></pre>
-<h4 id="移除ppa">移除PPA</h4>
-<pre><code>sudo apt-get install ppa-purge
-sudo ppa-purge ppa:synapse-core/testing</code></pre>
-<h4 id="安装oh-my-zsh">安装oh-my-zsh</h4>
-<pre><code># https://github.com/robbyrussell/oh-my-zsh
-$ sudo apt-get install git
-$ sudo apt-get install zsh
-$ sh -c &quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;
-$ chsh -s /bin/zsh # 更改默认bash
-//或:
-$ chsh -s `which zsh`
-$ sudo reboot</code></pre>
-<h4 id="terminator-终端管理软件">terminator 终端管理软件</h4>
-<p>安装</p>
-<pre><code>sudo add-apt-repository ppa:gnome-terminator
-sudo apt-get update
-sudo apt-get install terminator</code></pre>
-<p>基本设置方法</p>
-<blockquote>
-<p>右键点击终端任意区域，选择首选项</p>
-</blockquote>
-<p>设置<a href="https://github.com/ghuntley/terminator-solarized" target="_blank" rel="noopener">solarized</a>配色（<a href="http://blog.codinglabs.org/articles/getting-started-with-ubuntu.html" target="_blank" rel="noopener">参考</a>）</p>
-<pre><code>cd ~/.config/terminator  
-vim config</code></pre>
-<p>覆盖以下内容</p>
-<pre><code>[global_config]
-    title_transmit_bg_color = &quot;#d30102&quot;
-    focus = system
-    suppress_multiple_term_dialog = True
-[keybindings]
-[profiles]
-    [[default]]
-        palette = &quot;#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3&quot;
-        copy_on_selection = True
-        background_image = None
-        background_darkness = 0.95
-        background_type = transparent
-        use_system_font = False
-        cursor_color = &quot;#eee8d5&quot;
-        foreground_color = &quot;#839496&quot;
-        show_titlebar = False
-        font = Monospace 11
-        background_color = &quot;#002b36&quot;
-    [[solarized-dark]]
-        palette = &quot;#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3&quot;
-        background_color = &quot;#002b36&quot;
-        background_image = None
-        cursor_color = &quot;#eee8d5&quot;
-        foreground_color = &quot;#839496&quot;
-    [[solarized-light]]
-        palette = &quot;#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3&quot;
-        background_color = &quot;#fdf6e3&quot;
-        background_image = None
-        cursor_color = &quot;#002b36&quot;
-        foreground_color = &quot;#657b83&quot;
-[layouts]
-    [[default]]
-        [[[child1]]]
-            type = Terminal
-            parent = window0
-            profile = default
-        [[[window0]]]
-            type = Window
-            parent = &quot;&quot;
-[plugins]</code></pre>
-<p>以上配置后会修改配色方案，但是没有bright色<br>
-<a href="https://github.com/seebi/dircolors-solarized" target="_blank" rel="noopener">dircolors-solarized</a>项目提供了适合于solarized的dircolors配色方案，只要选择合适的方案使用就可以了。</p>
-<pre><code>curl https://raw.github.com/seebi/dircolors-solarized/master/dircolors.ansi-dark &gt; ~/.dircolors</code></pre>
-<p>然后在~/.bashrc中加入如下配置：</p>
-<pre><code># enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors &amp;&amp; eval &quot;$(dircolors -b ~/.dircolors)&quot; || eval &quot;$(dircolors -b)&quot;
-    alias ls=&#39;ls --color=auto&#39;
-    #alias dir=&#39;dir --color=auto&#39;
-    #alias vdir=&#39;vdir --color=auto&#39;
-
-    alias grep=&#39;grep --color=auto&#39;
-    alias fgrep=&#39;fgrep --color=auto&#39;
-    alias egrep=&#39;egrep --color=auto&#39;
-fi
-
-# some more ls aliases
-alias ll=&#39;ls -alF&#39;
-alias la=&#39;ls -A&#39;
-alias l=&#39;ls -CF&#39;</code></pre>
-<p>执行</p>
-<pre><code>source ~/.bashrc</code></pre>
-<h4 id="tmux配合terminator使用">tmux配合terminator使用</h4>
-<p>安装</p>
-<pre><code>sudo apt-get install tmux</code></pre>
-<p>配置</p>
-<pre><code>touch .tmux.conf</code></pre>
-<p>配置内容和使用方法</p>
-<pre><code># 设置前缀为Ctrl + x
-set -g prefix C-x
-# 解除Ctrl+b 与前缀的对应关系
-unbind C-b
-# 将r 设置为加载配置文件，并显示&quot;reloaded!&quot;信息
-bind r source-file ~/.tmux.conf \; display &quot;Reloaded!&quot;
-
-
-
-# copy-mode 将快捷键设置为vi 模式
-setw -g mode-keys vi
-
-# tmux-powerline设置
-set-option -g status on
-set-option -g status-interval 2
-set-option -g status-utf8 on
-set-option -g status-justify &quot;centre&quot;
-set-option -g status-left-length 60
-set-option -g status-right-length 90
-set-option -g status-left &quot;#(~/.tmux/tmux-powerline/powerline.sh left)&quot;
-set-option -g status-right &quot;#(~/.tmux/tmux-powerline/powerline.sh right)&quot;
-# 将窗口列表换成 powerline的风格
-set-window-option -g window-status-current-format &quot;#[fg=colour235, bg=colour27]⮀#[fg=colour255, bg=colour27] #I ⮁ #W #[fg=colour27, bg=colour235]⮀&quot;
-# 设置默认bash
-set-option -g default-shell /bin/zsh
-
-
-########## 复制模式  ##########
-
-# copy mode 复制模式
-# &#39;prefix +  [ &#39;进入复制模式
-# 按space 开始复制
-# Enter退出复制模式</code></pre>
-<p>需要安装powerline插件</p>
-<pre><code>https://github.com/erikw/tmux-powerline</code></pre>
-<p>显示日期的星期</p>
-<pre><code>vim data_day.sh
- # date +&quot;%a&quot;改成大写
- date +&quot;%A&quot;</code></pre>
-<p>powerline字体安装查看 http://powerline.readthedocs.io/en/latest/installation/linux.html 在terminator配置自动启动turm</p>
-<pre><code>首选项-&gt;配置&gt;命令&gt;自定义命令  
- ([[ -f &quot;$TMUX&quot; ]] &amp;&amp; tmux -2 -S $TMUX) || (TMUX=&quot;&quot; tmux -2)</code></pre>
-<p>自动部署多窗口任务</p>
-<pre><code>touch ~/development.start
-chmod +x development.start
-
-
-tmux has-session -t development
-if [ $? != 0 ]
-then
-    tmux new-session -s development -n editor -d
-    tmux send-keys -t development &#39;vim&#39; C-m
-    tmux split-window -v -t development
-    tmux select-layout -t development main-horizontal
-    tmux new-window -n bash -t development
-    tmux new-window -n ssh -t development
-    tmux new-window -n mysql -t development
-    tmux new-window -n front-end -t development
-    tmux select-window -t development:1
-fi
-tmux attach -t development</code></pre>
-<p>执行文件</p>
-<pre><code>~/development.start</code></pre>
-<h4 id="visual-studio-code">Visual Studio Code</h4>
-<p>通过官方PPA来安装Ubuntu Make</p>
-<pre><code>sudo add-apt-repository ppa:ubuntu-desktop/ubuntu-make
-sudo apt-get update
-sudo apt-get install ubuntu-make</code></pre>
-<p>安装Ubuntu Make完后，接着使用下列命令安装Visual Studio Code</p>
-<pre><code>umake web visual-studio-code</code></pre>
-<p>卸载命令</p>
-<pre><code>umake web visual-studio-code --remove</code></pre>
-<h4 id="wine">wine</h4>
-<p>卸载wineqq</p>
-<pre><code>sudo dpkg -l | grep qq  # 找到安装包名称   
-sudo dpkg -r wine-qq7.8-longeneteam # 卸载</code></pre>
-<h4 id="curl-http请求">curl http请求</h4>
-<pre><code>curl &quot;http://www.baidu.com&quot; # 如果这里的URL指向的是一个文件或者一幅图都可以直接下载到本地  
-curl -i &quot;http://www.baidu.com&quot; # 显示全部信息  
-curl -l &quot;http://www.baidu.com&quot; # 只显示头部信息  
-curl -v &quot;http://www.baidu.com&quot; # 显示get请求全过程解析    
-curl -d &quot;param1=value1¶m2=value2&quot; &quot;http://www.baidu.com&quot; # post请求  </code></pre>
-<h4 id="安卓虚拟机genymotion">安卓虚拟机genymotion</h4>
-<p>前提必须安装virtualBox<br>
-下载地址: https://www.genymotion.com/download/<br>
-需要先注册,下载后执行</p>
-<pre><code>chmod +x genymotion-2.2.2_x64.bin
-./genymotion-2.2.2_x64.bin -d /home/user</code></pre>
-<p>执行home/user/genymotion/genymotion</p>
-<h4 id="安装为知笔记">安装为知笔记</h4>
-<p>简易版本</p>
-<pre><code>http://ppa.launchpad.net/wiznote-team/ppa/ubuntu/pool/main/w/wiznote/</code></pre>
-<p>编译安装</p>
-<pre><code>http://www.wiz.cn/compile-client.html</code></pre>
-<p>chrome安装扩展</p>
-<pre><code>https://chrome.google.com/webstore/detail/wiznote-web-clipper/jfanfpmalehkemdiiebjljddhgojhfab/related?hl=zh-CN</code></pre>
-<h4 id="安装系统状态指示器">安装系统状态指示器</h4>
-<pre><code>sudo add-apt-repository ppa:indicator-multiload/stable-daily
-
-sudo apt-get update
-
-sudo apt-get install indicator-multiload</code></pre>
-<h4 id="安装albert搜索框">安装albert搜索框</h4>
-<pre><code>sudo add-apt-repository ppa:noobslab/macbuntu
-sudo apt-get update
-sudo apt-get install albert
-设置快捷键Ctrl+/ 样式NUMIX</code></pre>
-<h4 id="下载特殊文件">下载特殊文件</h4>
-<pre><code>sudo apt-get install ktorrent
-sudo apt-get install amule</code></pre>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2016/11/09/python入门基础/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhuohanchang">
-      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="饱读诗书">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2016/11/09/python入门基础/" class="post-title-link" itemprop="url">python入门基础</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2016-11-09 10:46:24" itemprop="dateCreated datePublished" datetime="2016-11-09T10:46:24+08:00">2016-11-09</time>
-            </span>
-          
-
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-07-24 09:31:12" itemprop="dateModified" datetime="2019-07-24T09:31:12+08:00">2019-07-24</time>
-              </span>
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/后端/" itemprop="url" rel="index"><span itemprop="name">后端</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="linux源码安装适合生产环境">1. linux源码安装（适合生产环境）</h4>
-<p>安装python3.x.x <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># 以centos系统安装python3.6.6为例</span><br><span class="line">$ sudo yum groupinstall &quot;Development tools&quot;</span><br><span class="line">$ sudo yum install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel</span><br><span class="line">$ wget https://www.python.org/ftp/python/3.6.6/Python-3.6.6.tar.xz</span><br><span class="line">$ tar -xJf Python-3.6.6.tar.xz</span><br><span class="line">$ cd Python-3.6.6</span><br><span class="line">$ ./configure --prefix=/usr/local/python3  # 编译配置</span><br><span class="line">$ sudo make</span><br><span class="line">$ sudo make install</span><br><span class="line"># 创建软链接</span><br><span class="line">$ ln -s /usr/local/python3/bin/python3 /usr/bin/python3</span><br><span class="line">$ ln -s /usr/local/python3/bin/pip3 /usr/bin/pip3</span><br></pre></td></tr></table></figure></p>
-<p>安装虚拟环境</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install python-virtualenv  # centos</span><br></pre></td></tr></table></figure>
-<p>创建项目</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ virtualenv --no-site-packages -p /usr/bin/python3 .env-project</span><br><span class="line">$ source.env-project/bin/active  # 进入虚拟环境</span><br><span class="line">(.env-project) deactive  # 退出虚拟环境</span><br></pre></td></tr></table></figure>
-<h4 id="pyenv安装适合开发环境">2. pyenv安装(适合开发环境)</h4>
-<p>安装pyenv</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer | bash</span><br></pre></td></tr></table></figure>
-<p>设置环境变量</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vim ~/.zshrc  # 具体文件看自己的终端工具</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export PATH=$HOME/.pyenv/bin:$PATH</span><br><span class="line">eval &quot;$(pyenv init -)&quot;</span><br><span class="line">eval &quot;$(pyenv virtualenv-init -)&quot;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ source ~/.zshrc</span><br></pre></td></tr></table></figure>
-<p>检查环境</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pyenv doctor  # 如有错误，根据自己的环境解决</span><br></pre></td></tr></table></figure>
-<p>安装python3.x.x</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pyenv install 3.6.6</span><br></pre></td></tr></table></figure>
-<p>如果pyenv下载文件缓慢，可以先下载文件到缓存中</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cd ~/.pyenv/cache  # 没有则创建文件</span><br><span class="line">$ wget https://www.python.org/ftp/python/3.6.6/Python-3.6.6.tar.xz</span><br><span class="line">$ pyenv install 3.6.6</span><br></pre></td></tr></table></figure>
-<p>依次安装python3.7.3 python2.7.10</p>
-<p>查看当前系统所有python版本</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ pyenv versions</span><br><span class="line">* system (set by /home/zhc/.pyenv/version)</span><br><span class="line">  2.7.10</span><br><span class="line">  3.6.6</span><br><span class="line">  3.7.3</span><br></pre></td></tr></table></figure>
-<p>pyenv系统级别global切换版本&lt;pyenv目录级别local切换版本&lt;pyenv当前shell级别切换版本</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ pyenv global 3.6.6                                                                 </span><br><span class="line">$ pyenv version                                                                     </span><br><span class="line">3.6.6 (set by /home/zhc/.pyenv/version)                                                 </span><br><span class="line">$ pyenv global 3.7.3</span><br><span class="line">$ pyenv version</span><br><span class="line">3.7.3 (set by /home/zhc/.pyenv/version)</span><br><span class="line">$ pyenv shell 3.6.6</span><br><span class="line">$ pyenv version</span><br><span class="line">3.6.6 (set by PYENV_VERSION environment variable) </span><br><span class="line">$ pyenv local 3.6.6  # 会在当前文件夹下创建.python-version文件，存储虚拟环境名称</span><br></pre></td></tr></table></figure>
-<p>pyenv安装虚拟环境</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pyenv virtualenv 3.6.6 test-3.6.6</span><br><span class="line">pyenv virtualenv 3.7.3 test-3.7.3</span><br></pre></td></tr></table></figure>
-<p>pyenv删除虚拟环境</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pyenv uninstall test-3.6.6</span><br></pre></td></tr></table></figure>
-<p>pyenv查看全部虚拟环境</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ pyenv virtualenvs                                                                 </span><br><span class="line">  3.6.6/envs/test-3.6.6 (created from /home/zhc/.pyenv/versions/3.6.6)                 </span><br><span class="line">  3.7.3/envs/test-3.7.3 (created from /home/zhc/.pyenv/versions/3.7.3)                 </span><br><span class="line">  test-3.6.6 (created from /home/zhc/.pyenv/versions/3.6.6)</span><br><span class="line">  test-3.7.3 (created from /home/zhc/.pyenv/versions/3.7.3)</span><br></pre></td></tr></table></figure>
-<p>切换虚拟环境</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ pyenv activate test-3.6.6</span><br><span class="line">$ pyenv local test-3.6.6</span><br><span class="line">$ source deactivate</span><br></pre></td></tr></table></figure>
-<p>pyenv重建环境变量</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pyenv rehash</span><br></pre></td></tr></table></figure>
-<h4 id="源码安装python2.7.9">源码安装python2.7.9</h4>
-<pre><code>$ sudo apt-get install -y openssl
-$ sudo apt-get install -y libssl-dev # 即 openssl-devel
-$ sudo apt-get install -y libffi-dev # 即 libffi-devel
-$ sudo apt-get install -y python-openssl
-$ sudo apt-get install libbz2-dev
-$ sudo apt-get install libxml2-dev
-$ sudo apt-get install libxslt1-dev
-$ sudo apt-get install sqlite3 libsqlite3-dev
-$ sudo apt-get install libmysqlclient-dev
-
-
-wget -c https://www.python.org/ftp/python/2.7.9/Python-2.7.9.tgz  
-tar -xzvf Python-2.7.9.tgz  
-cd Python-2.7.9/ </code></pre>
-<p>修改源码，支持ssl</p>
-<pre><code>vim Modules/Setup.dist
-
-
-# Socket module helper for SSL support; you must comment out the other
-# socket line above, and possibly edit the SSL variable:
-#SSL=/usr/local/ssl
-#_ssl _ssl.c \
-#        -DUSE_SSL -I$(SSL)/include -I$(SSL)/include/openssl \
-#        -L$(SSL)/lib -lssl -lcrypto</code></pre>
-<p>改成</p>
-<pre><code># Socket module helper for SSL support; you must comment out the other
-# socket line above, and possibly edit the SSL variable:
-SSL=/usr/local/ssl
-_ssl _ssl.c \
-        -DUSE_SSL -I$(SSL)/include -I$(SSL)/include/openssl \
-
-        -L$(SSL)/lib -lssl -lcrypto
-
-
-LDFLAGS=&quot;-L/usr/lib/x86_64-linux-gnu&quot; ./configure  
-make  
-sudo make install</code></pre>
-<h4 id="虚拟环境搭建">虚拟环境搭建</h4>
-<p>安装</p>
-<pre><code>sudo apt-get install python-virtualenv</code></pre>
-<p>创建虚拟环境</p>
-<pre><code>cd ~/var/www
-virtualenv --no-site-packages -p /usr/local/bin/python Novel # 参数表示不安装系统已经安装的第三方包, -p表示用哪个版本的python</code></pre>
-<p>启用虚拟环境</p>
-<pre><code>cd /var/www/Novel
-source ./bin/activate</code></pre>
-<p>虚拟环境安装包</p>
-<pre><code>(Novel) pip isntall django==1.8.2 # 不能加sudo</code></pre>
-<p>退出虚拟环境，进入正常环境</p>
-<pre><code>deactivate</code></pre>
-<p>虚拟环境复制</p>
-<pre><code>pip freeze &gt; requirements.txt
-pip install -r requirements.txt</code></pre>
-<h4 id="pip安装超时">pip安装超时</h4>
-<pre><code>pip --default-timeout=100 install -U pip</code></pre>
-<h4 id="安装python-mysql">安装python-mysql</h4>
-<pre><code>sudo apt-get install python-setuptools
-
-sudo apt-get install libmysqld-dev
-
-sudo apt-get install libmysqlclient-dev
-
-sudo apt-get install python-dev
-
-sudo easy_install mysql-python</code></pre>
-<p>在终端输入以下内容,不报错则表示成功</p>
-<pre><code>import MySQLdb</code></pre>
-<h4 id="获取文件修改时间">获取文件修改时间</h4>
-<pre><code>import time
-filemt= time.localtime(os.stat(filename).st_mtime)  #文件修改时间
-filect = time.localtime(os.stat(filename).st_ctime)  #文件创建
-print time.strftime(&quot;%Y-%m-%d&quot;,filemt)  
-print time.strftime(&quot;%Y-%m-%d&quot;,filect)</code></pre>
-<h4 id="获取多少天以前的时间">获取多少天以前的时间</h4>
-<pre><code>import datetime
-# 30天以前的日期
-date_time = (datetime.datetime.now() - datetime.timedelta(days=30)).strftime(&quot;%Y-%m-%d&quot;)
-print date_time</code></pre>
-<h4 id="去除列表重复项内容">去除列表重复项内容</h4>
-<pre><code># 如果列表里面内容为字典
-f = lambda x,y:x if y in x else x + [y]
-products = reduce(f, [[], ] + products_query)
-print products
-
-# 如果列表里面内容为字符串
-l1 = [&#39;b&#39;,&#39;c&#39;,&#39;d&#39;,&#39;b&#39;,&#39;c&#39;,&#39;a&#39;,&#39;a&#39;]
-l2 = list(set(l1))
-print l2
-# 保持原来的顺序
-l1 = [&#39;b&#39;,&#39;c&#39;,&#39;d&#39;,&#39;b&#39;,&#39;c&#39;,&#39;a&#39;,&#39;a&#39;]
-l2 = sorted(set(l1),key=l1.index)
-print l2</code></pre>
-<h4 id="md5hash加密">md5，hash加密</h4>
-<pre><code>import hashlib
-data =  &#39;This a md5 test!&#39;
-hash_md5 = hashlib.md5(data)  # md5
-hash_md5.hexdigest()
-
-hashlib.sha1(&#39;This is a sha1 test!&#39;).hexdigest() # sha1</code></pre>
-<h4 id="打印输出对象">打印输出对象</h4>
-<pre><code>from pprint import pprint
-pprint(vars(object))</code></pre>
-<h1 id="windows安装python相关环境">windows安装python相关环境</h1>
-<h4 id="安装虚拟环境">安装虚拟环境</h4>
-<pre><code># 安装包
-pip install virtualenv
-# 创建虚拟环境env
-virtualenv.exe  env
-# 开启虚拟环境
-./scripts/active
-# 退出虚拟环境
-deactivate</code></pre>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -3200,7 +2969,7 @@ deactivate</code></pre>
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">68</span>
+          <span class="site-state-item-count">70</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

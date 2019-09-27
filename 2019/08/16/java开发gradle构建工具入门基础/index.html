@@ -105,7 +105,7 @@
 <meta property="og:site_name" content="饱读诗书">
 <meta property="og:description" content="linux安装gradle 1234# 从官网下载二进制包# https://gradle.org/install/$ unzip unzip gradle-5.6-all.zip$ sudo mv gradle-5.6 /usr/java_jar 12# 添加环境变量$ sudo vim /etc/profile 12# 最后添加export PATH=$PATH:/usr/java_jar/g">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-16T08:21:46.724Z">
+<meta property="og:updated_time" content="2019-08-21T07:55:32.091Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java开发gradle构建工具入门基础">
 <meta name="twitter:description" content="linux安装gradle 1234# 从官网下载二进制包# https://gradle.org/install/$ unzip unzip gradle-5.6-all.zip$ sudo mv gradle-5.6 /usr/java_jar 12# 添加环境变量$ sudo vim /etc/profile 12# 最后添加export PATH=$PATH:/usr/java_jar/g">
@@ -246,7 +246,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">68</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">70</span></a>
 
   </li>
 
@@ -366,13 +366,23 @@
                 
               
 
-              <time title="Created: 2019-08-16 10:40:45 / Modified: 16:21:46" itemprop="dateCreated datePublished" datetime="2019-08-16T10:40:45+08:00">2019-08-16</time>
+              <time title="Created: 2019-08-16 10:40:45" itemprop="dateCreated datePublished" datetime="2019-08-16T10:40:45+08:00">2019-08-16</time>
             </span>
           
 
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-08-21 15:55:32" itemprop="dateModified" datetime="2019-08-21T15:55:32+08:00">2019-08-21</time>
+              </span>
             
           
 
@@ -416,7 +426,11 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 最后添加</span><br><span class="line">export PATH=$PATH:/usr/java_jar/gradle-5.6/bin</span><br></pre></td></tr></table></figure>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 验证</span><br><span class="line"><span class="meta">$</span> gradle -v</span><br><span class="line">Welcome to Gradle 5.6!</span><br><span class="line"></span><br><span class="line">Here are the highlights of this release:</span><br><span class="line"> - Incremental Groovy compilation</span><br><span class="line"> - Groovy compile avoidance</span><br><span class="line"> - Test fixtures for Java projects</span><br><span class="line"> - Manage plugin versions via settings script</span><br><span class="line"></span><br><span class="line">For more details see https://docs.gradle.org/5.6/release-notes.html</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">------------------------------------------------------------</span><br><span class="line">Gradle 5.6</span><br><span class="line">------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">Build time:   2019-08-14 21:05:25 UTC</span><br><span class="line">Revision:     f0b9d60906c7b8c42cd6c61a39ae7b74767bb012</span><br><span class="line"></span><br><span class="line">Kotlin:       1.3.41</span><br><span class="line">Groovy:       2.5.4</span><br><span class="line">Ant:          Apache Ant(TM) version 1.9.14 compiled on March 12 2019</span><br><span class="line">JVM:          11.0.4 (Oracle Corporation 11.0.4+10-LTS)</span><br><span class="line">OS:           Linux 4.19.49-1-MANJARO amd64</span><br></pre></td></tr></table></figure>
 <h4 id="配置gradle">配置gradle</h4>
+<h5 id="项目配置国内源">项目配置国内源</h5>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 配置国内aliyun源</span><br><span class="line">repositories &#123;</span><br><span class="line">    maven &#123;url 'http://maven.aliyun.com/nexus/content/groups/public/'&#125;</span><br><span class="line">    mavenCentral()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="全局配置国内源">全局配置国内源</h5>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.gradle/init.gradle</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">allprojects&#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">        def REPOSITORY_URL = 'http://maven.aliyun.com/nexus/content/groups/public/'</span><br><span class="line">        all &#123; ArtifactRepository repo -&gt;</span><br><span class="line">            if(repo instanceof MavenArtifactRepository)&#123;</span><br><span class="line">                def url = repo.url.toString()</span><br><span class="line">                if (url.startsWith('https://repo1.maven.org/maven2') || url.startsWith('https://jcenter.bintray.com/')) &#123;</span><br><span class="line">                    project.logger.lifecycle "Repository $&#123;repo.url&#125; replaced by $REPOSITORY_URL."</span><br><span class="line">                    remove repo</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        maven &#123;</span><br><span class="line">            url REPOSITORY_URL</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -553,7 +567,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">68</span>
+          <span class="site-state-item-count">70</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -660,7 +674,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#linux安装gradle"><span class="nav-number">1.</span> <span class="nav-text">linux安装gradle</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置gradle"><span class="nav-number">2.</span> <span class="nav-text">配置gradle</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#linux安装gradle"><span class="nav-number">1.</span> <span class="nav-text">linux安装gradle</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置gradle"><span class="nav-number">2.</span> <span class="nav-text">配置gradle</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#项目配置国内源"><span class="nav-number">2.1.</span> <span class="nav-text">项目配置国内源</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#全局配置国内源"><span class="nav-number">2.2.</span> <span class="nav-text">全局配置国内源</span></a></li></ol></li></ol></div>
             
 
           </div>

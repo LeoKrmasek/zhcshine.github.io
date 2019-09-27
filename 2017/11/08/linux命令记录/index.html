@@ -105,7 +105,7 @@
 <meta property="og:site_name" content="饱读诗书">
 <meta property="og:description" content="查看文件夹大小 1du -h your_path --max-depth=1 参数： &amp;gt; -a或-all 为每个指定文件显示磁盘使用情况，或者为目录中每个文件显示各自磁盘使用情况。  -b或-bytes 显示目录或文件大小时，以byte为单位。   -c或–total 除了显示目录或文件的大小外，同时也显示所有目录或文件的总和。   -D或–dereference-args 显示指定符号连接">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-24T10:05:19.961Z">
+<meta property="og:updated_time" content="2019-08-23T01:38:50.012Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux命令记录">
 <meta name="twitter:description" content="查看文件夹大小 1du -h your_path --max-depth=1 参数： &amp;gt; -a或-all 为每个指定文件显示磁盘使用情况，或者为目录中每个文件显示各自磁盘使用情况。  -b或-bytes 显示目录或文件大小时，以byte为单位。   -c或–total 除了显示目录或文件的大小外，同时也显示所有目录或文件的总和。   -D或–dereference-args 显示指定符号连接">
@@ -246,7 +246,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">68</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">70</span></a>
 
   </li>
 
@@ -381,7 +381,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-24 18:05:19" itemprop="dateModified" datetime="2019-07-24T18:05:19+08:00">2019-07-24</time>
+                <time title="Modified: 2019-08-23 09:38:50" itemprop="dateModified" datetime="2019-08-23T09:38:50+08:00">2019-08-23</time>
               </span>
             
           
@@ -504,6 +504,8 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 可以执行下面的命令检查是否 /opt/gtk/lib/pkgconfig 路径已经设置在PKG_CONFIG_PATH环境变量中：</span><br><span class="line">echo $PKG_CONFIG_PATH</span><br></pre></td></tr></table></figure>
 <p><strong>原理</strong> 正常情况下，库文件在编译通过后会生成prefix/lib/pkgconfig目录，目录下会包含.pc文件，例如：  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> ls -la /usr/include/gtk3.24/lib/pkgconfig</span><br><span class="line">总用量 40</span><br><span class="line">drwxr-xr-x 2 root root 4096  7月 24 15:56 .</span><br><span class="line">drwxr-xr-x 4 root root 4096  7月 24 15:56 ..</span><br><span class="line">-rw-r--r-- 1 root root  277  7月 24 15:56 gail-3.0.pc</span><br><span class="line">-rw-r--r-- 1 root root  608  7月 24 15:56 gdk-3.0.pc</span><br><span class="line">-rw-r--r-- 1 root root  608  7月 24 15:56 gdk-wayland-3.0.pc</span><br><span class="line">-rw-r--r-- 1 root root  608  7月 24 15:56 gdk-x11-3.0.pc</span><br><span class="line">-rw-r--r-- 1 root root  631  7月 24 15:56 gtk+-3.0.pc</span><br><span class="line">-rw-r--r-- 1 root root  405  7月 24 15:56 gtk+-unix-print-3.0.pc</span><br><span class="line">-rw-r--r-- 1 root root  631  7月 24 15:56 gtk+-wayland-3.0.pc</span><br><span class="line">-rw-r--r-- 1 root root  631  7月 24 15:56 gtk+-x11-3.0.pc</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> vim gtk+-3.0</span><br><span class="line"></span><br><span class="line">prefix=/usr/include/gtk3.24</span><br><span class="line">exec_prefix=$&#123;prefix&#125;</span><br><span class="line">libdir=$&#123;exec_prefix&#125;/lib</span><br><span class="line">includedir=$&#123;prefix&#125;/include</span><br><span class="line">targets=x11 wayland</span><br><span class="line"> </span><br><span class="line">gtk_binary_version=3.0.0</span><br><span class="line">gtk_host=x86_64-pc-linux-gnu</span><br><span class="line"> </span><br><span class="line">Name: GTK+</span><br><span class="line">Description: GTK+ Graphical UI Library</span><br><span class="line">Version: 3.24.10</span><br><span class="line">Requires: gdk-3.0 atk &gt;= 2.15.1 cairo &gt;= 1.14.0 cairo-gobject &gt;= 1.14.0 gdk-pixbuf-2.0 &gt;= 2.30.0 gio-2.0 &gt;= 2.53.4                                                                                        </span><br><span class="line">Requires.private: atk atk-bridge-2.0 wayland-client &gt;= 1.9.91 wayland-protocols &gt;= 1.12 xkbcommon &gt;= 0.2.0 wayland-cursor &gt;= 1.9.91 wayland-egl  epoxy &gt;= 1.4 fribidi &gt;= 0.19.7 pangoft2 gio-unix-2.0 &gt;= 2</span><br><span class="line">Libs: -L$&#123;libdir&#125; -lgtk-3</span><br><span class="line">Cflags: -I$&#123;includedir&#125;/gtk-3.0</span><br></pre></td></tr></table></figure>
+<h4 id="端口与进程">端口与进程</h4>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo netstat -nap | grep 5555  # 查看指定端口被什么应用及进程号占用</span><br><span class="line">tcp        0      0 0.0.0.0:5555            0.0.0.0:*               LISTEN      8362/python</span><br><span class="line">tcp6       0      0 :::5555                 :::*                    LISTEN      8362/python</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span> sudo netstat -nap | grep 8362  # 同上，查看端口号</span><br><span class="line">tcp        0      0 0.0.0.0:5555            0.0.0.0:*               LISTEN      8362/python                                       │apps                 product.sh        tmp</span><br><span class="line">tcp6       0      0 :::5555                 :::*                    LISTEN      8362/python                                       │➜  api git:(master) source .env/bin/activate</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     75201340 8362/python                                                            │(.env) ➜  api git:(master) pwd</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     75201341 8362/python                          </span><br><span class="line"></span><br><span class="line"><span class="meta">$</span> sudo kill -s 9 pid  # 杀死进程pid</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -636,7 +638,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">68</span>
+          <span class="site-state-item-count">70</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -743,7 +745,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#查看文件夹大小"><span class="nav-number">1.</span> <span class="nav-text">查看文件夹大小</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pkg-config"><span class="nav-number">2.</span> <span class="nav-text">pkg-config</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#查看文件夹大小"><span class="nav-number">1.</span> <span class="nav-text">查看文件夹大小</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pkg-config"><span class="nav-number">2.</span> <span class="nav-text">pkg-config</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#端口与进程"><span class="nav-number">3.</span> <span class="nav-text">端口与进程</span></a></li></ol></div>
             
 
           </div>

@@ -246,7 +246,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">68</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">70</span></a>
 
   </li>
 
@@ -307,6 +307,481 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2019/09/27/docker入门基础/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhuohanchang">
+      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="饱读诗书">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/09/27/docker入门基础/" class="post-title-link" itemprop="url">docker入门基础</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-09-27 11:07:09 / Modified: 14:25:38" itemprop="dateCreated datePublished" datetime="2019-09-27T11:07:09+08:00">2019-09-27</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="安装-centos7.2">安装 centos7.2</h4>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> https://docs.docker.com/install/linux/docker-ce/centos/#install-docker-ce</span><br><span class="line"><span class="meta">#</span> 卸载旧版本</span><br><span class="line"><span class="meta">$</span> sudo yum remove docker docker-client docker-client-latest docker-common docker-latest docker-latest-logrotate docker-logrotate docker-selinux docker-engine-selinux docker-engine</span><br><span class="line"><span class="meta">#</span> 安装依赖包</span><br><span class="line"><span class="meta">$</span> sudo yum install -y yum-utils device-mapper-persistent-data lvm2</span><br><span class="line"><span class="meta">#</span> 安装源</span><br><span class="line"><span class="meta">$</span> sudo yum-config-manager  --add-repo https://download.docker.com/linux/centos/docker-ce.repo</span><br><span class="line"><span class="meta">#</span> 安装</span><br><span class="line"><span class="meta">$</span> sudo yum install docker-ce</span><br><span class="line"><span class="meta">#</span> 启动</span><br><span class="line"><span class="meta">$</span> sudo systemctl start docker</span><br><span class="line"><span class="meta">$</span> sudo systemctl enable docker</span><br><span class="line"><span class="meta">#</span> 测试</span><br><span class="line"><span class="meta">$</span> sudo docker run hello-world</span><br><span class="line"><span class="meta">#</span> 加入用户组(记得退出重新登录) https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user</span><br><span class="line"><span class="meta">#</span> 安装docker-compose</span><br><span class="line"><span class="meta">$</span> sudo yum install epel-release</span><br><span class="line"><span class="meta">$</span> sudo yum install python-pip</span><br><span class="line"><span class="meta">$</span> sudo pip install docker-compose</span><br><span class="line"><span class="meta">#</span> 换源https://lug.ustc.edu.cn/wiki/mirrors/help/docker</span><br></pre></td></tr></table></figure>
+<h4 id="配置国内镜像源">配置国内镜像源</h4>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo vim /etc/docker/daemon.json</span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"registry-mirrors"</span>: [<span class="string">"http://hub-mirror.c.163.com"</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 重启</span><br><span class="line"><span class="meta">$</span> sudo systemctl restart docker.service</span><br></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">常见国内源</span><br><span class="line"></span><br><span class="line">Docker中国 https://registry.docker-cn.com</span><br><span class="line">网易 http://hub-mirror.c.163.com</span><br><span class="line">ustc  https://docker.mirrors.ustc.edu.cn</span><br><span class="line">中国科技大学 https://docker.mirrors.ustc.edu.cn</span><br><span class="line">阿里云 https://cr.console.aliyun.com/</span><br></pre></td></tr></table></figure>
+<h4 id="docker-container-容器">docker container 容器</h4>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 查看全部运行的容器</span><br><span class="line"><span class="meta">$</span> sudo docker ps</span><br><span class="line"><span class="meta">#</span> 删除容器</span><br><span class="line"><span class="meta">$</span> sudo docker rm container_id</span><br></pre></td></tr></table></figure>
+<h4 id="docker-image-镜像">docker image 镜像</h4>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 查看安装的镜像</span><br><span class="line"><span class="meta">$</span> sudo docker images</span><br><span class="line"><span class="meta">#</span> 删除镜像</span><br><span class="line">sudo docker rmi iamge_id</span><br></pre></td></tr></table></figure>
+<h4 id="dockerfile编写">Dockerfile编写</h4>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim Dockerfile</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 制作镜像</span><br><span class="line"><span class="meta">$</span> sudo docker build -t zhcshine:docker-sde/tag</span><br></pre></td></tr></table></figure>
+<p>登录到hub.docker.com <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo docker login:</span><br><span class="line">username:</span><br><span class="line">password:</span><br><span class="line">Login Succeeded</span><br></pre></td></tr></table></figure></p>
+<p>推送到hub.docker.com <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo docker push zhcshine:docker-sde</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2019/09/09/centos7.2安装使用svn/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhuohanchang">
+      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="饱读诗书">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/09/09/centos7.2安装使用svn/" class="post-title-link" itemprop="url">centos7.2安装使用svn</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-09-09 13:28:47 / Modified: 13:57:47" itemprop="dateCreated datePublished" datetime="2019-09-09T13:28:47+08:00">2019-09-09</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 安装</span><br><span class="line"><span class="meta">$</span> sudo yum install subversion</span><br><span class="line"><span class="meta">#</span> 查看svn目录</span><br><span class="line"><span class="meta">$</span> which svnserve</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> mkdir ~/svn</span><br><span class="line"><span class="meta">$</span> svnadmin create ~/svn/repo0  # 创建repo0仓库</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 配置repo0</span><br><span class="line"><span class="meta">$</span> vim ~/svn/repo0/conf/svnserve.conf</span><br><span class="line">anon-access = none</span><br><span class="line">auth-access = write</span><br><span class="line">password-db = ../../passwd  # 密码文件地址</span><br><span class="line">authz-db = ../../authz      # 权限认证文件地址</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 配置密码文件</span><br><span class="line"><span class="meta">$</span> vim ~/svn/passwd</span><br><span class="line"><span class="meta">#</span>## This file is an example password file for svnserve.</span><br><span class="line"><span class="meta">#</span>## Its format is similar to that of svnserve.conf. As shown in the</span><br><span class="line"><span class="meta">#</span>## example below it contains one section labelled [users].</span><br><span class="line"><span class="meta">#</span>## The name and password for each user follow, one account per line.</span><br><span class="line">[users]</span><br><span class="line">test = testpassword</span><br><span class="line">dev = devpassword</span><br><span class="line">product = productpassword</span><br><span class="line">ui = uipassword</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 配置权限认证文件</span><br><span class="line"><span class="meta">$</span> vim ~/svn/authz</span><br><span class="line"></span><br><span class="line">[aliases]</span><br><span class="line"><span class="meta">#</span> joe = /C=XZ/ST=Dessert/L=Snake City/O=Snake Oil, Ltd./OU=Research Institute/CN=Joe Average</span><br><span class="line"></span><br><span class="line">[groups]</span><br><span class="line"><span class="meta">#</span> harry_and_sally = harry,sally</span><br><span class="line"><span class="meta">#</span> harry_sally_and_joe = harry,sally,&amp;joe</span><br><span class="line">dev = dev</span><br><span class="line">ui = ui</span><br><span class="line">product = product</span><br><span class="line">test = test</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> [/foo/bar]</span><br><span class="line"><span class="meta">#</span> harry = rw</span><br><span class="line"><span class="meta">#</span> &amp;joe = r</span><br><span class="line"><span class="meta">#</span> * =</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> [repository:/baz/fuz]</span><br><span class="line"><span class="meta">#</span> @harry_and_sally = rw</span><br><span class="line"><span class="meta">#</span> * = r</span><br><span class="line"></span><br><span class="line">[repo0:/]</span><br><span class="line">dev = r</span><br><span class="line">test = r</span><br><span class="line">product = wr</span><br><span class="line">ui = wr</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 关闭并重启</span><br><span class="line">sudo killall svnserve</span><br><span class="line">svnserve -d -r ~/svn</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">svn --username=username co svn://svn.xxxx.com/repo0  # 克隆项目</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2019/08/21/android开发入门基础/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhuohanchang">
+      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="饱读诗书">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/08/21/android开发入门基础/" class="post-title-link" itemprop="url">android开发入门基础</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-08-21 09:48:28 / Modified: 10:26:06" itemprop="dateCreated datePublished" datetime="2019-08-21T09:48:28+08:00">2019-08-21</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="linux安装环境">linux安装环境</h4>
+<h5 id="安装android-studio">安装android-studio</h5>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> archlinux</span><br><span class="line"><span class="meta">$</span> git clone https://aur.archlinux.org/android-studio.git</span><br><span class="line"><span class="meta">$</span> makepkg -si</span><br></pre></td></tr></table></figure>
+<h5 id="安装sdk">安装sdk</h5>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> https://www.androiddevtools.cn/</span><br><span class="line"><span class="meta">#</span> 下载 SDK Tools并解压</span><br><span class="line"><span class="meta">$</span> tar -zxvf android-sdk_r24.4.1-linux.tar</span><br><span class="line"><span class="meta">$</span> mv android-sdk-linux ~/android</span><br><span class="line"><span class="meta">#</span> 下载 SDK并解压</span><br><span class="line"><span class="meta">$</span> mv android-5.0 ~/android/android-sdk-linux/platforms</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -997,13 +1472,23 @@
                 
               
 
-              <time title="Created: 2019-08-16 10:40:45 / Modified: 16:21:46" itemprop="dateCreated datePublished" datetime="2019-08-16T10:40:45+08:00">2019-08-16</time>
+              <time title="Created: 2019-08-16 10:40:45" itemprop="dateCreated datePublished" datetime="2019-08-16T10:40:45+08:00">2019-08-16</time>
             </span>
           
 
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-08-21 15:55:32" itemprop="dateModified" datetime="2019-08-21T15:55:32+08:00">2019-08-21</time>
+              </span>
             
           
 
@@ -1049,7 +1534,11 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 最后添加</span><br><span class="line">export PATH=$PATH:/usr/java_jar/gradle-5.6/bin</span><br></pre></td></tr></table></figure>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 验证</span><br><span class="line"><span class="meta">$</span> gradle -v</span><br><span class="line">Welcome to Gradle 5.6!</span><br><span class="line"></span><br><span class="line">Here are the highlights of this release:</span><br><span class="line"> - Incremental Groovy compilation</span><br><span class="line"> - Groovy compile avoidance</span><br><span class="line"> - Test fixtures for Java projects</span><br><span class="line"> - Manage plugin versions via settings script</span><br><span class="line"></span><br><span class="line">For more details see https://docs.gradle.org/5.6/release-notes.html</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">------------------------------------------------------------</span><br><span class="line">Gradle 5.6</span><br><span class="line">------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">Build time:   2019-08-14 21:05:25 UTC</span><br><span class="line">Revision:     f0b9d60906c7b8c42cd6c61a39ae7b74767bb012</span><br><span class="line"></span><br><span class="line">Kotlin:       1.3.41</span><br><span class="line">Groovy:       2.5.4</span><br><span class="line">Ant:          Apache Ant(TM) version 1.9.14 compiled on March 12 2019</span><br><span class="line">JVM:          11.0.4 (Oracle Corporation 11.0.4+10-LTS)</span><br><span class="line">OS:           Linux 4.19.49-1-MANJARO amd64</span><br></pre></td></tr></table></figure>
 <h4 id="配置gradle">配置gradle</h4>
+<h5 id="项目配置国内源">项目配置国内源</h5>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 配置国内aliyun源</span><br><span class="line">repositories &#123;</span><br><span class="line">    maven &#123;url 'http://maven.aliyun.com/nexus/content/groups/public/'&#125;</span><br><span class="line">    mavenCentral()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="全局配置国内源">全局配置国内源</h5>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.gradle/init.gradle</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">allprojects&#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">        def REPOSITORY_URL = 'http://maven.aliyun.com/nexus/content/groups/public/'</span><br><span class="line">        all &#123; ArtifactRepository repo -&gt;</span><br><span class="line">            if(repo instanceof MavenArtifactRepository)&#123;</span><br><span class="line">                def url = repo.url.toString()</span><br><span class="line">                if (url.startsWith('https://repo1.maven.org/maven2') || url.startsWith('https://jcenter.bintray.com/')) &#123;</span><br><span class="line">                    project.logger.lifecycle "Repository $&#123;repo.url&#125; replaced by $REPOSITORY_URL."</span><br><span class="line">                    remove repo</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        maven &#123;</span><br><span class="line">            url REPOSITORY_URL</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
           
         
@@ -1200,13 +1689,13 @@
         
           
             <h4 id="linux安装maven">linux安装maven</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 从官网下载二进制包</span><br><span class="line"><span class="meta">#</span> http://maven.apache.org/download.cgi</span><br><span class="line"><span class="meta">$</span> wget http://mirrors.tuna.tsinghua.edu.cn/apache/maven/maven-3/3.6.1/binaries/apache-maven-3.6.1-bin.tar.gz</span><br><span class="line"><span class="meta">$</span> tar -xzvf apache-maven-3.6.1-bin.tar.gz</span><br><span class="line"><span class="meta">$</span> sudo mv apache-maven-3.6.1 /usr/java_jar</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 添加环境变量</span><br><span class="line"><span class="meta">$</span> sudo vim /etc/profile</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 最后添加</span><br><span class="line">export PATH=/opt/apache-maven-3.6.1/bin:$PATH</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 验证</span><br><span class="line"><span class="meta">$</span> mvn -v</span><br><span class="line">Apache Maven 3.6.1 (d66c9c0b3152b2e69ee9bac180bb8fcc8e6af555; 2019-04-05T03:00:29+08:00)</span><br><span class="line">Maven home: /usr/java_jar/apache-maven-3.6.1</span><br><span class="line">Java version: 11.0.4, vendor: Oracle Corporation, runtime: /usr/java/jdk-11.0.4</span><br><span class="line">Default locale: zh_CN, platform encoding: UTF-8</span><br><span class="line">OS name: "linux", version: "4.19.49-1-manjaro", arch: "amd64", family: "unix"</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 从官网下载二进制包</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> http://maven.apache.org/download.cgi</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> wget http://mirrors.tuna.tsinghua.edu.cn/apache/maven/maven-3/3.6.1/binaries/apache-maven-3.6.1-bin.tar.gz</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tar -xzvf apache-maven-3.6.1-bin.tar.gz</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo mv apache-maven-3.6.1 /usr/java_jar</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 添加环境变量</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo vim /etc/profile</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 最后添加</span></span><br><span class="line">export PATH=/opt/apache-maven-3.6.1/bin:$PATH</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 验证</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> mvn -v</span></span><br><span class="line">Apache Maven 3.6.1 (d66c9c0b3152b2e69ee9bac180bb8fcc8e6af555; 2019-04-05T03:00:29+08:00)</span><br><span class="line">Maven home: /usr/java_jar/apache-maven-3.6.1</span><br><span class="line">Java version: 11.0.4, vendor: Oracle Corporation, runtime: /usr/java/jdk-11.0.4</span><br><span class="line">Default locale: zh_CN, platform encoding: UTF-8</span><br><span class="line">OS name: "linux", version: "4.19.49-1-manjaro", arch: "amd64", family: "unix"</span><br></pre></td></tr></table></figure>
 <h4 id="常见命令">常见命令</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 创建一个项目</span><br><span class="line"><span class="meta">$</span> mvn archetype:generate</span><br><span class="line"><span class="meta">#</span> 选择版本</span><br><span class="line">Choose org.apache.maven.archetypes:maven-archetype-quickstart version:                                                                                                                                        </span><br><span class="line">1: 1.0-alpha-1                                                                                                                                                                                                </span><br><span class="line">2: 1.0-alpha-2                                                                                                                                                                                                </span><br><span class="line">3: 1.0-alpha-3                                                                                                                                                                                                </span><br><span class="line">4: 1.0-alpha-4                                                                                                                                                                                                </span><br><span class="line">5: 1.0                                                                                                                                                                                                        </span><br><span class="line">6: 1.1                                                                                                                                                                                                        </span><br><span class="line">7: 1.3                                                                                                                                                                                                        </span><br><span class="line">8: 1.4                                                                                                                                                                                                        </span><br><span class="line">Choose a number: 8:       </span><br><span class="line">Define value for property 'groupId': com.zhuohc.maven03         # groupID 项目名                                                                                                                                                        </span><br><span class="line">Define value for property 'artifactId': maven03-model           # artifactId 项目名-模块名                    </span><br><span class="line">Define value for property 'version' 1.0-SNAPSHOT: :             # version 版本                                                                                                                                                </span><br><span class="line">Define value for property 'package' com.zhuohc.maven03: :                                                                                                                                                      </span><br><span class="line">Confirm properties configuration:                                                                                                                                                                             </span><br><span class="line">groupId: com.zhuohc.maven03                                                                                                                                                                                    </span><br><span class="line">artifactId: maven03-model                                                                                                                                                                                           </span><br><span class="line">version: 1.0-SNAPSHOT                                                                                                                                                                                         </span><br><span class="line">package: com.zhuohc.maven03</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> mvn clean         # 删除</span><br><span class="line"><span class="meta">$</span> mvn compile       # 编译</span><br><span class="line"><span class="meta">$</span> mvn test          # 测试</span><br><span class="line"><span class="meta">$</span> mvn package       # 打包</span><br><span class="line"><span class="meta">$</span> mvn install       # 安装当前项目包到本地环境</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 创建一个项目</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> mvn archetype:generate</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 选择版本</span></span><br><span class="line">Choose org.apache.maven.archetypes:maven-archetype-quickstart version:                                                                                                                                        </span><br><span class="line">1: 1.0-alpha-1                                                                                                                                                                                                </span><br><span class="line">2: 1.0-alpha-2                                                                                                                                                                                                </span><br><span class="line">3: 1.0-alpha-3                                                                                                                                                                                                </span><br><span class="line">4: 1.0-alpha-4                                                                                                                                                                                                </span><br><span class="line">5: 1.0                                                                                                                                                                                                        </span><br><span class="line">6: 1.1                                                                                                                                                                                                        </span><br><span class="line">7: 1.3                                                                                                                                                                                                        </span><br><span class="line">8: 1.4                                                                                                                                                                                                        </span><br><span class="line">Choose a number: 8:       </span><br><span class="line">Define value for property 'groupId': com.zhuohc.maven03         # groupID 项目名                                                                                                                                                        </span><br><span class="line">Define value for property 'artifactId': maven03-model           # artifactId 项目名-模块名                    </span><br><span class="line">Define value for property 'version' 1.0-SNAPSHOT: :             # version 版本                                                                                                                                                </span><br><span class="line">Define value for property 'package' com.zhuohc.maven03: :                                                                                                                                                      </span><br><span class="line">Confirm properties configuration:                                                                                                                                                                             </span><br><span class="line">groupId: com.zhuohc.maven03                                                                                                                                                                                    </span><br><span class="line">artifactId: maven03-model                                                                                                                                                                                           </span><br><span class="line">version: 1.0-SNAPSHOT                                                                                                                                                                                         </span><br><span class="line">package: com.zhuohc.maven03</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> mvn clean         <span class="comment"># 删除</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> mvn compile       <span class="comment"># 编译</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> mvn <span class="built_in">test</span>          <span class="comment"># 测试</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> mvn package       <span class="comment"># 打包</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> mvn install       <span class="comment"># 安装当前项目包到本地环境</span></span></span><br></pre></td></tr></table></figure>
 <h4 id="修改下载源">修改下载源</h4>
 <p>修改pom.xml文件repositories属性，添加国内源地址，具体见pom.xml</p>
 <h4 id="pom.xml">pom.xml</h4>
@@ -1524,756 +2013,12 @@
             <h4 id="安装">安装</h4>
 <p><strong>开发环境</strong></p>
 <p><a href="https://github.com/nvm-sh/nvm" target="_blank" rel="noopener">安装nvm</a></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash</span></span><br></pre></td></tr></table></figure>
 <p>添加以下代码到~/.bashrc, ~/.profile, or ~/.zshrc</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export NVM_DIR="$HOME/.nvm"</span><br><span class="line">[ -s "$NVM_DIR/nvm.sh" ] &amp;&amp; \. "$NVM_DIR/nvm.sh"  # This loads nvm</span><br><span class="line">[ -s "$NVM_DIR/bash_completion" ] &amp;&amp; \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion</span><br></pre></td></tr></table></figure>
-<p>nvm命令 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> nvm install 6.14.4  # 安装or 10.10.0, 8.9.1, etc</span><br><span class="line"><span class="meta">$</span> nvm ls 查看</span><br></pre></td></tr></table></figure></p>
-<p>安装cnpm <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> npm --registry=https://registry.npm.taobao.org install cnpm -g</span><br></pre></td></tr></table></figure></p>
+<p>nvm命令 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> nvm install 6.14.4  <span class="comment"># 安装or 10.10.0, 8.9.1, etc</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> nvm ls 查看</span></span><br></pre></td></tr></table></figure></p>
+<p>安装cnpm <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm --registry=https://registry.npm.taobao.org install cnpm -g</span></span><br></pre></td></tr></table></figure></p>
 <h4 id="待续">待续</h4>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2019/07/26/linux守护进程/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhuohanchang">
-      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="饱读诗书">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/07/26/linux守护进程/" class="post-title-link" itemprop="url">linux守护进程</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-07-26 13:43:45 / Modified: 16:07:02" itemprop="dateCreated datePublished" datetime="2019-07-26T13:43:45+08:00">2019-07-26</time>
-            </span>
-          
-
-          
-            
-
-            
-          
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="什么是守护进程">什么是守护进程？</h4>
-<p><a href="https://zh.wikipedia.org/wiki/%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8B" target="_blank" rel="noopener">守护进程（Daemon Process）</a>，也就是通常说的 Daemon 进程（精灵进程），是 Linux 中的后台服务进程。它是一个生存期较长的进程，通常独立于控制终端并且周期性地执行某种任务或等待处理某些发生的事件。</p>
-<p>守护进程是个特殊的孤儿进程，这种进程脱离终端，为什么要脱离终端呢？之所以脱离于终端是为了避免进程被任何终端所产生的信息所打断，其在执行过程中的信息也不在任何终端上显示。由于在 Linux 中，每一个系统与用户进行交流的界面称为终端，每一个从此终端开始运行的进程都会依附于这个终端，这个终端就称为这些进程的控制终端，当控制终端被关闭时，相应的进程都会自动关闭。</p>
-<p>Linux 的大多数服务器就是用守护进程实现的。</p>
-<h4 id="守护进程的分类">守护进程的分类</h4>
-<p>根据守护进程的启动和管理方式，可以分为独立启动守护进程和超级守护进程两类</p>
-<p><strong>独立启动（stand_alone)</strong>:该类进程启动后就常驻内存，所以会一直占用系统资源。其最大的优点就是它会一直启动，当外界有要求时相应速度较快，像httpd等进程；</p>
-<p><strong>超级守护进程</strong>：系统启动时由一个统一的守护进程xinet来负责管理一些进程，当相应请求到来时需要通过xinet的转接才可以唤醒被xinet管理的进程。这种进程的优点时最初只有xinet这一守护进程占有系统资源，其他的内部服务并不一直占有系统资源，只有数据包到来时才会被xinet管理员来唤醒。并且我们还可以通过xinet来对它所管理的进程设置一些访问权限，相当于多了一层管理机制。 如果用两个比喻来形容两类守护进程的话一般会用银行的业务处理窗口来类比：</p>
-<p><strong>独立启动</strong>：银行里有一种单服务的窗口，像取钱，存钱等窗口，这些窗口边上始终会坐着一个人，如果有人来取钱或存钱，可以直接到相应的窗口去办理，这个处理单一服务的始终存在的人就是独立启动的守护进程；</p>
-<p><strong>超级守护进程</strong>：银行里还有一种窗口，提供综合服务，像汇款，转账，提款等业务；这种窗口附近也始终坐着一个人（xinet），她可能不提供具体的服务，提供具体服务的人在里面闲着聊天啊，喝茶啊，但是当有人来汇款时他会大声喊一句，小王，有人汇款啦，然后里面管汇款的小王会立马跑过来帮忙办完汇款业务。其他的人继续聊天，喝茶。这些负责具体业务的人我们就称之为超级守护进程。当然可能汇款人会有一些规则，可能不能往北京汇款，他就会提早告诉xinet，所以如果有人来汇款想汇往北京的话，管理员就直接告诉他这个我们这里办不到的，于是就根本不会去喊汇款员了，相当于提供了一层管理机制。针对这种窗口还存在多线程和单线程的区别：多线程：将所有用户的要求都提上来，里面的人都别闲着了，都一起干活吧；</p>
-<p><strong>单线程</strong>：大家都排好队了，一个一个来，里面的人同一时间只有一个人在工作。</p>
-<p>当然每个守护进程都会监听一个端口（银行窗口），一些常用守护进程的监听端口是固定的，像httpd监听80端口， sshd监听22端口等；我们可以将其理解为责任制，时候等待，有求必应。具体的端口信息可以通过cat /etc/services来查看。</p>
-<h4 id="查看守护进程">查看守护进程</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps axj</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>a 表示不仅列当前用户的进程，也列出所有其他用户的进程</p>
-</blockquote>
-<blockquote>
-<p>x 表示不仅列有控制终端的进程，也列出所有无控制终端的进程</p>
-</blockquote>
-<blockquote>
-<p>j 表示列出与作业控制相关的信息 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">PPID   PID  PGID   SID TTY      TPGID STAT   UID   TIME COMMAND                                                                                                                                              </span><br><span class="line">   0     1     1     1 ?           -1 Ss       0  12:00 /sbin/init                                                                                                                                           </span><br><span class="line">   0     2     0     0 ?           -1 S        0   0:00 [kthreadd]                                                                                                                                           </span><br><span class="line">   2     3     0     0 ?           -1 I&lt;       0   0:00 [rcu_gp]                                                                                                                                             </span><br><span class="line">   2     4     0     0 ?           -1 I&lt;       0   0:00 [rcu_par_gp]                                                                                                                                         </span><br><span class="line">   2     6     0     0 ?           -1 I&lt;       0   0:00 [kworker/0:0H-kblockd]                                                                                                                               </span><br><span class="line">   2     8     0     0 ?           -1 I&lt;       0   0:00 [mm_percpu_wq]                                                                                                                                       </span><br><span class="line">   2     9     0     0 ?           -1 S        0   3:28 [ksoftirqd/0]                                                                                                                                        </span><br><span class="line">   2    10     0     0 ?           -1 I        0  40:58 [rcu_preempt]                                                                                                                                        </span><br><span class="line">   2    11     0     0 ?           -1 I        0   0:00 [rcu_sched]                                                                                                                                          </span><br><span class="line">   2    12     0     0 ?           -1 I        0   0:00 [rcu_bh]                                                                                                                                             </span><br><span class="line">   2    13     0     0 ?           -1 S        0   5:16 [rcuc/0]                                                                                                                                             </span><br><span class="line">   2    14     0     0 ?           -1 S        0   0:00 [rcub/0]</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<p>从上图可以看出守护进行的一些特点：</p>
-<blockquote>
-<p>守护进程基本上都是以超级用户启动（ UID 为 0 ）</p>
-</blockquote>
-<blockquote>
-<p>没有控制终端（ TTY 为 ？）</p>
-</blockquote>
-<blockquote>
-<p>终端进程组 ID 为 -1 （ TPGID 表示终端进程组 ID）</p>
-</blockquote>
-<p>一般情况下，守护进程可以通过以下方式启动：</p>
-<blockquote>
-<p>在系统启动时由启动脚本启动，这些启动脚本通常放在 /etc/rc.d 目录下；</p>
-</blockquote>
-<blockquote>
-<p>利用 inetd 超级服务器启动，如 telnet 等；</p>
-</blockquote>
-<blockquote>
-<p>由 cron 定时启动以及在终端用 nohup 启动的进程也是守护进程。</p>
-</blockquote>
-<h4 id="编写守护进程">编写守护进程</h4>
-<p><strong>屏蔽一些控制终端操作的信号</strong></p>
-<p>这是为了防止守护进行在没有运行起来前，控制终端受到干扰退出或挂起。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">signal(SIGTTOU,SIG_IGN);   </span><br><span class="line">signal(SIGTTIN,SIG_IGN);   </span><br><span class="line">signal(SIGTSTP,SIG_IGN);   </span><br><span class="line">signal(SIGHUP ,SIG_IGN);</span><br></pre></td></tr></table></figure>
-<p><strong>在后台运行</strong></p>
-<p>这是为避免挂起控制终端将守护进程放入后台执行。方法是在进程中调用 fork() 使父进程终止， 让守护进行在子进程中后台执行。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>( pid = fork() )&#123; <span class="comment">// 父进程  </span></span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);        <span class="comment">//结束父进程，子进程继续  </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>脱离控制终端、登录会话和进程组</strong></p>
-<p>Linux 中的进程与控制终端，登录会话和进程组之间的关系：</p>
-<p>进程属于一个进程组，进程组号（GID）就是进程组长的进程号（PID）。登录会话可以包含多个进程组。这些进程组共享一个控制终端。这个控制终端通常是创建进程的 shell 登录终端。 控制终端、登录会话和进程组通常是从父进程继承下来的。我们的目的就是要摆脱它们 ，使之不受它们的影响。因此需要调用 setsid() 使子进程成为新的会话组长，示例代码如下：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setsid();</span><br></pre></td></tr></table></figure>
-<p>setsid()调用成功后，进程成为新的会话组长和新的进程组长，并与原来的登录会话和进程组脱离。由于会话过程对控制终端的独占性，进程同时与控制终端脱离。</p>
-<p><strong>禁止进程重新打开控制终端</strong></p>
-<p>现在，进程已经成为无终端的会话组长，但它可以重新申请打开一个控制终端。可以通过使进程不再成为会话组长来禁止进程重新打开控制终端，采用的方法是再次创建一个子进程，示例代码如下：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>( pid=fork() )&#123; <span class="comment">// 父进程  </span></span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);      <span class="comment">// 结束第一子进程，第二子进程继续（第二子进程不再是会话组长）   </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>关闭打开的文件描述符</strong></p>
-<p>进程从创建它的父进程那里继承了打开的文件描述符。如不关闭，将会浪费系统资源，造成进程所在的文件系统无法卸下以及引起无法预料的错误。按如下方法关闭它们：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// NOFILE 为 &lt;sys/param.h&gt; 的宏定义  </span></span><br><span class="line"><span class="comment">// NOFILE 为文件描述符最大个数，不同系统有不同限制  </span></span><br><span class="line"><span class="keyword">for</span>(i=<span class="number">0</span>; i&lt; NOFILE; ++i)&#123;<span class="comment">// 关闭打开的文件描述符  </span></span><br><span class="line">    close(i);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>改变当前工作目录</strong></p>
-<p>进程活动时，其工作目录所在的文件系统不能卸下。一般需要将工作目录改变到根目录。对于需要转储核心，写运行日志的进程将工作目录改变到特定目录如 /tmp。示例代码如下：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chdir(<span class="string">"/"</span>);</span><br></pre></td></tr></table></figure>
-<p><strong>重设文件创建掩模</strong></p>
-<p>进程从创建它的父进程那里继承了文件创建掩模。它可能修改守护进程所创建的文件的存取权限。为防止这一点，将文件创建掩模清除：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">umask(<span class="number">0</span>);</span><br></pre></td></tr></table></figure>
-<p><strong>处理 SIGCHLD 信号</strong></p>
-<p>但对于某些进程，特别是服务器进程往往在请求到来时生成子进程处理请求。如果父进程不等待子进程结束，子进程将成为僵尸进程（zombie）从而占用系统资源。如果父进程等待子进程结束，将增加父进程的负担，影响服务器进程的并发性能。在 Linux 下可以简单地将 SIGCHLD 信号的操作设为 SIG_IGN 。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">signal(SIGCHLD, SIG_IGN);</span><br></pre></td></tr></table></figure>
-<p>这样，内核在子进程结束时不会产生僵尸进程。</p>
-<p>代码示例 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;signal.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;fcntl.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;sys/syslog.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;sys/param.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;sys/stat.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;time.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">init_daemon</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 1）屏蔽一些控制终端操作的信号  </span></span><br><span class="line">    signal(SIGTTOU, SIG_IGN);</span><br><span class="line">    signal(SIGTTIN, SIG_IGN);</span><br><span class="line">    signal(SIGTSTP, SIG_IGN);</span><br><span class="line">    signal(SIGHUP, SIG_IGN);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2）在后台运行 </span></span><br><span class="line">    <span class="keyword">pid_t</span> pid = fork();</span><br><span class="line">    <span class="keyword">if</span>(pid &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        perror(<span class="string">"fork"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(EXIT_FAILURE); <span class="comment">// 进程创建失败</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(pid &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">0</span>);    <span class="comment">// 退出父进程</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3）脱离控制终端、登录会话和进程组  </span></span><br><span class="line">    setsid();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 4）禁止进程重新打开控制终端  </span></span><br><span class="line">    pid = fork();</span><br><span class="line">    <span class="keyword">if</span>(pid &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        perror(<span class="string">"fork"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(EXIT_FAILURE);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (pid &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">0</span>);  <span class="comment">// 结束第一子进程，第二子进程继续（第二子进程不再是会话组长） </span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 5）关闭打开的文件描述符  </span></span><br><span class="line">    <span class="comment">// NOFILE 为 &lt;sys/param.h&gt; 的宏定义  </span></span><br><span class="line">    <span class="comment">// NOFILE 为文件描述符最大个数，不同系统有不同限制  </span></span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;NOFILE; ++i)&#123;</span><br><span class="line">        close(i);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 6）改变当前工作目录  </span></span><br><span class="line">    chdir(<span class="string">"/"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 7）重设文件创建掩模  </span></span><br><span class="line">    umask(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 8）处理 SIGCHLD 信号  </span></span><br><span class="line">    signal(SIGCHLD,SIG_IGN);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span> </span>&#123;</span><br><span class="line">    init_daemon();</span><br><span class="line">    <span class="keyword">char</span> *msg = <span class="string">"I'm printlg process...\n"</span>;</span><br><span class="line">    <span class="keyword">int</span> msg_len = <span class="built_in">strlen</span>(msg);</span><br><span class="line">    <span class="keyword">int</span> fd = open(<span class="string">"/tmp/test_printlg.log"</span>, O_RDWR | O_CREAT | O_APPEND, <span class="number">0666</span>);</span><br><span class="line">    <span class="keyword">if</span>(fd &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"open /tmp/test_printlg.log fail.\n"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(EXIT_FAILURE);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>) &#123;</span><br><span class="line">        <span class="comment">// 每隔 3s 输出 msg 到 /tmp/test_printlg.log 文件中</span></span><br><span class="line">        write(fd, msg, msg_len);</span><br><span class="line">        sleep(<span class="number">3</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    close(fd);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 编译</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> gcc -o test1 main.c </span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 运行</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo ./test1</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ps axj | grep test1</span></span><br><span class="line"> PPID   PID  PGID   SID TTY      TPGID STAT   UID   TIME COMMAND </span><br><span class="line">21591 31396 31395 31395 ?           -1 R        0   0:03 ./test1</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看结果</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> vim /tmp/test_printlg.log</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 杀死守护进程</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo <span class="built_in">kill</span> -9 &lt;pid&gt;</span></span><br></pre></td></tr></table></figure>
-<h4 id="守护进程开机自启动">守护进程开机自启动</h4>
-<p>linux系统启动的顺序 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1. BIOS</span><br><span class="line">2. MBR (boot loader)</span><br><span class="line">3. kernel loading</span><br><span class="line">4. init program</span><br><span class="line">5. initial script (/etc/rc.d/rc.sysinit)</span><br><span class="line">6. daemon start (/etc/rc.d/rc[0-6].d/*)</span><br><span class="line">7. local setting (/etc/rc.d/rc.local)</span><br></pre></td></tr></table></figure></p>
-<p>每个系统启动级别的守护进程位置不一致，通常有以下位置</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/etc/rc.d</span><br><span class="line">/etc/rc[N].d</span><br></pre></td></tr></table></figure>
-<p>知道了守护进程的位置，就可以把 test1 放在 /etc/rc5.d/ 下，并且还要改名称，因为系统需要根据指定的名称来使用 for 循环来启动或者关闭每个程序，命名规则如下： 1. S[num][name]：启动守护进程name，例如：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2. K[num][name]：禁止启动守护进程name，例如：```K01test1</span><br></pre></td></tr></table></figure></p>
-<p>我们这里肯定要启动了，所以将 <figure class="highlight plain"><figcaption><span>命名为 ```S01test1```：</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">```shell</span><br><span class="line">mv test1 /etc/rc5.d/S01test1</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2019/07/24/minicat-manjaro-18-0-4-dev/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhuohanchang">
-      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="饱读诗书">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/07/24/minicat-manjaro-18-0-4-dev/" class="post-title-link" itemprop="url">minicat-manjaro-18.0.4-dev</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-07-24 14:11:44" itemprop="dateCreated datePublished" datetime="2019-07-24T14:11:44+08:00">2019-07-24</time>
-            </span>
-          
-
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-07-26 15:58:46" itemprop="dateModified" datetime="2019-07-26T15:58:46+08:00">2019-07-26</time>
-              </span>
-            
-          
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="添加中科大源">添加中科大源</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo vi /etc/pacman.conf</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 在文件末尾添加</span><br><span class="line">[archlinuxcn]</span><br><span class="line">SigLevel = Optional TrustedOnly</span><br><span class="line">Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch</span><br></pre></td></tr></table></figure>
-<h4 id="导入gpg-key">导入GPG Key</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo pacman -Syy &amp;&amp; sudo pacman -S archlinuxcn-keyring</span><br></pre></td></tr></table></figure>
-<h4 id="安装基本开发编译软件">安装基本开发编译软件</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S --needed base-devel</span><br></pre></td></tr></table></figure>
-<h4 id="安装git">安装git</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo pacman -S git</span><br></pre></td></tr></table></figure>
-<h4 id="安装chrome">安装chrome</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo pacman -S google-chrome</span><br></pre></td></tr></table></figure>
-<h4 id="安装搜狗拼音输入法">安装搜狗拼音输入法</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo pacman -S fcitx-im #默认全部安装</span><br><span class="line"><span class="meta">$</span> sudo pacman -S fcitx-configtool</span><br><span class="line"><span class="meta">$</span> sudo pacman -S fcitx-sogoupinyin</span><br></pre></td></tr></table></figure>
-<h4 id="编辑输入法配置文件">编辑输入法配置文件</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo nano ~/.xprofile</span><br><span class="line"></span><br><span class="line">export GTK_IM_MODULE=fcitx</span><br><span class="line">export QT_IM_MODULE=fcitx</span><br><span class="line">export XMODIFIERS="@im=fcitx"</span><br><span class="line"><span class="meta">#</span> 重启后输入法就可以正常使用。</span><br></pre></td></tr></table></figure>
-<h4 id="安装vim">安装vim</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo pacman -S vim</span><br></pre></td></tr></table></figure>
-<p>安装vim基础配置</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> curl https://raw.githubusercontent.com/wklken/vim-for-server/master/vimrc &gt; ~/.vimrc</span><br></pre></td></tr></table></figure>
-<h4 id="安装tmux和.tmux">安装tmux和.tmux</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo pacman -S tmux</span><br><span class="line"><span class="meta">$</span> cd ~</span><br><span class="line"><span class="meta">$</span> git clone https://github.com/gpakosz/.tmux.git</span><br><span class="line"><span class="meta">$</span> ln -s -f .tmux/.tmux.conf</span><br><span class="line"><span class="meta">$</span> cp .tmux/.tmux.conf.local .</span><br></pre></td></tr></table></figure>
-<h4 id="安装zsh和oh-my-zsh">安装zsh和oh-my-zsh</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo pacman -S zsh</span><br><span class="line"><span class="meta">$</span> sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"</span><br></pre></td></tr></table></figure>
-<h4 id="安装yaourt">安装yaourt</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo pacman -S --needed base-devel git wget yajl</span><br><span class="line"><span class="meta">$</span> cd /tmp</span><br><span class="line"><span class="meta">$</span> git clone https://aur.archlinux.org/package-query.git</span><br><span class="line"><span class="meta">$</span> cd package-query/</span><br><span class="line"><span class="meta">$</span> makepkg -si &amp;&amp; cd /tmp/</span><br><span class="line"><span class="meta">$</span> git clone https://aur.archlinux.org/yaourt.git</span><br><span class="line"><span class="meta">$</span> cd yaourt/</span><br><span class="line"><span class="meta">$</span> makepkg -si</span><br></pre></td></tr></table></figure>
-<h4 id="安装shadowsocks">安装shadowsocks</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git clone https://aur.archlinux.org/shadowsocks-qt5-git.git</span><br><span class="line"><span class="meta">$</span> cd shadowsocks-qt5-git</span><br><span class="line"><span class="meta">$</span> less PKGBUILD  # 查看</span><br><span class="line"><span class="meta">$</span> makepkg -si  # 安装</span><br></pre></td></tr></table></figure>
-<h4 id="设置ssh连接不断开">设置ssh连接不断开</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> vim ~/.ssh/config</span><br><span class="line">Host *</span><br><span class="line">    ServerAliveInterval 60</span><br></pre></td></tr></table></figure>
-<h4 id="安装jetbrain全家桶">安装jetbrain全家桶</h4>
-<p><a href="http://idea.lanyus.com/" target="_blank" rel="noopener">jetbrain激活参考地址</a></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo vim /etc/hosts</span><br><span class="line"><span class="meta">#</span> 添加以下两行代码</span><br><span class="line">0.0.0.0 account.jetbrains.com</span><br><span class="line">0.0.0.0 www.jetbrains.com</span><br></pre></td></tr></table></figure>
-<h4 id="安装python开发环境">安装python开发环境</h4>
-<a href="/2016/11/09/python入门基础/" title="python开发环境">python开发环境</a>
-<h4 id="安装rabbitmq">安装rabbitmq</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo pacman -S rabbitmq rabbitmqadmin</span><br><span class="line"><span class="meta">$</span> sudo systemctl enable rabbitmq.service  # 开机启动</span><br><span class="line"><span class="meta">$</span> sudo systemctl start rabbitmq.service  # 启动</span><br><span class="line"><span class="meta">$</span> rabbitmq-plugins enable rabbitmq_management  # 开启web界面</span><br></pre></td></tr></table></figure>
-<h4 id="安装redis">安装redis</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo pacman -S redis</span><br><span class="line"><span class="meta">$</span> sudo systemctl enable redis.service  # 开机启动</span><br><span class="line"><span class="meta">$</span> sudo systemctl start redis.service  # 启动</span><br></pre></td></tr></table></figure>
-<p>设置密码</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo vim /etc/redis.conf</span><br><span class="line">redispassword password</span><br></pre></td></tr></table></figure>
-<h4 id="安装node">安装node</h4>
-<a href="/2019/07/26/node入门基础/" title="python开发环境">python开发环境</a>
-<h4 id="其他软件清单">其他软件清单</h4>
-<blockquote>
-<p>peek 录制gif软件</p>
-</blockquote>
-<blockquote>
-<p>github desktop github客户端</p>
-</blockquote>
-<blockquote>
-<p>postman</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2019/07/24/c开发gtk+-入门基础/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhuohanchang">
-      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="饱读诗书">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/07/24/c开发gtk+-入门基础/" class="post-title-link" itemprop="url">c开发gtk+入门基础</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-07-24 13:58:51" itemprop="dateCreated datePublished" datetime="2019-07-24T13:58:51+08:00">2019-07-24</time>
-            </span>
-          
-
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-07-26 16:07:02" itemprop="dateModified" datetime="2019-07-26T16:07:02+08:00">2019-07-26</time>
-              </span>
-            
-          
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="gdk介绍">gdk+介绍</h4>
-<blockquote>
-<p>gtk+是c语言编写的用于开发图形界面程序的函数库。gtk+来源于gimp（gnu image minipulation program），gtk+在gdk（gimp drawing kit）基础上创建，并进行封装。</p>
-</blockquote>
-<h4 id="linux安装">linux安装</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> http://ftp.gnome.org/pub/gnome/sources/gtk+/3.24/</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> wget http://ftp.gnome.org/pub/gnome/sources/gtk+/3.24/gtk+-3.24.10.tar.xz</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tar xvfJ gtk+-3.24.10.tar.xz</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ./configure --prefix=/user/include/gtk3.24</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> make &amp;&amp; sudo make install</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo ldconfig</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置LD_LIBRARY_PATH</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> LD_LIBRARY_PATH=<span class="string">"/opt/gtk/lib"</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> PATH=<span class="string">"/opt/gtk/bin:<span class="variable">$PATH</span>"</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">export</span> LD_LIBRARY_PATH PATH</span></span><br></pre></td></tr></table></figure>
-<h4 id="简单的空白窗口">简单的空白窗口</h4>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;gtk/gtk.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</span> </span>&#123;</span><br><span class="line">    gtk_init(&amp;argc, &amp;argv);</span><br><span class="line">    GtkWidget *window = gtk_window_new(GTK_WINDOW_TOPLEVEL);</span><br><span class="line">    gtk_widget_show(window);</span><br><span class="line">    gtk_main();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> gcc -o main main.c `pkg-config --libs -cflags gtk+-3.0`</span></span><br></pre></td></tr></table></figure>
-<p>gtk_init (&amp;argc, &amp;argv); 所有 GTK应用程序都要调用该函数，而且必须在控件定义之前使用，它为我们设置一些缺省值( 例如视觉和颜色 )映射这个函数将函数库初始化，设置缺省的信号处理函数，并检查通过命令行传递给应用程序的参数，自动完成一些必要的初始化工作。</p>
-<p>gtk_main()是在每个Gtk应用程序都要调用的函数。程序运行停在这里等待事件(如键盘事件或鼠标事件)的发生，等待用户来操作窗口</p>
-<p>gtk_window_new()的功能创建一个窗口并返回这个窗口的控件指针。GTK_WINDOW_TOPLEVEL指明窗口的类型为最上层的主窗口，它最常用。接着创建一个GtkWidget <em>类型的window变量来接收。GtkWidget是GTK+控件类型，GtkWidget </em> 能指向任何控件的指针类型。</p>
-<p>gtk_widget_show(window)；用来显示上一步创建的窗口控件。在这个简单例子里，所有事件都被忽略。用鼠标点击窗口右上角的“×”按钮也不能将窗口关闭。我们可以在终端敲 Ctrl + C 关闭程序。</p>
-<h4 id="控件">控件</h4>
-<p>GTK中控件主要分为两类：容器控件，非容器控件。</p>
-<p>容器控件：它可以容纳别的控件，我们可以理解为盒子，盒子拿来装东西。容器控件又分为两类，一类只能容纳一个控件，如窗口，按钮；另一类能容纳多个控件，如布局控件。</p>
-<p>非容器控件：它不可以容纳别的控件，如标签、行编辑。</p>
-<p>前面我们写的空白窗口是能容纳一个控件的控件，现在我们要做的是，给这个窗口添加一个按钮。</p>
-<p>首先，我们需要创建一个按钮，然后需要把按钮添加到窗口，接着，显示按钮控件。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;gtk/gtk.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</span> </span>&#123;</span><br><span class="line">    <span class="comment">// gtk初始化</span></span><br><span class="line">    gtk_init(&amp;argc, &amp;argv);</span><br><span class="line">    <span class="comment">// 创建一个顶层窗口</span></span><br><span class="line">    GtkWidget *window = gtk_window_new(GTK_WINDOW_TOPLEVEL);</span><br><span class="line">    <span class="comment">// 创建一个button容器</span></span><br><span class="line">    GtkWidget *button = gtk_button_new_with_label(<span class="string">"hello gtk"</span>);</span><br><span class="line">    <span class="comment">// 将button放入窗口中，</span></span><br><span class="line">    gtk_container_add(GTK_CONTAINER(window), button);</span><br><span class="line">    <span class="comment">// 显示button</span></span><br><span class="line">    gtk_widget_show(button);</span><br><span class="line">    <span class="comment">// 显示window</span></span><br><span class="line">    gtk_widget_show(window);</span><br><span class="line">    gtk_main();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">gtk_container_add</span><span class="params">(GtkContainer *container, GtkWidget *widget)</span></span>;</span><br></pre></td></tr></table></figure>
-<p>这里我们是把按钮添加到窗口容器里，widget为按钮指针(以上代码的button)，container为窗口指针(以上代码的window)，这里需要注意的是，我们创建的窗口(window)返回值为GtkWidget <em>类型，而gtk_container_add()的第一个参数为GtkContainer </em>类型，由于 GtkWidget *类型的变量为指向任何控件的万能指针，所以，在函数传参时，根据参数类型进行相应的转换，如：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gtk_container_add( (GtkContainer *)window, button);</span><br></pre></td></tr></table></figure>
-<p>C语言里，我们常用这种方法转换。在GTK中，很多内部变量指针类型转换都定义了宏定义，如：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> GTK_CONTAINER(x) (GtkContainer *)(x)</span></span><br></pre></td></tr></table></figure>
-<p>所以，我们还可以这么写：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gtk_container_add(GTK_CONTAINER(window), button);</span><br></pre></td></tr></table></figure>
-<p>那么，我们如何知道，哪个类型对应哪个宏定义呢？把要转换类型名字全部变为大写，同时，单词和单词之间以下划线“_”连接，然后，这个名字就是哪个宏定义的名字，如，(GtkButton *)x用宏定义的方法为 GTK_BUTTON(x)。</p>
-<p>上面的代码，我们是按钮和窗口都得通过gtk_widget_show()显示出来：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gtk_widget_show(button);<span class="comment">// 显示按钮</span></span><br><span class="line">gtk_widget_show(window);<span class="comment">// 显示窗口</span></span><br></pre></td></tr></table></figure>
-<p>但是，假如，窗口里有100个控件，还是这样一个一个地显示出来会比较麻烦，这时候，我们可以通过gtk_widget_show_all()显示所有的控件，里面需要传的是容纳控件的那个容器(这里为窗口)。这样，容器上的控件也会跟着显示。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gtk_widget_show_all()</span><br></pre></td></tr></table></figure>
-<h4 id="布局容器-水平布局">布局容器-水平布局</h4>
-<p>如果我们希望窗口里多放添加几个控件，直接添加是不成功的，因为窗口只能容纳一个控件的容器。这时候，我们需要借助布局容器，我们先把布局容器添加到窗口里，然后再把所需要添加的控件放在布局容器里。</p>
-<p>布局容器的主要分类：水平布局( GtkHBox)、垂直布局(GtkVBox )、表格布局(GtkTable)、固定布局(GtkFixed )。</p>
-<p><strong>创建一个盒子布局</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// orientation参数: GTK_ORIENTATION_HORIZONTAL GTK_ORIENTATION_VERTICAL 两个可选值 spacing参数是单元格之间的间隙</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">gtk_box_new</span><span class="params">(<span class="keyword">int</span> orientation, <span class="keyword">int</span> spacing)</span></span>;</span><br></pre></td></tr></table></figure>
-<p>以下代码显示水平容器布局方式，垂直容器类似</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;gtk/gtk.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</span> </span>&#123;</span><br><span class="line">    <span class="comment">// gtk初始化</span></span><br><span class="line">    gtk_init(&amp;argc, &amp;argv);</span><br><span class="line">    <span class="comment">// 创建一个顶层窗口</span></span><br><span class="line">    GtkWidget *window = gtk_window_new(GTK_WINDOW_TOPLEVEL);</span><br><span class="line">    <span class="comment">// 创建水平容器</span></span><br><span class="line">    <span class="comment">// GtkWidget *hbox = gtk_hbox_new(TRUE, 10);  // gtk+2版本使用</span></span><br><span class="line">    GtkWidget *hbox = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, <span class="number">10</span>);  <span class="comment">// gtk+3版本使用</span></span><br><span class="line">    <span class="comment">// 将水平容器添加到窗口</span></span><br><span class="line">    gtk_container_add(GTK_CONTAINER(window), hbox);</span><br><span class="line">    <span class="comment">// 创建一个button容器</span></span><br><span class="line">    GtkWidget *button1 = gtk_button_new_with_label(<span class="string">"button1"</span>);</span><br><span class="line">    <span class="comment">// 将button放入水平容器中</span></span><br><span class="line">    gtk_container_add(GTK_CONTAINER(hbox), button1);</span><br><span class="line">    <span class="comment">// 重复创建两个</span></span><br><span class="line">    GtkWidget *button2 = gtk_button_new_with_label(<span class="string">"button2"</span>);</span><br><span class="line">    GtkWidget *button3 = gtk_button_new_with_label(<span class="string">"button3"</span>);</span><br><span class="line">    gtk_container_add(GTK_CONTAINER(hbox), button2);</span><br><span class="line">    gtk_container_add(GTK_CONTAINER(hbox), button3);</span><br><span class="line">    <span class="comment">// 显示全部窗口</span></span><br><span class="line">    gtk_widget_show_all(window);</span><br><span class="line">    gtk_main();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="布局容器-表格布局">布局容器-表格布局</h4>
-<p><strong>添加表格布局容器</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// rows: 行数, coumns: 列数, homogeneous：容器内表格的大小是否相等, 返回值：表格布局容器指针</span></span><br><span class="line"><span class="function">GtkWidget *<span class="title">gtk_table_new</span><span class="params">(guint rows, guint columns, gboolean homogeneous)</span></span>;</span><br></pre></td></tr></table></figure>
-<p><strong>布局容器添加控件</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// table: 容纳控件的容器, widget: 要添加的控件, 后四个参数为控件摆放的坐标，规则如下：</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">gtk_table_attach_defaults</span><span class="params">(GtkTable *table, GtkWidget *widget, guint left_attach, guint right_attach, guint top_attach, guint bottom_attach)</span></span>;</span><br></pre></td></tr></table></figure>
-<figure>
-<img src="https://zhuohc-com.oss-cn-hangzhou.aliyuncs.com/gtk%E8%A1%A8%E6%A0%BC%E5%B8%83%E5%B1%80%E7%A4%BA%E6%84%8F%E5%9B%BE.png" alt><figcaption>示意图</figcaption>
-</figure>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;gtk/gtk.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</span> </span>&#123;</span><br><span class="line">    <span class="comment">// gtk初始化</span></span><br><span class="line">    gtk_init(&amp;argc, &amp;argv);</span><br><span class="line">    <span class="comment">// 创建一个顶层窗口</span></span><br><span class="line">    GtkWidget *window = gtk_window_new(GTK_WINDOW_TOPLEVEL);</span><br><span class="line">    <span class="comment">// 创建一个表格容器</span></span><br><span class="line">    GtkWidget *table = gtk_table_new(<span class="number">2</span>, <span class="number">2</span>, TRUE); <span class="comment">// gtk+2版本</span></span><br><span class="line">    gtk_container_add(GTK_CONTAINER(window), table);</span><br><span class="line">    <span class="comment">// 创建button1， button2, button3</span></span><br><span class="line">    GtkWidget *button1 = gtk_button_new_with_label(<span class="string">"button1"</span>);</span><br><span class="line">    GtkWidget *button2 = gtk_button_new_with_label(<span class="string">"button2"</span>);</span><br><span class="line">    GtkWidget *button3 = gtk_button_new_with_label(<span class="string">"button3"</span>);</span><br><span class="line">    <span class="comment">// 将button放入table中</span></span><br><span class="line">    gtk_table_attach_defaults(GTK_TABLE(table), button1, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>);</span><br><span class="line">    gtk_table_attach_defaults(GTK_TABLE(table), button2, <span class="number">1</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">1</span>);</span><br><span class="line">    gtk_table_attach_defaults(GTK_TABLE(table), button3, <span class="number">0</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line">    <span class="comment">// 显示所有窗口</span></span><br><span class="line">    gtk_widget_show_all(window);</span><br><span class="line">    gtk_main();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="布局容器-固定布局">布局容器-固定布局</h4>
-<p>水平、垂直和表格布局容器，控件会跟着容器大小的变化进行自动适应，而固定布局容器里的控件则不会跟着变化( 则固定不变 )。</p>
-<p><strong>固定布局的创建</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">GtkWidget *<span class="title">gtk_fixed_new</span><span class="params">(<span class="keyword">void</span>)</span></span>;</span><br></pre></td></tr></table></figure>
-<p><strong>添加控件</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// fixed：容纳控件的容器, widget：要添加的控件, x, y：控件摆放位置的起点坐标</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">gtk_fixed_put</span><span class="params">(GtkFixed *fixed, GtkWidget *widget, gint x, gint y )</span></span>;</span><br></pre></td></tr></table></figure>
-<p><strong>设置控件的大小( 宽和高 )</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// widget：需要设置的控件, width：宽度, height：高度</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">gtk_widget_set_size_request</span><span class="params">(GtkWidget *widget, gint width, gint height)</span></span>;</span><br></pre></td></tr></table></figure>
-<p><strong>移动固定布局里控件的位置</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// fixed：固定布局容器, widget：需要移动的控件, x, y: 移动的位置</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">gtk_fixed_move</span><span class="params">(GtkFixed *fixed, GtkWidget *widget, gint x, gint y)</span></span>;</span><br></pre></td></tr></table></figure>
-<p>示例代码</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;gtk/gtk.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</span> </span>&#123;</span><br><span class="line">    <span class="comment">// gtk初始化</span></span><br><span class="line">    gtk_init(&amp;argc, &amp;argv);</span><br><span class="line">    <span class="comment">// 创建一个顶层窗口</span></span><br><span class="line">    GtkWidget *window = gtk_window_new(GTK_WINDOW_TOPLEVEL);</span><br><span class="line">    <span class="comment">// 创建一个固定布局容器</span></span><br><span class="line">    GtkWidget *fixed = gtk_fixed_new();</span><br><span class="line">    <span class="comment">// 将fixed添加到window中</span></span><br><span class="line">    gtk_container_add(GTK_CONTAINER(window), fixed);</span><br><span class="line">    <span class="comment">// 创建button</span></span><br><span class="line">    GtkWidget *button1 = gtk_button_new_with_label(<span class="string">"button1"</span>);</span><br><span class="line">    GtkWidget *button2 = gtk_button_new_with_label(<span class="string">"button2"</span>);</span><br><span class="line">    <span class="comment">// 将button添加到fixed</span></span><br><span class="line">    gtk_fixed_put(GTK_FIXED(fixed), button1, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">    gtk_fixed_put(GTK_FIXED(fixed), button2, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">    <span class="comment">// 移动button位置</span></span><br><span class="line">    gtk_fixed_move(GTK_FIXED(fixed), button2, <span class="number">150</span>, <span class="number">150</span>);</span><br><span class="line">    <span class="comment">// 设置button大小</span></span><br><span class="line">    gtk_widget_set_size_request(button2, <span class="number">100</span>, <span class="number">50</span>);</span><br><span class="line">    <span class="comment">// 显示所有窗口</span></span><br><span class="line">    gtk_widget_show_all(window);</span><br><span class="line">    gtk_main();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="容器布局练习-计算器">容器布局练习-计算器</h4>
-<p><strong>编辑控件( GtkEntry )</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建</span></span><br><span class="line"><span class="function">GtkWidget * <span class="title">gtk_entry_new</span><span class="params">(<span class="keyword">void</span>)</span></span>;</span><br><span class="line"><span class="comment">// 编辑</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">gtk_entry_set_text</span> <span class="params">(GtkEntry *entry,<span class="keyword">const</span> gchar *text)</span></span>;</span><br><span class="line"><span class="comment">// 设置行编辑是否允许编辑</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">gtk_editable_set_editable</span><span class="params">(GtkEditable *editable, gboolean is_editable)</span></span>;</span><br></pre></td></tr></table></figure>
-<p>示例代码</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;gtk/gtk.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 初始化</span></span><br><span class="line">    gtk_init(&amp;argc, &amp;argv);</span><br><span class="line">    <span class="comment">// 创建窗口</span></span><br><span class="line">    GtkWidget *window = gtk_window_new(GTK_WINDOW_TOPLEVEL);</span><br><span class="line">    <span class="comment">// 创建5行4列的表格容器</span></span><br><span class="line">    GtkWidget *table = gtk_table_new(<span class="number">5</span>, <span class="number">4</span>, TRUE);</span><br><span class="line">    <span class="comment">// 将table放入到容器中</span></span><br><span class="line">    gtk_container_add(GTK_CONTAINER(window), table);</span><br><span class="line">    <span class="comment">// 创建一个行编辑</span></span><br><span class="line">    GtkWidget *entry = gtk_entry_new();</span><br><span class="line">    <span class="comment">// 设置行编辑的内容</span></span><br><span class="line">    gtk_entry_set_text(GTK_ENTRY(entry), <span class="string">"2+2=4"</span>);</span><br><span class="line">    <span class="comment">// 设置行编辑不允许编辑</span></span><br><span class="line">    gtk_editable_set_editable(GTK_EDITABLE(entry), FALSE);</span><br><span class="line">    <span class="comment">// 创建0-9数字按钮，+-×/=c功能按钮</span></span><br><span class="line">    GtkWidget *button_0 = gtk_button_new_with_label(<span class="string">"0"</span>);</span><br><span class="line">    GtkWidget *button_1 = gtk_button_new_with_label(<span class="string">"1"</span>);</span><br><span class="line">    GtkWidget *button_2 = gtk_button_new_with_label(<span class="string">"2"</span>);</span><br><span class="line">    GtkWidget *button_3 = gtk_button_new_with_label(<span class="string">"3"</span>);</span><br><span class="line">    GtkWidget *button_4 = gtk_button_new_with_label(<span class="string">"4"</span>);</span><br><span class="line">    GtkWidget *button_5 = gtk_button_new_with_label(<span class="string">"5"</span>);</span><br><span class="line">    GtkWidget *button_6 = gtk_button_new_with_label(<span class="string">"6"</span>);</span><br><span class="line">    GtkWidget *button_7 = gtk_button_new_with_label(<span class="string">"7"</span>);</span><br><span class="line">    GtkWidget *button_8 = gtk_button_new_with_label(<span class="string">"8"</span>);</span><br><span class="line">    GtkWidget *button_9 = gtk_button_new_with_label(<span class="string">"9"</span>);</span><br><span class="line">    GtkWidget *button_add = gtk_button_new_with_label(<span class="string">"+"</span>);</span><br><span class="line">    GtkWidget *button_minus = gtk_button_new_with_label(<span class="string">"-"</span>);</span><br><span class="line">    GtkWidget *button_mul = gtk_button_new_with_label(<span class="string">"*"</span>);</span><br><span class="line">    GtkWidget *button_div = gtk_button_new_with_label(<span class="string">"/"</span>);</span><br><span class="line">    GtkWidget *button_equal = gtk_button_new_with_label(<span class="string">"="</span>);</span><br><span class="line">    GtkWidget *button_delete = gtk_button_new_with_label(<span class="string">"c"</span>);</span><br><span class="line">    <span class="comment">// 将table放入表格布局中</span></span><br><span class="line">    gtk_table_attach_defaults(GTK_TABLE(table), entry, <span class="number">0</span>, <span class="number">4</span>, <span class="number">0</span>, <span class="number">1</span>);</span><br><span class="line">    gtk_table_attach_defaults(GTK_TABLE(table), button_0, <span class="number">0</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">5</span>);</span><br><span class="line">    gtk_table_attach_defaults(GTK_TABLE(table), button_1, <span class="number">0</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>);</span><br><span class="line">    gtk_table_attach_defaults(GTK_TABLE(table), button_2, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>);</span><br><span class="line">    gtk_table_attach_defaults(GTK_TABLE(table), button_3, <span class="number">2</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">4</span>);</span><br><span class="line">    gtk_table_attach_defaults(GTK_TABLE(table), button_4, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>);</span><br><span class="line">    gtk_table_attach_defaults(GTK_TABLE(table), button_5, <span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>);</span><br><span class="line">    gtk_table_attach_defaults(GTK_TABLE(table), button_6, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">3</span>);</span><br><span class="line">    gtk_table_attach_defaults(GTK_TABLE(table), button_7, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line">    gtk_table_attach_defaults(GTK_TABLE(table), button_8, <span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line">    gtk_table_attach_defaults(GTK_TABLE(table), button_9, <span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line">    gtk_table_attach_defaults(GTK_TABLE(table), button_add, <span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">5</span>);</span><br><span class="line">    gtk_table_attach_defaults(GTK_TABLE(table), button_minus, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>);</span><br><span class="line">    gtk_table_attach_defaults(GTK_TABLE(table), button_mul , <span class="number">3</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">3</span>);</span><br><span class="line">    gtk_table_attach_defaults(GTK_TABLE(table), button_div, <span class="number">3</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">4</span>);</span><br><span class="line">    gtk_table_attach_defaults(GTK_TABLE(table), button_equal, <span class="number">3</span>, <span class="number">4</span>, <span class="number">4</span>, <span class="number">5</span>);</span><br><span class="line">    gtk_table_attach_defaults(GTK_TABLE(table), button_delete, <span class="number">3</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line">    <span class="comment">// 显示</span></span><br><span class="line">    gtk_widget_show_all(window);</span><br><span class="line">    <span class="comment">// 循环</span></span><br><span class="line">    gtk_main();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -o main main.c `pkg-config --libs -cflags gtk+-3.0`</span><br></pre></td></tr></table></figure>
-<p>运行结果</p>
-<figure>
-<img src="https://zhuohc-com.oss-cn-hangzhou.aliyuncs.com/gtk%E5%AE%B9%E5%99%A8%E5%B8%83%E5%B1%80-%E8%AE%A1%E7%AE%97%E5%99%A81.png" alt><figcaption>计算器</figcaption>
-</figure>
-<h4 id="信号与回调函数">信号与回调函数</h4>
-<p>GTK采用了信号与回调函数来处理窗口外部传来的事件、消息或信号。当信号发生时，程序自动调用为信号连接的回调函数。</p>
-<p>GTK中的“信号”实际上是一种软件中断。“中断”在我们生活中经常遇到，譬如，我正在房间里打游戏，突然送快递的来了，把正在玩游戏的我给“中断”了，我去签收快递( 处理中断 )，处理完成后，再继续玩我的游戏。GTK中的“信号”就是属于这么一种“中断”，当用户按下按钮的时候，就产生一个“中断”，相当于产生一个信号，接着就会处理这么一个“中断任务”(程序里体验为调用一个函数)。</p>
-<p>“信号”在GTK中可以认为一种中断的标志，如按下按钮的标志为"pressed",释放按钮的标志为"released"，这些标志就相当于 C语言的关键字一样，我们使用的时候必须完全按照它的名字来写。需要注意的是，每个控件的信号标志不一定都一样，如按钮（GtkButton）里有"pressed"信号，窗口(GtkWindow)里就没这个信号，每个控件具体有哪个信号，应该查看帮助文档来确定。</p>
-<p>按钮的常用信号：</p>
-<blockquote>
-<p>"clicked" : 单击按钮时触发</p>
-</blockquote>
-<blockquote>
-<p>"pressed" : 按下按钮时触发</p>
-</blockquote>
-<blockquote>
-<p>"released" : 释放按钮时触发</p>
-</blockquote>
-<p><strong>信号注册函数</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// instance：信号发出者，可以认为我们操作的控件，如按下按钮，这个就为按钮指针</span></span><br><span class="line"><span class="comment">// detailed_signal：信号标志，如"pressed"</span></span><br><span class="line"><span class="comment">// c_handler：回调函数的名称，需要用G_CALLBACK()进行转换</span></span><br><span class="line"><span class="comment">// data：给回调函数传的参数，gpointer 相当于C语言的 void *</span></span><br><span class="line"><span class="comment">// 返回值：注册函数的标志</span></span><br><span class="line"><span class="function">gulong <span class="title">g_signal_connect</span><span class="params">(gpointer instance, <span class="keyword">const</span> gchar *detailed_signal, GCallback c_handler, gpointer data)</span></span>;</span><br></pre></td></tr></table></figure>
-<p>例如</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">g_signal_connect(button, <span class="string">"pressed"</span>,G_CALLBACK(callback), <span class="literal">NULL</span>);</span><br></pre></td></tr></table></figure>
-<p>当按下button按钮时，就会自动调用回调函数callback(相当于处理中断任务)，回调函数callback可以是任意函数，函数名字我们根据需要自行命名，如果不是库函数，我们还得定义这个回调函数，这里需要注意的是，回调函数的写法(返回值，参数)，不是我们想怎么写就怎么写，帮助文档里已经规定好了回调函数应该如何写，如果不按规定来写，可能产生意想不到的错误。</p>
-<p><a href="https://developer.gnome.org/gtk3/stable/GtkWidget.html" target="_blank" rel="noopener">文档地址</a></p>
-<p>回调函数的定义</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">callback</span><span class="params">(GtkButton *button,gpointer data)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>示例</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;gtk/gtk.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">deal_pressed</span><span class="params">(GtkButton *button, gpointer user_data)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">char</span> *text = gtk_button_get_label(button);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s----%s\n"</span>, (<span class="keyword">char</span> *) user_data, text);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 初始化</span></span><br><span class="line">    gtk_init(&amp;argc, &amp;argv);</span><br><span class="line">    <span class="comment">// 创建窗口</span></span><br><span class="line">    GtkWidget *window = gtk_window_new(GTK_WINDOW_TOPLEVEL);</span><br><span class="line">    <span class="comment">// 设置窗口边框与内部控件的间隔为15</span></span><br><span class="line">    gtk_container_set_border_width(GTK_CONTAINER(window), <span class="number">15</span>);</span><br><span class="line">    <span class="comment">// 创建一个button</span></span><br><span class="line">    GtkWidget *button = gtk_button_new_with_label(<span class="string">"button1"</span>);</span><br><span class="line">    <span class="comment">// 将button添加到window中</span></span><br><span class="line">    gtk_container_add(GTK_CONTAINER(window), button);</span><br><span class="line">    <span class="comment">// 创建一个按钮信号</span></span><br><span class="line">    g_signal_connect(button, <span class="string">"pressed"</span>, G_CALLBACK(deal_pressed), <span class="string">"hello, world"</span>);</span><br><span class="line">    <span class="comment">// 显示控件</span></span><br><span class="line">    gtk_widget_show_all(window);</span><br><span class="line">    gtk_main();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="完成计算器计算功能">完成计算器计算功能</h4>
-<p>代码</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;gtk/gtk.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> buf[<span class="number">50</span>] = <span class="string">""</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">deal_num</span><span class="params">(GtkButton *button, gpointer data)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">char</span> *text = gtk_button_get_label(button);</span><br><span class="line">    <span class="comment">// 如果是退格键</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="number">0</span> == <span class="built_in">strcmp</span>(<span class="string">"c"</span>, text)) &#123;</span><br><span class="line">        buf[<span class="built_in">strlen</span>(buf) - <span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">int</span> a = <span class="number">0</span>, b = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">char</span> c;</span><br><span class="line">        <span class="comment">// 连接buf和新传入的字符串</span></span><br><span class="line">        <span class="built_in">strcat</span>(buf, text);</span><br><span class="line">        <span class="keyword">if</span> (<span class="number">0</span> == <span class="built_in">strcmp</span>(<span class="string">"="</span>, text)) &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"text=====##%s##\n"</span>, text);</span><br><span class="line">            <span class="comment">// 从一个字符串中读进与指定格式相符的数据</span></span><br><span class="line">            <span class="built_in">sscanf</span>(buf, <span class="string">"%d%c%d"</span>, &amp;a, &amp;c, &amp;b);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"---------001-----%c--\n"</span>, c);</span><br><span class="line">            <span class="keyword">if</span> (<span class="string">'+'</span> == c) &#123;</span><br><span class="line">                <span class="built_in">sprintf</span>(buf, <span class="string">"%d"</span>, a + b);</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="string">'-'</span> == c) &#123;</span><br><span class="line">                <span class="built_in">sprintf</span>(buf, <span class="string">"%d"</span>, a - b);</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="string">'*'</span> == c) &#123;</span><br><span class="line">                <span class="built_in">sprintf</span>(buf, <span class="string">"%d"</span>, a * b);</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="string">'/'</span> == c) &#123;</span><br><span class="line">                <span class="built_in">sprintf</span>(buf, <span class="string">"%d"</span>, a / b);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    gtk_entry_set_text(GTK_ENTRY(data), buf);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 初始化</span></span><br><span class="line">    gtk_init(&amp;argc, &amp;argv);</span><br><span class="line">    <span class="comment">// 创建窗口</span></span><br><span class="line">    GtkWidget *window = gtk_window_new(GTK_WINDOW_TOPLEVEL);</span><br><span class="line">    <span class="comment">// 创建5行4列的表格容器</span></span><br><span class="line">    GtkWidget *table = gtk_table_new(<span class="number">5</span>, <span class="number">4</span>, TRUE);</span><br><span class="line">    <span class="comment">// 将table放入到容器中</span></span><br><span class="line">    gtk_container_add(GTK_CONTAINER(window), table);</span><br><span class="line">    <span class="comment">// 创建一个行编辑</span></span><br><span class="line">    GtkWidget *entry = gtk_entry_new();</span><br><span class="line">    <span class="comment">// 设置行编辑的内容</span></span><br><span class="line">    gtk_entry_set_text(GTK_ENTRY(entry), <span class="string">"2+2=4"</span>);</span><br><span class="line">    <span class="comment">// 设置行编辑不允许编辑</span></span><br><span class="line">    gtk_editable_set_editable(GTK_EDITABLE(entry), FALSE);</span><br><span class="line">    <span class="comment">// 创建0-9数字按钮，+-×/=c功能按钮</span></span><br><span class="line">    GtkWidget *button_0 = gtk_button_new_with_label(<span class="string">"0"</span>);</span><br><span class="line">    GtkWidget *button_1 = gtk_button_new_with_label(<span class="string">"1"</span>);</span><br><span class="line">    GtkWidget *button_2 = gtk_button_new_with_label(<span class="string">"2"</span>);</span><br><span class="line">    GtkWidget *button_3 = gtk_button_new_with_label(<span class="string">"3"</span>);</span><br><span class="line">    GtkWidget *button_4 = gtk_button_new_with_label(<span class="string">"4"</span>);</span><br><span class="line">    GtkWidget *button_5 = gtk_button_new_with_label(<span class="string">"5"</span>);</span><br><span class="line">    GtkWidget *button_6 = gtk_button_new_with_label(<span class="string">"6"</span>);</span><br><span class="line">    GtkWidget *button_7 = gtk_button_new_with_label(<span class="string">"7"</span>);</span><br><span class="line">    GtkWidget *button_8 = gtk_button_new_with_label(<span class="string">"8"</span>);</span><br><span class="line">    GtkWidget *button_9 = gtk_button_new_with_label(<span class="string">"9"</span>);</span><br><span class="line">    GtkWidget *button_add = gtk_button_new_with_label(<span class="string">"+"</span>);</span><br><span class="line">    GtkWidget *button_minus = gtk_button_new_with_label(<span class="string">"-"</span>);</span><br><span class="line">    GtkWidget *button_mul = gtk_button_new_with_label(<span class="string">"*"</span>);</span><br><span class="line">    GtkWidget *button_div = gtk_button_new_with_label(<span class="string">"/"</span>);</span><br><span class="line">    GtkWidget *button_equal = gtk_button_new_with_label(<span class="string">"="</span>);</span><br><span class="line">    GtkWidget *button_delete = gtk_button_new_with_label(<span class="string">"c"</span>);</span><br><span class="line">    <span class="comment">// 将table放入表格布局中</span></span><br><span class="line">    gtk_table_attach_defaults(GTK_TABLE(table), entry, <span class="number">0</span>, <span class="number">4</span>, <span class="number">0</span>, <span class="number">1</span>);</span><br><span class="line">    gtk_table_attach_defaults(GTK_TABLE(table), button_0, <span class="number">0</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">5</span>);</span><br><span class="line">    gtk_table_attach_defaults(GTK_TABLE(table), button_1, <span class="number">0</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>);</span><br><span class="line">    gtk_table_attach_defaults(GTK_TABLE(table), button_2, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>);</span><br><span class="line">    gtk_table_attach_defaults(GTK_TABLE(table), button_3, <span class="number">2</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">4</span>);</span><br><span class="line">    gtk_table_attach_defaults(GTK_TABLE(table), button_4, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>);</span><br><span class="line">    gtk_table_attach_defaults(GTK_TABLE(table), button_5, <span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>);</span><br><span class="line">    gtk_table_attach_defaults(GTK_TABLE(table), button_6, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">3</span>);</span><br><span class="line">    gtk_table_attach_defaults(GTK_TABLE(table), button_7, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line">    gtk_table_attach_defaults(GTK_TABLE(table), button_8, <span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line">    gtk_table_attach_defaults(GTK_TABLE(table), button_9, <span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line">    gtk_table_attach_defaults(GTK_TABLE(table), button_add, <span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">5</span>);</span><br><span class="line">    gtk_table_attach_defaults(GTK_TABLE(table), button_minus, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>);</span><br><span class="line">    gtk_table_attach_defaults(GTK_TABLE(table), button_mul, <span class="number">3</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">3</span>);</span><br><span class="line">    gtk_table_attach_defaults(GTK_TABLE(table), button_div, <span class="number">3</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">4</span>);</span><br><span class="line">    gtk_table_attach_defaults(GTK_TABLE(table), button_equal, <span class="number">3</span>, <span class="number">4</span>, <span class="number">4</span>, <span class="number">5</span>);</span><br><span class="line">    gtk_table_attach_defaults(GTK_TABLE(table), button_delete, <span class="number">3</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//7.注册信号函数，把entry传给回调函数deal_num()</span></span><br><span class="line">    g_signal_connect(button_0, <span class="string">"pressed"</span>, G_CALLBACK(deal_num), entry);</span><br><span class="line">    g_signal_connect(button_1, <span class="string">"pressed"</span>, G_CALLBACK(deal_num), entry);</span><br><span class="line">    g_signal_connect(button_2, <span class="string">"pressed"</span>, G_CALLBACK(deal_num), entry);</span><br><span class="line">    g_signal_connect(button_3, <span class="string">"pressed"</span>, G_CALLBACK(deal_num), entry);</span><br><span class="line">    g_signal_connect(button_4, <span class="string">"pressed"</span>, G_CALLBACK(deal_num), entry);</span><br><span class="line">    g_signal_connect(button_5, <span class="string">"pressed"</span>, G_CALLBACK(deal_num), entry);</span><br><span class="line">    g_signal_connect(button_6, <span class="string">"pressed"</span>, G_CALLBACK(deal_num), entry);</span><br><span class="line">    g_signal_connect(button_7, <span class="string">"pressed"</span>, G_CALLBACK(deal_num), entry);</span><br><span class="line">    g_signal_connect(button_8, <span class="string">"pressed"</span>, G_CALLBACK(deal_num), entry);</span><br><span class="line">    g_signal_connect(button_9, <span class="string">"pressed"</span>, G_CALLBACK(deal_num), entry);</span><br><span class="line"></span><br><span class="line">    g_signal_connect(button_add, <span class="string">"pressed"</span>, G_CALLBACK(deal_num), entry);</span><br><span class="line">    g_signal_connect(button_mul, <span class="string">"pressed"</span>, G_CALLBACK(deal_num), entry);</span><br><span class="line">    g_signal_connect(button_div, <span class="string">"pressed"</span>, G_CALLBACK(deal_num), entry);</span><br><span class="line">    g_signal_connect(button_minus, <span class="string">"pressed"</span>, G_CALLBACK(deal_num), entry);</span><br><span class="line">    g_signal_connect(button_equal, <span class="string">"pressed"</span>, G_CALLBACK(deal_num), entry);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 显示</span></span><br><span class="line">    gtk_widget_show_all(window);</span><br><span class="line">    <span class="comment">// 循环</span></span><br><span class="line">    gtk_main();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>结果(并不完美)</p>
-<figure>
-<img src="https://zhuohc-com.oss-cn-hangzhou.aliyuncs.com/gtk-%E8%AE%A1%E7%AE%97%E5%99%A8.gif" alt><figcaption>计算器</figcaption>
-</figure>
-<h4 id="glade">glade</h4>
-<p>glade是GTK＋的界面辅助设计工具，可以通过拖放控件的方式快速设计出用户界面，这样的优势在于在设计的同时能直观地看到界面上的控件，并且可以随时调整界面上的设计。</p>
-<p>用glade设计的图形用户界面是以XML格式的文件保存，它描述了控件的结构、每个控件的属性。用户可以动态加载这个界面文件。而且，界面和程序逻辑是完全分离，用户修改了界面，也不需要重新编译程序。</p>
-<p><strong>安装</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> ubuntu </span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo apt-get install glade libglade2-dev</span></span><br></pre></td></tr></table></figure>
-<p>笔者是在软件中心直接下载安装的</p>
-<p><strong>代码引入</strong></p>
-<p>glade文件</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- Generated with glade 3.22.1 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">interface</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">requires</span> <span class="attr">lib</span>=<span class="string">"gtk+"</span> <span class="attr">version</span>=<span class="string">"3.20"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">object</span> <span class="attr">class</span>=<span class="string">"GtkWindow"</span> <span class="attr">id</span>=<span class="string">"window1"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"name"</span>&gt;</span>window1<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"can_focus"</span>&gt;</span>False<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"title"</span> <span class="attr">translatable</span>=<span class="string">"yes"</span>&gt;</span>第一个顶层窗口<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">child</span> <span class="attr">type</span>=<span class="string">"titlebar"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">placeholder</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">child</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">child</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">object</span> <span class="attr">class</span>=<span class="string">"GtkLayout"</span> <span class="attr">id</span>=<span class="string">"layout1"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"name"</span>&gt;</span>layout1<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"visible"</span>&gt;</span>True<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"can_focus"</span>&gt;</span>False<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">child</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">object</span> <span class="attr">class</span>=<span class="string">"GtkEntry"</span> <span class="attr">id</span>=<span class="string">"entry1"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"name"</span>&gt;</span>search_input<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"width_request"</span>&gt;</span>200<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"height_request"</span>&gt;</span>40<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"visible"</span>&gt;</span>True<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"can_focus"</span>&gt;</span>True<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"text"</span> <span class="attr">translatable</span>=<span class="string">"yes"</span>&gt;</span>search_input<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"primary_icon_tooltip_text"</span> <span class="attr">translatable</span>=<span class="string">"yes"</span>&gt;</span>search_input<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">object</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">packing</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"x"</span>&gt;</span>10<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"y"</span>&gt;</span>10<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">packing</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">child</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">child</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">object</span> <span class="attr">class</span>=<span class="string">"GtkButton"</span> <span class="attr">id</span>=<span class="string">"button1"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"label"</span> <span class="attr">translatable</span>=<span class="string">"yes"</span>&gt;</span>搜索<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"name"</span>&gt;</span>search_button<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"width_request"</span>&gt;</span>100<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"height_request"</span>&gt;</span>40<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"visible"</span>&gt;</span>True<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"can_focus"</span>&gt;</span>True<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"receives_default"</span>&gt;</span>True<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">object</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">packing</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"x"</span>&gt;</span>220<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"y"</span>&gt;</span>10<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">packing</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">child</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">child</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">object</span> <span class="attr">class</span>=<span class="string">"GtkButton"</span> <span class="attr">id</span>=<span class="string">"button2"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"label"</span> <span class="attr">translatable</span>=<span class="string">"yes"</span>&gt;</span>查看<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"name"</span>&gt;</span>show_button<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"width_request"</span>&gt;</span>100<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"height_request"</span>&gt;</span>40<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"visible"</span>&gt;</span>True<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"can_focus"</span>&gt;</span>True<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"receives_default"</span>&gt;</span>True<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">object</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">packing</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"x"</span>&gt;</span>350<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"y"</span>&gt;</span>10<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">packing</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">child</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">object</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">child</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">object</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">interface</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;gtk/gtk.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 初始化</span></span><br><span class="line">    gtk_init(&amp;argc, &amp;argv);</span><br><span class="line">    <span class="comment">// 创建GtkBuilder对象</span></span><br><span class="line">    GtkBuilder *builder = gtk_builder_new();</span><br><span class="line">    <span class="comment">// 读取glade文件</span></span><br><span class="line">    <span class="keyword">if</span>(!gtk_builder_add_from_file(builder, <span class="string">"../1.glade"</span>, <span class="literal">NULL</span>)) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"无法打开文件"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 获取窗口指针</span></span><br><span class="line">    GtkWidget *window1 = GTK_WIDGET(gtk_builder_get_object(builder, <span class="string">"window1"</span>));</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 显示</span></span><br><span class="line">    gtk_widget_show_all(window1);</span><br><span class="line">    <span class="comment">// 循环</span></span><br><span class="line">    gtk_main();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="图片控件">图片控件</h4>
-<p>图片控件的创建：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// filename：图片的名字，带路径的话需要加上路径( 相对或绝对 )</span></span><br><span class="line"><span class="function">GtkWidget *<span class="title">gtk_image_new_from_file</span><span class="params">( <span class="keyword">const</span> gchar *filename )</span></span>;</span><br></pre></td></tr></table></figure>
-<p>通过上面方法创建的图片控件，以图片默认大小来显示，不能修改其大小。如果要改变图片的大小，我们要借助图片资源对象GdkPixbuf，需要注意的是，GdkPixbuf不属于控件类，它以 Gdk 开头。</p>
-<p>图片资源对象pixbuf的创建：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// filename：图片的名字，带路径的话需要加上路径( 相对或绝对 )</span></span><br><span class="line"><span class="comment">// error：储存错误的指针</span></span><br><span class="line"><span class="comment">// 返回值：pixbuf指针</span></span><br><span class="line"><span class="function">GdkPixbuf *<span class="title">gdk_pixbuf_new_from_file</span><span class="params">(<span class="keyword">const</span> gchar *filename, GError **error)</span></span>;</span><br></pre></td></tr></table></figure>
-<p>设置图片的大小：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src：gdk_pixbuf_new_from_file()的返回值</span></span><br><span class="line"><span class="comment">// dest_width：图片的宽度</span></span><br><span class="line"><span class="comment">// dest_height：图片的高度</span></span><br><span class="line"><span class="comment">// interp_type：是一个枚举变量，标志图片的加载速度和质量，常用GDK_INTERP_BILINEAR</span></span><br><span class="line"><span class="comment">// 返回值：指定大小好的pixbuf指针</span></span><br><span class="line"><span class="function">GdkPixbuf *<span class="title">gdk_pixbuf_scale_simple</span><span class="params">(<span class="keyword">const</span> GdkPixbuf *src, <span class="keyword">int</span> dest_width, <span class="keyword">int</span> dest_height, GdkInterpType interp_type)</span></span>;</span><br></pre></td></tr></table></figure>
-<p>通过gdk_pixbuf_new_from_file(), gdk_pixbuf_scale_simple()创建的pixbuf，它会动态分配空间，占用资源，用完后，需要人为释放资源。</p>
-<p>释放资源：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">g_object_unref</span><span class="params">(GtkObject *object)</span></span>;</span><br></pre></td></tr></table></figure>
-<p>通过pixbuf来创建图片控件：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// pixbuf：指定好大小的pixbuf</span></span><br><span class="line"><span class="comment">// 返回值：图片控件指针</span></span><br><span class="line"><span class="function">GtkWidget *<span class="title">gtk_image_new_from_pixbuf</span><span class="params">(GdkPixbuf *pixbuf )</span></span>;</span><br></pre></td></tr></table></figure>
-<p>图片控件重新设置一张图片(pixbuf)：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// image：图片控件指针</span></span><br><span class="line"><span class="comment">// pixbuf：指定好大小的pixbuf</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">gtk_image_set_from_pixbuf</span><span class="params">(GtkImage *image, GdkPixbuf *pixbuf )</span></span>;</span><br></pre></td></tr></table></figure>
-<p>示例代码</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;gtk/gtk.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 初始化</span></span><br><span class="line">    gtk_init(&amp;argc, &amp;argv);</span><br><span class="line">    <span class="comment">// 创建一个window</span></span><br><span class="line">    GtkWidget *window = gtk_window_new(GTK_WINDOW_TOPLEVEL);</span><br><span class="line">    <span class="comment">// 创建水平容器</span></span><br><span class="line">    GtkWidget *hbox = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, <span class="number">10</span>);</span><br><span class="line">    <span class="comment">// 添加到window</span></span><br><span class="line">    gtk_container_add(GTK_CONTAINER(window), hbox);</span><br><span class="line">    <span class="comment">// 创建图片控件</span></span><br><span class="line">    GtkWidget *image1 = gtk_image_new_from_file(<span class="string">"../img/1.png"</span>);</span><br><span class="line">    <span class="comment">// 将image添加到box</span></span><br><span class="line">    gtk_container_add(GTK_CONTAINER(hbox), image1);</span><br><span class="line">    <span class="comment">// 创建pixbuf</span></span><br><span class="line">    GdkPixbuf *src = gdk_pixbuf_new_from_file(<span class="string">"../img/1.png"</span>, <span class="literal">NULL</span>);</span><br><span class="line">    <span class="comment">// 修改图片大小</span></span><br><span class="line">    GdkPixbuf *dst = gdk_pixbuf_scale_simple(src, <span class="number">100</span>, <span class="number">100</span>, GDK_INTERP_BILINEAR);</span><br><span class="line">    GtkWidget *image2 = gtk_image_new_from_pixbuf(dst);</span><br><span class="line">    <span class="comment">// 释放pxibuf资源</span></span><br><span class="line">    g_object_unref(src);</span><br><span class="line">    g_object_unref(dst);</span><br><span class="line">    <span class="comment">// 将image2添加到box</span></span><br><span class="line">    gtk_container_add(GTK_CONTAINER(hbox), image2);</span><br><span class="line">    <span class="comment">// 获取控件里的pixbuf</span></span><br><span class="line">    GdkPixbuf *tmp = gtk_image_get_pixbuf(GTK_IMAGE(image2));</span><br><span class="line">    GtkWidget *image3 = gtk_image_new_from_pixbuf(tmp);</span><br><span class="line">    g_object_unref(tmp);</span><br><span class="line">    gtk_container_add(GTK_CONTAINER(hbox), image3);</span><br><span class="line">    <span class="comment">// 给创建的图片控件重新设置图片</span></span><br><span class="line">    GtkWidget *image4 = gtk_image_new_from_file(<span class="string">"../img/1.png"</span>);</span><br><span class="line">    gtk_container_add(GTK_CONTAINER(hbox), image4);</span><br><span class="line">    src = gdk_pixbuf_new_from_file(<span class="string">"../img/2.png"</span>, <span class="literal">NULL</span>);</span><br><span class="line">    dst = gdk_pixbuf_scale_simple(src, <span class="number">200</span>, <span class="number">200</span>, GDK_INTERP_BILINEAR);</span><br><span class="line">    gtk_image_set_from_pixbuf(GTK_IMAGE(image4), dst);</span><br><span class="line">    g_object_unref(src);</span><br><span class="line">    g_object_unref(dst);</span><br><span class="line">    <span class="comment">// 显示所有控件</span></span><br><span class="line">    gtk_widget_show_all(window);</span><br><span class="line">    <span class="comment">// 循环</span></span><br><span class="line">    gtk_main();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="进度条控件">进度条控件</h4>
-<p><a href="https://developer.gnome.org/gtk3/stable/GtkProgressBar.html#gtk-progress-bar-get-fraction" target="_blank" rel="noopener">文档</a></p>
-<p>进度条的创建</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 返回值：进度条指针</span></span><br><span class="line"><span class="function">GtkWidget *<span class="title">gtk_progress_bar_new</span><span class="params">(<span class="keyword">void</span>)</span></span>;</span><br></pre></td></tr></table></figure>
-<p>设置进度条显示的进度比例</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// pbar：需要操作的进度条</span></span><br><span class="line"><span class="comment">// fraction：0.0到1.0</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">gtk_progress_bar_set_fraction</span><span class="params">(GtkProgressBar *pbar, gdouble fraction)</span></span>;</span><br></pre></td></tr></table></figure>
-<p>获取进度条显示的进度比例</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// pbar：需要操作的进度条</span></span><br><span class="line"><span class="comment">// 返回值：进度比例</span></span><br><span class="line"><span class="function">gdouble  <span class="title">gtk_progress_bar_get_fraction</span> <span class="params">(GtkProgressBar *pbar)</span></span>;</span><br></pre></td></tr></table></figure>
-<p>设置滑槽上的文本显示</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// pbar：需要操作的进度条</span></span><br><span class="line"><span class="comment">// text：设置的文本内容</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">gtk_progress_bar_set_text</span><span class="params">(GtkProgressBar *pbar, gchar *text)</span></span>;</span><br></pre></td></tr></table></figure>
-<p>设置进度条的移动方向gtk+-2版本</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// pbar：需要操作的进度条</span></span><br><span class="line"><span class="comment">// orientation：移动方向，它是一个枚举变量</span></span><br><span class="line"><span class="comment">// GTK_PROGRESS_LEFT_TO_RIGHT：从左向右 </span></span><br><span class="line"><span class="comment">// GTK_PROGRESS_RIGHT_TO_LEFT：从右向左 </span></span><br><span class="line"><span class="comment">// GTK_PROGRESS_BOTTOM_TO_TOP：从下向上 </span></span><br><span class="line"><span class="comment">// GTK_PROGRESS_TOP_TO_BOTTOM：从上向下</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">gtk_progress_bar_set_orientation</span><span class="params">(GtkProgressBar *pbar, GtkProgressBarOrientation orientation)</span></span>;</span><br></pre></td></tr></table></figure>
-<p>获取进度条的方向gtk+-2版本</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// pbar：需要操作的进度条</span></span><br><span class="line"><span class="comment">// 返回值：进度条的方向，它是一个枚举类型</span></span><br><span class="line">GtkProgressBarOrientationgtk_progress_bar_get_orientation(GtkProgressBar *pbar);</span><br></pre></td></tr></table></figure>
-<p>设置进度条的移动方向gtk+-3版本</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">gtk_progress_bar_set_inverted</span> <span class="params">(GtkProgressBar *pbar, gboolean inverted)</span></span>;</span><br></pre></td></tr></table></figure>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">gboolean <span class="title">gtk_progress_bar_get_inverted</span> <span class="params">(GtkProgressBar *pbar)</span></span>;</span><br></pre></td></tr></table></figure>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;gtk/gtk.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//回调函数，切换进度条的移动方向</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">toggle_orientation</span><span class="params">(GtkWidget *widget, gpointer data)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">switch</span> (gtk_progress_bar_get_inverted(GTK_PROGRESS_BAR(data)) ) &#123;</span><br><span class="line">        <span class="keyword">case</span> TRUE:</span><br><span class="line">            gtk_progress_bar_set_inverted(GTK_PROGRESS_BAR(data), FALSE);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> FALSE:</span><br><span class="line">            gtk_progress_bar_set_inverted(GTK_PROGRESS_BAR(data), TRUE);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//回调函数，更新进度条，这样可以看到进度条的移动</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">callback</span><span class="params">(GtkWidget *widget, gpointer data)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    gdouble new_val = gtk_progress_bar_get_fraction(GTK_PROGRESS_BAR(data)) +<span class="number">0.05</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (new_val &gt; <span class="number">1.0</span>) &#123;</span><br><span class="line">        new_val = <span class="number">0.0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//设置进度条新值</span></span><br><span class="line">    gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(data), new_val);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//1.gtk环境的初始化</span></span><br><span class="line">    gtk_init(&amp;argc, &amp;argv);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//2.创建一个窗口</span></span><br><span class="line">    GtkWidget *window = gtk_window_new(GTK_WINDOW_TOPLEVEL);</span><br><span class="line">    <span class="comment">//设置窗口的标题</span></span><br><span class="line">    gtk_window_set_title(GTK_WINDOW(window), <span class="string">"gtk_progress_bar"</span>);</span><br><span class="line">    <span class="comment">//设置窗口边框宽度</span></span><br><span class="line">    gtk_container_set_border_width(GTK_CONTAINER(window), <span class="number">10</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//3.设置窗口的最小大小</span></span><br><span class="line">    gtk_widget_set_size_request(window, <span class="number">300</span>, <span class="number">200</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//4.窗口关联destroy信号到gtk_main_quit</span></span><br><span class="line">    g_signal_connect(window, <span class="string">"destroy"</span>, G_CALLBACK(gtk_main_quit), <span class="literal">NULL</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//5.创建一个垂直容器</span></span><br><span class="line">    GtkWidget *vbox = gtk_box_new(GTK_ORIENTATION_VERTICAL, <span class="number">5</span>);</span><br><span class="line">    <span class="comment">//将vbox添加到window中</span></span><br><span class="line">    gtk_container_add(GTK_CONTAINER(window), vbox);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//6.创建一个进度条</span></span><br><span class="line">    GtkWidget *progress = gtk_progress_bar_new();</span><br><span class="line">    <span class="comment">//将progress添加到vbox中</span></span><br><span class="line">    gtk_container_add(GTK_CONTAINER(vbox), progress);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//7.设置进度条的百分比为50%</span></span><br><span class="line">    gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(progress), <span class="number">0.5</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//8.设置进度条上显示的文字</span></span><br><span class="line">    gtk_progress_bar_set_text(GTK_PROGRESS_BAR(progress), <span class="string">"some text"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//9.添加一个button1按钮,切换方向</span></span><br><span class="line">    GtkWidget *button1 = gtk_button_new_with_label(<span class="string">"right to lift"</span>);</span><br><span class="line">    gtk_container_add(GTK_CONTAINER(vbox), button1);</span><br><span class="line">    g_signal_connect(button1, <span class="string">"clicked"</span>, G_CALLBACK(    toggle_orientation   ), progress);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//10.添加一个button2，移动进度条</span></span><br><span class="line">    GtkWidget *button2 = gtk_button_new_with_label(<span class="string">"add"</span>);</span><br><span class="line">    gtk_container_add(GTK_CONTAINER(vbox), button2);</span><br><span class="line">    g_signal_connect(button2, <span class="string">"clicked"</span>, G_CALLBACK(callback), progress);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//11.显示所欲窗口</span></span><br><span class="line">    gtk_widget_show_all(window);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//12.主事件循环</span></span><br><span class="line">    gtk_main();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
           
         
@@ -2364,7 +2109,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">68</span>
+          <span class="site-state-item-count">70</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
