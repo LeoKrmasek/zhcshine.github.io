@@ -246,7 +246,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">70</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">72</span></a>
 
   </li>
 
@@ -307,6 +307,407 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2019/07/24/ffmpeg视频基础/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhuohanchang">
+      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="饱读诗书">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/07/24/ffmpeg视频基础/" class="post-title-link" itemprop="url">ffmpeg视频基础</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-07-24 09:15:39 / Modified: 09:16:41" itemprop="dateCreated datePublished" datetime="2019-07-24T09:15:39+08:00">2019-07-24</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="基本概念">基本概念</h4>
+<p>H264基本概念</p>
+<blockquote>
+<p>I帧： 关键帧、采用帧内压缩技术 P帧：向前参考帧，采用帧内压缩技术 B帧：双向参考帧，采用帧内压缩技术</p>
+</blockquote>
+<p>GOF: &gt; 一组帧group of frame</p>
+<p>SPS: &gt; Sequence parameter set: 序列参数集：存放一组帧的存放帧数，参考帧数目，解码图像尺寸等</p>
+<p>PPS： &gt; picture parameter set: 图像参数集：存放熵编码模式选择标识、片组数目等</p>
+<h4 id="视频编解码器">视频编解码器</h4>
+<blockquote>
+<p>x264：最流行的 x265：耗性能 openH264：支持svc视频技术 vp8: x264 vp9: x265</p>
+</blockquote>
+<h4 id="h264压缩技术">H264压缩技术</h4>
+<blockquote>
+<p>帧内压缩：解决空域数据冗余技术</p>
+<p>帧间压缩：解决时域数据冗余技术</p>
+<p>整数离散余弦变换(DCT)：将空间上的相关性变为频域上无关的数据然后进行量化</p>
+<p>CABAC压缩</p>
+</blockquote>
+<figure>
+<img src="https://zhuohc-com.oss-cn-hangzhou.aliyuncs.com/H264%E7%BB%93%E6%9E%84%E5%9B%BE.png" alt><figcaption>H264结构图</figcaption>
+</figure>
+<h4 id="h264编码分层">H264编码分层</h4>
+<blockquote>
+<p>NAL层：network abstraction layer 视频数据网络抽象层 VCL层：video coding layer 视频数据编码层</p>
+</blockquote>
+<h4 id="码流">码流</h4>
+<p>SODB &gt; string of data bits 原始数据比特流，它是由vcl层产生的</p>
+<p>RBSP &gt; 在SODB最后一位补1，不按字节对其则补0</p>
+<p>EBSP</p>
+<blockquote>
+
+</blockquote>
+<p>NALU</p>
+<blockquote>
+<p>NAL HEADER + EBSP</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2019/07/24/ffmpeg音频基础/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhuohanchang">
+      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="饱读诗书">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/07/24/ffmpeg音频基础/" class="post-title-link" itemprop="url">ffmpeg音频基础</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-07-24 09:11:21 / Modified: 09:15:09" itemprop="dateCreated datePublished" datetime="2019-07-24T09:11:21+08:00">2019-07-24</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>2# 音频知识（未完工）</p>
+<h4 id="声音的本质">声音的本质</h4>
+<blockquote>
+<p>声音其实是一种能量波，因此也有频率和振幅的特征，频率对应于时间轴线，振幅对应于电平轴线。波是无限光滑的，弦线可以看成由无数点组成，由于存储空间是相对有限的，数字编码过程中，必须对弦线的点进行采样。</p>
+</blockquote>
+<h4 id="声音三要素"><a href="https://baike.baidu.com/item/%E5%A3%B0%E9%9F%B3%E5%90%AC%E8%A7%89" target="_blank" rel="noopener">声音三要素</a></h4>
+<ol type="1">
+<li><p>音高/音调/音频： 客观上音高大小主要取决于声波基频的高低，频率高则音调高，反之则低，单位用赫兹(Hz）表示。儿童(高音区)-&gt;女生(高音区)-&gt;男生（低音区）</p></li>
+<li><p>音量/响度/声强：常说的声音大小，主要取决于声波振幅的大小。</p></li>
+<li><p>音色/音品：和材质相关（比如钢琴等），本质是谐波。</p></li>
+</ol>
+<figure>
+<img src="https://zhuohc-com.oss-cn-hangzhou.aliyuncs.com/%E9%9F%B3%E9%87%8F%E5%92%8C%E5%A3%B0%E8%B0%83.png" alt><figcaption>音量和声调</figcaption>
+</figure>
+<p>心理声学</p>
+<blockquote>
+<p>人类的听觉范围：20Hz-20kHz</p>
+</blockquote>
+<h4 id="音频量化过程">音频量化过程</h4>
+<figure>
+<img src="https://zhuohc-com.oss-cn-hangzhou.aliyuncs.com/%E9%9F%B3%E9%A2%91%E9%87%8F%E5%8C%96%E8%BF%87%E7%A8%8B.png" alt><figcaption>音频量化过程</figcaption>
+</figure>
+<ol type="1">
+<li>按横轴时间进行切割</li>
+<li>按纵轴振幅(决定音量)进行切割</li>
+<li>编码转成数字信号</li>
+</ol>
+<blockquote>
+<p>采样大小：一个采样用多个bit存放，常用16位(2<sup>16</sup>=65535)，振幅 采样率：采样频率8k、16k、32k、44.1k、48k等 <a href="https://baike.baidu.com/item/音频采样率" target="_blank" rel="noopener">采样率概念</a> 声道数：单声道、双声道、多声道</p>
+</blockquote>
+<p>码率计算 &gt; 音频流的码率=采样率×采样大小×声道数 &gt; 例如：采样率44.1kHz、采样大小为16bit、双声道的pcm编码wav文件，码率=44.1k×16×2=1411.2kb/s</p>
+<h4 id="音频压缩技术">音频压缩技术</h4>
+<ol type="1">
+<li>消除音频冗余数据</li>
+</ol>
+<blockquote>
+<p>删除人耳听觉范围外的音频信号：</p>
+<blockquote>
+<p>20Hz-20kHz</p>
+</blockquote>
+<p>被掩避掉的音频信号：</p>
+<blockquote>
+<p>频域遮蔽：</p>
+<p>时域遮蔽：</p>
+</blockquote>
+</blockquote>
+<ol start="2" type="1">
+<li>哈夫曼无损编码</li>
+</ol>
+<h4 id="音频编解码器">音频编解码器</h4>
+<p>常见的编解码器</p>
+<blockquote>
+<p>OPUS： 开源、rmtp协议不支持 AAC：收费、适合实时互动项目。 Vorbis：开源 Speex：开源、优势：还支持一些回音消除、降噪等处理办法 iLBC AMR G.711：与固定电话就行融合</p>
+</blockquote>
+<p>性能对比：</p>
+<blockquote>
+<p>OPUS &gt; AAC(常用) &gt; Vorbis AAC： advanced audio coding 常见规格： AAC LC（低复杂度，码流128k）、AAC HE V1（）、 AAC HE V2 AAC LC + SBR = AAC HE V1 AAC HE V1 + PS = AAC HE V2</p>
+</blockquote>
+<figure>
+<img src="https://zhuohc-com.oss-cn-hangzhou.aliyuncs.com/aac%E8%A7%84%E6%A0%BC.png" alt><figcaption>aac规格</figcaption>
+</figure>
+<p>AAC格式： &gt; ADIF &gt; ADTS</p>
+<p>AAC编码库：</p>
+<blockquote>
+<p>libfdk_aac(常用) &gt; ffmpeg aac &gt; libfaac &gt; libvo_aacenc</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -1118,7 +1519,7 @@ sudo pkill svnserve</code></pre>
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2018/09/26/vuejs/">
+    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2018/09/26/vuejs入门基础/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhuohanchang">
@@ -1138,7 +1539,7 @@ sudo pkill svnserve</code></pre>
           <h2 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2018/09/26/vuejs/" class="post-title-link" itemprop="url">vue.js</a>
+                <a href="/2018/09/26/vuejs入门基础/" class="post-title-link" itemprop="url">vue.js</a>
               
             
           </h2>
@@ -1178,7 +1579,7 @@ sudo pkill svnserve</code></pre>
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-23 13:51:43" itemprop="dateModified" datetime="2019-07-23T13:51:43+08:00">2019-07-23</time>
+                <time title="Modified: 2019-10-18 18:06:01" itemprop="dateModified" datetime="2019-10-18T18:06:01+08:00">2019-10-18</time>
               </span>
             
           
@@ -1232,18 +1633,11 @@ sudo pkill svnserve</code></pre>
         
           
             <h4 id="安装nodejs">安装nodejs</h4>
-<pre><code># 安装nodejs
-# https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions
-curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
-sudo apt-get install -y nodejs
-# 安装cnpm
-sudo npm install -g cnpm</code></pre>
+<a href="/2019/07/26/node入门基础/" title="node入门基础">node入门基础</a>
 <h4 id="安装vue-cli">安装vue-cli</h4>
-<pre><code>sudo cnpm install -g vue-cli</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> cnpm install -g @vue/cli</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> vue --version</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> vue add eslint</span></span><br></pre></td></tr></table></figure>
 <h4 id="创建项目">创建项目</h4>
-<pre><code>vue init webpack your-project
- cnpm install
- npm run dev  # 启动项目</code></pre>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vue create hello-world</span><br></pre></td></tr></table></figure>
 
           
         
@@ -1543,7 +1937,7 @@ $ docker-compose up -d  # 后台执行</code></pre>
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-23 13:51:43" itemprop="dateModified" datetime="2019-07-23T13:51:43+08:00">2019-07-23</time>
+                <time title="Modified: 2019-10-28 10:10:55" itemprop="dateModified" datetime="2019-10-28T10:10:55+08:00">2019-10-28</time>
               </span>
             
           
@@ -1603,47 +1997,20 @@ $ docker-compose up -d  # 后台执行</code></pre>
       
         
           
-            <pre><code># 安装 Erlang
-yum -y install epel-release
-yum -y update
-yum -y install erlang socat
-
-
-# 查看是否安装成功
-erl -version
-
-
-# 安装rabbitMQ
-wget https://www.rabbitmq.com/releases/rabbitmq-server/v3.6.10/rabbitmq-server-3.6.10-1.el7.noarch.rpm
-rpm --import https://www.rabbitmq.com/rabbitmq-release-signing-key.asc
-rpm -Uvh rabbitmq-server-3.6.10-1.el7.noarch.rpm
-
-
-# 启用,开机启动,状态
-systemctl start rabbitmq-server
-systemctl enable rabbitmq-server
-systemctl status rabbitmq-server
-
-
-# 启动图形界面管理
-rabbitmq-plugins enable rabbitmq_management
-chown -R rabbitmq:rabbitmq /var/lib/rabbitmq/
-rabbitmqctl add_user admin StrongPassword  # 踩坑:密码不要以&#39;;&#39;结尾
-rabbitmqctl set_user_tags admin administrator
-rabbitmqctl set_permissions -p / admin &quot;.*&quot; &quot;.*&quot; &quot;.*&quot;
-
-
-# 自定义配置文件
-cd /etc/rabbitmq
-touch rabbitmq.conf
-
-
-# 访问图形界面
-http://Your_Server_IP:15672/
-
-
-# api文档
-http://Your_Server_IP:15672/api</code></pre>
+            <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 安装 Erlang</span><br><span class="line"><span class="meta">$</span> yum -y install epel-release</span><br><span class="line"><span class="meta">$</span> yum -y update</span><br><span class="line"><span class="meta">$</span> yum -y install erlang socat</span><br><span class="line"><span class="meta">#</span> 查看是否安装成功</span><br><span class="line"><span class="meta">$</span> erl -version</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 安装rabbitMQ3.6版本</span><br><span class="line"><span class="meta">$</span> wget https://www.rabbitmq.com/releases/rabbitmq-server/v3.6.10/rabbitmq-server-3.6.10-1.el7.noarch.rpm</span><br><span class="line"><span class="meta">$</span> rpm --import https://www.rabbitmq.com/rabbitmq-release-signing-key.asc</span><br><span class="line"><span class="meta">$</span> rpm -Uvh rabbitmq-server-3.6.10-1.el7.noarch.rpm</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 启用,开机启动,状态</span><br><span class="line"><span class="meta">$</span> systemctl start rabbitmq-server</span><br><span class="line"><span class="meta">$</span> systemctl enable rabbitmq-server</span><br><span class="line"><span class="meta">$</span> systemctl status rabbitmq-server</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 启动图形界面管理</span><br><span class="line">rabbitmq-plugins enable rabbitmq_management</span><br><span class="line">chown -R rabbitmq:rabbitmq /var/lib/rabbitmq/</span><br><span class="line">rabbitmqctl add_user admin StrongPassword  # 踩坑:密码不要以';'结尾</span><br><span class="line">rabbitmqctl set_user_tags admin administrator</span><br><span class="line">rabbitmqctl set_permissions -p / admin ".*" ".*" ".*"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 自定义配置文件</span><br><span class="line"><span class="meta">#</span> 在rabbitmq 3.7.0 之前，rabbitmq.conf 使用了Erlang语法配置格式，新的版本使用了sysctl 格式.</span><br><span class="line">cd /etc/rabbitmq</span><br><span class="line">touch rabbitmq.conf</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 访问图形界面</span><br><span class="line">http://Your_Server_IP:15672/</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> api文档</span><br><span class="line">http://Your_Server_IP:15672/api</span><br></pre></td></tr></table></figure>
+<h5 id="常见错误处理">常见错误处理</h5>
+<blockquote>
+<p>Recovering 69477 queues, available file handles: 924. Please increase max open file handles limit to at least 69477!</p>
+</blockquote>
+<blockquote>
+<p>打开文件大小限制 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> https://stackoverflow.com/questions/46240032/rabbitmq-file-descriptor-limit</span><br><span class="line"><span class="meta">$</span> sudo systemctl edit rabbitmq-server.service # 找到systemd service 地址</span><br><span class="line"><span class="meta">$</span> sudo vim /etc/systemd/system/rabbitmq-server.service.d/limits.conf</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">LimitNOFILE=300000</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>Mnesia is overloaded: {dump_log,write_threshold}</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 编辑配置文件</span><br><span class="line"><span class="meta">$</span> sudo vim /etc/rabbitmq/rabbitmq.config</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[</span><br><span class="line">    &#123;mnesia, [&#123;dump_log_write_threshold, 5000&#125;]&#125;,</span><br><span class="line">    &#123;rabbit, [&#123;tcp_listeners, [5673]&#125;]&#125;</span><br><span class="line">].</span><br></pre></td></tr></table></figure>
 
           
         
@@ -2018,414 +2385,11 @@ user=&gt;  \d 表名 —— 得到表结构</code></pre>
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2018/01/31/java入门基础/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhuohanchang">
-      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="饱读诗书">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/01/31/java入门基础/" class="post-title-link" itemprop="url">java入门基础</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-01-31 09:44:05" itemprop="dateCreated datePublished" datetime="2018-01-31T09:44:05+08:00">2018-01-31</time>
-            </span>
-          
-
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-08-16 15:19:46" itemprop="dateModified" datetime="2019-08-16T15:19:46+08:00">2019-08-16</time>
-              </span>
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="linux安装java开发环境">linux安装java开发环境</h4>
-<h5 id="安装java">安装java</h5>
-<p>下载源码</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 从官方网站下载javaLTS版本源码并复制到当前目录</span><br><span class="line"><span class="meta">#</span> 下载地址: https://www.oracle.com/technetwork/java/javase/downloads/index.html</span><br><span class="line"><span class="meta">$</span> sudo mkdir /usr/java</span><br><span class="line"><span class="meta">$</span> sudo cd /usr/java</span><br><span class="line"><span class="meta">$</span> sudo cp -rf ~/Download/jdk-11.0.3_linux-x64_bin.tar.gz .</span><br><span class="line"><span class="meta">$</span> sudo tar -zxvf jdk-11.0.3_linux-x64_bin.tar.gz &amp;&amp; rm  jdk-11.0.3_linux-x64_bin.tar.gz</span><br></pre></td></tr></table></figure>
-<p>设置环境变量</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo vi /etc/profile</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>set java environment</span><br><span class="line">JAVA_HOME=/usr/java/jdk-11.0.3</span><br><span class="line">JRE_HOME=/usr/java/jdk-11.0.3/jre  # 如果安装包中没有jre文件夹，则改成和JAVA_HOME一致</span><br><span class="line">CLASS_PATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib</span><br><span class="line">PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin</span><br><span class="line">export JAVA_HOME JRE_HOME CLASS_PATH PATH</span><br></pre></td></tr></table></figure>
-<p>验证</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> which java</span><br><span class="line">/usr/java/jdk-11.0.3/bin/java</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span> java -version</span><br><span class="line">java version "11.0.3" 2019-04-16 LTS</span><br><span class="line">Java(TM) SE Runtime Environment 18.9 (build 11.0.3+12-LTS)                                           </span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM 18.9 (build 11.0.3+12-LTS, mixed mode)</span><br></pre></td></tr></table></figure>
-<h5 id="linux安装tomcat">linux安装tomcat</h5>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> cd /home/zhc/java</span><br><span class="line"><span class="meta">#</span> https://tomcat.apache.org/download-90.cgi</span><br><span class="line"><span class="meta">$</span> wget http://mirror.bit.edu.cn/apache/tomcat/tomcat-9/v9.0.22/bin/apache-tomcat-9.0.22.tar.gz</span><br><span class="line"><span class="meta">$</span> tar -xzvf apache-tomcat-9.0.22.tar.gz</span><br><span class="line"><span class="meta">$</span> mv apache-tomcat-9.0.22 tomcat</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 启动 http://127.0.0.1:8080</span><br><span class="line"><span class="meta">$</span> sudo ./tomcat/bin/startup.sh</span><br><span class="line">Using CATALINA_BASE:   /home/zhc/work/java/tomcat</span><br><span class="line">Using CATALINA_HOME:   /home/zhc/work/java/tomcat</span><br><span class="line">Using CATALINA_TMPDIR: /home/zhc/work/java/tomcat/temp</span><br><span class="line">Using JRE_HOME:        /usr/java/jdk-11.0.4</span><br><span class="line">Using CLASSPATH:       /home/zhc/work/java/tomcat/bin/bootstrap.jar:/home/zhc/work/java/tomcat/bin/tomcat-juli.jar</span><br><span class="line">Tomcat started.</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 关闭</span><br><span class="line"><span class="meta">$</span> sudo ./tomcat-9/bin/shutdown.sh</span><br></pre></td></tr></table></figure>
-<p><a href="!https://www.vultr.com/docs/how-to-install-apache-tomcat-8-on-centos-7">centos设置为系统启动</a></p>
-<h6 id="idea配置tomcat服务">idea配置tomcat服务</h6>
-<ul>
-<li>修改虚拟路径 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 以下两个配置需要保持一致</span><br><span class="line">RUN/DEBUG Configurations -&gt; Server -&gt; URL http://localhost:8080/&#123;ProjectName&#125;_war_exploded/ </span><br><span class="line">RUN/DEBUG Configurations -&gt; Deployment -&gt; Application content /&#123;ProjectName&#125;_war_exploded</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h5 id="安装maven">安装maven</h5>
-<a href="/2019/08/16/java开发maven构建工具入门基础/" title="java开发maven构建工具入门基础">java开发maven构建工具入门基础</a>
-<h5 id="安装gradle">安装gradle</h5>
-<a href="/2019/08/16/java开发gradle构建工具入门基础/" title="java开发gradle构建工具入门基础">java开发gradle构建工具入门基础</a>
-<h5 id="安装commons-logging">安装commons-logging</h5>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 从官网下载二进制文件包</span><br><span class="line"><span class="meta">#</span> http://commons.apache.org/proper/commons-logging/download_logging.cgi</span><br><span class="line"><span class="meta">$</span> wget http://mirrors.tuna.tsinghua.edu.cn/apache//commons/logging/binaries/commons-logging-1.2-bin.tar.gz</span><br><span class="line"><span class="meta">$</span> tar -xzvf commons-logging-1.2-bin.tar.gz</span><br><span class="line"><span class="meta">$</span> sudo mv commons-logging-1.2 /usr/java_jar/</span><br></pre></td></tr></table></figure>
-<h5 id="使用sdkman管理sdk">使用sdkman管理sdk</h5>
-<p><a href="!https://sdkman.io/install">sdkman</a></p>
-<h4 id="打包">打包</h4>
-<h5 id="创建jar包">创建jar包</h5>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 编写应用程序</span><br><span class="line"><span class="meta">$</span> sudo vim com/zhuohc/jar/HelloWorld.java</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.zhuohc.jar;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"hello world!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> javac com/zhuohc/jar/HelloWorld.java  # 编译</span><br><span class="line"><span class="meta">$</span> jar cvf hello.jar com/zhuohc/jar/HelloWorld.class  # 打包 参数c: 创建， 参数v: 输出具体文件信息， 参数f: 指定输出文件名</span><br><span class="line">已添加清单</span><br><span class="line">正在添加: com/zhuohc/jar/HelloWorld.class(输入 = 441) (输出 = 302)(压缩了 31%)</span><br></pre></td></tr></table></figure>
-<h5 id="查看jar包信息">查看jar包信息</h5>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> jar tvf hello.jar  # 查看 参数t： 查看</span><br><span class="line">0 Fri Aug 16 14:21:06 CST 2019 META-INF/</span><br><span class="line">66 Fri Aug 16 14:21:06 CST 2019 META-INF/MANIFEST.MF</span><br><span class="line">441 Fri Aug 16 14:20:20 CST 2019 com/zhuohc/jar/HelloWorld.class</span><br></pre></td></tr></table></figure>
-<h5 id="提取jar包信息">提取jar包信息</h5>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> jar xvf hello.jar # 解压 参数x： 提取extract</span><br><span class="line">已创建: META-INF/</span><br><span class="line">已解压: META-INF/MANIFEST.MF</span><br><span class="line">已解压: com/zhuohc/jar/HelloWorld.class</span><br></pre></td></tr></table></figure>
-<h5 id="jar包清单文件">jar包清单文件</h5>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">创建清单文件</span><br><span class="line"><span class="meta">$</span> sudo vim Manifest.txt</span><br></pre></td></tr></table></figure>
-<p>Manifest.txt指定程序入口 警告： 文本文件必须以新行或回车符结束。如果最后一行不以新行或回车结束，则不会正确解析.</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> Manifest.txt</span><br><span class="line">Main-Class: com.zhuohc.jar.HelloWorld</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 重新打包</span><br><span class="line"><span class="meta">$</span> jar cvfm hello.jar Manifest.txt com/zhuohc/jar/HelloWorld.class  # 参数m: 指定清单文件地址</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 执行jar文件</span><br><span class="line"><span class="meta">$</span> java -jar hello.jar</span><br><span class="line">hello world!</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> Manifest.txt 其他信息</span><br><span class="line">Name: com/zhuohc/jar</span><br><span class="line">Specification-Title: Java Utility Classes</span><br><span class="line">Specification-Version: 1.2</span><br><span class="line">Specification-Vendor: Example Tech, Inc.</span><br><span class="line">Implementation-Title: com.zhuohc.jar</span><br><span class="line">Implementation-Version: build57</span><br><span class="line">Implementation-Vendor: Example Tech, Inc.</span><br><span class="line">Main-Class: com.zhuohc.jar.HelloWorld</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2018/01/29/微信本地开发及线上环境搭建/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhuohanchang">
-      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="饱读诗书">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/01/29/微信本地开发及线上环境搭建/" class="post-title-link" itemprop="url">微信本地开发及线上环境搭建</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-01-29 17:25:48" itemprop="dateCreated datePublished" datetime="2018-01-29T17:25:48+08:00">2018-01-29</time>
-            </span>
-          
-
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-07-23 13:51:43" itemprop="dateModified" datetime="2019-07-23T13:51:43+08:00">2019-07-23</time>
-              </span>
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/后端/" itemprop="url" rel="index"><span itemprop="name">后端</span></a></span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/后端/运维/" itemprop="url" rel="index"><span itemprop="name">运维</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="微信开发者中心">微信开发者中心</h4>
-<p>https://open.weixin.qq.com 1. 注册线上账号，开发者资质认证 2. 注册本地账号，开发者资质认证</p>
-<h4 id="网站应用">网站应用</h4>
-<ol type="1">
-<li>添加相关信息，并盖章认证，添加授权回调域example.com</li>
-<li>认证通过后获取AppId, AppSecret</li>
-</ol>
-<h4 id="公众号应用">公众号应用</h4>
-<h4 id="本地环境配置">本地环境配置</h4>
-<ol type="1">
-<li>将回调的url www.example.com 添加到host文件中</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -2468,7 +2432,7 @@ user=&gt;  \d 表名 —— 得到表结构</code></pre>
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">70</span>
+          <span class="site-state-item-count">72</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

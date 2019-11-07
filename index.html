@@ -246,7 +246,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">70</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">72</span></a>
 
   </li>
 
@@ -307,6 +307,350 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2019/11/06/anaconda入门基础/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhuohanchang">
+      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="饱读诗书">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/11/06/anaconda入门基础/" class="post-title-link" itemprop="url">anaconda入门基础</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-11-06 13:38:28 / Modified: 14:19:16" itemprop="dateCreated datePublished" datetime="2019-11-06T13:38:28+08:00">2019-11-06</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="安装">安装</h4>
+<p><strong>官方安装</strong> <a href="!https://www.anaconda.com/distribution/">官方下载地址</a></p>
+<p><strong>archlinux安装</strong> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜ sudo pacman -S anaconda</span><br></pre></td></tr></table></figure></p>
+<p><strong>验证</strong> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">➜ conda --version</span><br><span class="line">conda 4.7.10</span><br></pre></td></tr></table></figure></p>
+<h4 id="虚拟环境">虚拟环境</h4>
+<p><strong>创建</strong> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> conda create --name &lt;env_name&gt; &lt;package_names&gt; &lt;package_names&gt; ....</span><br><span class="line">➜ conda create --name ml python=3.7.3 numpy pandas</span><br></pre></td></tr></table></figure></p>
+<p><strong>进入/退出</strong> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">➜ conda activate ml</span><br><span class="line">➜ conda deactivate</span><br></pre></td></tr></table></figure></p>
+<p><strong>列表</strong> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">(ml)$</span> conda info --envs</span><br><span class="line"><span class="meta">#</span> conda environments:</span><br><span class="line"><span class="meta">#</span></span><br><span class="line">ml                    *  /home/zhc/.conda/envs/ml</span><br><span class="line">base                     /opt/anaconda</span><br><span class="line"><span class="meta">#</span> 或者</span><br><span class="line"><span class="meta">(ml)$</span> conda env list</span><br><span class="line"><span class="meta">#</span> conda environments:</span><br><span class="line"><span class="meta">#</span></span><br><span class="line">ml                    *  /home/zhc/.conda/envs/ml</span><br><span class="line">base                     /opt/anaconda</span><br></pre></td></tr></table></figure></p>
+<p><strong>删除</strong> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda remove --name &lt;env_name&gt; --all</span><br></pre></td></tr></table></figure></p>
+<h4 id="包管理">包管理</h4>
+<p><strong>当期环境包列表</strong> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">(ml)$</span> conda list</span><br></pre></td></tr></table></figure></p>
+<p><strong>当期环境安装包</strong> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> (ml)$ conda install &lt;package_name&gt;</span><br><span class="line"><span class="meta">(ml)$</span> conda install jupyter notebook  # 安装jupyter notebook编辑器</span><br><span class="line"><span class="meta">$</span> jupter notebook  # 打开编辑器</span><br></pre></td></tr></table></figure></p>
+<p><strong>卸载包</strong> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">(ml)$</span> conda remove &lt;package_name&gt;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2019/11/06/机器学习入门基础/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhuohanchang">
+      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="饱读诗书">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/11/06/机器学习入门基础/" class="post-title-link" itemprop="url">机器学习入门基础</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-11-06 12:57:54" itemprop="dateCreated datePublished" datetime="2019-11-06T12:57:54+08:00">2019-11-06</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-11-07 17:14:29" itemprop="dateModified" datetime="2019-11-07T17:14:29+08:00">2019-11-07</time>
+              </span>
+            
+          
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="概念">概念</h4>
+<h5 id="机器学习方式">机器学习方式</h5>
+<blockquote>
+<p>监督式学习: 给一组数据一个对应的输出结果。从数据中挖掘相关性</p>
+</blockquote>
+<blockquote>
+<p>非监督式学习: 通过预先引入的优化准则进行模型训练</p>
+</blockquote>
+<blockquote>
+<p>强化学习/半监督式学习</p>
+</blockquote>
+<h5 id="机器学习目标">机器学习目标</h5>
+<p><strong>分类(监督式学习)</strong></p>
+<blockquote>
+<p>根据数据集目标的特征或者属性，划分到已有的分类中</p>
+</blockquote>
+<p>常用算法: K近邻(KNN), 逻辑回归， 决策树， 朴素贝叶斯</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># https://www.imooc.com/video/20172</span></span><br><span class="line"><span class="comment"># 图像展示</span></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> datasets</span><br><span class="line"><span class="comment"># 调用knn模型</span></span><br><span class="line"><span class="keyword">from</span> sklearn.neighbors <span class="keyword">import</span> KNeighborsClassifier</span><br><span class="line"><span class="comment"># 引入准确率</span></span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> accuracy_score</span><br><span class="line"><span class="comment"># 引入数据分离</span></span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">load_data</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># 区分属性数据和结果数据</span></span><br><span class="line">    <span class="comment"># 加载iris数据</span></span><br><span class="line">    iris = datasets.load_iris()</span><br><span class="line">    <span class="comment"># 属性数据</span></span><br><span class="line">    <span class="comment"># print(iris.data)</span></span><br><span class="line">    <span class="comment"># 属性数据含义</span></span><br><span class="line">    <span class="comment"># print(iris.feature_names)</span></span><br><span class="line">    <span class="comment"># 结果数据</span></span><br><span class="line">    <span class="comment"># print(iris.target)</span></span><br><span class="line">    <span class="comment"># 结果数据含义</span></span><br><span class="line">    <span class="comment"># print(iris.target_names)</span></span><br><span class="line">    <span class="comment"># 确认属性/结果数据类型</span></span><br><span class="line">    <span class="comment"># print(type(iris.data), type(iris.target))</span></span><br><span class="line">    <span class="comment"># 确认行数一致</span></span><br><span class="line">    <span class="comment"># print(iris.data.shape, iris.target.shape)</span></span><br><span class="line">    <span class="keyword">return</span> iris.data, iris.target</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 预测</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">knn_predict</span><span class="params">(data)</span>:</span></span><br><span class="line">    <span class="comment"># X输入数据赋值 y输出数据赋值</span></span><br><span class="line">    x = data[<span class="number">0</span>]</span><br><span class="line">    y = data[<span class="number">1</span>]</span><br><span class="line">    <span class="comment"># knn临近值的设置</span></span><br><span class="line">    k = <span class="number">5</span></span><br><span class="line">    <span class="comment"># 创建实例</span></span><br><span class="line">    knn = KNeighborsClassifier(n_neighbors=k)</span><br><span class="line">    <span class="comment"># 模型训练</span></span><br><span class="line">    knn.fit(X=x, y=y)</span><br><span class="line">    <span class="comment"># 开始预测</span></span><br><span class="line">    x_test = [[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>], [<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>], [<span class="number">2</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">2</span>]]</span><br><span class="line">    results = knn.predict(x_test)</span><br><span class="line">    print(results)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">knn_pred</span><span class="params">(data)</span>:</span></span><br><span class="line">    x = data[<span class="number">0</span>]</span><br><span class="line">    y = data[<span class="number">1</span>]</span><br><span class="line">    <span class="comment"># knn临近值的设置</span></span><br><span class="line">    k = <span class="number">5</span></span><br><span class="line">    <span class="comment"># 创建实例</span></span><br><span class="line">    knn = KNeighborsClassifier(n_neighbors=k)</span><br><span class="line">    <span class="comment"># 模型训练</span></span><br><span class="line">    knn.fit(X=x, y=y)</span><br><span class="line">    y_pred = knn.predict(x)</span><br><span class="line">    print(y_pred)</span><br><span class="line">    print(y_pred.shape)</span><br><span class="line">    <span class="comment"># 准确率计算</span></span><br><span class="line">    print(accuracy_score(y, y_pred))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 训练集与预测集 计算准确率</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">knn_test_data</span><span class="params">(data)</span>:</span></span><br><span class="line">    <span class="comment"># X输入数据赋值 y输出数据赋值</span></span><br><span class="line">    x = data[<span class="number">0</span>]</span><br><span class="line">    y = data[<span class="number">1</span>]</span><br><span class="line">    print(x.shape)</span><br><span class="line">    print(y.shape)</span><br><span class="line">    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=<span class="number">0.4</span>)</span><br><span class="line">    print(x_train.shape, x_test.shape, y_train.shape, y_test.shape)</span><br><span class="line">    k = <span class="number">5</span></span><br><span class="line">    knn = KNeighborsClassifier(n_neighbors=k)</span><br><span class="line">    knn.fit(x_train, y_train)</span><br><span class="line">    <span class="comment"># 训练集预测</span></span><br><span class="line">    y_train_pred = knn.predict(x_train)</span><br><span class="line">    print(accuracy_score(y_train, y_train_pred))</span><br><span class="line">    <span class="comment"># 测试集预测</span></span><br><span class="line">    y_test_pred = knn.predict(x_test)</span><br><span class="line">    print(accuracy_score(y_test, y_test_pred))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 获得最高准确率的k值</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">knn_n_neighbors</span><span class="params">(data)</span>:</span></span><br><span class="line">    <span class="comment"># X输入数据赋值 y输出数据赋值</span></span><br><span class="line">    x = data[<span class="number">0</span>]</span><br><span class="line">    y = data[<span class="number">1</span>]</span><br><span class="line">    k_range = list(range(<span class="number">1</span>, <span class="number">26</span>))</span><br><span class="line">    score_train = []</span><br><span class="line">    score_test = []</span><br><span class="line">    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=<span class="number">0.4</span>)</span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> k_range:</span><br><span class="line">        knn = KNeighborsClassifier(n_neighbors=k)</span><br><span class="line">        knn.fit(x_train, y_train)</span><br><span class="line">        <span class="comment"># 训练集预测</span></span><br><span class="line">        y_train_pred = knn.predict(x_train)</span><br><span class="line">        score_train.append(accuracy_score(y_train, y_train_pred))</span><br><span class="line">        <span class="comment"># 测试集预测</span></span><br><span class="line">        y_test_pred = knn.predict(x_test)</span><br><span class="line">        score_test.append(accuracy_score(y_test, y_test_pred))</span><br><span class="line">    <span class="comment"># 展示k值与训练集测试集准确率关系</span></span><br><span class="line">    <span class="comment"># plt.plot(k_range, score_train)</span></span><br><span class="line">    <span class="comment"># plt.xlabel('K(KNN MODEL)')</span></span><br><span class="line">    <span class="comment"># plt.ylabel('Training Accuracy')</span></span><br><span class="line">    <span class="comment"># plt.show()</span></span><br><span class="line">    plt.plot(k_range, score_test)</span><br><span class="line">    plt.xlabel(<span class="string">'K(KNN MODEL)'</span>)</span><br><span class="line">    plt.ylabel(<span class="string">'Test Accuracy'</span>)</span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">()</span>:</span></span><br><span class="line">    data = load_data()</span><br><span class="line">    <span class="comment"># knn_predict(data)</span></span><br><span class="line">    <span class="comment"># knn_pred(data)</span></span><br><span class="line">    <span class="comment"># knn_test_data(data)</span></span><br><span class="line">    knn_n_neighbors(data)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    index()</span><br></pre></td></tr></table></figure>
+<p><strong>逻辑回归模型</strong></p>
+<blockquote>
+<p>用于解决分类问题的一种模型，计算其归属于某一类别的概率P(X), 常用与二分类问题，例如是否是垃圾邮件，是否是猫等等</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="comment"># 逻辑回归模型</span></span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LogisticRegression</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> metrics</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">()</span>:</span></span><br><span class="line">    path = <span class="string">'diabetes.csv'</span></span><br><span class="line">    pima = pd.read_csv(path)</span><br><span class="line">    print(pima.head())</span><br><span class="line">    <span class="comment"># 怀孕次数， 胰岛素水平， 体重指数， 年龄</span></span><br><span class="line">    feature_names = [<span class="string">'Pregnancies'</span>, <span class="string">'Insulin'</span>, <span class="string">'BMI'</span>, <span class="string">'Age'</span>]</span><br><span class="line">    <span class="comment"># x, y赋值</span></span><br><span class="line">    x = pima[feature_names]</span><br><span class="line">    y = pima.Outcome</span><br><span class="line">    <span class="comment"># 维度确认</span></span><br><span class="line">    print(x.shape)</span><br><span class="line">    print(y.shape)</span><br><span class="line">    <span class="comment"># 数据分离  random_state=0表示每次都是相同的分离</span></span><br><span class="line">    x_train, x_test, y_train, y_test = train_test_split(x, y, random_state=<span class="number">0</span>)</span><br><span class="line">    <span class="comment"># 创建模型实例</span></span><br><span class="line">    logeg = LogisticRegression()</span><br><span class="line">    logeg.fit(x_train, y_train)</span><br><span class="line">    <span class="comment"># 基于测试数据集的预测</span></span><br><span class="line">    y_pred = logeg.predict(x_test)</span><br><span class="line">    <span class="comment"># 使用准确率进行评估</span></span><br><span class="line">    print(metrics.accuracy_score(y_test, y_pred))</span><br><span class="line">    <span class="comment"># 确认正负样本数据量</span></span><br><span class="line">    print(y_test.value_counts())</span><br><span class="line">    <span class="comment"># 1的比例, 0的比例</span></span><br><span class="line">    print(y_test.mean(), <span class="number">1</span>-y_test.mean())</span><br><span class="line">    <span class="comment"># 空准确率</span></span><br><span class="line">    print(max(y_test.mean(), <span class="number">1</span>-y_test.mean()))</span><br><span class="line">    <span class="comment"># 以上发现训练后的模型准确率基本等同与空准确率</span></span><br><span class="line">    <span class="comment"># 引入混淆矩阵</span></span><br><span class="line">    <span class="comment"># 计算混淆矩阵</span></span><br><span class="line">    confusion = metrics.confusion_matrix(y_test, y_pred)</span><br><span class="line">    print(confusion)</span><br><span class="line">    <span class="comment"># 展示部分实际结果与预测结果(25组)</span></span><br><span class="line">    print(<span class="string">"true:"</span>, y_test.values[<span class="number">0</span>:<span class="number">25</span>])</span><br><span class="line">    print(<span class="string">"pred:"</span>, y_pred[<span class="number">0</span>:<span class="number">25</span>])</span><br><span class="line">    <span class="comment"># 四个因子赋值</span></span><br><span class="line">    tn = confusion[<span class="number">0</span>][<span class="number">0</span>]  <span class="comment"># True Negatives 预测准备 实际为负样本的数量</span></span><br><span class="line">    fp = confusion[<span class="number">0</span>][<span class="number">1</span>]  <span class="comment"># False Positives 预测错误 实际为父样本的数量</span></span><br><span class="line">    fn = confusion[<span class="number">1</span>][<span class="number">0</span>]  <span class="comment"># False Negatives 预测错误 实际为正样本的数量</span></span><br><span class="line">    tp = confusion[<span class="number">1</span>][<span class="number">1</span>]  <span class="comment"># True Positives 预测准确 实际为正样本的数量</span></span><br><span class="line">    print(tn, fp, fn, tp)</span><br><span class="line">    print(<span class="string">'准确率Accuracy: 所有样本中，预测正确的比例'</span>)</span><br><span class="line">    print((tp + tn) / (tp + tn + fp + fn))</span><br><span class="line">    print(<span class="string">'错误率Misclassification Rate： 所有样本中，预测错误的比例'</span>)</span><br><span class="line">    print((fp + fn) / (tp + tn + fp + fn))</span><br><span class="line">    print(<span class="string">'灵敏度(召回率)Sensitivity： 正样本中，预测正确的比例'</span>)</span><br><span class="line">    recall = tp / (tp + fn)</span><br><span class="line">    print(recall)</span><br><span class="line">    print(<span class="string">'特异性Specificity: 负样本中，预测正确的比例'</span>)</span><br><span class="line">    print(tn / (tn + fp))</span><br><span class="line">    print(<span class="string">'精确率Precision: 预测结果为正样本中， 预测正确的比例'</span>)</span><br><span class="line">    precision = tp / (tp + fp)</span><br><span class="line">    print(precision)</span><br><span class="line">    print(<span class="string">'F1分数Score: 综合判断指标'</span>)</span><br><span class="line">    print((<span class="number">2</span>*precision*recall) / (precision+recall))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    index()</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -689,13 +1033,23 @@
                 
               
 
-              <time title="Created: 2019-08-21 09:48:28 / Modified: 10:26:06" itemprop="dateCreated datePublished" datetime="2019-08-21T09:48:28+08:00">2019-08-21</time>
+              <time title="Created: 2019-08-21 09:48:28" itemprop="dateCreated datePublished" datetime="2019-08-21T09:48:28+08:00">2019-08-21</time>
             </span>
           
 
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-10-12 14:19:18" itemprop="dateModified" datetime="2019-10-12T14:19:18+08:00">2019-10-12</time>
+              </span>
             
           
 
@@ -740,6 +1094,14 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> archlinux</span><br><span class="line"><span class="meta">$</span> git clone https://aur.archlinux.org/android-studio.git</span><br><span class="line"><span class="meta">$</span> makepkg -si</span><br></pre></td></tr></table></figure>
 <h5 id="安装sdk">安装sdk</h5>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> https://www.androiddevtools.cn/</span><br><span class="line"><span class="meta">#</span> 下载 SDK Tools并解压</span><br><span class="line"><span class="meta">$</span> tar -zxvf android-sdk_r24.4.1-linux.tar</span><br><span class="line"><span class="meta">$</span> mv android-sdk-linux ~/android</span><br><span class="line"><span class="meta">#</span> 下载 SDK并解压</span><br><span class="line"><span class="meta">$</span> mv android-5.0 ~/android/android-sdk-linux/platforms</span><br></pre></td></tr></table></figure>
+<h4 id="安装maven">安装maven</h4>
+<a href="/2019/08/16/java开发maven构建工具入门基础/" title="java开发maven构建工具入门基础">java开发maven构建工具入门基础</a>
+<h4 id="安装maven私服">安装maven私服</h4>
+<p><a href="https://www.sonatype.com/download-oss-sonatype" target="_blank" rel="noopener">Nexus的下载地址</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 解压后/home/zhc/nexus</span><br><span class="line"><span class="meta">$</span> ./nexus/nexus-3.19.1-01/bin/nexus run  # 启动nexus</span><br></pre></td></tr></table></figure>
+<p>如果出现以下错误, 按提示安装java jdk <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">No suitable Java Virtual Machine could be found on your system.</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 访问地址</span><br><span class="line">http://127.0.0.1:8081/</span><br></pre></td></tr></table></figure>
+<h4 id="基础环境搭建">基础环境搭建</h4>
 
           
         
@@ -1529,13 +1891,13 @@
         
           
             <h4 id="linux安装gradle">linux安装gradle</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 从官网下载二进制包</span><br><span class="line"><span class="meta">#</span> https://gradle.org/install/</span><br><span class="line"><span class="meta">$</span> unzip unzip gradle-5.6-all.zip</span><br><span class="line"><span class="meta">$</span> sudo mv gradle-5.6 /usr/java_jar</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 添加环境变量</span><br><span class="line"><span class="meta">$</span> sudo vim /etc/profile</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 最后添加</span><br><span class="line">export PATH=$PATH:/usr/java_jar/gradle-5.6/bin</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 验证</span><br><span class="line"><span class="meta">$</span> gradle -v</span><br><span class="line">Welcome to Gradle 5.6!</span><br><span class="line"></span><br><span class="line">Here are the highlights of this release:</span><br><span class="line"> - Incremental Groovy compilation</span><br><span class="line"> - Groovy compile avoidance</span><br><span class="line"> - Test fixtures for Java projects</span><br><span class="line"> - Manage plugin versions via settings script</span><br><span class="line"></span><br><span class="line">For more details see https://docs.gradle.org/5.6/release-notes.html</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">------------------------------------------------------------</span><br><span class="line">Gradle 5.6</span><br><span class="line">------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">Build time:   2019-08-14 21:05:25 UTC</span><br><span class="line">Revision:     f0b9d60906c7b8c42cd6c61a39ae7b74767bb012</span><br><span class="line"></span><br><span class="line">Kotlin:       1.3.41</span><br><span class="line">Groovy:       2.5.4</span><br><span class="line">Ant:          Apache Ant(TM) version 1.9.14 compiled on March 12 2019</span><br><span class="line">JVM:          11.0.4 (Oracle Corporation 11.0.4+10-LTS)</span><br><span class="line">OS:           Linux 4.19.49-1-MANJARO amd64</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 从官网下载二进制包</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> https://gradle.org/install/</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> unzip unzip gradle-5.6-all.zip</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo mv gradle-5.6 /usr/java_jar</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 添加环境变量</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo vim /etc/profile</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 最后添加</span></span><br><span class="line">export PATH=$PATH:/usr/java_jar/gradle-5.6/bin</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 验证</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> gradle -v</span></span><br><span class="line">Welcome to Gradle 5.6!</span><br><span class="line"></span><br><span class="line">Here are the highlights of this release:</span><br><span class="line"> - Incremental Groovy compilation</span><br><span class="line"> - Groovy compile avoidance</span><br><span class="line"> - Test fixtures for Java projects</span><br><span class="line"> - Manage plugin versions via settings script</span><br><span class="line"></span><br><span class="line">For more details see https://docs.gradle.org/5.6/release-notes.html</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">------------------------------------------------------------</span><br><span class="line">Gradle 5.6</span><br><span class="line">------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">Build time:   2019-08-14 21:05:25 UTC</span><br><span class="line">Revision:     f0b9d60906c7b8c42cd6c61a39ae7b74767bb012</span><br><span class="line"></span><br><span class="line">Kotlin:       1.3.41</span><br><span class="line">Groovy:       2.5.4</span><br><span class="line">Ant:          Apache Ant(TM) version 1.9.14 compiled on March 12 2019</span><br><span class="line">JVM:          11.0.4 (Oracle Corporation 11.0.4+10-LTS)</span><br><span class="line">OS:           Linux 4.19.49-1-MANJARO amd64</span><br></pre></td></tr></table></figure>
 <h4 id="配置gradle">配置gradle</h4>
 <h5 id="项目配置国内源">项目配置国内源</h5>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 配置国内aliyun源</span><br><span class="line">repositories &#123;</span><br><span class="line">    maven &#123;url 'http://maven.aliyun.com/nexus/content/groups/public/'&#125;</span><br><span class="line">    mavenCentral()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 配置国内aliyun源</span></span><br><span class="line">repositories &#123;</span><br><span class="line">    maven &#123;url 'http://maven.aliyun.com/nexus/content/groups/public/'&#125;</span><br><span class="line">    mavenCentral()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h5 id="全局配置国内源">全局配置国内源</h5>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.gradle/init.gradle</span><br></pre></td></tr></table></figure>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">allprojects&#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">        def REPOSITORY_URL = 'http://maven.aliyun.com/nexus/content/groups/public/'</span><br><span class="line">        all &#123; ArtifactRepository repo -&gt;</span><br><span class="line">            if(repo instanceof MavenArtifactRepository)&#123;</span><br><span class="line">                def url = repo.url.toString()</span><br><span class="line">                if (url.startsWith('https://repo1.maven.org/maven2') || url.startsWith('https://jcenter.bintray.com/')) &#123;</span><br><span class="line">                    project.logger.lifecycle "Repository $&#123;repo.url&#125; replaced by $REPOSITORY_URL."</span><br><span class="line">                    remove repo</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        maven &#123;</span><br><span class="line">            url REPOSITORY_URL</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -1743,330 +2105,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2019/08/02/django环境部署/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhuohanchang">
-      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="饱读诗书">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/08/02/django环境部署/" class="post-title-link" itemprop="url">django环境部署</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-08-02 19:03:28" itemprop="dateCreated datePublished" datetime="2019-08-02T19:03:28+08:00">2019-08-02</time>
-            </span>
-          
-
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-08-07 16:10:08" itemprop="dateModified" datetime="2019-08-07T16:10:08+08:00">2019-08-07</time>
-              </span>
-            
-          
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="安装supervisor服务">安装supervisor服务</h4>
-<p><a href="http://supervisord.org/" target="_blank" rel="noopener">地址</a> sudo yum install supervisor #### 待续 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> pip3 install service_identity</span><br><span class="line"><span class="meta">$</span> pip3 install channels</span><br><span class="line"><span class="meta">$</span> pip3 install channels_redis</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2019/07/26/node入门基础/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhuohanchang">
-      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="饱读诗书">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/07/26/node入门基础/" class="post-title-link" itemprop="url">node入门基础</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-07-26 15:48:00 / Modified: 16:07:02" itemprop="dateCreated datePublished" datetime="2019-07-26T15:48:00+08:00">2019-07-26</time>
-            </span>
-          
-
-          
-            
-
-            
-          
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="安装">安装</h4>
-<p><strong>开发环境</strong></p>
-<p><a href="https://github.com/nvm-sh/nvm" target="_blank" rel="noopener">安装nvm</a></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash</span></span><br></pre></td></tr></table></figure>
-<p>添加以下代码到~/.bashrc, ~/.profile, or ~/.zshrc</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export NVM_DIR="$HOME/.nvm"</span><br><span class="line">[ -s "$NVM_DIR/nvm.sh" ] &amp;&amp; \. "$NVM_DIR/nvm.sh"  # This loads nvm</span><br><span class="line">[ -s "$NVM_DIR/bash_completion" ] &amp;&amp; \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion</span><br></pre></td></tr></table></figure>
-<p>nvm命令 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> nvm install 6.14.4  <span class="comment"># 安装or 10.10.0, 8.9.1, etc</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> nvm ls 查看</span></span><br></pre></td></tr></table></figure></p>
-<p>安装cnpm <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm --registry=https://registry.npm.taobao.org install cnpm -g</span></span><br></pre></td></tr></table></figure></p>
-<h4 id="待续">待续</h4>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -2109,7 +2152,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">70</span>
+          <span class="site-state-item-count">72</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

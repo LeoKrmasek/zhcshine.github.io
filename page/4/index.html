@@ -246,7 +246,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">70</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">72</span></a>
 
   </li>
 
@@ -323,6 +323,409 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2018/01/31/java入门基础/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhuohanchang">
+      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="饱读诗书">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/01/31/java入门基础/" class="post-title-link" itemprop="url">java入门基础</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-01-31 09:44:05" itemprop="dateCreated datePublished" datetime="2018-01-31T09:44:05+08:00">2018-01-31</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-08-16 15:19:46" itemprop="dateModified" datetime="2019-08-16T15:19:46+08:00">2019-08-16</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="linux安装java开发环境">linux安装java开发环境</h4>
+<h5 id="安装java">安装java</h5>
+<p>下载源码</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 从官方网站下载javaLTS版本源码并复制到当前目录</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 下载地址: https://www.oracle.com/technetwork/java/javase/downloads/index.html</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo mkdir /usr/java</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo <span class="built_in">cd</span> /usr/java</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo cp -rf ~/Download/jdk-11.0.3_linux-x64_bin.tar.gz .</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo tar -zxvf jdk-11.0.3_linux-x64_bin.tar.gz &amp;&amp; rm  jdk-11.0.3_linux-x64_bin.tar.gz</span></span><br></pre></td></tr></table></figure>
+<p>设置环境变量</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo vi /etc/profile</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="built_in">set</span> java environment</span></span><br><span class="line">JAVA_HOME=/usr/java/jdk-11.0.3</span><br><span class="line">JRE_HOME=/usr/java/jdk-11.0.3/jre  # 如果安装包中没有jre文件夹，则改成和JAVA_HOME一致</span><br><span class="line">CLASS_PATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib</span><br><span class="line">PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin</span><br><span class="line">export JAVA_HOME JRE_HOME CLASS_PATH PATH</span><br></pre></td></tr></table></figure>
+<p>验证</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">which</span> java</span></span><br><span class="line">/usr/java/jdk-11.0.3/bin/java</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span><span class="bash"> java -version</span></span><br><span class="line">java version "11.0.3" 2019-04-16 LTS</span><br><span class="line">Java(TM) SE Runtime Environment 18.9 (build 11.0.3+12-LTS)                                           </span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM 18.9 (build 11.0.3+12-LTS, mixed mode)</span><br></pre></td></tr></table></figure>
+<h5 id="linux安装tomcat">linux安装tomcat</h5>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> /home/zhc/java</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> https://tomcat.apache.org/download-90.cgi</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> wget http://mirror.bit.edu.cn/apache/tomcat/tomcat-9/v9.0.22/bin/apache-tomcat-9.0.22.tar.gz</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tar -xzvf apache-tomcat-9.0.22.tar.gz</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> mv apache-tomcat-9.0.22 tomcat</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 启动 http://127.0.0.1:8080</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo ./tomcat/bin/startup.sh</span></span><br><span class="line">Using CATALINA_BASE:   /home/zhc/work/java/tomcat</span><br><span class="line">Using CATALINA_HOME:   /home/zhc/work/java/tomcat</span><br><span class="line">Using CATALINA_TMPDIR: /home/zhc/work/java/tomcat/temp</span><br><span class="line">Using JRE_HOME:        /usr/java/jdk-11.0.4</span><br><span class="line">Using CLASSPATH:       /home/zhc/work/java/tomcat/bin/bootstrap.jar:/home/zhc/work/java/tomcat/bin/tomcat-juli.jar</span><br><span class="line">Tomcat started.</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 关闭</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo ./tomcat-9/bin/shutdown.sh</span></span><br></pre></td></tr></table></figure>
+<p><a href="!https://www.vultr.com/docs/how-to-install-apache-tomcat-8-on-centos-7">centos设置为系统启动</a></p>
+<h6 id="idea配置tomcat服务">idea配置tomcat服务</h6>
+<ul>
+<li>修改虚拟路径 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 以下两个配置需要保持一致</span></span><br><span class="line">RUN/DEBUG Configurations -&gt; Server -&gt; URL http://localhost:8080/&#123;ProjectName&#125;_war_exploded/ </span><br><span class="line">RUN/DEBUG Configurations -&gt; Deployment -&gt; Application content /&#123;ProjectName&#125;_war_exploded</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h5 id="安装maven">安装maven</h5>
+<a href="/2019/08/16/java开发maven构建工具入门基础/" title="java开发maven构建工具入门基础">java开发maven构建工具入门基础</a>
+<h5 id="安装gradle">安装gradle</h5>
+<a href="/2019/08/16/java开发gradle构建工具入门基础/" title="java开发gradle构建工具入门基础">java开发gradle构建工具入门基础</a>
+<h5 id="安装commons-logging">安装commons-logging</h5>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 从官网下载二进制文件包</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> http://commons.apache.org/proper/commons-logging/download_logging.cgi</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> wget http://mirrors.tuna.tsinghua.edu.cn/apache//commons/logging/binaries/commons-logging-1.2-bin.tar.gz</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tar -xzvf commons-logging-1.2-bin.tar.gz</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo mv commons-logging-1.2 /usr/java_jar/</span></span><br></pre></td></tr></table></figure>
+<h5 id="使用sdkman管理sdk">使用sdkman管理sdk</h5>
+<p><a href="!https://sdkman.io/install">sdkman</a></p>
+<h4 id="打包">打包</h4>
+<h5 id="创建jar包">创建jar包</h5>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 编写应用程序</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo vim com/zhuohc/jar/HelloWorld.java</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.zhuohc.jar;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"hello world!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> javac com/zhuohc/jar/HelloWorld.java  <span class="comment"># 编译</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> jar cvf hello.jar com/zhuohc/jar/HelloWorld.class  <span class="comment"># 打包 参数c: 创建， 参数v: 输出具体文件信息， 参数f: 指定输出文件名</span></span></span><br><span class="line">已添加清单</span><br><span class="line">正在添加: com/zhuohc/jar/HelloWorld.class(输入 = 441) (输出 = 302)(压缩了 31%)</span><br></pre></td></tr></table></figure>
+<h5 id="查看jar包信息">查看jar包信息</h5>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> jar tvf hello.jar  <span class="comment"># 查看 参数t： 查看</span></span></span><br><span class="line">0 Fri Aug 16 14:21:06 CST 2019 META-INF/</span><br><span class="line">66 Fri Aug 16 14:21:06 CST 2019 META-INF/MANIFEST.MF</span><br><span class="line">441 Fri Aug 16 14:20:20 CST 2019 com/zhuohc/jar/HelloWorld.class</span><br></pre></td></tr></table></figure>
+<h5 id="提取jar包信息">提取jar包信息</h5>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> jar xvf hello.jar <span class="comment"># 解压 参数x： 提取extract</span></span></span><br><span class="line">已创建: META-INF/</span><br><span class="line">已解压: META-INF/MANIFEST.MF</span><br><span class="line">已解压: com/zhuohc/jar/HelloWorld.class</span><br></pre></td></tr></table></figure>
+<h5 id="jar包清单文件">jar包清单文件</h5>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">创建清单文件</span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo vim Manifest.txt</span></span><br></pre></td></tr></table></figure>
+<p>Manifest.txt指定程序入口 警告： 文本文件必须以新行或回车符结束。如果最后一行不以新行或回车结束，则不会正确解析.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> Manifest.txt</span></span><br><span class="line">Main-Class: com.zhuohc.jar.HelloWorld</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 重新打包</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> jar cvfm hello.jar Manifest.txt com/zhuohc/jar/HelloWorld.class  <span class="comment"># 参数m: 指定清单文件地址</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 执行jar文件</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> java -jar hello.jar</span></span><br><span class="line">hello world!</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> Manifest.txt 其他信息</span></span><br><span class="line">Name: com/zhuohc/jar</span><br><span class="line">Specification-Title: Java Utility Classes</span><br><span class="line">Specification-Version: 1.2</span><br><span class="line">Specification-Vendor: Example Tech, Inc.</span><br><span class="line">Implementation-Title: com.zhuohc.jar</span><br><span class="line">Implementation-Version: build57</span><br><span class="line">Implementation-Vendor: Example Tech, Inc.</span><br><span class="line">Main-Class: com.zhuohc.jar.HelloWorld</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2018/01/29/微信本地开发及线上环境搭建/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhuohanchang">
+      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="饱读诗书">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/01/29/微信本地开发及线上环境搭建/" class="post-title-link" itemprop="url">微信本地开发及线上环境搭建</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-01-29 17:25:48" itemprop="dateCreated datePublished" datetime="2018-01-29T17:25:48+08:00">2018-01-29</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-07-23 13:51:43" itemprop="dateModified" datetime="2019-07-23T13:51:43+08:00">2019-07-23</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/后端/" itemprop="url" rel="index"><span itemprop="name">后端</span></a></span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/后端/运维/" itemprop="url" rel="index"><span itemprop="name">运维</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="微信开发者中心">微信开发者中心</h4>
+<p>https://open.weixin.qq.com 1. 注册线上账号，开发者资质认证 2. 注册本地账号，开发者资质认证</p>
+<h4 id="网站应用">网站应用</h4>
+<ol type="1">
+<li>添加相关信息，并盖章认证，添加授权回调域example.com</li>
+<li>认证通过后获取AppId, AppSecret</li>
+</ol>
+<h4 id="公众号应用">公众号应用</h4>
+<h4 id="本地环境配置">本地环境配置</h4>
+<ol type="1">
+<li>将回调的url www.example.com 添加到host文件中</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2018/01/11/redis基础/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -383,7 +786,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-24 09:33:20" itemprop="dateModified" datetime="2019-07-24T09:33:20+08:00">2019-07-24</time>
+                <time title="Modified: 2019-10-24 10:20:22" itemprop="dateModified" datetime="2019-10-24T10:20:22+08:00">2019-10-24</time>
               </span>
             
           
@@ -444,103 +847,37 @@
         
           
             <p>REmote DIctionary Server(Redis) 是一个由Salvatore Sanfilippo写的key-value存储系统。 Redis是一个开源的使用ANSI C语言编写、遵守BSD协议、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API。 它通常被称为数据结构服务器，因为值（value）可以是 字符串(String), 哈希(Map), 列表(list), 集合(sets) 和 有序集合(sorted sets)等类型。</p>
-<h3 id="redis安装">redis安装</h3>
-<pre><code>$sudo apt-get update
-$sudo apt-get install redis-server
-$redis-cli</code></pre>
-<h3 id="redis配置">redis配置</h3>
-<pre><code>sudo vim /etc/redis.conf
-# 设置为守护进程
-protected-mode yes
-# 设置密码
-requirepass redispassword
-# port
-port 6379
-# bind 127.0.0.1
-bing 0.0.0.0 # 允许远程访问</code></pre>
-<h3 id="客户端远程登录">客户端远程登录</h3>
-<pre><code>redis-cli -h 127.0.0.1 -p 6379 -a redispassword</code></pre>
-<h3 id="redis客户端">redis客户端</h3>
-<pre><code># redis-commander，基于nodejs
-$ npm install -g redis-commander
-$ redis-commander</code></pre>
-<h3 id="通用命令">通用命令</h3>
-<pre><code>$ 127.0.0.1:6379&gt; del name # 删除数据
-$ 127.0.0.1:6379&gt; type name # 查看数据类型
-$ 127.0.0.1:6379&gt; rename name # 重命名</code></pre>
-<h3 id="数据结构">数据结构</h3>
-<p>字符串string</p>
-<pre><code>$ 127.0.0.1:6379&gt;  set string-name value
-$ 127.0.0.1:6379&gt; get string-name
-$ 127.0.0.1:6379&gt;  del string-name</code></pre>
-<p>列表list： 相当于默认键的数组</p>
-<pre><code>$ 127.0.0.1:6379&gt; lpush list-name value1 value2 value3 ... # 左侧插入列表值
-(integer) 3
-$ 127.0.0.1:6379&gt; rpush list-name value4 value5 value6... # 右侧插入列表值
-(integer) 6
-$ 127.0.0.1:6379&gt;  lindex list-name 1 # 获取第1个的值
-&quot;value2&quot;
-$ 127.0.0.1:6379&gt;  lrange list-name 1 2 # 获取从第1位置到2位置的列表值
-1) &quot;value2&quot;
-2) &quot;value1&quot;
-$ 127.0.0.1:6379&gt;  lpop list-name # 弹出最左边值
-&quot;value3&quot;
-$ 127.0.0.1:6379&gt; rpop list-name # 弹出最右边值
-&quot;value6&quot;</code></pre>
-<p>集合set：无序，不重复的列表</p>
-<pre><code>$ 127.0.0.1:6379&gt;  sadd set-name value1 value2 value3 # 设置无序列表值
-(integer) 3
-$ 127.0.0.1:6379&gt; smembers set-name  # 查看所有值
-1) &quot;value3&quot;
-2) &quot;value2&quot;
-3) &quot;value1&quot;
-$ 127.0.0.1:6379&gt; srem set-name value1 # 删除值
-(integer) 1
-$ 127.0.0.1:6379&gt; sismember set-name value2 # 查看是否在无序列表内
-(integer) 1</code></pre>
-<p>散列值hash：相当于自定义键的数组</p>
-<pre><code>$ 127.0.0.1:6379&gt; HSET hash-name key1 value1 #设置键值对
-(integer) 1
-$ 127.0.0.1:6379&gt; HGET hash-name key1 # 获取指定键的值
-&quot;value1&quot;
-$ 127.0.0.1:6379&gt; HSET hash-name key1 value2 # 更新键的值
-(integer) 0
-$ 127.0.0.1:6379&gt; HGET hash-name key1 
-&quot;value2&quot;
-$ 127.0.0.1:6379&gt; HSET hash-name key2 value2
-(integer) 1
-$ 127.0.0.1:6379&gt; HGETALL hash-name # 查找所有键值对
-1) &quot;key1&quot;
-2) &quot;value2&quot;
-3) &quot;key2&quot;
-4) &quot;value2&quot;
-$ 127.0.0.1:6379&gt; HDEL hash-name key1 # 删除hash键值对
-(integer) 1</code></pre>
-<p>有序集合zset：成员+分值，分值必须是浮点数，通过浮点数进行排序</p>
-<pre><code>$ 127.0.0.1:6379&gt; zadd zset-name 100 member1 # 添加键值对
-(integer) 1
-$ 127.0.0.1:6379&gt; zadd zset-name 202 member2
-(integer) 1
-$ 127.0.0.1:6379&gt; zadd zset-name 803 member3
-(integer) 1
-$ 127.0.0.1:6379&gt; ZRANGE zset-name 0 -1 # 获取多个元素
-1) &quot;member1&quot;
-2) &quot;member2&quot;
-3) &quot;member3&quot;
-$ 127.0.0.1:6379&gt; ZRANGE zset-name 0 -1 withscores # 获取多个元素
-1) &quot;member1&quot;
-2) &quot;100&quot;
-3) &quot;member2&quot;
-4) &quot;202&quot;
-5) &quot;member3&quot;
-6) &quot;803&quot;
-$ 127.0.0.1:6379&gt; ZRANGEBYSCORE zset-name 0 300 withscores # 按score获取多个元素
-1) &quot;member1&quot;
-2) &quot;100&quot;
-3) &quot;member2&quot;
-4) &quot;202&quot;
-$ 127.0.0.1:6379&gt; ZREM zset-name member1 # 移除一个元素
-(integer) 1</code></pre>
+<h4 id="redis安装">redis安装</h4>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> ubuntu</span></span><br><span class="line"><span class="meta">$</span><span class="bash">sudo apt-get update</span></span><br><span class="line"><span class="meta">$</span><span class="bash">sudo apt-get install redis-server</span></span><br><span class="line"><span class="meta">$</span><span class="bash">redis-cli</span></span><br></pre></td></tr></table></figure>
+<h4 id="redis配置">redis配置</h4>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> ubuntu  <span class="variable">$sudo</span> vim /etc/redis.conf</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置为守护进程</span></span><br><span class="line">protected-mode yes</span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置密码</span></span><br><span class="line">requirepass redispassword</span><br><span class="line"><span class="meta">#</span><span class="bash"> port</span></span><br><span class="line">port 6379</span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">bind</span> 127.0.0.1</span></span><br><span class="line">bing 0.0.0.0 # 允许远程访问</span><br></pre></td></tr></table></figure>
+<h4 id="客户端远程登录">客户端远程登录</h4>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-cli -h 127.0.0.1 -p 6379 -a redispassword</span><br></pre></td></tr></table></figure>
+<h4 id="redis客户端">redis客户端</h4>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> redis-commander，基于nodejs</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm install -g redis-commander</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> redis-commander</span></span><br></pre></td></tr></table></figure>
+<h4 id="通用命令">通用命令</h4>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> 127.0.0.1:6379&gt; del name <span class="comment"># 删除数据</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> 127.0.0.1:6379&gt; <span class="built_in">type</span> name <span class="comment"># 查看数据类型</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> 127.0.0.1:6379&gt; rename name <span class="comment"># 重命名</span></span></span><br></pre></td></tr></table></figure>
+<h4 id="数据结构">数据结构</h4>
+<h5 id="字符串string">字符串string</h5>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> 127.0.0.1:6379&gt;  <span class="built_in">set</span> string-name value</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> 127.0.0.1:6379&gt; get string-name</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> 127.0.0.1:6379&gt;  del string-name</span></span><br></pre></td></tr></table></figure>
+<h5 id="列表list-相当于默认键的数组">列表list： 相当于默认键的数组</h5>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> 127.0.0.1:6379&gt; lpush list-name value1 value2 value3 ... <span class="comment"># 左侧插入列表值</span></span></span><br><span class="line">(integer) 3</span><br><span class="line"><span class="meta">$</span><span class="bash"> 127.0.0.1:6379&gt; rpush list-name value4 value5 value6... <span class="comment"># 右侧插入列表值</span></span></span><br><span class="line">(integer) 6</span><br><span class="line"><span class="meta">$</span><span class="bash"> 127.0.0.1:6379&gt;  lindex list-name 1 <span class="comment"># 获取第1个的值</span></span></span><br><span class="line">"value2"</span><br><span class="line"><span class="meta">$</span><span class="bash"> 127.0.0.1:6379&gt;  lrange list-name 1 2 <span class="comment"># 获取从第1位置到2位置的列表值</span></span></span><br><span class="line">1) "value2"</span><br><span class="line">2) "value1"</span><br><span class="line"><span class="meta">$</span><span class="bash"> 127.0.0.1:6379&gt;  lpop list-name <span class="comment"># 弹出最左边值</span></span></span><br><span class="line">"value3"</span><br><span class="line"><span class="meta">$</span><span class="bash"> 127.0.0.1:6379&gt; rpop list-name <span class="comment"># 弹出最右边值</span></span></span><br><span class="line">"value6"</span><br></pre></td></tr></table></figure>
+<h5 id="集合set无序不重复的列表">集合set：无序，不重复的列表</h5>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> 127.0.0.1:6379&gt;  sadd <span class="built_in">set</span>-name value1 value2 value3 <span class="comment"># 设置无序列表值</span></span></span><br><span class="line">(integer) 3</span><br><span class="line"><span class="meta">$</span><span class="bash"> 127.0.0.1:6379&gt; smembers <span class="built_in">set</span>-name  <span class="comment"># 查看所有值</span></span></span><br><span class="line">1) "value3"</span><br><span class="line">2) "value2"</span><br><span class="line">3) "value1"</span><br><span class="line"><span class="meta">$</span><span class="bash"> 127.0.0.1:6379&gt; srem <span class="built_in">set</span>-name value1 <span class="comment"># 删除值</span></span></span><br><span class="line">(integer) 1</span><br><span class="line"><span class="meta">$</span><span class="bash"> 127.0.0.1:6379&gt; sismember <span class="built_in">set</span>-name value2 <span class="comment"># 查看是否在无序列表内</span></span></span><br><span class="line">(integer) 1</span><br></pre></td></tr></table></figure>
+<h5 id="散列值hash相当于自定义键的数组">散列值hash：相当于自定义键的数组</h5>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> 127.0.0.1:6379&gt; HSET <span class="built_in">hash</span>-name key1 value1 <span class="comment">#设置键值对</span></span></span><br><span class="line">(integer) 1</span><br><span class="line"><span class="meta">$</span><span class="bash"> 127.0.0.1:6379&gt; HGET <span class="built_in">hash</span>-name key1 <span class="comment"># 获取指定键的值</span></span></span><br><span class="line">"value1"</span><br><span class="line"><span class="meta">$</span><span class="bash"> 127.0.0.1:6379&gt; HSET <span class="built_in">hash</span>-name key1 value2 <span class="comment"># 更新键的值</span></span></span><br><span class="line">(integer) 0</span><br><span class="line"><span class="meta">$</span><span class="bash"> 127.0.0.1:6379&gt; HGET <span class="built_in">hash</span>-name key1 </span></span><br><span class="line">"value2"</span><br><span class="line"><span class="meta">$</span><span class="bash"> 127.0.0.1:6379&gt; HSET <span class="built_in">hash</span>-name key2 value2</span></span><br><span class="line">(integer) 1</span><br><span class="line"><span class="meta">$</span><span class="bash"> 127.0.0.1:6379&gt; HGETALL <span class="built_in">hash</span>-name <span class="comment"># 查找所有键值对</span></span></span><br><span class="line">1) "key1"</span><br><span class="line">2) "value2"</span><br><span class="line">3) "key2"</span><br><span class="line">4) "value2"</span><br><span class="line"><span class="meta">$</span><span class="bash"> 127.0.0.1:6379&gt; HDEL <span class="built_in">hash</span>-name key1 <span class="comment"># 删除hash键值对</span></span></span><br><span class="line">(integer) 1</span><br></pre></td></tr></table></figure>
+<h5 id="有序集合zset成员分值分值必须是浮点数通过浮点数进行排序">有序集合zset：成员+分值，分值必须是浮点数，通过浮点数进行排序</h5>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> 127.0.0.1:6379&gt; zadd zset-name 100 member1 <span class="comment"># 添加键值对</span></span></span><br><span class="line">(integer) 1</span><br><span class="line"><span class="meta">$</span><span class="bash"> 127.0.0.1:6379&gt; zadd zset-name 202 member2</span></span><br><span class="line">(integer) 1</span><br><span class="line"><span class="meta">$</span><span class="bash"> 127.0.0.1:6379&gt; zadd zset-name 803 member3</span></span><br><span class="line">(integer) 1</span><br><span class="line"><span class="meta">$</span><span class="bash"> 127.0.0.1:6379&gt; ZRANGE zset-name 0 -1 <span class="comment"># 获取多个元素</span></span></span><br><span class="line">1) "member1"</span><br><span class="line">2) "member2"</span><br><span class="line">3) "member3"</span><br><span class="line"><span class="meta">$</span><span class="bash"> 127.0.0.1:6379&gt; ZRANGE zset-name 0 -1 withscores <span class="comment"># 获取多个元素</span></span></span><br><span class="line">1) "member1"</span><br><span class="line">2) "100"</span><br><span class="line">3) "member2"</span><br><span class="line">4) "202"</span><br><span class="line">5) "member3"</span><br><span class="line">6) "803"</span><br><span class="line"><span class="meta">$</span><span class="bash"> 127.0.0.1:6379&gt; ZRANGEBYSCORE zset-name 0 300 withscores <span class="comment"># 按score获取多个元素</span></span></span><br><span class="line">1) "member1"</span><br><span class="line">2) "100"</span><br><span class="line">3) "member2"</span><br><span class="line">4) "202"</span><br><span class="line"><span class="meta">$</span><span class="bash"> 127.0.0.1:6379&gt; ZREM zset-name member1 <span class="comment"># 移除一个元素</span></span></span><br><span class="line">(integer) 1</span><br></pre></td></tr></table></figure>
+<h4 id="错误信息提示">错误信息提示</h4>
+<blockquote>
+<p>MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.</p>
+</blockquote>
+<blockquote>
+<p>Redis被配置为保存数据库快照，但它目前不能持久化到硬盘。用来修改集合数据的命令不能用。请查看Redis日志的详细错误信息。</p>
+</blockquote>
+<p>原因</p>
+<p>强制关闭Redis快照导致不能持久化。</p>
+<p>解决方案 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; config set stop-writes-on-bgsave-error no</span><br></pre></td></tr></table></figure></p>
 
           
         
@@ -1736,7 +2073,7 @@ $ docker-stop 停止容器，但不会删除他们</code></pre>
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-08-23 09:38:50" itemprop="dateModified" datetime="2019-08-23T09:38:50+08:00">2019-08-23</time>
+                <time title="Modified: 2019-10-28 10:05:04" itemprop="dateModified" datetime="2019-10-28T10:05:04+08:00">2019-10-28</time>
               </span>
             
           
@@ -1863,6 +2200,8 @@ $ docker-stop 停止容器，但不会删除他们</code></pre>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> vim gtk+-3.0</span><br><span class="line"></span><br><span class="line">prefix=/usr/include/gtk3.24</span><br><span class="line">exec_prefix=$&#123;prefix&#125;</span><br><span class="line">libdir=$&#123;exec_prefix&#125;/lib</span><br><span class="line">includedir=$&#123;prefix&#125;/include</span><br><span class="line">targets=x11 wayland</span><br><span class="line"> </span><br><span class="line">gtk_binary_version=3.0.0</span><br><span class="line">gtk_host=x86_64-pc-linux-gnu</span><br><span class="line"> </span><br><span class="line">Name: GTK+</span><br><span class="line">Description: GTK+ Graphical UI Library</span><br><span class="line">Version: 3.24.10</span><br><span class="line">Requires: gdk-3.0 atk &gt;= 2.15.1 cairo &gt;= 1.14.0 cairo-gobject &gt;= 1.14.0 gdk-pixbuf-2.0 &gt;= 2.30.0 gio-2.0 &gt;= 2.53.4                                                                                        </span><br><span class="line">Requires.private: atk atk-bridge-2.0 wayland-client &gt;= 1.9.91 wayland-protocols &gt;= 1.12 xkbcommon &gt;= 0.2.0 wayland-cursor &gt;= 1.9.91 wayland-egl  epoxy &gt;= 1.4 fribidi &gt;= 0.19.7 pangoft2 gio-unix-2.0 &gt;= 2</span><br><span class="line">Libs: -L$&#123;libdir&#125; -lgtk-3</span><br><span class="line">Cflags: -I$&#123;includedir&#125;/gtk-3.0</span><br></pre></td></tr></table></figure>
 <h4 id="端口与进程">端口与进程</h4>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo netstat -nap | grep 5555  # 查看指定端口被什么应用及进程号占用</span><br><span class="line">tcp        0      0 0.0.0.0:5555            0.0.0.0:*               LISTEN      8362/python</span><br><span class="line">tcp6       0      0 :::5555                 :::*                    LISTEN      8362/python</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span> sudo netstat -nap | grep 8362  # 同上，查看端口号</span><br><span class="line">tcp        0      0 0.0.0.0:5555            0.0.0.0:*               LISTEN      8362/python                                       │apps                 product.sh        tmp</span><br><span class="line">tcp6       0      0 :::5555                 :::*                    LISTEN      8362/python                                       │➜  api git:(master) source .env/bin/activate</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     75201340 8362/python                                                            │(.env) ➜  api git:(master) pwd</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     75201341 8362/python                          </span><br><span class="line"></span><br><span class="line"><span class="meta">$</span> sudo kill -s 9 pid  # 杀死进程pid</span><br></pre></td></tr></table></figure>
+<h4 id="systemctl">systemctl</h4>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 可以返回systemd service文件路径</span><br><span class="line"><span class="meta">$</span> sudo systemctl edit rabbitmq-server.service</span><br></pre></td></tr></table></figure>
 
           
         
@@ -2546,660 +2885,11 @@ define service{
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2017/04/19/centos7配置keepalived实现高可用集群/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhuohanchang">
-      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="饱读诗书">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2017/04/19/centos7配置keepalived实现高可用集群/" class="post-title-link" itemprop="url">centos7配置keepalived实现高可用集群</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2017-04-19 14:30:29" itemprop="dateCreated datePublished" datetime="2017-04-19T14:30:29+08:00">2017-04-19</time>
-            </span>
-          
-
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-07-23 13:51:43" itemprop="dateModified" datetime="2019-07-23T13:51:43+08:00">2019-07-23</time>
-              </span>
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/运维/" itemprop="url" rel="index"><span itemprop="name">运维</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="centos6.8-192.168.0.106-master">CENTOS6.8 192.168.0.106 MASTER</h3>
-<pre><code># 安装
-sudo yum install keepalived
-# 配置
-sudo vim /etc/keepalived/keepalived.conf
-
-! Configuration File for keepalived
-
-global_defs {
-    # 这些信息是配置报警发邮件信息
-   notification_email {
-     acassen@firewall.loc
-     failover@firewall.loc
-     sysadmin@firewall.loc
-   }
-   notification_email_from Alexandre.Cassen@firewall.loc
-   smtp_server 192.168.200.1
-   smtp_connect_timeout 30
-     # 路由标识，同一局域网应该唯一
-   router_id lb01
-}
-vrrp_instance VI_1 {
-    # 当前角色是master
-    state MASTER
-        # 对外提供网络的接口
-    interface eth0
-        # 虚拟路由id标识，数字，必须和backup里相同实例一致
-    virtual_router_id 55
-        # 优先级，数字必须比backup大
-    priority 150
-    advert_int 1
-        # 权限认证，和backup一致
-    authentication {
-        auth_type PASS
-        auth_pass 1111
-    }
-    virtual_ipaddress {
-       192.168.0.200
-    }
-}
-
-# 重启
-sudo /etc/init.d/keepalived restart
-# 查看结果
-ip addr | grep 192.168.0.200</code></pre>
-<h3 id="centos7.2-192.168.0.209-backup">CENTOS7.2 192.168.0.209 BACKUP</h3>
-<pre><code># 安装
-sudo yum install keepalived
-# 配置
-sudo vim /etc/keepalived/keepalived.conf
-
-! Configuration File for keepalived
-
-global_defs {
-   notification_email {
-     acassen@firewall.loc
-     failover@firewall.loc
-     sysadmin@firewall.loc
-   }
-   notification_email_from Alexandre.Cassen@firewall.loc
-   smtp_server 192.168.200.1
-   smtp_connect_timeout 30
-   router_id lb02  # 和master不一致
-}
-
-vrrp_instance VI_1 {
-    state BACKUP      # 和MASTER不一致
-    interface enp0s3
-    virtual_router_id 55
-    priority 100      # 和master不一致
-    advert_int 1
-    authentication {
-        auth_type PASS
-        auth_pass 1111
-    }
-    virtual_ipaddress {
-        192.168.0.200
-    }
-}
-# 重启
-sudo systemctl restart keepalived
-# 查看结果
-ip addr | grep 192.168.0.200</code></pre>
-<h3 id="centos6.8-192.168.0.106-nginx配置">CENTOS6.8 192.168.0.106 nginx配置</h3>
-<pre><code># nginx配置文件
-    server {
-        listen       192.168.0.200:80; # 这里需要指定虚拟vip监听
-        server_name  localhost;
-
-        location / {
-                  # 只访问web站点
-           proxy_pass http://www_server_pools;
-        }
-        error_page   500 502 503 504  /50x.html;
-        location = /50x.html {
-            root   html;
-        }
-    }</code></pre>
-<h3 id="centos7.2-192.168.0.209-配置nginx">CENTOS7.2 192.168.0.209 配置nginx</h3>
-<pre><code># nginx配置文件
-   server {
-        listen       192.168.0.200:80;
-        server_name  localhost;
-
-        location / {
-                     # 只访问phone站点
-           proxy_pass http://www_phone_pools;
-        }
-        error_page   500 502 503 504  /50x.html;
-        location = /50x.html {
-            root   html;
-        }
-    }</code></pre>
-<h3 id="测试结果">测试结果</h3>
-<pre><code># 开启192.168.0.106，192.168.0.209的keepalive服务
-
-# 查看192.168.0.106
-$ ip addr | grep 192.168.0.200
-inet 192.168.0.200/32 scope global eth0 # 应该有这行结果
-
-# 查看192.168.0.209
-$ ip addr | grep 192.168.0.200 # 结果应该为空，如果有结果，表示脑裂，检查相关配置和防火墙
-
-# 访问http://192.168.200 
-curl 192.168.0.200 # 结果应该只访问web网站
-
-
-# 关停192.168.0.106的keepalive服务
-
-# 访问http://192.168.200 
-curl 192.168.0.200 # 结果应该只访问phone网站
-
-# 查看192.168.0.106
-$ ip addr | grep 192.168.0.200
-inet 192.168.0.200/32 scope global eth0 # 结果应该为空
-
-# 查看192.168.0.209
-$ ip addr | grep 192.168.0.200 
-inet 192.168.0.200/32 scope global enp0s3 # 此时有这行结果
-
-# 重启192.168.0.106的keepalive服务，应该恢复之前的测试结果</code></pre>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2016/11/30/unittest单元测试/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhuohanchang">
-      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="饱读诗书">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2016/11/30/unittest单元测试/" class="post-title-link" itemprop="url">unittest单元测试</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2016-11-30 11:13:19" itemprop="dateCreated datePublished" datetime="2016-11-30T11:13:19+08:00">2016-11-30</time>
-            </span>
-          
-
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-07-24 09:35:07" itemprop="dateModified" datetime="2019-07-24T09:35:07+08:00">2019-07-24</time>
-              </span>
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/后端/" itemprop="url" rel="index"><span itemprop="name">后端</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="unittest基础使用方法">unittest基础使用方法</h4>
-<pre><code># -*- coding:utf-8 -*-
-# calculator.py
-# 需要测试的类
-class Count:
-
-    def __init__(self, a, b):
-        self.a = int(a)
-        self.b = int(b)
-
-    def add(self):
-        return self.a + self.b
-
-
-
-# -*- coding: utf-8 -*-
-# test.py 测试类
-from calculator import Count
-import unittest
-class TestCount(unittest.TestCase):
-    def setUp(self):
-        print &#39;test start&#39;
-
-    def test_add(self):
-        j = Count(2,3)
-        self.assertEqual(j.add(), 5)
-
-    def test_add2(self):
-        j = Count(41, 76)
-        self.assertEqual(j.add(), 115, &#39;not equal&#39;)
-
-    def tearDown(self):
-        print &#39;test end&#39;
-
-
-if __name__ == &#39;__main__&#39;:
-    # 测试全部方法
-    # unittest.main()
-    # 构造测试集
-    suite = unittest.TestSuite()
-    # 指定测试方法
-    suite.addTest(TestCount(&#39;test_add2&#39;))
-    # 执行测试
-    runner = unittest.TextTestRunner()
-    runner.run(suite)</code></pre>
-<h4 id="自动识别测试用例">自动识别测试用例</h4>
-<pre><code># -*- coding:utf-8 -*-
-# calculator.py
-# 需要测试的类
-class Count:
-
-    def __init__(self, a, b):
-        self.a = int(a)
-        self.b = int(b)
-
-    def add(self):
-        return self.a + self.b
-
-    def sub(self):
-        return self.a - self.b
-
-
-# -*- coding: utf-8 -*-
-# testadd.py 测试类
-from calculator import Count
-import unittest
-class TestAdd(unittest.TestCase):
-    def setUp(self):
-        print &#39;test add start&#39;
-
-    def test_add(self):
-        j = Count(2,3)
-        self.assertEqual(j.add(), 5)
-
-    def test_add2(self):
-        j = Count(41, 76)
-        self.assertEqual(j.add(), 115, &#39;not equal&#39;)
-
-    def tearDown(self):
-        print &#39;test add end&#39;
-
-
-if __name__ == &#39;__main__&#39;:
-    # 测试全部方法
-    unittest.main()
-
-
-# -*- coding: utf-8 -*-
-# testsub.py 测试类
-from calculator import Count
-import unittest
-
-
-class TestSub(unittest.TestCase):
-    def setUp(self):
-        print &#39;test sub start&#39;
-
-    def test_sub(self):
-        j = Count(2,3)
-        self.assertEqual(j.sub(), 5)
-
-    def test_sub2(self):
-        j = Count(41, 76)
-        self.assertEqual(j.sub(), 115, &#39;not equal&#39;)
-
-    def tearDown(self):
-        print &#39;test sub end&#39;
-
-
-if __name__ == &#39;__main__&#39;:
-    # 测试全部方法
-    unittest.main()
-
-
-# -*- coding: utf-8 -*-
-# runtest.py
-import unittest
-test_dir = &#39;./&#39;
-discover = unittest.defaultTestLoader.discover(test_dir, pattern=&#39;test*.py&#39;)
-if __name__ == &#39;__main__&#39;:
-    runner = unittest.TextTestRunner()
-    runner.run(discover)</code></pre>
-<h4 id="断言方法啊">断言方法啊</h4>
-<pre><code># unittest.TestCase.assertEqual(a, b, msg=None)   a == b
-# unittest.TestCase.assertNotEqual(a, b) a !=b  
-# unittest.TestCase.assertTrue(x)   x is True
-# unittest.TestCase.assertFalse(x)  x is False
-# unittest.TestCase.assertIs(a, b)  x is b
-# unittest.TestCase.assertIsNot(a, b)  a is not b
-# unittest.TestCase.assertIsNotNone(x)  x is not None
-# unittest.TestCase.assertIn(a, b)  a in b
-# unittest.TestCase.assertNotIn(a, b) a not in b
-# unittest.TestCase.assertNotIsInstance(a, b) isinstance(a,b)
-# unittest.TestCase.assertNotIsInstance(a, b) not isinstance(a,b)</code></pre>
-<h4 id="跳过测试与预期失败">跳过测试与预期失败</h4>
-<pre><code># -*- coding: utf-8 -*-
-# test.py
-import unittest
-
-class MyTest(unittest.TestCase):
-
-    def setUp(self):
-        pass
-    def tearDown(self):
-        pass
-
-    @unittest.skip(u&#39;直接跳过测试&#39;)
-    def test_skip(self):
-        print &#39;test aaa&#39;
-
-    @unittest.skipIf(3 &gt; 2, u&#39;条件满足时跳过测试&#39;)
-    def test_skip_if(self):
-        print &#39;test bbb&#39;
-
-    @unittest.skipUnless(3 &gt; 2, u&#39;条件满足时执行测试&#39;)
-    def test_skip_unless(self):
-        print &#39;test ccc&#39;
-
-    # 不管测试成功与否，都标记为失败
-    @unittest.expectedFailure
-    def test_expected_failure(self):
-        print &#39;test ddd&#39;
-        self.assertEqual(2, 3)
-
-if __name__ == &#39;__main__&#39;:
-    unittest.main()</code></pre>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -3242,7 +2932,7 @@ if __name__ == &#39;__main__&#39;:
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">70</span>
+          <span class="site-state-item-count">72</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

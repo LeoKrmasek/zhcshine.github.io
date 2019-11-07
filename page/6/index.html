@@ -246,7 +246,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">70</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">72</span></a>
 
   </li>
 
@@ -307,6 +307,486 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2016/11/09/thinkphp入门基础/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhuohanchang">
+      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="饱读诗书">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2016/11/09/thinkphp入门基础/" class="post-title-link" itemprop="url">thinkphp入门基础</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2016-11-09 15:46:39" itemprop="dateCreated datePublished" datetime="2016-11-09T15:46:39+08:00">2016-11-09</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-07-24 09:34:35" itemprop="dateModified" datetime="2019-07-24T09:34:35+08:00">2019-07-24</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/后端/" itemprop="url" rel="index"><span itemprop="name">后端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="url">URL</h3>
+<h3 id="配置url伪静态">配置URL伪静态</h3>
+<p>3.1版本默认支持.html,.shtml,.xml,.pdf伪静态<br>
+在配置文件中配置[是在项目下的配置文件./App/Conf/config.php]</p>
+<pre><code>&#39;URL_HTML_SUFFIX&#39;=&gt;&#39;html|shmtl|xml&#39; // 多个用 | 分割</code></pre>
+<h3 id="配置url路由">配置URL路由</h3>
+<p>基本规则</p>
+<blockquote>
+<p>一、规则路由<br>
+格式1：'路由规则'=&gt;'[分组/模块/操作]?额外参数1=值1&amp;额外参数2=值2...'<br>
+格式2：'路由规则'=&gt;array('[分组/模块/操作]','额外参数1=值1&amp;额外参数2=值2...')<br>
+格式3：'路由规则'=&gt;'外部地址'<br>
+格式4：'路由规则'=&gt;array('外部地址','重定向代码')<br>
+注意事项：<br>
+路由规则中如果以“:”开头，表示动态变量，否则为静态地址<br>
+格式2的额外参数可以传入数组或者字符串<br>
+外部地址中如果要引用动态变量， 采用 :1、:2 的方式<br>
+路由规则支持变量的数字约束定义，例如：'news/:id\d'=&gt;'News/read'<br>
+规则路由可以支持 全动态和动静结合定义，例如':user/blog/:id'=&gt;'Home/Blog/user'<br>
+路由规则非数字变量支持排除，例如 'news/:cate^add|edit|delete'=&gt;'News/category'<br>
+路由规则中的静态地址部分不区分大小写</p>
+</blockquote>
+<p>配置文件开启路由</p>
+<pre><code>&#39;URL_ROUTER_ON&#39;   =&gt; true, //开启路由
+&#39;URL_ROUTE_RULES&#39; =&gt; array( //定义路由规则
+    &#39;news/:year/:month/:day&#39; =&gt; array(&#39;News/archive&#39;, &#39;status=1&#39;),
+    &#39;news/:id&#39;               =&gt; &#39;News/read&#39;,
+    &#39;news/read/:id&#39;          =&gt; &#39;/news/:1&#39;,
+ ),</code></pre>
+<blockquote>
+<p><code>http://serverName/index.php/news/2012/01/08</code>匹配第一条路由<br>
+也可以写成<code>'news/:year/:month/:day/'=&gt;'News/archive?status=1',</code> <code>http://serverName/index.php/news/8</code>匹配第二条路由 第三条用于url地址迁移，重定向使用</p>
+</blockquote>
+<h3 id="正则路由">正则路由</h3>
+<blockquote>
+<p>正则路由可以实现更加复杂的路由定义，支持的定义格式如下：<br>
+格式1：'路由正则'=&gt;'[分组/模块/操作]?参数1=值1&amp;参数2=值2...'<br>
+格式2：'路由正则'=&gt;array('[分组/模块/操作]','参数1=值1&amp;参数2=值2...')<br>
+格式3：'路由正则'=&gt;'外部地址'<br>
+格式4：'路由正则'=&gt;array('外部地址','重定向代码')</p>
+</blockquote>
+<p>注意事项：<br>
+正则路由规则必须以“/”开始和结束<br>
+格式2的参数可以传入数组或者字符串<br>
+参数值和外部地址中可以用动态变量 采用 :1、 :2 的方式<br>
+下面是正则路由的定义示例：</p>
+<pre><code>&#39;URL_ROUTER_ON&#39;   =&gt; true, //开启路由
+ &#39;URL_ROUTE_RULES&#39; =&gt; array( //定义路由规则
+    &#39;/^blog\/(\d+)$/&#39;        =&gt; &#39;Blog/read?id=:1&#39;,
+    &#39;/^blog\/(\d+)\/(\d+)$/&#39; =&gt; &#39;Blog/achive?year=:1&amp;month=:2&#39;,
+    &#39;/^blog\/(\d+)_(\d+)$/&#39;  =&gt; &#39;blog.php?id=:1&amp;page=:2&#39;,
+ ),
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">    ### URL区分大小写</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">&apos;URL\_CASE\_INSENSITIVE&apos; =&gt;true, // 不区分 &apos;URL\_CASE\_INSENSITIVE&apos; =&gt;false, // 区分</span><br><span class="line"></span><br><span class="line">    ### 缓存</span><br><span class="line">    ### 静态缓存</span><br><span class="line">    开启静态缓存[是在分组下的配置文件./App/Moduels/Index/Conf/config.php]  </span><br><span class="line">    和静态缓存相关的配置参数包括：  </span><br><span class="line">    HTML_CACHE_ON 是否开启静态缓存功能  </span><br><span class="line">    HTML_FILE_SUFFIX 静态文件后缀 惯例配置的值是 .html  </span><br><span class="line">    HTML_CACHE_TIME 默认的静态缓存有效期 默认60秒 可以在静态规则定义覆盖  </span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">&apos;HTML\_CACHE\_ON&apos;=&gt;true, &apos;HTML\_CACHE\_RULES&apos;=&gt; array( &apos;ActionName&apos; =&gt; array(&apos;静态规则&apos;, &apos;静态缓存有效期&apos;, &apos;附加规则&apos;), &apos;ModuleName(小写)&apos; =&gt; array(&apos;静态规则&apos;, &apos;静态缓存有效期&apos;, &apos;附加规则&apos;), &apos;ModuleName(小写):ActionName&apos; =&gt; array(&apos;静态规则&apos;, &apos;静态缓存有效期&apos;, &apos;附加规则&apos;), &apos;*&apos; =&gt; array(&apos;静态规则&apos;, &apos;静态缓存有效期&apos;, &apos;附加规则&apos;), &apos;Show:index&apos; =&gt; array(&apos;&#123;:module&#125;_&#123;:action&#125;_&#123;id&#125;&apos;, 100),</span><br><span class="line"></span><br><span class="line">    所有控制器下read方法缓存，其中，&#123;id&#125; 表示取$_GET[&apos;id&apos;] 为静态缓存文件名，第二个参数表示缓存60秒</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">&apos;read&apos;=&gt;array(&apos;&#123;id&#125;&apos;,&apos;60&apos;)</span><br><span class="line"></span><br><span class="line">    User控制器下所有方法缓存，其中，&#123;:action&#125; 表示当前的操作名称</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">&apos;user:&apos;=&gt;array(&apos;User/&#123;:action&#125;_&#123;id&#125;&apos;,&apos;600&apos;)</span><br><span class="line"></span><br><span class="line">    Blog控制器下read方法缓存</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">&apos;blog:read&apos;=&gt;array(&apos;&#123;id&#125;&apos;,0)</span><br><span class="line"></span><br><span class="line">    全局缓存</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">&apos;*&apos;=&gt;array(&apos;&#123;$\_SERVER.REQUEST\_URI|md5&#125;&apos;),</span><br><span class="line"></span><br><span class="line">    静态规则  </span><br><span class="line">    1.  使用系统变量 包括 _GET _REQUEST _SERVER _SESSION _COOKIE</span><br><span class="line">    &gt; &#123;$_×××|function&#125;</span><br><span class="line">    </span><br><span class="line">    2.  使用框架特定的变量</span><br><span class="line">    &gt; &#123;:app&#125;、&#123;:group&#125; 、&#123;:module&#125; 和&#123;:action&#125; 分别表示当前项目名、分组名、模块名和操作名</span><br><span class="line">    </span><br><span class="line">    3.  使用_GET变量</span><br><span class="line">    &gt; &#123;var|function&#125;    也就是说 &#123;id&#125; 其实等效于 &#123;$_GET.id&#125;</span><br><span class="line">    </span><br><span class="line">    4.  直接使用函数</span><br><span class="line">    &gt; &#123;|function&#125;   例如：&#123;|time&#125;</span><br><span class="line">    </span><br><span class="line">    5.  支持混合定义</span><br><span class="line">    &gt; &apos;&#123;id&#125;,&#123;name|md5&#125;&apos;   </span><br><span class="line">    在&#123;&#125;之外的字符作为字符串对待，如果包含有”/”，会自动创建目录。  </span><br><span class="line">    例如，定义下面的静态规则：  </span><br><span class="line">    &#123;:module&#125;/&#123;:action&#125;_&#123;id&#125;  </span><br><span class="line">    则会在静态目录下面创建模块名称的子目录，然后写入操作名_id.shtml 文件。    </span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    使用get中文参数乱码问题</span><br><span class="line">    ### 原因</span><br><span class="line">    中文浏览器中默认使用的是gbk2312编码</span><br><span class="line">    </span><br><span class="line">    ### 解决方法</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">/\*\* \* 解决get参数中带中文的乱码问题 * @param $keywords 传入的关键字 * @return string */ function decodeToUtf($keywords) &#123; $keywords = mb\_convert\_encoding($keywords, &apos;UTF-8&apos;,&apos;GB2312,UTF-8&apos;); return $keywords; &#125;</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">$keywords = I(&apos;keywords&apos;); $keywords = decodeToUtf($keywords); $page = new Page($count,self::$perPage); $page-&gt;parameter = &apos;keywords=&apos; . $keywords;</span><br></pre></td></tr></table></figure></code></pre>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2016/11/09/windows软件运行时错误429,ACTIVEX部件不能创建对象的解决方法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhuohanchang">
+      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="饱读诗书">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2016/11/09/windows软件运行时错误429,ACTIVEX部件不能创建对象的解决方法/" class="post-title-link" itemprop="url">windows软件运行时错误429,ACTIVEX部件不能创建对象的解决方法</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2016-11-09 15:38:56" itemprop="dateCreated datePublished" datetime="2016-11-09T15:38:56+08:00">2016-11-09</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-07-24 09:35:20" itemprop="dateModified" datetime="2019-07-24T09:35:20+08:00">2019-07-24</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/运维/" itemprop="url" rel="index"><span itemprop="name">运维</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="安装软件出现activex部件不能创建对象">安装软件出现“ACTIVEX部件不能创建对象”</h3>
+<p>提示错误</p>
+<blockquote>
+<p>中文：“运行时错误429，ActiveX部件不能创建对象”<br>
+英文："Run-time error '429' ActiveX componnent can't create object"</p>
+</blockquote>
+<p>新建文件，将下面代码复制粘贴，文件另存为xxx.bat 运行xxx.bat，重启电脑，OK.</p>
+<pre><code>echo 正在修复，这个过程可能需要几分钟，请稍候…… 
+rundll32.exe advpack.dll /DelNodeRunDLL32 %systemroot%\System32\dacui.dll 
+rundll32.exe advpack.dll /DelNodeRunDLL32 %systemroot%\Catroot\icatalog.mdb 
+regsvr32 /s comcat.dll 
+regsvr32 /s asctrls.ocx 
+regsvr32 /s oleaut32.dll 
+regsvr32 /s shdocvw.dll /I 
+regsvr32 /s shdocvw.dll 
+regsvr32 /s browseui.dll 
+regsvr32 /s browseui.dll /I 
+regsvr32 /s msrating.dll 
+regsvr32 /s mlang.dll 
+regsvr32 /s hlink.dll 
+regsvr32 /s mshtml.dll 
+regsvr32 /s mshtmled.dll 
+regsvr32 /s urlmon.dll 
+regsvr32 /s plugin.ocx 
+regsvr32 /s sendmail.dll 
+regsvr32 /s mshtml.dll /i 
+regsvr32 /s scrobj.dll 
+regsvr32 /s corpol.dll 
+regsvr32 /s jscrīpt.dll 
+regsvr32 /s msxml.dll 
+regsvr32 /s imgutil.dll 
+regsvr32 /s cryptext.dll 
+regsvr32 /s inseng.dll 
+regsvr32 /s iesetup.dll /i 
+regsvr32 /s cryptdlg.dll 
+regsvr32 /s actxprxy.dll 
+regsvr32 /s dispex.dll 
+regsvr32 /s occache.dll 
+regsvr32 /s iepeers.dll 
+regsvr32 /s urlmon.dll /i 
+regsvr32 /s cdfview.dll 
+regsvr32 /s webcheck.dll 
+regsvr32 /s mobsync.dll 
+regsvr32 /s pngfilt.dll 
+regsvr32 /s licmgr10.dll 
+regsvr32 /s hhctrl.ocx 
+regsvr32 /s inetcfg.dll 
+regsvr32 /s trialoc.dll 
+regsvr32 /s tdc.ocx 
+regsvr32 /s MSR2C.DLL 
+regsvr32 /s msident.dll 
+regsvr32 /s msieftp.dll 
+regsvr32 /s xmsconf.ocx 
+regsvr32 /s ils.dll 
+regsvr32 /s msoeacct.dll 
+regsvr32 /s wab32.dll 
+regsvr32 /s wabimp.dll 
+regsvr32 /s wabfind.dll 
+regsvr32 /s oemiglib.dll 
+regsvr32 /s directdb.dll 
+regsvr32 /s inetcomm.dll 
+regsvr32 /s msoe.dll 
+regsvr32 /s oeimport.dll 
+regsvr32 /s msdxm.ocx 
+regsvr32 /s dxmasf.dll 
+regsvr32 /s laprxy.dll 
+regsvr32 /s l3codecx.ax 
+regsvr32 /s acelpdec.ax 
+regsvr32 /s mpg4ds32.ax 
+regsvr32 /s danim.dll 
+regsvr32 /s Daxctle.ocx 
+regsvr32 /s lmrt.dll 
+regsvr32 /s datime.dll 
+regsvr32 /s dxtrans.dll 
+regsvr32 /s dxtmsft.dll 
+regsvr32 /s wshom.ocx 
+regsvr32 /s wshext.dll 
+regsvr32 /s vbscrīpt.dll 
+regsvr32 /s scrrun.dll mstinit.exe /setup 
+regsvr32 /s msnsspc.dll /SspcCreateSspiReg 
+regsvr32 /s msapsspc.dll /SspcCreateSspiReg 
+echo. 
+echo. 
+echo 修复成功！任意键退出！ 
+pause&gt;nul</code></pre>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -2386,547 +2866,11 @@ binlog_checksum=none</code></pre>
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2016/11/09/mysql入门基础/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhuohanchang">
-      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="饱读诗书">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2016/11/09/mysql入门基础/" class="post-title-link" itemprop="url">mysql入门基础</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2016-11-09 14:32:49" itemprop="dateCreated datePublished" datetime="2016-11-09T14:32:49+08:00">2016-11-09</time>
-            </span>
-          
-
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-07-29 09:59:10" itemprop="dateModified" datetime="2019-07-29T09:59:10+08:00">2019-07-29</time>
-              </span>
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/运维/" itemprop="url" rel="index"><span itemprop="name">运维</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="安装mysql">安装mysql</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// ubuntu16.04</span><br><span class="line">sudo apt-get install mysql-server</span><br><span class="line">sudo apt install mysql-client  # 服务器端不需要</span><br><span class="line">mysql_secure_installation</span><br></pre></td></tr></table></figure>
-<h4 id="查看mysql版本信息">查看mysql版本信息</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql --version  </span><br><span class="line"><span class="meta">mysql&gt;</span> show variables like '%version_%';</span><br></pre></td></tr></table></figure>
-<h4 id="数据库创建备份导入命令">数据库创建备份导入命令</h4>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">// 创建数据库  </span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">DATABASE</span> <span class="string">`test`</span> <span class="keyword">DEFAULT</span> <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> utf8 <span class="keyword">COLLATE</span> utf8_general_ci;  </span><br><span class="line"></span><br><span class="line">// 删除数据库  </span><br><span class="line"> <span class="keyword">DROP</span> <span class="keyword">DATABASE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> <span class="string">`test`</span>; </span><br><span class="line"></span><br><span class="line">// 创建表  </span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">test</span>(<span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">32</span>) <span class="keyword">not</span> <span class="literal">null</span>,<span class="keyword">password</span> <span class="built_in">varchar</span>(<span class="number">64</span>) <span class="keyword">not</span> <span class="literal">null</span>)<span class="keyword">DEFAULT</span> <span class="keyword">charset</span>=utf8;  </span><br><span class="line"></span><br><span class="line"><span class="comment">### 重置自增字段</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="string">`tableName`</span> AUTO_INCREMENT = <span class="number">1</span>; </span><br><span class="line">或者</span><br><span class="line"><span class="keyword">truncate</span> tableName; </span><br><span class="line"></span><br><span class="line">// 删除表</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">test</span>;</span><br><span class="line">    </span><br><span class="line">// 删除表内容，保留表结构  </span><br><span class="line">mysql&gt; TRUNCATE TABLE `tabel_name`;</span><br><span class="line">    </span><br><span class="line">// 删除表并重置主键，不会留下日志，相当于删除表并重建    </span><br><span class="line"><span class="keyword">TRUNCATE</span> <span class="keyword">TABLE</span> <span class="string">`animal_cell_attribute`</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// 导出一个数据库    </span><br><span class="line">mysqldump -u 用户名 -p 数据库名 &gt; 导出的文件名.sql   </span><br><span class="line">mysqldump -u root -p uscnerp &gt; uscnerp.sql    </span><br><span class="line">Enter password:  </span><br><span class="line">    </span><br><span class="line">// 导出一张表</span><br><span class="line">mysqldump -u 用户名 -p 数据库名 表名 &gt; 导出的文件名.sql  </span><br><span class="line">mysqldump -u root -p animal animal_service &gt; animal_service.sql</span><br><span class="line">Enter password: **********  </span><br><span class="line">    </span><br><span class="line">// 导出多个数据库</span><br><span class="line">mysqldump  -uroot -p --databases test mysql #空格分隔</span><br><span class="line">    </span><br><span class="line">// 导出到excel表格</span><br><span class="line">mysql   -uroot   -p   -e   "select   *   from   test.table2 "   &gt;   d:a.xsl</span><br></pre></td></tr></table></figure>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 导入数据库  </span><br><span class="line"></span><br><span class="line">mysql&gt;use 数据库  </span><br><span class="line">mysql&gt;set names utf8; （先确认编码，如果不设置可能会出现乱码，注意不是UTF-8）   </span><br><span class="line">mysql&gt;source d:\wcnc_db.sql</span><br></pre></td></tr></table></figure>
-<h4 id="查看表">查看表</h4>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 查看表结构</span><br><span class="line"><span class="keyword">show</span> <span class="keyword">create</span> <span class="keyword">table</span> 表名;</span><br></pre></td></tr></table></figure>
-<h4 id="配置用户权限">配置用户权限</h4>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 重置root密码并查看所有用户权限</span></span><br><span class="line"> mysql&gt; use mysql;</span><br><span class="line">Database changed</span><br><span class="line">mysql&gt; UPDATE user SET Password = PASSWORD('newpassword') WHERE user = 'root';</span><br><span class="line">Query OK, 3 rows affected (0.02 sec)</span><br><span class="line">Rows matched: 3  Changed: 3  Warnings: 0</span><br><span class="line"></span><br><span class="line">mysql&gt; SELECT Host,User,Password FROM mysql.user;</span><br><span class="line">+<span class="comment">-----------+--------+-------------------------------------------+</span></span><br><span class="line">| Host      | User   | Password                                  |</span><br><span class="line">+<span class="comment">-----------+--------+-------------------------------------------+</span></span><br><span class="line">| localhost | root   | *2ED3112AFECE04CEE0AA42619AB00D4498BA3342 |</span><br><span class="line">| 127.0.0.1 | root   | *2ED3112AFECE04CEE0AA42619AB00D4498BA3342 |</span><br><span class="line">| ::1       | root   | *2ED3112AFECE04CEE0AA42619AB00D4498BA3342 |</span><br><span class="line">| localhost |        |                                           |</span><br><span class="line">| localhost | animal | *CC87B1E39E699B64E0B80741B5D1991BC5BE57AC |</span><br><span class="line">+<span class="comment">-----------+--------+-------------------------------------------+</span></span><br><span class="line">5 rows in <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br><span class="line"></span><br><span class="line">// 查看全部用户</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> <span class="keyword">CONCAT</span>(<span class="string">'User: '''</span>,<span class="keyword">user</span>,<span class="string">'''@'''</span>,host,<span class="string">''';'</span>) <span class="keyword">AS</span> <span class="keyword">query</span> <span class="keyword">FROM</span> mysql.user;</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">// 创建用户</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> username@localhost <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'password'</span>;</span><br><span class="line">&gt; username:用户名  </span><br><span class="line">&gt; @localhost：表示用户只能在本地访问  </span><br><span class="line">&gt; password:密码</span><br><span class="line"></span><br><span class="line">// 配置权限</span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">SELECT</span>,<span class="keyword">INSERT</span>,<span class="keyword">UPDATE</span> <span class="keyword">ON</span> database.* <span class="keyword">TO</span> username@localhost <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'password'</span>;  </span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">ALL</span> <span class="keyword">PRIVILEGES</span> <span class="keyword">ON</span> *.* <span class="keyword">TO</span> <span class="keyword">user</span>;@localhost </span><br><span class="line">// <span class="keyword">GRANT</span> 权限名称 <span class="keyword">ON</span> 数据库.数据表 <span class="keyword">TO</span> 用户名@访问地址 <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'密码'</span>;</span><br><span class="line">    </span><br><span class="line">// 刷新权限列表</span><br><span class="line"><span class="keyword">flush</span> <span class="keyword">privileges</span>;</span><br><span class="line">    </span><br><span class="line">// 配置备份用户权限</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> <span class="string">'backuper'</span>@<span class="string">'localhost'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'PASSWORD'</span>;</span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">SELECT</span>, RELOAD, PROCESS, <span class="keyword">SHOW</span> <span class="keyword">DATABASES</span>, SUPER, <span class="keyword">LOCK</span> <span class="keyword">TABLES</span>, <span class="keyword">REPLICATION</span> <span class="keyword">CLIENT</span>, <span class="keyword">SHOW</span> <span class="keyword">VIEW</span>, <span class="keyword">EVENT</span> <span class="keyword">ON</span> *.* <span class="keyword">TO</span> <span class="string">'backuper'</span>@<span class="string">'localhost'</span>;</span><br><span class="line"><span class="keyword">FLUSH</span> <span class="keyword">PRIVILEGES</span>;</span><br><span class="line"></span><br><span class="line">// 开启慢查询日志</span><br><span class="line">```bash </span><br><span class="line">sudo vim /etc/my.cnf</span><br><span class="line"></span><br><span class="line"><span class="comment"># slow_query_log</span></span><br><span class="line">slow_query_log=on</span><br><span class="line">slow-query-log-file=/var/log/mysql/slow.log <span class="comment"># 保证此文件属于mysql用户，mysql组，并可写权限</span></span><br><span class="line">long_query_time=1 <span class="comment"># 超过1秒写入慢查询日志</span></span><br><span class="line">log-queries-not-using-indexes</span><br><span class="line">    </span><br><span class="line">// 查看是否开启mysql慢查询日志</span><br><span class="line">&gt;mysql show variables like "slow_query_log";</span><br><span class="line"></span><br><span class="line">// 设置密码过期时间</span><br><span class="line"><span class="keyword">SET</span> <span class="keyword">GLOBAL</span> default_password_lifetime = <span class="number">0</span>;  // 全局用户永不过期</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">USER</span> <span class="string">'root'</span>@<span class="string">'localhost'</span> <span class="keyword">PASSWORD</span> <span class="keyword">EXPIRE</span> <span class="keyword">NEVER</span>;  // 单个用户用户过期</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">USER</span> <span class="string">'root'</span>@<span class="string">'localhost'</span> <span class="keyword">PASSWORD</span> <span class="keyword">EXPIRE</span> <span class="built_in">INTERVAL</span> <span class="number">90</span> <span class="keyword">DAY</span>;  // 单个用户</span><br></pre></td></tr></table></figure>
-<h4 id="window服务器下自动备份">window服务器下自动备份</h4>
-<h5 id="编写脚本">编写脚本</h5>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">rem *******************************Code Start*****************************</span><br><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line">    </span><br><span class="line"><span class="built_in">set</span> <span class="string">"Ymd=%date:~,4%%date:~5,2%%date:~8,2%"</span></span><br><span class="line">mysqldump --opt -u root --password=abcdefg database &gt; F:\FTP\BackupMysql\database_%Ymd%.sql</span><br><span class="line">@<span class="built_in">echo</span> on</span><br><span class="line">rem *******************************Code End*****************************</span><br></pre></td></tr></table></figure>
-<h5 id="定时任务">定时任务</h5>
-<p>注意在操作中填写脚本并在起始于写入脚本所在盘符E:<br>
-</p>
-<h5 id="删除mysql">删除mysql</h5>
-<blockquote>
-<p>在服务里找到mysql服务，停止使用<br>
-控制面板中卸载mysql 注册表文件删除： HKEY_LOCAL_MACHINE/SYSTEM/ControlSet001/Services/Eventlog/Application/MySQL 目录删除; HKEY_LOCAL_MACHINE/SYSTEM/ControlSet002/Services/Eventlog/Application/MySQL 目录删除; HKEY_LOCAL_MACHINE/SYSTEM/CurrentControlSet/Services/Eventlog/Application/MySQL 目录删除; 在硬盘和注册表中搜索mysql并删除掉</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2016/11/09/rsync同步web服务器/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhuohanchang">
-      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="饱读诗书">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2016/11/09/rsync同步web服务器/" class="post-title-link" itemprop="url">rsync同步web服务器</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2016-11-09 11:05:34" itemprop="dateCreated datePublished" datetime="2016-11-09T11:05:34+08:00">2016-11-09</time>
-            </span>
-          
-
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-07-24 09:33:42" itemprop="dateModified" datetime="2019-07-24T09:33:42+08:00">2019-07-24</time>
-              </span>
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/运维/" itemprop="url" rel="index"><span itemprop="name">运维</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="测试环境">测试环境</h3>
-<p>服务端安装 WIN2008R2 ip:192.168.0.160<br>
-客户端安装 WIN2003 ip:192.168.0.206</p>
-<h3 id="程序下载">程序下载</h3>
-<p>新版已经开始收费，这里使用旧版4.0.5,百度网盘下载http://pan.baidu.com/s/1kTNyk1h</p>
-<h3 id="服务端安装">服务端安装</h3>
-<p><img src="http://7xq3ry.com1.z0.glb.clouddn.com/cwrsync.png"> 一路直接下一步，这里会创建一个用户，创建的默认密码可以不需要修改，直接下一步。 <img src="http://7xq3ry.com1.z0.glb.clouddn.com/cwrsync1.png"> 创建的用户 <img src="http://7xq3ry.com1.z0.glb.clouddn.com/cwrsync2.png"> 创建的服务改为自动启动</p>
-<h3 id="客户端安装">客户端安装</h3>
-<p>一路下一步直到完成。</p>
-<h3 id="配置服务端">配置服务端</h3>
-<pre><code>use chroot = false
-# 不验证用户密码
-strict modes = false
-lock file = rsyncd.lock 
-hosts allow = 192.168.0.206
-max connections = 5
-# 默认端口
-port = 873
-
-# 指定匿名访问
-uid = 0
-gid = 0
-
-
-log file = rsyncd.log
-
-# Module definitions
-# Remember cygwin naming conventions : c:\work becomes /cygdrive/c/work
-
-[web]
-path = /cygdrive/C/WEB
-# 下面两行是配置用户名密码的
-# auth users = dbbackuper
-# secrets file = /cygdrive/e/Setting/Rsync/rsync_db.ps
-# 只允许客户端下载，不允许客户端上传
-read only = true
-transfer logging = yes</code></pre>
-<p>防火墙设置允许配置的端口通过<br>
-查看端口配置是否错误</p>
-<pre><code>telnet 192.168.0.160 873  
-@RSYNCD: 30.0</code></pre>
-<p>服务器端配置测试文件目录 <img src="http://7xq3ry.com1.z0.glb.clouddn.com/cwrsync3.png"> 其中targetDir为联接文件</p>
-<pre><code>C:\&gt;mklink /J WEB\targetDir\ source\
-为 WEB\targetDir\ &lt;&lt;===&gt;&gt; source\ 创建的联接</code></pre>
-<h3 id="配置客户端">配置客户端</h3>
-<p>在安装目录下使用如下命令</p>
-<pre><code>C:\Program Files\cwRsync\bin&gt;rsync --port=873 -vzrtopg --progress --delete 192.168.0.160::web /cygdrive/C/WEB
-receiving incremental file list
-skipping non-regular file &quot;targetDir&quot;
-./
-TEST4/
-test3/
-
-sent 39 bytes  received 163 bytes  134.67 bytes/sec
-total size is 19  speedup is 0.09</code></pre>
-<p>查看客户端文件目录</p>
-<pre><code>test3
-TEST4</code></pre>
-<p>提示skipping non-regular file 'targetDir'忽略软链接解决办法<br>
-参数-L:--copy-links 像对待常规文件一样处理软链结</p>
-<pre><code>C:\Program Files\cwRsync\bin&gt;rsync --port=873 -vzrtopgL --progress --delete 192.
-168.0.160::web /cygdrive/C/WEB
-receiving incremental file list
-deleting test5/adda.txt
-deleting test5/
-./
-TEST4/
-targetDir/
-targetDir/HAFA/
-targetDir/pdf/
-targetDir/pdf/TARGE.txt
-           0 100%    0.00kB/s    0:00:00 (xfer#1, to-check=1/8)
-test3/
-
-sent 70 bytes  received 272 bytes  97.71 bytes/sec
-total size is 0  speedup is 0.00</code></pre>
-<h3 id="实现客户端定时任务">实现客户端定时任务</h3>
-<p>1，要添加环境变量到系统中<br>
-2，上传脚本文件到客户端sync_client.bat</p>
-<pre><code>rsync --port=873 -vzrtopgL --progress --delete 192.168.0.160::web /cygdrive/C/WEB</code></pre>
-<p>3,在系统中添加定时任务，并指定更新时间</p>
-<h3 id="具体参数详解">具体参数详解</h3>
-<p>rsync参数的具体解释如下： -v, --verbose 详细模式输出<br>
--q, --quiet 精简输出模式<br>
--c, --checksum 打开校验开关，强制对文件传输进行校验<br>
--a, --archive 归档模式，表示以递归方式传输文件，并保持所有文件属性，等于-rlptgoD<br>
--r, --recursive 对子目录以递归模式处理<br>
--R, --relative 使用相对路径信息<br>
--b, --backup 创建备份，也就是对于目的已经存在有同样的文件名时，将老的文件重新命名为~filename。可以使用--suffix选项来指定不同的备份文件前缀。<br>
---backup-dir 将备份文件(如~filename)存放在在目录下。<br>
--suffix=SUFFIX 定义备份文件前缀<br>
--u, --update 仅仅进行更新，也就是跳过所有已经存在于DST，并且文件时间晚于要备份的文件。(不覆盖更新的文件)<br>
--l, --links 保留软链结<br>
--L, --copy-links 想对待常规文件一样处理软链结<br>
---copy-unsafe-links 仅仅拷贝指向SRC路径目录树以外的链结<br>
---safe-links 忽略指向SRC路径目录树以外的链结<br>
--H, --hard-links 保留硬链结<br>
--p, --perms 保持文件权限<br>
--o, --owner 保持文件属主信息<br>
--g, --group 保持文件属组信息<br>
--D, --devices 保持设备文件信息<br>
--t, --times 保持文件时间信息<br>
--S, --sparse 对稀疏文件进行特殊处理以节省DST的空间<br>
--n, --dry-run现实哪些文件将被传输<br>
--W, --whole-file 拷贝文件，不进行增量检测<br>
--x, --one-file-system 不要跨越文件系统边界<br>
--B, --block-size=SIZE 检验算法使用的块尺寸，默认是700字节<br>
--e, --rsh=COMMAND 指定使用rsh、ssh方式进行数据同步<br>
---rsync-path=PATH 指定远程服务器上的rsync命令所在路径信息<br>
--C, --cvs-exclude 使用和CVS一样的方法自动忽略文件，用来排除那些不希望传输的文件<br>
---existing 仅仅更新那些已经存在于DST的文件，而不备份那些新创建的文件<br>
---delete 删除那些DST中SRC没有的文件<br>
---delete-excluded 同样删除接收端那些被该选项指定排除的文件<br>
---delete-after 传输结束以后再删除<br>
---ignore-errors 及时出现IO错误也进行删除<br>
---max-delete=NUM 最多删除NUM个文件<br>
---partial 保留那些因故没有完全传输的文件，以是加快随后的再次传输<br>
---force 强制删除目录，即使不为空<br>
---numeric-ids 不将数字的用户和组ID匹配为用户名和组名<br>
---timeout=TIME IP超时时间，单位为秒<br>
--I, --ignore-times 不跳过那些有同样的时间和长度的文件<br>
---size-only 当决定是否要备份文件时，仅仅察看文件大小而不考虑文件时间<br>
---modify-window=NUM 决定文件是否时间相同时使用的时间戳窗口，默认为0<br>
--T --temp-dir=DIR 在DIR中创建临时文件<br>
---compare-dest=DIR 同样比较DIR中的文件来决定是否需要备份<br>
--P 等同于 --partial<br>
---progress 显示备份过程<br>
--z, --compress 对备份的文件在传输时进行压缩处理<br>
---exclude=PATTERN 指定排除不需要传输的文件模式<br>
---include=PATTERN 指定不排除而需要传输的文件模式<br>
---exclude-from=FILE 排除FILE中指定模式的文件<br>
---include-from=FILE 不排除FILE指定模式匹配的文件<br>
---version 打印版本信息<br>
---address 绑定到特定的地址<br>
---config=FILE 指定其他的配置文件，不使用默认的rsyncd.conf文件<br>
---port=PORT 指定其他的rsync服务端口<br>
---blocking-io 对远程shell使用阻塞IO<br>
--stats 给出某些文件的传输状态<br>
---progress 在传输时现实传输过程<br>
---log-format=formAT 指定日志文件格式<br>
---password-file=FILE 从FILE中得到密码<br>
---bwlimit=KBPS 限制I/O带宽，KBytes per second<br>
--h, --help 显示帮助信息</p>
-<h3 id="部分错误的解决办法">部分错误的解决办法</h3>
-<p>1.'rsync' 不是内部或外部命令，也不是可运行的程序或批处理文件。<br>
-加环境变量 path = C:\Program Files (x86)\cwRsync\bin 2.rsync: failed to connect to 192.168.1.82: Connection timed out (116) rsync error: error in socket IO (code 10) at clientserver.c(122) [Receiver=3.0.7]<br>
-网络通畅，服务器端允许访问端口 873 3.@ERROR: invalid uid nobody<br>
-rsync error: error starting client-server protocol (code 5) at main.c(1506) [Receiver=3.0.7]<br>
-指定uid gid<br>
-uid = 0<br>
-gid = 0 4.@ERROR: chdir failed<br>
-rsync error: error starting client-server protocol (code 5) at main.c(1506) [Receiver=3.0.7]<br>
-path目录配置的正确，得存在<br>
-解决：服务器端同步目录没有权限，cwrsync默认用户是Svcwrsync。为同步目录添加用户Svcwrsync权限。<br>
-也可以通过 菜单--cwRsyncServer--02. Prep a Dir for Upload 配置目录权限 除完全控制和特殊权限外的所有权限 5.@ERROR: auth failed on module test<br>
-rsync error: error starting client-server protocol (code 5) at main.c(1506) [Receiver=3.0.7]<br>
-客户端设置<br>
-a.在命令上要指定好用户名<br>
-b.密码文件只写密码<br>
-rsyncd.secrets文件<br>
-rsyncpass<br>
-c.用户名密码都要正确 6.Unexpected local arg: /cygdrive/d/rsyncBackup<br>
-If arg is a remote file/dir, prefix it with a colon (:).<br>
-rsync error: syntax or usage error (code 1) at main.c(1218) [Receiver=3.0.7]<br>
-不一定是这个路径有问题，可能是--password-file路径中有空格，服务器端没问题，客户端好像不行 7.password file must be owned by root when running as root<br>
-continuing without password file<br>
-Password:<br>
-设置密码访问权限chown.exe可从服务器端拷贝过来<br>
-chmod -c 600 /cygdrive/c/etc/rsyncd.secrets<br>
-chown administrator /cygdrive/c/etc/rsyncd.secrets<br>
-服务器端不设也可以 8.当出现rsync: chown “” failed: Invalid argument (22)错误时，是因为参数中有o，即保留文件的owner信息，而window服务端无法完成chown操作，解决办法是去掉参数o。另外有些可能还会出现rsync: chgrp “” failed: Invalid argument (22)，原因类似，只要去掉参数中的g即可。</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -2969,7 +2913,7 @@ chown administrator /cygdrive/c/etc/rsyncd.secrets<br>
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">70</span>
+          <span class="site-state-item-count">72</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
