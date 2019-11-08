@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -72,9 +72,9 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Pisces',
     version: '7.2.0',
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    sidebar: {"position":"left","display":"always","offset":12,"onmobile":false},
     back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
     copycode: {"enable":true,"show_result":true,"style":null},
     fancybox: false,
@@ -98,16 +98,13 @@
   };
 </script>
 
-  <meta name="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="饱读诗书">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="学习记录">
 <meta property="og:url" content="http://www.zhuohc.com/index.html">
-<meta property="og:site_name" content="饱读诗书">
-<meta property="og:description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
+<meta property="og:site_name" content="学习记录">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="饱读诗书">
-<meta name="twitter:description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
+<meta name="twitter:title" content="学习记录">
 
 
 
@@ -126,7 +123,7 @@
 </script>
 
   
-  <title>饱读诗书</title>
+  <title>学习记录</title>
   
 
 
@@ -186,14 +183,10 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">饱读诗书</span>
+        <span class="site-title">学习记录</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-    
-      
-        <h1 class="site-subtitle" itemprop="description">怕什么真理无穷，进一寸有一寸的欢喜。</h1>
-      
     
     
   </div>
@@ -246,7 +239,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">72</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">73</span></a>
 
   </li>
 
@@ -262,9 +255,6 @@
       
     </ul>
   
-
-  
-    
 
   
 
@@ -304,9 +294,202 @@
       <div class="main-inner">
         <div class="content-wrap">
           
+            
+
+          
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2019/11/08/webpack入门基础/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhuohanchang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="学习记录">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/11/08/webpack入门基础/" class="post-title-link" itemprop="url">webpack入门基础</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-11-08 15:44:17 / Modified: 18:01:05" itemprop="dateCreated datePublished" datetime="2019-11-08T15:44:17+08:00">2019-11-08</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="安装">安装</h4>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> cnpm install webpack -g</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> cnpm install webpack-cli -g</span></span><br></pre></td></tr></table></figure>
+<h4 id="webpack基础命令">webpack基础命令</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># 目录结构</span><br><span class="line">.</span><br><span class="line">├── node_modules</span><br><span class="line">├── package.json</span><br><span class="line">└── src</span><br><span class="line">    ├── index.html</span><br><span class="line">    ├── js</span><br><span class="line">    │   ├── app.js</span><br><span class="line">    │   ├── module1.js</span><br><span class="line">    │   ├── module2.js</span><br><span class="line">    │   └── module3.js</span><br><span class="line">    └── json</span><br><span class="line">        └── data.json</span><br><span class="line"></span><br><span class="line">4 directories, 7 files</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 测试环境</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> webpack src/js/app.js -o dist/js/app.js --mode=development</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 生产环境</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> webpack src/js/app.js -o dist/js/app.js --mode=production</span></span><br></pre></td></tr></table></figure>
+<p>webpack命令能： &gt; 够编译打包js和json文件</p>
+<blockquote>
+<p>能将es6的模块化语法转换成浏览器能识别的语法</p>
+</blockquote>
+<blockquote>
+<p>能压缩代码</p>
+</blockquote>
+<p>webpack命令不能： &gt; 不能编译打包css、img等文件</p>
+<blockquote>
+<p>不能将js的es6基本语法转化为es5以下语法</p>
+</blockquote>
+<h4 id="webpack配置">webpack配置</h4>
+<h5 id="配置文件-webpack.config.js">配置文件 webpack.config.js</h5>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// webpack.config.js</span></span><br><span class="line"><span class="keyword">const</span> &#123;resolve&#125; = <span class="built_in">require</span>(<span class="string">'path'</span>);  <span class="comment">//node内置核心模块，用来设置路径。</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    entry: <span class="string">'./src/js/app.js'</span>,   <span class="comment">// 入口文件</span></span><br><span class="line">    output: &#123;                     <span class="comment">// 输出配置</span></span><br><span class="line">        filename: <span class="string">'./js/bundle.js'</span>,      <span class="comment">// 输出文件名</span></span><br><span class="line">        path: resolve(__dirname, <span class="string">'dist'</span>)   <span class="comment">//输出文件路径配置</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="built_in">module</span>: &#123;</span><br><span class="line">        rules: []</span><br><span class="line">    &#125;,</span><br><span class="line">    mode: <span class="string">'development'</span>   <span class="comment">// development, production 二选一</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> webpack</span></span><br></pre></td></tr></table></figure>
+<h5 id="webpack-js语法检查">webpack js语法检查</h5>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 安装loader</span></span><br><span class="line">cnpm install eslint-loader eslint --save-dev</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// webpack.config.js 配置loader</span></span><br><span class="line"><span class="keyword">const</span> &#123;resolve&#125; = <span class="built_in">require</span>(<span class="string">'path'</span>);  <span class="comment">//node内置核心模块，用来设置路径。</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    entry: <span class="string">'./src/js/app.js'</span>,   <span class="comment">// 入口文件</span></span><br><span class="line">    output: &#123;                     <span class="comment">// 输出配置</span></span><br><span class="line">        filename: <span class="string">'./js/bundle.js'</span>,      <span class="comment">// 输出文件名</span></span><br><span class="line">        path: resolve(__dirname, <span class="string">'dist'</span>)   <span class="comment">//输出文件路径配置</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="built_in">module</span>: &#123;</span><br><span class="line">        rules: [</span><br><span class="line">            &#123;</span><br><span class="line">                test: <span class="regexp">/\.js$/</span>,  <span class="comment">//只检测js文件</span></span><br><span class="line">                exclude: <span class="regexp">/node_modules/</span>,  <span class="comment">//排除node_modules文件夹</span></span><br><span class="line">                enforce: <span class="string">"pre"</span>,  <span class="comment">//提前加载使用</span></span><br><span class="line">                use: &#123; <span class="comment">//使用eslint-loader解析</span></span><br><span class="line">                    loader: <span class="string">"eslint-loader"</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    mode: <span class="string">'development'</span>   <span class="comment">// development, production 二选一</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>package.json 添加eslintConfig <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"name"</span>: <span class="string">"nodelearn"</span>,</span><br><span class="line">  <span class="attr">"version"</span>: <span class="string">"1.0.0"</span>,</span><br><span class="line">  <span class="attr">"description"</span>: <span class="string">"测试"</span>,</span><br><span class="line">  <span class="attr">"main"</span>: <span class="string">"1.js"</span>,</span><br><span class="line">  <span class="attr">"scripts"</span>: &#123;</span><br><span class="line">    <span class="attr">"test"</span>: <span class="string">"echo \"Error: no test specified\" &amp;&amp; exit 1"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"author"</span>: <span class="string">""</span>,</span><br><span class="line">  <span class="attr">"license"</span>: <span class="string">"ISC"</span>,</span><br><span class="line">  <span class="attr">"devDependencies"</span>: &#123;</span><br><span class="line">    <span class="attr">"eslint"</span>: <span class="string">"^6.6.0"</span>,</span><br><span class="line">    <span class="attr">"eslint-loader"</span>: <span class="string">"^3.0.2"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"eslintConfig"</span>: &#123;</span><br><span class="line">    <span class="attr">"parserOptions"</span>: &#123;</span><br><span class="line">      <span class="attr">"ecmaVersion"</span>: <span class="number">8</span>,</span><br><span class="line">      <span class="attr">"sourceType"</span>: <span class="string">"module"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h5 id="webpack-js语法转换">webpack js语法转换</h5>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> cnpm install babel-loader @babel/core @babel/preset-env --save-dev</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123;resolve&#125; = <span class="built_in">require</span>(<span class="string">'path'</span>);  <span class="comment">//node内置核心模块，用来设置路径。</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    entry: <span class="string">'./src/js/app.js'</span>,   <span class="comment">// 入口文件</span></span><br><span class="line">    output: &#123;                     <span class="comment">// 输出配置</span></span><br><span class="line">        filename: <span class="string">'./js/bundle.js'</span>,      <span class="comment">// 输出文件名</span></span><br><span class="line">        path: resolve(__dirname, <span class="string">'dist'</span>)   <span class="comment">//输出文件路径配置</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="built_in">module</span>: &#123;</span><br><span class="line">        rules: [</span><br><span class="line">            &#123;</span><br><span class="line">                test: <span class="regexp">/\.js$/</span>,  <span class="comment">//只检测js文件</span></span><br><span class="line">                exclude: <span class="regexp">/node_modules/</span>,  <span class="comment">//排除node_modules文件夹</span></span><br><span class="line">                enforce: <span class="string">"pre"</span>,  <span class="comment">//提前加载使用</span></span><br><span class="line">                use: &#123; <span class="comment">//使用eslint-loader解析</span></span><br><span class="line">                    loader: <span class="string">"eslint-loader"</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                test: <span class="regexp">/\.js$/</span>,</span><br><span class="line">                exclude: <span class="regexp">/node_modules/</span>,</span><br><span class="line">                use: &#123;</span><br><span class="line">                    loader: <span class="string">"babel-loader"</span>,</span><br><span class="line">                    options: &#123;</span><br><span class="line">                        presets: [<span class="string">'@babel/preset-env'</span>]</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    mode: <span class="string">'development'</span>   <span class="comment">// development, production 二选一</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h5 id="webpack打包html文件">webpack打包html文件</h5>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> cnpm install html-webpack-plugin --save-dev</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> cnpm install clean-webpack-plugin --save-dev</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> cnpm install html-loader --save-dev</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// webpack.config.js</span></span><br><span class="line"><span class="comment">// 引入webpack</span></span><br><span class="line"><span class="keyword">const</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>);</span><br><span class="line"><span class="comment">// 配置插件</span></span><br><span class="line"><span class="keyword">const</span> HtmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>); <span class="comment">//引入插件html-webpack-plugin</span></span><br><span class="line"><span class="keyword">const</span> &#123;CleanWebpackPlugin&#125; = <span class="built_in">require</span>(<span class="string">'clean-webpack-plugin'</span>);  <span class="comment">//引入清除文件插件</span></span><br><span class="line"><span class="keyword">const</span> &#123;resolve&#125; = <span class="built_in">require</span>(<span class="string">'path'</span>);  <span class="comment">//node内置核心模块，用来设置路径。</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    entry: <span class="string">'./src/js/app.js'</span>,   <span class="comment">// 入口文件</span></span><br><span class="line">    output: &#123;                     <span class="comment">// 输出配置</span></span><br><span class="line">        filename: <span class="string">'./js/bundle.js'</span>,      <span class="comment">// 输出文件名</span></span><br><span class="line">        path: resolve(__dirname, <span class="string">'dist'</span>)   <span class="comment">//输出文件路径配置</span></span><br><span class="line">    &#125;,</span><br><span class="line">    plugins: [</span><br><span class="line">        <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">            template: <span class="string">'./src/index.html'</span>,</span><br><span class="line">            filename: <span class="string">'index.html'</span>,<span class="comment">// 默认情况下生成的 html 文件叫 index.html</span></span><br><span class="line">            minify: &#123;</span><br><span class="line">                collapseWhitespace: <span class="literal">true</span>, <span class="comment">//把生成的 index.html 文件的内容的没用空格去掉，减少空间</span></span><br><span class="line">            &#125;,</span><br><span class="line">            hash: <span class="literal">true</span>, <span class="comment">//为了更好的 cache，可以在文件名后加个 hash。</span></span><br><span class="line">        &#125;),</span><br><span class="line">        <span class="keyword">new</span> CleanWebpackPlugin(), <span class="comment">//实例化，参数为目录</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="built_in">module</span>: &#123;</span><br><span class="line">        rules: [</span><br><span class="line">            &#123;</span><br><span class="line">                test: <span class="regexp">/\.js$/</span>,  <span class="comment">//只检测js文件</span></span><br><span class="line">                exclude: <span class="regexp">/node_modules/</span>,  <span class="comment">//排除node_modules文件夹</span></span><br><span class="line">                enforce: <span class="string">"pre"</span>,  <span class="comment">//提前加载使用</span></span><br><span class="line">                use: &#123; <span class="comment">//使用eslint-loader解析</span></span><br><span class="line">                    loader: <span class="string">"eslint-loader"</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                test: <span class="regexp">/\.js$/</span>,</span><br><span class="line">                exclude: <span class="regexp">/node_modules/</span>,</span><br><span class="line">                use: &#123;</span><br><span class="line">                    loader: <span class="string">"babel-loader"</span>,</span><br><span class="line">                    options: &#123;</span><br><span class="line">                        presets: [<span class="string">'@babel/preset-env'</span>]</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    mode: <span class="string">'development'</span>   <span class="comment">// development, production 二选一</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h5 id="webpack-自动编译打包运行">webpack 自动编译打包运行</h5>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> cnpm install webpack --save-dev</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> cnpm install webpack-dev-server --save-dev</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> cnpm install webpack-cli --save-dev</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// webpack.config.js 添加devtool, devServer, plugins</span></span><br><span class="line"><span class="comment">// 引入webpack</span></span><br><span class="line"><span class="comment">// 引入webpack</span></span><br><span class="line"><span class="keyword">const</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>);</span><br><span class="line"><span class="comment">// 配置插件</span></span><br><span class="line"><span class="keyword">const</span> HtmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>); <span class="comment">//引入插件html-webpack-plugin</span></span><br><span class="line"><span class="keyword">const</span> &#123;CleanWebpackPlugin&#125; = <span class="built_in">require</span>(<span class="string">'clean-webpack-plugin'</span>);  <span class="comment">//引入清除文件插件</span></span><br><span class="line"><span class="keyword">const</span> &#123;resolve&#125; = <span class="built_in">require</span>(<span class="string">'path'</span>);  <span class="comment">//node内置核心模块，用来设置路径。</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    entry: <span class="string">'./src/js/app.js'</span>,   <span class="comment">// 入口文件</span></span><br><span class="line">    output: &#123;                     <span class="comment">// 输出配置</span></span><br><span class="line">        filename: <span class="string">'./js/bundle.js'</span>,      <span class="comment">// 输出文件名</span></span><br><span class="line">        path: resolve(__dirname, <span class="string">'dist'</span>)   <span class="comment">//输出文件路径配置</span></span><br><span class="line">    &#125;,</span><br><span class="line">    devtool: <span class="string">'inline-source-map'</span>,  <span class="comment">// 将编译后的代码映射回原始源代码，更容易地追踪错误和警告</span></span><br><span class="line">    devServer: &#123;</span><br><span class="line">        contentBase: <span class="string">'./dist'</span>,  <span class="comment">//项目根路径</span></span><br><span class="line">        hot: <span class="literal">true</span>,  <span class="comment">//开启热模替换功能</span></span><br><span class="line">        open: <span class="literal">true</span>  <span class="comment">//自动打开浏览器</span></span><br><span class="line">    &#125;,</span><br><span class="line">    plugins: [</span><br><span class="line">        <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">            template: <span class="string">'./src/index.html'</span>,</span><br><span class="line">            filename: <span class="string">'index.html'</span>,<span class="comment">// 默认情况下生成的 html 文件叫 index.html</span></span><br><span class="line">            minify: &#123;</span><br><span class="line">                collapseWhitespace: <span class="literal">true</span>, <span class="comment">//把生成的 index.html 文件的内容的没用空格去掉，减少空间</span></span><br><span class="line">            &#125;,</span><br><span class="line">            hash: <span class="literal">true</span>, <span class="comment">//为了更好的 cache，可以在文件名后加个 hash。</span></span><br><span class="line">        &#125;),</span><br><span class="line">        <span class="keyword">new</span> CleanWebpackPlugin(), <span class="comment">//实例化，参数为目录</span></span><br><span class="line">        <span class="keyword">new</span> webpack.NamedModulesPlugin(),</span><br><span class="line">        <span class="keyword">new</span> webpack.HotModuleReplacementPlugin()</span><br><span class="line">    ],</span><br><span class="line">    <span class="built_in">module</span>: &#123;</span><br><span class="line">        rules: [</span><br><span class="line">            &#123;</span><br><span class="line">                test: <span class="regexp">/\.js$/</span>,  <span class="comment">//只检测js文件</span></span><br><span class="line">                exclude: <span class="regexp">/node_modules/</span>,  <span class="comment">//排除node_modules文件夹</span></span><br><span class="line">                enforce: <span class="string">"pre"</span>,  <span class="comment">//提前加载使用</span></span><br><span class="line">                use: &#123; <span class="comment">//使用eslint-loader解析</span></span><br><span class="line">                    loader: <span class="string">"eslint-loader"</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                test: <span class="regexp">/\.js$/</span>,</span><br><span class="line">                exclude: <span class="regexp">/node_modules/</span>,</span><br><span class="line">                use: &#123;</span><br><span class="line">                    loader: <span class="string">"babel-loader"</span>,</span><br><span class="line">                    options: &#123;</span><br><span class="line">                        presets: [<span class="string">'@babel/preset-env'</span>]</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    mode: <span class="string">'development'</span>   <span class="comment">// development, production 二选一</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>package.json添加start，dev命令</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"name"</span>: <span class="string">"nodelearn"</span>,</span><br><span class="line">  <span class="attr">"version"</span>: <span class="string">"1.0.0"</span>,</span><br><span class="line">  <span class="attr">"description"</span>: <span class="string">"测试"</span>,</span><br><span class="line">  <span class="attr">"main"</span>: <span class="string">"1.js"</span>,</span><br><span class="line">  <span class="attr">"scripts"</span>: &#123;</span><br><span class="line">    <span class="attr">"test"</span>: <span class="string">"echo \"Error: no test specified\" &amp;&amp; exit 1"</span>,</span><br><span class="line">    <span class="attr">"start"</span>: <span class="string">"webpack-dev-server"</span>,</span><br><span class="line">    <span class="attr">"dev"</span>: <span class="string">"webpack-dev-server"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"author"</span>: <span class="string">""</span>,</span><br><span class="line">  <span class="attr">"license"</span>: <span class="string">"ISC"</span>,</span><br><span class="line">  <span class="attr">"devDependencies"</span>: &#123;</span><br><span class="line">    <span class="attr">"@babel/core"</span>: <span class="string">"^7.7.2"</span>,</span><br><span class="line">    <span class="attr">"@babel/preset-env"</span>: <span class="string">"^7.7.1"</span>,</span><br><span class="line">    <span class="attr">"babel-loader"</span>: <span class="string">"^8.0.6"</span>,</span><br><span class="line">    <span class="attr">"eslint"</span>: <span class="string">"^6.6.0"</span>,</span><br><span class="line">    <span class="attr">"eslint-loader"</span>: <span class="string">"^3.0.2"</span>,</span><br><span class="line">    <span class="attr">"webpack-dev-server"</span>: <span class="string">"^3.9.0"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"eslintConfig"</span>: &#123;</span><br><span class="line">    <span class="attr">"parserOptions"</span>: &#123;</span><br><span class="line">      <span class="attr">"ecmaVersion"</span>: <span class="number">8</span>,</span><br><span class="line">      <span class="attr">"sourceType"</span>: <span class="string">"module"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="生产环境">生产环境</h5>
+<p>项目目录下新建config/webpack.dev.js, config/webpack.prod.js, 删除webpack.config.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// webpack.dev.js</span></span><br><span class="line"><span class="comment">// 引入webpack</span></span><br><span class="line"><span class="keyword">const</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>);</span><br><span class="line"><span class="comment">// 配置插件</span></span><br><span class="line"><span class="keyword">const</span> HtmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>); <span class="comment">//引入插件html-webpack-plugin</span></span><br><span class="line"><span class="keyword">const</span> &#123;CleanWebpackPlugin&#125; = <span class="built_in">require</span>(<span class="string">'clean-webpack-plugin'</span>);  <span class="comment">//引入清除文件插件</span></span><br><span class="line"><span class="keyword">const</span> &#123;resolve&#125; = <span class="built_in">require</span>(<span class="string">'path'</span>);  <span class="comment">//node内置核心模块，用来设置路径。</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    entry: <span class="string">'./src/js/app.js'</span>,   <span class="comment">// 入口文件</span></span><br><span class="line">    output: &#123;                     <span class="comment">// 输出配置</span></span><br><span class="line">        filename: <span class="string">'./js/bundle.js'</span>,      <span class="comment">// 输出文件名</span></span><br><span class="line">        path: resolve(__dirname, <span class="string">'../dist'</span>)   <span class="comment">//输出文件路径配置</span></span><br><span class="line">    &#125;,</span><br><span class="line">    devtool: <span class="string">'inline-source-map'</span>,  <span class="comment">// 将编译后的代码映射回原始源代码，更容易地追踪错误和警告</span></span><br><span class="line">    devServer: &#123;</span><br><span class="line">        contentBase: <span class="string">'./dist'</span>,  <span class="comment">//项目根路径</span></span><br><span class="line">        hot: <span class="literal">true</span>,  <span class="comment">//开启热模替换功能</span></span><br><span class="line">        open: <span class="literal">true</span>  <span class="comment">//自动打开浏览器</span></span><br><span class="line">    &#125;,</span><br><span class="line">    plugins: [</span><br><span class="line">        <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">            template: <span class="string">'./src/index.html'</span>,</span><br><span class="line">            filename: <span class="string">'index.html'</span>,<span class="comment">// 默认情况下生成的 html 文件叫 index.html</span></span><br><span class="line">            minify: &#123;</span><br><span class="line">                collapseWhitespace: <span class="literal">true</span>, <span class="comment">//把生成的 index.html 文件的内容的没用空格去掉，减少空间</span></span><br><span class="line">            &#125;,</span><br><span class="line">            hash: <span class="literal">true</span>, <span class="comment">//为了更好的 cache，可以在文件名后加个 hash。</span></span><br><span class="line">        &#125;),</span><br><span class="line">        <span class="keyword">new</span> CleanWebpackPlugin(),</span><br><span class="line">        <span class="keyword">new</span> webpack.NamedModulesPlugin(),</span><br><span class="line">        <span class="keyword">new</span> webpack.HotModuleReplacementPlugin()</span><br><span class="line">    ],</span><br><span class="line">    <span class="built_in">module</span>: &#123;</span><br><span class="line">        rules: [</span><br><span class="line">            &#123;</span><br><span class="line">                test: <span class="regexp">/\.js$/</span>,  <span class="comment">//只检测js文件</span></span><br><span class="line">                exclude: <span class="regexp">/node_modules/</span>,  <span class="comment">//排除node_modules文件夹</span></span><br><span class="line">                enforce: <span class="string">"pre"</span>,  <span class="comment">//提前加载使用</span></span><br><span class="line">                use: &#123; <span class="comment">//使用eslint-loader解析</span></span><br><span class="line">                    loader: <span class="string">"eslint-loader"</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                test: <span class="regexp">/\.js$/</span>,</span><br><span class="line">                exclude: <span class="regexp">/node_modules/</span>,</span><br><span class="line">                use: &#123;</span><br><span class="line">                    loader: <span class="string">"babel-loader"</span>,</span><br><span class="line">                    options: &#123;</span><br><span class="line">                        presets: [<span class="string">'@babel/preset-env'</span>]</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    mode: <span class="string">'development'</span>   <span class="comment">// development, production 二选一</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 引入webpack</span></span><br><span class="line"><span class="comment">// webpack.prod.js</span></span><br><span class="line"><span class="keyword">const</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>);</span><br><span class="line"><span class="comment">// 配置插件</span></span><br><span class="line"><span class="keyword">const</span> HtmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>); <span class="comment">//引入插件html-webpack-plugin</span></span><br><span class="line"><span class="keyword">const</span> &#123;CleanWebpackPlugin&#125; = <span class="built_in">require</span>(<span class="string">'clean-webpack-plugin'</span>);  <span class="comment">//引入清除文件插件</span></span><br><span class="line"><span class="keyword">const</span> &#123;resolve&#125; = <span class="built_in">require</span>(<span class="string">'path'</span>);  <span class="comment">//node内置核心模块，用来设置路径。</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    entry: <span class="string">'./src/js/app.js'</span>,   <span class="comment">// 入口文件</span></span><br><span class="line">    output: &#123;                     <span class="comment">// 输出配置</span></span><br><span class="line">        filename: <span class="string">'./js/[name].[hash:8].js'</span>,      <span class="comment">// 输出文件名</span></span><br><span class="line">        path: resolve(__dirname, <span class="string">'../dist'</span>)   <span class="comment">//输出文件路径配置</span></span><br><span class="line">    &#125;,</span><br><span class="line">    devtool: <span class="string">'inline-source-map'</span>,  <span class="comment">// 将编译后的代码映射回原始源代码，更容易地追踪错误和警告</span></span><br><span class="line">    plugins: [</span><br><span class="line">        <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">            template: <span class="string">'./src/index.html'</span>,</span><br><span class="line">            filename: <span class="string">'index.html'</span>,<span class="comment">// 默认情况下生成的 html 文件叫 index.html</span></span><br><span class="line">            minify: &#123;</span><br><span class="line">                collapseWhitespace: <span class="literal">true</span>, <span class="comment">//把生成的 index.html 文件的内容的没用空格去掉，减少空间</span></span><br><span class="line">            &#125;,</span><br><span class="line">            hash: <span class="literal">true</span>, <span class="comment">//为了更好的 cache，可以在文件名后加个 hash。</span></span><br><span class="line">        &#125;),</span><br><span class="line">        <span class="keyword">new</span> CleanWebpackPlugin(),</span><br><span class="line">        <span class="keyword">new</span> webpack.NamedModulesPlugin(),</span><br><span class="line">        <span class="keyword">new</span> webpack.HotModuleReplacementPlugin()</span><br><span class="line">    ],</span><br><span class="line">    <span class="built_in">module</span>: &#123;</span><br><span class="line">        rules: [</span><br><span class="line">            &#123;</span><br><span class="line">                test: <span class="regexp">/\.js$/</span>,  <span class="comment">//只检测js文件</span></span><br><span class="line">                exclude: <span class="regexp">/node_modules/</span>,  <span class="comment">//排除node_modules文件夹</span></span><br><span class="line">                enforce: <span class="string">"pre"</span>,  <span class="comment">//提前加载使用</span></span><br><span class="line">                use: &#123; <span class="comment">//使用eslint-loader解析</span></span><br><span class="line">                    loader: <span class="string">"eslint-loader"</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                test: <span class="regexp">/\.js$/</span>,</span><br><span class="line">                exclude: <span class="regexp">/node_modules/</span>,</span><br><span class="line">                use: &#123;</span><br><span class="line">                    loader: <span class="string">"babel-loader"</span>,</span><br><span class="line">                    options: &#123;</span><br><span class="line">                        presets: [<span class="string">'@babel/preset-env'</span>]</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    mode: <span class="string">'production'</span>   <span class="comment">// development, production 二选一</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>package.json <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"name"</span>: <span class="string">"nodelearn"</span>,</span><br><span class="line">  <span class="attr">"version"</span>: <span class="string">"1.0.0"</span>,</span><br><span class="line">  <span class="attr">"description"</span>: <span class="string">"测试"</span>,</span><br><span class="line">  <span class="attr">"main"</span>: <span class="string">"1.js"</span>,</span><br><span class="line">  <span class="attr">"scripts"</span>: &#123;</span><br><span class="line">    <span class="attr">"test"</span>: <span class="string">"echo \"Error: no test specified\" &amp;&amp; exit 1"</span>,</span><br><span class="line">    <span class="attr">"start"</span>: <span class="string">"webpack-dev-server --config ./config/webpack.dev.js"</span>,</span><br><span class="line">    <span class="attr">"dev"</span>: <span class="string">"webpack-dev-server --config ./config/webpack.dev.js"</span>,</span><br><span class="line">    <span class="attr">"build"</span>: <span class="string">"webpack --config ./config/webpack.prod.js"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"author"</span>: <span class="string">""</span>,</span><br><span class="line">  <span class="attr">"license"</span>: <span class="string">"ISC"</span>,</span><br><span class="line">  <span class="attr">"devDependencies"</span>: &#123;</span><br><span class="line">    <span class="attr">"@babel/core"</span>: <span class="string">"^7.7.2"</span>,</span><br><span class="line">    <span class="attr">"@babel/preset-env"</span>: <span class="string">"^7.7.1"</span>,</span><br><span class="line">    <span class="attr">"babel-loader"</span>: <span class="string">"^8.0.6"</span>,</span><br><span class="line">    <span class="attr">"clean-webpack-plugin"</span>: <span class="string">"^3.0.0"</span>,</span><br><span class="line">    <span class="attr">"eslint"</span>: <span class="string">"^6.6.0"</span>,</span><br><span class="line">    <span class="attr">"eslint-loader"</span>: <span class="string">"^3.0.2"</span>,</span><br><span class="line">    <span class="attr">"html-loader"</span>: <span class="string">"^0.5.5"</span>,</span><br><span class="line">    <span class="attr">"html-webpack-plugin"</span>: <span class="string">"^3.2.0"</span>,</span><br><span class="line">    <span class="attr">"webpack"</span>: <span class="string">"^4.41.2"</span>,</span><br><span class="line">    <span class="attr">"webpack-cli"</span>: <span class="string">"^3.3.10"</span>,</span><br><span class="line">    <span class="attr">"webpack-dev-server"</span>: <span class="string">"^3.9.0"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"eslintConfig"</span>: &#123;</span><br><span class="line">    <span class="attr">"parserOptions"</span>: &#123;</span><br><span class="line">      <span class="attr">"ecmaVersion"</span>: <span class="number">8</span>,</span><br><span class="line">      <span class="attr">"sourceType"</span>: <span class="string">"module"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>项目目录 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">├── config</span><br><span class="line">│   ├── webpack.dev.js</span><br><span class="line">│   └── webpack.prod.js</span><br><span class="line">├── package.json</span><br><span class="line">└── src</span><br><span class="line">    ├── index.html</span><br><span class="line">    ├── js</span><br><span class="line">    │   ├── app.js</span><br><span class="line">    │   ├── module1.js</span><br><span class="line">    │   ├── module2.js</span><br><span class="line">    │   └── module3.js</span><br><span class="line">    └── json</span><br><span class="line">        └── data.json</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -327,12 +510,12 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhuohanchang">
-      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="饱读诗书">
+      <meta itemprop="name" content="学习记录">
     </span>
 
     
@@ -419,14 +602,14 @@
 <p><strong>archlinux安装</strong> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜ sudo pacman -S anaconda</span><br></pre></td></tr></table></figure></p>
 <p><strong>验证</strong> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">➜ conda --version</span><br><span class="line">conda 4.7.10</span><br></pre></td></tr></table></figure></p>
 <h4 id="虚拟环境">虚拟环境</h4>
-<p><strong>创建</strong> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> conda create --name &lt;env_name&gt; &lt;package_names&gt; &lt;package_names&gt; ....</span><br><span class="line">➜ conda create --name ml python=3.7.3 numpy pandas</span><br></pre></td></tr></table></figure></p>
+<p><strong>创建</strong> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> conda create --name &lt;env_name&gt; &lt;package_names&gt; &lt;package_names&gt; ....</span></span><br><span class="line">➜ conda create --name ml python=3.7.3 numpy pandas</span><br></pre></td></tr></table></figure></p>
 <p><strong>进入/退出</strong> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">➜ conda activate ml</span><br><span class="line">➜ conda deactivate</span><br></pre></td></tr></table></figure></p>
-<p><strong>列表</strong> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">(ml)$</span> conda info --envs</span><br><span class="line"><span class="meta">#</span> conda environments:</span><br><span class="line"><span class="meta">#</span></span><br><span class="line">ml                    *  /home/zhc/.conda/envs/ml</span><br><span class="line">base                     /opt/anaconda</span><br><span class="line"><span class="meta">#</span> 或者</span><br><span class="line"><span class="meta">(ml)$</span> conda env list</span><br><span class="line"><span class="meta">#</span> conda environments:</span><br><span class="line"><span class="meta">#</span></span><br><span class="line">ml                    *  /home/zhc/.conda/envs/ml</span><br><span class="line">base                     /opt/anaconda</span><br></pre></td></tr></table></figure></p>
+<p><strong>列表</strong> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">(ml)$</span><span class="bash"> conda info --envs</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> conda environments:</span></span><br><span class="line"><span class="meta">#</span><span class="bash"></span></span><br><span class="line">ml                    *  /home/zhc/.conda/envs/ml</span><br><span class="line">base                     /opt/anaconda</span><br><span class="line"><span class="meta">#</span><span class="bash"> 或者</span></span><br><span class="line"><span class="meta">(ml)$</span><span class="bash"> conda env list</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> conda environments:</span></span><br><span class="line"><span class="meta">#</span><span class="bash"></span></span><br><span class="line">ml                    *  /home/zhc/.conda/envs/ml</span><br><span class="line">base                     /opt/anaconda</span><br></pre></td></tr></table></figure></p>
 <p><strong>删除</strong> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda remove --name &lt;env_name&gt; --all</span><br></pre></td></tr></table></figure></p>
 <h4 id="包管理">包管理</h4>
-<p><strong>当期环境包列表</strong> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">(ml)$</span> conda list</span><br></pre></td></tr></table></figure></p>
-<p><strong>当期环境安装包</strong> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> (ml)$ conda install &lt;package_name&gt;</span><br><span class="line"><span class="meta">(ml)$</span> conda install jupyter notebook  # 安装jupyter notebook编辑器</span><br><span class="line"><span class="meta">$</span> jupter notebook  # 打开编辑器</span><br></pre></td></tr></table></figure></p>
-<p><strong>卸载包</strong> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">(ml)$</span> conda remove &lt;package_name&gt;</span><br></pre></td></tr></table></figure></p>
+<p><strong>当期环境包列表</strong> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">(ml)$</span><span class="bash"> conda list</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>当期环境安装包</strong> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> (ml)$ conda install &lt;package_name&gt;</span></span><br><span class="line"><span class="meta">(ml)$</span><span class="bash"> conda install jupyter notebook  <span class="comment"># 安装jupyter notebook编辑器</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> jupter notebook  <span class="comment"># 打开编辑器</span></span></span><br></pre></td></tr></table></figure></p>
+<p><strong>卸载包</strong> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">(ml)$</span><span class="bash"> conda remove &lt;package_name&gt;</span></span><br></pre></td></tr></table></figure></p>
 
           
         
@@ -489,12 +672,12 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhuohanchang">
-      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="饱读诗书">
+      <meta itemprop="name" content="学习记录">
     </span>
 
     
@@ -545,7 +728,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-11-07 17:14:29" itemprop="dateModified" datetime="2019-11-07T17:14:29+08:00">2019-11-07</time>
+                <time title="Modified: 2019-11-08 13:06:49" itemprop="dateModified" datetime="2019-11-08T13:06:49+08:00">2019-11-08</time>
               </span>
             
           
@@ -603,12 +786,14 @@
 <p>根据数据集目标的特征或者属性，划分到已有的分类中</p>
 </blockquote>
 <p>常用算法: K近邻(KNN), 逻辑回归， 决策树， 朴素贝叶斯</p>
+<h4 id="knn算法">KNN算法</h4>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># https://www.imooc.com/video/20172</span></span><br><span class="line"><span class="comment"># 图像展示</span></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> datasets</span><br><span class="line"><span class="comment"># 调用knn模型</span></span><br><span class="line"><span class="keyword">from</span> sklearn.neighbors <span class="keyword">import</span> KNeighborsClassifier</span><br><span class="line"><span class="comment"># 引入准确率</span></span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> accuracy_score</span><br><span class="line"><span class="comment"># 引入数据分离</span></span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">load_data</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># 区分属性数据和结果数据</span></span><br><span class="line">    <span class="comment"># 加载iris数据</span></span><br><span class="line">    iris = datasets.load_iris()</span><br><span class="line">    <span class="comment"># 属性数据</span></span><br><span class="line">    <span class="comment"># print(iris.data)</span></span><br><span class="line">    <span class="comment"># 属性数据含义</span></span><br><span class="line">    <span class="comment"># print(iris.feature_names)</span></span><br><span class="line">    <span class="comment"># 结果数据</span></span><br><span class="line">    <span class="comment"># print(iris.target)</span></span><br><span class="line">    <span class="comment"># 结果数据含义</span></span><br><span class="line">    <span class="comment"># print(iris.target_names)</span></span><br><span class="line">    <span class="comment"># 确认属性/结果数据类型</span></span><br><span class="line">    <span class="comment"># print(type(iris.data), type(iris.target))</span></span><br><span class="line">    <span class="comment"># 确认行数一致</span></span><br><span class="line">    <span class="comment"># print(iris.data.shape, iris.target.shape)</span></span><br><span class="line">    <span class="keyword">return</span> iris.data, iris.target</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 预测</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">knn_predict</span><span class="params">(data)</span>:</span></span><br><span class="line">    <span class="comment"># X输入数据赋值 y输出数据赋值</span></span><br><span class="line">    x = data[<span class="number">0</span>]</span><br><span class="line">    y = data[<span class="number">1</span>]</span><br><span class="line">    <span class="comment"># knn临近值的设置</span></span><br><span class="line">    k = <span class="number">5</span></span><br><span class="line">    <span class="comment"># 创建实例</span></span><br><span class="line">    knn = KNeighborsClassifier(n_neighbors=k)</span><br><span class="line">    <span class="comment"># 模型训练</span></span><br><span class="line">    knn.fit(X=x, y=y)</span><br><span class="line">    <span class="comment"># 开始预测</span></span><br><span class="line">    x_test = [[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>], [<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>], [<span class="number">2</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">2</span>]]</span><br><span class="line">    results = knn.predict(x_test)</span><br><span class="line">    print(results)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">knn_pred</span><span class="params">(data)</span>:</span></span><br><span class="line">    x = data[<span class="number">0</span>]</span><br><span class="line">    y = data[<span class="number">1</span>]</span><br><span class="line">    <span class="comment"># knn临近值的设置</span></span><br><span class="line">    k = <span class="number">5</span></span><br><span class="line">    <span class="comment"># 创建实例</span></span><br><span class="line">    knn = KNeighborsClassifier(n_neighbors=k)</span><br><span class="line">    <span class="comment"># 模型训练</span></span><br><span class="line">    knn.fit(X=x, y=y)</span><br><span class="line">    y_pred = knn.predict(x)</span><br><span class="line">    print(y_pred)</span><br><span class="line">    print(y_pred.shape)</span><br><span class="line">    <span class="comment"># 准确率计算</span></span><br><span class="line">    print(accuracy_score(y, y_pred))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 训练集与预测集 计算准确率</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">knn_test_data</span><span class="params">(data)</span>:</span></span><br><span class="line">    <span class="comment"># X输入数据赋值 y输出数据赋值</span></span><br><span class="line">    x = data[<span class="number">0</span>]</span><br><span class="line">    y = data[<span class="number">1</span>]</span><br><span class="line">    print(x.shape)</span><br><span class="line">    print(y.shape)</span><br><span class="line">    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=<span class="number">0.4</span>)</span><br><span class="line">    print(x_train.shape, x_test.shape, y_train.shape, y_test.shape)</span><br><span class="line">    k = <span class="number">5</span></span><br><span class="line">    knn = KNeighborsClassifier(n_neighbors=k)</span><br><span class="line">    knn.fit(x_train, y_train)</span><br><span class="line">    <span class="comment"># 训练集预测</span></span><br><span class="line">    y_train_pred = knn.predict(x_train)</span><br><span class="line">    print(accuracy_score(y_train, y_train_pred))</span><br><span class="line">    <span class="comment"># 测试集预测</span></span><br><span class="line">    y_test_pred = knn.predict(x_test)</span><br><span class="line">    print(accuracy_score(y_test, y_test_pred))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 获得最高准确率的k值</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">knn_n_neighbors</span><span class="params">(data)</span>:</span></span><br><span class="line">    <span class="comment"># X输入数据赋值 y输出数据赋值</span></span><br><span class="line">    x = data[<span class="number">0</span>]</span><br><span class="line">    y = data[<span class="number">1</span>]</span><br><span class="line">    k_range = list(range(<span class="number">1</span>, <span class="number">26</span>))</span><br><span class="line">    score_train = []</span><br><span class="line">    score_test = []</span><br><span class="line">    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=<span class="number">0.4</span>)</span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> k_range:</span><br><span class="line">        knn = KNeighborsClassifier(n_neighbors=k)</span><br><span class="line">        knn.fit(x_train, y_train)</span><br><span class="line">        <span class="comment"># 训练集预测</span></span><br><span class="line">        y_train_pred = knn.predict(x_train)</span><br><span class="line">        score_train.append(accuracy_score(y_train, y_train_pred))</span><br><span class="line">        <span class="comment"># 测试集预测</span></span><br><span class="line">        y_test_pred = knn.predict(x_test)</span><br><span class="line">        score_test.append(accuracy_score(y_test, y_test_pred))</span><br><span class="line">    <span class="comment"># 展示k值与训练集测试集准确率关系</span></span><br><span class="line">    <span class="comment"># plt.plot(k_range, score_train)</span></span><br><span class="line">    <span class="comment"># plt.xlabel('K(KNN MODEL)')</span></span><br><span class="line">    <span class="comment"># plt.ylabel('Training Accuracy')</span></span><br><span class="line">    <span class="comment"># plt.show()</span></span><br><span class="line">    plt.plot(k_range, score_test)</span><br><span class="line">    plt.xlabel(<span class="string">'K(KNN MODEL)'</span>)</span><br><span class="line">    plt.ylabel(<span class="string">'Test Accuracy'</span>)</span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">()</span>:</span></span><br><span class="line">    data = load_data()</span><br><span class="line">    <span class="comment"># knn_predict(data)</span></span><br><span class="line">    <span class="comment"># knn_pred(data)</span></span><br><span class="line">    <span class="comment"># knn_test_data(data)</span></span><br><span class="line">    knn_n_neighbors(data)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    index()</span><br></pre></td></tr></table></figure>
-<p><strong>逻辑回归模型</strong></p>
+<h4 id="逻辑回归算法">逻辑回归算法</h4>
 <blockquote>
 <p>用于解决分类问题的一种模型，计算其归属于某一类别的概率P(X), 常用与二分类问题，例如是否是垃圾邮件，是否是猫等等</p>
 </blockquote>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="comment"># 逻辑回归模型</span></span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LogisticRegression</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> metrics</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">()</span>:</span></span><br><span class="line">    path = <span class="string">'diabetes.csv'</span></span><br><span class="line">    pima = pd.read_csv(path)</span><br><span class="line">    print(pima.head())</span><br><span class="line">    <span class="comment"># 怀孕次数， 胰岛素水平， 体重指数， 年龄</span></span><br><span class="line">    feature_names = [<span class="string">'Pregnancies'</span>, <span class="string">'Insulin'</span>, <span class="string">'BMI'</span>, <span class="string">'Age'</span>]</span><br><span class="line">    <span class="comment"># x, y赋值</span></span><br><span class="line">    x = pima[feature_names]</span><br><span class="line">    y = pima.Outcome</span><br><span class="line">    <span class="comment"># 维度确认</span></span><br><span class="line">    print(x.shape)</span><br><span class="line">    print(y.shape)</span><br><span class="line">    <span class="comment"># 数据分离  random_state=0表示每次都是相同的分离</span></span><br><span class="line">    x_train, x_test, y_train, y_test = train_test_split(x, y, random_state=<span class="number">0</span>)</span><br><span class="line">    <span class="comment"># 创建模型实例</span></span><br><span class="line">    logeg = LogisticRegression()</span><br><span class="line">    logeg.fit(x_train, y_train)</span><br><span class="line">    <span class="comment"># 基于测试数据集的预测</span></span><br><span class="line">    y_pred = logeg.predict(x_test)</span><br><span class="line">    <span class="comment"># 使用准确率进行评估</span></span><br><span class="line">    print(metrics.accuracy_score(y_test, y_pred))</span><br><span class="line">    <span class="comment"># 确认正负样本数据量</span></span><br><span class="line">    print(y_test.value_counts())</span><br><span class="line">    <span class="comment"># 1的比例, 0的比例</span></span><br><span class="line">    print(y_test.mean(), <span class="number">1</span>-y_test.mean())</span><br><span class="line">    <span class="comment"># 空准确率</span></span><br><span class="line">    print(max(y_test.mean(), <span class="number">1</span>-y_test.mean()))</span><br><span class="line">    <span class="comment"># 以上发现训练后的模型准确率基本等同与空准确率</span></span><br><span class="line">    <span class="comment"># 引入混淆矩阵</span></span><br><span class="line">    <span class="comment"># 计算混淆矩阵</span></span><br><span class="line">    confusion = metrics.confusion_matrix(y_test, y_pred)</span><br><span class="line">    print(confusion)</span><br><span class="line">    <span class="comment"># 展示部分实际结果与预测结果(25组)</span></span><br><span class="line">    print(<span class="string">"true:"</span>, y_test.values[<span class="number">0</span>:<span class="number">25</span>])</span><br><span class="line">    print(<span class="string">"pred:"</span>, y_pred[<span class="number">0</span>:<span class="number">25</span>])</span><br><span class="line">    <span class="comment"># 四个因子赋值</span></span><br><span class="line">    tn = confusion[<span class="number">0</span>][<span class="number">0</span>]  <span class="comment"># True Negatives 预测准备 实际为负样本的数量</span></span><br><span class="line">    fp = confusion[<span class="number">0</span>][<span class="number">1</span>]  <span class="comment"># False Positives 预测错误 实际为父样本的数量</span></span><br><span class="line">    fn = confusion[<span class="number">1</span>][<span class="number">0</span>]  <span class="comment"># False Negatives 预测错误 实际为正样本的数量</span></span><br><span class="line">    tp = confusion[<span class="number">1</span>][<span class="number">1</span>]  <span class="comment"># True Positives 预测准确 实际为正样本的数量</span></span><br><span class="line">    print(tn, fp, fn, tp)</span><br><span class="line">    print(<span class="string">'准确率Accuracy: 所有样本中，预测正确的比例'</span>)</span><br><span class="line">    print((tp + tn) / (tp + tn + fp + fn))</span><br><span class="line">    print(<span class="string">'错误率Misclassification Rate： 所有样本中，预测错误的比例'</span>)</span><br><span class="line">    print((fp + fn) / (tp + tn + fp + fn))</span><br><span class="line">    print(<span class="string">'灵敏度(召回率)Sensitivity： 正样本中，预测正确的比例'</span>)</span><br><span class="line">    recall = tp / (tp + fn)</span><br><span class="line">    print(recall)</span><br><span class="line">    print(<span class="string">'特异性Specificity: 负样本中，预测正确的比例'</span>)</span><br><span class="line">    print(tn / (tn + fp))</span><br><span class="line">    print(<span class="string">'精确率Precision: 预测结果为正样本中， 预测正确的比例'</span>)</span><br><span class="line">    precision = tp / (tp + fp)</span><br><span class="line">    print(precision)</span><br><span class="line">    print(<span class="string">'F1分数Score: 综合判断指标'</span>)</span><br><span class="line">    print((<span class="number">2</span>*precision*recall) / (precision+recall))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    index()</span><br></pre></td></tr></table></figure>
+<h4 id="nlp自然语言处理">NLP自然语言处理</h4>
 
           
         
@@ -671,12 +856,12 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhuohanchang">
-      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="饱读诗书">
+      <meta itemprop="name" content="学习记录">
     </span>
 
     
@@ -759,21 +944,21 @@
         
           
             <h4 id="安装-centos7.2">安装 centos7.2</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> https://docs.docker.com/install/linux/docker-ce/centos/#install-docker-ce</span><br><span class="line"><span class="meta">#</span> 卸载旧版本</span><br><span class="line"><span class="meta">$</span> sudo yum remove docker docker-client docker-client-latest docker-common docker-latest docker-latest-logrotate docker-logrotate docker-selinux docker-engine-selinux docker-engine</span><br><span class="line"><span class="meta">#</span> 安装依赖包</span><br><span class="line"><span class="meta">$</span> sudo yum install -y yum-utils device-mapper-persistent-data lvm2</span><br><span class="line"><span class="meta">#</span> 安装源</span><br><span class="line"><span class="meta">$</span> sudo yum-config-manager  --add-repo https://download.docker.com/linux/centos/docker-ce.repo</span><br><span class="line"><span class="meta">#</span> 安装</span><br><span class="line"><span class="meta">$</span> sudo yum install docker-ce</span><br><span class="line"><span class="meta">#</span> 启动</span><br><span class="line"><span class="meta">$</span> sudo systemctl start docker</span><br><span class="line"><span class="meta">$</span> sudo systemctl enable docker</span><br><span class="line"><span class="meta">#</span> 测试</span><br><span class="line"><span class="meta">$</span> sudo docker run hello-world</span><br><span class="line"><span class="meta">#</span> 加入用户组(记得退出重新登录) https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user</span><br><span class="line"><span class="meta">#</span> 安装docker-compose</span><br><span class="line"><span class="meta">$</span> sudo yum install epel-release</span><br><span class="line"><span class="meta">$</span> sudo yum install python-pip</span><br><span class="line"><span class="meta">$</span> sudo pip install docker-compose</span><br><span class="line"><span class="meta">#</span> 换源https://lug.ustc.edu.cn/wiki/mirrors/help/docker</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> https://docs.docker.com/install/linux/docker-ce/centos/<span class="comment">#install-docker-ce</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 卸载旧版本</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo yum remove docker docker-client docker-client-latest docker-common docker-latest docker-latest-logrotate docker-logrotate docker-selinux docker-engine-selinux docker-engine</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装依赖包</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo yum install -y yum-utils device-mapper-persistent-data lvm2</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装源</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo yum-config-manager  --add-repo https://download.docker.com/linux/centos/docker-ce.repo</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo yum install docker-ce</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 启动</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo systemctl start docker</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo systemctl <span class="built_in">enable</span> docker</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 测试</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo docker run hello-world</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 加入用户组(记得退出重新登录) https://docs.docker.com/install/linux/linux-postinstall/<span class="comment">#manage-docker-as-a-non-root-user</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装docker-compose</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo yum install epel-release</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo yum install python-pip</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo pip install docker-compose</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 换源https://lug.ustc.edu.cn/wiki/mirrors/<span class="built_in">help</span>/docker</span></span><br></pre></td></tr></table></figure>
 <h4 id="配置国内镜像源">配置国内镜像源</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo vim /etc/docker/daemon.json</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo vim /etc/docker/daemon.json</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"registry-mirrors"</span>: [<span class="string">"http://hub-mirror.c.163.com"</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 重启</span><br><span class="line"><span class="meta">$</span> sudo systemctl restart docker.service</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 重启</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo systemctl restart docker.service</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">常见国内源</span><br><span class="line"></span><br><span class="line">Docker中国 https://registry.docker-cn.com</span><br><span class="line">网易 http://hub-mirror.c.163.com</span><br><span class="line">ustc  https://docker.mirrors.ustc.edu.cn</span><br><span class="line">中国科技大学 https://docker.mirrors.ustc.edu.cn</span><br><span class="line">阿里云 https://cr.console.aliyun.com/</span><br></pre></td></tr></table></figure>
 <h4 id="docker-container-容器">docker container 容器</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 查看全部运行的容器</span><br><span class="line"><span class="meta">$</span> sudo docker ps</span><br><span class="line"><span class="meta">#</span> 删除容器</span><br><span class="line"><span class="meta">$</span> sudo docker rm container_id</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 查看全部运行的容器</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo docker ps</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 删除容器</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo docker rm container_id</span></span><br></pre></td></tr></table></figure>
 <h4 id="docker-image-镜像">docker image 镜像</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 查看安装的镜像</span><br><span class="line"><span class="meta">$</span> sudo docker images</span><br><span class="line"><span class="meta">#</span> 删除镜像</span><br><span class="line">sudo docker rmi iamge_id</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 查看安装的镜像</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo docker images</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 删除镜像</span></span><br><span class="line">sudo docker rmi iamge_id</span><br></pre></td></tr></table></figure>
 <h4 id="dockerfile编写">Dockerfile编写</h4>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim Dockerfile</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 制作镜像</span><br><span class="line"><span class="meta">$</span> sudo docker build -t zhcshine:docker-sde/tag</span><br></pre></td></tr></table></figure>
-<p>登录到hub.docker.com <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo docker login:</span><br><span class="line">username:</span><br><span class="line">password:</span><br><span class="line">Login Succeeded</span><br></pre></td></tr></table></figure></p>
-<p>推送到hub.docker.com <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo docker push zhcshine:docker-sde</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 制作镜像</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo docker build -t zhcshine:docker-sde/tag</span></span><br></pre></td></tr></table></figure>
+<p>登录到hub.docker.com <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo docker login:</span></span><br><span class="line">username:</span><br><span class="line">password:</span><br><span class="line">Login Succeeded</span><br></pre></td></tr></table></figure></p>
+<p>推送到hub.docker.com <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo docker push zhcshine:docker-sde</span></span><br></pre></td></tr></table></figure></p>
 
           
         
@@ -836,12 +1021,12 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhuohanchang">
-      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="饱读诗书">
+      <meta itemprop="name" content="学习记录">
     </span>
 
     
@@ -923,12 +1108,12 @@
       
         
           
-            <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 安装</span><br><span class="line"><span class="meta">$</span> sudo yum install subversion</span><br><span class="line"><span class="meta">#</span> 查看svn目录</span><br><span class="line"><span class="meta">$</span> which svnserve</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> mkdir ~/svn</span><br><span class="line"><span class="meta">$</span> svnadmin create ~/svn/repo0  # 创建repo0仓库</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 配置repo0</span><br><span class="line"><span class="meta">$</span> vim ~/svn/repo0/conf/svnserve.conf</span><br><span class="line">anon-access = none</span><br><span class="line">auth-access = write</span><br><span class="line">password-db = ../../passwd  # 密码文件地址</span><br><span class="line">authz-db = ../../authz      # 权限认证文件地址</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 配置密码文件</span><br><span class="line"><span class="meta">$</span> vim ~/svn/passwd</span><br><span class="line"><span class="meta">#</span>## This file is an example password file for svnserve.</span><br><span class="line"><span class="meta">#</span>## Its format is similar to that of svnserve.conf. As shown in the</span><br><span class="line"><span class="meta">#</span>## example below it contains one section labelled [users].</span><br><span class="line"><span class="meta">#</span>## The name and password for each user follow, one account per line.</span><br><span class="line">[users]</span><br><span class="line">test = testpassword</span><br><span class="line">dev = devpassword</span><br><span class="line">product = productpassword</span><br><span class="line">ui = uipassword</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 配置权限认证文件</span><br><span class="line"><span class="meta">$</span> vim ~/svn/authz</span><br><span class="line"></span><br><span class="line">[aliases]</span><br><span class="line"><span class="meta">#</span> joe = /C=XZ/ST=Dessert/L=Snake City/O=Snake Oil, Ltd./OU=Research Institute/CN=Joe Average</span><br><span class="line"></span><br><span class="line">[groups]</span><br><span class="line"><span class="meta">#</span> harry_and_sally = harry,sally</span><br><span class="line"><span class="meta">#</span> harry_sally_and_joe = harry,sally,&amp;joe</span><br><span class="line">dev = dev</span><br><span class="line">ui = ui</span><br><span class="line">product = product</span><br><span class="line">test = test</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> [/foo/bar]</span><br><span class="line"><span class="meta">#</span> harry = rw</span><br><span class="line"><span class="meta">#</span> &amp;joe = r</span><br><span class="line"><span class="meta">#</span> * =</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> [repository:/baz/fuz]</span><br><span class="line"><span class="meta">#</span> @harry_and_sally = rw</span><br><span class="line"><span class="meta">#</span> * = r</span><br><span class="line"></span><br><span class="line">[repo0:/]</span><br><span class="line">dev = r</span><br><span class="line">test = r</span><br><span class="line">product = wr</span><br><span class="line">ui = wr</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 关闭并重启</span><br><span class="line">sudo killall svnserve</span><br><span class="line">svnserve -d -r ~/svn</span><br></pre></td></tr></table></figure>
+            <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 安装</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo yum install subversion</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看svn目录</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">which</span> svnserve</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> mkdir ~/svn</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> svnadmin create ~/svn/repo0  <span class="comment"># 创建repo0仓库</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 配置repo0</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> vim ~/svn/repo0/conf/svnserve.conf</span></span><br><span class="line">anon-access = none</span><br><span class="line">auth-access = write</span><br><span class="line">password-db = ../../passwd  # 密码文件地址</span><br><span class="line">authz-db = ../../authz      # 权限认证文件地址</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 配置密码文件</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> vim ~/svn/passwd</span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">## This file is an example password file for svnserve.</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">## Its format is similar to that of svnserve.conf. As shown in the</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">## example below it contains one section labelled [users].</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">## The name and password for each user follow, one account per line.</span></span></span><br><span class="line">[users]</span><br><span class="line">test = testpassword</span><br><span class="line">dev = devpassword</span><br><span class="line">product = productpassword</span><br><span class="line">ui = uipassword</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 配置权限认证文件</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> vim ~/svn/authz</span></span><br><span class="line"></span><br><span class="line">[aliases]</span><br><span class="line"><span class="meta">#</span><span class="bash"> joe = /C=XZ/ST=Dessert/L=Snake City/O=Snake Oil, Ltd./OU=Research Institute/CN=Joe Average</span></span><br><span class="line"></span><br><span class="line">[groups]</span><br><span class="line"><span class="meta">#</span><span class="bash"> harry_and_sally = harry,sally</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> harry_sally_and_joe = harry,sally,&amp;joe</span></span><br><span class="line">dev = dev</span><br><span class="line">ui = ui</span><br><span class="line">product = product</span><br><span class="line">test = test</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> [/foo/bar]</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> harry = rw</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> &amp;joe = r</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> * =</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> [repository:/baz/fuz]</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> @harry_and_sally = rw</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> * = r</span></span><br><span class="line"></span><br><span class="line">[repo0:/]</span><br><span class="line">dev = r</span><br><span class="line">test = r</span><br><span class="line">product = wr</span><br><span class="line">ui = wr</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 关闭并重启</span></span><br><span class="line">sudo killall svnserve</span><br><span class="line">svnserve -d -r ~/svn</span><br></pre></td></tr></table></figure>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">svn --username=username co svn://svn.xxxx.com/repo0  # 克隆项目</span><br></pre></td></tr></table></figure>
 
           
@@ -992,12 +1177,12 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhuohanchang">
-      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="饱读诗书">
+      <meta itemprop="name" content="学习记录">
     </span>
 
     
@@ -1164,12 +1349,12 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhuohanchang">
-      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="饱读诗书">
+      <meta itemprop="name" content="学习记录">
     </span>
 
     
@@ -1322,12 +1507,12 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhuohanchang">
-      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="饱读诗书">
+      <meta itemprop="name" content="学习记录">
     </span>
 
     
@@ -1635,12 +1820,12 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhuohanchang">
-      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="饱读诗书">
+      <meta itemprop="name" content="学习记录">
     </span>
 
     
@@ -1729,7 +1914,7 @@
 <p><a href="!https://start.spring.io/">spring项目初始化</a> 1. Project: Gradle Project 2. Language: Java 3. Spring Boot: 2.17 4. Project Metadata 1. Group: com.zhuohc 2. Artifact: demo 3. Options: 1. Name: (默认) 2. Description: (默认) 3. Package Name: (默认) 4. Packaging: Jar/War(Web项目使用) 5. Java: 11(根据java版本号选择)</p>
 <p>Generate the project</p>
 <p>解压后的文件夹即是项目初始化的目录结构</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> tree</span><br><span class="line">.</span><br><span class="line">├── build.gradle</span><br><span class="line">├── gradle</span><br><span class="line">│   └── wrapper</span><br><span class="line">│       ├── gradle-wrapper.jar</span><br><span class="line">│       └── gradle-wrapper.properties</span><br><span class="line">├── gradlew</span><br><span class="line">├── gradlew.bat</span><br><span class="line">├── HELP.md</span><br><span class="line">├── settings.gradle</span><br><span class="line">└── src</span><br><span class="line">    ├── main</span><br><span class="line">    │   ├── java</span><br><span class="line">    │   │   └── com</span><br><span class="line">    │   │       └── zhuohc</span><br><span class="line">    │   │           └── demo</span><br><span class="line">    │   │               └── Application.java</span><br><span class="line">    │   └── resources</span><br><span class="line">    │       └── application.properties</span><br><span class="line">    └── test</span><br><span class="line">        └── java</span><br><span class="line">            └── com</span><br><span class="line">                └── zhuohc</span><br><span class="line">                    └── demo</span><br><span class="line">                        └── ApplicationTests.java</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> tree</span></span><br><span class="line">.</span><br><span class="line">├── build.gradle</span><br><span class="line">├── gradle</span><br><span class="line">│   └── wrapper</span><br><span class="line">│       ├── gradle-wrapper.jar</span><br><span class="line">│       └── gradle-wrapper.properties</span><br><span class="line">├── gradlew</span><br><span class="line">├── gradlew.bat</span><br><span class="line">├── HELP.md</span><br><span class="line">├── settings.gradle</span><br><span class="line">└── src</span><br><span class="line">    ├── main</span><br><span class="line">    │   ├── java</span><br><span class="line">    │   │   └── com</span><br><span class="line">    │   │       └── zhuohc</span><br><span class="line">    │   │           └── demo</span><br><span class="line">    │   │               └── Application.java</span><br><span class="line">    │   └── resources</span><br><span class="line">    │       └── application.properties</span><br><span class="line">    └── test</span><br><span class="line">        └── java</span><br><span class="line">            └── com</span><br><span class="line">                └── zhuohc</span><br><span class="line">                    └── demo</span><br><span class="line">                        └── ApplicationTests.java</span><br></pre></td></tr></table></figure>
 <p>修改国内源 repositories { maven {url 'http://maven.aliyun.com/nexus/content/groups/public/'} mavenCentral() }</p>
 
           
@@ -1793,12 +1978,12 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhuohanchang">
-      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="饱读诗书">
+      <meta itemprop="name" content="学习记录">
     </span>
 
     
@@ -1944,167 +2129,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2019/08/16/java开发maven构建工具入门基础/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhuohanchang">
-      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="饱读诗书">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/08/16/java开发maven构建工具入门基础/" class="post-title-link" itemprop="url">java开发maven构建工具入门基础</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-08-16 09:22:39 / Modified: 09:49:00" itemprop="dateCreated datePublished" datetime="2019-08-16T09:22:39+08:00">2019-08-16</time>
-            </span>
-          
-
-          
-            
-
-            
-          
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="linux安装maven">linux安装maven</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 从官网下载二进制包</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> http://maven.apache.org/download.cgi</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> wget http://mirrors.tuna.tsinghua.edu.cn/apache/maven/maven-3/3.6.1/binaries/apache-maven-3.6.1-bin.tar.gz</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tar -xzvf apache-maven-3.6.1-bin.tar.gz</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo mv apache-maven-3.6.1 /usr/java_jar</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 添加环境变量</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo vim /etc/profile</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 最后添加</span></span><br><span class="line">export PATH=/opt/apache-maven-3.6.1/bin:$PATH</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 验证</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> mvn -v</span></span><br><span class="line">Apache Maven 3.6.1 (d66c9c0b3152b2e69ee9bac180bb8fcc8e6af555; 2019-04-05T03:00:29+08:00)</span><br><span class="line">Maven home: /usr/java_jar/apache-maven-3.6.1</span><br><span class="line">Java version: 11.0.4, vendor: Oracle Corporation, runtime: /usr/java/jdk-11.0.4</span><br><span class="line">Default locale: zh_CN, platform encoding: UTF-8</span><br><span class="line">OS name: "linux", version: "4.19.49-1-manjaro", arch: "amd64", family: "unix"</span><br></pre></td></tr></table></figure>
-<h4 id="常见命令">常见命令</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 创建一个项目</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> mvn archetype:generate</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 选择版本</span></span><br><span class="line">Choose org.apache.maven.archetypes:maven-archetype-quickstart version:                                                                                                                                        </span><br><span class="line">1: 1.0-alpha-1                                                                                                                                                                                                </span><br><span class="line">2: 1.0-alpha-2                                                                                                                                                                                                </span><br><span class="line">3: 1.0-alpha-3                                                                                                                                                                                                </span><br><span class="line">4: 1.0-alpha-4                                                                                                                                                                                                </span><br><span class="line">5: 1.0                                                                                                                                                                                                        </span><br><span class="line">6: 1.1                                                                                                                                                                                                        </span><br><span class="line">7: 1.3                                                                                                                                                                                                        </span><br><span class="line">8: 1.4                                                                                                                                                                                                        </span><br><span class="line">Choose a number: 8:       </span><br><span class="line">Define value for property 'groupId': com.zhuohc.maven03         # groupID 项目名                                                                                                                                                        </span><br><span class="line">Define value for property 'artifactId': maven03-model           # artifactId 项目名-模块名                    </span><br><span class="line">Define value for property 'version' 1.0-SNAPSHOT: :             # version 版本                                                                                                                                                </span><br><span class="line">Define value for property 'package' com.zhuohc.maven03: :                                                                                                                                                      </span><br><span class="line">Confirm properties configuration:                                                                                                                                                                             </span><br><span class="line">groupId: com.zhuohc.maven03                                                                                                                                                                                    </span><br><span class="line">artifactId: maven03-model                                                                                                                                                                                           </span><br><span class="line">version: 1.0-SNAPSHOT                                                                                                                                                                                         </span><br><span class="line">package: com.zhuohc.maven03</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> mvn clean         <span class="comment"># 删除</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> mvn compile       <span class="comment"># 编译</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> mvn <span class="built_in">test</span>          <span class="comment"># 测试</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> mvn package       <span class="comment"># 打包</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> mvn install       <span class="comment"># 安装当前项目包到本地环境</span></span></span><br></pre></td></tr></table></figure>
-<h4 id="修改下载源">修改下载源</h4>
-<p>修改pom.xml文件repositories属性，添加国内源地址，具体见pom.xml</p>
-<h4 id="pom.xml">pom.xml</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line">&lt;project xmlns="http://maven.apache.org/POM/4.0.0"</span><br><span class="line">         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"</span><br><span class="line">         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"&gt;</span><br><span class="line">    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;</span><br><span class="line"></span><br><span class="line">    &lt;groupId&gt;com.imooc.maven01&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;maven01-model&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;properties&gt;</span><br><span class="line">        &lt;maven.compiler.source&gt;1.8&lt;/maven.compiler.source&gt;</span><br><span class="line">        &lt;maven.compiler.target&gt;1.8&lt;/maven.compiler.target&gt;</span><br><span class="line">    &lt;/properties&gt;</span><br><span class="line">    &lt;dependencies&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;junit&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;junit&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;4.12&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">    &lt;/dependencies&gt;</span><br><span class="line">    &lt;repositories&gt;</span><br><span class="line">        &lt;repository&gt;</span><br><span class="line">            &lt;id&gt;aliyun&lt;/id&gt;</span><br><span class="line">            &lt;name&gt;aliyun&lt;/name&gt;</span><br><span class="line">            &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public&lt;/url&gt;</span><br><span class="line">        &lt;/repository&gt;</span><br><span class="line">    &lt;/repositories&gt;</span><br><span class="line">&lt;/project&gt;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2142,7 +2166,7 @@
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
   
   <p class="site-author-name" itemprop="name">zhuohanchang</p>
-  <div class="site-description motion-element" itemprop="description">怕什么真理无穷，进一寸有一寸的欢喜。</div>
+  <div class="site-description motion-element" itemprop="description"></div>
 </div>
 
 
@@ -2152,7 +2176,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">72</span>
+          <span class="site-state-item-count">73</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -2290,7 +2314,7 @@
 
 
 
-  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.2.0</div>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.2.0</div>
 
 
 
@@ -2412,7 +2436,9 @@
   
 
 
-  <script src="/js/schemes/muse.js?v=7.2.0"></script>
+  <script src="/js/affix.js?v=7.2.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.2.0"></script>
 
 
 

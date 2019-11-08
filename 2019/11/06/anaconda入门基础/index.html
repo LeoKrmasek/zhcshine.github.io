@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -72,9 +72,9 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Pisces',
     version: '7.2.0',
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    sidebar: {"position":"left","display":"always","offset":12,"onmobile":false},
     back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
     copycode: {"enable":true,"show_result":true,"style":null},
     fancybox: false,
@@ -102,7 +102,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="anaconda入门基础">
 <meta property="og:url" content="http://www.zhuohc.com/2019/11/06/anaconda入门基础/index.html">
-<meta property="og:site_name" content="饱读诗书">
+<meta property="og:site_name" content="学习记录">
 <meta property="og:description" content="安装 官方安装 官方下载地址 archlinux安装 1➜ sudo pacman -S anaconda 验证 12➜ conda --versionconda 4.7.10 虚拟环境 创建 12# conda create --name &amp;lt;env_name&amp;gt; &amp;lt;package_names&amp;gt; &amp;lt;package_names&amp;gt; ....➜ conda create">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-11-06T06:19:16.197Z">
@@ -127,7 +127,7 @@
 </script>
 
   
-  <title>anaconda入门基础 | 饱读诗书</title>
+  <title>anaconda入门基础 | 学习记录</title>
   
 
 
@@ -186,14 +186,10 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">饱读诗书</span>
+        <span class="site-title">学习记录</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-    
-      
-        <h1 class="site-subtitle" itemprop="description">怕什么真理无穷，进一寸有一寸的欢喜。</h1>
-      
     
     
   </div>
@@ -246,7 +242,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">72</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">73</span></a>
 
   </li>
 
@@ -262,9 +258,6 @@
       
     </ul>
   
-
-  
-    
 
   
 
@@ -304,6 +297,9 @@
       <div class="main-inner">
         <div class="content-wrap">
           
+            
+
+          
           <div id="content" class="content">
             
 
@@ -327,12 +323,12 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhuohanchang">
-      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="饱读诗书">
+      <meta itemprop="name" content="学习记录">
     </span>
 
     
@@ -415,14 +411,14 @@
 <p><strong>archlinux安装</strong> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜ sudo pacman -S anaconda</span><br></pre></td></tr></table></figure></p>
 <p><strong>验证</strong> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">➜ conda --version</span><br><span class="line">conda 4.7.10</span><br></pre></td></tr></table></figure></p>
 <h4 id="虚拟环境">虚拟环境</h4>
-<p><strong>创建</strong> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> conda create --name &lt;env_name&gt; &lt;package_names&gt; &lt;package_names&gt; ....</span><br><span class="line">➜ conda create --name ml python=3.7.3 numpy pandas</span><br></pre></td></tr></table></figure></p>
+<p><strong>创建</strong> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> conda create --name &lt;env_name&gt; &lt;package_names&gt; &lt;package_names&gt; ....</span></span><br><span class="line">➜ conda create --name ml python=3.7.3 numpy pandas</span><br></pre></td></tr></table></figure></p>
 <p><strong>进入/退出</strong> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">➜ conda activate ml</span><br><span class="line">➜ conda deactivate</span><br></pre></td></tr></table></figure></p>
-<p><strong>列表</strong> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">(ml)$</span> conda info --envs</span><br><span class="line"><span class="meta">#</span> conda environments:</span><br><span class="line"><span class="meta">#</span></span><br><span class="line">ml                    *  /home/zhc/.conda/envs/ml</span><br><span class="line">base                     /opt/anaconda</span><br><span class="line"><span class="meta">#</span> 或者</span><br><span class="line"><span class="meta">(ml)$</span> conda env list</span><br><span class="line"><span class="meta">#</span> conda environments:</span><br><span class="line"><span class="meta">#</span></span><br><span class="line">ml                    *  /home/zhc/.conda/envs/ml</span><br><span class="line">base                     /opt/anaconda</span><br></pre></td></tr></table></figure></p>
+<p><strong>列表</strong> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">(ml)$</span><span class="bash"> conda info --envs</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> conda environments:</span></span><br><span class="line"><span class="meta">#</span><span class="bash"></span></span><br><span class="line">ml                    *  /home/zhc/.conda/envs/ml</span><br><span class="line">base                     /opt/anaconda</span><br><span class="line"><span class="meta">#</span><span class="bash"> 或者</span></span><br><span class="line"><span class="meta">(ml)$</span><span class="bash"> conda env list</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> conda environments:</span></span><br><span class="line"><span class="meta">#</span><span class="bash"></span></span><br><span class="line">ml                    *  /home/zhc/.conda/envs/ml</span><br><span class="line">base                     /opt/anaconda</span><br></pre></td></tr></table></figure></p>
 <p><strong>删除</strong> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda remove --name &lt;env_name&gt; --all</span><br></pre></td></tr></table></figure></p>
 <h4 id="包管理">包管理</h4>
-<p><strong>当期环境包列表</strong> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">(ml)$</span> conda list</span><br></pre></td></tr></table></figure></p>
-<p><strong>当期环境安装包</strong> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> (ml)$ conda install &lt;package_name&gt;</span><br><span class="line"><span class="meta">(ml)$</span> conda install jupyter notebook  # 安装jupyter notebook编辑器</span><br><span class="line"><span class="meta">$</span> jupter notebook  # 打开编辑器</span><br></pre></td></tr></table></figure></p>
-<p><strong>卸载包</strong> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">(ml)$</span> conda remove &lt;package_name&gt;</span><br></pre></td></tr></table></figure></p>
+<p><strong>当期环境包列表</strong> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">(ml)$</span><span class="bash"> conda list</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>当期环境安装包</strong> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> (ml)$ conda install &lt;package_name&gt;</span></span><br><span class="line"><span class="meta">(ml)$</span><span class="bash"> conda install jupyter notebook  <span class="comment"># 安装jupyter notebook编辑器</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> jupter notebook  <span class="comment"># 打开编辑器</span></span></span><br></pre></td></tr></table></figure></p>
+<p><strong>卸载包</strong> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">(ml)$</span><span class="bash"> conda remove &lt;package_name&gt;</span></span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -487,6 +483,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2019/11/08/webpack入门基础/" rel="prev" title="webpack入门基础">
+                webpack入门基础 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -545,7 +545,7 @@
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
   
   <p class="site-author-name" itemprop="name">zhuohanchang</p>
-  <div class="site-description motion-element" itemprop="description">怕什么真理无穷，进一寸有一寸的欢喜。</div>
+  <div class="site-description motion-element" itemprop="description"></div>
 </div>
 
 
@@ -555,7 +555,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">72</span>
+          <span class="site-state-item-count">73</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -710,7 +710,7 @@
 
 
 
-  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.2.0</div>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.2.0</div>
 
 
 
@@ -832,7 +832,9 @@
   
 
 
-  <script src="/js/schemes/muse.js?v=7.2.0"></script>
+  <script src="/js/affix.js?v=7.2.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.2.0"></script>
 
 
 

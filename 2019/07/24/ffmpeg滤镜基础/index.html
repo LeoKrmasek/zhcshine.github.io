@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -72,9 +72,9 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Pisces',
     version: '7.2.0',
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    sidebar: {"position":"left","display":"always","offset":12,"onmobile":false},
     back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
     copycode: {"enable":true,"show_result":true,"style":null},
     fancybox: false,
@@ -102,7 +102,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="ffmpeg滤镜基础">
 <meta property="og:url" content="http://www.zhuohc.com/2019/07/24/ffmpeg滤镜基础/index.html">
-<meta property="og:site_name" content="饱读诗书">
+<meta property="og:site_name" content="学习记录">
 <meta property="og:description" content="裁剪滤镜 1$ ffmpeg -i output.mkv -vf crop=in_w-400:in_h-200 -c:v libx264 -c:a copy output.mp4  -i 输入 -vf -v 视频 f 滤镜 crop 裁剪滤镜 -c:v -c:a copy 音频直接复制  视频裁剪 1$ ffmpeg -i output.mkv -ss 00:00:00 -t 10 output.">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-07-24T01:19:04.270Z">
@@ -127,7 +127,7 @@
 </script>
 
   
-  <title>ffmpeg滤镜基础 | 饱读诗书</title>
+  <title>ffmpeg滤镜基础 | 学习记录</title>
   
 
 
@@ -186,14 +186,10 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">饱读诗书</span>
+        <span class="site-title">学习记录</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-    
-      
-        <h1 class="site-subtitle" itemprop="description">怕什么真理无穷，进一寸有一寸的欢喜。</h1>
-      
     
     
   </div>
@@ -246,7 +242,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">72</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">73</span></a>
 
   </li>
 
@@ -262,9 +258,6 @@
       
     </ul>
   
-
-  
-    
 
   
 
@@ -304,6 +297,9 @@
       <div class="main-inner">
         <div class="content-wrap">
           
+            
+
+          
           <div id="content" class="content">
             
 
@@ -327,12 +323,12 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhuohanchang">
-      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="饱读诗书">
+      <meta itemprop="name" content="学习记录">
     </span>
 
     
@@ -411,7 +407,7 @@
 
       
         <h5 id="裁剪滤镜">裁剪滤镜</h5>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -i output.mkv -vf crop=in_w-400:in_h-200 -c:v libx264 -c:a copy output.mp4</span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -<span class="selector-tag">i</span> output<span class="selector-class">.mkv</span> -vf crop=in_w-<span class="number">400</span>:in_h-<span class="number">200</span> -c:v libx264 -c:<span class="selector-tag">a</span> copy output.mp4</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>-i 输入</p>
 <p>-vf -v 视频 f 滤镜 crop 裁剪滤镜</p>
@@ -419,13 +415,13 @@
 <p>-c:a copy 音频直接复制</p>
 </blockquote>
 <h5 id="视频裁剪">视频裁剪</h5>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -i output.mkv -ss 00:00:00 -t 10 output.mp4</span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -<span class="selector-tag">i</span> output<span class="selector-class">.mkv</span> -ss <span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span> -t <span class="number">10</span> output.mp4</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>-ss 开始时间(时:分:秒)</p>
 <p>-t 时常(秒)</p>
 </blockquote>
 <h5 id="视频合并">视频合并</h5>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -f concat -i inputs.txt output.mp4</span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -f concat -<span class="selector-tag">i</span> inputs<span class="selector-class">.txt</span> output.mp4</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>-f concat 拼接</p>
 <p>-i 输入文件 inputs.txt 记录全部等待拼接的文件</p>
@@ -437,7 +433,7 @@
 <p>output.mp4 输出文件</p>
 </blockquote>
 <h5 id="视频转图片">视频转图片</h5>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -i output.mp4 -r 1 -f image2 image-%3d.jpeg</span><br></pre></td></tr></table></figure>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -i output.mp4 -r <span class="number">1</span> -f image2 image-%<span class="number">3</span>d.jpeg</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>-i 输入文件</p>
 <p>-r 1, r 帧率， 1 每秒一张图片</p>
@@ -445,7 +441,7 @@
 <p>image-%3d.jpeg 输出文件</p>
 </blockquote>
 <h5 id="图片转视频">图片转视频</h5>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -i image-%3d.jpeg output.mp4</span><br></pre></td></tr></table></figure>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -<span class="built_in">i</span> image-<span class="comment">%3d.jpeg output.mp4</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -572,7 +568,7 @@
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
   
   <p class="site-author-name" itemprop="name">zhuohanchang</p>
-  <div class="site-description motion-element" itemprop="description">怕什么真理无穷，进一寸有一寸的欢喜。</div>
+  <div class="site-description motion-element" itemprop="description"></div>
 </div>
 
 
@@ -582,7 +578,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">72</span>
+          <span class="site-state-item-count">73</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -737,7 +733,7 @@
 
 
 
-  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.2.0</div>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.2.0</div>
 
 
 
@@ -859,7 +855,9 @@
   
 
 
-  <script src="/js/schemes/muse.js?v=7.2.0"></script>
+  <script src="/js/affix.js?v=7.2.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.2.0"></script>
 
 
 

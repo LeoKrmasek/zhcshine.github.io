@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -72,9 +72,9 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Pisces',
     version: '7.2.0',
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    sidebar: {"position":"left","display":"always","offset":12,"onmobile":false},
     back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
     copycode: {"enable":true,"show_result":true,"style":null},
     fancybox: false,
@@ -103,7 +103,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="mysql入门基础">
 <meta property="og:url" content="http://www.zhuohc.com/2016/11/09/mysql入门基础/index.html">
-<meta property="og:site_name" content="饱读诗书">
+<meta property="og:site_name" content="学习记录">
 <meta property="og:description" content="安装mysql 1234// ubuntu16.04sudo apt-get install mysql-serversudo apt install mysql-client  # 服务器端不需要mysql_secure_installation 查看mysql版本信息 12mysql --version  mysql&amp;gt; show variables like &apos;%version_%&apos;;">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-07-29T01:59:10.494Z">
@@ -128,7 +128,7 @@
 </script>
 
   
-  <title>mysql入门基础 | 饱读诗书</title>
+  <title>mysql入门基础 | 学习记录</title>
   
 
 
@@ -187,14 +187,10 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">饱读诗书</span>
+        <span class="site-title">学习记录</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-    
-      
-        <h1 class="site-subtitle" itemprop="description">怕什么真理无穷，进一寸有一寸的欢喜。</h1>
-      
     
     
   </div>
@@ -247,7 +243,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">72</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">73</span></a>
 
   </li>
 
@@ -263,9 +259,6 @@
       
     </ul>
   
-
-  
-    
 
   
 
@@ -305,6 +298,9 @@
       <div class="main-inner">
         <div class="content-wrap">
           
+            
+
+          
           <div id="content" class="content">
             
 
@@ -328,12 +324,12 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhuohanchang">
-      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="饱读诗书">
+      <meta itemprop="name" content="学习记录">
     </span>
 
     
@@ -436,7 +432,7 @@
         <h4 id="安装mysql">安装mysql</h4>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// ubuntu16.04</span><br><span class="line">sudo apt-get install mysql-server</span><br><span class="line">sudo apt install mysql-client  # 服务器端不需要</span><br><span class="line">mysql_secure_installation</span><br></pre></td></tr></table></figure>
 <h4 id="查看mysql版本信息">查看mysql版本信息</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql --version  </span><br><span class="line"><span class="meta">mysql&gt;</span> show variables like '%version_%';</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql --version  </span><br><span class="line"><span class="meta">mysql&gt;</span><span class="bash"> show variables like <span class="string">'%version_%'</span>;</span></span><br></pre></td></tr></table></figure>
 <h4 id="数据库创建备份导入命令">数据库创建备份导入命令</h4>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">// 创建数据库  </span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">DATABASE</span> <span class="string">`test`</span> <span class="keyword">DEFAULT</span> <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> utf8 <span class="keyword">COLLATE</span> utf8_general_ci;  </span><br><span class="line"></span><br><span class="line">// 删除数据库  </span><br><span class="line"> <span class="keyword">DROP</span> <span class="keyword">DATABASE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> <span class="string">`test`</span>; </span><br><span class="line"></span><br><span class="line">// 创建表  </span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">test</span>(<span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">32</span>) <span class="keyword">not</span> <span class="literal">null</span>,<span class="keyword">password</span> <span class="built_in">varchar</span>(<span class="number">64</span>) <span class="keyword">not</span> <span class="literal">null</span>)<span class="keyword">DEFAULT</span> <span class="keyword">charset</span>=utf8;  </span><br><span class="line"></span><br><span class="line"><span class="comment">### 重置自增字段</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="string">`tableName`</span> AUTO_INCREMENT = <span class="number">1</span>; </span><br><span class="line">或者</span><br><span class="line"><span class="keyword">truncate</span> tableName; </span><br><span class="line"></span><br><span class="line">// 删除表</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">test</span>;</span><br><span class="line">    </span><br><span class="line">// 删除表内容，保留表结构  </span><br><span class="line">mysql&gt; TRUNCATE TABLE `tabel_name`;</span><br><span class="line">    </span><br><span class="line">// 删除表并重置主键，不会留下日志，相当于删除表并重建    </span><br><span class="line"><span class="keyword">TRUNCATE</span> <span class="keyword">TABLE</span> <span class="string">`animal_cell_attribute`</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// 导出一个数据库    </span><br><span class="line">mysqldump -u 用户名 -p 数据库名 &gt; 导出的文件名.sql   </span><br><span class="line">mysqldump -u root -p uscnerp &gt; uscnerp.sql    </span><br><span class="line">Enter password:  </span><br><span class="line">    </span><br><span class="line">// 导出一张表</span><br><span class="line">mysqldump -u 用户名 -p 数据库名 表名 &gt; 导出的文件名.sql  </span><br><span class="line">mysqldump -u root -p animal animal_service &gt; animal_service.sql</span><br><span class="line">Enter password: **********  </span><br><span class="line">    </span><br><span class="line">// 导出多个数据库</span><br><span class="line">mysqldump  -uroot -p --databases test mysql #空格分隔</span><br><span class="line">    </span><br><span class="line">// 导出到excel表格</span><br><span class="line">mysql   -uroot   -p   -e   "select   *   from   test.table2 "   &gt;   d:a.xsl</span><br></pre></td></tr></table></figure>
@@ -587,7 +583,7 @@
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
   
   <p class="site-author-name" itemprop="name">zhuohanchang</p>
-  <div class="site-description motion-element" itemprop="description">怕什么真理无穷，进一寸有一寸的欢喜。</div>
+  <div class="site-description motion-element" itemprop="description"></div>
 </div>
 
 
@@ -597,7 +593,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">72</span>
+          <span class="site-state-item-count">73</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -752,7 +748,7 @@
 
 
 
-  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.2.0</div>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.2.0</div>
 
 
 
@@ -874,7 +870,9 @@
   
 
 
-  <script src="/js/schemes/muse.js?v=7.2.0"></script>
+  <script src="/js/affix.js?v=7.2.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.2.0"></script>
 
 
 

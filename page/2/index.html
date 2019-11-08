@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -72,9 +72,9 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Pisces',
     version: '7.2.0',
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    sidebar: {"position":"left","display":"always","offset":12,"onmobile":false},
     back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
     copycode: {"enable":true,"show_result":true,"style":null},
     fancybox: false,
@@ -98,16 +98,13 @@
   };
 </script>
 
-  <meta name="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="饱读诗书">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="学习记录">
 <meta property="og:url" content="http://www.zhuohc.com/page/2/index.html">
-<meta property="og:site_name" content="饱读诗书">
-<meta property="og:description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
+<meta property="og:site_name" content="学习记录">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="饱读诗书">
-<meta name="twitter:description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
+<meta name="twitter:title" content="学习记录">
 
 
 
@@ -126,7 +123,7 @@
 </script>
 
   
-  <title>饱读诗书</title>
+  <title>学习记录</title>
   
 
 
@@ -186,14 +183,10 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">饱读诗书</span>
+        <span class="site-title">学习记录</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-    
-      
-        <h1 class="site-subtitle" itemprop="description">怕什么真理无穷，进一寸有一寸的欢喜。</h1>
-      
     
     
   </div>
@@ -246,7 +239,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">72</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">73</span></a>
 
   </li>
 
@@ -262,9 +255,6 @@
       
     </ul>
   
-
-  
-    
 
   
 
@@ -304,9 +294,173 @@
       <div class="main-inner">
         <div class="content-wrap">
           
+            
+
+          
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2019/08/16/java开发maven构建工具入门基础/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhuohanchang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="学习记录">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/08/16/java开发maven构建工具入门基础/" class="post-title-link" itemprop="url">java开发maven构建工具入门基础</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-08-16 09:22:39 / Modified: 09:49:00" itemprop="dateCreated datePublished" datetime="2019-08-16T09:22:39+08:00">2019-08-16</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="linux安装maven">linux安装maven</h4>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 从官网下载二进制包</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> http://maven.apache.org/download.cgi</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> wget http://mirrors.tuna.tsinghua.edu.cn/apache/maven/maven-3/3.6.1/binaries/apache-maven-3.6.1-bin.tar.gz</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tar -xzvf apache-maven-3.6.1-bin.tar.gz</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo mv apache-maven-3.6.1 /usr/java_jar</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 添加环境变量</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo vim /etc/profile</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 最后添加</span></span><br><span class="line">export PATH=/opt/apache-maven-3.6.1/bin:$PATH</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 验证</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> mvn -v</span></span><br><span class="line">Apache Maven 3.6.1 (d66c9c0b3152b2e69ee9bac180bb8fcc8e6af555; 2019-04-05T03:00:29+08:00)</span><br><span class="line">Maven home: /usr/java_jar/apache-maven-3.6.1</span><br><span class="line">Java version: 11.0.4, vendor: Oracle Corporation, runtime: /usr/java/jdk-11.0.4</span><br><span class="line">Default locale: zh_CN, platform encoding: UTF-8</span><br><span class="line">OS name: "linux", version: "4.19.49-1-manjaro", arch: "amd64", family: "unix"</span><br></pre></td></tr></table></figure>
+<h4 id="常见命令">常见命令</h4>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 创建一个项目</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> mvn archetype:generate</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 选择版本</span></span><br><span class="line">Choose org.apache.maven.archetypes:maven-archetype-quickstart version:                                                                                                                                        </span><br><span class="line">1: 1.0-alpha-1                                                                                                                                                                                                </span><br><span class="line">2: 1.0-alpha-2                                                                                                                                                                                                </span><br><span class="line">3: 1.0-alpha-3                                                                                                                                                                                                </span><br><span class="line">4: 1.0-alpha-4                                                                                                                                                                                                </span><br><span class="line">5: 1.0                                                                                                                                                                                                        </span><br><span class="line">6: 1.1                                                                                                                                                                                                        </span><br><span class="line">7: 1.3                                                                                                                                                                                                        </span><br><span class="line">8: 1.4                                                                                                                                                                                                        </span><br><span class="line">Choose a number: 8:       </span><br><span class="line">Define value for property 'groupId': com.zhuohc.maven03         # groupID 项目名                                                                                                                                                        </span><br><span class="line">Define value for property 'artifactId': maven03-model           # artifactId 项目名-模块名                    </span><br><span class="line">Define value for property 'version' 1.0-SNAPSHOT: :             # version 版本                                                                                                                                                </span><br><span class="line">Define value for property 'package' com.zhuohc.maven03: :                                                                                                                                                      </span><br><span class="line">Confirm properties configuration:                                                                                                                                                                             </span><br><span class="line">groupId: com.zhuohc.maven03                                                                                                                                                                                    </span><br><span class="line">artifactId: maven03-model                                                                                                                                                                                           </span><br><span class="line">version: 1.0-SNAPSHOT                                                                                                                                                                                         </span><br><span class="line">package: com.zhuohc.maven03</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> mvn clean         <span class="comment"># 删除</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> mvn compile       <span class="comment"># 编译</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> mvn <span class="built_in">test</span>          <span class="comment"># 测试</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> mvn package       <span class="comment"># 打包</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> mvn install       <span class="comment"># 安装当前项目包到本地环境</span></span></span><br></pre></td></tr></table></figure>
+<h4 id="修改下载源">修改下载源</h4>
+<p>修改pom.xml文件repositories属性，添加国内源地址，具体见pom.xml</p>
+<h4 id="pom.xml">pom.xml</h4>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line">&lt;project xmlns="http://maven.apache.org/POM/4.0.0"</span><br><span class="line">         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"</span><br><span class="line">         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"&gt;</span><br><span class="line">    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;</span><br><span class="line"></span><br><span class="line">    &lt;groupId&gt;com.imooc.maven01&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;maven01-model&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;properties&gt;</span><br><span class="line">        &lt;maven.compiler.source&gt;1.8&lt;/maven.compiler.source&gt;</span><br><span class="line">        &lt;maven.compiler.target&gt;1.8&lt;/maven.compiler.target&gt;</span><br><span class="line">    &lt;/properties&gt;</span><br><span class="line">    &lt;dependencies&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;junit&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;junit&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;4.12&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">    &lt;/dependencies&gt;</span><br><span class="line">    &lt;repositories&gt;</span><br><span class="line">        &lt;repository&gt;</span><br><span class="line">            &lt;id&gt;aliyun&lt;/id&gt;</span><br><span class="line">            &lt;name&gt;aliyun&lt;/name&gt;</span><br><span class="line">            &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public&lt;/url&gt;</span><br><span class="line">        &lt;/repository&gt;</span><br><span class="line">    &lt;/repositories&gt;</span><br><span class="line">&lt;/project&gt;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -327,12 +481,12 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhuohanchang">
-      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="饱读诗书">
+      <meta itemprop="name" content="学习记录">
     </span>
 
     
@@ -425,7 +579,7 @@
         
           
             <h4 id="安装supervisor服务">安装supervisor服务</h4>
-<p><a href="http://supervisord.org/" target="_blank" rel="noopener">地址</a> sudo yum install supervisor #### 待续 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> pip3 install service_identity</span><br><span class="line"><span class="meta">$</span> pip3 install channels</span><br><span class="line"><span class="meta">$</span> pip3 install channels_redis</span><br></pre></td></tr></table></figure></p>
+<p><a href="http://supervisord.org/" target="_blank" rel="noopener">地址</a> sudo yum install supervisor #### 待续 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> pip3 install service_identity</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> pip3 install channels</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> pip3 install channels_redis</span></span><br></pre></td></tr></table></figure></p>
 
           
         
@@ -488,12 +642,12 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhuohanchang">
-      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="饱读诗书">
+      <meta itemprop="name" content="学习记录">
     </span>
 
     
@@ -544,7 +698,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-10-18 17:28:36" itemprop="dateModified" datetime="2019-10-18T17:28:36+08:00">2019-10-18</time>
+                <time title="Modified: 2019-11-08 13:47:00" itemprop="dateModified" datetime="2019-11-08T13:47:00+08:00">2019-11-08</time>
               </span>
             
           
@@ -592,7 +746,30 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 添加以下代码到~/.bashrc, ~/.profile, or ~/.zshrc</span></span><br><span class="line">export NVM_DIR="$HOME/.nvm"</span><br><span class="line">[ -s "$NVM_DIR/nvm.sh" ] &amp;&amp; \. "$NVM_DIR/nvm.sh"  # This loads nvm</span><br><span class="line">[ -s "$NVM_DIR/bash_completion" ] &amp;&amp; \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion</span><br></pre></td></tr></table></figure>
 <p>nvm命令 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> nvm install 6.14.4  <span class="comment"># 安装or 10.10.0, 8.9.1, etc</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> nvm ls  <span class="comment"># 查看</span></span></span><br><span class="line">default -&gt; 10.16.0 (-&gt; v10.16.0)</span><br><span class="line">node -&gt; stable (-&gt; v10.16.0) (default)</span><br><span class="line">stable -&gt; 10.16 (-&gt; v10.16.0) (default)</span><br><span class="line">iojs -&gt; N/A (default)</span><br><span class="line">lts/* -&gt; lts/dubnium (-&gt; v10.16.0)</span><br><span class="line">lts/argon -&gt; v4.9.1 (-&gt; N/A)</span><br><span class="line">lts/boron -&gt; v6.17.1 (-&gt; N/A)</span><br><span class="line">lts/carbon -&gt; v8.16.0 (-&gt; N/A)</span><br><span class="line">lts/dubnium -&gt; v10.16.0</span><br><span class="line"><span class="meta">$</span><span class="bash"> nvm use default  <span class="comment"># 使用指定node版本</span></span></span><br></pre></td></tr></table></figure></p>
 <p>安装cnpm <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm --registry=https://registry.npm.taobao.org install cnpm -g</span></span><br></pre></td></tr></table></figure></p>
-<h4 id="待续">待续</h4>
+<h4 id="node.js-回调函数">node.js 回调函数</h4>
+<blockquote>
+<p>Node.js 异步编程的直接体现就是回调。 异步编程依托于回调来实现，但不能说使用了回调后程序就异步化了。 回调函数在完成任务后就会被调用，Node 使用了大量的回调函数，Node 所有 API 都支持回调函数。 例如，我们可以一边读取文件，一边执行其他命令，在文件读取完成后，我们将文件内容作为回调函数的参数返回。这样在执行代码时就没有阻塞或等待文件 I/O 操作。这就大大提高了 Node.js 的性能，可以处理大量的并发请求。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="keyword">let</span> data = fs.readFileSync(<span class="string">'input.txt'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(data.toString());</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"程序执行结束!"</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">文件内容......</span><br><span class="line">程序执行结束!</span><br></pre></td></tr></table></figure>
+<h4 id="node.js-事件驱动">node.js 事件驱动</h4>
+<blockquote>
+<p>Node.js 使用事件驱动模型，当web server接收到请求，就把它关闭然后进行处理，然后去服务下一个web请求。 当这个请求完成，它被放回处理队列，当到达队列开头，这个结果被返回给用户。 这个模型非常高效可扩展性非常强，因为 webserver 一直接受请求而不等待任何读写操作。（这也称之为非阻塞式IO或者事件驱动IO） 在事件驱动模型中，会生成一个主循环来监听事件，当检测到事件时触发回调函数。</p>
+</blockquote>
+<h4 id="node.js-buffer-缓冲区">node.js buffer 缓冲区</h4>
+<blockquote>
+<p>JavaScript 语言自身只有字符串数据类型，没有二进制数据类型。 但在处理像TCP流或文件流时，必须使用到二进制数据。因此在 Node.js中，定义了一个 Buffer 类，该类用来创建一个专门存放二进制数据的缓存区。 在 Node.js 中，Buffer 类是随 Node 内核一起发布的核心库。Buffer 库为 Node.js 带来了一种存储原始数据的方法，可以让 Node.js 处理二进制数据，每当需要在 Node.js 中处理I/O操作中移动的数据时，就有可能使用 Buffer 库。原始数据存储在 Buffer 类的实例中。一个 Buffer 类似于一个整数数组，但它对应于 V8 堆内存之外的一块原始内存。</p>
+</blockquote>
+<p>node.js目前支持 1. ascii - 仅支持 7 位 ASCII 数据。如果设置去掉高位的话，这种编码是非常快的。 2. utf8 - 多字节编码的 Unicode 字符。许多网页和其他文档格式都使用 UTF-8 。 3. utf16le - 2 或 4 个字节，小字节序编码的 Unicode 字符。支持代理对（U+10000 至 U+10FFFF）。 4. ucs2 - utf16le 的别名。 5. base64 - Base64 编码。 6. latin1 - 一种把 Buffer 编码成一字节编码的字符串的方式。 7. binary - latin1 的别名。 8. hex - 将每个字节编码为两个十六进制字符。</p>
+<h4 id="node.js-stream-流">node.js stream 流</h4>
+<blockquote>
+<p>Stream 是一个抽象接口，Node 中有很多对象实现了这个接口。例如，对http 服务器发起请求的request 对象就是一个 Stream，还有stdout（标准输出）。</p>
+</blockquote>
+<h4 id="node.js-模块">node.js 模块</h4>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 导出一个方法</span></span><br><span class="line">exports.world = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Hello World'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//hello.js </span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Hello</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line">    <span class="keyword">var</span> name; </span><br><span class="line">    <span class="keyword">this</span>.setName = <span class="function"><span class="keyword">function</span>(<span class="params">thyName</span>) </span>&#123; </span><br><span class="line">        name = thyName; </span><br><span class="line">    &#125;; </span><br><span class="line">    <span class="keyword">this</span>.sayHello = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'Hello '</span> + name); </span><br><span class="line">    &#125;; </span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">module</span>.exports = Hello;</span><br></pre></td></tr></table></figure>
+<h4 id="node.js-全局对象">node.js 全局对象</h4>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 当前正在执行的脚本的文件名</span></span><br><span class="line"><span class="built_in">console</span>.log( __filename );</span><br><span class="line"><span class="comment">// 当前执行脚本所在的目录</span></span><br><span class="line"><span class="built_in">console</span>.log( __dirname );</span><br><span class="line"><span class="comment">// 定时器, 只执行一次</span></span><br><span class="line"><span class="keyword">let</span> t = setTimeout(printHello, <span class="number">2000</span>);</span><br><span class="line">clearTimeout(t);</span><br><span class="line"><span class="comment">// 全局函数在指定的毫秒(ms)数后执行指定函数(cb)</span></span><br><span class="line">setInterval(printHello, <span class="number">2000</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// process: 一个全局变量，即 global 对象的属性。</span></span><br></pre></td></tr></table></figure>
 
           
         
@@ -655,12 +832,12 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhuohanchang">
-      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="饱读诗书">
+      <meta itemprop="name" content="学习记录">
     </span>
 
     
@@ -883,12 +1060,12 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhuohanchang">
-      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="饱读诗书">
+      <meta itemprop="name" content="学习记录">
     </span>
 
     
@@ -981,45 +1158,45 @@
         
           
             <h4 id="添加中科大源">添加中科大源</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo vi /etc/pacman.conf</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 在文件末尾添加</span><br><span class="line">[archlinuxcn]</span><br><span class="line">SigLevel = Optional TrustedOnly</span><br><span class="line">Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo vi /etc/pacman.conf</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 在文件末尾添加</span></span><br><span class="line">[archlinuxcn]</span><br><span class="line">SigLevel = Optional TrustedOnly</span><br><span class="line">Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch</span><br></pre></td></tr></table></figure>
 <h4 id="导入gpg-key">导入GPG Key</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo pacman -Syy &amp;&amp; sudo pacman -S archlinuxcn-keyring</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo pacman -Syy &amp;&amp; sudo pacman -S archlinuxcn-keyring</span></span><br></pre></td></tr></table></figure>
 <h4 id="安装基本开发编译软件">安装基本开发编译软件</h4>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S --needed base-devel</span><br></pre></td></tr></table></figure>
 <h4 id="安装git">安装git</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo pacman -S git</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo pacman -S git</span></span><br></pre></td></tr></table></figure>
 <h4 id="安装chrome">安装chrome</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo pacman -S google-chrome</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo pacman -S google-chrome</span></span><br></pre></td></tr></table></figure>
 <h4 id="安装搜狗拼音输入法">安装搜狗拼音输入法</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo pacman -S fcitx-im #默认全部安装</span><br><span class="line"><span class="meta">$</span> sudo pacman -S fcitx-configtool</span><br><span class="line"><span class="meta">$</span> sudo pacman -S fcitx-sogoupinyin</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo pacman -S fcitx-im <span class="comment">#默认全部安装</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo pacman -S fcitx-configtool</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo pacman -S fcitx-sogoupinyin</span></span><br></pre></td></tr></table></figure>
 <h4 id="编辑输入法配置文件">编辑输入法配置文件</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo nano ~/.xprofile</span><br><span class="line"></span><br><span class="line">export GTK_IM_MODULE=fcitx</span><br><span class="line">export QT_IM_MODULE=fcitx</span><br><span class="line">export XMODIFIERS="@im=fcitx"</span><br><span class="line"><span class="meta">#</span> 重启后输入法就可以正常使用。</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo nano ~/.xprofile</span></span><br><span class="line"></span><br><span class="line">export GTK_IM_MODULE=fcitx</span><br><span class="line">export QT_IM_MODULE=fcitx</span><br><span class="line">export XMODIFIERS="@im=fcitx"</span><br><span class="line"><span class="meta">#</span><span class="bash"> 重启后输入法就可以正常使用。</span></span><br></pre></td></tr></table></figure>
 <h4 id="安装vim">安装vim</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo pacman -S vim</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo pacman -S vim</span></span><br></pre></td></tr></table></figure>
 <p>安装vim基础配置</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> curl https://raw.githubusercontent.com/wklken/vim-for-server/master/vimrc &gt; ~/.vimrc</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> curl https://raw.githubusercontent.com/wklken/vim-for-server/master/vimrc &gt; ~/.vimrc</span></span><br></pre></td></tr></table></figure>
 <h4 id="安装tmux和.tmux">安装tmux和.tmux</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo pacman -S tmux</span><br><span class="line"><span class="meta">$</span> cd ~</span><br><span class="line"><span class="meta">$</span> git clone https://github.com/gpakosz/.tmux.git</span><br><span class="line"><span class="meta">$</span> ln -s -f .tmux/.tmux.conf</span><br><span class="line"><span class="meta">$</span> cp .tmux/.tmux.conf.local .</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo pacman -S tmux</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> ~</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git <span class="built_in">clone</span> https://github.com/gpakosz/.tmux.git</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ln -s -f .tmux/.tmux.conf</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> cp .tmux/.tmux.conf.local .</span></span><br></pre></td></tr></table></figure>
 <h4 id="安装zsh和oh-my-zsh">安装zsh和oh-my-zsh</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo pacman -S zsh</span><br><span class="line"><span class="meta">$</span> sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo pacman -S zsh</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sh -c <span class="string">"<span class="variable">$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)</span>"</span></span></span><br></pre></td></tr></table></figure>
 <h4 id="安装yaourt">安装yaourt</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo pacman -S --needed base-devel git wget yajl</span><br><span class="line"><span class="meta">$</span> cd /tmp</span><br><span class="line"><span class="meta">$</span> git clone https://aur.archlinux.org/package-query.git</span><br><span class="line"><span class="meta">$</span> cd package-query/</span><br><span class="line"><span class="meta">$</span> makepkg -si &amp;&amp; cd /tmp/</span><br><span class="line"><span class="meta">$</span> git clone https://aur.archlinux.org/yaourt.git</span><br><span class="line"><span class="meta">$</span> cd yaourt/</span><br><span class="line"><span class="meta">$</span> makepkg -si</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo pacman -S --needed base-devel git wget yajl</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> /tmp</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git <span class="built_in">clone</span> https://aur.archlinux.org/package-query.git</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> package-query/</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> makepkg -si &amp;&amp; <span class="built_in">cd</span> /tmp/</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git <span class="built_in">clone</span> https://aur.archlinux.org/yaourt.git</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> yaourt/</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> makepkg -si</span></span><br></pre></td></tr></table></figure>
 <h4 id="安装shadowsocks">安装shadowsocks</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git clone https://aur.archlinux.org/shadowsocks-qt5-git.git</span><br><span class="line"><span class="meta">$</span> cd shadowsocks-qt5-git</span><br><span class="line"><span class="meta">$</span> less PKGBUILD  # 查看</span><br><span class="line"><span class="meta">$</span> makepkg -si  # 安装</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git <span class="built_in">clone</span> https://aur.archlinux.org/shadowsocks-qt5-git.git</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> shadowsocks-qt5-git</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> less PKGBUILD  <span class="comment"># 查看</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> makepkg -si  <span class="comment"># 安装</span></span></span><br></pre></td></tr></table></figure>
 <h4 id="设置ssh连接不断开">设置ssh连接不断开</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> vim ~/.ssh/config</span><br><span class="line">Host *</span><br><span class="line">    ServerAliveInterval 60</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> vim ~/.ssh/config</span></span><br><span class="line">Host *</span><br><span class="line">    ServerAliveInterval 60</span><br></pre></td></tr></table></figure>
 <h4 id="安装jetbrain全家桶">安装jetbrain全家桶</h4>
 <p><a href="http://idea.lanyus.com/" target="_blank" rel="noopener">jetbrain激活参考地址</a></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo vim /etc/hosts</span><br><span class="line"><span class="meta">#</span> 添加以下两行代码</span><br><span class="line">0.0.0.0 account.jetbrains.com</span><br><span class="line">0.0.0.0 www.jetbrains.com</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo vim /etc/hosts</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 添加以下两行代码</span></span><br><span class="line">0.0.0.0 account.jetbrains.com</span><br><span class="line">0.0.0.0 www.jetbrains.com</span><br></pre></td></tr></table></figure>
 <h4 id="安装python开发环境">安装python开发环境</h4>
 <a href="/2016/11/09/python入门基础/" title="python开发环境">python开发环境</a>
 <h4 id="安装rabbitmq">安装rabbitmq</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo pacman -S rabbitmq rabbitmqadmin</span><br><span class="line"><span class="meta">$</span> sudo systemctl enable rabbitmq.service  # 开机启动</span><br><span class="line"><span class="meta">$</span> sudo systemctl start rabbitmq.service  # 启动</span><br><span class="line"><span class="meta">$</span> rabbitmq-plugins enable rabbitmq_management  # 开启web界面</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo pacman -S rabbitmq rabbitmqadmin</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo systemctl <span class="built_in">enable</span> rabbitmq.service  <span class="comment"># 开机启动</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo systemctl start rabbitmq.service  <span class="comment"># 启动</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> rabbitmq-plugins <span class="built_in">enable</span> rabbitmq_management  <span class="comment"># 开启web界面</span></span></span><br></pre></td></tr></table></figure>
 <h4 id="安装redis">安装redis</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo pacman -S redis</span><br><span class="line"><span class="meta">$</span> sudo systemctl enable redis.service  # 开机启动</span><br><span class="line"><span class="meta">$</span> sudo systemctl start redis.service  # 启动</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo pacman -S redis</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo systemctl <span class="built_in">enable</span> redis.service  <span class="comment"># 开机启动</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo systemctl start redis.service  <span class="comment"># 启动</span></span></span><br></pre></td></tr></table></figure>
 <p>设置密码</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo vim /etc/redis.conf</span><br><span class="line">redispassword password</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo vim /etc/redis.conf</span></span><br><span class="line">redispassword password</span><br></pre></td></tr></table></figure>
 <h4 id="安装node">安装node</h4>
 <a href="/2019/07/26/node入门基础/" title="python开发环境">python开发环境</a>
 <h4 id="其他软件清单">其他软件清单</h4>
@@ -1094,12 +1271,12 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhuohanchang">
-      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="饱读诗书">
+      <meta itemprop="name" content="学习记录">
     </span>
 
     
@@ -1399,12 +1576,12 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhuohanchang">
-      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="饱读诗书">
+      <meta itemprop="name" content="学习记录">
     </span>
 
     
@@ -1598,10 +1775,10 @@
 </blockquote>
 <h5 id="fbdev-linux终端录制设备">fbdev： linux终端录制设备</h5>
 <p>查看使用指定采集设备参数</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> ffmpeg -hide_banner -h demuxer=fbdev</span><br><span class="line">Demuxer fbdev [Linux framebuffer]:</span><br><span class="line">fbdev indev AVOptions:</span><br><span class="line">  -framerate         &lt;video_rate&gt; .D.......  (default "25")</span><br><span class="line"><span class="meta">#</span> framerate 帧数 默认25帧</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo ffmpeg -framerate 30  -f fbdev -i /dev/fb0 output.mp4</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ffmpeg -hide_banner -h demuxer=fbdev</span></span><br><span class="line">Demuxer fbdev [Linux framebuffer]:</span><br><span class="line">fbdev indev AVOptions:</span><br><span class="line">  -framerate         &lt;video_rate&gt; .D.......  (default "25")</span><br><span class="line"><span class="meta">#</span><span class="bash"> framerate 帧数 默认25帧</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo ffmpeg -framerate 30  -f fbdev -i /dev/fb0 output.mp4</span></span><br></pre></td></tr></table></figure>
 <h5 id="v412linux摄像头录制设备">v412：linux摄像头录制设备</h5>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> ffmpeg -hide_banner -h demuxer=Video4Linux2</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ffmpeg -hide_banner -h demuxer=Video4Linux2</span></span><br></pre></td></tr></table></figure>
 <table>
 <thead>
 <tr class="header">
@@ -1668,25 +1845,25 @@
 </tr>
 </tbody>
 </table>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> ffmpeg -hide_banner -f Video4Linux2 -list_formats all -i /dev/video0</span><br><span class="line"><span class="meta">#</span> /dev/video0根据自己的摄像头来设置</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ffmpeg -hide_banner -f Video4Linux2 -list_formats all -i /dev/video0</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> /dev/video0根据自己的摄像头来设置</span></span><br></pre></td></tr></table></figure>
 <h5 id="x11grablinux桌面录制设备">x11grab：linux桌面录制设备</h5>
 <p><a href="https://trac.ffmpeg.org/wiki/Capture/Desktop" target="_blank" rel="noopener">桌面录制方法</a></p>
 <p>linux环境下如果此方法报错</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Cannot open display :0.0, error 1.</span><br><span class="line">:0.0: Input/output error</span><br></pre></td></tr></table></figure>
 <p>则需要查看$DISPLAY， 在Linux/Unix类操作系统上, DISPLAY用来设置将图形显示到何处. 直接登陆图形界面或者登陆命令行界面后使用startx启动图形, DISPLAY环境变量将自动设置为:0:0</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> echo $DISPLAY</span><br><span class="line">:1</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> ffmpeg -video_size 1024x768 -framerate 25 -f x11grab -i :1+100,200 output.mp4</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">echo</span> <span class="variable">$DISPLAY</span></span></span><br><span class="line">:1</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ffmpeg -video_size 1024x768 -framerate 25 -f x11grab -i :1+100,200 output.mp4</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>video_size 字符串 输入采集视频的分辨率</p>
 <p>framerate 字符串 输入采集的视频帧率</p>
 <p>-f 指定输入设备</p>
 <p>-i 指定输入内容（此处为显示器）+100, 200 代表从100, 200处位移 使用pulse录制音频</p>
 </blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> pactl list sources  # 查看全部输入设备</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> ffmpeg -f pulse -i default pulse.wav</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> pactl list sources  <span class="comment"># 查看全部输入设备</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ffmpeg -f pulse -i default pulse.wav</span></span><br></pre></td></tr></table></figure>
 <p>同时录制视频和音频</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> ffmpeg -video_size 1366x768 -framerate 25 -f x11grab -i :1 -f pulse -ac 2 -i 1 output.mkv</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> ffmpeg -video_size 1024x768 -framerate 25 -f x11grab -i :1+100,200 -f alsa -ac 2 -i hw:0 output.mkv</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ffmpeg -video_size 1366x768 -framerate 25 -f x11grab -i :1 -f pulse -ac 2 -i 1 output.mkv</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ffmpeg -video_size 1024x768 -framerate 25 -f x11grab -i :1+100,200 -f alsa -ac 2 -i hw:0 output.mkv</span></span><br></pre></td></tr></table></figure>
 
           
         
@@ -1749,12 +1926,12 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhuohanchang">
-      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="饱读诗书">
+      <meta itemprop="name" content="学习记录">
     </span>
 
     
@@ -1837,15 +2014,15 @@
         
           
             <h4 id="ffmpeg封装与解封装">ffmpeg封装与解封装</h4>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -i input.mkv -vcodec copy -acodec copy output.mp4</span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -<span class="selector-tag">i</span> <span class="selector-tag">input</span><span class="selector-class">.mkv</span> -vcodec copy -acodec copy output.mp4</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>-i 输入文件</p>
 <p>-vcodec copy 视频编码处理方式</p>
 <p>-acodec copy 音频编码处理方式</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -i input.mp4 -vn -acodec copy output.aac  # 抽出音频</span><br><span class="line">$ ffmpeg -i input.mp4 -vcodec copy -an output.h264  # 抽出视频</span><br></pre></td></tr></table></figure>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -i input.mp4 -vn -acodec <span class="keyword">copy</span><span class="bash"> output.aac  <span class="comment"># 抽出音频</span></span></span><br><span class="line">$ ffmpeg -i input.mp4 -vcodec <span class="keyword">copy</span><span class="bash"> -an output.h264  <span class="comment"># 抽出视频</span></span></span><br></pre></td></tr></table></figure>
 <h5 id="提取yuv数据">提取YUV数据</h5>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ffmpeg -i input.mp4 -an -c:v rawvideo -pix_fmt yuv420p out.yuv</span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ffmpeg</span> -<span class="selector-tag">i</span> <span class="selector-tag">input</span><span class="selector-class">.mp4</span> -an -c:v rawvideo -pix_fmt yuv420p out.yuv</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>-i 输入设备</p>
 <p>-an 不需要音频</p>
@@ -1853,12 +2030,12 @@
 <p>-pix_fmt 像素格式</p>
 </blockquote>
 <p>播放源文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffplay -video_size 1366x768 out.yuv</span><br></pre></td></tr></table></figure>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffplay -video_size <span class="number">1366</span>x768 <span class="keyword">out</span>.yuv</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>-video_size 指定像素</p>
 </blockquote>
 <h5 id="提取pcm数据">提取PCM数据</h5>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -i input.mp4 -vn -ar 44100 -ac 2 -f s16le out.pcm</span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -<span class="selector-tag">i</span> <span class="selector-tag">input</span><span class="selector-class">.mp4</span> -vn -ar <span class="number">44100</span> -ac <span class="number">2</span> -f s16le out.pcm</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>-i 输入设备</p>
 <p>-vn 不需要视频</p>
@@ -1867,7 +2044,7 @@
 <p>-f 数据存储格式 s16le s: 有符号的</p>
 </blockquote>
 <p>播放源文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffplay -ar 44100 -ac 2 -f s16le out.pcm</span><br></pre></td></tr></table></figure>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffplay -ar <span class="number">44100</span> -ac <span class="number">2</span> -f s16le out.pcm</span><br></pre></td></tr></table></figure>
 
           
         
@@ -1930,12 +2107,12 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhuohanchang">
-      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="饱读诗书">
+      <meta itemprop="name" content="学习记录">
     </span>
 
     
@@ -2018,14 +2195,14 @@
         
           
             <h5 id="直播推流">直播推流</h5>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -re -i out.mp4 -c copy -f flv rtmp://server/live/streamName</span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -re -<span class="selector-tag">i</span> out<span class="selector-class">.mp4</span> -c copy -f flv rtmp:<span class="comment">//server/live/streamName</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>-re 保持本地视频和流媒体服务器帧率一致</p>
 <p>-c 不做操作，直接复制</p>
 <p>-f 格式</p>
 </blockquote>
 <h5 id="直播拉流">直播拉流</h5>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -i rmtp://server/live/streamName -c copy dump.flv</span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -<span class="selector-tag">i</span> rmtp:<span class="comment">//server/live/streamName -c copy dump.flv</span></span><br></pre></td></tr></table></figure>
 
           
         
@@ -2088,12 +2265,12 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhuohanchang">
-      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="饱读诗书">
+      <meta itemprop="name" content="学习记录">
     </span>
 
     
@@ -2176,7 +2353,7 @@
         
           
             <h5 id="裁剪滤镜">裁剪滤镜</h5>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -i output.mkv -vf crop=in_w-400:in_h-200 -c:v libx264 -c:a copy output.mp4</span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -<span class="selector-tag">i</span> output<span class="selector-class">.mkv</span> -vf crop=in_w-<span class="number">400</span>:in_h-<span class="number">200</span> -c:v libx264 -c:<span class="selector-tag">a</span> copy output.mp4</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>-i 输入</p>
 <p>-vf -v 视频 f 滤镜 crop 裁剪滤镜</p>
@@ -2184,13 +2361,13 @@
 <p>-c:a copy 音频直接复制</p>
 </blockquote>
 <h5 id="视频裁剪">视频裁剪</h5>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -i output.mkv -ss 00:00:00 -t 10 output.mp4</span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -<span class="selector-tag">i</span> output<span class="selector-class">.mkv</span> -ss <span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span> -t <span class="number">10</span> output.mp4</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>-ss 开始时间(时:分:秒)</p>
 <p>-t 时常(秒)</p>
 </blockquote>
 <h5 id="视频合并">视频合并</h5>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -f concat -i inputs.txt output.mp4</span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -f concat -<span class="selector-tag">i</span> inputs<span class="selector-class">.txt</span> output.mp4</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>-f concat 拼接</p>
 <p>-i 输入文件 inputs.txt 记录全部等待拼接的文件</p>
@@ -2202,7 +2379,7 @@
 <p>output.mp4 输出文件</p>
 </blockquote>
 <h5 id="视频转图片">视频转图片</h5>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -i output.mp4 -r 1 -f image2 image-%3d.jpeg</span><br></pre></td></tr></table></figure>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -i output.mp4 -r <span class="number">1</span> -f image2 image-%<span class="number">3</span>d.jpeg</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>-i 输入文件</p>
 <p>-r 1, r 帧率， 1 每秒一张图片</p>
@@ -2210,163 +2387,7 @@
 <p>image-%3d.jpeg 输出文件</p>
 </blockquote>
 <h5 id="图片转视频">图片转视频</h5>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -i image-%3d.jpeg output.mp4</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.zhuohc.com/2019/07/24/ffmpeg命令基础/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhuohanchang">
-      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="饱读诗书">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/07/24/ffmpeg命令基础/" class="post-title-link" itemprop="url">ffmpeg命令基础</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-07-24 09:16:46 / Modified: 09:19:04" itemprop="dateCreated datePublished" datetime="2019-07-24T09:16:46+08:00">2019-07-24</time>
-            </span>
-          
-
-          
-            
-
-            
-          
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="ffmpeg基本流程">ffmpeg基本流程</h4>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">文件-&gt;音视频流: demuxer解封装</span><br><span class="line">音视频流-&gt;数据包: decoder解码</span><br><span class="line">数据包-&gt;音视频流: encoder编码</span><br><span class="line">音视频流-&gt;文件: muxer封装</span><br></pre></td></tr></table></figure>
-<h4 id="ffmpeg基本定义">ffmpeg基本定义</h4>
-<ol type="1">
-<li>文件：也叫容器Container，比如mp4文件、flv文件等，容器的类型决定了信息被存放在文件中的位置。</li>
-<li>音视频流：</li>
-</ol>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -<span class="built_in">i</span> image-<span class="comment">%3d.jpeg output.mp4</span></span><br></pre></td></tr></table></figure>
 
           
         
@@ -2447,7 +2468,7 @@
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
   
   <p class="site-author-name" itemprop="name">zhuohanchang</p>
-  <div class="site-description motion-element" itemprop="description">怕什么真理无穷，进一寸有一寸的欢喜。</div>
+  <div class="site-description motion-element" itemprop="description"></div>
 </div>
 
 
@@ -2457,7 +2478,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">72</span>
+          <span class="site-state-item-count">73</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -2595,7 +2616,7 @@
 
 
 
-  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.2.0</div>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.2.0</div>
 
 
 
@@ -2717,7 +2738,9 @@
   
 
 
-  <script src="/js/schemes/muse.js?v=7.2.0"></script>
+  <script src="/js/affix.js?v=7.2.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.2.0"></script>
 
 
 

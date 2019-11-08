@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -72,9 +72,9 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Pisces',
     version: '7.2.0',
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    sidebar: {"position":"left","display":"always","offset":12,"onmobile":false},
     back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
     copycode: {"enable":true,"show_result":true,"style":null},
     fancybox: false,
@@ -102,7 +102,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="postgresql入门基础">
 <meta property="og:url" content="http://www.zhuohc.com/2018/08/07/postgresql入门基础/index.html">
-<meta property="og:site_name" content="饱读诗书">
+<meta property="og:site_name" content="学习记录">
 <meta property="og:description" content="manjaro安装 安装postgresql 1234$ git clone https://aur.archlinux.org/postgresql-9.6.git$ cd postgresql-9.6-git$ less PKGBUILD  # 查看$ makepkg -si  # 安装 1234# 初始化数据$ sudo su postgres -l $ initdb --locale $L">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-07-24T06:24:41.084Z">
@@ -127,7 +127,7 @@
 </script>
 
   
-  <title>postgresql入门基础 | 饱读诗书</title>
+  <title>postgresql入门基础 | 学习记录</title>
   
 
 
@@ -186,14 +186,10 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">饱读诗书</span>
+        <span class="site-title">学习记录</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-    
-      
-        <h1 class="site-subtitle" itemprop="description">怕什么真理无穷，进一寸有一寸的欢喜。</h1>
-      
     
     
   </div>
@@ -246,7 +242,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">72</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">73</span></a>
 
   </li>
 
@@ -262,9 +258,6 @@
       
     </ul>
   
-
-  
-    
 
   
 
@@ -304,6 +297,9 @@
       <div class="main-inner">
         <div class="content-wrap">
           
+            
+
+          
           <div id="content" class="content">
             
 
@@ -327,12 +323,12 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhuohanchang">
-      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜。">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="饱读诗书">
+      <meta itemprop="name" content="学习记录">
     </span>
 
     
@@ -441,19 +437,19 @@
       
         <h4 id="manjaro安装">manjaro安装</h4>
 <h5 id="安装postgresql">安装postgresql</h5>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://aur.archlinux.org/postgresql-9.6.git</span><br><span class="line">$ cd postgresql-9.6-git</span><br><span class="line">$ less PKGBUILD  # 查看</span><br><span class="line">$ makepkg -si  # 安装</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 初始化数据</span><br><span class="line">$ sudo su postgres -l </span><br><span class="line">$ initdb --locale $LANG -E UTF8 -D &apos;/var/lib/postgres/data/&apos;</span><br><span class="line">$ exit</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 启动及开机启动</span><br><span class="line">sudo systemctl start postgresql.service </span><br><span class="line">sudo systemctl enable postgresql.service</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 登录</span><br><span class="line">$ sudo su postgres -l</span><br><span class="line">$ psql</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git <span class="built_in">clone</span> https://aur.archlinux.org/postgresql-9.6.git</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> postgresql-9.6-git</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> less PKGBUILD  <span class="comment"># 查看</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> makepkg -si  <span class="comment"># 安装</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 初始化数据</span></span><br><span class="line">$ sudo su postgres -l </span><br><span class="line">$ initdb --locale <span class="variable">$LANG</span> -E UTF8 -D <span class="string">'/var/lib/postgres/data/'</span></span><br><span class="line">$ <span class="keyword">exit</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启动及开机启动</span></span><br><span class="line">sudo systemctl start postgresql.service </span><br><span class="line">sudo systemctl <span class="builtin-name">enable</span> postgresql.service</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 登录</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo su postgres -l</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> psql</span></span><br></pre></td></tr></table></figure>
 <h5 id="安装postgis">安装postgis</h5>
 <p>1, 安装proj4.9</p>
 <p>下载源码 <a href="https://proj.org/download.html" target="_blank" rel="noopener">地址</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">tar xfz proj-4.9.3.tar.gz</span><br><span class="line">cd proj-4.9.3</span><br><span class="line">./configure</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br><span class="line"># 安装postgis时，如果没有找到库则需要复制动态库</span><br><span class="line">sudo ln -s /usr/local/lib/libproj.so.12 /usr/lib/libproj.so.12</span><br></pre></td></tr></table></figure>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">tar xfz proj-<span class="number">4.9</span>.<span class="number">3</span>.tar.gz</span><br><span class="line">cd proj-<span class="number">4.9</span>.<span class="number">3</span></span><br><span class="line">./configure</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br><span class="line"><span class="comment"># 安装postgis时，如果没有找到库则需要复制动态库</span></span><br><span class="line">sudo ln -s /usr/local/<span class="class"><span class="keyword">lib</span>/<span class="title">libproj</span>.<span class="title">so</span>.12 /<span class="title">usr</span>/<span class="title">lib</span>/<span class="title">libproj</span>.<span class="title">so</span>.12</span></span><br></pre></td></tr></table></figure>
 <p>2, 安装postgis2.5.2</p>
 <p>下载源码 <a href="https://postgis.net/source/" target="_blank" rel="noopener">地址</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">wget http://download.osgeo.org/postgis/source/postgis-2.5.2.tar.gz</span><br><span class="line">tar xfz postgis-2.5.2.tar.gz</span><br><span class="line">cd postgis-2.5.2</span><br><span class="line">./configure</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br><span class="line">sudo ldconfig</span><br><span class="line">sudo make comments-install</span><br></pre></td></tr></table></figure>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">wget http://download.osgeo.org/postgis/<span class="keyword">source</span>/postgis-<span class="number">2.5</span>.<span class="number">2</span>.tar.gz</span><br><span class="line">tar xfz postgis-<span class="number">2.5</span>.<span class="number">2</span>.tar.gz</span><br><span class="line"><span class="keyword">cd</span> postgis-<span class="number">2.5</span>.<span class="number">2</span></span><br><span class="line">./configure</span><br><span class="line"><span class="keyword">make</span></span><br><span class="line">sudo <span class="keyword">make</span> install</span><br><span class="line">sudo ldconfig</span><br><span class="line">sudo <span class="keyword">make</span> comments-install</span><br></pre></td></tr></table></figure>
 <h5 id="创建库">创建库</h5>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 第一件事是使用\password命令，为postgres用户设置一个密码。</span><br><span class="line">postgres=# \password postgres</span><br><span class="line"># 第二件事是创建数据库用户dbuser（刚才创建的是Linux系统用户），并设置密码。</span><br><span class="line">postgres=# CREATE USER dbuser WITH PASSWORD &apos;password&apos;;</span><br><span class="line"># 第三件事是创建用户数据库，这里为exampledb，并指定所有者为dbuser。</span><br><span class="line">postgres=# CREATE DATABASE exampledb OWNER dbuser;</span><br><span class="line"># 第四件事是将exampledb数据库的所有权限都赋予dbuser，否则dbuser只能登录控制台，没有数据库操作权限。</span><br><span class="line">postgres=# GRANT ALL PRIVILEGES ON DATABASE exampledb to dbuser;</span><br></pre></td></tr></table></figure>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 第一件事是使用\password命令，为postgres用户设置一个密码。</span></span><br><span class="line"><span class="attr">postgres</span>=<span class="comment"># \password postgres</span></span><br><span class="line"><span class="comment"># 第二件事是创建数据库用户dbuser（刚才创建的是Linux系统用户），并设置密码。</span></span><br><span class="line"><span class="attr">postgres</span>=<span class="comment"># CREATE USER dbuser WITH PASSWORD 'password';</span></span><br><span class="line"><span class="comment"># 第三件事是创建用户数据库，这里为exampledb，并指定所有者为dbuser。</span></span><br><span class="line"><span class="attr">postgres</span>=<span class="comment"># CREATE DATABASE exampledb OWNER dbuser;</span></span><br><span class="line"><span class="comment"># 第四件事是将exampledb数据库的所有权限都赋予dbuser，否则dbuser只能登录控制台，没有数据库操作权限。</span></span><br><span class="line"><span class="attr">postgres</span>=<span class="comment"># GRANT ALL PRIVILEGES ON DATABASE exampledb to dbuser;</span></span><br></pre></td></tr></table></figure>
 <h4 id="ubuntucentos安装">ubuntu/centos安装</h4>
 <p><a href="https://www.postgresql.org/download/linux/ubuntu/" target="_blank" rel="noopener">ubuntu安装</a> <a href="https://www.postgresql.org/download/linux/redhat/" target="_blank" rel="noopener">centos安装</a> centos7.2 安装postgresql9.6</p>
 <pre><code># 添加RPM
@@ -714,7 +710,7 @@ user=&gt;  \d 表名 —— 得到表结构</code></pre>
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
   
   <p class="site-author-name" itemprop="name">zhuohanchang</p>
-  <div class="site-description motion-element" itemprop="description">怕什么真理无穷，进一寸有一寸的欢喜。</div>
+  <div class="site-description motion-element" itemprop="description"></div>
 </div>
 
 
@@ -724,7 +720,7 @@ user=&gt;  \d 表名 —— 得到表结构</code></pre>
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">72</span>
+          <span class="site-state-item-count">73</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -879,7 +875,7 @@ user=&gt;  \d 表名 —— 得到表结构</code></pre>
 
 
 
-  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.2.0</div>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.2.0</div>
 
 
 
@@ -1001,7 +997,9 @@ user=&gt;  \d 表名 —— 得到表结构</code></pre>
   
 
 
-  <script src="/js/schemes/muse.js?v=7.2.0"></script>
+  <script src="/js/affix.js?v=7.2.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.2.0"></script>
 
 
 
