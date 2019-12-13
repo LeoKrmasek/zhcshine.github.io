@@ -332,7 +332,7 @@ userlist_deny=YES
 sudo vim /etc/vsftpd.user_list
 添加root到文件中</code></pre>
 <p>出现500 OOPS: vsftpd: refusing to run with writable root inside chroot()错误的时候 原因：chroot设置为yes的时候，需要取消ftp根目录的写权限</p>
-<pre><code>#### 在配置文件中添加此设置
+<pre><code># 在配置文件中添加此设置
 allow_writeable_chroot=YES </code></pre>
 <h4 id="开启防火墙后vsftpd连接错误处理">开启防火墙后vsftpd连接错误处理</h4>
 <p>载入以下2个模块</p>

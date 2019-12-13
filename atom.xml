@@ -301,7 +301,7 @@
     <published>2019-08-02T11:03:28.000Z</published>
     <updated>2019-08-07T08:10:08.003Z</updated>
     
-    <content type="html"><![CDATA[<h4 id="安装supervisor服务">安装supervisor服务</h4><p><a href="http://supervisord.org/" target="_blank" rel="noopener">地址</a> sudo yum install supervisor #### 待续 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> pip3 install service_identity</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> pip3 install channels</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> pip3 install channels_redis</span></span><br></pre></td></tr></table></figure></p>]]></content>
+    <content type="html"><![CDATA[<h4 id="安装supervisor服务">安装supervisor服务</h4><p><a href="http://supervisord.org/" target="_blank" rel="noopener">地址</a> sudo yum install supervisor # 待续 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> pip3 install service_identity</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> pip3 install channels</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> pip3 install channels_redis</span></span><br></pre></td></tr></table></figure></p>]]></content>
     
     <summary type="html">
     
