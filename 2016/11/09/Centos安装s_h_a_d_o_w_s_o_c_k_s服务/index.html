@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Python版本 python –version CentOS6.5默认安装的Python版本是2.6.6，返回值为：Python 2.6.6 安装setuptools yum install -y python-setuptools 安装完毕后，easy_install命令就可以使用了。 安装pip easy_install pip 通过easy_install安装pip是最为简单的方法。pip">
+<meta name="keywords" content="linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="centos安装s_h_a_d_o_w_s_o_c_k_s服务">
+<meta property="og:url" content="http://www.zhuohc.com/2016/11/09/Centos安装s_h_a_d_o_w_s_o_c_k_s服务/index.html">
+<meta property="og:site_name" content="zhuohc&#39;s blog">
+<meta property="og:description" content="Python版本 python –version CentOS6.5默认安装的Python版本是2.6.6，返回值为：Python 2.6.6 安装setuptools yum install -y python-setuptools 安装完毕后，easy_install命令就可以使用了。 安装pip easy_install pip 通过easy_install安装pip是最为简单的方法。pip">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-24T01:24:32.490Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="centos安装s_h_a_d_o_w_s_o_c_k_s服务">
+<meta name="twitter:description" content="Python版本 python –version CentOS6.5默认安装的Python版本是2.6.6，返回值为：Python 2.6.6 安装setuptools yum install -y python-setuptools 安装完毕后，easy_install命令就可以使用了。 安装pip easy_install pip 通过easy_install安装pip是最为简单的方法。pip">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>centos安装s_h_a_d_o_w_s_o_c_k_s服务</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2016/11/09/Python入门基础/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2016/11/09/Python将office word 转为html 并提取相关图片信息/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://www.zhuohc.com/2016/11/09/Centos安装s_h_a_d_o_w_s_o_c_k_s服务/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://www.zhuohc.com/2016/11/09/Centos安装s_h_a_d_o_w_s_o_c_k_s服务/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://www.zhuohc.com/2016/11/09/Centos安装s_h_a_d_o_w_s_o_c_k_s服务/&text=centos安装s_h_a_d_o_w_s_o_c_k_s服务"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://www.zhuohc.com/2016/11/09/Centos安装s_h_a_d_o_w_s_o_c_k_s服务/&title=centos安装s_h_a_d_o_w_s_o_c_k_s服务"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://www.zhuohc.com/2016/11/09/Centos安装s_h_a_d_o_w_s_o_c_k_s服务/&is_video=false&description=centos安装s_h_a_d_o_w_s_o_c_k_s服务"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=centos安装s_h_a_d_o_w_s_o_c_k_s服务&body=Check out this article: http://www.zhuohc.com/2016/11/09/Centos安装s_h_a_d_o_w_s_o_c_k_s服务/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://www.zhuohc.com/2016/11/09/Centos安装s_h_a_d_o_w_s_o_c_k_s服务/&title=centos安装s_h_a_d_o_w_s_o_c_k_s服务"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://www.zhuohc.com/2016/11/09/Centos安装s_h_a_d_o_w_s_o_c_k_s服务/&title=centos安装s_h_a_d_o_w_s_o_c_k_s服务"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://www.zhuohc.com/2016/11/09/Centos安装s_h_a_d_o_w_s_o_c_k_s服务/&title=centos安装s_h_a_d_o_w_s_o_c_k_s服务"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://www.zhuohc.com/2016/11/09/Centos安装s_h_a_d_o_w_s_o_c_k_s服务/&title=centos安装s_h_a_d_o_w_s_o_c_k_s服务"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://www.zhuohc.com/2016/11/09/Centos安装s_h_a_d_o_w_s_o_c_k_s服务/&name=centos安装s_h_a_d_o_w_s_o_c_k_s服务&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://www.zhuohc.com/2016/11/09/Centos安装s_h_a_d_o_w_s_o_c_k_s服务/&t=centos安装s_h_a_d_o_w_s_o_c_k_s服务"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#python版本"><span class="toc-number">1.</span> <span class="toc-text">Python版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装setuptools"><span class="toc-number">2.</span> <span class="toc-text">安装setuptools</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装pip"><span class="toc-number">3.</span> <span class="toc-text">安装pip</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装s_h_a_d_o_w_s_o_c_k_s"><span class="toc-number">4.</span> <span class="toc-text">安装s_h_a_d_o_w_s_o_c_k_s</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#s_h_a_d_o_w_s_o_c_k_s的配置和使用"><span class="toc-number">5.</span> <span class="toc-text">s_h_a_d_o_w_s_o_c_k_s的配置和使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建s_h_a_d_o_w_s_o_c_k_ss的配置文件"><span class="toc-number">6.</span> <span class="toc-text">创建s_h_a_d_o_w_s_o_c_k_ss的配置文件：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装m2crypto"><span class="toc-number">7.</span> <span class="toc-text">安装M2Crypto</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装setuptools-1"><span class="toc-number">8.</span> <span class="toc-text">安装setuptools</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装-gevent"><span class="toc-number">9.</span> <span class="toc-text">安装 gevent</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装libevent"><span class="toc-number">10.</span> <span class="toc-text">安装libevent</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#greenlet"><span class="toc-number">11.</span> <span class="toc-text">greenlet：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#命令行参数服务器端启动命令"><span class="toc-number">12.</span> <span class="toc-text">命令行参数（服务器端启动命令）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#防火墙设置如有"><span class="toc-number">13.</span> <span class="toc-text">防火墙设置（如有）</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        centos安装s_h_a_d_o_w_s_o_c_k_s服务
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">zhuohc's blog</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2016-11-09T02:22:52.000Z" itemprop="datePublished">2016-11-09</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/运维/">运维</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/linux/">linux</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h3 id="python版本">Python版本</h3>
+<pre><code>python –version</code></pre>
+<p>CentOS6.5默认安装的Python版本是2.6.6，返回值为：Python 2.6.6</p>
+<h3 id="安装setuptools">安装setuptools</h3>
+<pre><code>yum install -y python-setuptools</code></pre>
+<p>安装完毕后，easy_install命令就可以使用了。</p>
+<h3 id="安装pip">安装pip</h3>
+<p>easy_install pip 通过easy_install安装pip是最为简单的方法。pip默认安装到/usr/bin目录下。</p>
+<h3 id="安装s_h_a_d_o_w_s_o_c_k_s">安装s_h_a_d_o_w_s_o_c_k_s</h3>
+<pre><code>pip install shadowsocks</code></pre>
+<h3 id="s_h_a_d_o_w_s_o_c_k_s的配置和使用">s_h_a_d_o_w_s_o_c_k_s的配置和使用</h3>
+<p>至于s_h_a_d_o_w_s_o_c_k_s可以拿来做什么，这里就毋须赘述了。直接开始吧。</p>
+<h3 id="创建s_h_a_d_o_w_s_o_c_k_ss的配置文件">创建s_h_a_d_o_w_s_o_c_k_ss的配置文件：</h3>
+<p>CentOS下通过vim创建该配置，运行命令： vi /etc/shadowsocks.json</p>
+<pre><code>{
+&quot;server&quot;:&quot;your_server_ip&quot;,
+&quot;server_port&quot;:8989,
+&quot;local_address&quot;: &quot;127.0.0.1&quot;,
+&quot;local_port&quot;:1080,
+&quot;password&quot;:&quot;yourpassword&quot;,
+&quot;timeout&quot;:600,
+&quot;method&quot;:&quot;aes-256-cfb&quot;,
+&quot;fast_open&quot;: false,
+&quot;workers&quot;: 1
+}</code></pre>
+<p>各字段的含义： server：服务器 IP (IPv4/IPv6)，注意这也将是服务端监听的 IP 地址<br>
+server_port：监听的服务器端口<br>
+local_address：本地监听的 IP 地址<br>
+local_port：本地端端口<br>
+password：用来加密的密码<br>
+timeout：超时时间（秒）<br>
+method：加密方法，可选择 “bf-cfb”, “aes-256-cfb”, “des-cfb”, “rc4″, 等等。默认是一种不安全的加密，推荐用 “aes-256-cfb” fast_open：true 或 false。如果你的服务器 Linux 内核在3.7+，可以开启 fast_open 以降低延迟。开启方法： echo 3 &gt; /proc/sys/net/ipv4/tcp_fastopen<br>
+开启之后，将 fast_open 的配置设置为 true 即可。<br>
+works：works数量，默认为 1</p>
+<h3 id="安装m2crypto">安装M2Crypto</h3>
+<p>默认加密方法 table 速度很快，但很不安全。推荐使用 “aes-256-cfb” 或者 “bf-cfb”。请不要使用 “rc4″，它不安全。如果选择 “table” 之外的加密，需要安装 M2Crypto。 先安装依赖包：</p>
+<pre><code>yum install -y openssl-devel gcc swig python-devel autoconf libtool</code></pre>
+<h3 id="安装setuptools-1">安装setuptools</h3>
+<pre><code>wget --no-check-certificate https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py
+python ez_setup.py install</code></pre>
+<p>再通过pip安装M2Crypto：</p>
+<pre><code>pip install M2Crypto</code></pre>
+<h3 id="安装-gevent">安装 gevent</h3>
+<p>安装 gevent可以提高 Shadowsocks 的性能。CentOS下安装gevent依赖libevent和greenlet。</p>
+<h3 id="安装libevent">安装libevent</h3>
+<pre><code>yum install -y libevent</code></pre>
+<h3 id="greenlet">greenlet：</h3>
+<pre><code>pip install greenlet</code></pre>
+<p>###安装gevent：</p>
+<pre><code>pip install gevent</code></pre>
+<h3 id="命令行参数服务器端启动命令">命令行参数（服务器端启动命令）</h3>
+<pre><code>ssserver -c /etc/shadowsocks.json</code></pre>
+<p>如果想在后台一直运行Shadowsocks，启动命令如下：</p>
+<pre><code>nohup ssserver -c /etc/shadowsocks.json &gt; /dev/null 2&gt;&amp;1 &amp;</code></pre>
+<p>备注：关于nohup，是可以让程序在后台运行的命令。 同时可以用命令行参数覆盖 /etc/shadowsocks.json 里的设置：</p>
+<pre><code>sslocal -s 服务器地址 -p 服务器端口 -l 本地端端口 -k 密码 -m 加密方法
+ssserver -p 服务器端口 -k 密码 -m 加密方法</code></pre>
+<p>备注：sslocal是客户端程序；ssserver是服务端程序。</p>
+<h3 id="防火墙设置如有">防火墙设置（如有）</h3>
+<p>编辑防火墙配置文件/etc/sysconfig/iptables，将服务器端口（server_port）放行。<br>
+新增一条防火墙规则：</p>
+<pre><code>iptables -A INPUT -m state --state NEW -m tcp -p tcp --dport 8989 -j ACCEPT</code></pre>
+<p>先要保存下:</p>
+<pre><code>service iptables save</code></pre>
+<p>重启防火墙iptables：</p>
+<pre><code>service iptables restart</code></pre>
+<p>至此，服务器端的 Shadowsocks 安装和配置完毕。 配置多个用户</p>
+<pre><code>{
+&quot;timeout&quot;: 600,
+&quot;method&quot;: &quot;aes-256-cfb&quot;,
+&quot;port_password&quot;:
+{
+&quot;40001&quot;: &quot;password1&quot;,
+&quot;40002&quot;: &quot;password2&quot;,
+&quot;40003&quot;: &quot;password3&quot;
+},
+&quot;_comment&quot;:
+{
+&quot;40001&quot;: &quot;xiaoming&quot;,
+&quot;40002&quot;: &quot;lilei&quot;,
+&quot;40003&quot;: &quot;mike&quot;
+}
+}</code></pre>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#python版本"><span class="toc-number">1.</span> <span class="toc-text">Python版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装setuptools"><span class="toc-number">2.</span> <span class="toc-text">安装setuptools</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装pip"><span class="toc-number">3.</span> <span class="toc-text">安装pip</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装s_h_a_d_o_w_s_o_c_k_s"><span class="toc-number">4.</span> <span class="toc-text">安装s_h_a_d_o_w_s_o_c_k_s</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#s_h_a_d_o_w_s_o_c_k_s的配置和使用"><span class="toc-number">5.</span> <span class="toc-text">s_h_a_d_o_w_s_o_c_k_s的配置和使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建s_h_a_d_o_w_s_o_c_k_ss的配置文件"><span class="toc-number">6.</span> <span class="toc-text">创建s_h_a_d_o_w_s_o_c_k_ss的配置文件：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装m2crypto"><span class="toc-number">7.</span> <span class="toc-text">安装M2Crypto</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装setuptools-1"><span class="toc-number">8.</span> <span class="toc-text">安装setuptools</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装-gevent"><span class="toc-number">9.</span> <span class="toc-text">安装 gevent</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装libevent"><span class="toc-number">10.</span> <span class="toc-text">安装libevent</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#greenlet"><span class="toc-number">11.</span> <span class="toc-text">greenlet：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#命令行参数服务器端启动命令"><span class="toc-number">12.</span> <span class="toc-text">命令行参数（服务器端启动命令）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#防火墙设置如有"><span class="toc-number">13.</span> <span class="toc-text">防火墙设置（如有）</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://www.zhuohc.com/2016/11/09/Centos安装s_h_a_d_o_w_s_o_c_k_s服务/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://www.zhuohc.com/2016/11/09/Centos安装s_h_a_d_o_w_s_o_c_k_s服务/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://www.zhuohc.com/2016/11/09/Centos安装s_h_a_d_o_w_s_o_c_k_s服务/&text=centos安装s_h_a_d_o_w_s_o_c_k_s服务"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://www.zhuohc.com/2016/11/09/Centos安装s_h_a_d_o_w_s_o_c_k_s服务/&title=centos安装s_h_a_d_o_w_s_o_c_k_s服务"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://www.zhuohc.com/2016/11/09/Centos安装s_h_a_d_o_w_s_o_c_k_s服务/&is_video=false&description=centos安装s_h_a_d_o_w_s_o_c_k_s服务"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=centos安装s_h_a_d_o_w_s_o_c_k_s服务&body=Check out this article: http://www.zhuohc.com/2016/11/09/Centos安装s_h_a_d_o_w_s_o_c_k_s服务/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://www.zhuohc.com/2016/11/09/Centos安装s_h_a_d_o_w_s_o_c_k_s服务/&title=centos安装s_h_a_d_o_w_s_o_c_k_s服务"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://www.zhuohc.com/2016/11/09/Centos安装s_h_a_d_o_w_s_o_c_k_s服务/&title=centos安装s_h_a_d_o_w_s_o_c_k_s服务"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://www.zhuohc.com/2016/11/09/Centos安装s_h_a_d_o_w_s_o_c_k_s服务/&title=centos安装s_h_a_d_o_w_s_o_c_k_s服务"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://www.zhuohc.com/2016/11/09/Centos安装s_h_a_d_o_w_s_o_c_k_s服务/&title=centos安装s_h_a_d_o_w_s_o_c_k_s服务"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://www.zhuohc.com/2016/11/09/Centos安装s_h_a_d_o_w_s_o_c_k_s服务/&name=centos安装s_h_a_d_o_w_s_o_c_k_s服务&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://www.zhuohc.com/2016/11/09/Centos安装s_h_a_d_o_w_s_o_c_k_s服务/&t=centos安装s_h_a_d_o_w_s_o_c_k_s服务"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2019 zhuohanchang
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight .code pre").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      target: function(trigger) {
+        return trigger.nextElementSibling;
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>

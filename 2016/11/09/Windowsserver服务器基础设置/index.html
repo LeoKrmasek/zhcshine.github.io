@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="远程连接 禁止administrators组远程连接  运行gpedit.msc 计算机配置-&amp;gt;windows设置-&amp;gt;安全设置-&amp;gt;本地策略-&amp;gt;用户权限分配-&amp;gt;通过终端服务允许登录 将Administrators账号删除掉,保留Remote Desktop Users  创建新的用户  本地用户和组-&amp;gt;用户右键-&amp;gt;新用户-&amp;gt;输入用户名，设置密码 添加A">
+<meta name="keywords" content="windows">
+<meta property="og:type" content="article">
+<meta property="og:title" content="windowsserver服务器基础设置">
+<meta property="og:url" content="http://www.zhuohc.com/2016/11/09/Windowsserver服务器基础设置/index.html">
+<meta property="og:site_name" content="zhuohc&#39;s blog">
+<meta property="og:description" content="远程连接 禁止administrators组远程连接  运行gpedit.msc 计算机配置-&amp;gt;windows设置-&amp;gt;安全设置-&amp;gt;本地策略-&amp;gt;用户权限分配-&amp;gt;通过终端服务允许登录 将Administrators账号删除掉,保留Remote Desktop Users  创建新的用户  本地用户和组-&amp;gt;用户右键-&amp;gt;新用户-&amp;gt;输入用户名，设置密码 添加A">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-24T01:36:42.606Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="windowsserver服务器基础设置">
+<meta name="twitter:description" content="远程连接 禁止administrators组远程连接  运行gpedit.msc 计算机配置-&amp;gt;windows设置-&amp;gt;安全设置-&amp;gt;本地策略-&amp;gt;用户权限分配-&amp;gt;通过终端服务允许登录 将Administrators账号删除掉,保留Remote Desktop Users  创建新的用户  本地用户和组-&amp;gt;用户右键-&amp;gt;新用户-&amp;gt;输入用户名，设置密码 添加A">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>windowsserver服务器基础设置</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2016/11/10/Css兼容性汇总/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2016/11/09/Thinkphp入门基础/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://www.zhuohc.com/2016/11/09/Windowsserver服务器基础设置/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://www.zhuohc.com/2016/11/09/Windowsserver服务器基础设置/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://www.zhuohc.com/2016/11/09/Windowsserver服务器基础设置/&text=windowsserver服务器基础设置"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://www.zhuohc.com/2016/11/09/Windowsserver服务器基础设置/&title=windowsserver服务器基础设置"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://www.zhuohc.com/2016/11/09/Windowsserver服务器基础设置/&is_video=false&description=windowsserver服务器基础设置"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=windowsserver服务器基础设置&body=Check out this article: http://www.zhuohc.com/2016/11/09/Windowsserver服务器基础设置/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://www.zhuohc.com/2016/11/09/Windowsserver服务器基础设置/&title=windowsserver服务器基础设置"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://www.zhuohc.com/2016/11/09/Windowsserver服务器基础设置/&title=windowsserver服务器基础设置"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://www.zhuohc.com/2016/11/09/Windowsserver服务器基础设置/&title=windowsserver服务器基础设置"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://www.zhuohc.com/2016/11/09/Windowsserver服务器基础设置/&title=windowsserver服务器基础设置"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://www.zhuohc.com/2016/11/09/Windowsserver服务器基础设置/&name=windowsserver服务器基础设置&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://www.zhuohc.com/2016/11/09/Windowsserver服务器基础设置/&t=windowsserver服务器基础设置"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#远程连接"><span class="toc-number">1.</span> <span class="toc-text">远程连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#防火墙"><span class="toc-number">2.</span> <span class="toc-text">防火墙</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ftp"><span class="toc-number">3.</span> <span class="toc-text">FTP</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        windowsserver服务器基础设置
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">zhuohc's blog</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2016-11-09T08:04:17.000Z" itemprop="datePublished">2016-11-09</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/运维/">运维</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/windows/">windows</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h3 id="远程连接">远程连接</h3>
+<p>禁止administrators组远程连接</p>
+<blockquote>
+<p>运行gpedit.msc<br>
+计算机配置-&gt;windows设置-&gt;安全设置-&gt;本地策略-&gt;用户权限分配-&gt;通过终端服务允许登录<br>
+将Administrators账号删除掉,保留Remote Desktop Users</p>
+</blockquote>
+<p>创建新的用户</p>
+<blockquote>
+<p>本地用户和组-&gt;用户右键-&gt;新用户-&gt;输入用户名，设置密码 添加Administrators组，Remote Desktop Users组</p>
+</blockquote>
+<p>限制登陆次数</p>
+<blockquote>
+<p>计算机配置-&gt;windows设置-&gt;安全设置-&gt;账户策略-&gt;账户锁定策略”，“账户锁定阈值”设置为 20后，系统会自动设置锁定时间和计数器</p>
+</blockquote>
+<p>3389端口修改</p>
+<blockquote>
+<p>修改注册表，是不是需要修改？</p>
+</blockquote>
+<p>超过2个远程连接处理办法及规避方法</p>
+<pre><code>mstsc /console /v:10.10.10.10:3389</code></pre>
+<blockquote>
+<p>开始－管理工具－终端服务配置－服务器配置－限制每个用户使用一个会话</p>
+</blockquote>
+<h3 id="防火墙">防火墙</h3>
+<p>开启防火墙</p>
+<blockquote>
+<p>控制面板&gt;防火墙&gt;开启<br>
+例外里勾选远程桌面,保证服务器可以正常连接<br>
+其他情况就在添加端口里添加即可</p>
+</blockquote>
+<h3 id="ftp">FTP</h3>
+<p>开启ftp</p>
+<blockquote>
+<p>在控制面板的添加/删除程序——Windows组件向导——应用程序服务器——Internet信息服务(IIS)中选中“文件传输协议(FTP)服务”。<br>
+需要文件夹AMD64 设置一个ftp用户ftpuser<br>
+在ftp设置中关掉允许匿名连接<br>
+主目录中本地路径为E:\FTP<br>
+不要勾选写入权限<br>
+默认ftp站点新建虚拟目录ftpuser 路径E:\FTP\ftpuser<br>
+在防火墙上开启20，21端口 在ftp客户端选择port主动模式，主动模式不需要服务器开启其他端口</p>
+</blockquote>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#远程连接"><span class="toc-number">1.</span> <span class="toc-text">远程连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#防火墙"><span class="toc-number">2.</span> <span class="toc-text">防火墙</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ftp"><span class="toc-number">3.</span> <span class="toc-text">FTP</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://www.zhuohc.com/2016/11/09/Windowsserver服务器基础设置/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://www.zhuohc.com/2016/11/09/Windowsserver服务器基础设置/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://www.zhuohc.com/2016/11/09/Windowsserver服务器基础设置/&text=windowsserver服务器基础设置"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://www.zhuohc.com/2016/11/09/Windowsserver服务器基础设置/&title=windowsserver服务器基础设置"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://www.zhuohc.com/2016/11/09/Windowsserver服务器基础设置/&is_video=false&description=windowsserver服务器基础设置"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=windowsserver服务器基础设置&body=Check out this article: http://www.zhuohc.com/2016/11/09/Windowsserver服务器基础设置/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://www.zhuohc.com/2016/11/09/Windowsserver服务器基础设置/&title=windowsserver服务器基础设置"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://www.zhuohc.com/2016/11/09/Windowsserver服务器基础设置/&title=windowsserver服务器基础设置"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://www.zhuohc.com/2016/11/09/Windowsserver服务器基础设置/&title=windowsserver服务器基础设置"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://www.zhuohc.com/2016/11/09/Windowsserver服务器基础设置/&title=windowsserver服务器基础设置"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://www.zhuohc.com/2016/11/09/Windowsserver服务器基础设置/&name=windowsserver服务器基础设置&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://www.zhuohc.com/2016/11/09/Windowsserver服务器基础设置/&t=windowsserver服务器基础设置"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2019 zhuohanchang
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight .code pre").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      target: function(trigger) {
+        return trigger.nextElementSibling;
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>

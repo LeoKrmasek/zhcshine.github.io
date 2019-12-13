@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="查看文件夹大小 1du -h your_path --max-depth=1 参数： &amp;gt; -a或-all 为每个指定文件显示磁盘使用情况，或者为目录中每个文件显示各自磁盘使用情况。  -b或-bytes 显示目录或文件大小时，以byte为单位。   -c或–total 除了显示目录或文件的大小外，同时也显示所有目录或文件的总和。   -D或–dereference-args 显示指定符号连接">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux命令记录">
+<meta property="og:url" content="http://www.zhuohc.com/2017/11/08/Linux命令记录/index.html">
+<meta property="og:site_name" content="zhuohc&#39;s blog">
+<meta property="og:description" content="查看文件夹大小 1du -h your_path --max-depth=1 参数： &amp;gt; -a或-all 为每个指定文件显示磁盘使用情况，或者为目录中每个文件显示各自磁盘使用情况。  -b或-bytes 显示目录或文件大小时，以byte为单位。   -c或–total 除了显示目录或文件的大小外，同时也显示所有目录或文件的总和。   -D或–dereference-args 显示指定符号连接">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-12-13T06:13:15.843Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="linux命令记录">
+<meta name="twitter:description" content="查看文件夹大小 1du -h your_path --max-depth=1 参数： &amp;gt; -a或-all 为每个指定文件显示磁盘使用情况，或者为目录中每个文件显示各自磁盘使用情况。  -b或-bytes 显示目录或文件大小时，以byte为单位。   -c或–total 除了显示目录或文件的大小外，同时也显示所有目录或文件的总和。   -D或–dereference-args 显示指定符号连接">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>linux命令记录</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2017/11/20/Ubuntu16.04安装及使用docker(一)/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2017/11/07/Ubuntu本地配置SSL/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://www.zhuohc.com/2017/11/08/Linux命令记录/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://www.zhuohc.com/2017/11/08/Linux命令记录/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://www.zhuohc.com/2017/11/08/Linux命令记录/&text=linux命令记录"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://www.zhuohc.com/2017/11/08/Linux命令记录/&title=linux命令记录"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://www.zhuohc.com/2017/11/08/Linux命令记录/&is_video=false&description=linux命令记录"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=linux命令记录&body=Check out this article: http://www.zhuohc.com/2017/11/08/Linux命令记录/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://www.zhuohc.com/2017/11/08/Linux命令记录/&title=linux命令记录"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://www.zhuohc.com/2017/11/08/Linux命令记录/&title=linux命令记录"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://www.zhuohc.com/2017/11/08/Linux命令记录/&title=linux命令记录"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://www.zhuohc.com/2017/11/08/Linux命令记录/&title=linux命令记录"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://www.zhuohc.com/2017/11/08/Linux命令记录/&name=linux命令记录&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://www.zhuohc.com/2017/11/08/Linux命令记录/&t=linux命令记录"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#查看文件夹大小"><span class="toc-number">1.</span> <span class="toc-text">查看文件夹大小</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#pkg-config"><span class="toc-number">2.</span> <span class="toc-text">pkg-config</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#端口与进程"><span class="toc-number">3.</span> <span class="toc-text">端口与进程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#systemctl"><span class="toc-number">4.</span> <span class="toc-text">systemctl</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        linux命令记录
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">zhuohc's blog</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2017-11-08T06:41:40.000Z" itemprop="datePublished">2017-11-08</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/运维/">运维</a>
+    </div>
+
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h4 id="查看文件夹大小">查看文件夹大小</h4>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">du -h your_path --max-depth=1</span><br></pre></td></tr></table></figure>
+<p><strong>参数：</strong> &gt; -a或-all 为每个指定文件显示磁盘使用情况，或者为目录中每个文件显示各自磁盘使用情况。</p>
+<blockquote>
+<p>-b或-bytes 显示目录或文件大小时，以byte为单位。</p>
+</blockquote>
+<blockquote>
+<p>-c或–total 除了显示目录或文件的大小外，同时也显示所有目录或文件的总和。</p>
+</blockquote>
+<blockquote>
+<p>-D或–dereference-args 显示指定符号连接的源文件大小。</p>
+</blockquote>
+<blockquote>
+<p>-h或–human-readable 以K，M，G为单位，提高信息的可读性。</p>
+</blockquote>
+<blockquote>
+<p>-H或–si 与-h参数相同，但是K，M，G是以1000为换算单位,而不是以1024为换算单位。</p>
+</blockquote>
+<blockquote>
+<p>-k或–kilobytes 以1024 bytes为单位。</p>
+</blockquote>
+<blockquote>
+<p>-l或–count-links 重复计算硬件连接的文件。</p>
+</blockquote>
+<blockquote>
+<p>-L<符号连接>或–dereference<符号连接> 显示选项中所指定符号连接的源文件大小。</符号连接></符号连接></p>
+</blockquote>
+<blockquote>
+<p>-m或–megabytes 以1MB为单位。</p>
+</blockquote>
+<blockquote>
+<p>-s或–summarize 仅显示总计，即当前目录的大小。</p>
+</blockquote>
+<blockquote>
+<p>-S或–separate-dirs 显示每个目录的大小时，并不含其子目录的大小。</p>
+</blockquote>
+<blockquote>
+<p>-x或–one-file-xystem 以一开始处理时的文件系统为准，若遇上其它不同的文件系统目录则略过。</p>
+</blockquote>
+<blockquote>
+<p>-X<文件>或–exclude-from=<文件> 在<文件>指定目录或文件。</文件></文件></文件></p>
+</blockquote>
+<blockquote>
+<p>–exclude=<目录或文件> 略过指定的目录或文件。</目录或文件></p>
+</blockquote>
+<blockquote>
+<p>–max-depth=<目录层数> 超过指定层数的目录后，予以忽略。</目录层数></p>
+</blockquote>
+<blockquote>
+<p>–help 显示帮助。</p>
+</blockquote>
+<blockquote>
+<p>–version 显示版本信息</p>
+</blockquote>
+<h4 id="pkg-config">pkg-config</h4>
+<p><strong>作用</strong> &gt; 检查库的版本号。如果所需要的库的版本不满足要求，它会打印出错误信息，避免链接错误版本的库文件。</p>
+<blockquote>
+<p>获得编译预处理参数，如宏定义，头文件的位置。</p>
+</blockquote>
+<blockquote>
+<p>获得链接参数，如库及依赖的其它库的位置，文件名及其它一些连接参数。</p>
+</blockquote>
+<blockquote>
+<p>自动加入所依赖的其它库的设置。</p>
+</blockquote>
+<p><strong>命令</strong> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> pkg-config --cflags --libs gdk-3.0</span></span><br><span class="line">-I/usr/include/gtk-3.0 -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/lib/libffi-3.2.1/include -I/usr/include/fribidi -I/usr/include/harfbuzz -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/uuid -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/gio-unix-2.0 -pthread -I/usr/include/libdrm -lgdk-3 -lz -lpangocairo-1.0 -lpango-1.0 -lgdk_pixbuf-2.0 -lcairo-gobject -lcairo -lgobject-2.0 -lglib-2.0</span><br></pre></td></tr></table></figure></p>
+<p><strong>PKG_CONFIG_PATH</strong> 环境变量PKG_CONFIG_PATH是用来设置.pc文件的搜索路径的，pkg-config按照设置路径的先后顺序进行搜索，直到找到指定的.pc 文件为止。这样，库的头文件的搜索路径的设置实际上就变成了对.pc文件搜索路径的设置。</p>
+<p>在安装完一个需要使用的库后，比如Glib，一是将相应的.pc文件，如glib-2.0.pc拷贝到/usr/lib/pkgconfig目录下，二是通过设置环境变量PKG_CONFIG_PATH添加glib-2.0.pc文件的搜索路径。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 添加环境变量PKG_CONFIG_PATH，在bash中应该进行如下设置：</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">export</span> PKG_CONFIG_PATH=/opt/gtk/lib/pkgconfig:<span class="variable">$PKG_CONFIG_PATH</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 可以执行下面的命令检查是否 /opt/gtk/lib/pkgconfig 路径已经设置在PKG_CONFIG_PATH环境变量中：</span></span><br><span class="line">echo $PKG_CONFIG_PATH</span><br></pre></td></tr></table></figure>
+<p><strong>原理</strong> 正常情况下，库文件在编译通过后会生成prefix/lib/pkgconfig目录，目录下会包含.pc文件，例如：  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ls -la /usr/include/gtk3.24/lib/pkgconfig</span></span><br><span class="line">总用量 40</span><br><span class="line">drwxr-xr-x 2 root root 4096  7月 24 15:56 .</span><br><span class="line">drwxr-xr-x 4 root root 4096  7月 24 15:56 ..</span><br><span class="line">-rw-r--r-- 1 root root  277  7月 24 15:56 gail-3.0.pc</span><br><span class="line">-rw-r--r-- 1 root root  608  7月 24 15:56 gdk-3.0.pc</span><br><span class="line">-rw-r--r-- 1 root root  608  7月 24 15:56 gdk-wayland-3.0.pc</span><br><span class="line">-rw-r--r-- 1 root root  608  7月 24 15:56 gdk-x11-3.0.pc</span><br><span class="line">-rw-r--r-- 1 root root  631  7月 24 15:56 gtk+-3.0.pc</span><br><span class="line">-rw-r--r-- 1 root root  405  7月 24 15:56 gtk+-unix-print-3.0.pc</span><br><span class="line">-rw-r--r-- 1 root root  631  7月 24 15:56 gtk+-wayland-3.0.pc</span><br><span class="line">-rw-r--r-- 1 root root  631  7月 24 15:56 gtk+-x11-3.0.pc</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> vim gtk+-3.0</span></span><br><span class="line"></span><br><span class="line">prefix=/usr/include/gtk3.24</span><br><span class="line">exec_prefix=$&#123;prefix&#125;</span><br><span class="line">libdir=$&#123;exec_prefix&#125;/lib</span><br><span class="line">includedir=$&#123;prefix&#125;/include</span><br><span class="line">targets=x11 wayland</span><br><span class="line"> </span><br><span class="line">gtk_binary_version=3.0.0</span><br><span class="line">gtk_host=x86_64-pc-linux-gnu</span><br><span class="line"> </span><br><span class="line">Name: GTK+</span><br><span class="line">Description: GTK+ Graphical UI Library</span><br><span class="line">Version: 3.24.10</span><br><span class="line">Requires: gdk-3.0 atk &gt;= 2.15.1 cairo &gt;= 1.14.0 cairo-gobject &gt;= 1.14.0 gdk-pixbuf-2.0 &gt;= 2.30.0 gio-2.0 &gt;= 2.53.4                                                                                        </span><br><span class="line">Requires.private: atk atk-bridge-2.0 wayland-client &gt;= 1.9.91 wayland-protocols &gt;= 1.12 xkbcommon &gt;= 0.2.0 wayland-cursor &gt;= 1.9.91 wayland-egl  epoxy &gt;= 1.4 fribidi &gt;= 0.19.7 pangoft2 gio-unix-2.0 &gt;= 2</span><br><span class="line">Libs: -L$&#123;libdir&#125; -lgtk-3</span><br><span class="line">Cflags: -I$&#123;includedir&#125;/gtk-3.0</span><br></pre></td></tr></table></figure>
+<h4 id="端口与进程">端口与进程</h4>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo netstat -nap | grep 5555  <span class="comment"># 查看指定端口被什么应用及进程号占用</span></span></span><br><span class="line">tcp        0      0 0.0.0.0:5555            0.0.0.0:*               LISTEN      8362/python</span><br><span class="line">tcp6       0      0 :::5555                 :::*                    LISTEN      8362/python</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo netstat -nap | grep 8362  <span class="comment"># 同上，查看端口号</span></span></span><br><span class="line">tcp        0      0 0.0.0.0:5555            0.0.0.0:*               LISTEN      8362/python                                       │apps                 product.sh        tmp</span><br><span class="line">tcp6       0      0 :::5555                 :::*                    LISTEN      8362/python                                       │➜  api git:(master) source .env/bin/activate</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     75201340 8362/python                                                            │(.env) ➜  api git:(master) pwd</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     75201341 8362/python                          </span><br><span class="line"></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo <span class="built_in">kill</span> -s 9 pid  <span class="comment"># 杀死进程pid</span></span></span><br></pre></td></tr></table></figure>
+<h4 id="systemctl">systemctl</h4>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 可以返回systemd service文件路径</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo systemctl edit rabbitmq-server.service</span></span><br></pre></td></tr></table></figure>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#查看文件夹大小"><span class="toc-number">1.</span> <span class="toc-text">查看文件夹大小</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#pkg-config"><span class="toc-number">2.</span> <span class="toc-text">pkg-config</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#端口与进程"><span class="toc-number">3.</span> <span class="toc-text">端口与进程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#systemctl"><span class="toc-number">4.</span> <span class="toc-text">systemctl</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://www.zhuohc.com/2017/11/08/Linux命令记录/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://www.zhuohc.com/2017/11/08/Linux命令记录/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://www.zhuohc.com/2017/11/08/Linux命令记录/&text=linux命令记录"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://www.zhuohc.com/2017/11/08/Linux命令记录/&title=linux命令记录"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://www.zhuohc.com/2017/11/08/Linux命令记录/&is_video=false&description=linux命令记录"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=linux命令记录&body=Check out this article: http://www.zhuohc.com/2017/11/08/Linux命令记录/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://www.zhuohc.com/2017/11/08/Linux命令记录/&title=linux命令记录"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://www.zhuohc.com/2017/11/08/Linux命令记录/&title=linux命令记录"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://www.zhuohc.com/2017/11/08/Linux命令记录/&title=linux命令记录"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://www.zhuohc.com/2017/11/08/Linux命令记录/&title=linux命令记录"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://www.zhuohc.com/2017/11/08/Linux命令记录/&name=linux命令记录&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://www.zhuohc.com/2017/11/08/Linux命令记录/&t=linux命令记录"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2019 zhuohanchang
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight .code pre").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      target: function(trigger) {
+        return trigger.nextElementSibling;
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>
