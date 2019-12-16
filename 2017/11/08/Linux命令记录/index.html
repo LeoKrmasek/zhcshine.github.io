@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="zhuohc&#39;s blog">
 <meta property="og:description" content="查看文件夹大小 1du -h your_path --max-depth=1 参数： &amp;gt; -a或-all 为每个指定文件显示磁盘使用情况，或者为目录中每个文件显示各自磁盘使用情况。  -b或-bytes 显示目录或文件大小时，以byte为单位。   -c或–total 除了显示目录或文件的大小外，同时也显示所有目录或文件的总和。   -D或–dereference-args 显示指定符号连接">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-12-13T06:13:15.843Z">
+<meta property="og:updated_time" content="2019-12-13T06:26:24.150Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux命令记录">
 <meta name="twitter:description" content="查看文件夹大小 1du -h your_path --max-depth=1 参数： &amp;gt; -a或-all 为每个指定文件显示磁盘使用情况，或者为目录中每个文件显示各自磁盘使用情况。  -b或-bytes 显示目录或文件大小时，以byte为单位。   -c或–total 除了显示目录或文件的大小外，同时也显示所有目录或文件的总和。   -D或–dereference-args 显示指定符号连接">
@@ -106,7 +106,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#查看文件夹大小"><span class="toc-number">1.</span> <span class="toc-text">查看文件夹大小</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#pkg-config"><span class="toc-number">2.</span> <span class="toc-text">pkg-config</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#端口与进程"><span class="toc-number">3.</span> <span class="toc-text">端口与进程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#systemctl"><span class="toc-number">4.</span> <span class="toc-text">systemctl</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#查看文件夹大小"><span class="toc-number">1.</span> <span class="toc-text">查看文件夹大小</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#pkg-config"><span class="toc-number">2.</span> <span class="toc-text">pkg-config</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#端口与进程"><span class="toc-number">3.</span> <span class="toc-text">端口与进程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#systemctl"><span class="toc-number">4.</span> <span class="toc-text">systemctl</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -150,7 +150,7 @@
   
 
   <div class="content" itemprop="articleBody">
-    <h4 id="查看文件夹大小">查看文件夹大小</h4>
+    <h1 id="查看文件夹大小">查看文件夹大小</h1>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">du -h your_path --max-depth=1</span><br></pre></td></tr></table></figure>
 <p><strong>参数：</strong> &gt; -a或-all 为每个指定文件显示磁盘使用情况，或者为目录中每个文件显示各自磁盘使用情况。</p>
 <blockquote>
@@ -204,7 +204,7 @@
 <blockquote>
 <p>–version 显示版本信息</p>
 </blockquote>
-<h4 id="pkg-config">pkg-config</h4>
+<h1 id="pkg-config">pkg-config</h1>
 <p><strong>作用</strong> &gt; 检查库的版本号。如果所需要的库的版本不满足要求，它会打印出错误信息，避免链接错误版本的库文件。</p>
 <blockquote>
 <p>获得编译预处理参数，如宏定义，头文件的位置。</p>
@@ -222,9 +222,9 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 可以执行下面的命令检查是否 /opt/gtk/lib/pkgconfig 路径已经设置在PKG_CONFIG_PATH环境变量中：</span></span><br><span class="line">echo $PKG_CONFIG_PATH</span><br></pre></td></tr></table></figure>
 <p><strong>原理</strong> 正常情况下，库文件在编译通过后会生成prefix/lib/pkgconfig目录，目录下会包含.pc文件，例如：  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ls -la /usr/include/gtk3.24/lib/pkgconfig</span></span><br><span class="line">总用量 40</span><br><span class="line">drwxr-xr-x 2 root root 4096  7月 24 15:56 .</span><br><span class="line">drwxr-xr-x 4 root root 4096  7月 24 15:56 ..</span><br><span class="line">-rw-r--r-- 1 root root  277  7月 24 15:56 gail-3.0.pc</span><br><span class="line">-rw-r--r-- 1 root root  608  7月 24 15:56 gdk-3.0.pc</span><br><span class="line">-rw-r--r-- 1 root root  608  7月 24 15:56 gdk-wayland-3.0.pc</span><br><span class="line">-rw-r--r-- 1 root root  608  7月 24 15:56 gdk-x11-3.0.pc</span><br><span class="line">-rw-r--r-- 1 root root  631  7月 24 15:56 gtk+-3.0.pc</span><br><span class="line">-rw-r--r-- 1 root root  405  7月 24 15:56 gtk+-unix-print-3.0.pc</span><br><span class="line">-rw-r--r-- 1 root root  631  7月 24 15:56 gtk+-wayland-3.0.pc</span><br><span class="line">-rw-r--r-- 1 root root  631  7月 24 15:56 gtk+-x11-3.0.pc</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> vim gtk+-3.0</span></span><br><span class="line"></span><br><span class="line">prefix=/usr/include/gtk3.24</span><br><span class="line">exec_prefix=$&#123;prefix&#125;</span><br><span class="line">libdir=$&#123;exec_prefix&#125;/lib</span><br><span class="line">includedir=$&#123;prefix&#125;/include</span><br><span class="line">targets=x11 wayland</span><br><span class="line"> </span><br><span class="line">gtk_binary_version=3.0.0</span><br><span class="line">gtk_host=x86_64-pc-linux-gnu</span><br><span class="line"> </span><br><span class="line">Name: GTK+</span><br><span class="line">Description: GTK+ Graphical UI Library</span><br><span class="line">Version: 3.24.10</span><br><span class="line">Requires: gdk-3.0 atk &gt;= 2.15.1 cairo &gt;= 1.14.0 cairo-gobject &gt;= 1.14.0 gdk-pixbuf-2.0 &gt;= 2.30.0 gio-2.0 &gt;= 2.53.4                                                                                        </span><br><span class="line">Requires.private: atk atk-bridge-2.0 wayland-client &gt;= 1.9.91 wayland-protocols &gt;= 1.12 xkbcommon &gt;= 0.2.0 wayland-cursor &gt;= 1.9.91 wayland-egl  epoxy &gt;= 1.4 fribidi &gt;= 0.19.7 pangoft2 gio-unix-2.0 &gt;= 2</span><br><span class="line">Libs: -L$&#123;libdir&#125; -lgtk-3</span><br><span class="line">Cflags: -I$&#123;includedir&#125;/gtk-3.0</span><br></pre></td></tr></table></figure>
-<h4 id="端口与进程">端口与进程</h4>
+<h1 id="端口与进程">端口与进程</h1>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo netstat -nap | grep 5555  <span class="comment"># 查看指定端口被什么应用及进程号占用</span></span></span><br><span class="line">tcp        0      0 0.0.0.0:5555            0.0.0.0:*               LISTEN      8362/python</span><br><span class="line">tcp6       0      0 :::5555                 :::*                    LISTEN      8362/python</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo netstat -nap | grep 8362  <span class="comment"># 同上，查看端口号</span></span></span><br><span class="line">tcp        0      0 0.0.0.0:5555            0.0.0.0:*               LISTEN      8362/python                                       │apps                 product.sh        tmp</span><br><span class="line">tcp6       0      0 :::5555                 :::*                    LISTEN      8362/python                                       │➜  api git:(master) source .env/bin/activate</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     75201340 8362/python                                                            │(.env) ➜  api git:(master) pwd</span><br><span class="line">unix  3      [ ]         STREAM     CONNECTED     75201341 8362/python                          </span><br><span class="line"></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo <span class="built_in">kill</span> -s 9 pid  <span class="comment"># 杀死进程pid</span></span></span><br></pre></td></tr></table></figure>
-<h4 id="systemctl">systemctl</h4>
+<h1 id="systemctl">systemctl</h1>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 可以返回systemd service文件路径</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo systemctl edit rabbitmq-server.service</span></span><br></pre></td></tr></table></figure>
 
   </div>
@@ -253,7 +253,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#查看文件夹大小"><span class="toc-number">1.</span> <span class="toc-text">查看文件夹大小</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#pkg-config"><span class="toc-number">2.</span> <span class="toc-text">pkg-config</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#端口与进程"><span class="toc-number">3.</span> <span class="toc-text">端口与进程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#systemctl"><span class="toc-number">4.</span> <span class="toc-text">systemctl</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#查看文件夹大小"><span class="toc-number">1.</span> <span class="toc-text">查看文件夹大小</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#pkg-config"><span class="toc-number">2.</span> <span class="toc-text">pkg-config</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#端口与进程"><span class="toc-number">3.</span> <span class="toc-text">端口与进程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#systemctl"><span class="toc-number">4.</span> <span class="toc-text">systemctl</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">

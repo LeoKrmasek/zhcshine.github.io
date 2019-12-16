@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="安装 Python版本 12# CentOS6.5默认安装的Python版本是2.6.6，返回值为：Python 2.6.6$ python –version 安装setuptools 12# 安装完毕后，easy_install命令就可以使用了。$ yum install -y python-setuptools 安装pip 12$ easy_install pip # 通过easy_insta">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="S_h_a_d_o_w_s_o_c_k_s服务">
+<meta property="og:url" content="http://www.zhuohc.com/2016/11/09/S_h_a_d_o_w_s_o_c_k_s服务/index.html">
+<meta property="og:site_name" content="zhuohc&#39;s blog">
+<meta property="og:description" content="安装 Python版本 12# CentOS6.5默认安装的Python版本是2.6.6，返回值为：Python 2.6.6$ python –version 安装setuptools 12# 安装完毕后，easy_install命令就可以使用了。$ yum install -y python-setuptools 安装pip 12$ easy_install pip # 通过easy_insta">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-12-16T09:56:21.594Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="S_h_a_d_o_w_s_o_c_k_s服务">
+<meta name="twitter:description" content="安装 Python版本 12# CentOS6.5默认安装的Python版本是2.6.6，返回值为：Python 2.6.6$ python –version 安装setuptools 12# 安装完毕后，easy_install命令就可以使用了。$ yum install -y python-setuptools 安装pip 12$ easy_install pip # 通过easy_insta">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>S_h_a_d_o_w_s_o_c_k_s服务</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2016/11/09/Python入门基础/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2016/11/09/Python将office word 转为html 并提取相关图片信息/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://www.zhuohc.com/2016/11/09/S_h_a_d_o_w_s_o_c_k_s服务/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://www.zhuohc.com/2016/11/09/S_h_a_d_o_w_s_o_c_k_s服务/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://www.zhuohc.com/2016/11/09/S_h_a_d_o_w_s_o_c_k_s服务/&text=S_h_a_d_o_w_s_o_c_k_s服务"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://www.zhuohc.com/2016/11/09/S_h_a_d_o_w_s_o_c_k_s服务/&title=S_h_a_d_o_w_s_o_c_k_s服务"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://www.zhuohc.com/2016/11/09/S_h_a_d_o_w_s_o_c_k_s服务/&is_video=false&description=S_h_a_d_o_w_s_o_c_k_s服务"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=S_h_a_d_o_w_s_o_c_k_s服务&body=Check out this article: http://www.zhuohc.com/2016/11/09/S_h_a_d_o_w_s_o_c_k_s服务/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://www.zhuohc.com/2016/11/09/S_h_a_d_o_w_s_o_c_k_s服务/&title=S_h_a_d_o_w_s_o_c_k_s服务"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://www.zhuohc.com/2016/11/09/S_h_a_d_o_w_s_o_c_k_s服务/&title=S_h_a_d_o_w_s_o_c_k_s服务"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://www.zhuohc.com/2016/11/09/S_h_a_d_o_w_s_o_c_k_s服务/&title=S_h_a_d_o_w_s_o_c_k_s服务"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://www.zhuohc.com/2016/11/09/S_h_a_d_o_w_s_o_c_k_s服务/&title=S_h_a_d_o_w_s_o_c_k_s服务"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://www.zhuohc.com/2016/11/09/S_h_a_d_o_w_s_o_c_k_s服务/&name=S_h_a_d_o_w_s_o_c_k_s服务&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://www.zhuohc.com/2016/11/09/S_h_a_d_o_w_s_o_c_k_s服务/&t=S_h_a_d_o_w_s_o_c_k_s服务"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">1.</span> <span class="toc-text">安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#python版本"><span class="toc-number">1.1.</span> <span class="toc-text">Python版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装setuptools"><span class="toc-number">1.2.</span> <span class="toc-text">安装setuptools</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装pip"><span class="toc-number">1.3.</span> <span class="toc-text">安装pip</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装-1"><span class="toc-number">1.4.</span> <span class="toc-text">安装</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置"><span class="toc-number">2.</span> <span class="toc-text">配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装m2crypto"><span class="toc-number">2.1.</span> <span class="toc-text">安装M2Crypto</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装setuptools-1"><span class="toc-number">2.2.</span> <span class="toc-text">安装setuptools</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装-gevent"><span class="toc-number">2.3.</span> <span class="toc-text">安装 gevent</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#服务器端启动"><span class="toc-number">2.4.</span> <span class="toc-text">服务器端启动</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#防火墙设置如有"><span class="toc-number">3.</span> <span class="toc-text">防火墙设置（如有）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置多个用户"><span class="toc-number">4.</span> <span class="toc-text">配置多个用户</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        S_h_a_d_o_w_s_o_c_k_s服务
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">zhuohc's blog</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2016-11-09T02:22:52.000Z" itemprop="datePublished">2016-11-09</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/运维/">运维</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/Linux/">Linux</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="安装">安装</h2>
+<h3 id="python版本">Python版本</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> CentOS6.5默认安装的Python版本是2.6.6，返回值为：Python 2.6.6</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> python –version</span></span><br></pre></td></tr></table></figure>
+<h3 id="安装setuptools">安装setuptools</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 安装完毕后，easy_install命令就可以使用了。</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> yum install -y python-setuptools</span></span><br></pre></td></tr></table></figure>
+<h3 id="安装pip">安装pip</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> easy_install pip </span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 通过easy_install安装pip是最为简单的方法。pip默认安装到/usr/bin目录下。</span></span><br></pre></td></tr></table></figure>
+<h3 id="安装-1">安装</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> pip install shadowsocks</span></span><br></pre></td></tr></table></figure>
+<h2 id="配置">配置</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> vi /etc/shadowsocks.json</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="attr">"server"</span>:<span class="string">"your_server_ip"</span>,</span><br><span class="line"><span class="attr">"server_port"</span>:<span class="number">8989</span>,</span><br><span class="line"><span class="attr">"local_address"</span>: <span class="string">"127.0.0.1"</span>,</span><br><span class="line"><span class="attr">"local_port"</span>:<span class="number">1080</span>,</span><br><span class="line"><span class="attr">"password"</span>:<span class="string">"yourpassword"</span>,</span><br><span class="line"><span class="attr">"timeout"</span>:<span class="number">600</span>,</span><br><span class="line"><span class="attr">"method"</span>:<span class="string">"aes-256-cfb"</span>,</span><br><span class="line"><span class="attr">"fast_open"</span>: <span class="literal">false</span>,</span><br><span class="line"><span class="attr">"workers"</span>: <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>各字段的含义：</p>
+</blockquote>
+<ul>
+<li>server：服务器 IP (IPv4/IPv6)，注意这也将是服务端监听的 IP 地址<br>
+</li>
+<li>server_port：监听的服务器端口<br>
+</li>
+<li>local_address：本地监听的 IP 地址<br>
+</li>
+<li>local_port：本地端端口<br>
+</li>
+<li>password：用来加密的密码<br>
+</li>
+<li>timeout：超时时间（秒）<br>
+</li>
+<li>method：加密方法，可选择 “bf-cfb”, “aes-256-cfb”, “des-cfb”, “rc4″, 等等。默认是一种不安全的加密，推荐用 “aes-256-cfb” fast-open：true 或 false。如果你的服务器 Linux 内核在3.7+，可以开启 fast-open 以降低延迟。开启方法： echo 3 &gt; /proc/sys/net/ipv4/tcp_fastopen<br>
+</li>
+<li>开启之后，将 fast_open 的配置设置为 true 即可。<br>
+</li>
+<li>works：works数量，默认为 1</li>
+</ul>
+<h3 id="安装m2crypto">安装M2Crypto</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 默认加密方法 table 速度很快，但很不安全。推荐使用 “aes-256-cfb” 或者 “bf-cfb”。请不要使用 “rc4″，它不安全。如果选择 “table” 之外的加密，需要安装 M2Crypto。 先安装依赖包：</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> yum install -y openssl-devel gcc swig python-devel autoconf libtool</span></span><br></pre></td></tr></table></figure>
+<h3 id="安装setuptools-1">安装setuptools</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> wget --no-check-certificate https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> python ez_setup.py install</span></span><br></pre></td></tr></table></figure>
+<p>再通过pip安装M2Crypto： <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> pip install M2Crypto</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="安装-gevent">安装 gevent</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 安装 gevent可以提高 Shadowsocks 的性能。CentOS下安装gevent依赖libevent和greenlet。</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> yum install -y libevent</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> pip install greenlet</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> pip install gevent</span></span><br></pre></td></tr></table></figure>
+<h3 id="服务器端启动">服务器端启动</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ssserver -c /etc/shadowsocks.json</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 如果想在后台一直运行Shadowsocks，启动命令如下：</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> nohup ssserver -c /etc/shadowsocks.json &gt; /dev/null 2&gt;&amp;1 &amp;</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 备注：关于nohup，是可以让程序在后台运行的命令。 同时可以用命令行参数覆盖 /etc/shadowsocks.json 里的设置：</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sslocal -s 服务器地址 -p 服务器端口 -l 本地端端口 -k 密码 -m 加密方法</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ssserver -p 服务器端口 -k 密码 -m 加密方法</span></span><br><span class="line">备注：sslocal是客户端程序；ssserver是服务端程序。</span><br></pre></td></tr></table></figure>
+<h2 id="防火墙设置如有">防火墙设置（如有）</h2>
+<p>编辑防火墙配置文件/etc/sysconfig/iptables，将服务器端口（server_port）放行。<br>
+新增一条防火墙规则： <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> iptables -A INPUT -m state --state NEW -m tcp -p tcp --dport 8989 -j ACCEPT</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> service iptables save</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> service iptables restart</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="配置多个用户">配置多个用户</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">{</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="dt">&quot;timeout&quot;</span><span class="fu">:</span> <span class="dv">600</span><span class="fu">,</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="dt">&quot;method&quot;</span><span class="fu">:</span> <span class="st">&quot;aes-256-cfb&quot;</span><span class="fu">,</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="dt">&quot;port_password&quot;</span><span class="fu">:</span> </span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="fu">{</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="dt">&quot;40001&quot;</span><span class="fu">:</span> <span class="st">&quot;password1&quot;</span><span class="fu">,</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="dt">&quot;40002&quot;</span><span class="fu">:</span> <span class="st">&quot;password2&quot;</span><span class="fu">,</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="dt">&quot;40003&quot;</span><span class="fu">:</span> <span class="st">&quot;password3&quot;</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="fu">},</span></span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="dt">&quot;_comment&quot;</span><span class="fu">:</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a><span class="fu">{</span></span>
+<span id="cb1-12"><a href="#cb1-12"></a><span class="dt">&quot;40001&quot;</span><span class="fu">:</span> <span class="st">&quot;xiaoming&quot;</span><span class="fu">,</span></span>
+<span id="cb1-13"><a href="#cb1-13"></a><span class="dt">&quot;40002&quot;</span><span class="fu">:</span> <span class="st">&quot;lilei&quot;</span><span class="fu">,</span></span>
+<span id="cb1-14"><a href="#cb1-14"></a><span class="dt">&quot;40003&quot;</span><span class="fu">:</span> <span class="st">&quot;mike&quot;</span></span>
+<span id="cb1-15"><a href="#cb1-15"></a><span class="fu">}</span></span>
+<span id="cb1-16"><a href="#cb1-16"></a><span class="fu">}</span></span></code></pre></div>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">1.</span> <span class="toc-text">安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#python版本"><span class="toc-number">1.1.</span> <span class="toc-text">Python版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装setuptools"><span class="toc-number">1.2.</span> <span class="toc-text">安装setuptools</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装pip"><span class="toc-number">1.3.</span> <span class="toc-text">安装pip</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装-1"><span class="toc-number">1.4.</span> <span class="toc-text">安装</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置"><span class="toc-number">2.</span> <span class="toc-text">配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装m2crypto"><span class="toc-number">2.1.</span> <span class="toc-text">安装M2Crypto</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装setuptools-1"><span class="toc-number">2.2.</span> <span class="toc-text">安装setuptools</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装-gevent"><span class="toc-number">2.3.</span> <span class="toc-text">安装 gevent</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#服务器端启动"><span class="toc-number">2.4.</span> <span class="toc-text">服务器端启动</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#防火墙设置如有"><span class="toc-number">3.</span> <span class="toc-text">防火墙设置（如有）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置多个用户"><span class="toc-number">4.</span> <span class="toc-text">配置多个用户</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://www.zhuohc.com/2016/11/09/S_h_a_d_o_w_s_o_c_k_s服务/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://www.zhuohc.com/2016/11/09/S_h_a_d_o_w_s_o_c_k_s服务/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://www.zhuohc.com/2016/11/09/S_h_a_d_o_w_s_o_c_k_s服务/&text=S_h_a_d_o_w_s_o_c_k_s服务"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://www.zhuohc.com/2016/11/09/S_h_a_d_o_w_s_o_c_k_s服务/&title=S_h_a_d_o_w_s_o_c_k_s服务"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://www.zhuohc.com/2016/11/09/S_h_a_d_o_w_s_o_c_k_s服务/&is_video=false&description=S_h_a_d_o_w_s_o_c_k_s服务"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=S_h_a_d_o_w_s_o_c_k_s服务&body=Check out this article: http://www.zhuohc.com/2016/11/09/S_h_a_d_o_w_s_o_c_k_s服务/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://www.zhuohc.com/2016/11/09/S_h_a_d_o_w_s_o_c_k_s服务/&title=S_h_a_d_o_w_s_o_c_k_s服务"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://www.zhuohc.com/2016/11/09/S_h_a_d_o_w_s_o_c_k_s服务/&title=S_h_a_d_o_w_s_o_c_k_s服务"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://www.zhuohc.com/2016/11/09/S_h_a_d_o_w_s_o_c_k_s服务/&title=S_h_a_d_o_w_s_o_c_k_s服务"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://www.zhuohc.com/2016/11/09/S_h_a_d_o_w_s_o_c_k_s服务/&title=S_h_a_d_o_w_s_o_c_k_s服务"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://www.zhuohc.com/2016/11/09/S_h_a_d_o_w_s_o_c_k_s服务/&name=S_h_a_d_o_w_s_o_c_k_s服务&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://www.zhuohc.com/2016/11/09/S_h_a_d_o_w_s_o_c_k_s服务/&t=S_h_a_d_o_w_s_o_c_k_s服务"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2019 zhuohanchang
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight .code pre").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      target: function(trigger) {
+        return trigger.nextElementSibling;
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>

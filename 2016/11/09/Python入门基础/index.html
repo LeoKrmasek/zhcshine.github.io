@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="zhuohc&#39;s blog">
 <meta property="og:description" content="1. linux源码安装（适合生产环境） 安装python3.x.x 123456789101112# 以centos系统安装python3.6.6为例$ sudo yum groupinstall &quot;Development tools&quot;$ sudo yum install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-deve">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-24T01:31:12.816Z">
+<meta property="og:updated_time" content="2019-12-13T06:26:24.680Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python入门基础">
 <meta name="twitter:description" content="1. linux源码安装（适合生产环境） 安装python3.x.x 123456789101112# 以centos系统安装python3.6.6为例$ sudo yum groupinstall &quot;Development tools&quot;$ sudo yum install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-deve">
@@ -78,7 +78,7 @@
         <li><a class="icon" href="/2016/11/09/Linux开发环境常用软件/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
-        <li><a class="icon" href="/2016/11/09/Centos安装s_h_a_d_o_w_s_o_c_k_s服务/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        <li><a class="icon" href="/2016/11/09/S_h_a_d_o_w_s_o_c_k_s服务/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
@@ -107,7 +107,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#linux源码安装适合生产环境"><span class="toc-number">1.</span> <span class="toc-text">1. linux源码安装（适合生产环境）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#pyenv安装适合开发环境"><span class="toc-number">2.</span> <span class="toc-text">2. pyenv安装(适合开发环境)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#源码安装python2.7.9"><span class="toc-number">3.</span> <span class="toc-text">源码安装python2.7.9</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#虚拟环境搭建"><span class="toc-number">4.</span> <span class="toc-text">虚拟环境搭建</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#pip安装超时"><span class="toc-number">5.</span> <span class="toc-text">pip安装超时</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装python-mysql"><span class="toc-number">6.</span> <span class="toc-text">安装python-mysql</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#获取文件修改时间"><span class="toc-number">7.</span> <span class="toc-text">获取文件修改时间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#获取多少天以前的时间"><span class="toc-number">8.</span> <span class="toc-text">获取多少天以前的时间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#去除列表重复项内容"><span class="toc-number">9.</span> <span class="toc-text">去除列表重复项内容</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#md5hash加密"><span class="toc-number">10.</span> <span class="toc-text">md5，hash加密</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#打印输出对象"><span class="toc-number">11.</span> <span class="toc-text">打印输出对象</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#windows安装python相关环境"><span class="toc-number"></span> <span class="toc-text">windows安装python相关环境</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#安装虚拟环境"><span class="toc-number">1.</span> <span class="toc-text">安装虚拟环境</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#linux源码安装适合生产环境"><span class="toc-number">1.</span> <span class="toc-text">1. linux源码安装（适合生产环境）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#pyenv安装适合开发环境"><span class="toc-number">2.</span> <span class="toc-text">2. pyenv安装(适合开发环境)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#源码安装python2.7.9"><span class="toc-number">3.</span> <span class="toc-text">源码安装python2.7.9</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#虚拟环境搭建"><span class="toc-number">4.</span> <span class="toc-text">虚拟环境搭建</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#pip安装超时"><span class="toc-number">5.</span> <span class="toc-text">pip安装超时</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装python-mysql"><span class="toc-number">6.</span> <span class="toc-text">安装python-mysql</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#获取文件修改时间"><span class="toc-number">7.</span> <span class="toc-text">获取文件修改时间</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#获取多少天以前的时间"><span class="toc-number">8.</span> <span class="toc-text">获取多少天以前的时间</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#去除列表重复项内容"><span class="toc-number">9.</span> <span class="toc-text">去除列表重复项内容</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#md5hash加密"><span class="toc-number">10.</span> <span class="toc-text">md5，hash加密</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#打印输出对象"><span class="toc-number">11.</span> <span class="toc-text">打印输出对象</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#windows安装python相关环境"><span class="toc-number">12.</span> <span class="toc-text">windows安装python相关环境</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装虚拟环境"><span class="toc-number">13.</span> <span class="toc-text">安装虚拟环境</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -156,21 +156,21 @@
   
 
   <div class="content" itemprop="articleBody">
-    <h4 id="linux源码安装适合生产环境">1. linux源码安装（适合生产环境）</h4>
+    <h1 id="linux源码安装适合生产环境">1. linux源码安装（适合生产环境）</h1>
 <p>安装python3.x.x <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 以centos系统安装python3.6.6为例</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo yum groupinstall <span class="string">"Development tools"</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo yum install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> wget https://www.python.org/ftp/python/3.6.6/Python-3.6.6.tar.xz</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tar -xJf Python-3.6.6.tar.xz</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> Python-3.6.6</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ./configure --prefix=/usr/<span class="built_in">local</span>/python3  <span class="comment"># 编译配置</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo make</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo make install</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 创建软链接</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ln -s /usr/<span class="built_in">local</span>/python3/bin/python3 /usr/bin/python3</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ln -s /usr/<span class="built_in">local</span>/python3/bin/pip3 /usr/bin/pip3</span></span><br></pre></td></tr></table></figure></p>
 <p>安装虚拟环境</p>
 <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum <span class="keyword">install</span> python-virtualenv  <span class="comment"># centos</span></span><br></pre></td></tr></table></figure>
 <p>创建项目</p>
 <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ virtualenv --no-site-packages -p /usr/bin/python3 .env-<span class="keyword">project</span></span><br><span class="line">$ source.env-<span class="keyword">project</span>/bin/active  <span class="comment"># 进入虚拟环境</span></span><br><span class="line">(.env-<span class="keyword">project</span>) deactive  <span class="comment"># 退出虚拟环境</span></span><br></pre></td></tr></table></figure>
-<h4 id="pyenv安装适合开发环境">2. pyenv安装(适合开发环境)</h4>
+<h1 id="pyenv安装适合开发环境">2. pyenv安装(适合开发环境)</h1>
 <p>安装pyenv</p>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L https:<span class="regexp">//</span>raw.githubusercontent.com<span class="regexp">/pyenv/</span>pyenv-installer<span class="regexp">/master/</span>bin<span class="regexp">/pyenv-installer | bash</span></span><br></pre></td></tr></table></figure>
 <p>设置环境变量</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> vim ~/.zshrc  <span class="comment"># 具体文件看自己的终端工具</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vim ~<span class="string">/.zshrc</span>  <span class="comment"># 具体文件看自己的终端工具</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$HOME</span>/.pyenv/bin:<span class="variable">$PATH</span></span><br><span class="line"><span class="built_in">eval</span> <span class="string">"<span class="variable">$(pyenv init -)</span>"</span></span><br><span class="line"><span class="built_in">eval</span> <span class="string">"<span class="variable">$(pyenv virtualenv-init -)</span>"</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">source</span> ~/.zshrc</span></span><br></pre></td></tr></table></figure>
 <p>检查环境</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> pyenv doctor  <span class="comment"># 如有错误，根据自己的环境解决</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>pyenv doctor  <span class="comment"># 如有错误，根据自己的环境解决</span></span><br></pre></td></tr></table></figure>
 <p>安装python3.x.x</p>
 <figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pyenv install <span class="number">3.6</span><span class="number">.6</span></span><br></pre></td></tr></table></figure>
 <p>如果pyenv下载文件缓慢，可以先下载文件到缓存中</p>
@@ -190,7 +190,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> pyenv activate <span class="built_in">test</span>-3.6.6</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> pyenv <span class="built_in">local</span> <span class="built_in">test</span>-3.6.6</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">source</span> deactivate</span></span><br></pre></td></tr></table></figure>
 <p>pyenv重建环境变量</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pyenv <span class="built_in">rehash</span></span><br></pre></td></tr></table></figure>
-<h4 id="源码安装python2.7.9">源码安装python2.7.9</h4>
+<h1 id="源码安装python2.7.9">源码安装python2.7.9</h1>
 <pre><code>$ sudo apt-get install -y openssl
 $ sudo apt-get install -y libssl-dev # 即 openssl-devel
 $ sudo apt-get install -y libffi-dev # 即 libffi-devel
@@ -228,7 +228,7 @@ _ssl _ssl.c \
 LDFLAGS=&quot;-L/usr/lib/x86_64-linux-gnu&quot; ./configure  
 make  
 sudo make install</code></pre>
-<h4 id="虚拟环境搭建">虚拟环境搭建</h4>
+<h1 id="虚拟环境搭建">虚拟环境搭建</h1>
 <p>安装</p>
 <pre><code>sudo apt-get install python-virtualenv</code></pre>
 <p>创建虚拟环境</p>
@@ -244,9 +244,9 @@ source ./bin/activate</code></pre>
 <p>虚拟环境复制</p>
 <pre><code>pip freeze &gt; requirements.txt
 pip install -r requirements.txt</code></pre>
-<h4 id="pip安装超时">pip安装超时</h4>
+<h1 id="pip安装超时">pip安装超时</h1>
 <pre><code>pip --default-timeout=100 install -U pip</code></pre>
-<h4 id="安装python-mysql">安装python-mysql</h4>
+<h1 id="安装python-mysql">安装python-mysql</h1>
 <pre><code>sudo apt-get install python-setuptools
 
 sudo apt-get install libmysqld-dev
@@ -258,18 +258,18 @@ sudo apt-get install python-dev
 sudo easy_install mysql-python</code></pre>
 <p>在终端输入以下内容,不报错则表示成功</p>
 <pre><code>import MySQLdb</code></pre>
-<h4 id="获取文件修改时间">获取文件修改时间</h4>
+<h1 id="获取文件修改时间">获取文件修改时间</h1>
 <pre><code>import time
 filemt= time.localtime(os.stat(filename).st_mtime)  #文件修改时间
 filect = time.localtime(os.stat(filename).st_ctime)  #文件创建
 print time.strftime(&quot;%Y-%m-%d&quot;,filemt)  
 print time.strftime(&quot;%Y-%m-%d&quot;,filect)</code></pre>
-<h4 id="获取多少天以前的时间">获取多少天以前的时间</h4>
+<h1 id="获取多少天以前的时间">获取多少天以前的时间</h1>
 <pre><code>import datetime
 # 30天以前的日期
 date_time = (datetime.datetime.now() - datetime.timedelta(days=30)).strftime(&quot;%Y-%m-%d&quot;)
 print date_time</code></pre>
-<h4 id="去除列表重复项内容">去除列表重复项内容</h4>
+<h1 id="去除列表重复项内容">去除列表重复项内容</h1>
 <pre><code># 如果列表里面内容为字典
 f = lambda x,y:x if y in x else x + [y]
 products = reduce(f, [[], ] + products_query)
@@ -283,18 +283,18 @@ print l2
 l1 = [&#39;b&#39;,&#39;c&#39;,&#39;d&#39;,&#39;b&#39;,&#39;c&#39;,&#39;a&#39;,&#39;a&#39;]
 l2 = sorted(set(l1),key=l1.index)
 print l2</code></pre>
-<h4 id="md5hash加密">md5，hash加密</h4>
+<h1 id="md5hash加密">md5，hash加密</h1>
 <pre><code>import hashlib
 data =  &#39;This a md5 test!&#39;
 hash_md5 = hashlib.md5(data)  # md5
 hash_md5.hexdigest()
 
 hashlib.sha1(&#39;This is a sha1 test!&#39;).hexdigest() # sha1</code></pre>
-<h4 id="打印输出对象">打印输出对象</h4>
+<h1 id="打印输出对象">打印输出对象</h1>
 <pre><code>from pprint import pprint
 pprint(vars(object))</code></pre>
 <h1 id="windows安装python相关环境">windows安装python相关环境</h1>
-<h4 id="安装虚拟环境">安装虚拟环境</h4>
+<h1 id="安装虚拟环境">安装虚拟环境</h1>
 <pre><code># 安装包
 pip install virtualenv
 # 创建虚拟环境env
@@ -330,7 +330,7 @@ deactivate</code></pre>
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#linux源码安装适合生产环境"><span class="toc-number">1.</span> <span class="toc-text">1. linux源码安装（适合生产环境）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#pyenv安装适合开发环境"><span class="toc-number">2.</span> <span class="toc-text">2. pyenv安装(适合开发环境)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#源码安装python2.7.9"><span class="toc-number">3.</span> <span class="toc-text">源码安装python2.7.9</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#虚拟环境搭建"><span class="toc-number">4.</span> <span class="toc-text">虚拟环境搭建</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#pip安装超时"><span class="toc-number">5.</span> <span class="toc-text">pip安装超时</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装python-mysql"><span class="toc-number">6.</span> <span class="toc-text">安装python-mysql</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#获取文件修改时间"><span class="toc-number">7.</span> <span class="toc-text">获取文件修改时间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#获取多少天以前的时间"><span class="toc-number">8.</span> <span class="toc-text">获取多少天以前的时间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#去除列表重复项内容"><span class="toc-number">9.</span> <span class="toc-text">去除列表重复项内容</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#md5hash加密"><span class="toc-number">10.</span> <span class="toc-text">md5，hash加密</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#打印输出对象"><span class="toc-number">11.</span> <span class="toc-text">打印输出对象</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#windows安装python相关环境"><span class="toc-number"></span> <span class="toc-text">windows安装python相关环境</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#安装虚拟环境"><span class="toc-number">1.</span> <span class="toc-text">安装虚拟环境</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#linux源码安装适合生产环境"><span class="toc-number">1.</span> <span class="toc-text">1. linux源码安装（适合生产环境）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#pyenv安装适合开发环境"><span class="toc-number">2.</span> <span class="toc-text">2. pyenv安装(适合开发环境)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#源码安装python2.7.9"><span class="toc-number">3.</span> <span class="toc-text">源码安装python2.7.9</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#虚拟环境搭建"><span class="toc-number">4.</span> <span class="toc-text">虚拟环境搭建</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#pip安装超时"><span class="toc-number">5.</span> <span class="toc-text">pip安装超时</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装python-mysql"><span class="toc-number">6.</span> <span class="toc-text">安装python-mysql</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#获取文件修改时间"><span class="toc-number">7.</span> <span class="toc-text">获取文件修改时间</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#获取多少天以前的时间"><span class="toc-number">8.</span> <span class="toc-text">获取多少天以前的时间</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#去除列表重复项内容"><span class="toc-number">9.</span> <span class="toc-text">去除列表重复项内容</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#md5hash加密"><span class="toc-number">10.</span> <span class="toc-text">md5，hash加密</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#打印输出对象"><span class="toc-number">11.</span> <span class="toc-text">打印输出对象</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#windows安装python相关环境"><span class="toc-number">12.</span> <span class="toc-text">windows安装python相关环境</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装虚拟环境"><span class="toc-number">13.</span> <span class="toc-text">安装虚拟环境</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">

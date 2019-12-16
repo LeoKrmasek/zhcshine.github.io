@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Ffmpeg基本流程 1234文件-&amp;gt;音视频流: demuxer解封装音视频流-&amp;gt;数据包: decoder解码数据包-&amp;gt;音视频流: encoder编码音视频流-&amp;gt;文件: muxer封装 Ffmpeg基本定义  文件：也叫容器Container，比如mp4文件、flv文件等，容器的类型决定了信息被存放在文件中的位置。 音视频流：  Ffmpeg录制 录制设备查询 123456">
+<meta name="keywords" content="Ffmpeg,C,C++">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ffmpeg入门基础">
+<meta property="og:url" content="http://www.zhuohc.com/2019/07/24/Ffmpeg入门基础/index.html">
+<meta property="og:site_name" content="zhuohc&#39;s blog">
+<meta property="og:description" content="Ffmpeg基本流程 1234文件-&amp;gt;音视频流: demuxer解封装音视频流-&amp;gt;数据包: decoder解码数据包-&amp;gt;音视频流: encoder编码音视频流-&amp;gt;文件: muxer封装 Ffmpeg基本定义  文件：也叫容器Container，比如mp4文件、flv文件等，容器的类型决定了信息被存放在文件中的位置。 音视频流：  Ffmpeg录制 录制设备查询 123456">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-12-16T10:56:40.468Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ffmpeg入门基础">
+<meta name="twitter:description" content="Ffmpeg基本流程 1234文件-&amp;gt;音视频流: demuxer解封装音视频流-&amp;gt;数据包: decoder解码数据包-&amp;gt;音视频流: encoder编码音视频流-&amp;gt;文件: muxer封装 Ffmpeg基本定义  文件：也叫容器Container，比如mp4文件、flv文件等，容器的类型决定了信息被存放在文件中的位置。 音视频流：  Ffmpeg录制 录制设备查询 123456">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Ffmpeg入门基础</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2019/07/24/Gtk+入门基础/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2018/11/16/Zabbix入门基础/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://www.zhuohc.com/2019/07/24/Ffmpeg入门基础/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://www.zhuohc.com/2019/07/24/Ffmpeg入门基础/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://www.zhuohc.com/2019/07/24/Ffmpeg入门基础/&text=Ffmpeg入门基础"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://www.zhuohc.com/2019/07/24/Ffmpeg入门基础/&title=Ffmpeg入门基础"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://www.zhuohc.com/2019/07/24/Ffmpeg入门基础/&is_video=false&description=Ffmpeg入门基础"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Ffmpeg入门基础&body=Check out this article: http://www.zhuohc.com/2019/07/24/Ffmpeg入门基础/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://www.zhuohc.com/2019/07/24/Ffmpeg入门基础/&title=Ffmpeg入门基础"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://www.zhuohc.com/2019/07/24/Ffmpeg入门基础/&title=Ffmpeg入门基础"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://www.zhuohc.com/2019/07/24/Ffmpeg入门基础/&title=Ffmpeg入门基础"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://www.zhuohc.com/2019/07/24/Ffmpeg入门基础/&title=Ffmpeg入门基础"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://www.zhuohc.com/2019/07/24/Ffmpeg入门基础/&name=Ffmpeg入门基础&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://www.zhuohc.com/2019/07/24/Ffmpeg入门基础/&t=Ffmpeg入门基础"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ffmpeg基本流程"><span class="toc-number">1.</span> <span class="toc-text">Ffmpeg基本流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ffmpeg基本定义"><span class="toc-number">2.</span> <span class="toc-text">Ffmpeg基本定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ffmpeg录制"><span class="toc-number">3.</span> <span class="toc-text">Ffmpeg录制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#录制设备查询"><span class="toc-number">3.1.</span> <span class="toc-text">录制设备查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fbdev"><span class="toc-number">3.2.</span> <span class="toc-text">fbdev</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v412"><span class="toc-number">3.3.</span> <span class="toc-text">v412</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#x11grab"><span class="toc-number">3.4.</span> <span class="toc-text">x11grab</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ffmpeg直播"><span class="toc-number">4.</span> <span class="toc-text">Ffmpeg直播</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#推流"><span class="toc-number">4.1.</span> <span class="toc-text">推流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#拉流"><span class="toc-number">4.2.</span> <span class="toc-text">拉流</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ffmpeg封装与解封装"><span class="toc-number">5.</span> <span class="toc-text">Ffmpeg封装与解封装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#提取yuv数据"><span class="toc-number">5.1.</span> <span class="toc-text">提取YUV数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#提取pcm数据"><span class="toc-number">5.2.</span> <span class="toc-text">提取PCM数据</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ffmpeg滤镜"><span class="toc-number">6.</span> <span class="toc-text">Ffmpeg滤镜</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#裁剪滤镜"><span class="toc-number">6.1.</span> <span class="toc-text">裁剪滤镜</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#视频裁剪"><span class="toc-number">6.2.</span> <span class="toc-text">视频裁剪</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#视频合并"><span class="toc-number">6.3.</span> <span class="toc-text">视频合并</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#视频转图片"><span class="toc-number">6.4.</span> <span class="toc-text">视频转图片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#图片转视频"><span class="toc-number">6.5.</span> <span class="toc-text">图片转视频</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Ffmpeg入门基础
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">zhuohc's blog</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2019-07-24T01:16:46.000Z" itemprop="datePublished">2019-07-24</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/后端/">后端</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/C/">C</a>, <a class="tag-link" href="/tags/C/">C++</a>, <a class="tag-link" href="/tags/Ffmpeg/">Ffmpeg</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="ffmpeg基本流程">Ffmpeg基本流程</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">文件-&gt;音视频流: demuxer解封装</span><br><span class="line">音视频流-&gt;数据包: decoder解码</span><br><span class="line">数据包-&gt;音视频流: encoder编码</span><br><span class="line">音视频流-&gt;文件: muxer封装</span><br></pre></td></tr></table></figure>
+<h2 id="ffmpeg基本定义">Ffmpeg基本定义</h2>
+<ol type="1">
+<li>文件：也叫容器Container，比如mp4文件、flv文件等，容器的类型决定了信息被存放在文件中的位置。</li>
+<li>音视频流：</li>
+</ol>
+<h2 id="ffmpeg录制">Ffmpeg录制</h2>
+<h3 id="录制设备查询">录制设备查询</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">➜  $ ffmpeg -hide_banner -devices</span><br><span class="line">Devices:</span><br><span class="line"> D. = Demuxing supported</span><br><span class="line"> .E = Muxing supported</span><br><span class="line"> --</span><br><span class="line"> DE alsa            ALSA audio output</span><br><span class="line"> DE fbdev           Linux framebuffer</span><br><span class="line"> D  iec61883        libiec61883 (new DV1394) A/V input device</span><br><span class="line"> D  jack            JACK Audio Connection Kit</span><br><span class="line"> D  kmsgrab         KMS screen capture</span><br><span class="line"> D  lavfi           Libavfilter virtual input device</span><br><span class="line"> DE oss             OSS (Open Sound System) playback</span><br><span class="line"> DE pulse           Pulse audio output</span><br><span class="line">  E sdl,sdl2        SDL2 output device</span><br><span class="line"> DE video4linux2,v4l2 Video4Linux2 output device</span><br><span class="line"> D  x11grab         X11 screen capture, using XCB</span><br><span class="line">  E xv              XV (XVideo) output device</span><br></pre></td></tr></table></figure>
+<ul>
+<li>D：输入设备</li>
+<li>E：输出设备</li>
+</ul>
+<p><a href="https://ffmpeg.org/ffmpeg-devices.html#Input-Devices" target="_blank" rel="noopener">ffmpeg输入设备列表</a></p>
+<p><em><font color="#2bbc8a">ALSA</font></em>是Advanced Linux Sound Architecture的缩写，高级Linux声音架构的简称,它在Linux操作系统上提供了音频和MIDI（Musical Instrument Digital Interface，音乐设备数字化接口）的支持，需要安装libasound库</p>
+<p><em><font color="#2bbc8a">android_camera</font></em>Android相机输入设备。 此输入设备使用Android Camera2 NDK API，该API可在API级别为24+的设备上使用。在配置期间自动检测android_camera的可用性。 该设备允许从Android设备上的所有摄像头进行捕获，这些摄像头集成在Camera2 NDK API中。 可用的摄像机在内部枚举，可以使用camera_index参数进行选择。输入文件字符串被丢弃。 通常，后置摄像头的索引为0，而前置摄像头的索引为1。</p>
+<p><em><font color="#2bbc8a">avfoundation</font></em>音视频 苹果设备</p>
+<p><em><font color="#2bbc8a">bktr</font></em> BSD 视频输入设备</p>
+<p><em><font color="#2bbc8a">decklink</font></em> BlackMagic Decklink是一款影像采集编辑产品，接口类型PCI-33/66、PCI-X 133&amp;100MHz 。</p>
+<p><em><font color="#2bbc8a">dshow</font></em> Windows DirectShow input device.</p>
+<p><em><font color="#2bbc8a">fbdev</font></em> Linux framebuffer（Linux帧缓冲）输入设备，只能录制终端的视频 Linux framebuffer是一种独立于硬件的图像抽象层，它用于在计算机屏幕上显示图像,通常是在控制台（环境）。它可以通过一个文件设备节点访问，通常为：<code>/dev/fb0</code></p>
+<p><em><font color="#2bbc8a">gdigrab</font></em> Win32 GDI 屏幕截取设备, 这个设备允许你截取显示在Windows（系统）上的屏幕区域。</p>
+<p><em><font color="#2bbc8a">iec61883</font></em> 使用<code>iec61883</code>的FireWire（火线） DV/HDV输入设备。 要允许这个输入设备，需要<code>libiec61883</code>, <code>libraw1394</code> 和 <code>libavc1394</code>被安装到系统中。此外还要在编译时配置<code>--enable-libiec61883</code>以支持。</p>
+<p><em><font color="#2bbc8a">jack</font></em> JACK输入设备。为了能使用JACK设备，需要系统上存在<code>libjack</code></p>
+<p><em><font color="#2bbc8a">kmsgrab</font></em></p>
+<p><em><font color="#2bbc8a">lavfi</font></em> <code>Libavfilter</code>输入虚拟设备, 这个输入设备可以从<code>libavfilter</code>滤镜链图的一个开放输出端口读取数据。 对于每个滤镜链图开放输出端口，这个输入设备将创建一个对应的流映射到这个端口进行输出。当前只支持视频数据。滤镜链图是通过选项<code>graph</code>描述的。</p>
+<p><em><font color="#2bbc8a">libcdio</font></em> 基于<code>libcdio</code>的音乐CD输入设备。需要系统中有<code>libcdio</code>才能启用，且编译时需要用<code>--enable-libcdio</code>配置选项允许。</p>
+<p><em><font color="#2bbc8a">libdc1394</font></em> IIDC1394输入设备，其基于<code>libdc1394</code>和<code>libraw1394</code>, 编译允许需要配置<code>--enable-libdc1394</code></p>
+<p><em><font color="#2bbc8a">openal</font></em> 这个OpenAL输入设备支持在所有实现了<code>OpenAL 1.1</code>的系统上进行音频捕获。 要编译使用它需要系统包含<code>OpenAL</code>头和<code>libraries</code>库，并且设置编译选项<code>--enable-openal</code></p>
+<p><em><font color="#2bbc8a">oss</font></em></p>
+<p><em><font color="#2bbc8a">pulse</font></em> PulseAudio（脉冲音频）输入设备, 要使用须编译配置设置<code>--enable-libpulse</code></p>
+<p><em><font color="#2bbc8a">sndio</font></em> sndio输入设备。要使用它需要系统安装并配置有<code>libsndio</code>库</p>
+<p><em><font color="#2bbc8a">video4linux2, v4l2</font></em> Video4Linux2 输入视频设备, "v4l2"是"video4linux2"的别名 编译需要<code>v4l-utiles</code>支持（<code>--enable-libv4l2</code>编译选项被配置），也可用于<code>-use_libv4l2</code>输入设备选项。 捕获的设备名是一个文件设备节点，通常Linux系统在设备（例如USB摄像头）插入到系统时自动创建这样的节点，会被命名为<code>/dev/videoN</code>，<code>N</code>是设备索引序号 Video4Linux设备通常只支持有限的分辨率（<code>width x height</code>）和帧率,通过<code>-list_formats all</code>选项来获取支持情况。一些设备，例如电视卡可以支持1个或者多个标准，它支持的标准可以通过<code>-list_standards all</code>来了解。 时间戳时基单位为1microsecond。根据内核版本和配置，时间戳可以基于实时间（real time clock——绝对时间，一种起源于Unix的表示方式）或者单调时钟（monotonic clock——通常源自启动时间，不受NTP或者手动改变）。<code>-timestamps abs</code>或者<code>-ts abs</code>选择启用实时间。</p>
+<p><em><font color="#2bbc8a">vfwcap</font></em> vfw（Video for Windows）捕获输入端 文件名必须是捕获设备索引，范围0-9可以用<code>list</code>作为文件名，将输出一个设备列表。任何数字外其它文件名被视作设备索引0。</p>
+<p><em><font color="#2bbc8a">x11grab</font></em> X11 视频输入设备, 使用需要<code>libxcb</code>库，它会在编译时自动检测。</p>
+<h3 id="fbdev">fbdev</h3>
+<p><em>linux终端录制设备</em></p>
+<p>查看使用指定采集设备参数 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ffmpeg -hide_banner -h demuxer=fbdev</span></span><br><span class="line">Demuxer fbdev [Linux framebuffer]:</span><br><span class="line">fbdev indev AVOptions:</span><br><span class="line">  -framerate         &lt;video_rate&gt; .D.......  (default "25")</span><br><span class="line"><span class="meta">#</span><span class="bash"> framerate 帧数 默认25帧</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo ffmpeg -framerate 30  -f fbdev -i /dev/fb0 output.mp4</span></span><br></pre></td></tr></table></figure>
+<h3 id="v412">v412</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ffmpeg -hide_banner -h demuxer=Video4Linux2</span></span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr class="header">
+<th>参数</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>-standard</td>
+<td>字符串</td>
+<td>设置tv标准</td>
+</tr>
+<tr class="even">
+<td>-channel</td>
+<td>整数</td>
+<td>设置tv通道</td>
+</tr>
+<tr class="odd">
+<td>-video_size</td>
+<td>图像大小</td>
+<td>设置采集视频频帧大小</td>
+</tr>
+<tr class="even">
+<td>-pixel_format</td>
+<td>字符串</td>
+<td>设置采集视频的分辨率</td>
+</tr>
+<tr class="odd">
+<td>-input_format</td>
+<td>字符串</td>
+<td>设置采集视频的分辨率</td>
+</tr>
+<tr class="even">
+<td>-framerate</td>
+<td>字符串</td>
+<td>设置采集视频帧率</td>
+</tr>
+<tr class="odd">
+<td>-list_formats</td>
+<td>整数</td>
+<td>列举输入视频信号的信息</td>
+</tr>
+<tr class="even">
+<td>-list_standards</td>
+<td>整数</td>
+<td>列举标准信息</td>
+</tr>
+<tr class="odd">
+<td>-timestamps</td>
+<td>整数</td>
+<td>设置时间戳</td>
+</tr>
+<tr class="even">
+<td>-ts</td>
+<td>整数</td>
+<td>设置模拟器分析帧使用的时间戳</td>
+</tr>
+<tr class="odd">
+<td>-use_libv4l2</td>
+<td>布尔</td>
+<td>使用第三方库libv412选项</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ffmpeg -hide_banner -f Video4Linux2 -list_formats all -i /dev/video0</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> /dev/video0根据自己的摄像头来设置</span></span><br></pre></td></tr></table></figure>
+<h3 id="x11grab">x11grab</h3>
+<p><em>linux桌面录制设备</em></p>
+<p><a href="https://trac.ffmpeg.org/wiki/Capture/Desktop" target="_blank" rel="noopener">桌面录制方法</a></p>
+<p>linux环境下如果此方法报错 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Cannot open display :0.0, error 1.</span><br><span class="line">:0.0: Input/output error</span><br></pre></td></tr></table></figure></p>
+<p>则需要查看$DISPLAY， 在Linux/Unix类操作系统上, DISPLAY用来设置将图形显示到何处. 直接登陆图形界面或者登陆命令行界面后使用startx启动图形, DISPLAY环境变量将自动设置为:0:0 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">echo</span> <span class="variable">$DISPLAY</span></span></span><br><span class="line">:1</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ffmpeg -video_size 1024x768 -framerate 25 -f x11grab -i :1+100,200 output.mp4</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>video_size 字符串 输入采集视频的分辨率</li>
+<li>framerate 字符串 输入采集的视频帧率</li>
+<li>-f 指定输入设备</li>
+<li>-i 指定输入内容（此处为显示器）+100, 200 代表从100, 200处位移</li>
+</ul>
+<p>使用pulse录制音频 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> pactl list sources  <span class="comment"># 查看全部输入设备</span></span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ffmpeg -f pulse -i default pulse.wav</span></span><br></pre></td></tr></table></figure>
+<p>同时录制视频和音频 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ffmpeg -video_size 1366x768 -framerate 25 -f x11grab -i :1 -f pulse -ac 2 -i 1 output.mkv</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ffmpeg -video_size 1024x768 -framerate 25 -f x11grab -i :1+100,200 -f alsa -ac 2 -i hw:0 output.mkv</span></span><br></pre></td></tr></table></figure>
+<h2 id="ffmpeg直播">Ffmpeg直播</h2>
+<h3 id="推流">推流</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ffmpeg -re -i out.mp4 -c copy -f flv rtmp://server/live/streamName</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>-re 保持本地视频和流媒体服务器帧率一致</li>
+<li>-c 不做操作，直接复制</li>
+<li>-f 格式</li>
+</ul>
+<h3 id="拉流">拉流</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ffmpeg -i rmtp://server/live/streamName -c copy dump.flv</span></span><br></pre></td></tr></table></figure>
+<h2 id="ffmpeg封装与解封装">Ffmpeg封装与解封装</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ffmpeg -i input.mkv -vcodec copy -acodec copy output.mp4</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>-i 输入文件</li>
+<li>-vcodec copy 视频编码处理方式</li>
+<li>-acodec copy 音频编码处理方式</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ffmpeg -i input.mp4 -vn -acodec copy output.aac  <span class="comment"># 抽出音频</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ffmpeg -i input.mp4 -vcodec copy -an output.h264  <span class="comment"># 抽出视频</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="提取yuv数据">提取YUV数据</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ffmpeg -i input.mp4 -an -c:v rawvideo -pix_fmt yuv420p out.yuv</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>-i 输入设备</li>
+<li>-an 不需要音频</li>
+<li>-c:v 使用rawvideo对视频进行编码</li>
+<li>-pix_fmt 像素格式</li>
+</ul>
+<p><em>播放源文件</em> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ffplay -video_size 1366x768 out.yuv</span></span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>-video_size 指定像素</li>
+</ul>
+<h3 id="提取pcm数据">提取PCM数据</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ffmpeg -i input.mp4 -vn -ar 44100 -ac 2 -f s16le out.pcm</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>-i 输入设备</li>
+<li>-vn 不需要视频</li>
+<li>-ar 44100 -a 音频 read 音频采样率44.1k</li>
+<li>-ac 2 -a 音频 c2 channel 2 双声道</li>
+<li>-f 数据存储格式 s16le s: 有符号的</li>
+</ul>
+<p><em>播放源文件</em> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ffplay -ar 44100 -ac 2 -f s16le out.pcm</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="ffmpeg滤镜">Ffmpeg滤镜</h2>
+<h3 id="裁剪滤镜">裁剪滤镜</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ffmpeg -i output.mkv -vf crop=in_w-400:in_h-200 -c:v libx264 -c:a copy output.mp4</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>-i 输入</li>
+<li>-vf -v 视频 f 滤镜 crop 裁剪滤镜</li>
+<li>-c:v</li>
+<li>-c:a copy 音频直接复制</li>
+</ul>
+<h3 id="视频裁剪">视频裁剪</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ffmpeg -i output.mkv -ss 00:00:00 -t 10 output.mp4</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>-ss 开始时间(时:分:秒) *-t 时常(秒)</li>
+</ul>
+<h3 id="视频合并">视频合并</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ffmpeg -f concat -i inputs.txt output.mp4</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>-f concat 拼接</li>
+<li>-i 输入文件 inputs.txt 记录全部等待拼接的文件</li>
+<li>inputs.txt每一行为“file filename”</li>
+<li>file 'out1.mp4'</li>
+<li>file 'out2.mp4'</li>
+<li>output.mp4 输出文件</li>
+</ul>
+<h3 id="视频转图片">视频转图片</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ffmpeg -i output.mp4 -r 1 -f image2 image-%3d.jpeg</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>-i 输入文件</li>
+<li>-r 1, r 帧率， 1 每秒一张图片</li>
+<li>-f image2, 转成image2格式</li>
+<li>image-%3d.jpeg 输出文件</li>
+</ul>
+<h3 id="图片转视频">图片转视频</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ffmpeg -i image-%3d.jpeg output.mp4</span></span><br></pre></td></tr></table></figure>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ffmpeg基本流程"><span class="toc-number">1.</span> <span class="toc-text">Ffmpeg基本流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ffmpeg基本定义"><span class="toc-number">2.</span> <span class="toc-text">Ffmpeg基本定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ffmpeg录制"><span class="toc-number">3.</span> <span class="toc-text">Ffmpeg录制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#录制设备查询"><span class="toc-number">3.1.</span> <span class="toc-text">录制设备查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fbdev"><span class="toc-number">3.2.</span> <span class="toc-text">fbdev</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v412"><span class="toc-number">3.3.</span> <span class="toc-text">v412</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#x11grab"><span class="toc-number">3.4.</span> <span class="toc-text">x11grab</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ffmpeg直播"><span class="toc-number">4.</span> <span class="toc-text">Ffmpeg直播</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#推流"><span class="toc-number">4.1.</span> <span class="toc-text">推流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#拉流"><span class="toc-number">4.2.</span> <span class="toc-text">拉流</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ffmpeg封装与解封装"><span class="toc-number">5.</span> <span class="toc-text">Ffmpeg封装与解封装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#提取yuv数据"><span class="toc-number">5.1.</span> <span class="toc-text">提取YUV数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#提取pcm数据"><span class="toc-number">5.2.</span> <span class="toc-text">提取PCM数据</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ffmpeg滤镜"><span class="toc-number">6.</span> <span class="toc-text">Ffmpeg滤镜</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#裁剪滤镜"><span class="toc-number">6.1.</span> <span class="toc-text">裁剪滤镜</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#视频裁剪"><span class="toc-number">6.2.</span> <span class="toc-text">视频裁剪</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#视频合并"><span class="toc-number">6.3.</span> <span class="toc-text">视频合并</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#视频转图片"><span class="toc-number">6.4.</span> <span class="toc-text">视频转图片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#图片转视频"><span class="toc-number">6.5.</span> <span class="toc-text">图片转视频</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://www.zhuohc.com/2019/07/24/Ffmpeg入门基础/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://www.zhuohc.com/2019/07/24/Ffmpeg入门基础/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://www.zhuohc.com/2019/07/24/Ffmpeg入门基础/&text=Ffmpeg入门基础"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://www.zhuohc.com/2019/07/24/Ffmpeg入门基础/&title=Ffmpeg入门基础"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://www.zhuohc.com/2019/07/24/Ffmpeg入门基础/&is_video=false&description=Ffmpeg入门基础"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Ffmpeg入门基础&body=Check out this article: http://www.zhuohc.com/2019/07/24/Ffmpeg入门基础/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://www.zhuohc.com/2019/07/24/Ffmpeg入门基础/&title=Ffmpeg入门基础"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://www.zhuohc.com/2019/07/24/Ffmpeg入门基础/&title=Ffmpeg入门基础"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://www.zhuohc.com/2019/07/24/Ffmpeg入门基础/&title=Ffmpeg入门基础"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://www.zhuohc.com/2019/07/24/Ffmpeg入门基础/&title=Ffmpeg入门基础"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://www.zhuohc.com/2019/07/24/Ffmpeg入门基础/&name=Ffmpeg入门基础&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://www.zhuohc.com/2019/07/24/Ffmpeg入门基础/&t=Ffmpeg入门基础"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2019 zhuohanchang
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight .code pre").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      target: function(trigger) {
+        return trigger.nextElementSibling;
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>

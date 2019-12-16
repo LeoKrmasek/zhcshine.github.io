@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="zhuohc&#39;s blog">
 <meta property="og:description" content="古典密码： 替换式密码或移项式密码 凯撒密码  凯撒密码的替换方法是通过排列明文和密文字母表，密文字母表示通过将明文字母表向左或向右移动一个固定数目的位置。例如，当偏移量是左移3的时候（解密时的密钥就是3）：  12明文字母表：ABCDEFGHIJKLMNOPQRSTUVWXYZ密文字母表：DEFGHIJKLMNOPQRSTUVWXYZABC 替换式密码缺点 暴力破解，密码本的安全性 现代密码学：">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-19T06:10:47.391Z">
+<meta property="og:updated_time" content="2019-12-13T06:26:24.096Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="密码学入门基础">
 <meta name="twitter:description" content="古典密码： 替换式密码或移项式密码 凯撒密码  凯撒密码的替换方法是通过排列明文和密文字母表，密文字母表示通过将明文字母表向左或向右移动一个固定数目的位置。例如，当偏移量是左移3的时候（解密时的密钥就是3）：  12明文字母表：ABCDEFGHIJKLMNOPQRSTUVWXYZ密文字母表：DEFGHIJKLMNOPQRSTUVWXYZABC 替换式密码缺点 暴力破解，密码本的安全性 现代密码学：">
@@ -106,7 +106,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#古典密码-替换式密码或移项式密码"><span class="toc-number">1.</span> <span class="toc-text">古典密码： 替换式密码或移项式密码</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#凯撒密码"><span class="toc-number">1.1.</span> <span class="toc-text">凯撒密码</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#替换式密码缺点"><span class="toc-number">1.2.</span> <span class="toc-text">替换式密码缺点</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#现代密码学hash-散列函数"><span class="toc-number">2.</span> <span class="toc-text">现代密码学：Hash （散列函数）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#md5"><span class="toc-number">2.1.</span> <span class="toc-text">MD5</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#sha"><span class="toc-number">2.2.</span> <span class="toc-text">SHA</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#现代密码学对称加密"><span class="toc-number">3.</span> <span class="toc-text">现代密码学：对称加密</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#des"><span class="toc-number">3.1.</span> <span class="toc-text">DES</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#aes"><span class="toc-number">3.2.</span> <span class="toc-text">AES</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#对称加密的缺点"><span class="toc-number">3.3.</span> <span class="toc-text">对称加密的缺点</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#现代密码学非对称加密"><span class="toc-number">4.</span> <span class="toc-text">现代密码学：非对称加密</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#rsa"><span class="toc-number">4.1.</span> <span class="toc-text">RSA</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#rsa算法"><span class="toc-number">5.</span> <span class="toc-text">RSA算法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#互素关系"><span class="toc-number">5.1.</span> <span class="toc-text">互素关系</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#欧拉函数"><span class="toc-number">5.2.</span> <span class="toc-text">欧拉函数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#欧拉定理"><span class="toc-number">5.3.</span> <span class="toc-text">欧拉定理</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#模逆元"><span class="toc-number">5.4.</span> <span class="toc-text">模逆元</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#rsa公钥密钥生成方法"><span class="toc-number">5.5.</span> <span class="toc-text">rsa公钥密钥生成方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#rsa加密和解密"><span class="toc-number">5.6.</span> <span class="toc-text">rsa加密和解密</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#rsa私钥解密证明"><span class="toc-number">5.7.</span> <span class="toc-text">rsa私钥解密证明</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#补充模算数"><span class="toc-number">6.</span> <span class="toc-text">补充：模算数</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#同余"><span class="toc-number">6.1.</span> <span class="toc-text">同余</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#同余表达式"><span class="toc-number">6.1.1.</span> <span class="toc-text">同余表达式</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#同余换代"><span class="toc-number">6.1.2.</span> <span class="toc-text">同余换代</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#代表元"><span class="toc-number">6.1.3.</span> <span class="toc-text">代表元</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#商和余数"><span class="toc-number">6.1.4.</span> <span class="toc-text">商和余数</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#用rem运算简化模同余数"><span class="toc-number">6.1.5.</span> <span class="toc-text">用rem运算简化模同余数</span></a></li></ol></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#古典密码-替换式密码或移项式密码"><span class="toc-number">1.</span> <span class="toc-text">古典密码： 替换式密码或移项式密码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#凯撒密码"><span class="toc-number">1.1.</span> <span class="toc-text">凯撒密码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#替换式密码缺点"><span class="toc-number">1.2.</span> <span class="toc-text">替换式密码缺点</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#现代密码学hash-散列函数"><span class="toc-number">2.</span> <span class="toc-text">现代密码学：Hash （散列函数）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#md5"><span class="toc-number">2.1.</span> <span class="toc-text">MD5</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sha"><span class="toc-number">2.2.</span> <span class="toc-text">SHA</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#现代密码学对称加密"><span class="toc-number">3.</span> <span class="toc-text">现代密码学：对称加密</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#des"><span class="toc-number">3.1.</span> <span class="toc-text">DES</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#aes"><span class="toc-number">3.2.</span> <span class="toc-text">AES</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对称加密的缺点"><span class="toc-number">3.3.</span> <span class="toc-text">对称加密的缺点</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#现代密码学非对称加密"><span class="toc-number">4.</span> <span class="toc-text">现代密码学：非对称加密</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#rsa"><span class="toc-number">4.1.</span> <span class="toc-text">RSA</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#rsa算法"><span class="toc-number">5.</span> <span class="toc-text">RSA算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#互素关系"><span class="toc-number">5.1.</span> <span class="toc-text">互素关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#欧拉函数"><span class="toc-number">5.2.</span> <span class="toc-text">欧拉函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#欧拉定理"><span class="toc-number">5.3.</span> <span class="toc-text">欧拉定理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模逆元"><span class="toc-number">5.4.</span> <span class="toc-text">模逆元</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#rsa公钥密钥生成方法"><span class="toc-number">5.5.</span> <span class="toc-text">rsa公钥密钥生成方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#rsa加密和解密"><span class="toc-number">5.6.</span> <span class="toc-text">rsa加密和解密</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#rsa私钥解密证明"><span class="toc-number">5.7.</span> <span class="toc-text">rsa私钥解密证明</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#补充模算数"><span class="toc-number">6.</span> <span class="toc-text">补充：模算数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#同余"><span class="toc-number">6.1.</span> <span class="toc-text">同余</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#同余表达式"><span class="toc-number">6.1.1.</span> <span class="toc-text">同余表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#同余换代"><span class="toc-number">6.1.2.</span> <span class="toc-text">同余换代</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代表元"><span class="toc-number">6.1.3.</span> <span class="toc-text">代表元</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#商和余数"><span class="toc-number">6.1.4.</span> <span class="toc-text">商和余数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#用rem运算简化模同余数"><span class="toc-number">6.1.5.</span> <span class="toc-text">用rem运算简化模同余数</span></a></li></ol></li></ol></li></ol>
     </div>
   </span>
 </div>
@@ -145,15 +145,15 @@
   
 
   <div class="content" itemprop="articleBody">
-    <h4 id="古典密码-替换式密码或移项式密码">古典密码： 替换式密码或移项式密码</h4>
-<h5 id="凯撒密码">凯撒密码</h5>
+    <h1 id="古典密码-替换式密码或移项式密码">古典密码： 替换式密码或移项式密码</h1>
+<h2 id="凯撒密码">凯撒密码</h2>
 <blockquote>
 <p>凯撒密码的替换方法是通过排列明文和密文字母表，密文字母表示通过将明文字母表向左或向右移动一个固定数目的位置。例如，当偏移量是左移3的时候（解密时的密钥就是3）：</p>
 </blockquote>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">明文字母表：ABCDEFGHIJKLMNOPQRSTUVWXYZ</span><br><span class="line">密文字母表：DEFGHIJKLMNOPQRSTUVWXYZABC</span><br></pre></td></tr></table></figure>
-<h5 id="替换式密码缺点">替换式密码缺点</h5>
+<h2 id="替换式密码缺点">替换式密码缺点</h2>
 <p>暴力破解，密码本的安全性</p>
-<h4 id="现代密码学hash-散列函数">现代密码学：Hash （散列函数）</h4>
+<h1 id="现代密码学hash-散列函数">现代密码学：Hash （散列函数）</h1>
 <blockquote>
 <p>Hash，一般翻译做散列、杂凑，或音译为哈希，是把任意长度的输入（又叫做预映射pre-image）通过散列算法变换成固定长度的输出，该输出就是散列值。这种转换是一种压缩映射，也就是，散列值的空间通常远小于输入的空间，不同的输入可能会散列成相同的输出，所以不可能从散列值来确定唯一的输入值。简单的说就是一种将任意长度的消息压缩到某一固定长度的消息摘要的函数。</p>
 </blockquote>
@@ -166,8 +166,8 @@
 <blockquote>
 <p>Hash算法也被称为散列算法，Hash算法虽然被称为算法，但实际上它更像是一种思想。Hash算法没有一个固定的公式，只要符合散列思想的算法都可以被称为是Hash算法。</p>
 </blockquote>
-<h5 id="md5">MD5</h5>
-<h5 id="sha">SHA</h5>
+<h2 id="md5">MD5</h2>
+<h2 id="sha">SHA</h2>
 <ul>
 <li>SHA-1算法的哈希值大小为160位，其计算输出长度为40位。(SHA-1不再推荐使用)</li>
 <li>SHA-224算法的哈希值大小为224位，其计算输出长度为56位。</li>
@@ -175,11 +175,11 @@
 <li>SHA-384算法的哈希值大小为384位，其计算输出长度为96位。</li>
 <li>SHA-512算法的哈希值大小为384位，其计算输出长度为128位。</li>
 </ul>
-<h4 id="现代密码学对称加密">现代密码学：对称加密</h4>
+<h1 id="现代密码学对称加密">现代密码学：对称加密</h1>
 <blockquote>
 <p>对称加密算法是应用较早的加密算法，技术成熟。在对称加密算法中，数据发信方将明文（原始数据）和加密密钥（mi yao）一起经过特殊加密算法处理后，使其变成复杂的加密密文发送出去。收信方收到密文后，若想解读原文，则需要使用加密用过的密钥及相同算法的逆算法对密文进行解密，才能使其恢复成可读明文。在对称加密算法中，使用的密钥只有一个，发收信双方都使用这个密钥对数据进行加密和解密，这就要求解密方事先必须知道加密密钥。</p>
 </blockquote>
-<h5 id="des">DES</h5>
+<h2 id="des">DES</h2>
 <blockquote>
 <p>数据加密标准（英语：Data Encryption Standard，缩写为 DES）是一种对称密钥加密块密码算法，1976年被美国联邦政府的国家标准局确定为联邦资料处理标准（FIPS），随后在国际上广泛流传开来</p>
 </blockquote>
@@ -192,32 +192,32 @@
 <blockquote>
 <p>美国国家标准局倡导的AES即将作为新标准取代DES。</p>
 </blockquote>
-<h5 id="aes">AES</h5>
-<h5 id="对称加密的缺点">对称加密的缺点</h5>
+<h2 id="aes">AES</h2>
+<h2 id="对称加密的缺点">对称加密的缺点</h2>
 <p>甲方必须把加密规则告诉乙方，否则无法解密。保存和传递密钥，就成了最头疼的问题。</p>
-<h4 id="现代密码学非对称加密">现代密码学：非对称加密</h4>
+<h1 id="现代密码学非对称加密">现代密码学：非对称加密</h1>
 <blockquote>
 <p>公钥加密的信息只有私钥解得开，那么只要私钥不泄漏，通信就是安全的</p>
 </blockquote>
-<h5 id="rsa">RSA</h5>
-<h4 id="rsa算法">RSA算法</h4>
+<h2 id="rsa">RSA</h2>
+<h1 id="rsa算法">RSA算法</h1>
 <blockquote>
 <p>1977年，三位数学家Rivest、Shamir 和 Adleman 设计了一种算法，可以实现非对称加密。这种算法用他们三个人的名字命名，叫做RSA算法。 RSA算法基于一个十分简单的数论事实：将两个大质数相乘十分容易，但是想要对其乘积进行因式分解却极其困难，因此可以将乘积公开作为加密密钥。</p>
 </blockquote>
 <p>RSA算法运用的几个数论知识： 互素关系， 欧拉函数， 欧拉定理， 模逆元</p>
-<h5 id="互素关系">互素关系</h5>
+<h2 id="互素关系">互素关系</h2>
 <p>如果没有大于1的正数既是r的因数也是s的因数，则r和s互素。</p>
-<h5 id="欧拉函数">欧拉函数</h5>
+<h2 id="欧拉函数">欧拉函数</h2>
 <p>在数论，对正整数m，欧拉函数φ(m)是小于或等于m的正整数中与m互素的数的数目</p>
 <ol type="1">
 <li>如果m是素数， φ(m)=m-1, 例如φ(3) = 2</li>
 <li>若m = p * q, φ(m) = (p-1) * (q-1)</li>
 </ol>
-<h5 id="欧拉定理">欧拉定理</h5>
+<h2 id="欧拉定理">欧拉定理</h2>
 <p>在数论中，欧拉定理是一个关于同余的性质。欧拉定理表明，若n,a为正整数，且n,a互素，则a^φ(n)≡1 (mod n)</p>
-<h5 id="模逆元">模逆元</h5>
+<h2 id="模逆元">模逆元</h2>
 <p>如果两个正整数a和n互质，那么一定可以找到整数b，使得 ab-1 被n整除，或者说ab被n除的余数是1。这时，b就叫做a的"模反元素"。</p>
-<h5 id="rsa公钥密钥生成方法">rsa公钥密钥生成方法</h5>
+<h2 id="rsa公钥密钥生成方法">rsa公钥密钥生成方法</h2>
 <p>公钥，密钥生成方法</p>
 <ol type="1">
 <li><p>随机取俩个不相等素数p, q; 例如：p=61, q=53 # 实际应用中，这两个质数很大，常常是几百位</p></li>
@@ -245,12 +245,12 @@
 <li><p>维基百科这样写道：</p></li>
 </ol>
 <p>　　"对极大整数做因数分解的难度决定了RSA算法的可靠性。换言之，对一极大整数做因数分解愈困难，RSA算法愈可靠。假如有人找到一种快速因数分解的算法，那么RSA的可靠性就会极度下降。但找到这样的算法的可能性是非常小的。今天只有短的RSA密钥才可能被暴力破解。到2008年为止，世界上还没有任何可靠的攻击RSA算法的方式。只要密钥长度足够长，用RSA加密的信息实际上是不能被解破的。"</p>
-<h5 id="rsa加密和解密">rsa加密和解密</h5>
+<h2 id="rsa加密和解密">rsa加密和解密</h2>
 <p>加密公钥 (n,e)</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">m^e ≡ c (mod n)  # m是明文， 必须是整数（字符串可以取ascii值或unicode值），且m必须小于n</span><br><span class="line">65^17 ≡ c (mod 3233)  # 本例中n=3233，e=17</span><br><span class="line">c = 2790  # 计算出c=2790, c则是密文</span><br></pre></td></tr></table></figure>
 <p>解密私钥(n,d)</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">c^d ≡ m (mod n)  # 公式一定成立，下面有介绍</span><br><span class="line">2790^2753 ≡ m (mod 3233)  # 本例中c=2790, d=2753</span><br><span class="line">m = 65  # 计算出明文m=65</span><br></pre></td></tr></table></figure>
-<h5 id="rsa私钥解密证明">rsa私钥解密证明</h5>
+<h2 id="rsa私钥解密证明">rsa私钥解密证明</h2>
 <ol type="1">
 <li><p>c^d ≡ m (mod n) # 要证明的公式A</p></li>
 <li><p>因为 m^e ≡ c (mod n)， 根据模运算的含义，所以 c = m^e - kn</p></li>
@@ -275,33 +275,33 @@
 <li><p>因为m=kp, n=pq, 最后得出 m^(ed) ≡ m (mod n) 公式得证</p></li>
 </ol></li>
 </ol>
-<h4 id="补充模算数">补充：模算数</h4>
-<h5 id="同余">同余</h5>
-<h6 id="同余表达式">同余表达式</h6>
+<h1 id="补充模算数">补充：模算数</h1>
+<h2 id="同余">同余</h2>
+<h3 id="同余表达式">同余表达式</h3>
 <p>维基百科</p>
 <blockquote>
 <p>数学上，同余（英语：congruence modulo，符号：≡）是数论中的一种等价关系。当两个整数除以同一个正整数，若得相同余数，则二整数同余。同余是抽象代数中的同余关系的原型。最先引用同余的概念与“≡”符号者为德国数学家高斯。</p>
 </blockquote>
 <p>两个整数a， b，若它们除以正整数m所得的余数相等，则称a，b对于模m同余，记作</p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a ≡ b (mod m)</span><br></pre></td></tr></table></figure>
-<h6 id="同余换代">同余换代</h6>
+<h3 id="同余换代">同余换代</h3>
 <blockquote>
 <p>在任意一个成立的模同余式中，将任意子表达式替换为一个与其同余的子表达式，所得的模同余式依然成立</p>
 </blockquote>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(12 + 4) * 2 ≡ x + 1 (mod 7)</span><br></pre></td></tr></table></figure>
 <p>(12 + 4)(模7)同余与2，故上同余式可表示为</p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2 * 2  ≡ x + 1 (mod 7)</span><br></pre></td></tr></table></figure>
-<h6 id="代表元">代表元</h6>
+<h3 id="代表元">代表元</h3>
 <blockquote>
 <p>每个整数恰好和整数0,1,2,...,m-1中的一个模m同余</p>
 </blockquote>
 <p>例如，在模7的情况下，每个整数和整数0,1,2,3,4,5，6中的一个同余</p>
-<h6 id="商和余数">商和余数</h6>
+<h3 id="商和余数">商和余数</h3>
 <p>b被m除时，r为余数，q为商</p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">b = mq + r</span><br></pre></td></tr></table></figure>
 <p>余数操作运算符一般使用rem表示，例如25 rem 7 = 4</p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">如果a rem m = b rem m, 则 a ≡ b (mod m)</span><br><span class="line">如果 a ≡ b (mod m)， 则a rem m = b rem m</span><br></pre></td></tr></table></figure>
-<h6 id="用rem运算简化模同余数">用rem运算简化模同余数</h6>
+<h3 id="用rem运算简化模同余数">用rem运算简化模同余数</h3>
 <p>例</p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">12 <span class="bullet">* 11 *</span> 10 <span class="bullet">* 9 *</span> 8 * 7 ≡ x (mod 13)</span><br><span class="line">因为</span><br><span class="line">12 * 11 = 132</span><br><span class="line">132 rem 13 = 2</span><br><span class="line">根据同余换代，上式可表示为</span><br><span class="line">2 <span class="bullet">* 10 *</span> 9 <span class="bullet">* 8 *</span> 7 ≡ x (mod 13)</span><br><span class="line">同上，上式可表示为</span><br><span class="line">7 <span class="bullet">* 9 *</span> 8 * 7 ≡ x (mod 13)</span><br><span class="line">11 <span class="bullet">* 8 *</span> 7 ≡ x (mod 13)</span><br><span class="line">10 * 7 ≡ x (mod 13)</span><br><span class="line">5 ≡ x (mod 13)</span><br></pre></td></tr></table></figure>
 <p>现在要求计算 12 * 11 * 10 * 9 * 8 * 7 * 6 rem 13</p>
@@ -336,7 +336,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#古典密码-替换式密码或移项式密码"><span class="toc-number">1.</span> <span class="toc-text">古典密码： 替换式密码或移项式密码</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#凯撒密码"><span class="toc-number">1.1.</span> <span class="toc-text">凯撒密码</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#替换式密码缺点"><span class="toc-number">1.2.</span> <span class="toc-text">替换式密码缺点</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#现代密码学hash-散列函数"><span class="toc-number">2.</span> <span class="toc-text">现代密码学：Hash （散列函数）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#md5"><span class="toc-number">2.1.</span> <span class="toc-text">MD5</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#sha"><span class="toc-number">2.2.</span> <span class="toc-text">SHA</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#现代密码学对称加密"><span class="toc-number">3.</span> <span class="toc-text">现代密码学：对称加密</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#des"><span class="toc-number">3.1.</span> <span class="toc-text">DES</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#aes"><span class="toc-number">3.2.</span> <span class="toc-text">AES</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#对称加密的缺点"><span class="toc-number">3.3.</span> <span class="toc-text">对称加密的缺点</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#现代密码学非对称加密"><span class="toc-number">4.</span> <span class="toc-text">现代密码学：非对称加密</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#rsa"><span class="toc-number">4.1.</span> <span class="toc-text">RSA</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#rsa算法"><span class="toc-number">5.</span> <span class="toc-text">RSA算法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#互素关系"><span class="toc-number">5.1.</span> <span class="toc-text">互素关系</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#欧拉函数"><span class="toc-number">5.2.</span> <span class="toc-text">欧拉函数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#欧拉定理"><span class="toc-number">5.3.</span> <span class="toc-text">欧拉定理</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#模逆元"><span class="toc-number">5.4.</span> <span class="toc-text">模逆元</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#rsa公钥密钥生成方法"><span class="toc-number">5.5.</span> <span class="toc-text">rsa公钥密钥生成方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#rsa加密和解密"><span class="toc-number">5.6.</span> <span class="toc-text">rsa加密和解密</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#rsa私钥解密证明"><span class="toc-number">5.7.</span> <span class="toc-text">rsa私钥解密证明</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#补充模算数"><span class="toc-number">6.</span> <span class="toc-text">补充：模算数</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#同余"><span class="toc-number">6.1.</span> <span class="toc-text">同余</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#同余表达式"><span class="toc-number">6.1.1.</span> <span class="toc-text">同余表达式</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#同余换代"><span class="toc-number">6.1.2.</span> <span class="toc-text">同余换代</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#代表元"><span class="toc-number">6.1.3.</span> <span class="toc-text">代表元</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#商和余数"><span class="toc-number">6.1.4.</span> <span class="toc-text">商和余数</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#用rem运算简化模同余数"><span class="toc-number">6.1.5.</span> <span class="toc-text">用rem运算简化模同余数</span></a></li></ol></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#古典密码-替换式密码或移项式密码"><span class="toc-number">1.</span> <span class="toc-text">古典密码： 替换式密码或移项式密码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#凯撒密码"><span class="toc-number">1.1.</span> <span class="toc-text">凯撒密码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#替换式密码缺点"><span class="toc-number">1.2.</span> <span class="toc-text">替换式密码缺点</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#现代密码学hash-散列函数"><span class="toc-number">2.</span> <span class="toc-text">现代密码学：Hash （散列函数）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#md5"><span class="toc-number">2.1.</span> <span class="toc-text">MD5</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sha"><span class="toc-number">2.2.</span> <span class="toc-text">SHA</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#现代密码学对称加密"><span class="toc-number">3.</span> <span class="toc-text">现代密码学：对称加密</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#des"><span class="toc-number">3.1.</span> <span class="toc-text">DES</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#aes"><span class="toc-number">3.2.</span> <span class="toc-text">AES</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对称加密的缺点"><span class="toc-number">3.3.</span> <span class="toc-text">对称加密的缺点</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#现代密码学非对称加密"><span class="toc-number">4.</span> <span class="toc-text">现代密码学：非对称加密</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#rsa"><span class="toc-number">4.1.</span> <span class="toc-text">RSA</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#rsa算法"><span class="toc-number">5.</span> <span class="toc-text">RSA算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#互素关系"><span class="toc-number">5.1.</span> <span class="toc-text">互素关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#欧拉函数"><span class="toc-number">5.2.</span> <span class="toc-text">欧拉函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#欧拉定理"><span class="toc-number">5.3.</span> <span class="toc-text">欧拉定理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模逆元"><span class="toc-number">5.4.</span> <span class="toc-text">模逆元</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#rsa公钥密钥生成方法"><span class="toc-number">5.5.</span> <span class="toc-text">rsa公钥密钥生成方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#rsa加密和解密"><span class="toc-number">5.6.</span> <span class="toc-text">rsa加密和解密</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#rsa私钥解密证明"><span class="toc-number">5.7.</span> <span class="toc-text">rsa私钥解密证明</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#补充模算数"><span class="toc-number">6.</span> <span class="toc-text">补充：模算数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#同余"><span class="toc-number">6.1.</span> <span class="toc-text">同余</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#同余表达式"><span class="toc-number">6.1.1.</span> <span class="toc-text">同余表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#同余换代"><span class="toc-number">6.1.2.</span> <span class="toc-text">同余换代</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代表元"><span class="toc-number">6.1.3.</span> <span class="toc-text">代表元</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#商和余数"><span class="toc-number">6.1.4.</span> <span class="toc-text">商和余数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#用rem运算简化模同余数"><span class="toc-number">6.1.5.</span> <span class="toc-text">用rem运算简化模同余数</span></a></li></ol></li></ol></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">

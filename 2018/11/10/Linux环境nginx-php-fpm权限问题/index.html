@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="zhuohc&#39;s blog">
 <meta property="og:description" content="当前用户hanchang, nginx用户nginx vim /etc/nginx/nginx.conf user hanchang;   vim /etc/php-fpm.d/www.conf  user = hanchang group = nginx listen.owner = hanchang listen.group = nginx listen.mode = 0660 划重点 将当前">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-24T01:36:23.340Z">
+<meta property="og:updated_time" content="2019-12-13T06:26:24.106Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux环境nginx&#x2F;php-fpm权限问题">
 <meta name="twitter:description" content="当前用户hanchang, nginx用户nginx vim /etc/nginx/nginx.conf user hanchang;   vim /etc/php-fpm.d/www.conf  user = hanchang group = nginx listen.owner = hanchang listen.group = nginx listen.mode = 0660 划重点 将当前">
@@ -74,7 +74,7 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" href="/2018/11/14/Centos7.2安装使用openResty/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        <li><a class="icon" href="/2018/11/14/OpenResty入门基础/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
         <li><a class="icon" href="/2018/10/09/Ubuntu16.04安装及使用SVN/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
@@ -106,7 +106,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#当前用户hanchang-nginx用户nginx"><span class="toc-number">1.</span> <span class="toc-text">当前用户hanchang, nginx用户nginx</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#划重点-将当前用户加入nginx用户组"><span class="toc-number">2.</span> <span class="toc-text">划重点 将当前用户加入nginx用户组</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#当前用户hanchang-nginx用户nginx"><span class="toc-number">1.</span> <span class="toc-text">当前用户hanchang, nginx用户nginx</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#划重点-将当前用户加入nginx用户组"><span class="toc-number">2.</span> <span class="toc-text">划重点 将当前用户加入nginx用户组</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -150,7 +150,7 @@
   
 
   <div class="content" itemprop="articleBody">
-    <h4 id="当前用户hanchang-nginx用户nginx">当前用户hanchang, nginx用户nginx</h4>
+    <h1 id="当前用户hanchang-nginx用户nginx">当前用户hanchang, nginx用户nginx</h1>
 <pre><code>vim /etc/nginx/nginx.conf
 user hanchang;
 
@@ -161,7 +161,7 @@ group = nginx
 listen.owner = hanchang
 listen.group = nginx
 listen.mode = 0660</code></pre>
-<h4 id="划重点-将当前用户加入nginx用户组">划重点 将当前用户加入nginx用户组</h4>
+<h1 id="划重点-将当前用户加入nginx用户组">划重点 将当前用户加入nginx用户组</h1>
 <pre><code>sudo usermod -a -G nginx hanchang</code></pre>
 
   </div>
@@ -190,7 +190,7 @@ listen.mode = 0660</code></pre>
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#当前用户hanchang-nginx用户nginx"><span class="toc-number">1.</span> <span class="toc-text">当前用户hanchang, nginx用户nginx</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#划重点-将当前用户加入nginx用户组"><span class="toc-number">2.</span> <span class="toc-text">划重点 将当前用户加入nginx用户组</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#当前用户hanchang-nginx用户nginx"><span class="toc-number">1.</span> <span class="toc-text">当前用户hanchang, nginx用户nginx</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#划重点-将当前用户加入nginx用户组"><span class="toc-number">2.</span> <span class="toc-text">划重点 将当前用户加入nginx用户组</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">

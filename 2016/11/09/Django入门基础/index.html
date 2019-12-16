@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="2017.11.10号重新更新基本安装和线上部署 环境：python3.5 django1.11 # 安装环境 $ sudo apt-get update $ sudo apt-get install python3-pip apache2 libapache2-mod-wsgi-py3 $ sudo pip3 install virtualenv   # 安装项目目录 $ cd ~/www/ht">
-<meta name="keywords" content="python,django">
+    <meta name="description" content="环境安装 Python3.5 python入门基础 Django1.11 12345678910111213141516# 安装项目目录$ cd ~/www/html/$ virtualenv --no-site-packages -p /usr/bin/python3.5 CCO$ cd CCO$ source ./bin/activate(CCO) $ pip3 install ipython">
+<meta name="keywords" content="Django,Python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="django入门基础">
+<meta property="og:title" content="Django入门基础">
 <meta property="og:url" content="http://www.zhuohc.com/2016/11/09/Django入门基础/index.html">
 <meta property="og:site_name" content="zhuohc&#39;s blog">
-<meta property="og:description" content="2017.11.10号重新更新基本安装和线上部署 环境：python3.5 django1.11 # 安装环境 $ sudo apt-get update $ sudo apt-get install python3-pip apache2 libapache2-mod-wsgi-py3 $ sudo pip3 install virtualenv   # 安装项目目录 $ cd ~/www/ht">
+<meta property="og:description" content="环境安装 Python3.5 python入门基础 Django1.11 12345678910111213141516# 安装项目目录$ cd ~/www/html/$ virtualenv --no-site-packages -p /usr/bin/python3.5 CCO$ cd CCO$ source ./bin/activate(CCO) $ pip3 install ipython">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-24T01:25:47.823Z">
+<meta property="og:updated_time" content="2019-12-16T10:20:55.788Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="django入门基础">
-<meta name="twitter:description" content="2017.11.10号重新更新基本安装和线上部署 环境：python3.5 django1.11 # 安装环境 $ sudo apt-get update $ sudo apt-get install python3-pip apache2 libapache2-mod-wsgi-py3 $ sudo pip3 install virtualenv   # 安装项目目录 $ cd ~/www/ht">
+<meta name="twitter:title" content="Django入门基础">
+<meta name="twitter:description" content="环境安装 Python3.5 python入门基础 Django1.11 12345678910111213141516# 安装项目目录$ cd ~/www/html/$ virtualenv --no-site-packages -p /usr/bin/python3.5 CCO$ cd CCO$ source ./bin/activate(CCO) $ pip3 install ipython">
     
     
         
@@ -37,7 +37,7 @@
         
     
     <!-- title -->
-    <title>django入门基础</title>
+    <title>Django入门基础</title>
     <!-- styles -->
     <link rel="stylesheet" href="/css/style.css">
     <!-- persian styles -->
@@ -93,21 +93,21 @@
       <ul>
   <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://www.zhuohc.com/2016/11/09/Django入门基础/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
   <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://www.zhuohc.com/2016/11/09/Django入门基础/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://www.zhuohc.com/2016/11/09/Django入门基础/&text=django入门基础"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://www.zhuohc.com/2016/11/09/Django入门基础/&title=django入门基础"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://www.zhuohc.com/2016/11/09/Django入门基础/&is_video=false&description=django入门基础"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=django入门基础&body=Check out this article: http://www.zhuohc.com/2016/11/09/Django入门基础/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://www.zhuohc.com/2016/11/09/Django入门基础/&title=django入门基础"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://www.zhuohc.com/2016/11/09/Django入门基础/&title=django入门基础"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://www.zhuohc.com/2016/11/09/Django入门基础/&title=django入门基础"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://www.zhuohc.com/2016/11/09/Django入门基础/&title=django入门基础"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://www.zhuohc.com/2016/11/09/Django入门基础/&name=django入门基础&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://www.zhuohc.com/2016/11/09/Django入门基础/&t=django入门基础"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://www.zhuohc.com/2016/11/09/Django入门基础/&text=Django入门基础"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://www.zhuohc.com/2016/11/09/Django入门基础/&title=Django入门基础"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://www.zhuohc.com/2016/11/09/Django入门基础/&is_video=false&description=Django入门基础"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Django入门基础&body=Check out this article: http://www.zhuohc.com/2016/11/09/Django入门基础/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://www.zhuohc.com/2016/11/09/Django入门基础/&title=Django入门基础"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://www.zhuohc.com/2016/11/09/Django入门基础/&title=Django入门基础"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://www.zhuohc.com/2016/11/09/Django入门基础/&title=Django入门基础"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://www.zhuohc.com/2016/11/09/Django入门基础/&title=Django入门基础"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://www.zhuohc.com/2016/11/09/Django入门基础/&name=Django入门基础&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://www.zhuohc.com/2016/11/09/Django入门基础/&t=Django入门基础"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#号重新更新基本安装和线上部署"><span class="toc-number">1.</span> <span class="toc-text">2017.11.10号重新更新基本安装和线上部署</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据库安装"><span class="toc-number">2.</span> <span class="toc-text">数据库安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-number">3.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看是否安装成功及版本号"><span class="toc-number">4.</span> <span class="toc-text">查看是否安装成功及版本号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装mysqldb"><span class="toc-number">5.</span> <span class="toc-text">安装MysqlDb</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建项目"><span class="toc-number">6.</span> <span class="toc-text">创建项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建app"><span class="toc-number">7.</span> <span class="toc-text">创建APP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#命令行调试模式"><span class="toc-number">8.</span> <span class="toc-text">命令行调试模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#运行开发服务器"><span class="toc-number">9.</span> <span class="toc-text">运行开发服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#运行shell脚本方式"><span class="toc-number">10.</span> <span class="toc-text">运行shell脚本方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#部署线上环境"><span class="toc-number">11.</span> <span class="toc-text">部署线上环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#视图与路由绑定"><span class="toc-number">12.</span> <span class="toc-text">视图与路由绑定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#视图与模板"><span class="toc-number">13.</span> <span class="toc-text">视图与模板</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据库配置"><span class="toc-number">14.</span> <span class="toc-text">数据库配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#视图返回json数据格式"><span class="toc-number">15.</span> <span class="toc-text">视图返回json数据格式</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#环境安装"><span class="toc-number">1.</span> <span class="toc-text">环境安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#python3.5"><span class="toc-number">1.1.</span> <span class="toc-text">Python3.5</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#django1.11"><span class="toc-number">1.2.</span> <span class="toc-text">Django1.11</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置django"><span class="toc-number">1.3.</span> <span class="toc-text">配置Django</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据库迁移"><span class="toc-number">1.4.</span> <span class="toc-text">数据库迁移</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#静态文件收集"><span class="toc-number">1.5.</span> <span class="toc-text">静态文件收集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#本地开发环境"><span class="toc-number">1.6.</span> <span class="toc-text">本地开发环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#apache线上部署"><span class="toc-number">1.7.</span> <span class="toc-text">Apache线上部署</span></a></li></ol></li></ol>
     </div>
   </span>
 </div>
@@ -119,7 +119,7 @@
   <header>
     
     <h1 class="posttitle" itemprop="name headline">
-        django入门基础
+        Django入门基础
     </h1>
 
 
@@ -147,7 +147,7 @@
       
     <div class="article-tag">
         <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/django/">django</a>, <a class="tag-link" href="/tags/python/">python</a>
+        <a class="tag-link" href="/tags/Django/">Django</a>, <a class="tag-link" href="/tags/Python/">Python</a>
     </div>
 
 
@@ -156,241 +156,26 @@
   
 
   <div class="content" itemprop="articleBody">
-    <h3 id="号重新更新基本安装和线上部署">2017.11.10号重新更新基本安装和线上部署</h3>
-<p>环境：python3.5 django1.11</p>
-<pre><code># 安装环境
-$ sudo apt-get update
-$ sudo apt-get install python3-pip apache2 libapache2-mod-wsgi-py3
-$ sudo pip3 install virtualenv
-
-
-# 安装项目目录
-$ cd ~/www/html/
-$ virtualenv --no-site-packages -p /usr/bin/python3.5 CCO
-$ cd CCO
-$ source ./bin/activate
-(CCO) $ pip3 install ipython
-(CCO) $ pip3 install Django==1.11.7
-# 查看django是否安装成功
-(CCO) $  ipython
- &gt; import django
- &gt; django.VERSION # 打印出django版本表示成功
-# 开始创建项目
-(CCO) $ django-admin.py startproject CCO_WEB
-# 创建应用
-(CCO) $ cd CCO_WEB
-(CCO) $ django-admin.py startapp polls
-
-
-# 修改文件内容
-(CCO) $ vim CCO_WEB/CCO_WEB/setting.py
-ALLOWED_HOSTS = [&#39;127.0.0.1&#39;, &#39;localhost&#39;]  # 修改
-STATIC_URL = &#39;/static/&#39; # 原始
-STATIC_ROOT = os.path.join(BASE_DIR, &#39;static/&#39;) # 添加
-
-
-# 创建数据库和超级管理员
-(CCO) $ ./manage.py makemigrations
-(CCO) $ ./manage.py migrate
-(CCO) $ ./manage.py createsuperuser # 创建超级管理员
-(CCO) $ ./manage.py collectstatic # 收集静态文件
-
-
-### 用django自带服务器运行
-(CCO) $ sudo ufw allow 8000 # 关闭防火墙
-(CCO) $ ./manage.py runserver 0.0.0.0:8000 # 成功表示django开发环境配置完成
-
-
-### 线上部署
-apache虚拟主机配置
-$ sudo vim /etc/apache2/sites-available/www.cco.com.conf
-&lt;VirtualHost *:80&gt;
-        ServerName www.example.com
-        ServerAdmin webmaster@localhost
-         # 这里指明静态文件存放的地方
-    Alias /static  /home/hanchang/www/html/CCO/CCO_WEB/static
-    # 给文件夹分配权限
-    &lt;Directory /home/hanchang/www/html/CCO/CCO_WEB/static&gt;
-            Require all granted
-    &lt;/Directory&gt;
-    #接下来，我们将授予访问存储Django代码的二级项目目录中的wsgi.py文件的权限。
-    &lt;Directory /home/hanchang/www/html/CCO/CCO_WEB/CCO_WEB&gt;
-    &lt;Files wsgi.py&gt;
-            Require all granted
-    &lt;/Files&gt;
-    &lt;/Directory&gt;
-        WSGIDaemonProcess CCO_WEB python-home=/home/hanchang/www/html/CCO/CCO_WEB/CCO_WEB python-path=/home/hanchang/www/html/CCO
-    WSGIProcessGroup CCO_WEB
-    WSGIScriptAlias / /home/hanchang/www/html/CCO/CCO_WEB/CCO_WEB/wsgi.py
-    ErrorLog ${APACHE_LOG_DIR}/error.log
-    CustomLog ${APACHE_LOG_DIR}/access.log combined
-&lt;/VirtualHost&gt;
-
-
-### 线上
-sudo a2ensite www.cco.com
-sudo service apache2 restart
-http://127.0.0.1 查看
-原文查看　https://www.digitalocean.com/community/tutorials/how-to-serve-django-applications-with-apache-and-mod_wsgi-on-ubuntu-16-04</code></pre>
-<h3 id="数据库安装">数据库安装</h3>
-<pre><code>$ sudo apt-get install python-setuptools
-$ sudo apt-get install libmysqld-dev
-$ sudo apt-get install libmysqlclient-dev
-$ sudo apt-get install python-dev
-$ sudo easy_install mysql-python
-$ pip3 install mysqlclient</code></pre>
-<h3 id="安装">安装</h3>
-<pre><code># 需要先安装虚拟环境
-(Novel) pip isntall django==1.8.2 # 不能加sudo</code></pre>
-<h3 id="查看是否安装成功及版本号">查看是否安装成功及版本号</h3>
-<pre><code>python
-import django
-django.VERSION</code></pre>
-<h3 id="安装mysqldb">安装MysqlDb</h3>
-<p>ubuntu</p>
-<pre><code># ubuntu安装步骤：
-sudo apt-get install python-setuptools
-sudo apt-get install libmysqld-dev
-sudo apt-get install libmysqlclient-dev
-sudo apt-get install python-dev
-sudo easy_install mysql-python</code></pre>
-<p>windows下https://pypi.python.org/pypi/MySQL-python/1.2.5 下载.exe一键安装</p>
-<h3 id="创建项目">创建项目</h3>
-<pre><code>django-admin.py startproject Novel</code></pre>
-<h3 id="创建app">创建APP</h3>
-<pre><code>python manage.py startapp Heros</code></pre>
-<p>/Novel/settings.py</p>
-<pre><code>INSTALLED_APPS = (
-    ...
-    &#39;Heroes&#39;,  #这里填写的是app的名称
-)</code></pre>
-<h3 id="命令行调试模式">命令行调试模式</h3>
-<pre><code>python manage.py shell</code></pre>
-<h3 id="运行开发服务器">运行开发服务器</h3>
-<pre><code>cd mysite
-python manage.py runserver 或者
-python manage.py runserver 0.0.0.0:8000</code></pre>
-<h3 id="运行shell脚本方式">运行shell脚本方式</h3>
-<pre><code>python manager.py shell # 启动脚本环境
-from testapp.models import *  # 导入数据库</code></pre>
-<h3 id="部署线上环境">部署线上环境</h3>
-<p>安装apache模块</p>
-<pre><code># Python 2
-sudo apt-get install libapache2-mod-wsgi
-
-# Python 3
-sudo apt-get install libapache2-mod-wsgi-py3</code></pre>
-<p>Novel/Novel/wsgi.py</p>
-<pre><code>import os
-import sys
-sys.path.append(&#39;/var/www/html/Novel/&#39;)
-sys.path.append(&#39;/var/www/html/Novel/Novel/&#39;)
-sys.path.append(&#39;/var/www/html/Novel/lib/python2.7/site-packages&#39;) # 虚拟环境需要添加
-from django.core.wsgi import get_wsgi_application
-
-
-os.environ.setdefault(&quot;DJANGO_SETTINGS_MODULE&quot;, &quot;Novel.settings&quot;)
-application = get_wsgi_application()</code></pre>
-<p>/etc/apache2/sites-enable/novel.conf</p>
-<pre><code>&lt;VirtualHost *:1200&gt;
-    ServerAdmin webmaster@localhost
-    DocumentRoot /var/www/html/Novel/Novel/Novel
-    ErrorLog ${APACHE_LOG_DIR}/error.log
-    CustomLog ${APACHE_LOG_DIR}/access.log combined
-
-    # 静态文件设置
-    Alias /static/ /var/www/html/Novel/Novel/Novel/static/
-    &lt;Directory /var/www/html/Novel/Novel/Novel/static/&gt;
-        Require all granted
-    &lt;/Directory&gt;
-
-    WSGIScriptAlias / /var/www/html/Novel/Novel/Novel/wsgi.py
-    &lt;Directory /var/www/html/Novel/Novel/Novel/&gt;
-        Require all granted
-        &lt;Files wsgi.py&gt;
-            Require all granted
-        &lt;/Files&gt;
-    &lt;/Directory&gt;
-
-&lt;/VirtualHost&gt;</code></pre>
-<h3 id="视图与路由绑定">视图与路由绑定</h3>
-<p>/Heroes/views.py</p>
-<pre><code>from django.http import HttpResponse, Http404
-# Create your views here.
-
-
-def hello(request):
-    return HttpResponse(&quot;Hello World&quot;)</code></pre>
-<p>/Novel/urls.py</p>
-<pre><code>from django.conf.urls import include, url
-from Heroes.views import *
-
-urlpatterns = [
-    url(r&#39;^hello/$&#39;, hello),
-    url(r&#39;^time/plus/(\d{1,2})/$&#39;, hours_ahead)
-]</code></pre>
-<h3 id="视图与模板">视图与模板</h3>
-<p>/Novel/settings.py设置模板路径</p>
-<pre><code>TEMPLATES = [
-    {
-        # .....
-        &#39;DIRS&#39;: [
-            os.path.join(os.path.dirname(__file__), &#39;templates&#39;).replace(&#39;\\&#39;,&#39;/&#39;),
-        ],
-        # ....
-    },
-]</code></pre>
-<p>/Novel/Heroes/views.py修改视图</p>
-<pre><code>from django.shortcuts import render_to_response
-from django.http import HttpResponse, Http404
-import datetime
-# Create your views here.
-
-
-
-def current_datetime(request):
-    now = datetime.datetime.now()
-    # html = &#39;&lt;html&gt;&lt;body&gt;It is %s.&lt;/body&gt;&lt;/html&gt;&#39; % now
-    return render_to_response(&#39;Heroes/current_datetime.html&#39;, {&#39;current_time&#39;: now})</code></pre>
-<p>/Novel目录下创建templates/Heroes/current_datetime.html</p>
-<pre><code>&lt;!doctype html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;Document&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;h1&gt;{ { current_time }}&lt;/h1&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-<h3 id="数据库配置">数据库配置</h3>
-<p>/Novel/settings.py</p>
-<pre><code>DATABASES = {
-    &#39;default&#39;: {
-        &#39;ENGINE&#39;: &#39;django.db.backends.mysql&#39;,
-        &#39;NAME&#39;: &#39;Novel&#39;,
-        &#39;USER&#39;: &#39;root&#39;,
-        &#39;PASSWORD&#39;: &#39;password&#39;,
-        &#39;HOST&#39;: &#39;127.0.0.1&#39;,
-        &#39;PORT&#39;: &#39;3306&#39;
-    }
-}</code></pre>
-<p>测试是否成功</p>
-<pre><code>python manage.py shell
-&gt;&gt;&gt; from django.db import connection
-&gt;&gt;&gt; cursor = connection.cursor()</code></pre>
-<h3 id="视图返回json数据格式">视图返回json数据格式</h3>
-<p>views.py</p>
-<pre><code>from django.http import HttpResponse, Http404
-from json import dumps
-
-def login_handle(request):
-    if request.method != &#39;POST&#39;:
-        raise Http404()
-    inputs = request.POST
-    json_str = dumps(inputs)
-    return HttpResponse(json_str, content_type=&#39;application/json&#39;)</code></pre>
-<p>### 静态文件 settings.py <figure class="highlight plain"><figcaption><span>线上模式静态地址 STATIC_URL </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">开发模式静态地址</span><br><span class="line">========</span><br><span class="line"></span><br><span class="line">STATICFILES_DIRS = (os.path.join(os.path.dirname(**file**), &apos;static&apos;).replace(&apos;\\&apos;,&apos;/&apos;),)</span><br></pre></td></tr></table></figure></p>
+    <h2 id="环境安装">环境安装</h2>
+<h3 id="python3.5">Python3.5</h3>
+<p><a href="/2016/11/09/Python入门基础/" title="python入门基础">python入门基础</a></p>
+<h3 id="django1.11">Django1.11</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 安装项目目录</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> ~/www/html/</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> virtualenv --no-site-packages -p /usr/bin/python3.5 CCO</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> CCO</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">source</span> ./bin/activate</span></span><br><span class="line">(CCO) $ pip3 install ipython</span><br><span class="line">(CCO) $ pip3 install Django==1.11.7</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看django是否安装成功</span></span><br><span class="line">(CCO) $  ipython</span><br><span class="line"><span class="meta">$</span><span class="bash"> import django</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> django.VERSION <span class="comment"># 打印出django版本表示成功</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 开始创建项目</span></span><br><span class="line">(CCO) $ django-admin.py startproject CCO_WEB</span><br><span class="line"><span class="meta">#</span><span class="bash"> 创建应用</span></span><br><span class="line">(CCO) $ cd CCO_WEB</span><br><span class="line">(CCO) $ django-admin.py startapp polls</span><br></pre></td></tr></table></figure>
+<h3 id="配置django">配置Django</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 修改文件内容</span></span><br><span class="line">(CCO) $ vim CCO_WEB/CCO_WEB/setting.py</span><br><span class="line">ALLOWED_HOSTS = ['127.0.0.1', 'localhost']  # 修改</span><br><span class="line">STATIC_URL = '/static/' # 原始</span><br><span class="line">STATIC_ROOT = os.path.join(BASE_DIR, 'static/') # 添加</span><br></pre></td></tr></table></figure>
+<h3 id="数据库迁移">数据库迁移</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 创建数据库和超级管理员</span></span><br><span class="line">(CCO) $ ./manage.py makemigrations</span><br><span class="line">(CCO) $ ./manage.py migrate</span><br><span class="line">(CCO) $ ./manage.py createsuperuser # 创建超级管理员</span><br></pre></td></tr></table></figure>
+<h3 id="静态文件收集">静态文件收集</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(CCO) $ ./manage.py collectstatic # 收集静态文件</span><br></pre></td></tr></table></figure>
+<h3 id="本地开发环境">本地开发环境</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 用django自带服务器运行</span><br><span class="line">(CCO) $ sudo ufw allow 8000 # 关闭防火墙</span><br><span class="line">(CCO) $ ./manage.py runserver 0.0.0.0:8000 # 成功表示django开发环境配置完成</span><br></pre></td></tr></table></figure>
+<h3 id="apache线上部署">Apache线上部署</h3>
+<p>安装apache模块 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> Python 2</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo apt-get install libapache2-mod-wsgi</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Python 3</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo apt-get install libapache2-mod-wsgi-py3</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">apache虚拟主机配置</span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo vim /etc/apache2/sites-available/www.cco.com.conf</span></span><br><span class="line">&lt;VirtualHost *:80&gt;</span><br><span class="line">        ServerName www.example.com</span><br><span class="line">        ServerAdmin webmaster@localhost</span><br><span class="line">         # 这里指明静态文件存放的地方</span><br><span class="line">    Alias /static  /home/hanchang/www/html/CCO/CCO_WEB/static</span><br><span class="line">    # 给文件夹分配权限</span><br><span class="line">    &lt;Directory /home/hanchang/www/html/CCO/CCO_WEB/static&gt;</span><br><span class="line">            Require all granted</span><br><span class="line">    &lt;/Directory&gt;</span><br><span class="line">    #接下来，我们将授予访问存储Django代码的二级项目目录中的wsgi.py文件的权限。</span><br><span class="line">    &lt;Directory /home/hanchang/www/html/CCO/CCO_WEB/CCO_WEB&gt;</span><br><span class="line">    &lt;Files wsgi.py&gt;</span><br><span class="line">            Require all granted</span><br><span class="line">    &lt;/Files&gt;</span><br><span class="line">    &lt;/Directory&gt;</span><br><span class="line">        WSGIDaemonProcess CCO_WEB python-home=/home/hanchang/www/html/CCO/CCO_WEB/CCO_WEB python-path=/home/hanchang/www/html/CCO</span><br><span class="line">    WSGIProcessGroup CCO_WEB</span><br><span class="line">    WSGIScriptAlias / /home/hanchang/www/html/CCO/CCO_WEB/CCO_WEB/wsgi.py</span><br><span class="line">    ErrorLog $&#123;APACHE_LOG_DIR&#125;/error.log</span><br><span class="line">    CustomLog $&#123;APACHE_LOG_DIR&#125;/access.log combined</span><br><span class="line">&lt;/VirtualHost&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">## 线上</span></span></span><br><span class="line">sudo a2ensite www.cco.com</span><br><span class="line">sudo service apache2 restart</span><br><span class="line">http://127.0.0.1 查看</span><br></pre></td></tr></table></figure>
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-serve-django-applications-with-apache-and-mod_wsgi-on-ubuntu-16-04" target="_blank" rel="noopener">原文查看</a></p>
+<p>### 守护进程</p>
+<p><a href="/2016/11/10/CentOs7.2服务器基础配置/" title="CentOs7.2服务器基础配置">CentOs7.2服务器基础配置</a> Supervisor部分</p>
 
   </div>
 </article>
@@ -418,23 +203,23 @@ def login_handle(request):
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#号重新更新基本安装和线上部署"><span class="toc-number">1.</span> <span class="toc-text">2017.11.10号重新更新基本安装和线上部署</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据库安装"><span class="toc-number">2.</span> <span class="toc-text">数据库安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-number">3.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看是否安装成功及版本号"><span class="toc-number">4.</span> <span class="toc-text">查看是否安装成功及版本号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装mysqldb"><span class="toc-number">5.</span> <span class="toc-text">安装MysqlDb</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建项目"><span class="toc-number">6.</span> <span class="toc-text">创建项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建app"><span class="toc-number">7.</span> <span class="toc-text">创建APP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#命令行调试模式"><span class="toc-number">8.</span> <span class="toc-text">命令行调试模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#运行开发服务器"><span class="toc-number">9.</span> <span class="toc-text">运行开发服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#运行shell脚本方式"><span class="toc-number">10.</span> <span class="toc-text">运行shell脚本方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#部署线上环境"><span class="toc-number">11.</span> <span class="toc-text">部署线上环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#视图与路由绑定"><span class="toc-number">12.</span> <span class="toc-text">视图与路由绑定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#视图与模板"><span class="toc-number">13.</span> <span class="toc-text">视图与模板</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据库配置"><span class="toc-number">14.</span> <span class="toc-text">数据库配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#视图返回json数据格式"><span class="toc-number">15.</span> <span class="toc-text">视图返回json数据格式</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#环境安装"><span class="toc-number">1.</span> <span class="toc-text">环境安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#python3.5"><span class="toc-number">1.1.</span> <span class="toc-text">Python3.5</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#django1.11"><span class="toc-number">1.2.</span> <span class="toc-text">Django1.11</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置django"><span class="toc-number">1.3.</span> <span class="toc-text">配置Django</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据库迁移"><span class="toc-number">1.4.</span> <span class="toc-text">数据库迁移</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#静态文件收集"><span class="toc-number">1.5.</span> <span class="toc-text">静态文件收集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#本地开发环境"><span class="toc-number">1.6.</span> <span class="toc-text">本地开发环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#apache线上部署"><span class="toc-number">1.7.</span> <span class="toc-text">Apache线上部署</span></a></li></ol></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
       <ul>
   <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://www.zhuohc.com/2016/11/09/Django入门基础/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
   <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://www.zhuohc.com/2016/11/09/Django入门基础/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://www.zhuohc.com/2016/11/09/Django入门基础/&text=django入门基础"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://www.zhuohc.com/2016/11/09/Django入门基础/&title=django入门基础"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://www.zhuohc.com/2016/11/09/Django入门基础/&is_video=false&description=django入门基础"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=django入门基础&body=Check out this article: http://www.zhuohc.com/2016/11/09/Django入门基础/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://www.zhuohc.com/2016/11/09/Django入门基础/&title=django入门基础"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://www.zhuohc.com/2016/11/09/Django入门基础/&title=django入门基础"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://www.zhuohc.com/2016/11/09/Django入门基础/&title=django入门基础"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://www.zhuohc.com/2016/11/09/Django入门基础/&title=django入门基础"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://www.zhuohc.com/2016/11/09/Django入门基础/&name=django入门基础&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://www.zhuohc.com/2016/11/09/Django入门基础/&t=django入门基础"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://www.zhuohc.com/2016/11/09/Django入门基础/&text=Django入门基础"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://www.zhuohc.com/2016/11/09/Django入门基础/&title=Django入门基础"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://www.zhuohc.com/2016/11/09/Django入门基础/&is_video=false&description=Django入门基础"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Django入门基础&body=Check out this article: http://www.zhuohc.com/2016/11/09/Django入门基础/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://www.zhuohc.com/2016/11/09/Django入门基础/&title=Django入门基础"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://www.zhuohc.com/2016/11/09/Django入门基础/&title=Django入门基础"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://www.zhuohc.com/2016/11/09/Django入门基础/&title=Django入门基础"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://www.zhuohc.com/2016/11/09/Django入门基础/&title=Django入门基础"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://www.zhuohc.com/2016/11/09/Django入门基础/&name=Django入门基础&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://www.zhuohc.com/2016/11/09/Django入门基础/&t=Django入门基础"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>

@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="zhuohc&#39;s blog">
 <meta property="og:description" content="服务器端安装 官方推荐 # 安装包 sudo apt install subversion apache2 libapache2-svn # 创建目录及两个svn项目 mkdir svn svnadmin create svn/doneself-app svnadmin create svn/doneself-web # 多个项目公用一个权限文件 cp -rf svn/doneself/conf/">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-23T05:51:43.850Z">
+<meta property="og:updated_time" content="2019-12-13T06:26:24.606Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ubuntu16.04安装及使用SVN">
 <meta name="twitter:description" content="服务器端安装 官方推荐 # 安装包 sudo apt install subversion apache2 libapache2-svn # 创建目录及两个svn项目 mkdir svn svnadmin create svn/doneself-app svnadmin create svn/doneself-web # 多个项目公用一个权限文件 cp -rf svn/doneself/conf/">
@@ -106,7 +106,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#服务器端安装"><span class="toc-number">1.</span> <span class="toc-text">服务器端安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#启动svn服务器"><span class="toc-number">2.</span> <span class="toc-text">启动svn服务器</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#服务器端安装"><span class="toc-number">1.</span> <span class="toc-text">服务器端安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#启动svn服务器"><span class="toc-number">2.</span> <span class="toc-text">启动svn服务器</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -150,7 +150,7 @@
   
 
   <div class="content" itemprop="articleBody">
-    <h4 id="服务器端安装">服务器端安装</h4>
+    <h1 id="服务器端安装">服务器端安装</h1>
 <p><a href="https://help.ubuntu.com/lts/serverguide/subversion.html.en/" target="_blank" rel="noopener">官方推荐</a></p>
 <pre><code># 安装包
 sudo apt install subversion apache2 libapache2-svn
@@ -188,7 +188,7 @@ vim svn/
 ui = ui  
 [doneself-app:/]  
 ui = wr</code></pre>
-<h4 id="启动svn服务器">启动svn服务器</h4>
+<h1 id="启动svn服务器">启动svn服务器</h1>
 <pre><code># 启动,默认端口号3690
 sudo svnserve -d -r /home/svn
 # 结束
@@ -220,7 +220,7 @@ sudo pkill svnserve</code></pre>
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#服务器端安装"><span class="toc-number">1.</span> <span class="toc-text">服务器端安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#启动svn服务器"><span class="toc-number">2.</span> <span class="toc-text">启动svn服务器</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#服务器端安装"><span class="toc-number">1.</span> <span class="toc-text">服务器端安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#启动svn服务器"><span class="toc-number">2.</span> <span class="toc-text">启动svn服务器</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
