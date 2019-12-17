@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="zhuohc&#39;s blog">
 <meta property="og:description" content="安装 123456789101112131415161718# 安装$ sudo yum install pcre-devel openssl-devel gcc curl$ wget https://openresty.org/download/openresty-1.13.6.2.tar.gz$ tar -xzvf openresty-1.13.6.2.tar.gz$ cd openresty">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-12-16T09:38:21.571Z">
+<meta property="og:updated_time" content="2019-12-17T04:17:30.580Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OpenResty入门基础">
 <meta name="twitter:description" content="安装 123456789101112131415161718# 安装$ sudo yum install pcre-devel openssl-devel gcc curl$ wget https://openresty.org/download/openresty-1.13.6.2.tar.gz$ tar -xzvf openresty-1.13.6.2.tar.gz$ cd openresty">
@@ -78,7 +78,7 @@
         <li><a class="icon" href="/2018/11/16/Zabbix入门基础/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
-        <li><a class="icon" href="/2018/11/10/Linux环境nginx-php-fpm权限问题/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        <li><a class="icon" href="/2018/10/09/Ubuntu16.04安装及使用SVN/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
@@ -107,7 +107,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置"><span class="toc-number">2.</span> <span class="toc-text">配置</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置"><span class="toc-number">2.</span> <span class="toc-text">配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常见错误"><span class="toc-number">3.</span> <span class="toc-text">常见错误</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#nginx与用户组权限问题"><span class="toc-number">3.1.</span> <span class="toc-text">Nginx与用户组权限问题</span></a></li></ol></li></ol>
     </div>
   </span>
 </div>
@@ -162,6 +162,10 @@
 <blockquote>
 <p>openResty的Nginx和普通Nginx配置一致</p>
 </blockquote>
+<h2 id="常见错误">常见错误</h2>
+<h3 id="nginx与用户组权限问题"><font color="#d44375">Nginx与用户组权限问题</font></h3>
+<p>当前用户hanchang, nginx用户nginx <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/nginx/nginx.conf</span><br><span class="line">user hanchang;</span><br><span class="line"></span><br><span class="line">vim /etc/php-fpm.d/www.conf </span><br><span class="line">user = hanchang</span><br><span class="line">group = nginx</span><br><span class="line">listen.owner = hanchang</span><br><span class="line">listen.group = nginx</span><br><span class="line">listen.mode = 0660</span><br></pre></td></tr></table></figure></p>
+<p>将当前用户加入nginx用户组 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo usermod -a -G nginx hanchang</span></span><br></pre></td></tr></table></figure></p>
 
   </div>
 </article>
@@ -189,7 +193,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置"><span class="toc-number">2.</span> <span class="toc-text">配置</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置"><span class="toc-number">2.</span> <span class="toc-text">配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常见错误"><span class="toc-number">3.</span> <span class="toc-text">常见错误</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#nginx与用户组权限问题"><span class="toc-number">3.1.</span> <span class="toc-text">Nginx与用户组权限问题</span></a></li></ol></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">

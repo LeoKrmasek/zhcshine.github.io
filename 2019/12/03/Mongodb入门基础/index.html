@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="linux安装mongodb arch linux 123456# aur$ git clone https://aur.archlinux.org/mongodb-bin.git$ cd mongodb-bin$ makepkg -si$ sudo systemctl enable mongodb.service$ sudo systemctl start mongodb.service 基础命">
+    <meta name="description" content="安装Mongodb arch linux 123456# aur$ git clone https://aur.archlinux.org/mongodb-bin.git$ cd mongodb-bin$ makepkg -si$ sudo systemctl enable mongodb.service$ sudo systemctl start mongodb.service 基础命令 123">
 <meta name="keywords" content="数据库,非关系型数据库,Mongodb">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mongodb入门基础">
 <meta property="og:url" content="http://www.zhuohc.com/2019/12/03/Mongodb入门基础/index.html">
 <meta property="og:site_name" content="zhuohc&#39;s blog">
-<meta property="og:description" content="linux安装mongodb arch linux 123456# aur$ git clone https://aur.archlinux.org/mongodb-bin.git$ cd mongodb-bin$ makepkg -si$ sudo systemctl enable mongodb.service$ sudo systemctl start mongodb.service 基础命">
+<meta property="og:description" content="安装Mongodb arch linux 123456# aur$ git clone https://aur.archlinux.org/mongodb-bin.git$ cd mongodb-bin$ makepkg -si$ sudo systemctl enable mongodb.service$ sudo systemctl start mongodb.service 基础命令 123">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-12-13T06:31:48.417Z">
+<meta property="og:updated_time" content="2019-12-17T04:52:30.494Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mongodb入门基础">
-<meta name="twitter:description" content="linux安装mongodb arch linux 123456# aur$ git clone https://aur.archlinux.org/mongodb-bin.git$ cd mongodb-bin$ makepkg -si$ sudo systemctl enable mongodb.service$ sudo systemctl start mongodb.service 基础命">
+<meta name="twitter:description" content="安装Mongodb arch linux 123456# aur$ git clone https://aur.archlinux.org/mongodb-bin.git$ cd mongodb-bin$ makepkg -si$ sudo systemctl enable mongodb.service$ sudo systemctl start mongodb.service 基础命令 123">
     
     
         
@@ -107,7 +107,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#linux安装mongodb"><span class="toc-number">1.</span> <span class="toc-text">linux安装mongodb</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#arch-linux"><span class="toc-number">1.0.1.</span> <span class="toc-text">arch linux</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#基础命令"><span class="toc-number">2.</span> <span class="toc-text">基础命令</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装mongodb"><span class="toc-number">1.</span> <span class="toc-text">安装Mongodb</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#arch-linux"><span class="toc-number">1.1.</span> <span class="toc-text">arch linux</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基础命令"><span class="toc-number">2.</span> <span class="toc-text">基础命令</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -138,6 +138,11 @@
 
 
       
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/运维/">运维</a>
+    </div>
+
 
       
     <div class="article-tag">
@@ -151,10 +156,10 @@
   
 
   <div class="content" itemprop="articleBody">
-    <h1 id="linux安装mongodb">linux安装mongodb</h1>
+    <h2 id="安装mongodb">安装Mongodb</h2>
 <h3 id="arch-linux">arch linux</h3>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> aur</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git <span class="built_in">clone</span> https://aur.archlinux.org/mongodb-bin.git</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> mongodb-bin</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> makepkg -si</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo systemctl <span class="built_in">enable</span> mongodb.service</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo systemctl start mongodb.service</span></span><br></pre></td></tr></table></figure>
-<h1 id="基础命令">基础命令</h1>
+<h2 id="基础命令">基础命令</h2>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 进入终端</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> mongo</span></span><br><span class="line">MongoDB shell version v4.2.1</span><br><span class="line">connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&amp;gssapiServiceName=mongodb</span><br><span class="line">Implicit session: session &#123; "id" : UUID("5ae8192f-e4b1-408f-9795-ea731610d5ad") &#125;</span><br><span class="line">MongoDB server version: 4.2.1</span><br><span class="line">Welcome to the MongoDB shell.</span><br><span class="line">For interactive help, type "help".</span><br><span class="line">For more comprehensive documentation, see</span><br><span class="line">        http://docs.mongodb.org/</span><br><span class="line">Questions? Try the support group</span><br><span class="line">        http://groups.google.com/group/mongodb-user</span><br><span class="line">Server has startup warnings: </span><br><span class="line">2019-12-03T15:18:28.142+0800 I  STORAGE  [initandlisten] </span><br><span class="line">2019-12-03T15:18:28.142+0800 I  STORAGE  [initandlisten] ** WARNING: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine</span><br><span class="line">2019-12-03T15:18:28.142+0800 I  STORAGE  [initandlisten] **          See http://dochub.mongodb.org/core/prodnotes-filesystem</span><br><span class="line">2019-12-03T15:18:28.728+0800 I  CONTROL  [initandlisten] </span><br><span class="line">2019-12-03T15:18:28.728+0800 I  CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.</span><br><span class="line">2019-12-03T15:18:28.728+0800 I  CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.</span><br><span class="line">2019-12-03T15:18:28.728+0800 I  CONTROL  [initandlisten] </span><br><span class="line">2019-12-03T15:18:28.728+0800 I  CONTROL  [initandlisten] </span><br><span class="line">2019-12-03T15:18:28.728+0800 I  CONTROL  [initandlisten] ** WARNING: soft rlimits too low. rlimits set to 95847 processes, 1048576 files. Number of processes should be at least 524288 : 0.5 times number of files.</span><br><span class="line">---</span><br><span class="line">Enable MongoDB's free cloud-based monitoring service, which will then receive and display</span><br><span class="line">metrics about your deployment (disk utilization, CPU, operation statistics, etc).</span><br><span class="line"></span><br><span class="line">The monitoring data will be available on a MongoDB website with a unique URL accessible to you</span><br><span class="line">and anyone you share the URL with. MongoDB may use this information to make product</span><br><span class="line">improvements and to suggest MongoDB products and deployment options to you.</span><br><span class="line"></span><br><span class="line">To enable free monitoring, run the following command: db.enableFreeMonitoring()</span><br><span class="line">To permanently disable this reminder, run the following command: db.disableFreeMonitoring()</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 打印当前数据库</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> db</span></span><br><span class="line"><span class="meta">-&gt;</span><span class="bash"> <span class="built_in">test</span></span></span><br></pre></td></tr></table></figure>
 
@@ -184,7 +189,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#linux安装mongodb"><span class="toc-number">1.</span> <span class="toc-text">linux安装mongodb</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#arch-linux"><span class="toc-number">1.0.1.</span> <span class="toc-text">arch linux</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#基础命令"><span class="toc-number">2.</span> <span class="toc-text">基础命令</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装mongodb"><span class="toc-number">1.</span> <span class="toc-text">安装Mongodb</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#arch-linux"><span class="toc-number">1.1.</span> <span class="toc-text">arch linux</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基础命令"><span class="toc-number">2.</span> <span class="toc-text">基础命令</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
