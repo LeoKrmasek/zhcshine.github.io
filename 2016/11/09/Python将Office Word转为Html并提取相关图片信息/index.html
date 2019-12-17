@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="思路1  More exactly, a .docx document is a Zip archive in OpenXML format: you have first to uncompress it. I downloaded a sample (Google: some search term filetype:docx) and after unzipping I found some">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python将Office Word转为Html并提取相关图片信息">
+<meta property="og:url" content="http://www.zhuohc.com/2016/11/09/Python将Office Word转为Html并提取相关图片信息/index.html">
+<meta property="og:site_name" content="zhuohc&#39;s blog">
+<meta property="og:description" content="思路1  More exactly, a .docx document is a Zip archive in OpenXML format: you have first to uncompress it. I downloaded a sample (Google: some search term filetype:docx) and after unzipping I found some">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-12-17T08:17:13.604Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python将Office Word转为Html并提取相关图片信息">
+<meta name="twitter:description" content="思路1  More exactly, a .docx document is a Zip archive in OpenXML format: you have first to uncompress it. I downloaded a sample (Google: some search term filetype:docx) and after unzipping I found some">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Python将Office Word转为Html并提取相关图片信息</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2016/11/09/S_h_a_d_o_w_s_o_c_k_s服务/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2016/11/09/Python从Excel导出数据并批量替换word文档内容/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://www.zhuohc.com/2016/11/09/Python将Office Word转为Html并提取相关图片信息/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://www.zhuohc.com/2016/11/09/Python将Office Word转为Html并提取相关图片信息/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://www.zhuohc.com/2016/11/09/Python将Office Word转为Html并提取相关图片信息/&text=Python将Office Word转为Html并提取相关图片信息"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://www.zhuohc.com/2016/11/09/Python将Office Word转为Html并提取相关图片信息/&title=Python将Office Word转为Html并提取相关图片信息"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://www.zhuohc.com/2016/11/09/Python将Office Word转为Html并提取相关图片信息/&is_video=false&description=Python将Office Word转为Html并提取相关图片信息"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Python将Office Word转为Html并提取相关图片信息&body=Check out this article: http://www.zhuohc.com/2016/11/09/Python将Office Word转为Html并提取相关图片信息/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://www.zhuohc.com/2016/11/09/Python将Office Word转为Html并提取相关图片信息/&title=Python将Office Word转为Html并提取相关图片信息"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://www.zhuohc.com/2016/11/09/Python将Office Word转为Html并提取相关图片信息/&title=Python将Office Word转为Html并提取相关图片信息"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://www.zhuohc.com/2016/11/09/Python将Office Word转为Html并提取相关图片信息/&title=Python将Office Word转为Html并提取相关图片信息"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://www.zhuohc.com/2016/11/09/Python将Office Word转为Html并提取相关图片信息/&title=Python将Office Word转为Html并提取相关图片信息"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://www.zhuohc.com/2016/11/09/Python将Office Word转为Html并提取相关图片信息/&name=Python将Office Word转为Html并提取相关图片信息&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://www.zhuohc.com/2016/11/09/Python将Office Word转为Html并提取相关图片信息/&t=Python将Office Word转为Html并提取相关图片信息"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#思路1"><span class="toc-number">1.</span> <span class="toc-text">思路1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#思路2"><span class="toc-number">2.</span> <span class="toc-text">思路2</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Python将Office Word转为Html并提取相关图片信息
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">zhuohc's blog</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2016-11-09T02:10:01.000Z" itemprop="datePublished">2016-11-09</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/后端/">后端</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/Python/">Python</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="思路1">思路1</h2>
+<blockquote>
+<p>More exactly, a .docx document is a Zip archive in OpenXML format: you have first to uncompress it. I downloaded a sample (Google: some search term filetype:docx) and after unzipping I found some folders. The word folder contains the document itself, in file document.xml.</p>
+</blockquote>
+<p>于是使用unzip模块 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> zipfile</span><br></pre></td></tr></table></figure></p>
+<p>但是报错 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BadZipfile: File is not a zip file</span><br></pre></td></tr></table></figure></p>
+<p>检查发现office word文件结尾为.doc, 于是使用7-zip进行提取发现确实报错.</p>
+<p>尝试用本机office2013打开并另存为word文档.docx, 再次使用7-zip进行提取，成功，会生成以下一个文件夹</p>
+<ul>
+<li>_rels文件夹<br>
+</li>
+<li>docProps文件夹<br>
+</li>
+<li>word文件夹<br>
+</li>
+<li>[Content_Types].xml文件</li>
+</ul>
+<p>其中\word\media文件夹下就有我需要的图片信息<br>
+既然需要更改文件后缀，那么就有另一个思路。</p>
+<h2 id="思路2">思路2</h2>
+<blockquote>
+<p>通过win32com.clientm将文件改为html文件，会生成类似的文件夹</p>
+</blockquote>
+<p>核心代码 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- encoding: utf8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> win32com</span><br><span class="line"><span class="keyword">from</span> win32com.client <span class="keyword">import</span> constants</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打开初始化word文档</span></span><br><span class="line">w = win32com.client.Dispatch(<span class="string">'Word.Application'</span>)</span><br><span class="line">w.Visible = <span class="number">0</span></span><br><span class="line">w.DisplayAlerts = <span class="number">0</span></span><br><span class="line">doc = w.Documents.Open(source_file)  <span class="comment"># 打开文件</span></span><br><span class="line">doc.SaveAs(target_fold + <span class="string">'/'</span> + file_number + <span class="string">'.htm'</span>, <span class="number">8</span>)  <span class="comment"># 更名为htm文件</span></span><br><span class="line">doc.Close()</span><br><span class="line">w.Quit()</span><br></pre></td></tr></table></figure></p>
+<p>另存为其他规格只需要将参数8修改即可</p>
+<ul>
+<li>wdFormatDocument = 0<br>
+</li>
+<li>wdFormatDocument97 = 0<br>
+</li>
+<li>wdFormatDocumentDefault = 16<br>
+</li>
+<li>wdFormatDOSText = 4<br>
+</li>
+<li>wdFormatDOSTextLineBreaks = 5<br>
+</li>
+<li>wdFormatEncodedText = 7<br>
+</li>
+<li>wdFormatFilteredHTML = 10<br>
+</li>
+<li>wdFormatFlatXML = 19<br>
+</li>
+<li>wdFormatFlatXMLMacroEnabled = 20<br>
+</li>
+<li>wdFormatFlatXMLTemplate = 21<br>
+</li>
+<li>wdFormatFlatXMLTemplateMacroEnabled = 22<br>
+</li>
+<li>wdFormatHTML = 8<br>
+</li>
+<li>wdFormatPDF = 17<br>
+</li>
+<li>wdFormatRTF = 6<br>
+</li>
+<li>wdFormatTemplate = 1<br>
+</li>
+<li>wdFormatTemplate97 = 1<br>
+</li>
+<li>wdFormatText = 2<br>
+</li>
+<li>wdFormatTextLineBreaks = 3<br>
+</li>
+<li>wdFormatUnicodeText = 7<br>
+</li>
+<li>wdFormatWebArchive = 9<br>
+</li>
+<li>wdFormatXML = 11<br>
+</li>
+<li>wdFormatXMLDocument = 12<br>
+</li>
+<li>wdFormatXMLDocumentMacroEnabled = 13<br>
+</li>
+<li>wdFormatXMLTemplate = 14<br>
+</li>
+<li>wdFormatXMLTemplateMacroEnabled = 15<br>
+</li>
+<li>wdFormatXPS = 18</li>
+</ul>
+<p>最后脚本 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- encoding: utf8 -*-</span></span><br><span class="line"><span class="keyword">import</span> win32com</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> xlrd</span><br><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line"><span class="keyword">from</span> win32com.client <span class="keyword">import</span> constants</span><br><span class="line"></span><br><span class="line"><span class="comment"># 从excel表格中导入数据并组成字典</span></span><br><span class="line">XlsFile = <span class="string">'default.xlsx'</span>                  <span class="comment"># 需要的数据</span></span><br><span class="line">data = xlrd.open_workbook(XlsFile)</span><br><span class="line">table = data.sheets()[<span class="number">0</span>]</span><br><span class="line">nrows = table.nrows</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取文件名列表</span></span><br><span class="line">number_list = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, nrows):</span><br><span class="line">    number_list.append(table.row_values(i)[<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打开初始化word文档</span></span><br><span class="line">w = win32com.client.Dispatch(<span class="string">'Word.Application'</span>)</span><br><span class="line">w.Visible = <span class="number">0</span></span><br><span class="line">w.DisplayAlerts = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 遍历文件夹并将文件剪贴到新的文件夹中</span></span><br><span class="line">source_fold = os.path.split(os.path.realpath(__file__))[<span class="number">0</span>] + <span class="string">'/'</span> + <span class="string">'WordFile'</span></span><br><span class="line">target_fold = os.path.split(os.path.realpath(__file__))[<span class="number">0</span>] + <span class="string">'/'</span> + <span class="string">'NewFile'</span></span><br><span class="line">img_fold = os.path.split(os.path.realpath(__file__))[<span class="number">0</span>] + <span class="string">'/'</span> + <span class="string">'Img'</span></span><br><span class="line">word_list = os.listdir(source_fold)</span><br><span class="line"><span class="keyword">for</span> file_name <span class="keyword">in</span> word_list:</span><br><span class="line">    <span class="comment"># 根据货号在列表中查找</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        file_number = file_name[<span class="number">0</span>:<span class="number">10</span>]</span><br><span class="line">        <span class="keyword">if</span> file_number <span class="keyword">in</span> number_list:</span><br><span class="line">            print(file_name + <span class="string">'是需要的文件.'</span>)</span><br><span class="line">            source_file = source_fold + <span class="string">'/'</span> + file_name</span><br><span class="line">            doc = w.Documents.Open(source_file)  <span class="comment"># 打开文件</span></span><br><span class="line">            doc.SaveAs(target_fold + <span class="string">'/'</span> + file_number + <span class="string">'.htm'</span>, <span class="number">8</span>)  <span class="comment"># 更名为htm文件</span></span><br><span class="line">            doc.Close()</span><br><span class="line">            od_img = target_fold + <span class="string">'/'</span> + file_number + <span class="string">'.files'</span> + <span class="string">'/'</span> + <span class="string">'image003.jpg'</span></span><br><span class="line">            shutil.copyfile(od_img, img_fold + <span class="string">'/'</span> + file_number + <span class="string">'.jpg'</span>)  <span class="comment"># 复制新的文件</span></span><br><span class="line">            number_list.remove(file_number)  <span class="comment"># 从excel列表中删除此元素防止重复选取</span></span><br><span class="line">    <span class="keyword">except</span> Exception, e:</span><br><span class="line">        print(file_name)</span><br><span class="line">        <span class="keyword">print</span> e</span><br><span class="line">w.Quit()</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    f = open(<span class="string">"php.json"</span>, <span class="string">"w"</span>)</span><br><span class="line">    <span class="keyword">print</span> &gt;&gt;f, number_list  <span class="comment"># 最后将剩下的元素打印到文件中</span></span><br><span class="line"><span class="keyword">except</span> Exception, e:</span><br><span class="line">    <span class="keyword">print</span> <span class="string">'写入php.json失败'</span></span><br></pre></td></tr></table></figure></p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#思路1"><span class="toc-number">1.</span> <span class="toc-text">思路1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#思路2"><span class="toc-number">2.</span> <span class="toc-text">思路2</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://www.zhuohc.com/2016/11/09/Python将Office Word转为Html并提取相关图片信息/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://www.zhuohc.com/2016/11/09/Python将Office Word转为Html并提取相关图片信息/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://www.zhuohc.com/2016/11/09/Python将Office Word转为Html并提取相关图片信息/&text=Python将Office Word转为Html并提取相关图片信息"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://www.zhuohc.com/2016/11/09/Python将Office Word转为Html并提取相关图片信息/&title=Python将Office Word转为Html并提取相关图片信息"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://www.zhuohc.com/2016/11/09/Python将Office Word转为Html并提取相关图片信息/&is_video=false&description=Python将Office Word转为Html并提取相关图片信息"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Python将Office Word转为Html并提取相关图片信息&body=Check out this article: http://www.zhuohc.com/2016/11/09/Python将Office Word转为Html并提取相关图片信息/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://www.zhuohc.com/2016/11/09/Python将Office Word转为Html并提取相关图片信息/&title=Python将Office Word转为Html并提取相关图片信息"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://www.zhuohc.com/2016/11/09/Python将Office Word转为Html并提取相关图片信息/&title=Python将Office Word转为Html并提取相关图片信息"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://www.zhuohc.com/2016/11/09/Python将Office Word转为Html并提取相关图片信息/&title=Python将Office Word转为Html并提取相关图片信息"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://www.zhuohc.com/2016/11/09/Python将Office Word转为Html并提取相关图片信息/&title=Python将Office Word转为Html并提取相关图片信息"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://www.zhuohc.com/2016/11/09/Python将Office Word转为Html并提取相关图片信息/&name=Python将Office Word转为Html并提取相关图片信息&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://www.zhuohc.com/2016/11/09/Python将Office Word转为Html并提取相关图片信息/&t=Python将Office Word转为Html并提取相关图片信息"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2019 zhuohanchang
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight .code pre").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      target: function(trigger) {
+        return trigger.nextElementSibling;
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>
