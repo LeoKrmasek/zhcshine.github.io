@@ -7,7 +7,7 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="硬链结和符号链接的区别 硬连接记录的是目标的 inode,符号连接记录的是目标的 path。 软连接就像是快捷方式,而硬连接就像是备份!符号连接可以做跨分区的 link；而 硬连接由于 inode 的缘故，只能在本分区中做 link.所以,符号连接的使用频率要高的多。 软链接文件 软链接又叫符号链接，这个文件包含了另一个文件的路径名。可以是任意文件或目录，可以链接不同文件系统的文件。和win下的快">
-<meta name="keywords" content="windows">
+<meta name="keywords" content="Windows">
 <meta property="og:type" content="article">
 <meta property="og:title" content="硬链接软链接方式">
 <meta property="og:url" content="http://www.zhuohc.com/2016/11/08/硬链接软链接方式/index.html">
@@ -17,8 +17,7 @@
 <meta property="og:image" content="http://7xq3ry.com1.z0.glb.clouddn.com/20160127111417.png">
 <meta property="og:image" content="http://7xq3ry.com1.z0.glb.clouddn.com/20160127111459.png">
 <meta property="og:image" content="http://7xq3ry.com1.z0.glb.clouddn.com/20160127112544.png">
-<meta property="og:image" content="http://7xq3ry.com1.z0.glb.clouddn.com/20160127132448.png">
-<meta property="og:updated_time" content="2019-07-23T05:51:43.847Z">
+<meta property="og:updated_time" content="2019-12-18T01:04:16.400Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="硬链接软链接方式">
 <meta name="twitter:description" content="硬链结和符号链接的区别 硬连接记录的是目标的 inode,符号连接记录的是目标的 path。 软连接就像是快捷方式,而硬连接就像是备份!符号连接可以做跨分区的 link；而 硬连接由于 inode 的缘故，只能在本分区中做 link.所以,符号连接的使用频率要高的多。 软链接文件 软链接又叫符号链接，这个文件包含了另一个文件的路径名。可以是任意文件或目录，可以链接不同文件系统的文件。和win下的快">
@@ -112,7 +111,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#硬链结和符号链接的区别"><span class="toc-number">1.</span> <span class="toc-text">硬链结和符号链接的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#软链接文件"><span class="toc-number">2.</span> <span class="toc-text">软链接文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#硬链接文件"><span class="toc-number">3.</span> <span class="toc-text">硬链接文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#windows-下创建硬链接只能适用于-ntfs-文件系统"><span class="toc-number">4.</span> <span class="toc-text">Windows 下创建硬链接，只能适用于 NTFS 文件系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#windows-下创建软链接"><span class="toc-number">5.</span> <span class="toc-text">Windows 下创建软链接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#win7可以使用mklink命令"><span class="toc-number">6.</span> <span class="toc-text">win7可以使用mklink命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#linux服务器的软硬件链接"><span class="toc-number">7.</span> <span class="toc-text">linux服务器的软硬件链接</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#硬链结和符号链接的区别"><span class="toc-number">1.</span> <span class="toc-text">硬链结和符号链接的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#软链接文件"><span class="toc-number">2.</span> <span class="toc-text">软链接文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#硬链接文件"><span class="toc-number">3.</span> <span class="toc-text">硬链接文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#win7使用mklink命令"><span class="toc-number">4.</span> <span class="toc-text">Win7使用mklink命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#linux服务器的软硬件链接"><span class="toc-number">5.</span> <span class="toc-text">Linux服务器的软硬件链接</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -152,7 +151,7 @@
       
     <div class="article-tag">
         <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/windows/">windows</a>
+        <a class="tag-link" href="/tags/Windows/">Windows</a>
     </div>
 
 
@@ -165,54 +164,31 @@
 <p>硬连接记录的是目标的 inode,符号连接记录的是目标的 path。<br>
 软连接就像是快捷方式,而硬连接就像是备份!符号连接可以做跨分区的 link；而 硬连接由于 inode 的缘故，只能在本分区中做 link.所以,符号连接的使用频率要高的多。</p>
 <h3 id="软链接文件">软链接文件</h3>
-<p>软链接又叫符号链接，这个文件包含了另一个文件的路径名。可以是任意文件或目录，可以链接不同文件系统的文件。和win下的快捷方式差不多。链接文件甚至可以链接不存在的文件，这就产生一般称之为"断链"的问题(或曰“现象")，链接文件甚至可以循环链接自己。类似于编程语言中的递归。 命令格式：</p>
-<pre><code>ln [-s] source_path target_path </code></pre>
+<p>软链接又叫符号链接，这个文件包含了另一个文件的路径名。可以是任意文件或目录，可以链接不同文件系统的文件。和win下的快捷方式差不多。链接文件甚至可以链接不存在的文件，这就产生一般称之为"断链"的问题(或曰“现象")，链接文件甚至可以循环链接自己。类似于编程语言中的递归。 命令格式： <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln [-s] source_path target_path</span><br></pre></td></tr></table></figure></p>
 <h3 id="硬链接文件">硬链接文件</h3>
-<p>info ln 命令告诉您，硬链接是已存在文件的另一个名字，硬连接的命令是</p>
-<pre><code>ln -d existfile newfile </code></pre>
+<p>info ln 命令告诉您，硬链接是已存在文件的另一个名字，硬连接的命令是 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -d existfile newfile</span><br></pre></td></tr></table></figure></p>
 <p>硬链接文件有两个限制 1、不允许给目录创建硬链接；<br>
 2、只有在同一文件系统中的文件之间才能创建链接。<br>
 对硬链接文件进行读写和删除操作时候，结果和软链接相同。但如果我们删除硬链接文件的源文件，硬链接文件仍然存在，而且保留了愿有的内容。这时，系统就“忘记”了它曾经是硬链接文件。而把他当成一个普通文件。修改其中一个，与其连接的文件同时被修改</p>
-<h3 id="windows-下创建硬链接只能适用于-ntfs-文件系统">Windows 下创建硬链接，只能适用于 NTFS 文件系统</h3>
-<pre><code>fsutil hardlink create NewFileName ExistingFileName</code></pre>
-<h3 id="windows-下创建软链接">Windows 下创建软链接</h3>
-<p>NTFS只支持对目录的软链接，微软把它称作 junction。但是对于文件的软链接，微软也有提供解决方案，那就是快捷方式(Shortcut，.lnk 文件)。不过软链接和快捷方式不是一个层次上的东西，前者是底层文件系统的功能，后者是应用层的功能。Windows 下目录的快捷方式用 dir 看起来是个文件。<br>
-命令方式</p>
-<pre><code>junction  LinkDirectory ExistingDirectory</code></pre>
-<p>例如</p>
-<pre><code>junction d:\link c:\winnt</code></pre>
+<p><strong>Windows下创建硬链接，只能适用于 NTFS 文件系统</strong> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fsutil hardlink create NewFileName ExistingFileName</span><br></pre></td></tr></table></figure></p>
+<p><strong>Windows 下创建软链接</strong> NTFS只支持对目录的软链接，微软把它称作 junction。但是对于文件的软链接，微软也有提供解决方案，那就是快捷方式(Shortcut，.lnk 文件)。不过软链接和快捷方式不是一个层次上的东西，前者是底层文件系统的功能，后者是应用层的功能。Windows 下目录的快捷方式用 dir 看起来是个文件。<br>
+命令方式 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">junction  LinkDirectory ExistingDirectory</span><br></pre></td></tr></table></figure></p>
+<p>例如 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">junction d:\link c:\winnt</span><br></pre></td></tr></table></figure></p>
 <p>将为c:\winnt 建立一个链接目录 d:\link，C和D分区都要是 NTFS 格式，在资源管理器和 dir 列示中 d:\link 都以目录的面目存在的。d:\link 就像是 c:\winnt 的一个引用一般，删除 d:\link 目录中的内容也就是删除了 c:\winnt 中的内容，但删除 d:\link 本身是不会影响到 c:\winnt 的。</p>
-<h3 id="win7可以使用mklink命令">win7可以使用mklink命令</h3>
-<pre><code>λ mklink /?
-创建符号链接。
-
-MKLINK [[/D] | [/H] | [/J]] Link Target
-
-        /D      创建目录符号链接。默认为文件
-                符号链接。
-        /H      创建硬链接而非符号链接。
-        /J      创建目录联接。
-        Link    指定新的符号链接名称。
-        Target  指定新链接引用的路径
-                (相对或绝对)。</code></pre>
-<p>其中\D \J区别如下</p>
-<pre><code>E:\
-λ mkdir SourceDir
-E:\
-λ mklink /D DTargetDir\ SourceDir\
-为 DTargetDir\ &lt;&lt;===&gt;&gt; SourceDir\ 创建的符号链接
-E:\
-λ mklink /J JTargetDir\ SourceDir\
-为 JTargetDir\ &lt;&lt;===&gt;&gt; SourceDir\ 创建的联接</code></pre>
-<p><img src="http://7xq3ry.com1.z0.glb.clouddn.com/20160127111417.png"> <img src="http://7xq3ry.com1.z0.glb.clouddn.com/20160127111459.png"> SourceDir,JTargetDir,DTargetDir 3个文件夹内部修改/增加/删除都会互相影响。<br>
-复制JTargetDir, 不会出现新的目录，文件夹文件内部复制 <img src="http://7xq3ry.com1.z0.glb.clouddn.com/20160127112544.png"> 这样复制会影响DTargetDir和SourceDir，慎用！ 复制DTargetDir文件夹会生成一个全新的文件夹，不会被其他文件夹影响，也不能影响其他文件夹。 复制JTargetDir的父级目录不会影响该目录，复制生成的目录下JTargetDir目录会变成独立的文件夹且文件夹内为空 <img src="http://7xq3ry.com1.z0.glb.clouddn.com/20160127132448.png"> ![][0.048387699760496616] [0.048387699760496616]: http://7xq3ry.com1.z0.glb.clouddn.com/20160127132633.png 删除JTargetDir,DTargetDir均不影响SourceDir<br>
-删除SorceDir,会使得JTargetDir和DTargetDir失效 使用mklink /D时需要保证源目录和目标目录在同一个目录下，否则创建成功但不能正常访问</p>
-<h3 id="linux服务器的软硬件链接">linux服务器的软硬件链接</h3>
-<p>软链接可以跨文件系统，硬链接不可以</p>
-<pre><code>ln source target # 硬链接
-ln -s source target # 软链接</code></pre>
-<p>软链接如果跨文件夹，必须使用绝对路径,否则会出现软链接无法访问的情况</p>
-<pre><code>ln -s /var/www/html/Upload/product/manual/en/ /var/www/html/manual</code></pre>
+<h3 id="win7使用mklink命令">Win7使用mklink命令</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mklink /?</span><br></pre></td></tr></table></figure>
+<p>创建符号链接。 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">MKLINK [[/D] | [/H] | [/J]] Link Target</span><br><span class="line">/D      创建目录符号链接。默认为文件符号链接。</span><br><span class="line">/H      创建硬链接而非符号链接。</span><br><span class="line">/J      创建目录联接。</span><br><span class="line">Link    指定新的符号链接名称。</span><br><span class="line">Target  指定新链接引用的路径(相对或绝对)。</span><br><span class="line">```    </span><br><span class="line">其中\D \J区别如下</span><br><span class="line">```shell</span><br><span class="line">E:\</span><br><span class="line">λ mkdir SourceDir</span><br><span class="line">E:\</span><br><span class="line">λ mklink /D DTargetDir\ SourceDir\</span><br><span class="line">为 DTargetDir\ &lt;&lt;===&gt;&gt; SourceDir\ 创建的符号链接</span><br><span class="line">E:\</span><br><span class="line">λ mklink /J JTargetDir\ SourceDir\</span><br><span class="line">为 JTargetDir\ &lt;&lt;===&gt;&gt; SourceDir\ 创建的联接</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://7xq3ry.com1.z0.glb.clouddn.com/20160127111417.png"> <img src="http://7xq3ry.com1.z0.glb.clouddn.com/20160127111459.png"></p>
+<p>SourceDir,JTargetDir,DTargetDir 3个文件夹内部修改/增加/删除都会互相影响。</p>
+<p>复制JTargetDir, 不会出现新的目录，文件夹文件内部复制</p>
+<p><img src="http://7xq3ry.com1.z0.glb.clouddn.com/20160127112544.png"></p>
+<p>这样复制会影响DTargetDir和SourceDir，慎用！ 复制DTargetDir文件夹会生成一个全新的文件夹，不会被其他文件夹影响，也不能影响其他文件夹。</p>
+<p>复制JTargetDir的父级目录不会影响该目录，复制生成的目录下JTargetDir目录会变成独立的文件夹且文件夹内为空</p>
+<p>删除JTargetDir,DTargetDir均不影响SourceDir</p>
+<p>删除SorceDir,会使得JTargetDir和DTargetDir失效 使用mklink /D时需要保证源目录和目标目录在同一个目录下，否则创建成功但不能正常访问</p>
+<h3 id="linux服务器的软硬件链接">Linux服务器的软硬件链接</h3>
+<p>软链接可以跨文件系统，硬链接不可以 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ln <span class="built_in">source</span> target <span class="comment"># 硬链接</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ln -s <span class="built_in">source</span> target <span class="comment"># 软链接</span></span></span><br></pre></td></tr></table></figure></p>
+<p>软链接如果跨文件夹，必须使用绝对路径,否则会出现软链接无法访问的情况 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ln -s /var/www/html/Upload/product/manual/en/ /var/www/html/manual</span></span><br></pre></td></tr></table></figure></p>
 
   </div>
 </article>
@@ -240,7 +216,7 @@ ln -s source target # 软链接</code></pre>
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#硬链结和符号链接的区别"><span class="toc-number">1.</span> <span class="toc-text">硬链结和符号链接的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#软链接文件"><span class="toc-number">2.</span> <span class="toc-text">软链接文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#硬链接文件"><span class="toc-number">3.</span> <span class="toc-text">硬链接文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#windows-下创建硬链接只能适用于-ntfs-文件系统"><span class="toc-number">4.</span> <span class="toc-text">Windows 下创建硬链接，只能适用于 NTFS 文件系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#windows-下创建软链接"><span class="toc-number">5.</span> <span class="toc-text">Windows 下创建软链接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#win7可以使用mklink命令"><span class="toc-number">6.</span> <span class="toc-text">win7可以使用mklink命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#linux服务器的软硬件链接"><span class="toc-number">7.</span> <span class="toc-text">linux服务器的软硬件链接</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#硬链结和符号链接的区别"><span class="toc-number">1.</span> <span class="toc-text">硬链结和符号链接的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#软链接文件"><span class="toc-number">2.</span> <span class="toc-text">软链接文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#硬链接文件"><span class="toc-number">3.</span> <span class="toc-text">硬链接文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#win7使用mklink命令"><span class="toc-number">4.</span> <span class="toc-text">Win7使用mklink命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#linux服务器的软硬件链接"><span class="toc-number">5.</span> <span class="toc-text">Linux服务器的软硬件链接</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
